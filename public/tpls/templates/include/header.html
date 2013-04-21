@@ -1,0 +1,57 @@
+<div class="header">
+	<div class="header_content">
+		<div class="logo"><a href="">NJUVolunteer</a></div>
+		<div  class="main_menu">
+			<ul>
+				<li><a href="./index.php">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>
+				<li><a href="./act.php">活动中心</a></li>
+					<{* 
+						1表示未经过审核的志愿者，
+						2表示审核通过志愿者，
+						3表示志愿团队，
+					*}>
+					<{if isset($user_permission) }>
+						<{if $user_permission == 1 || $user_permission == 2}>
+							<li><a href="./zonev.php">个人空间</a></li>
+						<{elseif $user_permission == 3}>
+							<li><a href="./zonet.php">团队空间</a></li>
+						<{/if}>
+					<{/if}>
+				<li><a href="./news.php">新闻广场</a></li>
+				<li><a href="./team.php">团队组织</a></li>
+			</ul>
+		</div>
+		<div  class="welcome_bar">
+			<{if isset( $user_permission ) && $user_permission > 0 && isset($user_name)}>
+				<{if $user_permission < 3}>
+					您好，<a href="./zonev.php"><{$user_name}></a>！
+				<{elseif $user_permission == 3}>
+					您好，<a href="./zonet.php"><{$user_name}></a>！
+				<{/if}>
+				&nbsp;&nbsp;<a href="./handle/logout.php">退出</a>
+			<{else}>
+				<a onclick="showit()" id="login_button">登录</a>
+			<{/if}>
+		</div>
+	</div>
+</div>
+<{include file="include/login.html"}>
+
+<script type="text/javascript">
+var flag=0;
+$(document).ready(function(){
+	$('#loginModal').hide();
+});
+function showit(){
+	$('#loginModal').slideToggle();	
+	if (flag==0)
+	{
+		$('#login_button').text("返回");
+		flag=1;
+	}else
+	{
+		flag=0;
+		$('#login_button').text("登录");
+	}
+}
+</script>

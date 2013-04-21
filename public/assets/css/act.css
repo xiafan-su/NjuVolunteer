@@ -1,0 +1,192 @@
+a{	
+	text-decoration:none;
+	color:#660066;
+}
+a:hover{	
+	text-decoration:none;
+}
+.summary{
+	float:left;
+	width:938px;
+	height:150px;
+	padding:10px;
+	border:1px solid white;
+}
+.summary:hover{
+	background-color:rgb(245,245,245);
+	border:1px solid rgb(200,200,200);
+}
+.otherInfo{
+	font-style:italic;
+}
+.words{
+	width:660px;
+	float:left;
+	height:150px;
+	padding-top:10px;
+}
+.act_img{
+	width:200px;
+	float:left;
+	padding:10px;
+}
+.atc_state{
+	font-size:14px;
+	margin-left:10px;
+}
+.main_search{
+	width:960px;
+	height:100px;
+	border-bottom:1px solid rgb(200,200,200);
+}
+.input_search{
+	margin-left:10px;
+	float:right;
+	padding-top:30px;
+	height:70px;
+}
+.submit_search{
+	float:right;
+	height:70px;
+	padding-top:30px;
+	margin-left:10px;
+}
+.type{
+	float:left;
+	width:940px;
+	margin-top:8px;
+	margin-left:20px;
+}
+.type-title{
+	float:left;
+	width:100px;
+	height:20px;
+}
+.type-list{
+	float:left;
+	width:100px;
+	height:20px;
+	text-decoration:none;
+	color:#000;
+}
+.notfound{
+	padding:10px;
+}
+.img_nav{
+	font-size:14px;
+	font-weight:700;
+	padding:1px;
+	border:1px solid rgb(200,200,200);	
+}
+.img_nav:hover{
+	cursor:pointer;
+	background-color:rgb(200,200,200);
+}
+.hotact{
+	float:left;
+	margin-top:10px;
+	width:100%;
+	height:300px;
+	background-color:#666;	
+}
+.hotact2{
+	float:left;
+	margin-top:10px;
+	width:100%;
+	height:320px;
+}
+.title{
+	width:100%;
+	height:64px;
+}
+.title-op:hover{
+	background-color:#606;
+	cursor:pointer;	
+}
+.search-result{
+	display:none;
+	margin-top:15px;
+	width:100%;
+	float:left;
+}
+.hottable{
+	overflow:hidden;
+	width:100%;
+	height:250px;
+}
+.hotlist{
+	position:relative;
+	width:1920px;
+	height:250px;	
+}
+.hot{
+	float:left;
+	width:170px;
+	padding:10px;
+	height:228px;
+	border:1px solid #DDD;
+}
+.weekact{
+	float:left;
+	width:100%;
+	height:280px;
+	margin-top:10px;
+}
+.weeka{
+	float:left;
+	width:120px;
+	height:210px;
+	margin-right:20px;
+}
+.weekdate{
+	float:left;
+	width:108px;
+	height:30px;
+	font-size:18px;
+	padding-left:10px;
+	padding-top:8px;
+	border:1px solid #DDD;
+}
+.act-content{
+	float:left;
+	width:118px;
+	height:168px;
+	border:1px solid #DDD;
+}
+.switchlist{
+	display:block;
+	float:left;
+	width:800px;
+	height:300px;
+}
+.switchtable{
+	overflow:hidden;
+	width:800px;
+	float:left;
+	height:300px;
+}
+.switch{
+	position:relative;
+	width:4000px;
+	height:300px;
+}
+.pageup{
+	float:left;
+	height:300px;
+	width:80px;
+	background-color:#999;
+}
+.pageup:hover{
+	background-color:#606;
+	cursor:pointer;
+}
+.pagedown:hover{
+	background-color:#606;
+	cursor:pointer;
+}
+.pagedown{
+	float:right;
+	height:300px;
+	width:80px;
+	background-color:#999;
+}

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="./assets/css/main.css" rel="stylesheet" />
+<link href="./assets/css/login.css" rel="stylesheet" />
+<link href="./assets/css/act_dtl.css" rel="stylesheet" />
+<script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="./assets/js/act_dtl.js"></script>
+<title>活动详细页面</title>
+</head>
+<body>
+<{include file="include/header.html"}>
+
+<div class="main">
+	<div id="left">
+        <{include file="include/act_dtl_left.html"}>
+    </div>
+	<div id="right">
+        <div id="act_simple" class="span">
+            <div class="span_title">
+                <span id="act_title"><{$act_title}></span>
+                <span id="act_state"><{$act_state}></span>
+            </div>
+            <div class="span_content">
+                <ul>
+                    <li><span class="span_content_attr">时间</span>
+                    <span class="span_content_value"><{$act_begin_time}> --- <{$act_end_time}></span></li>
+                    <li><span class="span_content_attr">持续</span>
+                    <span class="span_content_value"><{$last_time}>小时</span></li>
+                    <li><span class="span_content_attr">性质</span>
+                    <span class="span_content_value"><{$act_time_type}></span></li>
+                    <li><span class="span_content_attr">类型</span>
+                    <span class="span_content_value"><{$act_attr_type}></span></li>
+                    <li><span class="span_content_attr">地点</span>
+                    <span class="span_content_value"><{$act_place}></span></li>
+                </ul>
+            </div>
+        </div>
+        <div id="act_detail" class="span">
+            <div class="span_title"><span>活动介绍</span></div>
+            <div id="act_introduction" class="span_content">
+				<{$act_profile}>
+			</div>
+            <div class="span_title"><span>参加过这项活动的人还参加了</span></div>
+            <div id="act_same"  class="span_content"></div>
+        </div>
+		<div id="" class="clearBar">&nbsp;</div>
+    </div><!-- 结束right div -->
+</div>
+
+<{include file="include/footer.html"}>
+</body>
+</html>

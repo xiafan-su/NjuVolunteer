@@ -1,0 +1,29 @@
+#left {
+float:left;
+}
+#right{
+margin: 0 0 0 200px; /* t-r-b-l  t-lr-b  tb-lr tblr */
+}
+
+/* ×ó±ß */
+#option a{
+	display: block;
+	text-align:center;
+	cursor:pointer;
+	margin: 10px;
+	padding: 10px; /* pg:page ps:pause pi:pitch  po:position */ 
+	font-size: 14px;
+	background-color:  rgb(188,188,188);
+}
+#option a:hover{
+	background-color:  rgb(200,200,200);
+}
+
+
+/* ÓÒ±ß */
+.span_title{
+font-size: 14px;
+font-weight:600;
+margin:10px;
+}
+

@@ -1,0 +1,64 @@
+.header {
+margin: 0;
+padding: 0; 
+width: auto; 
+height: 50px;
+background-color: #660066;
+}
+
+.header_content{
+margin: 0px auto; 
+position: relative;
+width: 960px;
+}
+
+/* 以下是对logo的设置 */
+.logo{
+margin: 20px 5px 5px;
+font-weight: bold;
+font-size: 20px;
+float:left;
+display: block-inline;
+}
+.logo a{
+text-decoration: none;
+color:gray;
+}
+.logo a:hover{
+color:#fff;
+}
+
+/* 以下是对主菜单的设置 */
+.main_menu{
+margin: 20px 5px 10px;  /* mk:marks */
+float:left;
+font-size: 17px;
+}
+.main_menu li{ 
+margin: 0 7px;  /* mk:marks */
+float: left;
+}
+.main_menu a{
+text-decoration: none;
+color:#FFF;
+}
+.main_menu a:hover{
+color:rgb(100,100,100);
+}
+
+
+/* 以下是对右上角欢迎语的设置 */
+.welcome_bar{
+position: relative;
+margin: 20px 5px 0px 0px;
+float: right;
+font-size: 14px;
+display: block-inline;
+}
+.welcome_bar a{
+color:white;
+text-decoration: none;
+}
+.welcome_bar a:hover{
+color:gray;
+}

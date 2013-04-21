@@ -1,0 +1,101 @@
+.span_left{
+float: left;
+width: 65%;
+margin: 10px;  /* mk:marks */
+font-size: 14px;
+line-height: 22px;
+}
+.span_right{
+width: 30%;
+float:right;
+margin:20px 0px;
+}
+.breadcrumb {
+margin: 10px;
+padding: 10px 10px 10px 10px;
+background-color: rgb(245, 245, 245);
+clear:both;
+}
+.control-group{
+margin-bottom: 30px;
+clear:both;
+}
+.control-label{
+float: left;
+width:160px;
+margin-top: 3px;
+text-align: right;
+}
+.control-group input{
+width: 184px;
+height: 20px;
+padding: 4px 8px;
+vertical-align: middle;
+border-color: 1px #ccc solid;
+}
+.control-group input[type='button']{
+cursor:pointer;
+width:auto;
+height:30px;
+padding: 4px 14px; /* pg:page ps:pause pi:pitch  po:position */ 
+}
+ .control-group select{
+width: 202px;
+height: 30px;
+padding: 4px 8px;
+vertical-align: middle;
+border-color: 1px #ccc solid;
+}
+.control-group span{
+margin-left: 20px;
+padding-top: 20px;
+vertical-align: middle;
+color: red;
+}
+
+.input_border, .input_border_focus, .input_border_error, .input_border_error_focus{
+float: left;
+margin-left: 20px;
+margin-bottom: 20px;
+width: 202px;
+height:30px;
+border-width: 1px;
+border-style: solid;
+}
+
+.input_area{
+float: left;
+margin-left: 20px;
+margin-bottom: 20px;
+width: 592px;
+border-width: 1px;
+border-style: solid;
+}
+
+.input_border {
+border-color: green;
+}
+.input_border_focus {
+box-shadow: -1px 0 5px rgb(0, 200, 0),0 -1px 5px rgb(0, 200, 0),0 1px 5px rgb(0, 200, 0),1px 0 5px rgb(0, 200, 0);
+}
+.input_border_error {
+border-color: red;
+}
+.input_border_error_focus {
+border-color: red;
+box-shadow: -1px 0 5px red,0 -1px 5px red,0 1px 5px red,1px 0 5px red;
+}
+
+.input-tip{
+display:none;
+}
+
+
+.reg_nju_scene {
+width: 220px;
+height: 146px;
+margin: 5px;  /* mk:marks */
+}
+
+ #draggable { width: 50px; height: 50px; padding: 0.5em; float: right; margin: 10px 10px 10px 0; }
+ #droppable { width: 120px; height: 120px; padding: 0.5em; float: right; margin: 10px; }

@@ -1,0 +1,150 @@
+body{
+	background-color:#EEE;
+}
+.adv{
+	width:100%;
+	padding:0px;
+	height:auto;
+	float:left;
+}
+.adv2{
+	width:100%;
+	margin-top:10px;
+	padding:0px;
+	height:auto;
+	float:left;
+}
+.box1{
+	width:240px;
+	margin-right:10px;
+	margin-top:10px;
+	padding:0;
+	height:300px;
+	float:left;
+}
+.box2{
+	width:420px;
+	margin-right:10px;
+	margin-top:10px;
+	padding:0;
+	height:300px;
+	float:left;
+	background-color:#FFF;
+}
+.box3{
+	width:280px;
+	margin-top:10px;
+	padding:0;
+	height:300px;
+	float:left;
+}
+.link1{
+	margin-top:10px;
+	margin-button:10px;
+	margin-right:10px;
+	padding:10px;
+	width:115px;
+	height:125px;
+	float:left;
+	background-color:rgb(225,225,225);
+	background-image:url( ../img/index/point.png);
+}
+.link2{
+	margin-top:10px;
+	margin-button:10px;
+	padding:10px;
+	width:115px;
+	height:125px;
+	float:left;
+	background-color:rgb(225,225,225);
+	background-image:url( ../img/index/time.png);
+}
+.link3{
+	margin-top:10px;
+	margin-button:10px;
+	margin-right:10px;
+	padding:10px;
+	width:115px;
+	height:125px;
+	float:left;
+	background-color:rgb(225,225,225);
+	background-image:url( ../img/index/tools.png);
+}
+.link4{
+	margin-top:10px;
+	margin-button:10px;
+	padding:10px;
+	width:115px;
+	height:125px;
+	float:left;
+	background-color:rgb(225,225,225);
+	background-image:url( ../img/index/print.png);
+}
+.bottom{
+	width:100%;
+	margin-top:10px;
+	padding:0;
+	height:100px;
+	float:left;
+	background-color:rgb(225,225,225);
+}
+
+.title{
+	height:36px;
+	text-shadow:#F09;
+	font-style:inherit;
+	background-image:url( ../img/index/title.jpg);
+}
+.title1{
+	height:41px;
+	text-shadow:#F09;
+	font-style:inherit;
+	background-image:url( ../img/index/title1.jpg);
+}
+.title2{
+	height:39px;
+	text-shadow:#F09;
+	font-style:inherit;
+	background-image:url( ../img/index/title2.jpg);
+}
+.title3{
+	height:38px;
+	text-shadow:#F09;
+	font-style:inherit;
+	background-image:url( ../img/index/title3.jpg);
+}
+.li{
+	margin:6px;
+	padding:4px;
+	font-size:12px;		
+}
+.li:hover{
+	background-color:rgb(245,245,245);
+	cursor:pointer;
+}
+.act-content{
+	margin-top:10px;
+	width:960px;
+	float:left;
+}
+.box4{
+	margin:0;
+	width:240px;
+	height:300px;
+	float:left;
+	background-color:#FFF;
+}
+.box5{
+	margin-left:10px;
+	width:420px;
+	height:300px;
+	float:left;
+	background-color:#FFF;
+}
+.box6{
+	margin-left:10px;
+	width:280px;
+	height:300px;
+	float:left;
+	background-color:#FFF;
+}
