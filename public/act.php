@@ -17,4 +17,5 @@ while($act_info = mysql_fetch_assoc($select)){
 $tpl->assign("act_list",$act_listinfo);
 
 $tpl->display('act.html');
+//test git
 ?>
