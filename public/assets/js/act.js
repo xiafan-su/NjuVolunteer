@@ -137,29 +137,29 @@ function hotshow(){
 function searchit(){
 	document.getElementById("hotact").style.display="none";
 	document.getElementById("result").style.display="block";
-	 /* keyword=$('#keyword').val();
-	  timetype=$(':checked[name="time_type"]').val(); 
-	  attributiontype=$(':checked[name="attribution_type"]').val();
-	  weekday=(document.getElementById("weekday_0").checked?64:0)+
+	keyword=$('#keyword').val();
+	  //timetype=$(':checked[name="time_type"]').val(); 
+	  //attributiontype=$(':checked[name="attribution_type"]').val();
+	  /*weekday=(document.getElementById("weekday_0").checked?64:0)+
 					(document.getElementById("weekday_1").checked?32:0)+
 					(document.getElementById("weekday_2").checked?16:0)+
 					(document.getElementById("weekday_3").checked?8:0)+
 					(document.getElementById("weekday_4").checked?4:0)+
 					(document.getElementById("weekday_5").checked?2:0)+
-					(document.getElementById("weekday_6").checked?1:0);
+					(document.getElementById("weekday_6").checked?1:0);*/
+	//alert(keyword);
+
 	$.ajax({
 		type:"POST",
-		url:"./activity/activity_search.php",
+		url:"./handle/act.php",
 		data:{
 			keyword:keyword,
-			timetype:timetype,
-			attributiontype:attributiontype,
-			weekday:weekday,
 			page:0},
 		success:function(html){
-			$("#main").html(html);
+			//alert(html);
+			$("#act_list").html(html);
 		}	
-	});*/
+	});
 }
 function nextpage(){
 	$.ajax({

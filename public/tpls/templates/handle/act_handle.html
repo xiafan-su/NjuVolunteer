@@ -1,0 +1,18 @@
+<{foreach item=act from=$act_list}>
+<div class="summary">
+    <div class="act_img">
+        <img src="./include/img/activity/.1jpg" width="200px" height="130px"href="www.baidu.com"/>
+    </div>
+    <div class="words">
+        <span>
+            <h2><a href="activity/detail.php?activityId=1" target="_blank"><{$act.name}></a><span class="atc_state"><{$act.state}></span></h2>
+            <p><{$act.profile}></p>
+        </span>
+        <span class="otherInfo">
+            <span class="first">活动时间：<{$act.time}></span>
+            <span>活动地点：<{$act.place}></span>
+            <span>招募人数：<em><{$act.offer_num}></em></span>
+        </span>
+    </div>
+</div>
+<{/foreach}>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-20 22:11:36
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-22 10:32:28
          compiled from "./tpls/templates\act.html" */ ?>
 <?php /*%%SmartyHeaderCode:13169516a185eddbdb8-59389361%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
     array (
       0 => './tpls/templates\\act.html',
-      1 => 1366467074,
+      1 => 1366597469,
       2 => 'file',
     ),
   ),
@@ -89,7 +89,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
         <div style="margin-top:10px;height:5px;float:left;width:100%;background-color:#333"></div>
         <div class="act-list" id="act_list">
-            <?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
+        <?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['act_list']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['act']->key => $_smarty_tpl->tpl_vars['act']->value){
 $_smarty_tpl->tpl_vars['act']->_loop = true;
@@ -116,7 +116,7 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
                 </span>
             </div>
         </div>
-    <?php } ?>
+		<?php } ?>
         </div>
     </div>
     <div id="hotact">
