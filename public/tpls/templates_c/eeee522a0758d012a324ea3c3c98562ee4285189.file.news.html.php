@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-14 10:45:49
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-22 11:34:00
          compiled from "./tpls/templates\news.html" */ ?>
 <?php /*%%SmartyHeaderCode:30971516a185db496b1-04654190%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'eeee522a0758d012a324ea3c3c98562ee4285189' => 
     array (
       0 => './tpls/templates\\news.html',
-      1 => 1365156291,
+      1 => 1366556349,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
   'unifunc' => 'content_516a185dba396',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_516a185dba396')) {function content_516a185dba396($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
