@@ -10,7 +10,12 @@ function utf8Substr($str, $from, $len)
                        '$1',$str);
 }
 	$a=new Act();
-	$activity_name=$_POST["keyword"];
+	$keywords=$_POST["keyword"];
+	$timetype=$_POST["timetype"];
+	$attributiontype=$_POST["attributiontype"];
+	$timelimit=$_POST["timelimit"];
+	$actstate=$_POST["actstate"];
+	$actnum=$_POST["actnum"];
 	/*
 	if ($activity_name!="")
 	{
@@ -19,7 +24,7 @@ function utf8Substr($str, $from, $len)
 	{
 		$query="select * from activity_info";
 	}*/
-	$select=$a->fetch_all($activity_name,0,5);
+	$select=$a->fetch_all($keywords,$timetype,$attributiontype,$timelimit,$actstate,$actnum);
 	//$select=mysql_query($query,$root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 	/*while($act_info = mysql_fetch_assoc($select)){
 		$act_listinfo[] = array('name' => $act_info['name'],'state' => $act_info['state'],'profile' => $act_info['profile'],'time' => $act_info['begin_time'],'place' => $act_info['place'],'offer_num' => $act_info['offer_num']);

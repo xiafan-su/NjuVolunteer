@@ -4,14 +4,87 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="./assets/css/main.css" rel="stylesheet" />
+<link href="./assets/css/zonet.css" rel="stylesheet" />
+
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
 <title>个人空间</title>
 </head>
 <body>
 <{include file="include/header.html"}>
+
 <div class="main">
-这里是个人空间
+
+	<div id="up" class="">
+		<div id="logo" class="">
+			<img src="" width="80px" height="80px" border="0" alt="">
+		</div>
+		<div id="team_info" class="">
+			<p><{$user_name}></p>
+			<div id="notification_bar" class="">
+				<span id="notes" class="notification_item">通知(<span id="notes_number" class=""><{$notes_number}></span>)</span>
+			</div>
+		</div>
+	</div>
+<div id="down" class="">
+			<div id="down_left" class="">
+				<div id="" class="menu">
+					<div id="" class="menu_item">
+						<div id="" class="menu_item_title">
+							活动
+						</div>
+                        <div id="my_activity" class="menu_item_span">
+							我参与的活动<a id="apply" href="http://www.baidu.com“ target="_blank"></a>
+						</div>
+						<div id="activity_record" class="menu_item_span">
+							活动记录
+						</div>
+					</div>
+					<div id="" class="menu_item">
+						<div id="" class="menu_item_title">
+							通知
+						</div>
+						<div id="new_notice" class="menu_item_span">
+							新通知
+						</div>
+						<div id="notice_record" class="menu_item_span">
+							历史通知
+						</div>
+					</div>
+                    <div id="" class="menu_items">
+                    	<div id="" class="menu_item_title">
+                        	团队
+                        </div>
+                        <div id="my_team" class="menu_item_span">
+                        	我的团队
+                        </div>
+                        <div id="my_focused_team" class="menu_item_span">
+                        	关注的团队
+                        </div>
+                    </div>
+					<div id="" class="menu_item">
+						<div id="" class="menu_item_title">
+							个人
+						</div>
+                        <div id="vol_profile" class="menu_item_span">
+                        	个人资料
+                        </div>
+                        <div id="change_password" class="menu_item_span">
+                        	修改密码
+                        </div>
+					</div>
+				</div>
+			</div>
+			<div id="down_right" class="">
+					<div id="main_title" class="">活动列表</div>
+					<div id="main_content" class="">
+					</div>
+					<div id="main_content2" class="">
+						正在载入……
+					</div>
+			</div>
+	</div>
 </div>
 <{include file="include/footer.html"}>
+<script type="text/javascript" src="./assets/js/zonev.js"></script>
 </body>
 </html>
