@@ -4,7 +4,7 @@ include_once '../sys/core/init.inc.php';
 include './include/header.php';
 		//$act =new Act();
 		//$select=$act->fetch_all("",0,5);
-		$root_conn = mysql_pconnect('localhost', 'root', '920328') or trigger_error(mysql_error(),E_USER_ERROR); 
+		$root_conn = mysql_pconnect('localhost', 'root', 'candy') or trigger_error(mysql_error(),E_USER_ERROR); 
 		mysql_select_db('nju_volunteer', $root_conn);
 		mysql_query("set names utf8");
 		$query="select * from activity_info";

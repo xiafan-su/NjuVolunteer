@@ -1,7 +1,10 @@
 var keyword="";
-var timetype="";
-var attributiontype="";
+var timetype=0;
+var attributiontype=0;
+var timelimit=0;
 var weekday=0;
+var actstate=0;
+var actnum=0;
 var left=0;
 var picnum=5;
 var flag=0;
@@ -135,91 +138,55 @@ function hotshow(){
 	$("#hotlist").animate({left:'0px'});
 }
 function searchit(){
+	keyword=$("#keyword").val();
+	if(keyword==""){
+		alert("请输入关键字");
+		return;	
+	}
 	document.getElementById("hotact").style.display="none";
 	document.getElementById("result").style.display="block";
-	 /* keyword=$('#keyword').val();
-	  timetype=$(':checked[name="time_type"]').val(); 
-	  attributiontype=$(':checked[name="attribution_type"]').val();
-	  weekday=(document.getElementById("weekday_0").checked?64:0)+
-					(document.getElementById("weekday_1").checked?32:0)+
-					(document.getElementById("weekday_2").checked?16:0)+
-					(document.getElementById("weekday_3").checked?8:0)+
-					(document.getElementById("weekday_4").checked?4:0)+
-					(document.getElementById("weekday_5").checked?2:0)+
-					(document.getElementById("weekday_6").checked?1:0);
+	keyword = $('#keyword').val();
+	timetype = 0; 
+	attributiontype = 0;
+	timelimit = 0;
+	actstate = 0;
+	actnum = 10;
+	searchitt();
+	$("#result-bar").html("为您找到与“"+keyword+"”相关的活动如下，请点击分类进行进一步检索").show();
+}
+function searchtimetype(temp){
+	timetype = temp;
+	alert(timetype);
+	searchitt();	
+}
+function searchattributiontype(temp){
+	attributiontype = temp;
+	alert(attributiontype);
+	searchitt();	
+}
+function searchtimelimit(temp){
+	timelimit = temp;
+	alert(timelimit);
+	searchitt();	
+}
+function searchactstate(temp){
+	actstate = temp;
+	alert(actstate);
+	searchitt();	
+}
+function searchitt(){
 	$.ajax({
 		type:"POST",
-		url:"./activity/activity_search.php",
+		url:"./handle/act.php",
 		data:{
 			keyword:keyword,
 			timetype:timetype,
 			attributiontype:attributiontype,
-			weekday:weekday,
-			page:0},
+			timelimit:timelimit,
+			actstate:actstate,
+			actnum:actnum},
 		success:function(html){
-			$("#main").html(html);
+			$("#act_list").html(html);
 		}	
-	});*/
-}
-function nextpage(){
-	$.ajax({
-		type:"POST",
-		url:"./activity/activity_search.php",
-		data:{
-			keyword:keyword,
-			timetype:timetype,
-			attributiontype:attributiontype,
-			weekday:weekday,
-			page:document.getElementById("current").innerHTML},
-		success:function(html){
-			$("#main").html(html);
-		}
-	});	
-}
-function prepage(){
-	//alert((document.getElementById("current").innerHTML-1));
-	$.ajax({
-	type:"POST",
-		url:"./activity/activity_search.php",
-		data:{
-			keyword:keyword,
-			timetype:timetype,
-			attributiontype:attributiontype,
-			weekday:weekday,
-			page:(document.getElementById("current").innerHTML-2)},
-		success:function(html){
-			$("#main").html(html);
-		}
 	});
 }
-function firstpage(){
-	$.ajax({
-	type:"POST",
-		url:"./activity/activity_search.php",
-		data:{
-			keyword:keyword,
-			timetype:timetype,
-			attributiontype:attributiontype,
-			weekday:weekday,
-			page:0},
-		success:function(html){
-			$("#main").html(html);
-		}
-	});
-}
-function lastpage(){
-	$.ajax({
-	type:"POST",
-		url:"./activity/activity_search.php",
-		data:{
-			keyword:keyword,
-			timetype:timetype,
-			attributiontype:attributiontype,
-			weekday:weekday,
-			page:(document.getElementById("last").innerHTML-1)},
-		success:function(html){
-			$("#main").html(html);
-		}
-	});
-}
-

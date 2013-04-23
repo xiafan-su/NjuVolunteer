@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-20 22:11:36
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-23 20:08:19
          compiled from "./tpls/templates\act.html" */ ?>
 <?php /*%%SmartyHeaderCode:13169516a185eddbdb8-59389361%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
     array (
       0 => './tpls/templates\\act.html',
-      1 => 1366467074,
+      1 => 1366718896,
       2 => 'file',
     ),
   ),
@@ -56,40 +56,46 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	</div>
     <div class="search-result" id="result">
         <div style="height:5px;float:left;width:100%;background-color:#333"></div>
-        <div style="height:30px;float:left;width:100%;background-color:#DDD"></div>
+        <div style="height:30px;float:left;width:100%;background-color:#DDD;">
+        	<div style="padding-top:5px;padding-left:10px" id="result-bar"></div>
+        </div>
         <div class="type">
             <div class="type-title">时间类型</div>
-            <a class="type-list">长期活动</a>
-            <a class="type-list">临时活动</a>
+            <a class="type-list" href="javascript:searchtimetype(0)">全部活动</a>
+            <a class="type-list" href="javascript:searchtimetype(1)">长期活动</a>
+            <a class="type-list" href="javascript:searchtimetype(2)">临时活动</a>
         </div>
         <div class="type">
             <div class="type-title">服务类型</div>
-            <a class="type-list">扶老</a>
-            <a class="type-list">支教</a>
-            <a class="type-list">助残</a>
-            <a class="type-list">扶老</a>
-            <a class="type-list">大型盛会</a>
-            <a class="type-list">其他</a>
+            <a class="type-list" href="javascript:searchattributiontype(0)">全部类型</a>
+            <a class="type-list" href="javascript:searchattributiontype(1)">扶老</a>
+            <a class="type-list" href="javascript:searchattributiontype(2)">支教</a>
+            <a class="type-list" href="javascript:searchattributiontype(3)">助残</a>
+            <a class="type-list" href="javascript:searchattributiontype(4)">大型赛会</a>
+            <a class="type-list" href="javascript:searchattributiontype(5)">其他</a>
         </div>
         <div class="type">
             <div class="type-title">时间限制</div>
-            <a class="type-list">周一</a>
-            <a class="type-list">周二</a>
-            <a class="type-list">周三</a>
-            <a class="type-list">周四</a>
-            <a class="type-list">周五</a>
-            <a class="type-list">周六</a>
-            <a class="type-list">周日</a>
+            <a class="type-list" href="javascript:searchtimelimit(0)">全周</a>
+            <a class="type-list" href="javascript:searchtimelimit(1)">周一</a>
+            <a class="type-list" href="javascript:searchtimelimit(2)">周二</a>
+            <a class="type-list" href="javascript:searchtimelimit(3)">周三</a>
+            <a class="type-list" href="javascript:searchtimelimit(4)">周四</a>
+            <a class="type-list" href="javascript:searchtimelimit(5)">周五</a>
+            <a class="type-list" href="javascript:searchtimelimit(6)">周六</a>
+            <a class="type-list" href="javascript:searchtimelimit(7)">周日</a>
         </div>
         <div class="type">
             <div class="type-title">活动状态</div>
-            <a class="type-list">正在招募</a>
-            <a class="type-list">已结束</a>
-            <a class="type-list">进行中</a>
+            <a class="type-list" href="javascript:searchactstate(0)">所有状态</a>
+            <a class="type-list" href="javascript:searchactstate(1)">正在招募</a>
+            <a class="type-list" href="javascript:searchactstate(2)">已结束</a>
+            <a class="type-list" href="javascript:searchactstate(3)">进行中</a>
         </div>
         <div style="margin-top:10px;height:5px;float:left;width:100%;background-color:#333"></div>
+        <div style="height:30px;width:100%;background-color:#CCC;float:left"></div>
         <div class="act-list" id="act_list">
-            <?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
+       <!--     <?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['act_list']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['act']->key => $_smarty_tpl->tpl_vars['act']->value){
 $_smarty_tpl->tpl_vars['act']->_loop = true;
@@ -116,7 +122,7 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
                 </span>
             </div>
         </div>
-    <?php } ?>
+    <?php } ?> -->
         </div>
     </div>
     <div id="hotact">
@@ -141,16 +147,36 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
             <div style="padding-top:3px;padding-bottom:3px;background-color:#333"></div>
             <div class="hottable">
                 <ul class="hotlist" id="hotlist">
-                    <li class="hot"><img src="./assets/img/activity_center/1.jpg" width=170px/></li>
-                    <li class="hot"><img src="./assets/img/activity_center/2.jpg" width=170px/></li>
-                    <li class="hot"><img src="./assets/img/activity_center/3.jpg" width=170px/></li>
-                    <li class="hot"><img src="./assets/img/activity_center/4.jpg" width=170px/></li>
-                    <li class="hot"><img src="./assets/img/activity_center/5.jpg" width=170px/></li>
-                    <li class="hot"><img src="./assets/img/activity_center/6.jpg" width=170px/></li>
-                    <li class="hot"><img src="./assets/img/activity_center/7.jpg" width=170px/></li>
-                    <li class="hot"><img src="./assets/img/activity_center/8.jpg" width=170px/></li>
-                    <li class="hot"><img src="./assets/img/activity_center/9.jpg" width=170px/></li>
-                    <li class="hot"><img src="./assets/img/activity_center/0.jpg" width=170px/></li>
+                    <li class="hot">
+                    	<img src="./assets/img/activity_center/1.jpg" width=170px/>
+                        <div class="img-bar">全国首个孤独症儿童合唱团在宁成立<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                    <li class="hot">
+                    	<img src="./assets/img/activity_center/2.jpg" width=170px/>
+                        <div class="img-bar">青年志愿者徽章设计征集大赛活动方案<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                    <li class="hot">
+                    	<img src="./assets/img/activity_center/3.jpg" width=170px/>
+                        <div class="img-bar">雨花台区掀起学雷锋志愿活动热潮<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                    <li class="hot">
+                    	<img src="./assets/img/activity_center/4.jpg" width=170px/>
+                        <div class="img-bar">南京春运期间多措并举开展关爱农民工志愿服务<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                    <li class="hot">
+                    	<img src="./assets/img/activity_center/5.jpg" width=170px/>
+                        <div class="img-bar">魏纪中："亚青会将给城市带来正能量"<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                    <li class="hot">
+                    	<img src="./assets/img/activity_center/6.jpg" width=170px/>
+                        <div class="img-bar">第二届亚洲青年运动会吉祥物揭晓<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                    <li class="hot">
+                    	<img src="./assets/img/activity_center/7.jpg" width=170px/>
+                        <div class="img-bar">全国首个孤独症儿童合唱团在宁成立<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                    <li class="hot">
+                    	<img src="./assets/img/activity_center/8.jpg" width=170px/>
+                        <div class="img-bar">青年志愿者徽章设计征集大赛活动方案<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                    <li class="hot">
+                    	<img src="./assets/img/activity_center/9.jpg" width=170px/>
+                        <div class="img-bar">雨花台区掀起学雷锋志愿活动热潮<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                    <li class="hot">
+                    	<img src="./assets/img/activity_center/0.jpg" width=170px/>
+                        <div class="img-bar">南京春运期间多措并举开展关爱农民工志愿服务<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
                 </ul>
             </div>
         </div>
@@ -169,29 +195,36 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
             <div class="weeka">
                 <div class="weekdate" id="day1"></div>
                 <div class="act-content"></div>
+                <div class="act-content"></div>
             </div>
             <div class="weeka">
                 <div class="weekdate" id="day2"></div>
+                <div class="act-content"></div>
                 <div class="act-content"></div>
             </div>
             <div class="weeka">
                 <div class="weekdate" id="day3"></div>
                 <div class="act-content"></div>
+                <div class="act-content"></div>
             </div>
             <div class="weeka">
                 <div class="weekdate" id="day4"></div>
+                <div class="act-content"></div>
                 <div class="act-content"></div>
             </div>
             <div class="weeka">
                 <div class="weekdate" id="day5"></div>
                 <div class="act-content"></div>
+                <div class="act-content"></div>
             </div>
             <div class="weeka">
                 <div class="weekdate" id="day6"></div>
                 <div class="act-content"></div>
+                <div class="act-content"></div>
             </div>
             <div class="weeka" style="margin-right:0px">
                 <div class="weekdate" id="day7"></div>
+                <div class="act-content"></div>
                 <div class="act-content"></div>
             </div>
         </div>

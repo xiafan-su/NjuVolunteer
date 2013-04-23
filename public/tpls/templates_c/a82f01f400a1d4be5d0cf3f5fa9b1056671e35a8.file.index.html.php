@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-20 15:28:19
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-23 18:56:32
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:28950516a173f951b03-87385774%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1366203598,
+      1 => 1366714586,
       2 => 'file',
     ),
   ),
@@ -58,8 +58,13 @@ function timedCount()
         </div>
         <div class=box2>
             <div class=title>
+            	<div style="float:left;width:10px;height:25px;margin-top:10px;margin-left:10px;background-color:#606"></div>
+                <div style="font-size:22px;float:left;margin-top:11px;margin-left:10px">公告通知</div>
+                <div style="margin-top:5px;height:3px;width:420px;float:left;background-color:#000"></div>
+                <div style="height:10px;width:420px;float:left;background-color:#CCC"></div>
             </div>
      		<div class=news>
+            	
             	<li class=li>全国首个孤独症 儿童合唱团在宁成立</li>
                 <li class=li>我为"亚青"活动献一计-----"亚青"赛会期间文...</li>
                 <li class=li>青年志愿者徽章设计征集大赛活动方案</li>
@@ -67,8 +72,6 @@ function timedCount()
                 <li class=li>南京春运期间多措并举开展关爱农民工志愿服务</li>
                 <li class=li>魏纪中："亚青会将给城市带来正能量"</li>
                 <li class=li>第二届亚洲青年运动会吉祥物揭晓</li>
-                <li class=li>南京志愿者温暖社区"空巢"老人共享新年气氛</li>
-                <li class=li>"相约南京"主题交流活动在港举行</li>
             </div>
         </div>
         <div class=link1>
@@ -90,6 +93,9 @@ function timedCount()
     <div class=act-content>
         <div class=box4>
         	<div class=title1>
+            	<div style="float:left;width:10px;height:25px;margin-top:10px;margin-left:10px;background-color:#606"></div>
+                <div style="font-size:22px;float:left;margin-top:11px;margin-left:10px">五星组织</div>
+                <div style="margin-top:5px;height:3px;width:240px;float:left;background-color:#000"></div>
             </div>
         	<div class=news>
            		<li class=li>全国首个孤独症 儿童合唱团在宁成立</li>
@@ -103,6 +109,9 @@ function timedCount()
         </div>
         <div class=box5>
         	<div class=title2>
+            	<div style="float:left;width:10px;height:25px;margin-top:10px;margin-left:10px;background-color:#606"></div>
+                <div style="font-size:22px;float:left;margin-top:11px;margin-left:10px">记录公示</div>
+                <div style="margin-top:5px;height:3px;width:420px;float:left;background-color:#000"></div>
             </div>
         	<div class=news>
            		<li class=li>全国首个孤独症 儿童合唱团在宁成立</li>
@@ -116,6 +125,9 @@ function timedCount()
         </div>
         <div class=box6>
         	<div class=title3>
+            	<div style="float:left;width:10px;height:25px;margin-top:10px;margin-left:10px;background-color:#606"></div>
+                <div style="font-size:22px;float:left;margin-top:11px;margin-left:10px">在线咨询</div>
+                <div style="margin-top:5px;height:3px;width:280px;float:left;background-color:#000"></div>
             </div>
         	<div class=news>
            		<li class=li>全国首个孤独症 儿童合唱团在宁成立</li>
