@@ -1,24 +1,25 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 20:52:04
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 23:45:55
          compiled from "./tpls/templates\act_dtl.html" */ ?>
-<?php /*%%SmartyHeaderCode:2998951774793cdc5c3-31257610%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:91615177d2ae9126f8-24185650%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1366807921,
+      1 => 1366813549,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2998951774793cdc5c3-31257610',
+  'nocache_hash' => '91615177d2ae9126f8-24185650',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51774793d659a',
+  'unifunc' => 'content_5177d2ae98861',
   'variables' => 
   array (
+    'id' => 0,
     'act_title' => 0,
     'act_state' => 0,
     'act_begin_time' => 0,
@@ -31,7 +32,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51774793d659a')) {function content_51774793d659a($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5177d2ae98861')) {function content_5177d2ae98861($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -47,7 +48,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <body>
 <?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
-
+<input type="button" id="act_id" value="<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+" style="display:none" />
 <div class="main">
 	<div id="left">
         <?php echo $_smarty_tpl->getSubTemplate ("include/act_dtl_left.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>

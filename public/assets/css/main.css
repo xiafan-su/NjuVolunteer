@@ -2,7 +2,7 @@
 @import url( "footer.css");
 
 body {
-margin: 0;
+margin-top: 50px;
 padding-top:0;
 font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
 font-size: 12px;
@@ -20,7 +20,7 @@ padding: 0;
 	padding-top:20px;
 width: 960px;  /* wi:windows */
 margin: 0px auto;  /* mk:marks */
-position: relative;
+position:relative;
 }
 
 .button{
@@ -42,3 +42,12 @@ position: relative;
 	background-color:#48F;
 }
 
+
+
+table {width:100%;border-collapse:collapse;margin:1em 0;}
+table th, table td{text-align:center;padding:0.5em;border:1px solid #fff;}
+table th{background:#328aa4;color:#fff;}
+table td{background:#e5f1f4;}
+
+table tr.even td{background:#e5f1f4;}
+table tr.odd td{background:#f8fbfc;}

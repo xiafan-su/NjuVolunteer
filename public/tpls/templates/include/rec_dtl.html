@@ -1,3 +1,74 @@
-<div id="" class="">
-	团队空间右边的活动记录详细信息div
-</div>
+
+<span id="show_activity_text" class="">更新</span>时间：<{$update_time}>
+<br />
+<span id="go_back_home" class="">
+	返回
+</span>
+
+<ul id="doc_dtl_ul">
+	<li>
+		<span class="doc_dtl_attr" style="width:100px">带队人：</span>
+		<span class="doc_dtl_value"><{$leader}></span>
+	</li>
+	<li>
+		<span class="doc_dtl_attr">联系方式：</span>
+		<span class=""><{$tel}></span>
+	</li>
+	<li>
+		<span class="doc_dtl_attr">起始时间：</span>
+		<span class=""><{$start_time}></span>
+	</li>
+	<hr />
+	<li>
+		<span id="fold_volunteer" class="">╬</span><span class="">下面是本次活动记录的参与人员</span>
+		<div id="act_people_div">
+			<table>
+				<tr>
+					<th>
+						<input type="checkbox" />
+					</th>
+					<th>学号</th>
+					<th>姓名</th>
+					<th>院系</th>
+					<th>志愿服务时间</th>
+					<th title="荣获带队奖的志愿者将会获得额外的10%志愿服务时间">带队奖</th>
+					<th title="荣获优秀奖的志愿者将会获得额外的10%志愿服务时间">优秀奖</th>
+				</tr>
+				<{section name=part_index loop=$part_list}>
+					<tr class="even">
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td><{$part_list[part_index].id}></td>
+						<td><{$part_list[part_index].name}></td>
+						<td><{$part_list[part_index].faculty}></td>
+						<td><{$part_list[part_index].vol_time}></td>
+						<td><input type="checkbox"></td>
+						<td><input type="checkbox"></td>
+					</tr>
+				<{/section}>
+			</table>
+			快捷操作<br />
+			<input id="opt_import_apply"  type="button" value="从报名表导入此参与表" actid=<{$actid}> /><br />
+			<input type="button" value="将选择的志愿者移除该参与表" /><br />
+			<input type="button" value="选择所有未录入服务时间的志愿者" /><br />
+			<input type="button" value="将选择的志愿者设置服务时间为" />
+			<input type="text" value="3">小时
+			<br />
+		</div>
+	</li>
+	<hr />
+	<li>
+		<span class="">小结</span>
+		<div id="" class="">
+			<textarea name="" rows="5" cols="80">
+				嘿，在这里写总结。<br />
+				如果已经写了那就有一个修改按钮。<br />
+				什么？没写的话就是一个提交按钮呗！<br />
+			</textarea>
+			<input type="button" value="确定/修改">
+		</div>
+	</li>
+</ul>
+
+

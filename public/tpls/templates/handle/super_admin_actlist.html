@@ -1,0 +1,16 @@
+<{foreach item=act from=$act_list}>
+<div class="act_info">
+    <div class="act-name" id="act_name" onclick="showmore(<{$act.id}>)"><{$act.name}></div>
+    <div class="act-state" id="act_state">
+        <input type="button" value="通过" onclick="audited(<{$act.id}>)"/>
+    </div>
+    <div class="table-bar"></div>
+    <div class="act-hiden" id="act_<{$act.id}>">
+    	<div class="hiden-msg">活动时间：<{$act.time}></div>
+        <div class="hiden-msg">活动地点：<{$act.place}></div>
+        <div class="hiden-msg">要求人数：<{$act.offer_num}></div>
+        <div class="hiden-profile">简介：<{$act.profile}></div> 
+        <div class="table-bar"></div>   
+     </div>
+</div>
+<{/foreach}>

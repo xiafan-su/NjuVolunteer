@@ -80,19 +80,6 @@ a:hover{
 }
 
 
-.fold_rec {
-height:20px;
-width:20px;
-padding: 2px 5px; /* pg:page ps:pause pi:pitch  po:position */ 
-cursor:pointer;
-background-color: rgb(200,200,200);
-}
-
-.rec_index{
-	cursor:pointer;
-}
-
-
 #go_back_home{
 	cursor:pointer;
 	margin: 5px 0;  /* mk:marks */
@@ -104,42 +91,6 @@ background-color: rgb(200,200,200);
 	background-color: rgb(160,160,160); /*#F00 #FF0000 red */
 }
 
-#rec_dtl_ul{
-	
-}
-#rec_dtl_ul li{
-	width: 500px;
-	margin: 10px 0px;
-}
-
-.rec_dtl_attr{
-	width: 100px;
-	text-align: center;
-	background-color: #f00; /*#F00 #FF0000 red */
-}
-
-#fold_volunteer{
-	cursor:pointer;
-	background-color: rgb(160,160,160);
-	padding: 10px;
-}
-#fold_volunteer:hover{
-background-color: rgb(200,200,200); 
-}
-
 #act_people_div{
 	display: none;
-}
-
-.link_add_rec{
-	cursor:pointer;
-	background-color: rgb(200,200,200); 
-}
-
-.link_add_rec:hover{
-	background-color: rgb(160,160,160); 
-}
-
-.go_to_act_people{
-	cursor:pointer;
 }

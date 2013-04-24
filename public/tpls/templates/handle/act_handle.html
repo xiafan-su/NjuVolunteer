@@ -1,11 +1,11 @@
 <{foreach item=act from=$act_list}>
 <div class="summary">
     <div class="act_img">
-        <img src="./include/img/activity/.1jpg" width="200px" height="130px"href="www.baidu.com"/>
+        <img src="./include/img/activity/.1jpg" width="200px" height="130px" href="www.baidu.com"/>
     </div>
     <div class="words">
         <span>
-            <h2><a href="activity/detail.php?activityId=1" target="_blank"><{$act.name}></a><span class="atc_state"><{$act.state}></span></h2>
+            <h2><a href="./act_dtl.php?act_id=<{$act.id}>" target="_blank"><{$act.name}></a><span class="atc_state"><{$act.state}></span></h2>
             <p><{$act.profile}></p>
         </span>
         <span class="otherInfo">

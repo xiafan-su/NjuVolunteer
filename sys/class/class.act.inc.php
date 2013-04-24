@@ -9,25 +9,12 @@ class Act extends DB_Connect {
 	public function __construct($dbo=NULL){
 		parent::__construct($dbo);
 	}
-	public function fetch_from_date($date)
+	public function fetch_from_date($day1,$day2,$day3,$day4,$day5,$day6,$day7)
 	{
-		 
-	}
-	public function test_part_act($user_id,$activity_id){
-		$query = "SELECT * FROM participation WHERE user_id='".$user_id."' AND activity_id=".$activity_id;
-		$select = mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-		$sub_num = "UPDATE activity_info SET offer_num = (offer_num-1) WHERE id=".$activity_id;
-		$delete = "DELETE FROM participation WHERE user_id='".$user_id."' AND activity_id=".$activity_id;
-		//mysql_query($delete,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-		//mysql_query($sub_num,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		
-		return $select;
-	}
-	public function participate_activity_db($user_id,$activity_id,$_as_auditing){
-		$insert = "INSERT INTO participation(user_id,activity_id,state)VALUES('".$user_id."',".$activity_id.",'".$_as_auditing."')";	
-		$add_num = "UPDATE activity_info SET offer_num = (offer_num+1) WHERE id=".$activity_id;
-		mysql_query($insert,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-		mysql_query($add_num,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$query="select * from activity_info where date='".$day1."' and () ";
+
+		 
 	}
 	public function fetch_hot()
 	{
@@ -37,12 +24,18 @@ class Act extends DB_Connect {
 	{
 		return 2;
 	}
+	public function admin_fetch_all()
+	{
+		$query="select * from activity_info where state='auditing'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;
+	}
 	public function fetch_all($keywords,$timetype,$attributiontype,$timelimit,$actstate,$num)
 	{
 			$time_type = array("longtime","temp");
 			$attribution_type=array("supporteducation","helpdisabled");
 			
-			$query="select * from activity_info where (name LIKE '%".$keywords."%')";
+			$query="select * from activity_info where state='audited' and (name LIKE '%".$keywords."%')";
 			if ($timetype!=0)
 				$query = sprintf("%s and (time_type='".$time_type[$timetype-1]."')", $query);
 			if ($attributiontype!=0)
@@ -92,11 +85,28 @@ class Act extends DB_Connect {
 
 	public function fetch_one( $id ){
 		$query="select * from activity_info where id='".$id."'";
-		$select = mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-		return $select;
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result;
 	}
-	public function mysql_error(){
-			
+	public function participate($activity_id){
+		$user_id=$_SESSION[USER::USER][USER::ID];
+		$query="INSERT INTO participation(user_id,activity_id,state) VALUES ('".$user_id."','".$activity_id."','auditing')";
+		if (!mysql_query($query,$this->root_conn)) return false;
+		else return true;
+	}
+	public function quit($activity_id){
+		$user_id=$_SESSION[USER::USER][USER::ID];
+		$query="DELETE FROM participation WHERE user_id='".$user_id."' and activity_id='".$activity_id."'";
+		if (!mysql_query($query,$this->root_conn)) return false;
+		else return true;
+	}
+	public function participate_state($activity_id){
+		$user_id=$_SESSION[USER::USER][USER::ID];
+		$query="select * from participation where user_id='".$user_id."' and activity_id='".$activity_id."'";
+		$select=mysql_query($query,$this->root_conn);
+		if (mysql_num_rows($select)==1) return true;
+		else return false;
 	}
 
 
