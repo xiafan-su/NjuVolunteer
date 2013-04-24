@@ -29,7 +29,7 @@ $(document).ready(function(){
 				document.getElementById("switch").style.left="0px";
 				$("#switch").animate({left:'-=800px'});
 			}
-			flag=0;
+			setTimeout("flag=0",300);
 		}
 	});
 	$("#slideright").click(function(){
@@ -44,7 +44,7 @@ $(document).ready(function(){
 				document.getElementById("switch").style.left="-3200px";
 				$("#switch").animate({left:'+=800px'});
 			}
-			flag=0;
+			setTimeout("flag=0",300);
 		}
 	});
 	setTimeout('slide()',5000);	
@@ -61,7 +61,7 @@ function slideleft(){
 			document.getElementById("switch").style.left="0px";
 			$("#switch").animate({left:'-=800px'});
 		}
-		flag=0;
+		setTimeout("flag=0",300);
 	}
 }
 function slideright(){
@@ -76,7 +76,7 @@ function slideright(){
 			document.getElementById("switch").style.left="-3200px";
 			$("#switch").animate({left:'+=800px'});
 		}
-		flag=0;
+		setTimeout("flag=0",300);
 	}	
 }
 function returntoday(){
