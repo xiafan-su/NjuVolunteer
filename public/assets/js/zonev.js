@@ -1,0 +1,25 @@
+$("#my_activity").click(function(){
+	$("#main_title").text("我参与的活动");
+});
+$("#activity_record").click(function(){
+	$("#main_title").text("活动记录");
+});
+$("#new_notice").click(function(){
+	$("#main_title").text("新通知");
+});
+$("#notice_record").click(function(){
+	$("#main_title").text("历史通知");
+});
+$("#vol_profile").click(function(){
+	$("#main_title").text("个人资料");
+});
+
+$("#change_password").click(function(){
+	$("#main_title").text("修改密码");
+})
+$("#my_team").click(function(){
+	$("#main_title").text("我的团队");
+})
+$("#my_focused_team").click(function(){
+	$("#main_title").text("关注的团队");
+})

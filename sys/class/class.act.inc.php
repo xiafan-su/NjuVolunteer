@@ -23,11 +23,18 @@ class Act extends DB_Connect {
 	{
 		return 2;
 	}
-	public function fetch_all($keywords,$start_from,$num)
+	public function fetch_all($keywords,$timetype,$attributiontype,$timelimit,$actstate,$num)
 	{
-
+			$time_type = array("longtime","temp");
+			$attribution_type=array("supporteducation","helpdisabled");
+			
 			$query="select * from activity_info where (name LIKE '%".$keywords."%')";
-			$query = sprintf("%s LIMIT %d, %d", $query, $start_from, $num);
+			if ($timetype!=0)
+				$query = sprintf("%s and (time_type='".$time_type[$timetype]."')", $query);
+			if ($attributiontype!=0)
+				$query = sprintf("%s and (attribution_type='".$attribution_type[$attributiontype]."')", $query);
+			$query = sprintf("%s LIMIT 0, %d", $query, $num);
+			
 			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			return $select;
 	}
