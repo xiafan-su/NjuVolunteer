@@ -64,7 +64,12 @@ class Team extends DB_Connect {
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
-	
+	public function fetch_apply_doc_volunteer($doc_id)//报名情况
+	{
+		$query="select * from act_record,user_info where doc_id = '".$doc_id."' and act_record.user_id=user_info.id";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;
+	}
 
 
 	
