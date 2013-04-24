@@ -39,25 +39,34 @@
 
 <script type="text/javascript">
 var flag=0;
+var temp=0;
 $(document).ready(function(){
 	$("#loginModal").hide();	
 });
 function showit(){
 	if (flag==0)
 	{
-		$("#loginModal").show();
-		document.getElementById('backdrop').style.display="block";
-		$("#backdrop").animate({opacity:'0.8'},'fast');
-		setTimeout("$('#loginModal').animate({top:'130px'})",100);
-		$('#login_button').text("返回");
-		flag=1;
+		if(temp==0){
+			temp=1;
+			$("#loginModal").show();
+			document.getElementById('backdrop').style.display="block";
+			$("#backdrop").animate({opacity:'0.8'},'fast');
+			setTimeout("$('#loginModal').animate({top:'130px'})",100);
+			$('#login_button').text('返回');
+			flag=1;
+			setTimeout("temp=0",600);
+		}
 	}else
 	{
-		$('#loginModal').animate({top:'-500px'});
-		setTimeout("$('#backdrop').animate({opacity:'0'})",300);
-		setTimeout("document.getElementById('backdrop').style.display='none'",700);
-		$('#login_button').text("登录");
-		flag=0;
+		if(temp==0){
+			temp=1;
+			$('#loginModal').animate({top:'-500px'});
+			setTimeout("$('#backdrop').animate({opacity:'0'})",300);
+			setTimeout("document.getElementById('backdrop').style.display='none'",500);
+			$('#login_button').text('登录');
+			flag=0;
+			setTimeout("temp=0",600);
+		}
 	}
 }
 

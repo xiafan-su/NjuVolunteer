@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 17:40:37
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 18:35:49
          compiled from "./tpls/templates\include\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:2711516a173f9c4c08-18384765%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1366796435,
+      1 => 1366799748,
       2 => 'file',
     ),
   ),
@@ -64,25 +64,34 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <script type="text/javascript">
 var flag=0;
+var temp=0;
 $(document).ready(function(){
 	$("#loginModal").hide();	
 });
 function showit(){
 	if (flag==0)
 	{
-		$("#loginModal").show();
-		document.getElementById('backdrop').style.display="block";
-		$("#backdrop").animate({opacity:'0.8'},'fast');
-		setTimeout("$('#loginModal').animate({top:'130px'})",100);
-		$('#login_button').text("返回");
-		flag=1;
+		if(temp==0){
+			temp=1;
+			$("#loginModal").show();
+			document.getElementById('backdrop').style.display="block";
+			$("#backdrop").animate({opacity:'0.8'},'fast');
+			setTimeout("$('#loginModal').animate({top:'130px'})",100);
+			$('#login_button').text('返回');
+			flag=1;
+			setTimeout("temp=0",600);
+		}
 	}else
 	{
-		$('#loginModal').animate({top:'-500px'});
-		setTimeout("$('#backdrop').animate({opacity:'0'})",300);
-		setTimeout("document.getElementById('backdrop').style.display='none'",700);
-		$('#login_button').text("登录");
-		flag=0;
+		if(temp==0){
+			temp=1;
+			$('#loginModal').animate({top:'-500px'});
+			setTimeout("$('#backdrop').animate({opacity:'0'})",300);
+			setTimeout("document.getElementById('backdrop').style.display='none'",500);
+			$('#login_button').text('登录');
+			flag=0;
+			setTimeout("temp=0",600);
+		}
 	}
 }
 
