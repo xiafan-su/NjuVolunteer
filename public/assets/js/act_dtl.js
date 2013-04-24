@@ -1,4 +1,27 @@
-﻿
+﻿$(document).ready(function(){
+	//$("#take_part_in").text("testing");
+	//alert($('#act_id').val());
+	 $.ajax({
+			type:"POST",
+			url:"./handle/participate_state.php",
+			data:{act_id:$('#act_id').val()},
+			success:function(html){
+				//alert(html);
+				//alert("success");
+				if (html == '1')
+				{
+					$('#take_part_in').text("退出活动");
+				}
+				else
+				{
+					$('#take_part_in').text("参加活动");
+					                                          
+				}
+				
+			}
+		});
+	
+});
 
 $(function(){
 	var register_update_text = function(){};
@@ -60,7 +83,8 @@ $(function(){
 	$("#take_part_in").click(function() {
          $.ajax({
 			type:"POST",
-			url:"http://localhost/volunteer/activity/handle/participate_activity.php",
+			url:"./handle/participate_act.php",
+			data:{act_id:$('#act_id').val()},
 			success:function(html){
 				//alert(html);
 				//alert("success");
@@ -69,11 +93,10 @@ $(function(){
 				 	alert("报名成功");
 					$('#take_part_in').text("退出活动");
 				}
-				else if (html == 0)
+				else if (html == 2)
 				{
 					alert("退出成功");
 					$('#take_part_in').text("参加活动");
-					
 				}
 				 else
 				 alert("失败");

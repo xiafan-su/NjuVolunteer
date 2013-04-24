@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 19:06:47
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 21:41:32
          compiled from "./tpls/templates\act.html" */ ?>
 <?php /*%%SmartyHeaderCode:13169516a185eddbdb8-59389361%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
     array (
       0 => './tpls/templates\\act.html',
-      1 => 1366801238,
+      1 => 1366810870,
       2 => 'file',
     ),
   ),
@@ -117,34 +117,34 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <ul class="hotlist" id="hotlist">
                     <li class="hot">
                     	<img src="./assets/img/activity_center/1.jpg" width=170px/>
-                        <div class="img-bar">全国首个孤独症儿童合唱团在宁成立<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                        <div class="img-bar">仙林中学支教<br />时间：每周日<br />所属团队：南大青协</div></li>
                     <li class="hot">
                     	<img src="./assets/img/activity_center/2.jpg" width=170px/>
-                        <div class="img-bar">青年志愿者徽章设计征集大赛活动方案<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                        <div class="img-bar">宁工小学家教<br />时间：每周六<br />所属团队：计算机系青协</div></li>
                     <li class="hot">
                     	<img src="./assets/img/activity_center/3.jpg" width=170px/>
-                        <div class="img-bar">雨花台区掀起学雷锋志愿活动热潮<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                        <div class="img-bar">爱德基金会活水行<br />时间：3月15日<br />所属团队：南大青协</div></li>
                     <li class="hot">
                     	<img src="./assets/img/activity_center/4.jpg" width=170px/>
-                        <div class="img-bar">南京春运期间多措并举开展关爱农民工志愿服务<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                        <div class="img-bar">博爱智障儿童陪护<br />时间：4月12日<br />所属团队：南大青协</div></li>
                     <li class="hot">
                     	<img src="./assets/img/activity_center/5.jpg" width=170px/>
-                        <div class="img-bar">魏纪中："亚青会将给城市带来正能量"<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                        <div class="img-bar">云锦博物馆义务讲解员<br />时间：每周三、周五<br />所属团队：计算机系青协</div></li>
                     <li class="hot">
                     	<img src="./assets/img/activity_center/6.jpg" width=170px/>
-                        <div class="img-bar">第二届亚洲青年运动会吉祥物揭晓<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                        <div class="img-bar">城市义工岗<br />时间：任意时间<br />所属团队：南大青协</div></li>
                     <li class="hot">
                     	<img src="./assets/img/activity_center/7.jpg" width=170px/>
-                        <div class="img-bar">全国首个孤独症儿童合唱团在宁成立<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                        <div class="img-bar">佛缘会<br />时间：5月1日<br />所属团队：南大青协</div></li>
                     <li class="hot">
                     	<img src="./assets/img/activity_center/8.jpg" width=170px/>
-                        <div class="img-bar">青年志愿者徽章设计征集大赛活动方案<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                        <div class="img-bar">明心幼儿园<br />时间：周六、周日<br />所属团队：计算机系青协</div></li>
                     <li class="hot">
                     	<img src="./assets/img/activity_center/9.jpg" width=170px/>
-                        <div class="img-bar">雨花台区掀起学雷锋志愿活动热潮<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                        <div class="img-bar">雨花台区学雷锋志愿活动<br />时间：3月15日<br />所属团队：文学院青协</div></li>
                     <li class="hot">
                     	<img src="./assets/img/activity_center/0.jpg" width=170px/>
-                        <div class="img-bar">南京春运期间多措并举开展关爱农民工志愿服务<br />负责人：夏凡<br />所属团队：计算机系青协</div></li>
+                        <div class="img-bar">关爱农民工志愿服务<br />时间：6月12日<br />所属团队：计算机系青协</div></li>
                 </ul>
             </div>
         </div>

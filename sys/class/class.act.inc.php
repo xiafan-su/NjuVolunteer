@@ -84,9 +84,30 @@ class Act extends DB_Connect {
 	}
 
 	public function fetch_one( $id ){
-		
+		$query="select * from activity_info where id='".$id."'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result;
 	}
-	
+	public function participate($activity_id){
+		$user_id=$_SESSION[USER::USER][USER::ID];
+		$query="INSERT INTO participation(user_id,activity_id,state) VALUES ('".$user_id."','".$activity_id."','auditing')";
+		if (!mysql_query($query,$this->root_conn)) return false;
+		else return true;
+	}
+	public function quit($activity_id){
+		$user_id=$_SESSION[USER::USER][USER::ID];
+		$query="DELETE FROM participation WHERE user_id='".$user_id."' and activity_id='".$activity_id."'";
+		if (!mysql_query($query,$this->root_conn)) return false;
+		else return true;
+	}
+	public function participate_state($activity_id){
+		$user_id=$_SESSION[USER::USER][USER::ID];
+		$query="select * from participation where user_id='".$user_id."' and activity_id='".$activity_id."'";
+		$select=mysql_query($query,$this->root_conn);
+		if (mysql_num_rows($select)==1) return true;
+		else return false;
+	}
 
 
 	public function modify( $id/* 其他参数未设置 */ ){
