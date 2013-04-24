@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 21:40:43
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 22:20:20
          compiled from "./tpls/templates\include\act_dtl_left.html" */ ?>
 <?php /*%%SmartyHeaderCode:109585177d2ae997052-56911016%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ff5701e6c2d16695a03a7c96a4c8dff10f58032e' => 
     array (
       0 => './tpls/templates\\include\\act_dtl_left.html',
-      1 => 1366810293,
+      1 => 1366813211,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5177d2ae9992a')) {function content_5177d2ae9992a($_smarty_tpl) {?><!--script src="./assets/js/act_dtl.js" ></script-->
 <div id="act_image">
-    <img src="./assets/img/activity_detail/1.jpg" height="300" width="180" />
+    <img src="./assets/img/activity_center/0.jpg" height="300" width="180" />
 </div>
 
 <div id="option">
