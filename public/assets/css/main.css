@@ -2,7 +2,7 @@
 @import url( "footer.css");
 
 body {
-margin: 0;
+margin-top: 50px;
 padding-top:0;
 font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
 font-size: 12px;
@@ -20,7 +20,8 @@ padding: 0;
 	padding-top:20px;
 width: 960px;  /* wi:windows */
 margin: 0px auto;  /* mk:marks */
-position: relative;
+position:relative;
+z-index:1;
 }
 
 .button{

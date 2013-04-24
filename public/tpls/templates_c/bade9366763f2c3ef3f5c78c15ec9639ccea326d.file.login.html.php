@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-23 18:37:12
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 14:49:55
          compiled from "./tpls/templates\include\login.html" */ ?>
 <?php /*%%SmartyHeaderCode:13444516a173fa5ad44-11436218%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bade9366763f2c3ef3f5c78c15ec9639ccea326d' => 
     array (
       0 => './tpls/templates\\include\\login.html',
-      1 => 1366557022,
+      1 => 1366786189,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_516a173fa5e7c')) {function content_516a173fa5e7c($_smarty_tpl) {?>
 
-<div id="loginModal">
+<div id="loginModal" class="loginModal" >
 	<div align="center" class="modal-header">
 		<h1><font color="#888888">登录</font></h1>
 	</div>

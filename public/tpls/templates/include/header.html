@@ -35,23 +35,24 @@
 		</div>
 	</div>
 </div>
-<{include file="include/login.html"}>
+ <{include file="include/login.html"}> 
 
 <script type="text/javascript">
 var flag=0;
-$(document).ready(function(){
-	$('#loginModal').hide();
-});
 function showit(){
-	$('#loginModal').slideToggle();	
 	if (flag==0)
 	{
+		$("#backdrop").animate({height:'400px'});
+		$("#loginModal").animate({top:'130px'});
 		$('#login_button').text("返回");
 		flag=1;
 	}else
 	{
-		flag=0;
+		$("#backdrop").animate({height:'0px'});
+		$("#loginModal").animate({top:'-500px'});
 		$('#login_button').text("登录");
+		flag=0;
 	}
 }
+
 </script>
