@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 16:31:44
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 17:40:37
          compiled from "./tpls/templates\include\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:2711516a173f9c4c08-18384765%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1366792303,
+      1 => 1366796435,
       2 => 'file',
     ),
   ),
@@ -71,14 +71,16 @@ function showit(){
 	if (flag==0)
 	{
 		$("#loginModal").show();
-		$("#backdrop").animate({height:'400px'});
-		$("#loginModal").animate({top:'130px'});
+		document.getElementById('backdrop').style.display="block";
+		$("#backdrop").animate({opacity:'0.8'},'fast');
+		setTimeout("$('#loginModal').animate({top:'130px'})",100);
 		$('#login_button').text("返回");
 		flag=1;
 	}else
 	{
-		$("#backdrop").animate({height:'0px'});
-		$("#loginModal").animate({top:'-500px'});
+		$('#loginModal').animate({top:'-500px'});
+		setTimeout("$('#backdrop').animate({opacity:'0'})",300);
+		setTimeout("document.getElementById('backdrop').style.display='none'",700);
 		$('#login_button').text("登录");
 		flag=0;
 	}

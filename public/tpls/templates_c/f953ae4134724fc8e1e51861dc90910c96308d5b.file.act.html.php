@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 16:23:42
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 16:44:51
          compiled from "./tpls/templates\act.html" */ ?>
 <?php /*%%SmartyHeaderCode:13169516a185eddbdb8-59389361%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
     array (
       0 => './tpls/templates\\act.html',
-      1 => 1366791820,
+      1 => 1366793090,
       2 => 'file',
     ),
   ),
@@ -42,7 +42,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         	<div style="float:left;margin-left:10px;margin-top:25px;font-weight:bold;font-size:50px;color:#606;">活动中心</div>
         </a>
         <div class="submit_search">
-			<input id="submit" style="background-color:#FFF;color:#000" name="submit" class="btn btn-warning span2" onclick="searchit()" type="submit" value="搜索" />
+			<input id="submit" style="background-color:#606;color:#FFF" name="submit" class="btn btn-warning span2" onclick="searchit()" type="submit" value="搜索" />
 		</div>
 		<div class="input_search" >
 			<input id="keyword" name="keyword" class="email" type="text" placeholder="请输入关键字" />
