@@ -81,35 +81,35 @@ function slideright(){
 }
 function returntoday(){
 	mydate = new Date();
-	$("#day1").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day1").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day2").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day2").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day3").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day3").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day4").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day4").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day5").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day5").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day6").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day6").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day7").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();	
+	$("#day7").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();	
 }
 function preweek(){
 	mydate.setDate(mydate.getDate()-13);
-	$("#day1").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day1").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day2").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day2").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day3").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day3").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day4").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day4").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day5").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day5").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day6").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day6").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day7").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day7").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 }
 function nextweek(){
 	mydate.setDate(mydate.getDate()+1);
@@ -126,6 +126,22 @@ function nextweek(){
 	$("#day6").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
 	mydate.setDate(mydate.getDate()+1);
 	$("#day7").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+}
+function getday(temp){
+	if(temp=='0')
+		return '周日';
+	else if(temp=='1')
+		return '周一';
+	else if(temp=='2')
+		return '周二';
+	else if(temp=='3')
+		return '周三';
+	else if(temp=='4')
+		return '周四';
+	else if(temp=='5')
+		return '周五';
+	else if(temp=='6')
+		return '周六';
 }
 function slide(){
 	slideleft();
