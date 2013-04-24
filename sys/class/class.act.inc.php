@@ -30,9 +30,9 @@ class Act extends DB_Connect {
 			
 			$query="select * from activity_info where (name LIKE '%".$keywords."%')";
 			if ($timetype!=0)
-				$query = sprintf("%s and (time_type='".$time_type[$timetype]."')", $query);
+				$query = sprintf("%s and (time_type='".$time_type[$timetype-1]."')", $query);
 			if ($attributiontype!=0)
-				$query = sprintf("%s and (attribution_type='".$attribution_type[$attributiontype]."')", $query);
+				$query = sprintf("%s and (attribution_type='".$attribution_type[$attributiontype-1]."')", $query);
 			$query = sprintf("%s LIMIT 0, %d", $query, $num);
 			
 			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);

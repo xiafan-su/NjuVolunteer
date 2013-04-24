@@ -139,10 +139,10 @@ function hotshow(){
 }
 function searchit(){
 	keyword=$("#keyword").val();
-	if(keyword==""){
-		alert("请输入关键字");
-		return;	
-	}
+	//if(keyword==""){
+	//	alert("请输入关键字");
+	//	return;	
+	//}
 	document.getElementById("hotact").style.display="none";
 	document.getElementById("result").style.display="block";
 	keyword = $('#keyword').val();
@@ -156,22 +156,22 @@ function searchit(){
 }
 function searchtimetype(temp){
 	timetype = temp;
-	alert(timetype);
+	//alert(timetype);
 	searchitt();	
 }
 function searchattributiontype(temp){
 	attributiontype = temp;
-	alert(attributiontype);
+	//alert(attributiontype);
 	searchitt();	
 }
 function searchtimelimit(temp){
 	timelimit = temp;
-	alert(timelimit);
+	//alert(timelimit);
 	searchitt();	
 }
 function searchactstate(temp){
 	actstate = temp;
-	alert(actstate);
+	//alert(actstate);
 	searchitt();	
 }
 function searchitt(){
