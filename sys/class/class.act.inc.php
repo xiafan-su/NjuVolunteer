@@ -1,24 +1,23 @@
-<?php
+ï»¿<?php
 
-//»î¶¯Àà£¬¿ÉÖ´ÐÐµÄ²Ù×÷°üÀ¨£º´´½¨Ò»¸öÐÂ»î¶¯£¬¸ù¾Ýid²éÑ¯Ò»¸ö»î¶¯
-//¸ù¾Ý(Ò»¸ö/Ò»×é)¹Ø¼ü´Ê²éÑ¯Ò»ÏµÁÐ»î¶¯¡­¡­
-//ÐÞ¸ÄÄ³¸ö»î¶¯
-//É¾³ýÄ³¸ö»î¶¯
-
+//æ´»åŠ¨ç±»ï¼Œå¯æ‰§è¡Œçš„æ“ä½œåŒ…æ‹¬ï¼šåˆ›å»ºä¸€ä¸ªæ–°æ´»åŠ¨ï¼Œæ ¹æ®idæŸ¥è¯¢ä¸€ä¸ªæ´»åŠ¨
+//æ ¹æ®(ä¸€ä¸ª/ä¸€ç»„)å…³é”®è¯æŸ¥è¯¢ä¸€ç³»åˆ—æ´»åŠ¨â€¦â€¦
+//ä¿®æ”¹æŸä¸ªæ´»åŠ¨
+//åˆ é™¤æŸä¸ªæ´»åŠ¨
 class Act extends DB_Connect {
 	
-	public function __construct(  ){
-		parent::__construct();
+	public function __construct($dbo=NULL){
+		parent::__construct($dbo);
 	}
 	public function fetch_from_date($date)
 	{
-		$arr;
+		//$arr;
 		
-		return $arr; 
+		//return $arr; 
 	}
 	public function fetch_hot()
 	{
-		
+		return 1;
 	}
 	public function fetch_highscore()
 	{
@@ -27,20 +26,10 @@ class Act extends DB_Connect {
 	public function fetch_all($keywords,$start_from,$num)
 	{
 
-			echo "sdfsdfsdfsd";
-			$query="select * from activity_info";
+			$query="select * from activity_info where (name LIKE '%".$keywords."%')";
+			$query = sprintf("%s LIMIT %d, %d", $query, $start_from, $num);
 			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-			if (mysql_num_rows($select)>0)
-				echo "asdasdasd";
-			else echo "asdasd";
-				
 			return $select;
-		
-
-	}
-	public function fetch_all($keywords,$start_from)
-	{
-		
 	}
 	
 	public function create_new( $name,$place,$time_type,$attribution_type,$begin_time,$end_time,$detail_time,$total_num,$need_audit,$responser,$responser_tel,$last_time,$activity_profile,$state,$publisher){
@@ -86,7 +75,7 @@ class Act extends DB_Connect {
 	
 
 
-	public function modify( $id/* ÆäËû²ÎÊýÎ´ÉèÖÃ */ ){
+	public function modify( $id/* å…¶ä»–å‚æ•°æœªè®¾ç½® */ ){
 		
 	}
 
@@ -95,5 +84,4 @@ class Act extends DB_Connect {
 	}
 	
 }
-
 ?>
