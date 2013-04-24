@@ -9,11 +9,12 @@ class Act extends DB_Connect {
 	public function __construct($dbo=NULL){
 		parent::__construct($dbo);
 	}
-	public function fetch_from_date($date)
+	public function fetch_from_date($day1,$day2,$day3,$day4,$day5,$day6,$day7)
 	{
-		//$arr;
 		
-		//return $arr; 
+		$query="select * from activity_info where date='".$day1."' and () ";
+
+		 
 	}
 	public function fetch_hot()
 	{
