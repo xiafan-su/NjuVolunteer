@@ -1,272 +1,116 @@
-$("#apply_activity").click(function(){
-		window.open($("#apply").attr("href"), "_blank");
+
+//右边DIV的标题id、右边主副页面
+var zt_elem_main_title = "#main_title";
+var zt_elem_main_content = "#main_content";
+var zt_elem_main_content2 = "#main_content2";
+var zt_elem_go_back_home = "#go_back_home";
+
+//“申请活动”、“发起的活动”、"完成的活动"
+var zt_elem_apply_act = "#util_apply_activity";
+var zt_elem_start_act = "#util_start_activity";
+var zt_elem_finished_act = "#util_finished_activity";
+var zt_elem_note_edit = "#util_note_edit";
+var zt_elem_note_recv = "#util_note_recv";
+var zt_elem_note_sent = "#util_note_sent";
+var zt_elem_mem = "#util_mem";
+var zt_elem_infot = "#util_infot";
+var zt_elem_infot_edit = "#util_infot_edit";
+//对应URL
+var zt_url_apply_act = "./act_apply.php";
+var zt_url_act = "./include/actz.php";//发起的、完成的活动使用相同php
+var zt_url_note = "./include/note.php";//收到的、发送的通知使用相同php
+var zt_url_note_edit = "./include/note_edit.php";
+var zt_url_note_dtl = "./include/note_dtl.php";
+var zt_url_mem = "./include/mem.php";
+var zt_url_infot = "./include/infot.php";
+var zt_url_infot_edit = "./include/infot_edit.php";
+
+//活动档案索引类（活动列表中的档案列表索引）
+var zt_elem_doc_index = ".util_doc_index";
+var zt_elem_doc_add = ".util_doc_add";
+var zt_elem_doc_apply = ".util_doc_apply";//每次小活动的报名情况
+var zt_elem_doc_list = ".util_doc_list";//活动档案列表元素
+var zt_elem_doc_fold = ".util_doc_fold";//用于折叠、展开活动档案列表操作的元素
+
+
+//点击“发起的活动”、“完成的活动”的回调函数
+var zt_func_start_act = function(html){};
+var zt_func_finished_act = function(html){};
+//以下函数在actz.js中实现
+var zt_func_doc_index = function(){};
+var zt_func_doc_add = function(){};
+var zt_func_doc_apply = function(){};
+var zt_func_doc_fold = function(elem){};
+
+
+
+//转换主副页面
+function switch_main_content( direction ){
+	var switch_style = "slow";
+	var switch_time = 1000;
+	if( direction == "<-" ){	
+		$(zt_elem_main_content2).animate({width:0}, switch_style );
+		$(zt_elem_main_content2).hide(switch_time);
+		$(zt_elem_main_content).animate({width:683}, switch_style );
+		$(zt_elem_main_content).show(switch_time);
+	} else if( direction == "->" ) {
+		$( zt_elem_main_content2 ).html( "正在载入……" );
+		$( zt_elem_main_content ).animate({width:0}, switch_style );
+		$( zt_elem_main_content ).hide(switch_time);
+		$( zt_elem_main_content2 ).animate({width:683}, switch_style );
+		$( zt_elem_main_content2 ).show(switch_time);
+	}
+}
+
+
+//点击“申请活动”时，跳转到新页面
+$( zt_elem_apply_act ).click(function(){
+		window.open( zt_url_apply_act , "_blank");
+});
+//注册函数
+var register_click_event = function ( elem, new_title, handle_url, url_param, handle_func ){
+	elem.click( function(){
+		$( zt_elem_main_title ).text( new_title );
+		switch_main_content( "<-" );
+		$.ajax({type:"POST", 
+			url: handle_url, 
+			data: url_param, 
+			success: function(html){
+				if( handle_func == null ){
+					$( zt_elem_main_content ).html(html);
+				} else {
+					handle_func( html );
+				}
+			}
+		});
 	});
-
-var state_show_detail = 1;
-$("#start_activity").click(function(){
-	$("#main_title").text("发起的活动");
-
-	$("#main_content2").animate({width:0},"slow");
-	$("#main_content2").hide(1000);
-	$("#main_content").animate({width:638},"slow");
-	$("#main_content").show(1000);
-
-	$.ajax({
-			type:"POST",
-			url:"./handle/show_activity.php",
-			data:{user_id:1},
-			success:function(html){
-				$("#main_content").html(html);
-				$(".zone_rec_list").css("display", "none");
-				$(".fold_rec").bind("click", function(){
-					if(this.innerText != "╦"){
-						this.innerText = "╦";$(this).next().next().css("display", "");//alert("现在应该展开！");
-					} else{
-						this.innerText = "╬";$(this).next().next().css("display", "none");//alert("现在应该收起！");
-					}
-				});
-
-				$(".rec_index").bind("click",function(){
-					//alert( $("#main_content").css("width") );
-					$("#main_content").animate({width:0},"slow");
-					$("#main_content").hide(1000);
-					$("#main_content2").animate({width:638},"slow");
-					$("#main_content2").show(1000);
-					$.ajax({
-						type:"POST",
-						url:"handle/zone_rec_dtl.php",
-						success:function(html){
-							$("#main_content2").html(html);
-							$("#go_back_home").bind("click", function(){
-								$("#main_content2").animate({width:0},"slow");
-								$("#main_content2").hide(1000);
-								$("#main_content").animate({width:638},"slow");
-								$("#main_content").show(1000);
-							});
-							$("#fold_volunteer").bind("click", function(){
-								if(this.innerText != "╦"){
-									this.innerText = "╦";
-									$("#act_people_div").css("display", "block");
-								} else {
-									this.innerText = "╬";
-									$("#act_people_div").css("display", "none");
-								}
-							});
-						}
-					});
-				});
-				$(".link_add_rec").bind("click",function(){
-					//alert("添加活动记录");
-					$("#main_content").animate({width:0},"slow");
-					$("#main_content").hide(1000);
-					$("#main_content2").animate({width:638},"slow");
-					$("#main_content2").show(1000);
-					$.ajax({
-						type:"POST",
-						url:"handle/zone_rec_edit.php",
-						success:function(html){
-							$("#main_content2").html(html);
-							$("#go_back_home").bind("click", function(){
-								$("#main_content2").animate({width:0},"slow");
-								$("#main_content2").hide(1000);
-								$("#main_content").animate({width:638},"slow");
-								$("#main_content").show(1000);
-							});
-
-						}
-					});
-				});
-				
-				$(".go_to_act_people").bind("click",function(){
-					$("#main_content").animate({width:0},"slow");
-					$("#main_content").hide(1000);
-					$("#main_content2").animate({width:638},"slow");
-					$("#main_content2").show(1000);
-					$.ajax({
-						type:"POST",
-						url:"./activity/handle/act_people.php",
-						data:{activity_id:$(this).attr("actid")},
-						success:function(html){
-							$("#main_content2").html(html);
-
-							
-							//给所有的学号添加事件
-							$(".act_user_id_col").bind("click", function(){
-								var id = $(this).text();
-								$.ajax({
-									type:"GET",
-									url:"./activity/handle/exp_people.php",
-									data:{user_id:id},
-									success:function(html){
-										tipsWindown("学生信息","text:"+html,"900","427","true","","true","");
-									}
-								});
-							});
+}
 
 
-						}
-					});
-				});
-			}
-		});
-});
-
-$("#finished_activity").click(function(){
-	$("#main_title").text("完成的活动");
-	$("#main_content2").animate({width:0},"slow");
-	$("#main_content2").hide(1000);
-	$("#main_content").animate({width:638},"slow");
-	$("#main_content").show(1000);
-
-	$.ajax({
-			type:"POST",
-			url:"handle/show_activity.php",
-			data:{user_id:2},
-			success:function(html){
-				$("#main_content").html(html);
-				$(".zone_rec_list").css("display", "none");
-				$(".fold_rec").bind("click", function(){
-					if(this.innerText != "╦"){
-						this.innerText = "╦";$(this).next().next().css("display", "");//alert("现在应该展开！");
-					} else{
-						this.innerText = "╬";$(this).next().next().css("display", "none");//alert("现在应该收起！");
-					}
-				});
-				$(".rec_index").bind("click",function(){
-					//alert( $("#main_content").css("width") );
-					$("#main_content").animate({width:0},"slow");
-					$("#main_content").hide(1000);
-					$("#main_content2").animate({width:638},"slow");
-					$("#main_content2").show(1000);
-					$.ajax({
-						type:"POST",
-						url:"handle/zone_rec_dtl2.php",
-						success:function(html){
-							$("#main_content2").html(html);
-							$("#go_back_home").bind("click", function(){
-								$("#main_content2").animate({width:0},"slow");
-								$("#main_content2").hide(1000);
-								$("#main_content").animate({width:638},"slow");
-								$("#main_content").show(1000);
-							});
-							$("#fold_volunteer").bind("click", function(){
-								if(this.innerText != "╦"){
-									this.innerText = "╦";
-									$("#act_people_div").css("display", "block");
-								} else {
-									this.innerText = "╬";
-									$("#act_people_div").css("display", "none");
-								}
-							});
-						}
-					});
-				});
-				
-				$(".go_to_act_people").bind("click",function(){
-					$("#main_content").animate({width:0},"slow");
-					$("#main_content").hide(1000);
-					$("#main_content2").animate({width:638},"slow");
-					$("#main_content2").show(1000);
-					$.ajax({
-						type:"POST",
-						url:"./activity/handle/act_people.php",
-						data:{activity_id:$(this).attr("actid")},
-						success:function(html){
-							$("#main_content2").html(html);
-
-							//给所有的学号添加事件
-							$(".act_user_id_col").bind("click", function(){
-								var id = $(this).text();
-								$.ajax({
-									type:"GET",
-									url:"./activity/handle/exp_people.php",
-									data:{user_id:id},
-									success:function(html){
-										tipsWindown("学生信息","text:"+html,"900","427","true","","true","");
-									}
-								});
-							});
-
-						}
-					});
-				});
-			}
-		});
-});
-
-$("#unaudited_people").click(function(){
-	$("#main_title").text("待审核的成员");
-	$.ajax({
-			type:"POST",
-			url:"handle/show_activity.php",
-			data:{user_id:3},
-			success:function(html){
-				$("#main_content").html(html);
-			}
-		});
-});
-
-$("#unaudited_activity").click(function(){
-	$("#main_title").text("待审核的活动");
-	$.ajax({
-			type:"POST",
-			url:"handle/show_activity.php",
-			data:{user_id:4},
-			success:function(html){
-				$("#main_content").html(html);
-			}
-		});
-});
-
-$("#recv_info").click(function(){
-	$("#main_title").text("收到的通知");
-	$.ajax({
-			type:"POST",
-			url:"handle/show_activity.php",
-			data:{user_id:5},
-			success:function(html){
-				$("#main_content").html(html);
-			}
-		});
-});
-$("#send_info").click(function(){
-	$("#main_title").text("发送的通知");
-	$.ajax({
-			type:"POST",
-			url:"handle/show_activity.php",
-			data:{user_id:5},
-			success:function(html){
-				$("#main_content").html(html);
-			}
-		});
-});
-$("#member").click(function(){
-	$("#main_title").text("成员");
+zt_func_start_act = function(html){
+	$( zt_elem_main_content ).html(html);
+	$( zt_elem_doc_list ).css("display", "none");//默认不显示活动档案
+	$( zt_elem_doc_fold ).bind("click", zt_func_doc_fold );
+	$( zt_elem_doc_index ).bind("click", zt_func_doc_index );
+	$( zt_elem_doc_add ).bind("click", zt_func_doc_add );
+	$( zt_elem_doc_apply ).bind("click", zt_func_doc_apply );
+}
+zt_func_finished_act = function(html){
+	$(zt_elem_main_content).html(html);
+	$( zt_elem_doc_list ).css("display", "none");//默认不显示活动档案
+	$( zt_elem_doc_fold ).bind("click", zt_func_doc_fold );
+	$( zt_elem_doc_index ).bind("click", zt_func_doc_index );
+	$( zt_elem_doc_apply ).bind("click", zt_func_doc_apply );
+}
 
 
-	$("#main_content2").animate({width:0},"slow");
-	$("#main_content2").hide(1000);
-	$("#main_content").animate({width:638},"slow");
-	$("#main_content").show(1000);
 
+//注册点击事件
+register_click_event( $( zt_elem_start_act ), "发起的活动", zt_url_act, {type:"start"}, zt_func_start_act );
+register_click_event( $( zt_elem_finished_act ), "完成的活动", zt_url_act, {type:"finished"}, zt_func_finished_act );
+register_click_event( $( zt_elem_note_edit ), "发通知", zt_url_note_edit);
+register_click_event( $( zt_elem_note_recv ), "收到的通知", zt_url_note, {type:"recv"} );
+register_click_event( $( zt_elem_note_sent ), "发送的通知", zt_url_note, {type:"sent"} );
+register_click_event( $( zt_elem_mem ), "成员", zt_url_mem );
+register_click_event( $( zt_elem_infot ), "资料", zt_url_infot );
 
-	$.ajax({
-			type:"POST",
-			url:"handle/show_activity.php",
-			data:{user_id:7},
-			success:function(html){
-				$("#main_content").html(html);
-			}
-		});
-});
-$("#blacklist").click(function(){
-	$("#main_title").text("黑名单");
-	$.ajax({
-			type:"POST",
-			url:"handle/show_activity.php",
-			data:{user_id:5},
-			success:function(html){
-				$("#main_content").html(html);
-			}
-		});
-});

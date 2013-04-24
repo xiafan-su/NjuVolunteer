@@ -42,3 +42,12 @@ position:relative;
 	background-color:#48F;
 }
 
+
+
+table {width:100%;border-collapse:collapse;margin:1em 0;}
+table th, table td{text-align:center;padding:0.5em;border:1px solid #fff;}
+table th{background:#328aa4;color:#fff;}
+table td{background:#e5f1f4;}
+
+table tr.even td{background:#e5f1f4;}
+table tr.odd td{background:#f8fbfc;}

@@ -1,0 +1,26 @@
+
+#doc_dtl_ul{
+	
+}
+#doc_dtl_ul li{
+	width: 500px;
+	margin: 10px 0px;
+}
+
+.doc_dtl_attr{
+	width: 100px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: 600;
+	/*background-color: #f00; #F00 #FF0000 red */
+}
+
+
+#fold_volunteer{
+	cursor:pointer;
+	background-color: rgb(160,160,160);
+	padding: 10px;
+}
+#fold_volunteer:hover{
+background-color: rgb(200,200,200); 
+}
