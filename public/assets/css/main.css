@@ -21,7 +21,6 @@ padding: 0;
 width: 960px;  /* wi:windows */
 margin: 0px auto;  /* mk:marks */
 position:relative;
-z-index:1;
 }
 
 .button{
