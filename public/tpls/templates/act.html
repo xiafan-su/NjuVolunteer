@@ -33,59 +33,42 @@
         	<div style="padding-top:5px;padding-left:10px" id="result-bar"></div>
         </div>
         <div class="type">
-            <div class="type-title">时间类型</div>
-            <a class="type-list" href="javascript:searchtimetype(0)">全部活动</a>
-            <a class="type-list" href="javascript:searchtimetype(1)">长期活动</a>
-            <a class="type-list" href="javascript:searchtimetype(2)">临时活动</a>
+            <div class="type-title">时间类型:</div>
+            <a class="type-list" href="javascript:searchtimetype(0)" id="t0">全部活动</a>
+            <a class="type-list" href="javascript:searchtimetype(1)" id="t1">长期活动</a>
+            <a class="type-list" href="javascript:searchtimetype(2)" id="t2">临时活动</a>
         </div>
         <div class="type">
-            <div class="type-title">服务类型</div>
-            <a class="type-list" href="javascript:searchattributiontype(0)">全部类型</a>
-            <a class="type-list" href="javascript:searchattributiontype(1)">扶老</a>
-            <a class="type-list" href="javascript:searchattributiontype(2)">支教</a>
-            <a class="type-list" href="javascript:searchattributiontype(3)">助残</a>
-            <a class="type-list" href="javascript:searchattributiontype(4)">大型赛会</a>
-            <a class="type-list" href="javascript:searchattributiontype(5)">其他</a>
+            <div class="type-title">服务类型:</div>
+            <a class="type-list" href="javascript:searchattributiontype(0)" id="a0">全部类型</a>
+            <a class="type-list" href="javascript:searchattributiontype(1)" id="a1">扶老</a>
+            <a class="type-list" href="javascript:searchattributiontype(2)" id="a2">支教</a>
+            <a class="type-list" href="javascript:searchattributiontype(3)" id="a3">助残</a>
+            <a class="type-list" href="javascript:searchattributiontype(4)" id="a4">大型赛会</a>
+            <a class="type-list" href="javascript:searchattributiontype(5)" id="a5">其他</a>
         </div>
         <div class="type">
-            <div class="type-title">时间限制</div>
-            <a class="type-list" href="javascript:searchtimelimit(0)">全周</a>
-            <a class="type-list" href="javascript:searchtimelimit(1)">周一</a>
-            <a class="type-list" href="javascript:searchtimelimit(2)">周二</a>
-            <a class="type-list" href="javascript:searchtimelimit(3)">周三</a>
-            <a class="type-list" href="javascript:searchtimelimit(4)">周四</a>
-            <a class="type-list" href="javascript:searchtimelimit(5)">周五</a>
-            <a class="type-list" href="javascript:searchtimelimit(6)">周六</a>
-            <a class="type-list" href="javascript:searchtimelimit(7)">周日</a>
+            <div class="type-title">时间限制:</div>
+            <a class="type-list" href="javascript:searchtimelimit(0)" id="l0">全周</a>
+            <a class="type-list" href="javascript:searchtimelimit(1)" id="l1">周一</a>
+            <a class="type-list" href="javascript:searchtimelimit(2)" id="l2">周二</a>
+            <a class="type-list" href="javascript:searchtimelimit(3)" id="l3">周三</a>
+            <a class="type-list" href="javascript:searchtimelimit(4)" id="l4">周四</a>
+            <a class="type-list" href="javascript:searchtimelimit(5)" id="l5">周五</a>
+            <a class="type-list" href="javascript:searchtimelimit(6)" id="l6">周六</a>
+            <a class="type-list" href="javascript:searchtimelimit(7)" id="l7">周日</a>
         </div>
         <div class="type">
-            <div class="type-title">活动状态</div>
-            <a class="type-list" href="javascript:searchactstate(0)">所有状态</a>
-            <a class="type-list" href="javascript:searchactstate(1)">正在招募</a>
-            <a class="type-list" href="javascript:searchactstate(2)">已结束</a>
-            <a class="type-list" href="javascript:searchactstate(3)">进行中</a>
+            <div class="type-title">活动状态:</div>
+            <a class="type-list" href="javascript:searchactstate(0)" id="s0">所有状态</a>
+            <a class="type-list" href="javascript:searchactstate(1)" id="s1">正在招募</a>
+            <a class="type-list" href="javascript:searchactstate(2)" id="s2">已结束</a>
+            <a class="type-list" href="javascript:searchactstate(3)" id="s3">进行中</a>
         </div>
         <div style="margin-top:10px;height:5px;float:left;width:100%;background-color:#333"></div>
         <div style="height:30px;width:100%;background-color:#CCC;float:left"></div>
-        <div class="act-list" id="act_list">
-       <!--     <{foreach item=act from=$act_list}>
-        <div class="summary">
-            <div class="act_img">
-                <img src="./include/img/activity/.1jpg" width="200px" height="130px"href="www.baidu.com"/>
-            </div>
-            <div class="words">
-                <span>
-                    <h2><a href="activity/detail.php?activityId=1" target="_blank"><{$act.name}></a><span class="atc_state"><{$act.state}></span></h2>
-                    <p><{$act.profile}></p>
-                </span>
-                <span class="otherInfo">
-                    <span class="first">活动时间：<{$act.time}></span>
-                    <span>活动地点：<{$act.place}></span>
-                    <span>招募人数：<em><{$act.offer_num}></em></span>
-                </span>
-            </div>
-        </div>
-    <{/foreach}> -->
+        <div class="act-list" style="float:left" id="act_list">
+        
         </div>
     </div>
     <div id="hotact">

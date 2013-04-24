@@ -19,12 +19,12 @@
 <{if isset($have_more) }>
 	<{if $have_more == 1}>
     <div class="more" id="more" onclick="more()">
-        <div style="text-align:center;font-size:30px;height:50px;padding-top:5px;float:left;width:960px;">更多</div>
+        <div class="more-but">更多</div>
         <div style=""></div>
     </div>
     <{elseif $have_more == 0}>
     <div class="more" id="nomore">
-        <div style="text-align:center;font-size:30px;height:50px;padding-top:5px;float:left;width:960px;">没有更多了</div>
+        <div class="more-but">没有更多了</div>
         <div style=""></div>
     </div>
     <{/if}>

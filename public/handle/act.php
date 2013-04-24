@@ -35,5 +35,4 @@ if (isset($act_listinfo))
 	$tpl->display("handle/act_handle_none.html");
 }
 
-
 ?>

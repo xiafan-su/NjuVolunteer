@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 13:15:49
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 13:42:41
          compiled from "../tpls/templates\handle\act_handle.html" */ ?>
 <?php /*%%SmartyHeaderCode:249651772d64a01d92-29562757%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '98ac2491da6aa96dd5b95ddfd79f9643e04a48d2' => 
     array (
       0 => '../tpls/templates\\handle\\act_handle.html',
-      1 => 1366779513,
+      1 => 1366782094,
       2 => 'file',
     ),
   ),
@@ -56,12 +56,12 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
 <?php if (isset($_smarty_tpl->tpl_vars['have_more']->value)){?>
 	<?php if ($_smarty_tpl->tpl_vars['have_more']->value==1){?>
     <div class="more" id="more" onclick="more()">
-        <div style="text-align:center;font-size:30px;height:50px;padding-top:5px;float:left;width:960px;">更多</div>
+        <div class="more-but">更多</div>
         <div style=""></div>
     </div>
     <?php }elseif($_smarty_tpl->tpl_vars['have_more']->value==0){?>
     <div class="more" id="nomore">
-        <div style="text-align:center;font-size:30px;height:50px;padding-top:5px;float:left;width:960px;">没有更多了</div>
+        <div class="more-but">没有更多了</div>
         <div style=""></div>
     </div>
     <?php }?>

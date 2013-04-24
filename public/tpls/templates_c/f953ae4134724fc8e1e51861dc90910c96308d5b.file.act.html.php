@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 09:25:18
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 13:35:48
          compiled from "./tpls/templates\act.html" */ ?>
 <?php /*%%SmartyHeaderCode:13169516a185eddbdb8-59389361%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
     array (
       0 => './tpls/templates\\act.html',
-      1 => 1366766465,
+      1 => 1366781711,
       2 => 'file',
     ),
   ),
@@ -17,11 +17,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.7',
   'unifunc' => 'content_516a185ee3648',
-  'variables' => 
-  array (
-    'act_list' => 0,
-    'act' => 0,
-  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_516a185ee3648')) {function content_516a185ee3648($_smarty_tpl) {?>
@@ -60,69 +55,42 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         	<div style="padding-top:5px;padding-left:10px" id="result-bar"></div>
         </div>
         <div class="type">
-            <div class="type-title">时间类型</div>
-            <a class="type-list" href="javascript:searchtimetype(0)">全部活动</a>
-            <a class="type-list" href="javascript:searchtimetype(1)">长期活动</a>
-            <a class="type-list" href="javascript:searchtimetype(2)">临时活动</a>
+            <div class="type-title">时间类型:</div>
+            <a class="type-list" href="javascript:searchtimetype(0)" id="t0">全部活动</a>
+            <a class="type-list" href="javascript:searchtimetype(1)" id="t1">长期活动</a>
+            <a class="type-list" href="javascript:searchtimetype(2)" id="t2">临时活动</a>
         </div>
         <div class="type">
-            <div class="type-title">服务类型</div>
-            <a class="type-list" href="javascript:searchattributiontype(0)">全部类型</a>
-            <a class="type-list" href="javascript:searchattributiontype(1)">扶老</a>
-            <a class="type-list" href="javascript:searchattributiontype(2)">支教</a>
-            <a class="type-list" href="javascript:searchattributiontype(3)">助残</a>
-            <a class="type-list" href="javascript:searchattributiontype(4)">大型赛会</a>
-            <a class="type-list" href="javascript:searchattributiontype(5)">其他</a>
+            <div class="type-title">服务类型:</div>
+            <a class="type-list" href="javascript:searchattributiontype(0)" id="a0">全部类型</a>
+            <a class="type-list" href="javascript:searchattributiontype(1)" id="a1">扶老</a>
+            <a class="type-list" href="javascript:searchattributiontype(2)" id="a2">支教</a>
+            <a class="type-list" href="javascript:searchattributiontype(3)" id="a3">助残</a>
+            <a class="type-list" href="javascript:searchattributiontype(4)" id="a4">大型赛会</a>
+            <a class="type-list" href="javascript:searchattributiontype(5)" id="a5">其他</a>
         </div>
         <div class="type">
-            <div class="type-title">时间限制</div>
-            <a class="type-list" href="javascript:searchtimelimit(0)">全周</a>
-            <a class="type-list" href="javascript:searchtimelimit(1)">周一</a>
-            <a class="type-list" href="javascript:searchtimelimit(2)">周二</a>
-            <a class="type-list" href="javascript:searchtimelimit(3)">周三</a>
-            <a class="type-list" href="javascript:searchtimelimit(4)">周四</a>
-            <a class="type-list" href="javascript:searchtimelimit(5)">周五</a>
-            <a class="type-list" href="javascript:searchtimelimit(6)">周六</a>
-            <a class="type-list" href="javascript:searchtimelimit(7)">周日</a>
+            <div class="type-title">时间限制:</div>
+            <a class="type-list" href="javascript:searchtimelimit(0)" id="l0">全周</a>
+            <a class="type-list" href="javascript:searchtimelimit(1)" id="l1">周一</a>
+            <a class="type-list" href="javascript:searchtimelimit(2)" id="l2">周二</a>
+            <a class="type-list" href="javascript:searchtimelimit(3)" id="l3">周三</a>
+            <a class="type-list" href="javascript:searchtimelimit(4)" id="l4">周四</a>
+            <a class="type-list" href="javascript:searchtimelimit(5)" id="l5">周五</a>
+            <a class="type-list" href="javascript:searchtimelimit(6)" id="l6">周六</a>
+            <a class="type-list" href="javascript:searchtimelimit(7)" id="l7">周日</a>
         </div>
         <div class="type">
-            <div class="type-title">活动状态</div>
-            <a class="type-list" href="javascript:searchactstate(0)">所有状态</a>
-            <a class="type-list" href="javascript:searchactstate(1)">正在招募</a>
-            <a class="type-list" href="javascript:searchactstate(2)">已结束</a>
-            <a class="type-list" href="javascript:searchactstate(3)">进行中</a>
+            <div class="type-title">活动状态:</div>
+            <a class="type-list" href="javascript:searchactstate(0)" id="s0">所有状态</a>
+            <a class="type-list" href="javascript:searchactstate(1)" id="s1">正在招募</a>
+            <a class="type-list" href="javascript:searchactstate(2)" id="s2">已结束</a>
+            <a class="type-list" href="javascript:searchactstate(3)" id="s3">进行中</a>
         </div>
         <div style="margin-top:10px;height:5px;float:left;width:100%;background-color:#333"></div>
         <div style="height:30px;width:100%;background-color:#CCC;float:left"></div>
-        <div class="act-list" id="act_list">
-       <!--     <?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['act_list']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['act']->key => $_smarty_tpl->tpl_vars['act']->value){
-$_smarty_tpl->tpl_vars['act']->_loop = true;
-?>
-        <div class="summary">
-            <div class="act_img">
-                <img src="./include/img/activity/.1jpg" width="200px" height="130px"href="www.baidu.com"/>
-            </div>
-            <div class="words">
-                <span>
-                    <h2><a href="activity/detail.php?activityId=1" target="_blank"><?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
-</a><span class="atc_state"><?php echo $_smarty_tpl->tpl_vars['act']->value['state'];?>
-</span></h2>
-                    <p><?php echo $_smarty_tpl->tpl_vars['act']->value['profile'];?>
-</p>
-                </span>
-                <span class="otherInfo">
-                    <span class="first">活动时间：<?php echo $_smarty_tpl->tpl_vars['act']->value['time'];?>
-</span>
-                    <span>活动地点：<?php echo $_smarty_tpl->tpl_vars['act']->value['place'];?>
-</span>
-                    <span>招募人数：<em><?php echo $_smarty_tpl->tpl_vars['act']->value['offer_num'];?>
-</em></span>
-                </span>
-            </div>
-        </div>
-    <?php } ?> -->
+        <div class="act-list" style="float:left" id="act_list">
+        
         </div>
     </div>
     <div id="hotact">

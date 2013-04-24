@@ -150,28 +150,79 @@ function searchit(){
 	attributiontype = 0;
 	timelimit = 0;
 	actstate = 0;
+	selectedtt(timetype);
+	selectedat(attributiontype);
+	selectedtl(timelimit);
+	selectedas(actstate);
 	actnum = 10;
 	searchitt();
-	$("#result-bar").html("为您找到与“"+keyword+"”相关的活动如下，请点击分类进行进一步检索").show();
+	if(keyword=="")
+		$("#result-bar").html("为您显示所有活动列表").show();
+	else
+		$("#result-bar").html("为您找到与“"+keyword+"”相关的活动如下，请点击分类进行进一步检索").show();
 }
 function searchtimetype(temp){
+	removett(timetype);
 	timetype = temp;
+	selectedtt(timetype);
 	//alert(timetype);
 	searchitt();	
 }
+function selectedtt(temp){
+	document.getElementById("t"+temp).style.fontWeight="bolder";
+	document.getElementById("t"+temp).style.color="#606";
+}
+function removett(temp){
+	document.getElementById("t"+temp).style.fontWeight="normal";
+	document.getElementById("t"+temp).style.color="#000";
+}
 function searchattributiontype(temp){
+	removeat(attributiontype);
 	attributiontype = temp;
+	selectedat(attributiontype);
 	//alert(attributiontype);
 	searchitt();	
 }
+function selectedat(temp){
+	document.getElementById("a"+temp).style.fontWeight="bolder";
+	document.getElementById("a"+temp).style.color="#606";
+}
+function removeat(temp){
+	document.getElementById("a"+temp).style.fontWeight="normal";
+	document.getElementById("a"+temp).style.color="#000";
+}
 function searchtimelimit(temp){
+	removetl(timelimit);
 	timelimit = temp;
+	selectedtl(timelimit);
 	//alert(timelimit);
 	searchitt();	
 }
+function selectedtl(temp){
+	document.getElementById("l"+temp).style.fontWeight="bolder";
+	document.getElementById("l"+temp).style.color="#606";
+}
+function removetl(temp){
+	document.getElementById("l"+temp).style.fontWeight="normal";
+	document.getElementById("l"+temp).style.color="#000";
+}
 function searchactstate(temp){
+	removeas(actstate);
 	actstate = temp;
+	selectedas(actstate);
 	//alert(actstate);
+	searchitt();	
+}
+function selectedas(temp){
+	document.getElementById("s"+temp).style.fontWeight="bolder";
+	document.getElementById("s"+temp).style.color="#606";
+}
+function removeas(temp){
+	document.getElementById("s"+temp).style.fontWeight="normal";
+	document.getElementById("s"+temp).style.color="#000";
+}
+function more(){
+	actnum += 5;
 	searchitt();	
 }
 function searchitt(){
