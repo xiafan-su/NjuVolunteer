@@ -1,8 +1,10 @@
 #left {
 float:left;
+width:200px;
 }
 #right{
-margin: 0 0 0 200px; /* t-r-b-l  t-lr-b  tb-lr tblr */
+float:left; /* t-r-b-l  t-lr-b  tb-lr tblr */
+width:760px;
 }
 
 /* ×ó±ß */
@@ -10,8 +12,8 @@ margin: 0 0 0 200px; /* t-r-b-l  t-lr-b  tb-lr tblr */
 	display: block;
 	text-align:center;
 	cursor:pointer;
-	margin: 10px;
-	padding: 10px; /* pg:page ps:pause pi:pitch  po:position */ 
+	margin: 10px 20px 10px 0;
+	padding: 10px 10px 10px 0; /* pg:page ps:pause pi:pitch  po:position */ 
 	font-size: 14px;
 	background-color:  rgb(188,188,188);
 }
@@ -21,9 +23,49 @@ margin: 0 0 0 200px; /* t-r-b-l  t-lr-b  tb-lr tblr */
 
 
 /* ÓÒ±ß */
-.span_title{
-font-size: 14px;
-font-weight:600;
-margin:10px;
+.div_title{
+	width:760px;
+	float:left;
 }
-
+#act_title{
+	padding-top:10px;
+	font-size:28px;
+	font-weight:bolder;
+	height:30px;
+}
+#act_state{
+	padding-top:10px;
+	font-size:18px;
+	height:20px;
+	font-weight:bolder;
+}
+.div_content{
+	margin-top:20px;
+	width:760px;
+	float:left;	
+	font-size:14px;
+}
+.div_content_attr{
+	float:left;
+	width:100px;
+	height:20px;
+	padding-top:5px;
+}
+.div_content_value{
+	float:left;
+	width:660px;
+	height:20px;
+	padding-top:5px;
+}
+#act_detail{
+	width:760px;
+	float:left;	
+}
+.div_title2{
+	float:left;
+	font-size:18px;	
+	margin-top:20px
+}
+#act_introduction{
+	float:left;	
+}

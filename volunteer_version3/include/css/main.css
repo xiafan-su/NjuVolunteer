@@ -1,0 +1,44 @@
+@import url( "header.css");
+@import url( "footer.css");
+
+body {
+margin: 0;
+padding-top:0;
+font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
+font-size: 12px;
+line-height: 20px;
+}
+
+ul {
+list-style-type: none;
+margin:0;
+padding: 0;
+}
+
+
+.main{
+	padding-top:20px;
+width: 900px;  /* wi:windows */
+margin: 0px auto;  /* mk:marks */
+position: relative;
+}
+
+.button{
+	background-color:#DDD;
+	color:;
+	width:auto;
+	border-radius:4px;
+	padding: 4px 14px;
+	border:1px solid #BBB;
+	line-height: 20px;
+	height: 30px;
+	white-space: pre;
+	font-size: 16px;
+	vertical-align: middle;
+	box-sizing: border-box;
+	cursor:pointer;
+}
+.button:hover{
+	background-color:#48F;
+}
+

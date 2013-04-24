@@ -1,0 +1,97 @@
+#left {
+float:left;
+}
+#right{
+margin: 0 0 0 200px; /* t-r-b-l  t-lr-b  tb-lr tblr */
+}
+
+/* 左边 */
+#option a{
+	display: block;
+	text-align:center;
+	cursor:pointer;
+	margin: 10px;
+	padding: 10px; /* pg:page ps:pause pi:pitch  po:position */ 
+	font-size: 14px;
+	background-color:  rgb(188,188,188);
+}
+#option a:hover{
+	background-color:  rgb(200,200,200);
+}
+
+
+/* 右边 */
+.span_title{
+font-size: 14px;
+font-weight:600;
+margin:10px;
+}
+
+
+/*以下是报名情况的样式*/
+#act_title{
+font-size: 18px;
+}
+#act_state{
+font-size: 12px;
+font-weight:500;
+}
+.span_content ul li{
+margin: 10px 50px;
+}
+.span_content_attr{
+padding:  5px;
+font-size: 16px;
+}
+#act_people{
+display:none;
+}
+
+/*以下是报名列表的样式*/
+#update_text{font-size: 12px;cursor:pointer;color:green;font-weight:500;margin: 10px;}
+
+table.act_people_table{width:100%;border-collapse:collapse;margin:1em 0;}
+table.act_people_table th, table.act_people_table td{text-align:center;padding:0.5em;border:1px solid #fff;}
+table.act_people_table th{background:#328aa4;color:#fff;cursor:pointer;}
+table.act_people_table td{background:#e5f1f4;}
+
+table.act_people_table tr.even td{background:#e5f1f4;}
+table.act_people_table tr.odd td{background:#f8fbfc;}
+
+.act_user_id_col{cursor:pointer;}
+
+table.act_people_table th.down, table.act_people_table th.up {
+	background-color: rgb(66,210,30);
+}
+
+
+
+
+/* 以下是学生情况的样式 */
+.exp_people{
+	text-align: left;
+}
+
+.exp_people_title{
+	font-size: 16px;
+	margin: 10px;
+	padding: 10px; 
+	background-color: gray;
+}
+.exp_people_cotent{
+	margin: 10px;
+}
+
+.exp_people ul{
+	margin:  10px;
+}
+.exp_people ul li {
+	margin: 10px 10px 10px 50px;
+}
+.info_people_simple li span{
+	margin:  0 10px;
+}
+.exp_time_zero{
+	font-weight: 600;
+	color: red;
+}

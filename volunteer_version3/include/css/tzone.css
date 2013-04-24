@@ -1,0 +1,145 @@
+#up{
+background-color: rgb(245,245,245);
+border:1px rgb(200,200,200) solid;
+height: 100px;
+margin: 10px;
+margin-right:20px;
+padding: 10px; 
+}
+
+#down{
+	margin: 10px;
+}
+#down_left{
+	margin: 0px;
+	float: left;
+	border:1px rgb(200,200,200) solid;
+	width: 25%;  /* wi:windows */
+}
+
+
+
+#team_info p{
+	font-size: 18px;
+	font-weight: 600;
+	padding-left: 200px;
+}
+
+#logo{
+	float: left;
+	margin-left: 100px;
+}
+#notification_bar{
+	margin-left: 200px;
+}
+
+
+.menu_item{
+	margin: 5px;  /* mk:marks */
+}
+.menu_item_title, .menu_item_span{
+	font-size: 16px;
+	cursor:pointer;
+	padding: 10px;
+	padding-left: 10px;
+}
+.menu_item_title:hover, .menu_item_span:hover{
+	background-color: rgb(200,200,200); /*#F00 #FF0000 red */
+}
+.menu_item_span{
+	padding-left: 30px;  /* mk:marks */
+	
+}
+
+/*右边设置*/
+#down_right{
+	margin-top: 10px;
+	margin-left: 25%;
+}
+#main_title{
+	background-color: rgb(245,245,245); /*#F00 #FF0000 red */
+	padding: 10px;  /* mk:marks */
+	font-size: 16px;
+	border:1px rgb(200,200,200) solid;
+	margin: 10px; 
+}
+#main_content{
+	margin: 10px;  /* mk:marks */
+	border:1px rgb(200,200,200) solid;
+}
+#main_content2{
+	margin: 10px;  /* mk:marks */
+	display: none;
+	border:1px rgb(200,200,200) solid;
+}
+a{
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:none;
+}
+
+
+.fold_rec {
+height:20px;
+width:20px;
+padding: 2px 5px; /* pg:page ps:pause pi:pitch  po:position */ 
+cursor:pointer;
+background-color: rgb(200,200,200);
+}
+
+.rec_index{
+	cursor:pointer;
+}
+
+
+#go_back_home{
+	cursor:pointer;
+	margin: 5px 0;  /* mk:marks */
+	padding: 5px; /* pg:page ps:pause pi:pitch  po:position */ 
+	background-color: rgb(180,180,180);
+}
+
+#go_back_home:hover{
+	background-color: rgb(160,160,160); /*#F00 #FF0000 red */
+}
+
+#rec_dtl_ul{
+	
+}
+#rec_dtl_ul li{
+	width: 500px;
+	margin: 10px 0px;
+}
+
+.rec_dtl_attr{
+	width: 100px;
+	text-align: center;
+	background-color: #fFF; /*#F00 #FF0000 red */
+}
+
+#fold_volunteer{
+	cursor:pointer;
+	background-color: rgb(160,160,160);
+	padding: 10px;
+}
+#fold_volunteer:hover{
+background-color: rgb(200,200,200); 
+}
+
+#act_people_div{
+	display: none;
+}
+
+.link_add_rec{
+	cursor:pointer;
+	background-color: rgb(200,200,200); 
+}
+
+.link_add_rec:hover{
+	background-color: rgb(160,160,160); 
+}
+
+.go_to_act_people{
+	cursor:pointer;
+}

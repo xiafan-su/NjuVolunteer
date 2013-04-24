@@ -1,0 +1,6 @@
+<cross-domain-policy>
+<allow-access-from domain="localhost"/>
+<allow-access-from domain="114.212.190.77"/>
+<allow-access-from domain="*.cooliris.com"/>
+<allow-http-request-headers-from domain="*" headers="*"/>
+</cross-domain-policy>

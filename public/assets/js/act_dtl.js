@@ -1,4 +1,25 @@
-﻿
+﻿$(document).ready(function(){
+	//$("#take_part_in").text("testing");
+	 $.ajax({
+			type:"POST",
+			url:"http://localhost/NjuVolunteer/public/handle/is_participate_activity.php",
+			success:function(html){
+				//alert(html);
+				//alert("success");
+				if (html == 1)
+				{
+					$('#take_part_in').text("退出活动");
+				}
+				else
+				{
+					$('#take_part_in').text("参加活动");
+					                                          
+				}
+			}
+		});
+	
+});
+
 
 $(function(){
 	var register_update_text = function(){};
@@ -60,11 +81,11 @@ $(function(){
 	$("#take_part_in").click(function() {
          $.ajax({
 			type:"POST",
-			url:"http://localhost/volunteer/activity/handle/participate_activity.php",
+			url:"http://localhost/NjuVolunteer/public/handle/participate_activity.php",
 			success:function(html){
 				//alert(html);
-				//alert("success");
-				if (html == 1)
+				//alert(html);
+				if(html == 1)
 				{
 				 	alert("报名成功");
 					$('#take_part_in').text("退出活动");
@@ -75,9 +96,9 @@ $(function(){
 					$('#take_part_in').text("参加活动");
 					
 				}
-				 else
-				 alert("失败");
-				
+				 else{
+				 	alert("失败");
+				}
 			}
 		});
 

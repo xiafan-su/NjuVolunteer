@@ -11,9 +11,23 @@ class Act extends DB_Connect {
 	}
 	public function fetch_from_date($date)
 	{
-		//$arr;
+		 
+	}
+	public function test_part_act($user_id,$activity_id){
+		$query = "SELECT * FROM participation WHERE user_id='".$user_id."' AND activity_id=".$activity_id;
+		$select = mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$sub_num = "UPDATE activity_info SET offer_num = (offer_num-1) WHERE id=".$activity_id;
+		$delete = "DELETE FROM participation WHERE user_id='".$user_id."' AND activity_id=".$activity_id;
+		//mysql_query($delete,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		//mysql_query($sub_num,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		
-		//return $arr; 
+		return $select;
+	}
+	public function participate_activity_db($user_id,$activity_id,$_as_auditing){
+		$insert = "INSERT INTO participation(user_id,activity_id,state)VALUES('".$user_id."',".$activity_id.",'".$_as_auditing."')";	
+		$add_num = "UPDATE activity_info SET offer_num = (offer_num+1) WHERE id=".$activity_id;
+		mysql_query($insert,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		mysql_query($add_num,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 	}
 	public function fetch_hot()
 	{
@@ -77,9 +91,13 @@ class Act extends DB_Connect {
 	}
 
 	public function fetch_one( $id ){
-		
+		$query="select * from activity_info where id='".$id."'";
+		$select = mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;
 	}
-	
+	public function mysql_error(){
+			
+	}
 
 
 	public function modify( $id/* 其他参数未设置 */ ){
