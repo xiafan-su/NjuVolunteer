@@ -39,9 +39,13 @@
 
 <script type="text/javascript">
 var flag=0;
+$(document).ready(function(){
+	$("#loginModal").hide();	
+});
 function showit(){
 	if (flag==0)
 	{
+		$("#loginModal").show();
 		$("#backdrop").animate({height:'400px'});
 		$("#loginModal").animate({top:'130px'});
 		$('#login_button').text("返回");

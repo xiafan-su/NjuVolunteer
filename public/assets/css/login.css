@@ -334,6 +334,7 @@ table [class*=span], .row-fluid table [class*=span]
 	left:50%;
 	margin-left:-250px;
 	top:-500px;
+	display:none;
 }
 #login_button{
 	cursor:pointer;
