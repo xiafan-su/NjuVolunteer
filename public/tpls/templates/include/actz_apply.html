@@ -1,0 +1,27 @@
+
+这里是活动报名情况<br />
+<span id="go_back_home" class="">返回</span><br />
+<span id="show_activity_text" class="">更新</span>时间：<{$update_time}>
+
+<table id="act_people_table">
+	<tr>
+		<th><input id="check_all_act_people" type="checkbox" title="全选" disabled="true" /></th>
+		<th>学号</th>
+		<th>姓名</th>
+		<th>院系</th>
+		<th>年级</th>
+		<th>联系电话</th>
+		<th>qq号</th>
+	</tr>
+	<{section name=vol_index loop=$apply_list}>
+		<tr class="even">
+			<td><input class="checkbox" type="checkbox" /></td>
+			<td><a class="act_user_id_col" title="点击查看该学生的信息"><{$apply_list[vol_index].id}></a></td>
+			<td><{$apply_list[vol_index].name}></td>
+			<td><{$apply_list[vol_index].faculty}></td>
+			<td><{$apply_list[vol_index].grade}></td>
+			<td><{$apply_list[vol_index].tel}></td>
+			<td><{$apply_list[vol_index].qq}></td>
+		</tr>
+	<{/section}>
+</table>

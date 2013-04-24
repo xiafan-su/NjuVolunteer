@@ -9,9 +9,9 @@ class Team extends DB_Connect {
 	public function __construct($dbo=NULL){
 		parent::__construct($dbo);
 	}
-	public function fetch_act_all($fauculty_id)//发起的活动
+	public function fetch_act_all($faculty_id)//发起的活动
 	{
-		$query="select * from activity_info where publisher = '".$fauculty_id."'";
+		$query="select * from activity_info where publisher = '".$faculty_id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
@@ -64,6 +64,7 @@ class Team extends DB_Connect {
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
+	
 	public function fetch_apply_doc_volunteer($doc_id)//报名情况
 	{
 		$query="select * from act_record,user_info where doc_id = '".$doc_id."' and act_record.user_id=user_info.id";

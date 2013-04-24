@@ -1,5 +1,88 @@
 <?php
 
-include_once '../sys/core/init.inc.php';
+
+$_BASE_PATH = "../../";
+$_SMARTY_ROOT = "../tpls";
+
+include_once '../../sys/core/init.inc.php';
+
+
+$act_list = array();
+
+$team = new Team();
+$act_info = $team->fetch_act_all( 18 );//18为“信息管理学院”
+while($act_row = mysql_fetch_array($act_info) ) {
+	$act_elem['act_id'] = (int)$act_row['id'];
+	$act_elem['act_title'] = $act_row['name'];
+	$act_elem['consult'] = $act_row['responser'];
+	$act_elem['state'] = $act_row['state'];
+
+	$doc_info = $team->fetch_act_doc_all( $act_row['id'] );
+	$doc_list = array();
+	while( $doc_row = mysql_fetch_array( $doc_info ) ){
+		$doc_list[] = array( "doc_id"=>$doc_row['id'],"doc_time"=>$doc_row['vol_time'], "leader"=> $doc_row['leader'], "tel"=>$doc_row['tel']);
+	}
+	$act_elem['doc_list'] = $doc_list;
+	$act_list[] = $act_elem;
+}
+
+
+/*
+	$act_list = array(  
+		array( "act_id"=>1, "act_title"=>"活动名称1", "consult"=>"联系人1", "state"=>"状态1", 
+			"doc_list"=> array( 
+				array( "doc_time"=>"时间1", "doc_title"=>"标题1", "leader"=>"带队人1" ), 
+				array( "doc_time"=>"时间2", "doc_title"=>"标题2", "leader"=>"带队人2"  ) 
+			)
+		),
+		array( "act_id"=>2, "act_title"=>"活动名称2", "consult"=>"联系人2", "state"=>"状态2", 
+			"doc_list"=> array( 
+				array( "doc_time"=>"时间3", "doc_title"=>"标题3", "leader"=>"带队人3" ), 
+				array( "doc_time"=>"时间4", "doc_title"=>"标题4", "leader"=>"带队人4"  ), 
+				array( "doc_time"=>"时间5", "doc_title"=>"标题5", "leader"=>"带队人5"  ) 
+			)
+		),
+		array( "act_id"=>3, "act_title"=>"活动名称3", "consult"=>"联系人3", "state"=>"状态3", 
+			"doc_list"=> array( 
+				array( "doc_time"=>"时间6", "doc_title"=>"标题6", "leader"=>"带队人6" ), 
+				array( "doc_time"=>"时间7", "doc_title"=>"标题7", "leader"=>"带队人7"  ) 
+			)
+		)
+	);
+*/
+
+if( isset($_POST['type']) && $_POST['type'] == 'start' ) {	
+	$tpl->assign( "is_add", true );
+} else {
+	$tpl->assign( "is_add", false );
+}
+$tpl->assign( "act_list", $act_list );
+$tpl->assign( "current_time", date("Y-m-d H:i:s") );
+
+$tpl->display('include/actz.html');
+
 
 ?>
+
+页面内容：<br />
+（发起的、已完成的）活动列表<br />
+<br />
+页面参数：<br />
+<table border="1">
+<tr><th>参数</th><th>含义</th><th>取值</th></tr>
+<tr>
+	<td>type</td>
+	<td>指定活动显示的内容</td>
+	<td>
+		<table border="1">
+			<tr><td>"start"</td><td>显示发起的活动</td></tr>
+			<tr><td>"finished"</td><td>显示已完成的活动</td></tr>
+		</table>
+	</td>
+</tr>
+</table>
+<br />
+其他：<br />
+当前团队id请直接从SESSION获取<br />
+
+
