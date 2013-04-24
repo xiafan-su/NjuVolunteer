@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 08:55:00
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 13:15:49
          compiled from "../tpls/templates\handle\act_handle.html" */ ?>
 <?php /*%%SmartyHeaderCode:249651772d64a01d92-29562757%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '98ac2491da6aa96dd5b95ddfd79f9643e04a48d2' => 
     array (
       0 => '../tpls/templates\\handle\\act_handle.html',
-      1 => 1366727674,
+      1 => 1366779513,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51772d64a666f',
   'variables' => 
   array (
     'act_list' => 0,
     'act' => 0,
+    'have_more' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51772d64a666f',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51772d64a666f')) {function content_51772d64a666f($_smarty_tpl) {?><?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['act_list']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -52,4 +53,17 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
     </div>
 </div>
 <?php } ?>
+<?php if (isset($_smarty_tpl->tpl_vars['have_more']->value)){?>
+	<?php if ($_smarty_tpl->tpl_vars['have_more']->value==1){?>
+    <div class="more" id="more" onclick="more()">
+        <div style="text-align:center;font-size:30px;height:50px;padding-top:5px;float:left;width:960px;">更多</div>
+        <div style=""></div>
+    </div>
+    <?php }elseif($_smarty_tpl->tpl_vars['have_more']->value==0){?>
+    <div class="more" id="nomore">
+        <div style="text-align:center;font-size:30px;height:50px;padding-top:5px;float:left;width:960px;">没有更多了</div>
+        <div style=""></div>
+    </div>
+    <?php }?>
+<?php }?>
 <?php }} ?>
