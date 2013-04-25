@@ -11,7 +11,7 @@ function utf8Substr($str, $from, $len)
 }
 $a=new Act();
 $select=$a->admin_fetch_all();
-
+$act_listinfo=NULL;
 while($act_info = mysql_fetch_assoc($select)){
 		$act_listinfo[] = array('id' => $act_info['id'],'name' => $act_info['name'],'state' => $act_info['state'],'profile' => $act_info['profile'],'time' => $act_info['begin_time'],'place' => $act_info['place'],'offer_num' => $act_info['offer_num']);
 	}

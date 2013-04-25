@@ -13,10 +13,13 @@ $perm = $user->login($id, $psd);
 
 if( $perm == 3 ){
 	header( "Location: ../zonet.php" );
-} if( $perm == 2 ){
+} else if( $perm == 2 ){
 	header( "Location: ../zonev.php" );
-} else {
-	echo "false";
+} else if ($perm == 1 ) {
+	header("Location: ../super_admin.php");
+}else
+{
+	echo false;
 }
 return;
 

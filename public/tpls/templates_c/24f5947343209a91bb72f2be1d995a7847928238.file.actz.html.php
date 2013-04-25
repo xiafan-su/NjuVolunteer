@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 22:45:29
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-25 10:35:29
          compiled from "../tpls/templates\include\actz.html" */ ?>
 <?php /*%%SmartyHeaderCode:120495177f009b046a9-54500981%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '24f5947343209a91bb72f2be1d995a7847928238' => 
     array (
       0 => '../tpls/templates\\include\\actz.html',
-      1 => 1366811958,
+      1 => 1366857286,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5177f009c3cdf',
   'variables' => 
   array (
     'current_time' => 0,
@@ -23,8 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'is_add' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5177f009c3cdf',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5177f009c3cdf')) {function content_5177f009c3cdf($_smarty_tpl) {?>
 
@@ -67,7 +67,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['act_index']['last']       = 
 		   <td style="text-align:left">
 					<span class="util_doc_fold" actid="<?php echo $_smarty_tpl->tpl_vars['act_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['act_index']['index']]['act_id'];?>
 " title="展开/折叠活动记录">╬</span>
-					<a href="./act_dtl.php?activityId=<?php echo $_smarty_tpl->tpl_vars['act_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['act_index']['index']]['act_id'];?>
+					<a href="./act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['act_index']['index']]['act_id'];?>
 " target="_blank"><?php echo $_smarty_tpl->tpl_vars['act_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['act_index']['index']]['act_title'];?>
 </a>
 					<div id="doc_list_<?php echo $_smarty_tpl->tpl_vars['act_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['act_index']['index']]['act_id'];?>

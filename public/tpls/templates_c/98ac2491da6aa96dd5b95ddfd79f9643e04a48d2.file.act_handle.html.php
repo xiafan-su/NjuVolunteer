@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 23:45:54
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-25 08:59:44
          compiled from "../tpls/templates\handle\act_handle.html" */ ?>
 <?php /*%%SmartyHeaderCode:249651772d64a01d92-29562757%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '98ac2491da6aa96dd5b95ddfd79f9643e04a48d2' => 
     array (
       0 => '../tpls/templates\\handle\\act_handle.html',
-      1 => 1366818298,
+      1 => 1366851542,
       2 => 'file',
     ),
   ),
@@ -32,7 +32,8 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
 ?>
 <div class="summary">
     <div class="act_img">
-        <img src="./include/img/activity/.1jpg" width="200px" height="130px" href="www.baidu.com"/>
+        <img src="./assets/img/activity_center/<?php echo $_smarty_tpl->tpl_vars['act']->value['img'];?>
+.jpg" width="200px" height="130px" href="www.baidu.com"/>
     </div>
     <div class="words">
         <span>

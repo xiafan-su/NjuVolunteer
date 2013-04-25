@@ -28,7 +28,7 @@ class User extends DB_Connect {
 			$_SESSION[self::USER][self::PERM]=$results['permission'];
 			$_SESSION[self::USER][self::FACULTY]=$results['faculty_name'];
 			$_SESSION[self::USER][self::FACULTY_ID]=$results['faculty_id'];
-			if( $_SESSION[self::USER][self::PERM] == "Person" ) {
+			if( $_SESSION[self::USER][self::PERM] == "Administrator" ) {
 				$_SESSION[self::USER][self::PERM_ID] = 1;
 				return 1;
 			} else if( $_SESSION[self::USER][self::PERM] == "Visitor" ) {
