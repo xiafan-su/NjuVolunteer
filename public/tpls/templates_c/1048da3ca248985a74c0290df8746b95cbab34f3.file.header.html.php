@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 22:35:19
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-28 12:08:23
          compiled from "./tpls/templates\include\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:2711516a173f9c4c08-18384765%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1366814017,
+      1 => 1367122101,
       2 => 'file',
     ),
   ),
@@ -24,9 +24,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_516a173fa42a6')) {function content_516a173fa42a6($_smarty_tpl) {?><div class="header">
+<?php if ($_valid && !is_callable('content_516a173fa42a6')) {function content_516a173fa42a6($_smarty_tpl) {?><div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
+<div style="width:100%;position:absolute;top:70px;height:20px;left:0;background:-webkit-gradient(linear, left top, left bottom, from(#606), to(rgba(255,255,255,0)))"></div>
+<div class="header">
 	<div class="header_content">
-		<div class="logo"><a href="">NJUVolunteer</a></div>
+		<div style="width:160px;height:50px;float:left;background-color:rgb(225,225,225)"></div>
 		<div  class="main_menu">
 			<ul>
 				<li><a href="./index.php">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>

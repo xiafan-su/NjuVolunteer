@@ -18,8 +18,10 @@ function audited(temp){
 		url:"./handle/admin_audit.php",
 		data:{act_id:temp},
 		success:function(html){
-			if(html=='1')
+			if(html=='1'){
 				alert("成功审核该活动");
+				$('#activity_'+temp).slideUp();
+			}
 			else
 				alert("审核该活动失败");
 		}	

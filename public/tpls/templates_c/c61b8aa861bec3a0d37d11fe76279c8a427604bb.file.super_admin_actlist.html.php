@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 20:12:46
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 20:15:58
          compiled from "../tpls/templates\handle\super_admin_actlist.html" */ ?>
 <?php /*%%SmartyHeaderCode:323075177c1608194b6-34771857%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c61b8aa861bec3a0d37d11fe76279c8a427604bb' => 
     array (
       0 => '../tpls/templates\\handle\\super_admin_actlist.html',
-      1 => 1366805511,
+      1 => 1366805668,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 foreach ($_from as $_smarty_tpl->tpl_vars['act']->key => $_smarty_tpl->tpl_vars['act']->value){
 $_smarty_tpl->tpl_vars['act']->_loop = true;
 ?>
-<div class="act_info">
+<div class="act_info" id="activity_<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
+">
     <div class="act-name" id="act_name" onclick="showmore(<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
 )"><?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
 </div>

@@ -1,15 +1,15 @@
 .header {
-position:fixed;
+position:absolute;
 margin: 0;
-top:0px;
+top:20px;
 left:0px;
 padding: 0; 
 width: 100%; 
 height: 50px;
-background:-webkit-gradient(linear, left top, left bottom, from(#660066),to(#C0F));
+background-color:#606;
 -webkit-background-origin:padding; 
 -webkit-background-clip:content;
-z-index:10;
+z-index:110;
 }
 
 .header_content{
@@ -20,11 +20,11 @@ width: 960px;
 
 /* 以下是对logo的设置 */
 .logo{
-margin: 20px 5px 5px;
-font-weight: bold;
-font-size: 20px;
-float:left;
-display: block-inline;
+	position:absolute;
+	margin-left:-480px;
+	left:50%;
+	z-index:120;
+	top:0;
 }
 .logo a{
 text-decoration: none;
