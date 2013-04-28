@@ -1,7 +1,7 @@
 .header {
 position:absolute;
 margin: 0;
-top:20px;
+top:38px;
 left:0px;
 padding: 0; 
 width: 100%; 
@@ -67,4 +67,16 @@ text-decoration: none;
 }
 .welcome_bar a:hover{
 color:gray;
+}
+.backdrop{
+	position:fixed;
+	z-index:180;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+	display:none;
+	opacity:0;
+	background-color:#606;
+	-webkit-border-radius: 0 0  10px 10px;
 }

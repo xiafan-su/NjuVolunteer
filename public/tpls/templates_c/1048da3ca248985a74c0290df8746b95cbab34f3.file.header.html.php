@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-28 12:08:23
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-28 20:27:54
          compiled from "./tpls/templates\include\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:2711516a173f9c4c08-18384765%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1367122101,
+      1 => 1367152072,
       2 => 'file',
     ),
   ),
@@ -25,7 +25,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_516a173fa42a6')) {function content_516a173fa42a6($_smarty_tpl) {?><div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
-<div style="width:100%;position:absolute;top:70px;height:20px;left:0;background:-webkit-gradient(linear, left top, left bottom, from(#606), to(rgba(255,255,255,0)))"></div>
+<div style="width:100%;position:absolute;top:88px;height:20px;left:0;background:-webkit-gradient(linear, left top, left bottom, from(#606), to(rgba(255,255,255,0)))"></div>
 <div class="header">
 	<div class="header_content">
 		<div style="width:160px;height:50px;float:left;background-color:rgb(225,225,225)"></div>
@@ -63,7 +63,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </div>
  <?php echo $_smarty_tpl->getSubTemplate ("include/login.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
  
-
+<div class="backdrop" id="backdrop" onclick="hideit()">
+</div>
 <script type="text/javascript">
 var flag=0;
 var temp=0;
@@ -79,11 +80,11 @@ function showit(){
 			document.getElementById('backdrop').style.display="block";
 			$("#backdrop").animate({opacity:'0.8'},'fast');
 			setTimeout("$('#loginModal').animate({top:'130px'})",100);
-			$('#login_button').text('返回');
+			//$('#login_button').text('返回');
 			flag=1;
 			setTimeout("temp=0",600);
 		}
-	}else
+	}/*else
 	{
 		if(temp==0){
 			temp=1;
@@ -94,7 +95,17 @@ function showit(){
 			flag=0;
 			setTimeout("temp=0",600);
 		}
+	}*/
+}
+function hideit(){
+	if(temp==0){
+		temp=1;
+		$('#loginModal').animate({top:'-500px'});
+		setTimeout("$('#backdrop').animate({opacity:'0'})",300);
+		setTimeout("document.getElementById('backdrop').style.display='none'",500);
+		//$('#login_button').text('登录');
+		flag=0;
+		setTimeout("temp=0",600);
 	}
 }
-
 </script><?php }} ?>
