@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 22:35:19
+<?php /* Smarty version Smarty-3.1.7, created on 2013-04-27 23:37:33
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:28950516a173f951b03-87385774%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1366814017,
+      1 => 1367077051,
       2 => 'file',
     ),
   ),
@@ -44,6 +44,7 @@ function timedCount()
 </script>
 <title>首页</title>
 </head>
+<div style="position:absolute;top:50px;left:0;background:-webkit-gradient(linear, left top, left bottom, from(#000),to(rgb(225,225,225)));z-index:3;width:100%;height:18px;opacity:0.2"></div>
 <body>
 <?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
@@ -60,18 +61,12 @@ function timedCount()
             <div class=title>
             	<div style="float:left;width:10px;height:25px;margin-top:10px;margin-left:10px;background-color:#606"></div>
                 <div style="font-size:22px;float:left;margin-top:11px;margin-left:10px">公告通知</div>
-                <div style="margin-top:5px;height:3px;width:420px;float:left;background-color:#000"></div>
+                <div style="margin-top:5px;height:3px;width:420px;float:left;background-color:#777"></div>
                 <div style="height:10px;width:420px;float:left;background-color:#CCC"></div>
             </div>
      		<div class=news>
             	
-            	<li class=li>全国首个孤独症 儿童合唱团在宁成立</li>
-                <li class=li>我为"亚青"活动献一计-----"亚青"赛会期间文...</li>
-                <li class=li>青年志愿者徽章设计征集大赛活动方案</li>
-                <li class=li>雨花台区掀起学雷锋志愿活动热潮</li>
-                <li class=li>南京春运期间多措并举开展关爱农民工志愿服务</li>
-                <li class=li>魏纪中："亚青会将给城市带来正能量"</li>
-                <li class=li>第二届亚洲青年运动会吉祥物揭晓</li>
+
             </div>
         </div>
         <div class=link1>
@@ -95,7 +90,7 @@ function timedCount()
         	<div class=title1>
             	<div style="float:left;width:10px;height:25px;margin-top:10px;margin-left:10px;background-color:#606"></div>
                 <div style="font-size:22px;float:left;margin-top:11px;margin-left:10px">五星组织</div>
-                <div style="margin-top:5px;height:3px;width:240px;float:left;background-color:#000"></div>
+                <div style="margin-top:5px;height:3px;width:240px;float:left;background-color:#777"></div>
             </div>
         	<div class=news>
            		<li class=li>全国首个孤独症 儿童合唱团在宁成立</li>
@@ -111,7 +106,7 @@ function timedCount()
         	<div class=title2>
             	<div style="float:left;width:10px;height:25px;margin-top:10px;margin-left:10px;background-color:#606"></div>
                 <div style="font-size:22px;float:left;margin-top:11px;margin-left:10px">记录公示</div>
-                <div style="margin-top:5px;height:3px;width:420px;float:left;background-color:#000"></div>
+                <div style="margin-top:5px;height:3px;width:420px;float:left;background-color:#777"></div>
             </div>
         	<div class=news>
            		<li class=li>全国首个孤独症 儿童合唱团在宁成立</li>
@@ -127,7 +122,7 @@ function timedCount()
         	<div class=title3>
             	<div style="float:left;width:10px;height:25px;margin-top:10px;margin-left:10px;background-color:#606"></div>
                 <div style="font-size:22px;float:left;margin-top:11px;margin-left:10px">在线咨询</div>
-                <div style="margin-top:5px;height:3px;width:280px;float:left;background-color:#000"></div>
+                <div style="margin-top:5px;height:3px;width:280px;float:left;background-color:#777"></div>
             </div>
         	<div class=news>
            		<li class=li>全国首个孤独症 儿童合唱团在宁成立</li>

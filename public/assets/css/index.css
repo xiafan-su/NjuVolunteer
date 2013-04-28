@@ -1,5 +1,5 @@
 body{
-	background-color:#CCC;	
+	background-color:rgb(225,225,225);	
 }
 .adv{
 	width:100%;
@@ -29,7 +29,7 @@ body{
 	padding:0;
 	height:300px;
 	float:left;
-	background-color:#FFF;
+	background-color:#CCCs;
 }
 .box3{
 	width:280px;
@@ -47,7 +47,6 @@ body{
 	height:125px;
 	float:left;
 	background-color:rgb(225,225,225);
-	background-image:url( ../img/index/point.png);
 }
 .link2{
 	margin-top:10px;
@@ -57,7 +56,6 @@ body{
 	height:125px;
 	float:left;
 	background-color:rgb(225,225,225);
-	background-image:url( ../img/index/time.png);
 }
 .link3{
 	margin-top:10px;
@@ -68,7 +66,6 @@ body{
 	height:125px;
 	float:left;
 	background-color:rgb(225,225,225);
-	background-image:url( ../img/index/tools.png);
 }
 .link4{
 	margin-top:10px;
@@ -78,7 +75,6 @@ body{
 	height:125px;
 	float:left;
 	background-color:rgb(225,225,225);
-	background-image:url( ../img/index/print.png);
 }
 .bottom{
 	width:100%;
@@ -128,19 +124,18 @@ body{
 	width:240px;
 	height:300px;
 	float:left;
-	background-color:#FFF;
 }
 .box5{
 	margin-left:10px;
 	width:420px;
 	height:300px;
 	float:left;
-	background-color:#FFF;
 }
 .box6{
 	margin-left:10px;
 	width:280px;
 	height:300px;
 	float:left;
-	background-color:#FFF;
+}
+.news{
 }
