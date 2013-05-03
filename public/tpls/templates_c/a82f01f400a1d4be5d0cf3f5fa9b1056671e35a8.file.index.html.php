@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-28 21:53:33
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-02 09:37:02
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:28950516a173f951b03-87385774%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1367157210,
+      1 => 1367458617,
       2 => 'file',
     ),
   ),
@@ -57,6 +57,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div class="act-title-t" id="act-title2" onclick="changeact(2)"><div class="act-title-content">青春在路上</div></div>
             <div class="act-title-t" id="act-title3" onclick="changeact(3)"><div class="act-title-content">收线的风筝</div></div>
             <div class="act-title-t" id="act-title4" onclick="changeact(4)"><div class="act-title-content">城市边缘的梦想</div></div>
+            <div class="act-title-t" id="act-title4" onclick="changeact(4)"><div class="act-title-content">在行动</div></div>
 		</div>
     </div>
     <!--   -->
