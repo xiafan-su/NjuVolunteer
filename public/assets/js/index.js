@@ -11,6 +11,7 @@ var showp=['<h2 style="color:#FFF">夏凡参加XXX活动获得2小时志愿时�
 			'<h2 style="color:#FFF">段文娜参加XXX活动获得2小时志愿时间</h2>',
 			'<h2 style="color:#FFF">王瑶菁参加XXX活动获得2小时志愿时间</h2>',
 			'<h2 style="color:#FFF">王鑫参加XXX活动获得2小时志愿时间</h2>'];
+
 var next=1;
 var hide=1;
 var shownum=0;
@@ -20,7 +21,7 @@ $(document).ready(function(){
 		$('#act-detail'+i).hide();
 	}
 	$('#map-img').animate({marginTop:topp[0],marginLeft:left[0]});
-	showpeople();
+	showpeopleRan();
 });
 function changeact(temp){
 	if(flag==0 && act!=temp){
@@ -34,21 +35,20 @@ function changeact(temp){
 		setTimeout("flag=0",800);
 	}
 }
+function showpeopleRan(){
+	setTimeout("showpeople()",1000+Math.random()*2000);
+	setTimeout("showpeopleRan()",3000);
+}
 function showpeople(){
 	if(shownum==9)
-		shownum=0;
-	$('#item'+next).html(showp[shownum]);
+		shownum = 0;
 	shownum++;
-	$('#item'+next).animate({marginLeft:Math.random()*490+'px',marginTop:Math.random()*180+'px',opacity:1},1000);
-	next++;
-	if(next==7)
-		next = 1;
-	setTimeout("hidepeople()",2000);
-	setTimeout("showpeople()",1000);
-}
-function hidepeople(){
-	$('#item'+next).animate({marginLeft:Math.random()*490+'px',marginTop:Math.random()*180+'px',opacity:0},1000);
-	hide++;
-	if(hide==7)
-		hide = 1;
+	var s = shownum;
+	//alert(showp[shownum-1]);
+	document.getElementById('item'+show).style.marginLeft=(Math.random()*480)+"px";
+	document.getElementById('item'+show).style.marginTop="170px";
+	$('#item'+show).html(showp[show-1]);
+	$('#item'+show).animate({marginTop:'70px',opacity:'1'},2000)
+	setTimeout("$('#item'+show).animate({marginTop:'20px',opacity:'0'},1000)",2000);
+	setTimeout("document.getElementById('item'+show).style.display='none'",3000);
 }

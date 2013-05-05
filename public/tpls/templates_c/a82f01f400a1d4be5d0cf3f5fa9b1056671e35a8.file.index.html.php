@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-02 09:37:02
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-06 00:22:21
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:28950516a173f951b03-87385774%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1367458617,
+      1 => 1367770884,
       2 => 'file',
     ),
   ),
@@ -42,10 +42,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<div class="map-img" id="map-img"><img src="./assets/img/index/map.png" /></div>
 		</div>
 		<div class="act-img">
-        	<div class="act-detail" id="act-detail1"><div class="act-detail-content">时光流逝，只有他们永远保持着童心与随之的天真</div></div>
-            <div class="act-detail" id="act-detail2"><div class="act-detail-content">望我们和孩子们都一样行动在青春的道路上，希望我们能够给孩子们带来一个梦想</div></div>
-            <div class="act-detail" id="act-detail3"><div class="act-detail-content">风筝的线会断，你我之间爱的线不会断</div></div>
-            <div class="act-detail" id="act-detail4"><div class="act-detail-content">同一片天空下，我们希望他们享有同样的教育</div></div>
+        	<div class="act-detail" id="act-detail1"><span class="act-detail-content">时光流逝，只有他们永远保持着童心与随之的天真</span></div>
+            <div class="act-detail" id="act-detail2"><span class="act-detail-content">望我们和孩子们都一样行动在青春的道路上，希望我们能够给孩子们带来一个梦想</span></div>
+            <div class="act-detail" id="act-detail3"><span class="act-detail-content">风筝的线会断，你我之间爱的线不会断</span></div>
+            <div class="act-detail" id="act-detail4"><span class="act-detail-content">同一片天空下，我们希望他们享有同样的教育</span></div>
        		<div class="act-img-t" id="act-img1"><img src="./assets/img/index/education1.png" /></div>
             <div class="act-img-t" id="act-img2"><img src="./assets/img/index/education2.png" /></div>
             <div class="act-img-t" id="act-img3"><img src="./assets/img/index/education3.png" /></div>
@@ -53,11 +53,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</div>
         
 		<div class="act-title">
-        	<div class="act-title-t" id="act-title1" onclick="changeact(1)"><div class="act-title-content">爱心家园</div></div>
-            <div class="act-title-t" id="act-title2" onclick="changeact(2)"><div class="act-title-content">青春在路上</div></div>
-            <div class="act-title-t" id="act-title3" onclick="changeact(3)"><div class="act-title-content">收线的风筝</div></div>
-            <div class="act-title-t" id="act-title4" onclick="changeact(4)"><div class="act-title-content">城市边缘的梦想</div></div>
-            <div class="act-title-t" id="act-title4" onclick="changeact(4)"><div class="act-title-content">在行动</div></div>
+        	<div class="act-title-t" id="act-title1" onclick="changeact(1)">爱心家园</div>
+            <div class="act-title-t" id="act-title2" onclick="changeact(2)">青春在路上</div>
+            <div class="act-title-t" id="act-title3" onclick="changeact(3)">收线的风筝</div>
+            <div class="act-title-t" id="act-title4" onclick="changeact(4)">城市边缘的梦想</div>
+            <div class="act-title-t" id="act-title4" onclick="changeact(4)" style="margin-bottom:0px">在行动</div>
 		</div>
     </div>
     <!--   -->
@@ -88,7 +88,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="show-item" id="item4"></div>
         <div class="show-item" id="item5"></div>
         <div class="show-item" id="item6"></div>
-        <div class="show-cover"></div>
+        <div class="show-item" id="item7"></div>
+        <div class="show-item" id="item8"></div>
+        <div class="show-item" id="item9"></div>
+        <div class="show-cover"><img src="./assets/img/index/11.jpg" width="960px" style="margin-top:-200px"/></div>
+        <div class="pic-cover"></div>
     </div>
     <div class="share">
     	<div class="share-bar-left"></div>
@@ -112,19 +116,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <div class="others">
     	<div class="others-element">
             <div class="others-content">
-            	公告通知<hr />"我的南大梦"征文启事 <hr />"美丽南大"摄影大赛征稿启事<hr />南京大学2012年校园开放日公告
+            	<h3>公告通知</h3><hr />"我的南大梦"征文启事 <hr />"美丽南大"摄影大赛征稿启事<hr />南京大学2012年校园开放日公告
             </div>
         </div>
         <div class="others-h-bar"></div>
     	<div class="others-element">
             <div class="others-content">
-            	留言咨询<hr />请问希望之星的志愿者招募满了吗？<hr />请问在哪可以办理志愿服务的证明？<hr />这学期还有仙林中学的活动吗？
+            	<h3>留言咨询</h4><hr />请问希望之星的志愿者招募满了吗？<hr />请问在哪可以办理志愿服务的证明？<hr />这学期还有仙林中学的活动吗？
             </div>
         </div>
         <div class="others-h-bar"></div>
         <div class="others-element">
             <div class="others-content">
-            	五星组织<hr />南京大学青年志愿者协会<hr />计算机系青协<hr />文学院青协
+            	<h3>五星组织</h4><hr />南京大学青年志愿者协会<hr />计算机系青协<hr />文学院青协
             </div>
         </div>
     </div>

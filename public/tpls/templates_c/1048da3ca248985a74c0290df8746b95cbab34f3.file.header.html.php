@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-28 20:27:54
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-05 23:09:41
          compiled from "./tpls/templates\include\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:2711516a173f9c4c08-18384765%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1367152072,
+      1 => 1367766550,
       2 => 'file',
     ),
   ),
@@ -28,7 +28,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div style="width:100%;position:absolute;top:88px;height:20px;left:0;background:-webkit-gradient(linear, left top, left bottom, from(#606), to(rgba(255,255,255,0)))"></div>
 <div class="header">
 	<div class="header_content">
-		<div style="width:160px;height:50px;float:left;background-color:rgb(225,225,225)"></div>
+		<div style="width:176px;height:50px;float:left;background-color:rgb(225,225,225)"></div>
 		<div  class="main_menu">
 			<ul>
 				<li><a href="./index.php">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>

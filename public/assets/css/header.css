@@ -20,6 +20,8 @@ width: 960px;
 
 /* 以下是对logo的设置 */
 .logo{
+	padding-left:8px;
+	padding-right:8px;
 	position:absolute;
 	margin-left:-480px;
 	left:50%;
