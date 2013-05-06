@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-06 22:24:02
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-06 23:43:09
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:28950516a173f951b03-87385774%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1367850218,
+      1 => 1367854981,
       2 => 'file',
     ),
   ),
@@ -42,10 +42,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<div class="map-img" id="map-img"><img src="./assets/img/index/map.png" /></div>
 		</div>
 		<div class="act-img">
-        	<div class="act-detail" id="act-detail1"><span class="act-detail-content">时光流逝，只有他们永远保持着童心与随之的天真</span></div>
-            <div class="act-detail" id="act-detail2"><span class="act-detail-content">望我们和孩子们都一样行动在青春的道路上，希望我们能够给孩子们带来一个梦想</span></div>
-            <div class="act-detail" id="act-detail3"><span class="act-detail-content">风筝的线会断，你我之间爱的线不会断</span></div>
-            <div class="act-detail" id="act-detail4"><span class="act-detail-content">同一片天空下，我们希望他们享有同样的教育</span></div>
+        	<div class="act-detail" id="act-detail1">
+            	<span class="act-detail-title">爱心家园</span>
+            	<span class="act-detail-content">时光流逝，只有他们永远保持着童心与随之的天真</span></div>
+            <div class="act-detail" id="act-detail2">
+            	<span class="act-detail-title">青春在路上</span>
+                <span class="act-detail-content">望我们和孩子们都一样行动在青春的道路上，希望我们能够给孩子们带来一个梦想</span></div>
+            <div class="act-detail" id="act-detail3">
+            	<span class="act-detail-title">收线的风筝</span>
+            	<span class="act-detail-content">风筝的线会断，你我之间爱的线不会断</span></div>
+            <div class="act-detail" id="act-detail4">
+            	<span class="act-detail-title">城市边缘的梦想</span>
+            	<span class="act-detail-content">同一片天空下，我们希望他们享有同样的教育</span></div>
        		<div class="act-img-t" id="act-img1"><img src="./assets/img/index/education1.png" /></div>
             <div class="act-img-t" id="act-img2"><img src="./assets/img/index/education2.png" /></div>
             <div class="act-img-t" id="act-img3"><img src="./assets/img/index/education3.png" /></div>
