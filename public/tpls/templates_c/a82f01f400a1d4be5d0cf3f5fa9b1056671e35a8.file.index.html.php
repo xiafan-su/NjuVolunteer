@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-06 00:22:21
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-06 22:04:31
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:28950516a173f951b03-87385774%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1367770884,
+      1 => 1367849069,
       2 => 'file',
     ),
   ),
@@ -91,6 +91,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="show-item" id="item7"></div>
         <div class="show-item" id="item8"></div>
         <div class="show-item" id="item9"></div>
+        <div class="show-item" id="iitem1"></div>
+        <div class="show-item" id="iitem2"></div>
+        <div class="show-item" id="iitem3"></div>
+        <div class="show-item" id="iitem4"></div>
+        <div class="show-item" id="iitem5"></div>
+        <div class="show-item" id="iitem6"></div>
+        <div class="show-item" id="iitem7"></div>
+        <div class="show-item" id="iitem8"></div>
+        <div class="show-item" id="iitem9"></div>
         <div class="show-cover"><img src="./assets/img/index/11.jpg" width="960px" style="margin-top:-200px"/></div>
         <div class="pic-cover"></div>
     </div>
