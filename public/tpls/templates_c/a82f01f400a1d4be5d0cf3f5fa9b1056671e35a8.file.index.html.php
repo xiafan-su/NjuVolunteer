@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-06 22:04:31
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-06 22:24:02
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:28950516a173f951b03-87385774%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1367849069,
+      1 => 1367850218,
       2 => 'file',
     ),
   ),
@@ -53,11 +53,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</div>
         
 		<div class="act-title">
-        	<div class="act-title-t" id="act-title1" onclick="changeact(1)">爱心家园</div>
-            <div class="act-title-t" id="act-title2" onclick="changeact(2)">青春在路上</div>
-            <div class="act-title-t" id="act-title3" onclick="changeact(3)">收线的风筝</div>
-            <div class="act-title-t" id="act-title4" onclick="changeact(4)">城市边缘的梦想</div>
-            <div class="act-title-t" id="act-title4" onclick="changeact(4)" style="margin-bottom:0px">在行动</div>
+        	<div class="act-title-t" id="act-title1" onclick="changeact(1)"><div class="badpoint"><div class="circle"></div></div>
+            	爱心家园</div>
+            <div class="act-title-t" id="act-title2" onclick="changeact(2)"><div class="badpoint"><div class="circle"></div></div>
+            	青春在路上</div>
+            <div class="act-title-t" id="act-title3" onclick="changeact(3)"><div class="badpoint"><div class="circle"></div></div>
+            	收线的风筝</div>
+            <div class="act-title-t" id="act-title4" onclick="changeact(4)"><div class="badpoint"><div class="circle"></div></div>
+            	城市边缘的梦想</div>
+            <div class="act-title-t" id="act-title4" onclick="changeact(4)" style="margin-bottom:0px"><div class="badpoint"><div class="circle"></div></div>
+            	在行动</div>
 		</div>
     </div>
     <!--   -->
