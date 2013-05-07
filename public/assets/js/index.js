@@ -20,9 +20,11 @@ var showp2=['<h2 style="color:#FFF">夏凡参加XXX活动获得2小时志愿时�
 			'<h2 style="color:#FFF">段文娜参加XXX活动获得2小时志愿时间</h2>',
 			'<h2 style="color:#FFF">王瑶菁参加XXX活动获得2小时志愿时间</h2>',
 			'<h2 style="color:#FFF">王鑫参加XXX活动获得2小时志愿时间</h2>'];
-
+var claimstr = "志愿宣言：-我愿意成为一名光荣的志愿者-我承诺-尽己所能-不计报酬-帮助他人-服务社会-践行志愿精神-传播先进文化-为建设团结互助-平等友爱-共同前进的美好社会贡献力量";
+var claimindex = 0;
 var next=1;
 var hide=1;
+var autoindex = 1;
 var shownum=0;
 var shownum2=0;
 $(document).ready(function(){
@@ -31,6 +33,7 @@ $(document).ready(function(){
 		$('#act-detail'+i).hide();
 	}
 	$('#map-img').animate({marginTop:topp[0],marginLeft:left[0]});
+	var int1 = self.setInterval("nextpic()",5000);
 	showpeople();
 	setTimeout("showpeople2()",1500);
 });
@@ -73,4 +76,33 @@ function showpeople2(){
 	setTimeout("$('#iitem'+shownum2).animate({marginTop:'20px',opacity:'0'},1000)",2000);
 	setTimeout("document.getElementById('iitem'+shownum2).style.display='none'",3000);
 	setTimeout("showpeople2()",3000);
+}
+function nextpic(){
+	if(autoindex == 4)
+		autoindex = 0;
+	autoindex++;
+	changeact(autoindex);
+}
+function showclaim(){
+	if(claimindex==0){
+		$('#volclaim').animate({height:'430px',top:'100px',marginLeft:'-200px',width:'400px',opacity:'0.8'},1000);
+		setTimeout("claima()",1000);
+	}
+}
+function claima(){
+	if(claimindex<86){
+		if(claimstr[claimindex]=='-')
+			$('#volclaim').append('<br />');
+		else
+			$('#volclaim').append(claimstr[claimindex]);
+		claimindex++;
+		setTimeout("claima()",100);
+	}
+}
+function hiddenit(){
+	if(claimindex>=86){
+		$('#volclaim').animate({height:'0px',top:'220px',marginLeft:'0px',width:'0px',opacity:'0'},1000)	
+		$('#volclaim').html('');
+		claimindex=0;
+	}
 }
