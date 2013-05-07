@@ -26,7 +26,7 @@ var hide=1;
 var shownum=0;
 var shownum2=0;
 $(document).ready(function(){
-	for(i=2;i<5;i++){
+	for(i=2;i<6;i++){
 		$('#act-img'+i).hide();
 		$('#act-detail'+i).hide();
 	}
