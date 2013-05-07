@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-07 11:04:31
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-07 11:35:45
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:28950516a173f951b03-87385774%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1367895825,
+      1 => 1367897643,
       2 => 'file',
     ),
   ),
@@ -52,12 +52,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             	<span class="act-detail-title">收线的风筝</span>
             	<span class="act-detail-content">风筝的线会断，你我之间爱的线不会断</span></div>
             <div class="act-detail" id="act-detail4">
+            	<span class="act-detail-title">我们在行动</span>
+            	<span class="act-detail-content">为了提供公平的教育机会，我们将会一刻不停的奉献我们的青春</span></div>
+            <div class="act-detail" id="act-detail5">
             	<span class="act-detail-title">城市边缘的梦想</span>
             	<span class="act-detail-content">同一片天空下，我们希望他们享有同样的教育</span></div>
        		<div class="act-img-t" id="act-img1"><img src="./assets/img/index/education1.png" /></div>
             <div class="act-img-t" id="act-img2"><img src="./assets/img/index/education2.png" /></div>
             <div class="act-img-t" id="act-img3"><img src="./assets/img/index/education3.png" /></div>
             <div class="act-img-t" id="act-img4"><img src="./assets/img/index/education4.png" /></div>
+            <div class="act-img-t" id="act-img5"><img src="./assets/img/index/education5.jpg" /></div>
 		</div>
         
 		<div class="act-title">
@@ -68,9 +72,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div class="act-title-t" id="act-title3" onclick="changeact(3)"><div class="badpoint"><div class="circle"></div></div>
             	收线的风筝</div>
             <div class="act-title-t" id="act-title4" onclick="changeact(4)"><div class="badpoint"><div class="circle"></div></div>
+            	我们在行动</div>
+            <div class="act-title-t" id="act-title5" onclick="changeact(5)" style="margin-bottom:0px"><div class="badpoint"><div class="circle"></div></div>
             	城市边缘的梦想</div>
-            <div class="act-title-t" id="act-title4" onclick="changeact(4)" style="margin-bottom:0px"><div class="badpoint"><div class="circle"></div></div>
-            	在行动</div>
+
 		</div>
     </div>
     <!--   -->
@@ -82,7 +87,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
     	<div class="box-element">
         	<div class="title-bar"></div>
-            <div class="title-content">图片故事</div>
+            <div class="title-content" onclick="show3dwall()">图片故事</div>
         </div>
         <div class="box-element">
         	<div class="title-bar"></div>
@@ -115,7 +120,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="show-item" id="iitem7"></div>
         <div class="show-item" id="iitem8"></div>
         <div class="show-item" id="iitem9"></div>
-        <div class="show-cover"><img src="./assets/img/index/11.jpg" width="960px" style="margin-top:-200px"/></div>
+        <div class="show-cover"><img src="./assets/img/index/11.jpg" width="960px" style=""/></div>
         <div class="pic-cover"></div>
     </div>
     <div class="share">
