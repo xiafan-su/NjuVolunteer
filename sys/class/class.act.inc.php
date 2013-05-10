@@ -45,7 +45,48 @@ class Act extends DB_Connect {
 			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			return $select;
 	}
-	
+	public function new_comment($user_id,$act_id,$resp_id,$comment,$time){
+			$insert = "
+			insert into act_comment
+			(
+				user_id,act_id,resp_id,comment,time
+			)
+			values(
+				'".$user_id."','".$act_id."','".$resp_id."','".$comment."','".$time."'
+			)
+			;";
+			
+			if (!mysql_query($insert,$this->root_conn))
+			{
+			  die('Error: ' . mysql_error());
+			}
+			return 1;
+	}
+	public function find_same($activity_id){
+		$act_info=NULL;
+		$select = mysql_query("select * from apply_act where act_id = '".$activity_id."'")or trigger_error(mysql_error(),E_USER_ERROR);
+		while ($row = mysql_fetch_array($select)){
+			$result = mysql_query("select * from apply_act where user_id = '".$row['user_id']."' and act_id != '".$activity_id."'")or trigger_error(mysql_error(),E_USER_ERROR);
+			while ($roow = mysql_fetch_array($result)){
+				$info = mysql_query("select * from activity_info where id = '".$roow['act_id']."'")or trigger_error(mysql_error(),E_USER_ERROR);
+				while ($detail = mysql_fetch_array($info)){
+					$act_info[] = array('name' => $detail['name'],'responser' => $detail['responser'],'id' => $detail['id']);
+				}
+			}
+		}
+		return $act_info;
+	}
+
+	public function get_comment($activity_id){
+		$comment_info=NULL;
+		$comment = mysql_query("select * from act_comment where act_id = '".$activity_id."'")or trigger_error(mysql_error(),E_USER_ERROR);
+		while ($comment_row = mysql_fetch_array($comment)){
+			$comment_name = mysql_query("select * from user_info where id = '".$comment_row['user_id']."'")or trigger_error(mysql_error(),E_USER_ERROR);
+			$comment_name1 = mysql_fetch_array($comment_name);
+			$comment_info[] = array('id' => $comment_row['user_id'],'name' =>$comment_name1['name'],'time' => $comment_row['time'],'content'=>$comment_row['comment']);
+		}
+		return $comment_info;
+	}
 	public function create_new( $name,$place,$time_type,$attribution_type,$begin_time,$end_time,$detail_time,$total_num,$need_audit,$responser,$responser_tel,$last_time,$activity_profile,$state,$publisher){
 		$accepted_num		=0;
 		$offer_num			=0;

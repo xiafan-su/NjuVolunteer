@@ -15,6 +15,14 @@ $("#my_activity").click(function(){
 });
 $("#activity_record").click(function(){
 	$("#main_title").text("活动记录");
+	$.ajax({
+	type:"POST",
+	url:"./include/vol_act_record.php",
+	success:function(html){
+		//alert(html);
+		$("#main_content").html(html);
+	}	
+});
 });
 $("#new_notice").click(function(){
 	$("#main_title").text("新通知");

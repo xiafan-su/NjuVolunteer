@@ -1,4 +1,15 @@
-﻿$(document).ready(function(){
+﻿var editor;
+KindEditor.ready(function(K) {
+	editor = K.create('textarea[name="com_content"]', {
+		resizeType : 1,
+		allowPreviewEmoticons : false,
+        allowImageUpload : false,
+        items : [
+        	'emoticons', 'image']
+		});
+});
+
+$(document).ready(function(){
 	//$("#take_part_in").text("testing");
 	//alert($('#act_id').val());
 	 $.ajax({
@@ -110,10 +121,26 @@ $(function(){
 	$('#update_text').bind("click", function(){
 		update_people();
 	});
+	var response_id = null;
+	$('#submit_comment').click(function() {
+		content = editor.html();
+		$.ajax({
+			type:"POST",
+			url:"./handle/comment_apply.php",
+			data:{content:editor.html(),res_id:response_id,act_id:$('#act_id').attr("value")},
+			success:function(html){
+				alert(html);
+			}
+		});
+		editor.html(" ");
+		window.location.reload();
+	});
 	
-
+	$('.reply').click(function(){
+		editor.html("Reply " + $(this).prev().prev().prev().text() + ":");
+		response_id =  $(this).prev().prev().prev().prev().text();
+	});
 });
-
 
 
 

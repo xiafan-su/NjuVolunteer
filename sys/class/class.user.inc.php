@@ -15,16 +15,23 @@ class User extends DB_Connect {
 	public function __construct(){
 		parent::__construct();
 	}
-	public function fetch_person_info($id)
+	public function fetch_person_info($id)//获取个人资料
 	{
 		$sql="SELECT * from user_info where id='".$id."' ";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		$results=mysql_fetch_assoc($select);
 		return $results;
 	} 
-	public function fetch_person_act($id)
+	public function fetch_person_act($id)//获取我参与的活动
 	{
-		$sql="SELECT ai.name,ai.detail_time from apply_act ac ,activity_info ai where ac.user_id='".$id."' and ac.state='audited' and ac.act_id=ai.id";
+		$sql="SELECT ai.* from apply_act ac ,activity_info ai where ac.user_id='".$id."' and ac.act_id=ai.id";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		//$results=mysql_fetch_assoc($select);
+		return $select;
+	} 
+	public function fetch_act_record($id)//
+	{
+		$sql="SELECT ad.date,ai.name,ar.base_time,ar.honor_time,ar.performance_level,ar.comment from act_doc ad, act_record ar ,activity_info ai where ar.user_id='".$id."' and ad.id=ar.doc_id and ai.id=ad.act_id";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		//$results=mysql_fetch_assoc($select);
 		return $select;

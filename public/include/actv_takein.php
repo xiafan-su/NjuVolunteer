@@ -8,7 +8,7 @@ $results=$u->fetch_person_act($_SESSION[User::USER][User::ID]);
 
 while($act_info = mysql_fetch_assoc($results))
 {
-	$act_listinfo[] = array('name' => $act_info['name'],'detail_time' => $act_info['detail_time']);
+	$act_listinfo[] = array('name' => $act_info['name'],'detail_time' => $act_info['detail_time'],'state' => $act_info['state']);
 };
 if (isset($act_listinfo))
 	$tpl->assign("act_list",$act_listinfo);
