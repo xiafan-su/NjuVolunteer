@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-28 19:05:27
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-09 21:54:32
          compiled from "../tpls/templates\handle\act_handle.html" */ ?>
 <?php /*%%SmartyHeaderCode:249651772d64a01d92-29562757%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '98ac2491da6aa96dd5b95ddfd79f9643e04a48d2' => 
     array (
       0 => '../tpls/templates\\handle\\act_handle.html',
-      1 => 1367111722,
+      1 => 1368098823,
       2 => 'file',
     ),
   ),
@@ -37,7 +37,7 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
     </div>
     <div class="words">
         <span>
-            <h2><a href="handle/act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
+            <h2><a href="act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
 " target="_blank"><?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
 </a><span class="atc_state"><?php echo $_smarty_tpl->tpl_vars['act']->value['state'];?>
 </span></h2>

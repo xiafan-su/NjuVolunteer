@@ -1,5 +1,17 @@
+
+
+
 $("#my_activity").click(function(){
 	$("#main_title").text("我参与的活动");
+	
+	$.ajax({
+	type:"POST",
+	url:"./include/actv_takein.php",
+	success:function(html){
+		//alert(html);
+		$("#main_content").html(html);
+	}	
+});
 });
 $("#activity_record").click(function(){
 	$("#main_title").text("活动记录");
@@ -12,10 +24,26 @@ $("#notice_record").click(function(){
 });
 $("#vol_profile").click(function(){
 	$("#main_title").text("个人资料");
+	$.ajax({
+	type:"POST",
+	url:"./include/infov.php",
+	success:function(html){
+		//alert(html);
+		$("#main_content").html(html);
+	}	
+});
 });
 
 $("#change_password").click(function(){
-	$("#main_title").text("修改密码");
+	$("#main_title").text("修改资料");
+	$.ajax({
+		type:"POST",
+		url:"./include/infov_edit.php",
+		success:function(html){
+			//alert(html);
+			$("#main_content").html(html);
+		}
+	});
 })
 $("#my_team").click(function(){
 	$("#main_title").text("我的团队");

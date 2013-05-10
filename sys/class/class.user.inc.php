@@ -15,7 +15,20 @@ class User extends DB_Connect {
 	public function __construct(){
 		parent::__construct();
 	}
-
+	public function fetch_person_info($id)
+	{
+		$sql="SELECT * from user_info where id='".$id."' ";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		$results=mysql_fetch_assoc($select);
+		return $results;
+	} 
+	public function fetch_person_act($id)
+	{
+		$sql="SELECT ai.name,ai.detail_time from apply_act ac ,activity_info ai where ac.user_id='".$id."' and ac.state='audited' and ac.act_id=ai.id";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		//$results=mysql_fetch_assoc($select);
+		return $select;
+	} 
 	public function login($id, $md5psd){
 
 		//$sql="SELECT u.id,u.name,u.permission,f.faculty_name,f.faculty_id FROM user_info u,faculty f WHERE u.faculty = f.faculty_name AND u.id='".$id."' AND u.password='".$md5psd."'";
