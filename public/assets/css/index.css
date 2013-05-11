@@ -277,7 +277,7 @@ h2{
 	font-size:20px;
 	display:block;
 	background-color:rgb(102,51,102);
-	z-index:1000;
+	z-index:200;
 	-webkit-border-radius:20px;
 	text-align:center;
 	margin-top:10px;

@@ -3,8 +3,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>njuvolunteer</title>
 <style>
-	html{height:100%;overflow:hidden;}
-	body{height:100%;margin:0;padding:0;}
+html{height:100%;overflow:hidden;}
+body{height:100%;margin:0;padding:0;}
 </style>
 </head>
 
@@ -24,5 +24,6 @@
      		 	allowScriptAccess="always" />
     </object>
 </div>
+
 </body>
 </html>
