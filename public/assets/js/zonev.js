@@ -30,6 +30,9 @@ $("#new_notice").click(function(){
 	$("#main_content").html(nowloading);
 	$.ajax({
 	type:"POST",
+	data:{
+		read:0
+		},
 	url:"./include/vol_note.php",
 	success:function(html){
 			$("#main_content").html(html);
@@ -38,6 +41,16 @@ $("#new_notice").click(function(){
 });
 $("#notice_record").click(function(){
 	$("#main_title").text("历史通知");
+	$.ajax({
+	type:"POST",
+	data:{
+		read:1
+		},
+	url:"./include/vol_note.php",
+	success:function(html){
+			$("#main_content").html(html);
+	}
+});
 });
 $("#vol_profile").click(function(){
 	$("#main_title").text("个人资料");

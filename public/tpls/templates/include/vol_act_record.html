@@ -12,7 +12,7 @@
     <{foreach item=record from=$act_record_list}>
       <tr>
         <td id="date"><{$record.date}></td>
-        <td id="name"><{$record.name}></td>
+        <td id="name"><a href="./act_dtl.php?act_id=<{$record.id}>" target="_blank"><{$record.name}></a></td>
         <td id="base_time"><{$record.base_time}></td>
         <td id="honor_time"><{$record.honor_time}></td>
         <td id="performance_level"><{$record.performance_level}></td>

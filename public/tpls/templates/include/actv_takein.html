@@ -8,7 +8,7 @@
   <{if isset($act_list)}>
     <{foreach item=act from=$act_list}>
       <tr>
-        <td id="name"><{$act.name}></td>
+        <td id="name"><a href="./act_dtl.php?act_id=<{$act.id}>" target="_blank"><{$act.name}></a></td>
         <td id="stud_no"><{$act.detail_time}></td>
         <td id="state"><{$act.state}></td>
       </tr>

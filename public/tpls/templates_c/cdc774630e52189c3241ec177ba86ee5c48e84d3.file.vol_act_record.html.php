@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-12 18:39:49
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-12 21:58:44
          compiled from "../tpls/templates\include\vol_act_record.html" */ ?>
 <?php /*%%SmartyHeaderCode:28145518d025b55abd6-36201483%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cdc774630e52189c3241ec177ba86ee5c48e84d3' => 
     array (
       0 => '../tpls/templates\\include\\vol_act_record.html',
-      1 => 1368355156,
+      1 => 1368367048,
       2 => 'file',
     ),
   ),
@@ -43,8 +43,9 @@ $_smarty_tpl->tpl_vars['record']->_loop = true;
       <tr>
         <td id="date"><?php echo $_smarty_tpl->tpl_vars['record']->value['date'];?>
 </td>
-        <td id="name"><?php echo $_smarty_tpl->tpl_vars['record']->value['name'];?>
-</td>
+        <td id="name"><a href="./act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['record']->value['id'];?>
+" target="_blank"><?php echo $_smarty_tpl->tpl_vars['record']->value['name'];?>
+</a></td>
         <td id="base_time"><?php echo $_smarty_tpl->tpl_vars['record']->value['base_time'];?>
 </td>
         <td id="honor_time"><?php echo $_smarty_tpl->tpl_vars['record']->value['honor_time'];?>
