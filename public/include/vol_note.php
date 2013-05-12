@@ -7,7 +7,7 @@ $u=new User();
 $results=$u->fetch_notes($_SESSION[User::USER][User::ID],0);
 while ($note=mysql_fetch_assoc($results))
 {
-	$note_list[]=array('title'=>$note['title'],'time' => $note['time']);
+	$note_list[]=array('title'=>$note['title'],'time' => $note['time'],'note_id'=>$note['id']);
 }
 if (isset($note_list))
 	$tpl->assign('note_list',$note_list);

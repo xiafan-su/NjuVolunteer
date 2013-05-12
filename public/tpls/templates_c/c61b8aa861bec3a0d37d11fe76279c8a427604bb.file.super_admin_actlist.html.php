@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-11 20:53:14
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-12 18:49:28
          compiled from "../tpls/templates\handle\super_admin_actlist.html" */ ?>
 <?php /*%%SmartyHeaderCode:323075177c1608194b6-34771857%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c61b8aa861bec3a0d37d11fe76279c8a427604bb' => 
     array (
       0 => '../tpls/templates\\handle\\super_admin_actlist.html',
-      1 => 1367730835,
+      1 => 1368267486,
       2 => 'file',
     ),
   ),
@@ -49,7 +49,7 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
 </div>
         <div class="hiden-profile">简介：<?php echo $_smarty_tpl->tpl_vars['act']->value['profile'];?>
 </div> 
-        <div class="table-bar"></div>   
+        <div class="table-bar"></div> 
      </div>
 </div>
 <?php } ?><?php }} ?>

@@ -24,6 +24,11 @@ class Act extends DB_Connect {
 	{
 		return 2;
 	}
+	public function admin_fetch_info(){
+	$query="select count(*) as num from activity_info";
+	$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+	return $select;
+	}
 	public function admin_fetch_all()
 	{
 		$query="select * from activity_info where state='auditing'";

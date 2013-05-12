@@ -1,7 +1,5 @@
 <?php
 
-
-
 class User extends DB_Connect {
 
 	const USER = "_user";
@@ -44,6 +42,12 @@ class User extends DB_Connect {
 			$sql="SELECT * FROME note where recv_id='".$id."' and recv_type='0' and state='read'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		//$results=mysql_fetch_assoc($select);
+		return $select;
+	} 
+	public function fetch_one_note($id)//获取我的通知
+	{
+		$sql="SELECT t.name,n.title,n.content,n.time from note n,team t where n.id='".$id."' and t.id=n.sender_id";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	} 
 	public function login($id, $md5psd){

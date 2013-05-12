@@ -16,7 +16,8 @@ while($act_info = mysql_fetch_assoc($select)){
 		$act_listinfo[] = array('id' => $act_info['id'],'name' => $act_info['name'],'state' => $act_info['state'],'profile' => $act_info['profile'],'time' => $act_info['begin_time'],'place' => $act_info['place'],'offer_num' => $act_info['offer_num']);
 	}
 	$tpl->assign("act_list",$act_listinfo);
-	$tpl->display("handle/super_admin_actlist.html");
-
-
+	if(mysql_num_rows($select)!=0)
+		$tpl->display("handle/super_admin_actlist.html");
+	else
+		$tpl->display("handle/super_admin_noactlist.html");
 ?>

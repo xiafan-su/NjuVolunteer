@@ -4,10 +4,10 @@
     <th scope="row">时间</th>
   </tr>
   <{if isset($note_list)}>
-    <{foreach item=record from=$note_list}>
+    <{foreach item=note from=$note_list}>
       <tr>
-        <td id="title"><{$record.title}></td>
-        <td id="time"><{$record.time}></td>
+        <td id="title" onclick="show_note(<{$note.note_id}>)"><{$note.title}></td>
+        <td id="time"><{$note.time}></td>
       </tr>
     <{/foreach}>
    <{/if}>

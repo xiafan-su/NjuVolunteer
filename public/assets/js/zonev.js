@@ -1,5 +1,22 @@
 
 
+function show_note(id){
+	//alert(id);
+	$.ajax({
+		type:"POST",
+		data:{
+			id:id
+			},
+		url:"./include/vol_note_detail.php",
+		success:function(html){
+			$("#note_detail").html(html);
+			$("#note_detail").show();
+			$('#note_detail').animate({opacity:'1'},1000);
+			
+		}
+});
+}
+
 
 $("#my_activity").click(function(){
 	$("#main_title").text("我参与的活动");

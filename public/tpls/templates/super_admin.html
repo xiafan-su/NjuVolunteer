@@ -1,26 +1,83 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>超级管理员</title>
 <link href="./assets/css/main.css" rel="stylesheet" />
-<link href="./assets/css/super_admin.css" rel="stylesheet" />
+<link href="./assets/css/tipswindown.css" rel="stylesheet" />
+<link href="./assets/css/zonea.css" rel="stylesheet" />
+<link href="./assets/css/actz.css" rel="stylesheet" />
+<link href="./assets/css/rec_dtl.css" rel="stylesheet" />
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="./assets/js/super_admin.js"></script>
-</head>
 
+<title>超级管理员空间</title>
+</head>
 <body>
 <{include file="include/header.html"}>
+
+
 <div class="main">
-	<div class="act-info-title">
-    	<div class="act-name" style="cursor:auto;text-align:center">活动名称</div>
-        <div class="act-state">活动状态</div>
-    </div>
-    <div id="content">
-    
-    </div>
+
+	<div id="up" class="">
+		<div id="logo" class="">
+			<img src="./assets/img/head_photo/boy/4.jpg" width="80px" height="80px" border="0" alt="<{$user_name}>">
+		</div>
+		<div id="admin_info" class="">
+			<p><{$user_name}></p>
+
+
+		</div>
+	</div>
+<div id="down" class="">
+			<div id="down_left" class="">
+				<div id="" class="menu">
+					<div id="" class="menu_item">
+						<div id="" class="menu_item_title">
+							管理活动
+						</div>
+                        <div id="examine_act" class="menu_item_span">
+							审核活动
+						</div>
+						<div id="view_act_info" class="menu_item_span">
+							查看活动统计
+						</div>
+					</div>
+					<div id="" class="menu_item">
+						<div id="" class="menu_item_title">
+							管理团队
+						</div>
+						<div id="add_new_team" class="menu_item_span">
+							增加新团队
+						</div>
+						<div id="change_team_info" class="menu_item_span">
+							修改团队密码
+						</div>
+					</div>
+					<div id="" class="menu_item">
+						<div id="" class="menu_item_title">
+							管理志愿者
+						</div>
+						<div id="add_vol_time" class="menu_item_span">
+							增加服务时间
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="down_right" class="">
+					<div id="main_title" class=""></div>
+					<div id="main_content" class="">
+					</div>
+
+			</div>
+	</div>
 </div>
+
+
+
 <{include file="include/footer.html"}>
 </body>
+<script type="text/javascript" src="./assets/js/super_admin.js"></script>
+<script src="./assets/js/tipswindown.js"></script>
+<script src="./assets/js/actz.js"></script>
 
 </html>

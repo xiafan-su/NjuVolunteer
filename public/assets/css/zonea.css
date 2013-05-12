@@ -5,7 +5,6 @@ height: 100px;
 margin: 10px;
 margin-right:20px;
 padding: 10px; 
--webkit-border-radius:20px;
 }
 
 #down{
@@ -16,9 +15,11 @@ padding: 10px;
 	float: left;
 	border:1px rgb(200,200,200) solid;
 	width: 25%;  /* wi:windows */
-	-webkit-border-radius:10px;
 }
-#team_info p{
+
+
+
+#admin_info p{
 	font-size: 18px;
 	font-weight: 600;
 	padding-left: 200px;
@@ -29,31 +30,21 @@ padding: 10px;
 	margin-left: 100px;
 }
 #notification_bar{
-	
+	margin-left: 200px;
 }
-#user_name{
-	font-size:20px;
-	margin-left:20px;
-	font-weight:600;
-	margin-top:20px;
-	margin-bottom:20px;
-}
-#notes{
-	margin-left:20px;
-}
+
 
 .menu_item{
 	margin: 5px;  /* mk:marks */
 }
 .menu_item_title, .menu_item_span{
 	font-size: 16px;
+	cursor:pointer;
 	padding: 10px;
 	padding-left: 10px;
 }
-.menu_item_span:hover{
+.menu_item_title:hover, .menu_item_span:hover{
 	background-color: rgb(200,200,200); /*#F00 #FF0000 red */
-	-webkit-border-radius:10px;
-	cursor:pointer;
 }
 .menu_item_span{
 	padding-left: 30px;  /* mk:marks */
@@ -71,12 +62,10 @@ padding: 10px;
 	font-size: 16px;
 	border:1px rgb(200,200,200) solid;
 	margin: 10px; 
-	-webkit-border-radius:10px;
 }
 #main_content{
 	margin: 10px;  /* mk:marks */
 	border:1px rgb(200,200,200) solid;
-	-webkit-border-radius:10px;
 }
 #main_content2{
 	margin: 10px;  /* mk:marks */
@@ -104,60 +93,4 @@ a:hover{
 
 #act_people_div{
 	display: none;
-}
-
-.base-info{
-	padding:10px;
-	text-align:center;
-	float:left;
-	font-size:18px;
-	-webkit-border-radius:10px;	
-}
-table{
-	border-collapse:separate;
-	-webkit-border-radius:5px;
-}
-table th{
-	color:rgb(102,51,102);
-	border:0px;
-	background:rgb(245,245,245);
-	width:100px;
-	height:30px;
-}
-table td{
-	height:30px;
-	background:rgb(245,245,245);
-	border:0px;
-}
-#base,#more{
-	margin-left:20px;
-	margin-right:20px;	
-}
-.left-bar{
-	float:left;
-	margin-top:15px;
-	height:10px;
-	width:260px;
-	background:-webkit-gradient(linear, right top, left top, from(rgba(104,104,104,1)), to(rgba(225,225,225,0.2)));
-}
-.right-bar{
-	float:left;
-	margin-top:16px;
-	height:8px;
-	width:260px;
-	background:-webkit-gradient(linear, left top, right top, from(rgba(104,104,104,1)), to(rgba(225,225,225,0.2)));
-}
-#note_detail{
-	position:fixed;
-	left:50%;
-	top:50%;
-	margin-left:-200px;
-	margin-top:-150px;
-	width:400px;
-	height:300px;
-	opacity:0;
-	z-index:195;
-	background:rgba(102,51,102,0.6);
-	display:none;
-	-webkit-border-radius:20px;
 }
