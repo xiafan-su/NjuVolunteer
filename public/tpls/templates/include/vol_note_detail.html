@@ -1,19 +1,48 @@
-
-<div class="c-sender"><{$sender}></div>
-<div class="c-title"><{$title}></div>
-<div class="c-content"><{$content}></div>
-<div class="c-time"><{$time}></div>
+<div class="c-haha">
+	<div class="c-title"><{$title}></div>
+	<div class="c-sender">发送者：<{$sender}></div>
+	<div class="c-time"><{$time}></div>
+    <div style="width:400px;height:5px;background:#999;float:left"></div>
+	<div class="c-content"><{$content}></div>
+	<div class="c-button"><input type="button" class="button" value="确定" onclick="readit(<{$id}>)"/></div>
+</div>
 <style>
+.c-haha{
+}
 .c-sender{
-	width:400px;
-	
+	float:left;
+	width:190px;
+	text-align:right;
+	margin-top:10px;
 }
 .c-title{
-	
+	text-align:center;
+	margin-top:20px;
+	float:left;
+	width:400px;
+	font-size:18px;	
 }
 .c-content{
-	
+	float:left;
+	margin-left:30px;
+	margin-top:20px;
+	margin-right:30px;
 }
 .c-time{
+	float:right;
+	width:200px;
+	text-align:left;
+	margin-top:10px;
+}
+.c-button{
+	position:absolute;
+	top:100%;
+	margin-top:-40px;
+	left:50%;
+	margin-left:-31px;
+}
+.button{
+	color:#FFF;
+	background:rgb(102,51,102);	
 }
 </style>

@@ -15,6 +15,7 @@ if (isset($note))
 	$tpl->assign('title',$note['title']);
 	$tpl->assign('content',$note['content']);
 	$tpl->assign('time',$note['time']);
+	$tpl->assign('id',$id);
 }
 $tpl->display("include/vol_note_detail.html");
 

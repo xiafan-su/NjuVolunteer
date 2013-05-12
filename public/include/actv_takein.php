@@ -8,7 +8,13 @@ $results=$u->fetch_person_act($_SESSION[User::USER][User::ID]);
 
 while($act_info = mysql_fetch_assoc($results))
 {
-	$act_listinfo[] = array('name' => $act_info['name'],'detail_time' => $act_info['detail_time'],'state' => $act_info['state']);
+	if ($act_info['state']=="audited")
+		$state="报名通过";
+	if ($act_info['state']=="auditing")
+		$state="待审核";
+	if ($act_info['state']=="auditfail")
+		$state="被拒";
+	$act_listinfo[] = array('id' => $act_info['id'],'name' => $act_info['name'],'detail_time' => $act_info['detail_time'],'state' => $state);
 };
 if (isset($act_listinfo))
 	$tpl->assign("act_list",$act_listinfo);
