@@ -26,6 +26,13 @@ $("#activity_record").click(function(){
 });
 $("#new_notice").click(function(){
 	$("#main_title").text("新通知");
+	$.ajax({
+	type:"POST",
+	url:"./include/vol_note.php",
+	success:function(html){
+			$("#main_content").html(html);
+	}
+});
 });
 $("#notice_record").click(function(){
 	$("#main_title").text("历史通知");

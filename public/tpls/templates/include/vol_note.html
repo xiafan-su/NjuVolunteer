@@ -1,0 +1,15 @@
+<table width="200" border="1">
+  <tr>
+    <th scope="row">通知标题</th>
+    <th scope="row">时间</th>
+  </tr>
+  <{if isset($note_list)}>
+    <{foreach item=record from=$note_list}>
+      <tr>
+        <td id="title"><{$record.title}></td>
+        <td id="time"><{$record.time}></td>
+      </tr>
+    <{/foreach}>
+   <{/if}>
+
+</table>
