@@ -10,8 +10,6 @@ KindEditor.ready(function(K) {
 });
 
 $(document).ready(function(){
-	//$("#take_part_in").text("testing");
-	//alert($('#act_id').val());
 	 $.ajax({
 			type:"POST",
 			url:"./handle/participate_state.php",
@@ -116,11 +114,16 @@ $(function(){
 		});
 
     });
-
+	
+	$('#upload_pic').click(function(){
+		$('#drop_cover').animate({opacity:'0.5'},1000);
+		$('#drop').animate({top:'100px',marginLeft:'-250px',height:'300px',width:'500',opacity:'1'},1000);
+	});
 
 	$('#update_text').bind("click", function(){
 		update_people();
 	});
+	
 	var response_id = null;
 	$('#submit_comment').click(function() {
 		content = editor.html();
@@ -129,11 +132,11 @@ $(function(){
 			url:"./handle/comment_apply.php",
 			data:{content:editor.html(),res_id:response_id,act_id:$('#act_id').attr("value")},
 			success:function(html){
+				window.location.reload();
 				alert(html);
 			}
 		});
 		editor.html(" ");
-		window.location.reload();
 	});
 	
 	$('.reply').click(function(){

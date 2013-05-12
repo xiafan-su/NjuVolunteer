@@ -29,9 +29,19 @@ class User extends DB_Connect {
 		//$results=mysql_fetch_assoc($select);
 		return $select;
 	} 
-	public function fetch_act_record($id)//
+	public function fetch_act_record($id)//获取我的活动记录
 	{
 		$sql="SELECT ad.date,ai.name,ar.base_time,ar.honor_time,ar.performance_level,ar.comment from act_doc ad, act_record ar ,activity_info ai where ar.user_id='".$id."' and ad.id=ar.doc_id and ai.id=ad.act_id";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		//$results=mysql_fetch_assoc($select);
+		return $select;
+	} 
+	public function fetch_notes($id,$state)//获取我的通知
+	{
+		if ($state==0)//取出未读通知
+			$sql="SELECT * from note where recv_id='".$id."' and state='unread' and recv_type='0'";
+		else//取出历史所有通知
+			$sql="SELECT * FROME note where recv_id='".$id."' and recv_type='0' and state='read'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		//$results=mysql_fetch_assoc($select);
 		return $select;

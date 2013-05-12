@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-11 20:50:30
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-12 11:07:52
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:91615177d2ae9126f8-24185650%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368238864,
+      1 => 1368328015,
       2 => 'file',
     ),
   ),
@@ -44,10 +44,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <link href="./assets/css/main.css" rel="stylesheet" />
 <link href="./assets/css/login.css" rel="stylesheet" />
 <link href="./assets/css/act_dtl.css" rel="stylesheet" />
+<link href="./assets/css/dropzone.css" rel="stylesheet" />
+
 
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/kindeditor-min.js"></script>
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/lang/zh_CN.js"></script>
-
+<script type="text/javascript" src="./plugin/dropzone.js"></script>
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
 
 
@@ -120,7 +122,9 @@ $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
 </td>
             <td><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['content'];?>
 </td>
-            <td class="reply">回复</td>
+            <td class="reply">
+            	<span onMouseOver="this.style.textDecoration='underline';" onMouseout="this.style.textDecoration='none';">回复</span>
+            </td>
             </tr>
             <?php } ?>
             </table>
@@ -153,10 +157,11 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
             <?php }else{ ?>
             <tr class="odd">
             <?php }?>
-            <td><span><a href="http://www.baidu.com" target="_blank"><?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
-</a></span></td>
-            <td><span><?php echo $_smarty_tpl->tpl_vars['act']->value['responser'];?>
-</span></td>
+            <td><a href="act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
+" target="_blank"><?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
+</a></td>
+            <td><?php echo $_smarty_tpl->tpl_vars['act']->value['responser'];?>
+</td>
             </tr>
             <?php } ?>
             </table>
@@ -164,6 +169,20 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
         	</div>
             <div id="act_same"  class="div_content"></div>
         </div>
+        
+        <!--<div class="drop-cover" id="drop_cover"></div>-->
+        <div class="drop" id="drop">
+        	<!--form action="../public/handle/upload_picture.php" method="post" enctype="multipart/form-data">
+            <label for="file">Filename:</label>
+            <input type="file" name="file" id="file" />
+            <br />
+            <input type="submit" name="submit" id="upload_submit" value="Submit" />
+            </form-->
+            
+            <form aciton="/file-upload" class="dropzone" id="my_dropzone"></form>
+        </div>
+        
+        
 		<div id="" class="clearBar">&nbsp;</div>
         
     </div><!-- 结束right div -->
