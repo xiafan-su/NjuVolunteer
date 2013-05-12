@@ -272,7 +272,7 @@ table [class*=span], .row-fluid table [class*=span]
 	border-left-color: rgba(0,0,0,0.1);
 	filter: progid:dximagetransform.microsoft.gradient(enabled=false);
 	background-repeat: repeat-x;
-	background-color: rgb(250, 167, 50);
+	background-color: rgb(102, 51, 102);
 }
 .modal-header
 {

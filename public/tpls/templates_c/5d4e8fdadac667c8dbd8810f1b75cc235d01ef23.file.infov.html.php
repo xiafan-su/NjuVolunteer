@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-09 21:33:42
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-11 20:29:52
          compiled from "../tpls/templates\include\infov.html" */ ?>
 <?php /*%%SmartyHeaderCode:23479518b8c32d81eb5-27340981%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5d4e8fdadac667c8dbd8810f1b75cc235d01ef23' => 
     array (
       0 => '../tpls/templates\\include\\infov.html',
-      1 => 1368106419,
+      1 => 1368275389,
       2 => 'file',
     ),
   ),
@@ -41,10 +41,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_518b8c32db17d')) {function content_518b8c32db17d($_smarty_tpl) {?><div id="" class="">
-    <div class="base-info">-基本资料-</div>
-    <div class="base-info">-个人技能-</div>
-    <div id="base">
+<?php if ($_valid && !is_callable('content_518b8c32db17d')) {function content_518b8c32db17d($_smarty_tpl) {?><style>
+table td{
+	text-align:left;
+}
+</style>
+<div id="" class="">
+	
+   	<div id="base">
+    <div>
+    	<div class="left-bar"></div>
+    	<div class="base-info">基本资料</div>
+    	<div class="right-bar"></div>
+	</div>
 <table width="200" border="1">
   <tr>
     <th scope="row">姓名</th>
@@ -113,8 +122,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   </tr>
 </table>
 </div>
-
 <div id="more">
+ 	<div>
+    	<div class="left-bar"></div>
+    	<div class="base-info">个人技能</div>
+    	<div class="right-bar"></div>
+	</div>
 	<table width="200" border="1">
   <tr>
     <th scope="row">cet4</th>

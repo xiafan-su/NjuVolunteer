@@ -1,6 +1,4 @@
 
-
-
 $("#my_activity").click(function(){
 	$("#main_title").text("我参与的活动");
 	
@@ -26,9 +24,11 @@ $("#activity_record").click(function(){
 });
 $("#new_notice").click(function(){
 	$("#main_title").text("新通知");
+	$("#main_content").html("程序猿正在加班建设中，请耐心等待");
 });
 $("#notice_record").click(function(){
 	$("#main_title").text("历史通知");
+	$("#main_content").html("程序猿正在加班建设中，请耐心等待");
 });
 $("#vol_profile").click(function(){
 	$("#main_title").text("个人资料");
@@ -55,7 +55,24 @@ $("#change_password").click(function(){
 })
 $("#my_team").click(function(){
 	$("#main_title").text("我的团队");
+	$("#main_content").html("程序猿正在加班建设中，请耐心等待");
 })
 $("#my_focused_team").click(function(){
 	$("#main_title").text("关注的团队");
+	$("#main_content").html("程序猿正在加班建设中，请耐心等待");
 })
+
+function handlechange(){
+	$.ajax({
+		type:"POST",
+		url:"./handle/infov_change.php",
+		data:{
+				},
+		success:function(html){
+			if(html==1)
+				alert("修改成功");
+			else
+				alert("修改失败");	
+		}
+	});	
+}

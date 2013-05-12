@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-10 20:41:33
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-11 19:05:22
          compiled from "../tpls/templates\include\actv_takein.html" */ ?>
 <?php /*%%SmartyHeaderCode:16792518cd1c9eec9f9-91633381%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f769ac5b08ee9b0df3433514abe1d10a24976d8d' => 
     array (
       0 => '../tpls/templates\\include\\actv_takein.html',
-      1 => 1368189662,
+      1 => 1368270319,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_518cd1c9f2404')) {function content_518cd1c9f2404($_smarty_tpl) {?><table width="200" border="1">
+<?php if ($_valid && !is_callable('content_518cd1c9f2404')) {function content_518cd1c9f2404($_smarty_tpl) {?><div style="margin-left:20px;margin-right:20px;">
+<table width="200" border="1">
   <tr>
     <th scope="row">活动名称</th>
     <th scope="row">详细时间</th>
@@ -47,4 +48,5 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
     <?php } ?>
    <?php }?>
 
-</table><?php }} ?>
+</table>
+</div><?php }} ?>

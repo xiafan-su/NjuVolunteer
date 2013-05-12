@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-09 21:54:32
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-11 21:08:05
          compiled from "../tpls/templates\handle\act_handle.html" */ ?>
 <?php /*%%SmartyHeaderCode:249651772d64a01d92-29562757%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '98ac2491da6aa96dd5b95ddfd79f9643e04a48d2' => 
     array (
       0 => '../tpls/templates\\handle\\act_handle.html',
-      1 => 1368098823,
+      1 => 1368277681,
       2 => 'file',
     ),
   ),
@@ -36,22 +36,22 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
 .jpg" width="200px" height="130px" href="www.baidu.com"/>
     </div>
     <div class="words">
-        <span>
+        <div>
             <h2><a href="act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
 " target="_blank"><?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
 </a><span class="atc_state"><?php echo $_smarty_tpl->tpl_vars['act']->value['state'];?>
 </span></h2>
             <p><?php echo $_smarty_tpl->tpl_vars['act']->value['profile'];?>
 </p>
-        </span>
-        <span class="otherInfo">
+        </div>
+        <div class="otherInfo">
             <span class="first">活动时间：<?php echo $_smarty_tpl->tpl_vars['act']->value['time'];?>
 </span>
             <span>活动地点：<?php echo $_smarty_tpl->tpl_vars['act']->value['place'];?>
 </span>
             <span>招募人数：<em><?php echo $_smarty_tpl->tpl_vars['act']->value['offer_num'];?>
 </em></span>
-        </span>
+        </div>
     </div>
 </div>
 <?php } ?>

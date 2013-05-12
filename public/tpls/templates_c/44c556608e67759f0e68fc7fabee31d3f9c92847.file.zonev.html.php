@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-09 18:27:54
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-11 17:22:23
          compiled from "./tpls/templates\zonev.html" */ ?>
 <?php /*%%SmartyHeaderCode:237935177976cd9d591-18584448%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '44c556608e67759f0e68fc7fabee31d3f9c92847' => 
     array (
       0 => './tpls/templates\\zonev.html',
-      1 => 1368095270,
+      1 => 1368264088,
       2 => 'file',
     ),
   ),
@@ -45,7 +45,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<div id="logo" class="" style="float:left">
 			<img src="./assets/img/head_photo/boy/178.jpg" width="80px" height="80px" border="0" alt="">
 		</div>
-		<div id="person_info" class="" style="float:left">
+		<div id="person_info" class="person-info" style="float:left">
 			<div id="user_name" ><?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
 </div>
 			<div id="notification_bar" class="" >
