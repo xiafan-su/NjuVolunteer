@@ -150,7 +150,21 @@ class Act extends DB_Connect {
 		else return false;
 	}
 
-
+	public function upload_picture(){
+		if ((($_FILES["file"]["type"] == "image/jpeg")|| ($_FILES["file"]["type"] == "image/jpg")|| ($_FILES["file"]["type"] == "image/png"))){
+			if (file_exists("d:picture/" . $_FILES["file"]["name"])){
+			  return $_FILES["file"]["name"] . " already exists. ";
+			}
+			else{
+			  move_uploaded_file($_FILES["file"]["tmp_name"],
+			  "d:/picture/" . $_FILES["file"]["name"]);
+			  return "Stored in: " . "d:/picture/" . $_FILES["file"]["name"];
+			}
+		}
+		else{
+		  return "Invalid file";
+		}
+	}
 	public function modify( $id/* 其他参数未设置 */ ){
 		
 	}
