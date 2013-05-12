@@ -70,3 +70,27 @@ width:760px;
 	float:left;	
 	width:760px;
 }
+.drop-cover{
+	z-index:190;
+	top:0;
+	left:0;
+	opacity:0;
+	position:fixed;
+	width:100%;
+	height:100%;
+	background-color:rgb(102,51,102);	
+}
+.drop{
+	z-index:195;
+	position:fixed;
+	opacity:0;
+	left:50%;
+	width:0;
+	height:0;
+	top:300px;
+	background-color:rgba(102,51,102,0.5);
+	-webkit-border-radius:20px;
+}
+.reply{
+	cursor:pointer;
+}
