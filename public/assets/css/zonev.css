@@ -17,6 +17,7 @@ padding: 10px;
 	border:1px rgb(200,200,200) solid;
 	width: 25%;  /* wi:windows */
 	-webkit-border-radius:10px;
+	background:rgb(245,245,245);
 }
 #team_info p{
 	font-size: 18px;
@@ -147,17 +148,6 @@ table td{
 	width:260px;
 	background:-webkit-gradient(linear, left top, right top, from(rgba(104,104,104,1)), to(rgba(225,225,225,0.2)));
 }
-#note_detail{
-	position:fixed;
-	left:50%;
-	top:50%;
-	margin-left:-200px;
-	margin-top:-150px;
-	width:400px;
-	height:300px;
-	opacity:0;
-	z-index:195;
-	background:rgba(102,51,102,0.6);
-	display:none;
-	-webkit-border-radius:20px;
+.loading{
+	margin-left:270px;
 }

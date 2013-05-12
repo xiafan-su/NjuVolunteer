@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-12 21:06:26
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-12 21:17:43
          compiled from "../tpls/templates\include\infov_edit.html" */ ?>
 <?php /*%%SmartyHeaderCode:11240518ba78624bfd2-16047941%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '230cf9487e21db83bfe175beb267a8c56700c95a' => 
     array (
       0 => '../tpls/templates\\include\\infov_edit.html',
-      1 => 1368355156,
+      1 => 1368364660,
       2 => 'file',
     ),
   ),
@@ -35,7 +35,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cet4' => 0,
     'cet6' => 0,
     'language' => 0,
-    'level' => 0,
     'medical' => 0,
     'drive' => 0,
   ),
@@ -162,8 +161,9 @@ table td{
   </tr>
   <tr>
     <th scope="row">水平</th>
-    <td><input type="text" id="level" value="<?php echo $_smarty_tpl->tpl_vars['level']->value;?>
-"/></td>
+    <td><input name="level_select" type="radio" value="level_1" checked/><label>一般</label>
+    	<input name="level_select" type="radio" value="level_2" /><label>熟练</label>
+        <input name="level_select" type="radio" value="level_3" /><label>精通</label></td>
     <td>你所会的其他外语水平是？</td>
   </tr>
   <tr>
@@ -190,7 +190,7 @@ table td{
   </tr>
   <tr>
     <th scope="row">其他能力</th>
-    <td><input type="textarea" id="name" value=""/>&nbsp;</td>
+    <td><textarea name="other" cols="40" rows="8"></textarea></td>
     <td></td>
   </tr>
 </table>

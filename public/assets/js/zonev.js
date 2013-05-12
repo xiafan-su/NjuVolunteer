@@ -1,26 +1,9 @@
 
-
-function show_note(id){
-	//alert(id);
-	$.ajax({
-		type:"POST",
-		data:{
-			id:id
-			},
-		url:"./include/vol_note_detail.php",
-		success:function(html){
-			$("#note_detail").html(html);
-			$("#note_detail").show();
-			$('#note_detail').animate({opacity:'1'},1000);
-			
-		}
-});
-}
-
+var nowloading="<div class=\"loading\"><img src=\"./assets/img/loading/loading.gif\"/></div>";
 
 $("#my_activity").click(function(){
 	$("#main_title").text("我参与的活动");
-	
+	$("#main_content").html(nowloading);
 	$.ajax({
 	type:"POST",
 	url:"./include/actv_takein.php",
@@ -32,6 +15,7 @@ $("#my_activity").click(function(){
 });
 $("#activity_record").click(function(){
 	$("#main_title").text("活动记录");
+	$("#main_content").html(nowloading);
 	$.ajax({
 	type:"POST",
 	url:"./include/vol_act_record.php",
@@ -43,6 +27,7 @@ $("#activity_record").click(function(){
 });
 $("#new_notice").click(function(){
 	$("#main_title").text("新通知");
+	$("#main_content").html(nowloading);
 	$.ajax({
 	type:"POST",
 	url:"./include/vol_note.php",
@@ -56,18 +41,20 @@ $("#notice_record").click(function(){
 });
 $("#vol_profile").click(function(){
 	$("#main_title").text("个人资料");
+	$("#main_content").html(nowloading);
 	$.ajax({
 	type:"POST",
 	url:"./include/infov.php",
 	success:function(html){
 		//alert(html);
-		$("#main_content").html(html);
+		$('#main_content').html(html);
 	}	
 });
 });
 
 $("#change_password").click(function(){
 	$("#main_title").text("修改资料");
+	$("#main_content").html(nowloading);
 	$.ajax({
 		type:"POST",
 		url:"./include/infov_edit.php",

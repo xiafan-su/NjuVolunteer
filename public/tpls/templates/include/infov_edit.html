@@ -103,7 +103,9 @@ table td{
   </tr>
   <tr>
     <th scope="row">水平</th>
-    <td><input type="text" id="level" value="<{$level}>"/></td>
+    <td><input name="level_select" type="radio" value="level_1" checked/><label>一般</label>
+    	<input name="level_select" type="radio" value="level_2" /><label>熟练</label>
+        <input name="level_select" type="radio" value="level_3" /><label>精通</label></td>
     <td>你所会的其他外语水平是？</td>
   </tr>
   <tr>
@@ -130,7 +132,7 @@ table td{
   </tr>
   <tr>
     <th scope="row">其他能力</th>
-    <td><input type="textarea" id="name" value=""/>&nbsp;</td>
+    <td><textarea name="other" cols="40" rows="8"></textarea></td>
     <td></td>
   </tr>
 </table>
