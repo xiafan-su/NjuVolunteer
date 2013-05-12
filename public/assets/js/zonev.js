@@ -1,5 +1,21 @@
 
 var nowloading="<div class=\"loading\"><img src=\"./assets/img/loading/loading.gif\"/></div>";
+function show_note(id){
+	//alert(id);
+	$.ajax({
+		type:"POST",
+		data:{
+			id:id
+			},
+		url:"./include/vol_note_detail.php",
+		success:function(html){
+			$("#note_detail").html(html);
+			$("#note_detail").show();
+			$('#note_detail').animate({opacity:'1'},1000);
+			
+		}
+});
+}
 
 $("#my_activity").click(function(){
 	$("#main_title").text("我参与的活动");
@@ -30,9 +46,7 @@ $("#new_notice").click(function(){
 	$("#main_content").html(nowloading);
 	$.ajax({
 	type:"POST",
-	data:{
-		read:0
-		},
+	data:{read:0},
 	url:"./include/vol_note.php",
 	success:function(html){
 			$("#main_content").html(html);
@@ -41,17 +55,16 @@ $("#new_notice").click(function(){
 });
 $("#notice_record").click(function(){
 	$("#main_title").text("历史通知");
+	$("#main_content").html(nowloading);
 	$.ajax({
 	type:"POST",
-	data:{
-		read:1
-		},
+	data:{read:1},
 	url:"./include/vol_note.php",
 	success:function(html){
 			$("#main_content").html(html);
 	}
 });
-});
+})
 $("#vol_profile").click(function(){
 	$("#main_title").text("个人资料");
 	$("#main_content").html(nowloading);

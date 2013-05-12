@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-12 20:11:22
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-12 22:07:40
          compiled from "../tpls/templates\include\vol_note.html" */ ?>
 <?php /*%%SmartyHeaderCode:340518f07d9c33a52-45252132%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '409f65359b724a9e37fdf04bfeb5db6216df765e' => 
     array (
       0 => '../tpls/templates\\include\\vol_note.html',
-      1 => 1368360677,
+      1 => 1368367621,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_518f07d9c9315')) {function content_518f07d9c9315($_smarty_tpl) {?><table width="200" border="1">
+<?php if ($_valid && !is_callable('content_518f07d9c9315')) {function content_518f07d9c9315($_smarty_tpl) {?><div style="margin-left:20px;margin-right:20px;">
+<table width="200" border="1">
   <tr>
     <th scope="row">通知标题</th>
     <th scope="row">时间</th>
@@ -45,4 +46,5 @@ $_smarty_tpl->tpl_vars['note']->_loop = true;
     <?php } ?>
    <?php }?>
 
-</table><?php }} ?>
+</table>
+</div><?php }} ?>
