@@ -44,11 +44,19 @@ class User extends DB_Connect {
 		//$results=mysql_fetch_assoc($select);
 		return $select;
 	} 
-	public function fetch_one_note($id)//获取我的通知
+	public function fetch_one_note($id)//获取具体的通知
 	{
-		$sql="SELECT t.name,n.title,n.content,n.time from note n,team t where n.id='".$id."' and t.id=n.sender_id";
+		$sql="SELECT t.name,n.title,n.content,n.time,n.state from note n,team t where n.id='".$id."' and t.id=n.sender_id";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
+	} 
+	public function read_note($id)//已读通知
+	{
+		$sql="UPDATE note SET state='read' WHERE id='".$id."'";
+		if (!mysql_query($sql,$this->root_conn))
+		{
+			 die('Error: ' . mysql_error());
+		}
 	} 
 	public function login($id, $md5psd){
 

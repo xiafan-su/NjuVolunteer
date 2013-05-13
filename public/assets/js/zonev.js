@@ -11,12 +11,36 @@ function show_note(id){
 		success:function(html){
 			$("#note_detail").html(html);
 			$("#note_detail").show();
-			$('#note_detail').animate({opacity:'1'},1000);
+			$('#note_detail').animate({opacity:'1'},500);
 			
 		}
 });
 }
-
+function readit(id,state){
+	//alert(id);
+	if (state=='unread')
+	{
+		//alert(state);
+		$.ajax({
+			type:"POST",
+			data:{
+				read_id:id
+				},
+			url:"./handle/read_note.php",
+			success:function(html){
+				//alert(html);
+				//$("#note_detail").html(html);
+				//$('#note_detail').animate({opacity:'0'},1000);
+				$("#note_detail").hide();
+				$("#new_notice").click();
+			}
+		});
+	}else
+	{
+			$("#note_detail").hide();
+			//$("#notice_record").click();
+	}
+}
 $("#my_activity").click(function(){
 	$("#main_title").text("我参与的活动");
 	$("#main_content").html(nowloading);

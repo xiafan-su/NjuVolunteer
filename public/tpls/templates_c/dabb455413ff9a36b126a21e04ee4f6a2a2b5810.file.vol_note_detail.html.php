@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-12 22:11:39
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-13 00:27:07
          compiled from "../tpls/templates\include\vol_note_detail.html" */ ?>
 <?php /*%%SmartyHeaderCode:9669518f8d8fb8af37-40475941%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'dabb455413ff9a36b126a21e04ee4f6a2a2b5810' => 
     array (
       0 => '../tpls/templates\\include\\vol_note_detail.html',
-      1 => 1368367892,
+      1 => 1368376022,
       2 => 'file',
     ),
   ),
@@ -24,6 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'time' => 0,
     'content' => 0,
     'id' => 0,
+    'state' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -38,7 +39,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<div class="c-content"><?php echo $_smarty_tpl->tpl_vars['content']->value;?>
 </div>
 	<div class="c-button"><input type="button" class="button" value="确定" onclick="readit(<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
-)"/></div>
+,'<?php echo $_smarty_tpl->tpl_vars['state']->value;?>
+')"/></div>
 </div>
 <style>
 .c-haha{
