@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 22:35:19
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-07 01:00:10
          compiled from "./tpls/templates\include\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:2711516a173f9c4c08-18384765%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1366814017,
+      1 => 1367859589,
       2 => 'file',
     ),
   ),
@@ -24,9 +24,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_516a173fa42a6')) {function content_516a173fa42a6($_smarty_tpl) {?><div class="header">
+<?php if ($_valid && !is_callable('content_516a173fa42a6')) {function content_516a173fa42a6($_smarty_tpl) {?><div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
+<div style="width:100%;position:absolute;top:88px;height:20px;left:0;background:-webkit-gradient(linear, left top, left bottom, from(rgb(102,102,102)), to(rgba(255,255,255,0)))"></div>
+<div class="header">
 	<div class="header_content">
-		<div class="logo"><a href="">NJUVolunteer</a></div>
+		<div style="width:176px;height:50px;float:left;background-color:rgb(225,225,225)"></div>
 		<div  class="main_menu">
 			<ul>
 				<li><a href="./index.php">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>
@@ -59,9 +61,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</div>
 	</div>
 </div>
+<div class="changelanguage">
+<div style="float:right"><a href="#">中文</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">English</a></div>
+</div>
  <?php echo $_smarty_tpl->getSubTemplate ("include/login.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
  
-
+<div class="backdrop" id="backdrop" onclick="hideit()">
+</div>
 <script type="text/javascript">
 var flag=0;
 var temp=0;
@@ -77,11 +83,11 @@ function showit(){
 			document.getElementById('backdrop').style.display="block";
 			$("#backdrop").animate({opacity:'0.8'},'fast');
 			setTimeout("$('#loginModal').animate({top:'130px'})",100);
-			$('#login_button').text('返回');
+			//$('#login_button').text('返回');
 			flag=1;
 			setTimeout("temp=0",600);
 		}
-	}else
+	}/*else
 	{
 		if(temp==0){
 			temp=1;
@@ -92,7 +98,17 @@ function showit(){
 			flag=0;
 			setTimeout("temp=0",600);
 		}
+	}*/
+}
+function hideit(){
+	if(temp==0){
+		temp=1;
+		$('#loginModal').animate({top:'-500px'});
+		setTimeout("$('#backdrop').animate({opacity:'0'})",300);
+		setTimeout("document.getElementById('backdrop').style.display='none'",500);
+		//$('#login_button').text('登录');
+		flag=0;
+		setTimeout("temp=0",600);
 	}
 }
-
 </script><?php }} ?>

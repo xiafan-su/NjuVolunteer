@@ -1,13 +1,15 @@
 .header {
-position:fixed;
+position:absolute;
 margin: 0;
-top:0px;
+top:38px;
 left:0px;
 padding: 0; 
 width: 100%; 
 height: 50px;
-background-color: #660066;
-z-index:10;
+background-color:rgb(102,51,102);
+-webkit-background-origin:padding; 
+-webkit-background-clip:content;
+z-index:110;
 }
 
 .header_content{
@@ -18,11 +20,13 @@ width: 960px;
 
 /* 以下是对logo的设置 */
 .logo{
-margin: 20px 5px 5px;
-font-weight: bold;
-font-size: 20px;
-float:left;
-display: block-inline;
+	padding-left:8px;
+	padding-right:8px;
+	position:absolute;
+	margin-left:-480px;
+	left:50%;
+	z-index:120;
+	top:0;
 }
 .logo a{
 text-decoration: none;
@@ -65,4 +69,23 @@ text-decoration: none;
 }
 .welcome_bar a:hover{
 color:gray;
+}
+.backdrop{
+	position:fixed;
+	z-index:220;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+	display:none;
+	opacity:0;
+	background-color:rgb(102,51,102);
+	-webkit-border-radius: 10px;
+}
+.changelanguage{
+	position:absolute;
+	top:100px;
+	left:50%;
+	margin-left:-304px;
+	width:784px;
 }

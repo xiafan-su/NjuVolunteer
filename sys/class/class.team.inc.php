@@ -60,7 +60,7 @@ class Team extends DB_Connect {
 	}
 	public function fetch_apply_volunteer($act_id)//报名情况
 	{
-		$query="select * from participation,user_info where activity_id = '".$act_id."' and participation.user_id=user_info.id";
+		$query="select * from apply_act,user_info where act_id = '".$act_id."' and apply_act.user_id=user_info.id";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}

@@ -272,7 +272,7 @@ table [class*=span], .row-fluid table [class*=span]
 	border-left-color: rgba(0,0,0,0.1);
 	filter: progid:dximagetransform.microsoft.gradient(enabled=false);
 	background-repeat: repeat-x;
-	background-color: rgb(250, 167, 50);
+	background-color: rgb(102, 51, 102);
 }
 .modal-header
 {
@@ -325,12 +325,15 @@ table [class*=span], .row-fluid table [class*=span]
 {
 	float: right;
 }
+table td{
+	background-color:#FFF;		
+}
 .loginModal{
 	position:fixed;
 	width:500px;
 	background-color:#FFF;
 	-webkit-border-radius: 10px;
-	z-index:10;	
+	z-index:230;	
 	left:50%;
 	margin-left:-250px;
 	top:-500px;

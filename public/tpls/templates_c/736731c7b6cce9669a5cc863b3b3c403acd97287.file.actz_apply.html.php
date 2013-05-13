@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 22:46:23
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-07 01:02:03
          compiled from "../tpls/templates\include\actz_apply.html" */ ?>
 <?php /*%%SmartyHeaderCode:273645177f03f9aad93-21740526%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '736731c7b6cce9669a5cc863b3b3c403acd97287' => 
     array (
       0 => '../tpls/templates\\include\\actz_apply.html',
-      1 => 1366807444,
+      1 => 1367111714,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5177f03fa4a00',
   'variables' => 
   array (
     'update_time' => 0,
     'apply_list' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5177f03fa4a00',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5177f03fa4a00')) {function content_5177f03fa4a00($_smarty_tpl) {?>
 这里是活动报名情况<br />
@@ -66,7 +66,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['vol_index']['last']       = 
 ?>
 		<tr class="even">
 			<td><input class="checkbox" type="checkbox" /></td>
-			<td><a class="act_user_id_col" title="点击查看该学生的信息"><?php echo $_smarty_tpl->tpl_vars['apply_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['vol_index']['index']]['id'];?>
+			<td><a class="apply_id_col" title="点击查看该学生的信息"><?php echo $_smarty_tpl->tpl_vars['apply_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['vol_index']['index']]['id'];?>
 </a></td>
 			<td><?php echo $_smarty_tpl->tpl_vars['apply_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['vol_index']['index']]['name'];?>
 </td>

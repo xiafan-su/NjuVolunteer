@@ -23,7 +23,8 @@ if ($num_of_results==$actnum)
 else 
 	$have_more=0;
 while($act_info = mysql_fetch_assoc($select)){
-		$act_listinfo[] = array('id' => $act_info['id'],'name' => $act_info['name'],'state' => $act_info['state'],'profile' => $act_info['profile'],'time' => $act_info['begin_time'],'place' => $act_info['place'],'offer_num' => $act_info['offer_num']);
+		$ran=rand(1,9);
+		$act_listinfo[] = array('img' => $ran ,'id' => $act_info['id'],'name' => $act_info['name'],'state' => $act_info['state'],'profile' => $act_info['profile'],'time' => $act_info['begin_time'],'place' => $act_info['place'],'offer_num' => $act_info['offer_num']);
 	}
 if (isset($act_listinfo))
 {

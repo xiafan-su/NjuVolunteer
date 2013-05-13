@@ -1,0 +1,19 @@
+<div style="margin-left:20px;margin-right:20px;">
+<table width="200" border="1">
+  <tr>
+    <th scope="row">活动名称</th>
+    <th scope="row">详细时间</th>
+    <th scope="row">当前状态</th>
+  </tr>
+  <{if isset($act_list)}>
+    <{foreach item=act from=$act_list}>
+      <tr>
+        <td id="name"><a href="./act_dtl.php?act_id=<{$act.id}>" target="_blank"><{$act.name}></a></td>
+        <td id="stud_no"><{$act.detail_time}></td>
+        <td id="state"><{$act.state}></td>
+      </tr>
+    <{/foreach}>
+   <{/if}>
+
+</table>
+</div>

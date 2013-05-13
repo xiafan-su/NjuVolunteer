@@ -2,11 +2,12 @@
 @import url( "footer.css");
 
 body {
-margin-top: 50px;
+margin-top: 134px;
 padding-top:0;
 font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
 font-size: 12px;
 line-height: 20px;
+background-color:rgb(225,225,225);
 }
 
 ul {

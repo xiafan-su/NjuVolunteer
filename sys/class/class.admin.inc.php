@@ -13,7 +13,6 @@ class Admin extends DB_Connect {
 	public function audit_pass($act_id)//修改这个活动档案
 	{
 		$query="UPDATE activity_info SET state = 'audited' where id='".$act_id."'";
-		//$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		if (!mysql_query($query,$this->root_conn))
 		{
 			return false;
@@ -21,6 +20,51 @@ class Admin extends DB_Connect {
 		{
 			return true;
 		}
+	}
+	public function add_team($tid,$tname,$pwd)
+	{
+		$insert_login="insert into login(id,password,permission)  values ('".$tid."', '".$pwd."',2);";
+		if (!mysql_query($insert_login,$this->root_conn))
+		{
+			 //die('Error: ' . mysql_error());
+			return false;
+		}
+		$insert_team="insert into team(id,name) values ('".$tid."','".$tname."');";
+		
+			if (!mysql_query($insert_team,$this->root_conn))
+			{
+			   //die('Error: ' . mysql_error());
+			   			$del="delete from login  where (id='".$tid."');";
+				mysql_query($del,$this->root_conn);
+				return false;
+			}
+		
+		
+
+		return true;
+	}
+	public function change_pwd($tid,$pwd){
+		$change_pwd="update login set password='".$pwd."'  where id='".$tid."';";
+		if (!mysql_query($change_pwd,$this->root_conn))
+			{
+			   //die('Error: ' . mysql_error());
+			   
+				return false;
+			}
+		return true;
+		
+	}
+	
+	public function add_vol_time($sid,$did,$bt,$ht,$re,$lv){
+		$insert_time="insert into act_record(doc_id,user_id,base_time,honor_time,comment,performance_level)  values ('".$did."', '".$sid."', '".$bt."', '".$ht."','".$re."',  '".$lv."'  );";
+			if (!mysql_query($insert_time,$this->root_conn))
+			{
+			 //  die('Error: ' . mysql_error());
+			   
+				return false;
+			}
+		return true;	
+			
 	}
 	
 

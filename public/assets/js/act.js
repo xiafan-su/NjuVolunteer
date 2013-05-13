@@ -113,19 +113,19 @@ function preweek(){
 }
 function nextweek(){
 	mydate.setDate(mydate.getDate()+1);
-	$("#day1").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day1").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day2").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day2").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day3").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day3").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day4").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day4").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day5").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day5").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day6").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day6").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day7").html(mydate.getMonth()+1+"-"+mydate.getDate()).show();
+	$("#day7").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 }
 function getday(temp){
 	if(temp=='0')

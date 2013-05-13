@@ -7,114 +7,135 @@
 <link href="./assets/css/login.css" rel="stylesheet" />
 <link href="./assets/css/index.css" rel="stylesheet" />
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
-<script>
-var ad = 1;
-var t = 0;
-$(document).ready(function(){
-	t=setTimeout("timedCount()",0);
-});
-function timedCount()
-{
-	ad=(ad+1)%6;
-	$("#picshow").html("<img src=\"./assets/img/index/" + ad + ".jpg\" width=240px height=300px />").show();
-	//$("#picshow").html("<div style=\"float:left;background-image:url(../img/index/" + ad + ".jpg)\"></div>").show();
-	t=setTimeout("timedCount()",3000);
-}
-</script>
+<script type="text/javascript" src="./assets/js/index.js"></script>
 <title>首页</title>
 </head>
 <body>
 <{include file="include/header.html"}>
 
-<div class=main>
-	<div class=adv>
-		<img src="./assets/img/index/index.png" />
-	</div>
-    <div class=content>
-        <div class=box1 id=picshow>
-            
-        </div>
-        <div class=box2>
-            <div class=title>
-            	<div style="float:left;width:10px;height:25px;margin-top:10px;margin-left:10px;background-color:#606"></div>
-                <div style="font-size:22px;float:left;margin-top:11px;margin-left:10px">公告通知</div>
-                <div style="margin-top:5px;height:3px;width:420px;float:left;background-color:#000"></div>
-                <div style="height:10px;width:420px;float:left;background-color:#CCC"></div>
-            </div>
-     		<div class=news>
-            	
-            	<li class=li>全国首个孤独症 儿童合唱团在宁成立</li>
-                <li class=li>我为"亚青"活动献一计-----"亚青"赛会期间文...</li>
-                <li class=li>青年志愿者徽章设计征集大赛活动方案</li>
-                <li class=li>雨花台区掀起学雷锋志愿活动热潮</li>
-                <li class=li>南京春运期间多措并举开展关爱农民工志愿服务</li>
-                <li class=li>魏纪中："亚青会将给城市带来正能量"</li>
-                <li class=li>第二届亚洲青年运动会吉祥物揭晓</li>
-            </div>
-        </div>
-        <div class=link1>
-        	
-        </div>
-        <div class=link2>
+<div class="main">
+    <div class="act-show">
+		<div class="map">
+        	<div class="point"><div class="circle"></div></div>
+			<div class="map-img" id="map-img"><img src="./assets/img/index/map.png" /></div>
+		</div>
+		<div class="act-img">
+        	<div class="act-detail" id="act-detail1">
+            	<span class="act-detail-title">爱心家园</span>
+            	<span class="act-detail-content">时光流逝，只有他们永远保持着童心与随之的天真</span></div>
+            <div class="act-detail" id="act-detail2">
+            	<span class="act-detail-title">青春在路上</span>
+                <span class="act-detail-content">望我们和孩子们都一样行动在青春的道路上，希望我们能够给孩子们带来一个梦想</span></div>
+            <div class="act-detail" id="act-detail3">
+            	<span class="act-detail-title">收线的风筝</span>
+            	<span class="act-detail-content">风筝的线会断，你我之间爱的线不会断</span></div>
+            <div class="act-detail" id="act-detail4">
+            	<span class="act-detail-title">我们在行动</span>
+            	<span class="act-detail-content">为了提供公平的教育机会，我们将会一刻不停的奉献我们的青春</span></div>
+            <div class="act-detail" id="act-detail5">
+            	<span class="act-detail-title">城市边缘的梦想</span>
+            	<span class="act-detail-content">同一片天空下，我们希望他们享有同样的教育</span></div>
+       		<div class="act-img-t" id="act-img1"><img src="./assets/img/index/education1.png" /></div>
+            <div class="act-img-t" id="act-img2"><img src="./assets/img/index/education2.png" /></div>
+            <div class="act-img-t" id="act-img3"><img src="./assets/img/index/education3.png" /></div>
+            <div class="act-img-t" id="act-img4"><img src="./assets/img/index/education4.png" /></div>
+            <div class="act-img-t" id="act-img5"><img src="./assets/img/index/education5.jpg" /></div>
+		</div>
         
-        </div>
-        <div class=link3>
-        
-        </div>
-        <div class=link4>
-            
-        </div>
+		<div class="act-title">
+        	<div class="act-title-t" id="act-title1" onclick="changeact(1)"><div class="badpoint"><div class="circle"></div></div>
+            	爱心家园</div>
+            <div class="act-title-t" id="act-title2" onclick="changeact(2)"><div class="badpoint"><div class="circle"></div></div>
+            	青春在路上</div>
+            <div class="act-title-t" id="act-title3" onclick="changeact(3)"><div class="badpoint"><div class="circle"></div></div>
+            	收线的风筝</div>
+            <div class="act-title-t" id="act-title4" onclick="changeact(4)"><div class="badpoint"><div class="circle"></div></div>
+            	我们在行动</div>
+            <div class="act-title-t" id="act-title5" onclick="changeact(5)" style="margin-bottom:0px"><div class="badpoint"><div class="circle"></div></div>
+            	城市边缘的梦想</div>
+
+		</div>
     </div>
-    <div class=adv2>
-    	<img src="./assets/img/index/bottom.png"  />
+    <!--   -->
+    <div class="little-box">
+    	<div class="box-bar-left"></div>
+    	<div class="box-element">
+        	<div class="title-bar"></div>
+            <div class="title-content" onclick="showclaim()">志愿宣言</div>
+        </div>
+    	<div class="box-element">
+        	<div class="title-bar"></div>
+            <div class="title-content" onclick="show3dwall()">图片故事</div>
+        </div>
+        <div class="box-element">
+        	<div class="title-bar"></div>
+            <div class="title-content">心路历程</div>
+        </div>
+        <div class="box-element">
+        	<div class="title-bar"></div>
+            <div class="title-content">统计数据</div>
+        </div>
+        <div class="box-bar-right"></div>
     </div>
-    <div class=act-content>
-        <div class=box4>
-        	<div class=title1>
-            	<div style="float:left;width:10px;height:25px;margin-top:10px;margin-left:10px;background-color:#606"></div>
-                <div style="font-size:22px;float:left;margin-top:11px;margin-left:10px">五星组织</div>
-                <div style="margin-top:5px;height:3px;width:240px;float:left;background-color:#000"></div>
+    <div class="volclaim" id="volclaim" onclick="hiddenit()">
+    </div>
+    <div class="people-show">	
+        <div class="show-item" id="item1"></div>
+        <div class="show-item" id="item2"></div>
+        <div class="show-item" id="item3"></div>
+        <div class="show-item" id="item4"></div>
+        <div class="show-item" id="item5"></div>
+        <div class="show-item" id="item6"></div>
+        <div class="show-item" id="item7"></div>
+        <div class="show-item" id="item8"></div>
+        <div class="show-item" id="item9"></div>
+        <div class="show-item" id="iitem1"></div>
+        <div class="show-item" id="iitem2"></div>
+        <div class="show-item" id="iitem3"></div>
+        <div class="show-item" id="iitem4"></div>
+        <div class="show-item" id="iitem5"></div>
+        <div class="show-item" id="iitem6"></div>
+        <div class="show-item" id="iitem7"></div>
+        <div class="show-item" id="iitem8"></div>
+        <div class="show-item" id="iitem9"></div>
+        <div class="show-cover"><img src="./assets/img/index/11.jpg" width="960px" style=""/></div>
+        <div class="pic-cover"></div>
+    </div>
+    <div class="share">
+    	<div class="share-bar-left"></div>
+        <div class="share-to">
+        	<h2>关注我们</h2>
+            <div class="share-element">
+                人人
             </div>
-        	<div class=news>
-           		<li class=li>全国首个孤独症 儿童合唱团在宁成立</li>
-                <li class=li>我为"亚青"活动献一计-----"亚青"赛...</li>
-                <li class=li>青年志愿者徽章设计征集大赛活动方案</li>
-                <li class=li>雨花台区掀起学雷锋志愿活动热潮</li>
-                <li class=li>南京春运期间多措并举开展关爱农民...</li>
-                <li class=li>魏纪中："亚青会将给城市带来正能量"</li>
-                <li class=li>第二届亚洲青年运动会吉祥物揭晓</li>
+            <div class="share-element">
+                微博
+            </div>
+            <div class="share-element">
+                豆瓣
+            </div>
+            <div class="share-element">
+                天涯
             </div>
         </div>
-        <div class=box5>
-        	<div class=title2>
-            	<div style="float:left;width:10px;height:25px;margin-top:10px;margin-left:10px;background-color:#606"></div>
-                <div style="font-size:22px;float:left;margin-top:11px;margin-left:10px">记录公示</div>
-                <div style="margin-top:5px;height:3px;width:420px;float:left;background-color:#000"></div>
-            </div>
-        	<div class=news>
-           		<li class=li>全国首个孤独症 儿童合唱团在宁成立</li>
-                <li class=li>我为"亚青"活动献一计-----"亚青"赛会期间文...</li>
-                <li class=li>青年志愿者徽章设计征集大赛活动方案</li>
-                <li class=li>雨花台区掀起学雷锋志愿活动热潮</li>
-                <li class=li>南京春运期间多措并举开展关爱农民工志愿服务</li>
-                <li class=li>魏纪中："亚青会将给城市带来正能量"</li>
-                <li class=li>第二届亚洲青年运动会吉祥物揭晓</li>
+        <div class="share-bar-right"></div>
+    </div>
+    <div class="others">
+    	<div class="others-element">
+            <div class="others-content">
+            	<h3>公告通知</h3><hr />"我的南大梦"征文启事 <hr />"美丽南大"摄影大赛征稿启事<hr />南京大学2012年校园开放日公告
             </div>
         </div>
-        <div class=box6>
-        	<div class=title3>
-            	<div style="float:left;width:10px;height:25px;margin-top:10px;margin-left:10px;background-color:#606"></div>
-                <div style="font-size:22px;float:left;margin-top:11px;margin-left:10px">在线咨询</div>
-                <div style="margin-top:5px;height:3px;width:280px;float:left;background-color:#000"></div>
+        <div class="others-h-bar"></div>
+    	<div class="others-element">
+            <div class="others-content">
+            	<h3>留言咨询</h4><hr />请问希望之星的志愿者招募满了吗？<hr />请问在哪可以办理志愿服务的证明？<hr />这学期还有仙林中学的活动吗？
             </div>
-        	<div class=news>
-           		<li class=li>全国首个孤独症 儿童合唱团在宁成立</li>
-                <li class=li>我为"亚青"活动献一计-----"亚青"赛会期间文...</li>
-                <li class=li>青年志愿者徽章设计征集大赛活动方案</li>
-                <li class=li>雨花台区掀起学雷锋志愿活动热潮</li>
-                <li class=li>南京春运期间多措并举开展关爱农民工志愿...</li>
-                <li class=li>魏纪中："亚青会将给城市带来正能量"</li>
-                <li class=li>第二届亚洲青年运动会吉祥物揭晓</li>
+        </div>
+        <div class="others-h-bar"></div>
+        <div class="others-element">
+            <div class="others-content">
+            	<h3>五星组织</h4><hr />南京大学青年志愿者协会<hr />计算机系青协<hr />文学院青协
             </div>
         </div>
     </div>

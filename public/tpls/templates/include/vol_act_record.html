@@ -1,0 +1,25 @@
+<div style="margin-left:20px;margin-right:20px;">
+<table width="200" border="1">
+  <tr>
+    <th scope="row">时间</th>
+    <th scope="row">活动名称</th>
+    <th scope="row">基础时间</th>
+    <th scope="row">荣誉时间</th>
+    <th scope="row">表现</th>
+    <th scope="row">评价</th>
+  </tr>
+  <{if isset($act_record_list)}>
+    <{foreach item=record from=$act_record_list}>
+      <tr>
+        <td id="date"><{$record.date}></td>
+        <td id="name"><a href="./act_dtl.php?act_id=<{$record.id}>" target="_blank"><{$record.name}></a></td>
+        <td id="base_time"><{$record.base_time}></td>
+        <td id="honor_time"><{$record.honor_time}></td>
+        <td id="performance_level"><{$record.performance_level}></td>
+        <td id="comment"><{$record.comment}></td>
+      </tr>
+    <{/foreach}>
+   <{/if}>
+
+</table>
+</div>

@@ -61,12 +61,13 @@ zt_func_doc_apply = function(){
 			$(zt_elem_go_back_home).bind("click", function(){
 				switch_main_content( "<-" );
 			});
-			$(".act_user_id_col").bind("click", function(){
+			$(".apply_id_col").bind("click", function(){
 				var id = $(this).text();
+				//alert(id);
 				$.ajax({
 					type:"GET",
-					url:"./activity/handle/exp_people.php",
-					data:{user_id:id},
+					url:"./include/popup_infov.php",
+					data:{userId:id},
 					success:function(html){
 						tipsWindown("学生信息","text:"+html,"900","427","true","","true","");
 					}

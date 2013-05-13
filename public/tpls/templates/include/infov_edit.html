@@ -1,3 +1,142 @@
-<div id="" class="">
-	个人空间右边的个人资编辑div
+<style>
+table td{
+	text-align:left;
+}
+</style>
+<div id="" style="margin-bottom:20px;">
+    
+    <div id="base">
+    <div>
+    	<div class="left-bar"></div>
+    	<div class="base-info">基本资料</div>
+    	<div class="right-bar"></div>
+	</div>
+<table width="200" border="1">
+  <tr>
+    <th scope="row">姓名</th>
+    <td><{$name}></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th scope="row">学号</th>
+    <td><{$stu_no}></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th scope="row">身份证号</th>
+    <td><{$idcard_num}></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th scope="row">性别</th>
+    <td><{$gender}></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th scope="row">E-mail</th>
+    <td><input type="text" id="email" value="<{$email}>"/></td>
+    <td>格式举例：IloveNJU@nju.edu.cn</td>
+  </tr>
+  <tr>
+    <th scope="row">手机</th>
+    <td><input type="text" id="phone" value="<{$phone}>"/></td>
+    <td>国内手机号码11位格式</td>
+  </tr>
+  <tr>
+    <th scope="row">所在院</th>
+    <td><{$faculty}></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th scope="row">所在系</th>
+    <td><{$department}></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th scope="row">出生日期</th>
+    <td><input type="text" id="birthday" value="<{$birthday}>"/></td>
+    <td>yyyy-mm-dd，中间用‘-’分开（例：1992-04-30）</td>
+  </tr>
+  <tr>
+    <th scope="row">政治面貌</th>
+    <td><input type="text" id="social" value="<{$politics_status}>"/></td>
+    <td>群众、团员、党员</td>
+  </tr>
+  <tr>
+    <th scope="row">民族</th>
+    <td><input type="text" id="race" value="<{$nation}>"/></td>
+    <td>中华56个名族你是哪一个名族？</td>
+  </tr>
+  <tr>
+    <th scope="row">服装大小</th>
+    <td><input type="text" id="height" value="<{$cloth_size}>"/></td>
+    <td>您的身高，以厘米做单位</td>
+  </tr>
+  <tr>
+    <th scope="row">宿舍</th>
+    <td><input type="text" id="dormitory" value="<{$dormitory}>"/></td>
+    <td>你住在哪幢宿舍楼的哪一间（例：1B231）</td>
+  </tr>
+</table>
+</div>
+<div id="more">
+	<div>
+    	<div class="left-bar"></div>
+    	<div class="base-info">个人技能</div>
+    	<div class="right-bar"></div>
+	</div>
+	<table width="200" border="1">
+  <tr>
+    <th scope="row">cet4</th>
+    <td><input type="text" id="cet4" value="<{$cet4}>"/></td>
+    <td>您的四级英语成绩，没有则留空</td>
+  </tr>
+   <tr>
+    <th scope="row">cet6</th>
+    <td><input type="text" id="cet6" value="<{$cet6}>"/></td>
+    <td>您的6级英语成绩，没有则留空</td>
+  </tr>
+  <tr>
+    <th scope="row">其他外语</th>
+    <td><input type="text" id="other" value="<{$language}>"/></td>
+    <td>你还会其他外语吗？</td>
+  </tr>
+  <tr>
+    <th scope="row">水平</th>
+    <td><input name="level_select" type="radio" value="level_1" checked/><label>一般</label>
+    	<input name="level_select" type="radio" value="level_2" /><label>熟练</label>
+        <input name="level_select" type="radio" value="level_3" /><label>精通</label></td>
+    <td>你所会的其他外语水平是？</td>
+  </tr>
+  <tr>
+    <th scope="row">是否有医疗急救技能</th>
+    <td><{if $medical=="是"}>
+    	<input name="medical_select" type="radio" value="medical_true" checked/><label>是</label>
+    	<input name="medical_select" type="radio" value="medical_false" /><label>否</label>
+        <{else}>
+    	<input name="medical_select" type="radio" value="medical_true" /><label>是</label>
+    	<input name="medical_select" type="radio" value="medical_false" checked/><label>否</label>
+    	<{/if}>
+    <td>是否经过急救培训</td>
+  </tr>
+  <tr>
+    <th scope="row">是否有驾驶技能</th>
+    <td><{if $drive=="是"}>
+    	<input name="drive_select" type="radio" value="drive_true" checked/><label>是</label>
+    	<input name="drive_select" type="radio" value="drive_false" /><label>否</label>
+        <{else}>
+    	<input name="drive_select" type="radio" value="drive_true" /><label>是</label>
+    	<input name="drive_select" type="radio" value="drive_false" checked/><label>否</label>
+    	<{/if}>
+    <td>是否有驾照</td>
+  </tr>
+  <tr>
+    <th scope="row">其他能力</th>
+    <td><textarea name="other" cols="40" rows="8"></textarea></td>
+    <td></td>
+  </tr>
+</table>
+<input type="button" class="button" value="提交" onclick="handlechange"/>
+<input type="button" class="button" value="回到默认" />
+</div>
 </div>

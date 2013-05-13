@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 22:35:23
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-12 20:44:35
          compiled from "./tpls/templates\act.html" */ ?>
 <?php /*%%SmartyHeaderCode:13169516a185eddbdb8-59389361%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
     array (
       0 => './tpls/templates\\act.html',
-      1 => 1366814017,
+      1 => 1368355066,
       2 => 'file',
     ),
   ),
@@ -38,8 +38,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div class="main">
 	<div class="main_search">
     	<a href="act.php">
-    		<img src="./assets/img/activity_center/xiaohui.jpg" style="float:left;" width="67px"/>
-        	<div style="float:left;margin-left:10px;margin-top:25px;font-weight:bold;font-size:50px;color:#606;">活动中心</div>
+        	<div style="float:left;margin-left:170px;margin-top:25px;font-weight:bold;font-size:50px;color:#606;">活动中心</div>
         </a>
         <div class="submit_search">
 			<input id="submit" style="background-color:#606;color:#FFF" name="submit" class="btn btn-warning span2" onclick="searchit()" type="submit" value="搜索" />
@@ -90,7 +89,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div style="margin-top:10px;height:5px;float:left;width:100%;background-color:#333"></div>
         <div style="height:30px;width:100%;background-color:#CCC;float:left"></div>
         <div class="act-list" style="float:left" id="act_list">
-        
         </div>
     </div>
     <div id="hotact">

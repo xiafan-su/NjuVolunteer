@@ -14,7 +14,7 @@
 		<{if $act_count%2 == 0}><tr class="even"><{else}><tr class="odd"><{/if}>
 		   <td style="text-align:left">
 					<span class="util_doc_fold" actid="<{$act_list[act_index].act_id}>" title="展开/折叠活动记录">╬</span>
-					<a href="./act_dtl.php?activityId=<{$act_list[act_index].act_id}>" target="_blank"><{$act_list[act_index].act_title}></a>
+					<a href="./act_dtl.php?act_id=<{$act_list[act_index].act_id}>" target="_blank"><{$act_list[act_index].act_title}></a>
 					<div id="doc_list_<{$act_list[act_index].act_id}>" class="util_doc_list">
 						<table>
 							<tr><th>时间</th><th>带队人</th><th>联系方式</th></tr>
