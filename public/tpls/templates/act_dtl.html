@@ -53,12 +53,33 @@
 				<{$act_profile}>
 			</div>
             
-            <ul class="div_title2"><li>评论</li></ul>
-            <br>
-            <table>
+            <ul class="div_title2"><li>活动评论详情</li></ul>
+            <hr color="green">
+            
+            <!--div class="act_comment" id="comment_list">
+            <{foreach name=comment_data item=act_comment from=$comment_detail}>
+            
+            <dl class="comment_list">
+        		<dd>
+                	<a id="<{$act_comment.id}>"><{$act_comment.name}></a>
+                    :<{$act_comment.content}>
+            		(<{$act_comment.time}>)
+            		<div class="info">
+                    <span class="W_linkb">
+                    <span id="reply" class="reply" onMouseOver="this.style.textDecoration='underline';" onMouseout="this.style.textDecoration='none';">回复</span>
+        		</div>
+			</div>
+            
+            <{/foreach}>
+            <!--/div>
+            <div id="comment_area">
+				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
+			</div-->
+            <table id="act_list">
             <tr><th>评论人学号</th><th>评论人</th><th>评论时间</th><th>评论</th><th>回复</th>
             
-           	<{foreach name=comment_data item=act_comment from=$comment_detail}>
+            
+          	<{foreach name=comment_data item=act_comment from=$comment_detail}>
             <tr class="even">
             <td><{$act_comment.id}></td>
             <td><a href="http://www.baidu.com" target="_blank"><{$act_comment.name}></a></td>
@@ -70,7 +91,10 @@
             </tr>
             <{/foreach}>
             </table>
-            </br>
+            
+            
+            
+            
             <ul class="div_title2"><li>提交自己的评论</li></ul>
         	<br></br>
             
@@ -79,11 +103,11 @@
 			</div>
       		<div class="control-group">
 				<div class="controls">
-				<input name="com_submit" class="button" id="submit_comment"  value="评论" />
+				<input name="com_submit" class="button" id="submit_comment" type="submit" value="评论"/>
 				</div>
 			</div>
             
-            <div class="div_title2"><div>参加过这项活动的人还参加了</div>
+            <div class="div_title2" ><div>参加过这项活动的人还参加了</div>
             <br>
             <table id="act_people_table" class="act_people_table">
             <tr><th>名称</th><th>负责人</th></tr>
@@ -104,15 +128,15 @@
         </div>
         
         <!--<div class="drop-cover" id="drop_cover"></div>-->
-        <div class="drop" id="drop">
+        <div class="drop" id="drop" style="display:none">
         	<!--form action="../public/handle/upload_picture.php" method="post" enctype="multipart/form-data">
             <label for="file">Filename:</label>
             <input type="file" name="file" id="file" />
             <br />
             <input type="submit" name="submit" id="upload_submit" value="Submit" />
             </form-->
-            
             <form aciton="/file-upload" class="dropzone" id="my_dropzone"></form>
+            
         </div>
         
         

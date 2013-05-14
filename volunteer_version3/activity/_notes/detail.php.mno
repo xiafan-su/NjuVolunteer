@@ -1,4 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<info>
-	<infoitem key="UD_RS_activity_detail" value="name:id;datatype:int,name:name;datatype:string,name:responser;datatype:string,name:responser_tel;datatype:real,name:begin_time;datatype:datetime,name:end_time;datatype:datetime,name:last_time;datatype:int,name:profile;datatype:string,name:total_num;datatype:int,name:accepted_num;datatype:int,name:offer_num;datatype:int,name:state;datatype:string,name:requirements;datatype:string,name:summary;datatype:string,name:time_type;datatype:string,name:attribution_type;datatype:string,name:need_audit;datatype:string,name:deadline;datatype:datetime,name:place;datatype:string,name:publisher;datatype:string" />
-</info>

@@ -28,6 +28,10 @@ if ($content != NULL){
 	else
 		echo "不能评论给自己";
 }
+
 else
 	echo "评论内容不能为空";
+$comment_info=$act->get_comment($act_id);
+$tpl->assign( "comment_detail",$comment_info);
+
 ?>

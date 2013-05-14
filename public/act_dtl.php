@@ -42,5 +42,6 @@ $tpl->assign( "last_time", $item['last_time'] );
 $comment_info=$act->get_comment($activity_id);
 
 $tpl->assign( "comment_detail",$comment_info);
+
 $tpl->display('act_dtl.html');
 ?>
