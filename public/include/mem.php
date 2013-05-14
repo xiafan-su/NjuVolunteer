@@ -3,6 +3,11 @@
 $_BASE_PATH = "../../";
 $_SMARTY_ROOT = "../tpls";
 include_once '../../sys/core/init.inc.php';
+
+
+
+$tpl->display( "include/mem.html" );
+
 ?>
 
 页面内容：<br />
@@ -13,3 +18,7 @@ include_once '../../sys/core/init.inc.php';
 <br />
 其他：<br />
 当前团队id请直接从SESSION获取<br />
+
+<div id="debug" class="">
+	
+</div>
