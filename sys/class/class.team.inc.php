@@ -9,6 +9,18 @@ class Team extends DB_Connect {
 	public function __construct($dbo=NULL){
 		parent::__construct($dbo);
 	}
+	public function fetch_all_faculty()
+	{
+		$query="select id,name from team where layer = '0' ";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;		
+	}
+	public function fetch_all_nation()
+	{
+		$query="select nation from nations order by id";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;		
+	}
 	public function fetch_act_all($faculty_id)//发起的活动
 	{
 		$query="select * from activity_info where publisher = '".$faculty_id."'";

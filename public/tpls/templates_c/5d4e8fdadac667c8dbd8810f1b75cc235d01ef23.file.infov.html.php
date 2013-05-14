@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-12 21:06:25
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-13 22:22:05
          compiled from "../tpls/templates\include\infov.html" */ ?>
 <?php /*%%SmartyHeaderCode:23479518b8c32d81eb5-27340981%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5d4e8fdadac667c8dbd8810f1b75cc235d01ef23' => 
     array (
       0 => '../tpls/templates\\include\\infov.html',
-      1 => 1368355156,
+      1 => 1368454910,
       2 => 'file',
     ),
   ),
@@ -26,7 +26,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'email' => 0,
     'phone' => 0,
     'faculty' => 0,
-    'department' => 0,
     'birthday' => 0,
     'politics_status' => 0,
     'nation' => 0,
@@ -88,11 +87,6 @@ table td{
   <tr>
     <th scope="row">所在院</th>
     <td><?php echo $_smarty_tpl->tpl_vars['faculty']->value;?>
-</td>
-  </tr>
-  <tr>
-    <th scope="row">所在系</th>
-    <td><?php echo $_smarty_tpl->tpl_vars['department']->value;?>
 </td>
   </tr>
   <tr>

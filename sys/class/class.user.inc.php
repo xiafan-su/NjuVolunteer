@@ -20,6 +20,11 @@ class User extends DB_Connect {
 		$results=mysql_fetch_assoc($select);
 		return $results;
 	} 
+	public function change_person_info($id,$name,$gender,$email)//修改个人资料
+	{
+		$sql="UPDATE user_info SET name='".$name."',gender='".$gender."',email='".$email."' where id='".$id."'";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+	}
 	public function fetch_person_act($id)//获取我参与的活动
 	{
 		$sql="SELECT ai.* from apply_act ac ,activity_info ai where ac.user_id='".$id."' and ac.act_id=ai.id";
@@ -37,9 +42,9 @@ class User extends DB_Connect {
 	public function fetch_notes($id,$state)//获取我的通知
 	{
 		if ($state==0)//取出未读通知
-			$sql="SELECT * from note where recv_id='".$id."' and state='unread' and recv_type='0'";
+			$sql="SELECT * from note where recv_id='".$id."' and state='unread' and recv_type='0' order by time DESC";
 		else//取出历史所有通知
-			$sql="SELECT * FROM note where recv_id='".$id."' and recv_type='0' and state='read'";
+			$sql="SELECT * FROM note where recv_id='".$id."' and recv_type='0' and state='read' order by time DESC";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		//$results=mysql_fetch_assoc($select);
 		return $select;
