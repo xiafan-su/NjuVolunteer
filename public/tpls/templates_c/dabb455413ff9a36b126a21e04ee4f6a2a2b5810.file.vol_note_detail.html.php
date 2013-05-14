@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-13 00:27:07
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-13 10:29:12
          compiled from "../tpls/templates\include\vol_note_detail.html" */ ?>
 <?php /*%%SmartyHeaderCode:9669518f8d8fb8af37-40475941%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'dabb455413ff9a36b126a21e04ee4f6a2a2b5810' => 
     array (
       0 => '../tpls/templates\\include\\vol_note_detail.html',
-      1 => 1368376022,
+      1 => 1368412147,
       2 => 'file',
     ),
   ),
@@ -28,7 +28,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_518f8d8fbcfb5')) {function content_518f8d8fbcfb5($_smarty_tpl) {?><div class="c-haha">
+<?php if ($_valid && !is_callable('content_518f8d8fbcfb5')) {function content_518f8d8fbcfb5($_smarty_tpl) {?><div class="c-cover" id="c-cover"></div>
+<div class="c-haha">
 	<div class="c-title"><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
 </div>
 	<div class="c-sender">发送者：<?php echo $_smarty_tpl->tpl_vars['sender']->value;?>
@@ -43,7 +44,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ')"/></div>
 </div>
 <style>
+.c-cover{
+	position:fixed;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+	background:rgba(255,255,255,0.3);	
+}
 .c-haha{
+	
 }
 .c-sender{
 	float:left;
