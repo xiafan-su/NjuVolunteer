@@ -2,6 +2,7 @@
 var nowloading="<div class=\"loading\"><img src=\"./assets/img/loading/loading.gif\"/></div>";
 function show_note(id){
 	//alert(id);
+	$("#note_detail").html(nowloading);
 	$.ajax({
 		type:"POST",
 		data:{
@@ -30,15 +31,16 @@ function readit(id,state){
 			success:function(html){
 				//alert(html);
 				//$("#note_detail").html(html);
-				//$('#note_detail').animate({opacity:'0'},1000);
+				$('#note_detail').animate({opacity:'0'},1);
 				$("#note_detail").hide();
 				$("#new_notice").click();
 			}
 		});
 	}else
 	{
-			$("#note_detail").hide();
-			//$("#notice_record").click();
+		$('#note_detail').animate({opacity:'0'},1);
+		$("#note_detail").hide();
+		//$("#notice_record").click();
 	}
 }
 $("#my_activity").click(function(){
