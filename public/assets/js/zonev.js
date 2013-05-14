@@ -1,7 +1,67 @@
 
 var nowloading="<div class=\"loading\"><img src=\"./assets/img/loading/loading.gif\"/></div>";
+
+function handlechange(){
+	var Gender=document.getElementsByName("gender_select");
+	var Politic=document.getElementsByName("politics_select");
+	var LanguageLevel=document.getElementsByName("level_select");
+	var myGender,myPolitic,myLanguageLevel;
+	
+   	for(var i=0;i<Gender.length;i++)
+  	{
+    	 if(Gender.item(i).checked){
+        	 myGender=Gender.item(i).getAttribute("value");  
+  	 		 break;
+		 }
+ 	}
+	for(var i=0;i<Politic.length;i++)
+  	{
+    	 if(Politic.item(i).checked){
+        	 myPolitic=Politic.item(i).getAttribute("value");  
+  	 		 break;
+		 }
+ 	}
+	for(var i=0;i<LanguageLevel.length;i++)
+  	{
+    	 if(LanguageLevel.item(i).checked){
+        	 myLanguageLevel=LanguageLevel.item(i).getAttribute("value");  
+  	 		 break;
+		 }
+ 	}
+	var f = document.getElementById("faculty"); 
+	var n = document.getElementById("nation");
+	var c = document.getElementById("cloth_size");
+	//alert(t.options[t.selectedIndex].value);
+	//alert(myGender);
+	//var t = document.getElementById("faculty"); 
+	$.ajax({
+		type:"POST",
+		data:{
+			name:$("#name").val(),
+			idcard_num:$("#idcard_num").val(),
+			gender:myGender,
+			email:$("#email").val(),
+			phone:$("#phone").val(),
+			faculty:f.options[f.selectedIndex].value,
+			birthday:$("#birthday").val(),
+			politics_status:myPolitic,
+			nation:n.options[n.selectedIndex].value,
+			cloth_size:c.options[c.selectedIndex].value,
+			dormitory:$("#dormitory").val(),
+			cet4:$("#cet4").val(),
+			cet6:$("#cet6").val(),
+			other:$("#other").val(),
+			},
+		url:"./handle/change_vol_info.php",
+		success:function(html){
+			alert(html);
+		}
+	});
+}
+
 function show_note(id){
 	//alert(id);
+	$("#note_detail").html(nowloading);
 	$.ajax({
 		type:"POST",
 		data:{
@@ -30,15 +90,16 @@ function readit(id,state){
 			success:function(html){
 				//alert(html);
 				//$("#note_detail").html(html);
-				//$('#note_detail').animate({opacity:'0'},1000);
+				$('#note_detail').animate({opacity:'0'},1);
 				$("#note_detail").hide();
 				$("#new_notice").click();
 			}
 		});
 	}else
 	{
-			$("#note_detail").hide();
-			//$("#notice_record").click();
+		$('#note_detail').animate({opacity:'0'},1);
+		$("#note_detail").hide();
+		//$("#notice_record").click();
 	}
 }
 $("#my_activity").click(function(){
@@ -120,3 +181,4 @@ $("#my_team").click(function(){
 $("#my_focused_team").click(function(){
 	$("#main_title").text("关注的团队");
 })
+
