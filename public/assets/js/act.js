@@ -170,7 +170,8 @@ function searchit(){
 	selectedat(attributiontype);
 	selectedtl(timelimit);
 	selectedas(actstate);
-	actnum = 10;
+	
+	actnum = 5;		//modified by XiaoGeng
 	searchitt();
 	if(keyword=="")
 		$("#result-bar").html("为您显示所有活动列表").show();
