@@ -137,7 +137,7 @@ class Act extends DB_Connect {
 	}
 	public function participate($activity_id){
 		$user_id=$_SESSION[USER::USER][USER::ID];
-		$query="INSERT INTO apply_act(user_id,act_id,state) VALUES ('".$user_id."','".$activity_id."','auditing')";
+		$query="INSERT INTO apply_act(user_id,act_id,state,time) VALUES ('".$user_id."','".$activity_id."','auditing'),'".date('Y-m-d H:i:s',time())."'";
 		if (!mysql_query($query,$this->root_conn)) return false;
 		else return true;
 	}

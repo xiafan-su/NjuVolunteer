@@ -39,9 +39,9 @@ class Team extends DB_Connect {
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
-	public function modify_doc($doc_id,$leader,$profile,$summary,$tel,$vol_time)//修改这个活动档案
+	public function modify_doc($doc_id,$leader,$profile,$summary,$tel,$vol_time,$date)//修改这个活动档案
 	{
-		$query="UPDATE act_doc SET leader = '".$leader."',profile='".$profile."',summary='".$summary."',tel='".$tel."',vol_time='".$vol_time."' where id='".$doc_id."'";
+		$query="UPDATE act_doc SET leader = '".$leader."',profile='".$profile."',summary='".$summary."',tel='".$tel."',vol_time='".$vol_time."',date='".$date."' where id='".$doc_id."'";
 		//$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		if (!mysql_query($query,$this->root_conn))
 		{
@@ -81,7 +81,7 @@ class Team extends DB_Connect {
 			return true;
 		}
 	}
-	public function audit_vol($vol_list,$state,$reason)//审核
+	public function audit_vol($vol_list,$state,$reason)//审核报名该组织的志愿者
 	{
 		$vol = explode(" ", $vol_list);
 		$s=new System();
@@ -95,6 +95,9 @@ class Team extends DB_Connect {
 					die('Error: ' . mysql_error());
 					return false;
 				}
+				$title="恭喜您申请加入的".$_SESSION[User::USER][User::FACULTY]."组织，审核通过";
+				$reason="加入组织后，您就可以去活动中心参加活动了。";
+				if (!$s->send_note($value,$title,$reason)) return false;//发送审核未过的理由
 			} 
 		}else//审核未过，需要发送通知给个人
 		{
@@ -107,6 +110,44 @@ class Team extends DB_Connect {
 					return false;
 				}
 				$title="您申请加入的".$_SESSION[User::USER][User::FACULTY]."组织，审核未通过";
+				if (!$s->send_note($value,$title,$reason)) return false;//发送审核未过的理由
+			}
+		}
+		return true;
+	}
+	public function audit_act_vol($act_id,$vol_list,$state,$reason)//审核报名活动的志愿者
+	{
+		$vol = explode(" ", $vol_list);
+		$s=new System();
+		$sql="SELECT name FROM activity_info where id='".$act_id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$act_name=mysql_fetch_assoc($select);
+		if ($state==1)//审核通过
+		{
+			foreach ($vol as $value)
+			{
+				$sql="UPDATE apply_act SET state='1',time='".date('Y-m-d H:i:s',time())."' where user_id='".$value."' and act_id='".$act_id."'";
+				if (!mysql_query($sql,$this->root_conn))
+				{
+					die('Error: ' . mysql_error());
+					return false;
+				}
+
+				$title="恭喜您报名参加的".$act_name['name']."活动，审未通过";
+				$reason="具体信息查看您报名的活动。";
+				if (!$s->send_note($value,$title,$reason)) return false;//发送审核未过的理由
+			} 
+		}else//审核未过，需要发送通知给个人
+		{
+			foreach($vol as $value)
+			{
+				$sql_update="UPDATE apply_act SET state='2',time='".date('Y-m-d H:i:s',time())."' where user_id='".$value."' and act_id='".$act_id."'";
+				if (!mysql_query($sql_update,$this->root_conn))
+				{
+					die('Error: ' . mysql_error());
+					return false;
+				}
+				$title="您报名参加的".$act_name['name']."活动，审核未通过";
 				if (!$s->send_note($value,$title,$reason)) return false;//发送审核未过的理由
 			}
 		}
