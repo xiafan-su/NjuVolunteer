@@ -1,7 +1,6 @@
 <?php
 
 if( !isset($_BASE_PATH) ) $_BASE_PATH = "../";
-
 include $_BASE_PATH.'sys/config/smarty_init.inc.php';
 include $_BASE_PATH.'sys/config/db-cred.inc.php';
 
