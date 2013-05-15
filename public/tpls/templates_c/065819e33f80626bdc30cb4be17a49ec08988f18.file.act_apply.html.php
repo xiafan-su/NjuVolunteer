@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 09:19:30
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 12:22:53
          compiled from "./tpls/templates\act_apply.html" */ ?>
 <?php /*%%SmartyHeaderCode:226025177bcd4242042-40208521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1368580629,
+      1 => 1368591703,
       2 => 'file',
     ),
   ),
@@ -208,7 +208,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <div class="control-group">
 					<label class="control-label">其他要求</label>
 					<div class="controls-n">
-                    	<textarea name="other_com" class="other_com" cols="26" rows="5" style="resize:none"></textarea>
+                    	<div class="text_area">
+                    		<textarea name="other_com" class="other_com" cols="26" rows="5" style="resize:none"></textarea>
+                        </div>
 					</div>
                     <div id="en_choose">
                     </div>
@@ -266,17 +268,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</div>
 
 		<div class="span_right" id="span_right">
-			<<?php ?>?php
-			   //生成三个随机数
-			$rand1 = rand()*100%33;
-			$rand2 = 0;
-			$rand3 = 0;
-			while( ($rand2 = rand()*100%33) == $rand1 );
-			while( ($rand3 = rand()*100%33) == $rand1 || $rand3  == $rand2 );
-			?<?php ?>><!-- 220 146 -->
-			<img class="reg_nju_scene" src="../include/img/nju_scene/scene<<?php ?>?php  echo $rand1+1;  ?<?php ?>>.jpg" />
-			<img class="reg_nju_scene" src="../include/img/nju_scene/scene<<?php ?>?php  echo $rand2+1;  ?<?php ?>>.jpg" />
-			<img class="reg_nju_scene" src="../include/img/nju_scene/scene<<?php ?>?php  echo $rand3+1;  ?<?php ?>>.jpg" />
 		</div>
  
 </div>
