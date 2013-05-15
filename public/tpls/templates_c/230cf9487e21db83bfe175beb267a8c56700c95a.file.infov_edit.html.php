@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 16:31:14
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 19:05:20
          compiled from "../tpls/templates\include\infov_edit.html" */ ?>
 <?php /*%%SmartyHeaderCode:11240518ba78624bfd2-16047941%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '230cf9487e21db83bfe175beb267a8c56700c95a' => 
     array (
       0 => '../tpls/templates\\include\\infov_edit.html',
-      1 => 1368604165,
+      1 => 1368615916,
       2 => 'file',
     ),
   ),
@@ -50,6 +50,7 @@ table td{
 	text-align:left;
 }
 </style>
+<script type="text/javascript" src="./assets/js/infov_edit.js"></script>
 <div id="" style="margin-bottom:20px;">
     
     <div id="base">
@@ -122,7 +123,7 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
     <th scope="row">出生日期</th>
     <td><input type="text" id="birthday" onClick="return showCalendar('birthday', 'y-mm-dd');" value="<?php echo $_smarty_tpl->tpl_vars['birthday']->value;?>
 "/></td>
-    <td>yyyy-mm-dd，中间用‘-’分开（例：1992-04-30）</td>
+    <td id="birthday_tip">yyyy-mm-dd，中间用‘-’分开（例：1992-04-30）</td>
   </tr>
   <tr>
     <th scope="row">政治面貌</th>
@@ -181,13 +182,13 @@ $_smarty_tpl->tpl_vars['nation']->_loop = true;
     <th scope="row">cet4</th>
     <td><input type="text" id="cet4" value="<?php echo $_smarty_tpl->tpl_vars['cet4']->value;?>
 "/></td>
-    <td>您的四级英语成绩，没有则留空</td>
+    <td id="cet4_tip">您的四级英语成绩，没有则留空</td>
   </tr>
    <tr>
     <th scope="row">cet6</th>
     <td><input type="text" id="cet6" value="<?php echo $_smarty_tpl->tpl_vars['cet6']->value;?>
 "/></td>
-    <td>您的6级英语成绩，没有则留空</td>
+    <td id="cet6_tip">您的6级英语成绩，没有则留空</td>
   </tr>
   <tr>
     <th scope="row">其他外语</th>

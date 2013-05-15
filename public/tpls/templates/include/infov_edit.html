@@ -3,6 +3,7 @@ table td{
 	text-align:left;
 }
 </style>
+<script type="text/javascript" src="./assets/js/infov_edit.js"></script>
 <div id="" style="margin-bottom:20px;">
     
     <div id="base">
@@ -63,7 +64,7 @@ table td{
   <tr>
     <th scope="row">出生日期</th>
     <td><input type="text" id="birthday" onClick="return showCalendar('birthday', 'y-mm-dd');" value="<{$birthday}>"/></td>
-    <td>yyyy-mm-dd，中间用‘-’分开（例：1992-04-30）</td>
+    <td id="birthday_tip">yyyy-mm-dd，中间用‘-’分开（例：1992-04-30）</td>
   </tr>
   <tr>
     <th scope="row">政治面貌</th>
@@ -114,12 +115,12 @@ table td{
   <tr>
     <th scope="row">cet4</th>
     <td><input type="text" id="cet4" value="<{$cet4}>"/></td>
-    <td>您的四级英语成绩，没有则留空</td>
+    <td id="cet4_tip">您的四级英语成绩，没有则留空</td>
   </tr>
    <tr>
     <th scope="row">cet6</th>
     <td><input type="text" id="cet6" value="<{$cet6}>"/></td>
-    <td>您的6级英语成绩，没有则留空</td>
+    <td id="cet6_tip">您的6级英语成绩，没有则留空</td>
   </tr>
   <tr>
     <th scope="row">其他外语</th>
