@@ -96,6 +96,7 @@ class User extends DB_Connect {
 				$results=mysql_fetch_assoc($select);
 				$_SESSION[self::USER][self::NAME]=$results['name'];
 				$_SESSION[self::USER][self::FACULTY]=$results['name'];
+				$_SESSION[self::USER][self::FACULTY_ID]=$results['id'];
 			}else if ($results['permission']==1)
 			{
 				$sql="SELECT * from user_info where id='".$id."' ";

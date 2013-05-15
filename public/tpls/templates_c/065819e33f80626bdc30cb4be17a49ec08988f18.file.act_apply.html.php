@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 15:20:26
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 18:45:20
          compiled from "./tpls/templates\act_apply.html" */ ?>
 <?php /*%%SmartyHeaderCode:226025177bcd4242042-40208521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1368602380,
+      1 => 1368603282,
       2 => 'file',
     ),
   ),
@@ -111,7 +111,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                            
 						</div>
                          <span id="begin_time_tip" class="begin_time-tip"> </span>
-						<span class="help-inline phoneerror"></span>
+						<span id="begin_time_error"></span>
 					</div>
 				</div>
                 <div class="control-group" id="pho435ne">
@@ -122,7 +122,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                            
 						</div>
                          <span id="end_time_tip" class="end_time_tip"></span>
-						<span class="help-inline phoneerror"></span>
+						<span id="end_time_error"></span>
 					</div>
 				</div>
                 <div class="control-group" id="ph1212one">
@@ -133,7 +133,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                             
 						</div>
                         <span id="last_time_tip" class="last_time_tip"> </span>
-						<span class="help-inline phoneerror"></span>
+						<span id="last_time_error"></span>
 					</div>
 				</div>
                 <div class="control-group">
@@ -154,7 +154,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<div class="input_border">
 							<input name="detail_time" id="detail_time" class="user" type="text" placeholder="详细描述，例如：每周五下午"/>
 						</div>
-						<span class="help-inline phoneerror"></span>
+						<span id="detail_time_error"></span>
 					</div>
 				</div>
 				<div class="breadcrumb">
@@ -168,7 +168,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<div class="input_border">
 							<input name="total_num" id="total_num" class="user" type="text" placeholder="人数，例如：20" />
 						</div>
-						<span class="help-inline phoneerror"></span>
+						<span id="total_num_error"></span>
 					</div>
 				</div>
                 <div class="control-group">
