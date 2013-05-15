@@ -1,0 +1,17 @@
+
+
+
+.studentNo {
+cursor: pointer;
+color: rgb(50,50, 50);
+font-weight: 600;
+}
+
+.studentNo:hover {
+color: rgb(152, 51, 152);
+}
+
+
+.clickable {
+cursor: pointer;
+}

@@ -23,6 +23,10 @@ $("#name").blur(function(){
 		flag++;
 
 	}
+	else if($("#name").val().length>20){
+		$("#name_tip").text("*姓名最多为20个字符");
+		document.getElementById("name_tip").style.color="red";
+	}
 	else{
 		flag=0;
 		$("#name_tip").text("");
@@ -81,3 +85,47 @@ $("#cet6").blur(function(){
 	}
 });
 
+$("#phone").blur(function(){
+	
+	var phone = $('#phone_tip').val();
+	var pattern =  new RegExp(/^(1(([35][0-9])|(47)|[8][01236789]))\d{8}$/);
+	if(!pattern.test(phone))
+	{
+		$('#phone_tip').text('请输入正确的手机号码');
+		document.getElementById("phone_tip").style.color="red";
+		
+	}
+	else
+	{
+		$('#phone_tip').html('');
+	}
+});
+$("#email").blur(function(){
+	var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+	var email_addr=$("#email").val();
+	
+	if($("#email").val().replace(/\s/g,"")!="")
+		if(!reg.test(email_addr)){
+			$("#email_tip").text("邮箱格式错误");
+			document.getElementById("email_tip").style.color="red";
+			
+		}
+		else{
+			$("#email_tip").text("");	
+		}
+	else{
+		$("#email_tip").text("邮箱不能为空");
+		document.getElementById("email_tip").style.color="red";
+	}
+});
+
+$("#other_skills").blur(function(){
+	if($("#other_skills").val().length>100){
+		$("#other_skills_tip").text("原来是100字以内的呀");
+		document.getElementById("other_skills_tip").style.color="red";
+	}
+	else{
+		$("#other_skills_tip").text("100字以内");
+		document.getElementById("other_skills_tip").style.color="black";
+	}
+});

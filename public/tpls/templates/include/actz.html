@@ -1,41 +1,63 @@
 
+<div id="" class="" style="margin: 0 20px">
+	
+	<span id="show_activity_text" class="">更新</span>时间：<{$current_time}>
 
-<span id="show_activity_text" class="">更新</span>时间：<{$current_time}>
-
-<table id="show_activity_table" class="act_people_table">
-	<tr>
-    <th>活动名称</th>
-    <th>负责人</th>
-    <th>状态</th>
-    <th>报名情况</th>
-    </tr>
-	<{$act_count = 0}>
-	<{section name=act_index loop=$act_list}>
-		<{if $act_count%2 == 0}><tr class="even"><{else}><tr class="odd"><{/if}>
-		   <td style="text-align:left">
-					<span class="util_doc_fold" actid="<{$act_list[act_index].act_id}>" title="展开/折叠活动记录">╬</span>
-					<a href="./act_dtl.php?act_id=<{$act_list[act_index].act_id}>" target="_blank"><{$act_list[act_index].act_title}></a>
-					<div id="doc_list_<{$act_list[act_index].act_id}>" class="util_doc_list">
-						<table>
-							<tr><th>时间</th><th>带队人</th><th>联系方式</th></tr>
-								<{section name=doc_index loop=$act_list[act_index].doc_list}>
-									<tr class="even">
-										<td><{$act_list[act_index].doc_list[doc_index].doc_time}></td>
-										<td><span docid=<{$act_list[act_index].doc_list[doc_index].doc_id}> class="util_doc_index"><{$act_list[act_index].doc_list[doc_index].leader}></span></td>
-										<td><{$act_list[act_index].doc_list[doc_index].tel}></td>
-									</tr>
-								<{/section}>
-						</table>
-						<{if $is_add == true}>
-							<span actid="<{$act_list[act_index].act_id}>" class="util_doc_add">添加活动档案</span>
-						<{/if}>
-					</div>
-			</td>
-		   <td><{$act_list[act_index].consult}></td>
-		   <td><{$act_list[act_index].state}></td>
-		   <td><span actid="<{$act_list[act_index].act_id}>" class="util_doc_apply">》》》</span></td>
+	<table id="show_activity_table" class="act_people_table">
+		<tr>
+		<th>活动名称</th>
+		<th>负责人</th>
+		<th>状态</th>
+		<th>报名情况</th>
 		</tr>
-	<{$act_count = $act_count + 1}>
-	<{/section}>
-</table>
+		<{section name=act_index loop=$act_list}>
+			<{if $smarty.section.act_index.iteration%2 == 0}><tr class="even"><{else}><tr class="odd"><{/if}>
+			   <td style="text-align:left; white-space:nowrap; overflow: hidden;">
+						<span>
+							<img class="util_doc_fold" actid="<{$act_list[act_index].act_id}>" title="展开/折叠活动记录" src="./assets/img/zonet/navigate_plus.png" width="13" height="13" border="0">
+						</span>
+						<a href="./act_dtl.php?act_id=<{$act_list[act_index].act_id}>" target="_blank">
+							<{$act_list[act_index].act_title|truncate:30:"……":true}>
+						</a>
+						<div id="doc_list_<{$act_list[act_index].act_id}>" class="util_doc_list">
+							<table>
+								<tr><th>序号</th><th>时间</th><th>带队人</th><th>联系方式</th></tr>
+									<{section name=doc_index loop=$act_list[act_index].doc_list}>
+										<tr class="odd">
+											<td><{$smarty.section.doc_index.iteration}></td>
+											<td><{$act_list[act_index].doc_list[doc_index].doc_time}></td>
+											<td><span docid=<{$act_list[act_index].doc_list[doc_index].doc_id}> class="util_doc_index"><{$act_list[act_index].doc_list[doc_index].leader}></span></td>
+											<td><{$act_list[act_index].doc_list[doc_index].tel}></td>
+										</tr>
+									<{sectionelse}>
+										<tr class="odd"><td colspan="4">该活动没有记录！</td></tr>
+									<{/section}>
+									<{if $is_add == true}>
+										<tr class="odd">
+											<td colspan="4" style="text-align:left">
+													<span actid="<{$act_list[act_index].act_id}>" class="util_doc_add">
+														<img src="./assets/img/zonet/form_yellow_add.png" width="18" height="18" 
+														border="0" title="添加活动档案">
+													</span>
+											</td>
+										</tr>
+									<{/if}>
+							</table>
+						</div>
+				</td>
+			   <td><{$act_list[act_index].consult}></td>
+			   <td><{$act_list[act_index].state}></td>
+			   <td>
+						<span>
+							<img actid="<{$act_list[act_index].act_id}>" src="./assets/img/zonet/navigate_right2.png" 
+							class="util_doc_apply" width="20" height="20" border="0" title="查看报名情况">
+						</span>
+				</td>
+			</tr>
+		<{sectionelse}>
+			<tr><td colspan="4" >您还没有这方面的活动哦！</td></tr>
+		<{/section}>
+	</table>
 
+
+</div>

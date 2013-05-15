@@ -1,10 +1,6 @@
 
 .util_doc_fold {
-height:20px;
-width:20px;
-padding: 2px 5px; /* pg:page ps:pause pi:pitch  po:position */ 
 cursor:pointer;
-background-color: rgb(200,200,200);
 }
 
 
@@ -16,12 +12,8 @@ background-color: rgb(200,200,200);
 
 .util_doc_add {
 	cursor:pointer;
-	background-color: rgb(200,200,200); 
 }
 
-.util_doc_add:hover{
-	background-color: rgb(160,160,160); 
-}
 
 
 .util_doc_apply {

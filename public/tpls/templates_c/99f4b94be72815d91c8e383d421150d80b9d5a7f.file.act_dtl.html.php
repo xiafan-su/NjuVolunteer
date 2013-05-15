@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 22:47:10
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 22:52:32
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:91615177d2ae9126f8-24185650%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368629227,
+      1 => 1368629551,
       2 => 'file',
     ),
   ),
@@ -133,7 +133,6 @@ $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
             <div id="comment_area">
 				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
 			</div-->
-            <div style="margin-bottom:20px">
           	<?php  $_smarty_tpl->tpl_vars['act_comment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act_comment']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['comment_detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['act_comment']->key => $_smarty_tpl->tpl_vars['act_comment']->value){
@@ -156,14 +155,11 @@ $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
                 </div>
             </div>
             <?php } ?>
-            </div>
-            
-            
             
            <!-- <ul class="div_title2"><li>提交自己的评论</li></ul>-->
         	<br></br>
             
-     		<div id="comment_area">
+     		<div id="comment_area" style="margin-top:100px;">
 				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
 			</div>
       		<div class="control-group">
