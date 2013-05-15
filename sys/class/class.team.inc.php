@@ -51,15 +51,22 @@ class Team extends DB_Connect {
 			return true;
 		}
 	}
-	public function add_doc($act_id,$leader,$profile,$summary,$tel,$vol_time)//增加一个活动档案
+	public function add_doc($act_id,$leader,$profile,$summary,$tel,$vol_time,$date)//增加一个活动档案
 	{
-		$query = "INSERT INTO act_doc(act_id,leader,profile,summary,tel,vol_time,date)VALUES('".$act_id."','".$leader."','".$profile."','".$summary."','".$tel."','".$vol_time."','".date('Y-m-d H:i:s',time())."')";
+		$systemtime=date('Y-m-d H:i:s',time());
+		$query = "INSERT INTO act_doc(act_id,leader,profile,summary,tel,vol_time,date,system_time)VALUES('".$act_id."','".$leader."','".$profile."','".$summary."','".$tel."','".$vol_time."','".$date."','".$systemtime."')";
 		if(!mysql_query($query,$this->root_conn)) 
 		{
 			die('Error: ' . mysql_error());
-			return false;
+			return -1;
 		}
-		else return true;
+		else
+		{ 
+			$sql="SELECT id FROM act_doc where act_id='".$act_id."' and system_time='".$systemtime."' and date='".$date."'";
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			$result=mysql_fetch_assoc($select);
+			return $result['id'];
+		}
 	}
 	public function delete_doc($doc_id)//删除一个活动档案
 	{

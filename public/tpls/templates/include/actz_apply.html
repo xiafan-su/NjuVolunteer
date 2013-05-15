@@ -1,27 +1,50 @@
 
-这里是活动报名情况<br />
-<span id="go_back_home" class="">返回</span><br />
-<span id="show_activity_text" class="">更新</span>时间：<{$update_time}>
+<div id="" class="" style="margin: 0 20px">
+	
+	<!-- <span id="show_activity_text" class="">更新</span>时间：<{$update_time}><br /> -->
 
-<table id="act_people_table">
-	<tr>
-		<th><input id="check_all_act_people" type="checkbox" title="全选" disabled="true" /></th>
-		<th>学号</th>
-		<th>姓名</th>
-		<th>院系</th>
-		<th>年级</th>
-		<th>联系电话</th>
-		<th>qq号</th>
-	</tr>
-	<{section name=vol_index loop=$apply_list}>
-		<tr class="even">
-			<td><input class="checkbox" type="checkbox" /></td>
-			<td><a class="apply_id_col" title="点击查看该学生的信息"><{$apply_list[vol_index].id}></a></td>
-			<td><{$apply_list[vol_index].name}></td>
-			<td><{$apply_list[vol_index].faculty}></td>
-			<td><{$apply_list[vol_index].grade}></td>
-			<td><{$apply_list[vol_index].tel}></td>
-			<td><{$apply_list[vol_index].qq}></td>
-		</tr>
-	<{/section}>
-</table>
+	<h2><{$activity_name}></h2>
+	<div id="base">
+		<div>
+			<div class="left-bar"></div>
+			<div class="main-content-subtitle">报名情况</div>
+			<div class="right-bar"></div>
+		</div>
+		<table id="act_people_table">
+			<tr>
+				<th><input id="check_all_act_people"  type="checkbox" title="全选" /></th>
+				<th>学号</th>
+				<th>姓名</th>
+				<th>院系</th>
+				<th>年级</th>
+				<th>联系电话</th>
+				<th>qq号</th>
+				<th>状态</th>
+			</tr>
+			<{section name=vol_index loop=$apply_list}>
+				<tr class="even">
+					<td><input class="checkbox" type="checkbox" id="act_people_table_checkbox_<{$apply_list[vol_index].id}>" 
+						<{if $apply_list[vol_index].dischoosabled == "true" }>
+						disabled="true"
+						<{/if}>
+					noid="<{$apply_list[vol_index].id}>"/></td>
+					<td><a class="apply_id_col" title="点击查看该学生的信息"><{$apply_list[vol_index].id}></a></td>
+					<td><{$apply_list[vol_index].name}></td>
+					<td><{$apply_list[vol_index].faculty}></td>
+					<td><{$apply_list[vol_index].grade}></td>
+					<td><{$apply_list[vol_index].tel}></td>
+					<td><{$apply_list[vol_index].qq}></td>
+					<td><{$apply_list[vol_index].state}></td>
+				</tr>
+			<{sectionelse}>
+				<tr class="even">
+					<td colspan="8">这个活动还没有人参加哦！赶快敲响你的战鼓吧！</td>
+				</tr>
+			<{/section}>
+		</table>
+	</div>
+	<input type="button" class="button" id="btn_audit_ok" value="通过" title="将选择的报名人员设置为审核通过"/>
+	<input type="button" class="button" id="btn_audit_fail" value="再改改" title="将选择的报名人员设置为审核失败"/>
+	<input type="button" class="button" id="go_back_home" value="返回" />
+
+</div>

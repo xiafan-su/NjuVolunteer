@@ -6,21 +6,34 @@ $_SMARTY_ROOT = "../tpls";
 
 include_once '../../sys/core/init.inc.php';
 
+//echo '$_SESSION[User::USER][User::FACULTY_ID]='.$_SESSION[User::USER][User::FACULTY_ID];
+
 
 $act_list = array();
 
 $team = new Team();
-$act_info = $team->fetch_act_all( 18 );//18为“信息管理学院”
+$act_info = "";
+if( isset($_POST['type']) ){//18为“信息管理学院”
+	if( $_POST['type'] == "finished" ) {
+		$act_info = $team->fetch_act_all( "" );
+	} else {
+		$act_info = $team->fetch_act_all( 18 );
+	}
+}
 while($act_row = mysql_fetch_array($act_info) ) {
 	$act_elem['act_id'] = (int)$act_row['id'];
-	$act_elem['act_title'] = $act_row['name'];
+	$act_elem['act_title'] = $act_row['name']."，测试一下比较长的标题是怎么显示的";
 	$act_elem['consult'] = $act_row['responser'];
 	$act_elem['state'] = $act_row['state'];
 
 	$doc_info = $team->fetch_act_doc_all( $act_row['id'] );
 	$doc_list = array();
 	while( $doc_row = mysql_fetch_array( $doc_info ) ){
-		$doc_list[] = array( "doc_id"=>$doc_row['id'],"doc_time"=>$doc_row['vol_time'], "leader"=> $doc_row['leader'], "tel"=>$doc_row['tel']);
+		$doc_list[] = array( "doc_id"=>$doc_row['id'],
+				"doc_time"=>$doc_row['vol_time'], 
+				"leader"=> $doc_row['leader'], 
+				"tel"=>$doc_row['tel']
+		);
 	}
 	$act_elem['doc_list'] = $doc_list;
 	$act_list[] = $act_elem;

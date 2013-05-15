@@ -103,7 +103,10 @@ zt_func_finished_act = function(html){
 	$( zt_elem_doc_apply ).bind("click", zt_func_doc_apply );
 }
 
-
+zt_func_mem = function(html){
+	$(zt_elem_main_content).html(html);
+	bindStudentInfo();//此函数在mem.js中定义
+}
 
 //注册点击事件
 register_click_event( $( zt_elem_start_act ), "发起的活动", zt_url_act, {type:"start"}, zt_func_start_act );
@@ -111,6 +114,6 @@ register_click_event( $( zt_elem_finished_act ), "完成的活动", zt_url_act, 
 register_click_event( $( zt_elem_note_edit ), "发通知", zt_url_note_edit);
 register_click_event( $( zt_elem_note_recv ), "收到的通知", zt_url_note, {type:"recv"} );
 register_click_event( $( zt_elem_note_sent ), "发送的通知", zt_url_note, {type:"sent"} );
-register_click_event( $( zt_elem_mem ), "成员", zt_url_mem );
+register_click_event( $( zt_elem_mem ), "成员", zt_url_mem, null, zt_func_mem );
 register_click_event( $( zt_elem_infot ), "资料", zt_url_infot );
 
