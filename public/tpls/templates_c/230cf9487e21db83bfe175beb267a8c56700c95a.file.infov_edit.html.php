@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 13:09:32
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 15:47:09
          compiled from "../tpls/templates\include\infov_edit.html" */ ?>
 <?php /*%%SmartyHeaderCode:11240518ba78624bfd2-16047941%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '230cf9487e21db83bfe175beb267a8c56700c95a' => 
     array (
       0 => '../tpls/templates\\include\\infov_edit.html',
-      1 => 1368594567,
+      1 => 1368604014,
       2 => 'file',
     ),
   ),
@@ -63,7 +63,7 @@ table td{
     <th scope="row">姓名</th>
     <td><input type="text" id="name" value="<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
 "/></td>
-    <td></td>
+    <td id="name_tip">testing</td>
   </tr>
   <tr>
     <th scope="row">学号</th>

@@ -13,9 +13,95 @@ KindEditor.ready(function(K) {
 	});
 });
 var cur_state;
+function check_before_submit()
+{
+
+}
 $(document).ready(function(){
 	//alert("ready");
-		$("#submit").click(function(){
+$("#activity_name").blur(function()
+{
+	
+})
+$("#activity_place").blur(function()
+{
+	
+})
+
+$("#begin_time").blur(function()
+{
+	var time = $('#begin_time').val();
+	var pattern = new RegExp();
+	if(!pattern.test(name))
+	{
+		$('#begin_time_error').html('时间格式错误：Y-M-D');
+	}
+	else
+	{
+		$('#begin_time_error').html('');
+
+
+	}
+})
+
+$("#end_time").blur(function()
+{
+	
+})
+
+$("#last_time").blur(function()
+{
+	
+})
+
+$("#detail_time").blur(function()
+{
+	
+})
+
+$("#total_num").blur(function()
+{
+	
+})
+
+$("#other_language").blur(function()
+{
+	
+})
+$("#responser").blur(function()
+{
+	var name = $('#responser').val();
+	var pattern = new RegExp(/^[\u4e00-\u9fa5]{2,5}$/);
+	if(!pattern.test(name))
+	{
+		$('#responser_error').html('姓名格式错误');
+	}
+	else
+	{
+		$('#responser_error').html('');
+
+
+	}
+})
+$("#responser_tel").blur(function()
+{
+	var phone = $('#responser_tel').val();
+	var pattern =  new RegExp(/^(1(([35][0-9])|(47)|[8][01236789]))\d{8}$/);
+	if(!pattern.test(phone))
+	{
+		$('#responser_tel_error').html('请输入正确的手机号码');
+	}
+	else
+	{
+		$('#responser_tel_error').html('');
+	}
+	
+})
+$("#responser").blur(function()
+{
+	
+})
+$("#submit").click(function(){
 		//alert("submit");
 		cur_state="auditing";
 		submit_click();
@@ -47,7 +133,7 @@ function submit_click()
 	for(var i=0;i<Weekday.length;i++)
   	{
     	 if(Weekday.item(i).checked){
-        	 Weekday_time=Weekday_time+Weekday.item(i).getAttribute("value");  
+        	 Weekday_time=Weekday_time+parseInt(Weekday.item(i).getAttribute("value"));  
 		 }
  	}
 	//alert(profile);
