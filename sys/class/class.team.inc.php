@@ -160,6 +160,12 @@ class Team extends DB_Connect {
 					die('Error: ' . mysql_error());
 					return false;
 				}
+				$sql="SELECT i.name FROM act_doc d,activity_info i WHERE d.act_id=i.id";
+				$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+				$result=mysql_fetch_assoc($select);
+				$s=new System();
+				$time=$record['base_time']+$record['honor_time'];
+				$s->send_note($record['user_id'],"恭喜您获得".$time."小时服务时间","您参与的".$result['name']."活动成功完成了，获得了".$record['base_time']."小时基础时间，".$record['honor_time']."小时荣誉时间。具体请查看您的服务记录。");
 			}
 			
 		} 
