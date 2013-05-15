@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 14:22:31
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 00:07:09
          compiled from "./tpls/templates\indext.html" */ ?>
 <?php /*%%SmartyHeaderCode:13773518f8b90a62573-85390918%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fcc6fe68a9e41e4d9da946fded2039d0b9e628f0' => 
     array (
       0 => './tpls/templates\\indext.html',
-      1 => 1368598690,
+      1 => 1368634027,
       2 => 'file',
     ),
   ),
@@ -17,6 +17,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.7',
   'unifunc' => 'content_518f8b90d3e51',
+  'variables' => 
+  array (
+    'team_name' => 0,
+    'leader_name' => 0,
+    'all_act_num' => 0,
+    'now_act_num' => 0,
+    'leader_email' => 0,
+    'leader_phone' => 0,
+    'activity_info' => 0,
+    'act' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_518f8b90d3e51')) {function content_518f8b90d3e51($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -28,7 +39,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <link href="./assets/css/indext.css" rel="stylesheet" />
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="./assets/js/indext.js"></script>
-<title>个人主页</title>
+
+<title>团队主页</title>
 </head>
 
 <body>
@@ -48,29 +60,35 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             </div>
         </div>
         <div class="center">
-        	<div class="name" id="name">计算机科学与技术系青协</div>
+        	<div class="name" id="name"><?php echo $_smarty_tpl->tpl_vars['team_name']->value;?>
+</div>
             <div class="honor"></div>
             <div class="per-info">
             	<table width="200" border="0">
                   <tr>
                     <th scope="row">团队负责人</th>
-                    <td>王鑫</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['leader_name']->value;?>
+</td>
                   </tr>
                   <tr>
                     <th scope="row">累计活动</th>
-                    <td><span id="all_time">20</span>次</td>
+                    <td><span id="all_time"><?php echo $_smarty_tpl->tpl_vars['all_act_num']->value;?>
+</span>次</td>
                   </tr>
                   <tr>
                     <th scope="row">本学期活动</th>
-                    <td><span id="honor_time">10</span>次</td>
+                    <td><span id="honor_time"><?php echo $_smarty_tpl->tpl_vars['now_act_num']->value;?>
+</span>次</td>
                   </tr>
                   <tr>
                     <th scope="row">E-mail：</th>
-                    <td><div id="email">*****@***.com</div></td>
+                    <td><div id="email"><?php echo $_smarty_tpl->tpl_vars['leader_email']->value;?>
+</div></td>
                   </tr>
                   <tr>
                     <th scope="row">Tel：</th>
-                    <td><div id="phone">15996256592</div></td>
+                    <td><div id="phone"><?php echo $_smarty_tpl->tpl_vars['leader_phone']->value;?>
+</div></td>
                   </tr>
                   <tr>
                     <th scope="row">签名档：</th>
@@ -91,14 +109,51 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     	<div class="left-bar"></div>
         <div class="team">
         	<div class="title-bar"></div>
-            <div class="title-content">他关注的团队</div>
+            <div id="team_comment" class="title-content">与他相关的评论</div>
         </div>
         <div class="center-bar"></div>
         <div class="act">
         	<div class="title-bar"></div>
-            <div class="title-content">他参加的活动</div>
+            <div id="team_activity" class="title-content">他发起的活动</div>
         </div>
         <div class="right-bar"></div>
+    </div>
+    
+    <div id="table_activity" style="display:none;">
+    <br>
+    <table>
+    <th>活动名称</th><th>活动时间</th>
+    <?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['activity_info']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['data']['iteration']=0;
+foreach ($_from as $_smarty_tpl->tpl_vars['act']->key => $_smarty_tpl->tpl_vars['act']->value){
+$_smarty_tpl->tpl_vars['act']->_loop = true;
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['data']['iteration']++;
+?>
+    <?php if (($_smarty_tpl->getVariable('smarty')->value['foreach']['data']['iteration']%2==0)){?>
+    <tr class="even">
+    <?php }else{ ?>
+    <tr class="odd">
+    <?php }?>
+    <td><a href="act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
+" target="_blank"><?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
+</a></td>
+    <td><?php echo $_smarty_tpl->tpl_vars['act']->value['begin_time'];?>
+ --- <?php echo $_smarty_tpl->tpl_vars['act']->value['end_time'];?>
+</td>
+    </tr>
+    <?php } ?>
+    </table>
+    </br>
+    </div>
+    
+    <div id="table_comment" style="display:none;">
+    <br>
+    <table>
+    <th>评论人</th><th>评论内容</th>
+    
+    </table>
+    </br>
     </div>
     <div id="content">
     
