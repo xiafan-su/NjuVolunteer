@@ -142,13 +142,13 @@ $("#my_activity").click(function(){
 	$("#main_title").text("我参与的活动");
 	$("#main_content").html(nowloading);
 	$.ajax({
-	type:"POST",
-	url:"./include/actv_takein.php",
-	success:function(html){
-		//alert(html);
-		$("#main_content").html(html);
-	}	
-});
+		type:"POST",
+		url:"./include/actv_takein.php",
+		success:function(html){
+			//alert(html);
+			$("#main_content").html(html);
+		}	
+	});
 });
 $("#activity_record").click(function(){
 	$("#main_title").text("活动记录");
@@ -207,14 +207,17 @@ $("#change_profile").click(function(){
 		url:"./include/infov_edit.php",
 		success:function(html){
 			//alert(html);
+			
 			$("#main_content").html(html);
 		}
 	});
-})
+});
 $("#my_team").click(function(){
 	$("#main_title").text("我的团队");
-})
+});
 $("#my_focused_team").click(function(){
 	$("#main_title").text("关注的团队");
-})
+});
+
+
 
