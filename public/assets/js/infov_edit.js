@@ -87,17 +87,17 @@ $("#cet6").blur(function(){
 
 $("#phone").blur(function(){
 	
-	var phone = $('#phone_tip').val();
+	var phone = $("#phone").val();
 	var pattern =  new RegExp(/^(1(([35][0-9])|(47)|[8][01236789]))\d{8}$/);
 	if(!pattern.test(phone))
 	{
-		$('#phone_tip').text('请输入正确的手机号码');
+		$("#phone_tip").text('请输入正确的手机号码');
 		document.getElementById("phone_tip").style.color="red";
 		
 	}
 	else
 	{
-		$('#phone_tip').html('');
+		$('#phone_tip').text('');
 	}
 });
 $("#email").blur(function(){

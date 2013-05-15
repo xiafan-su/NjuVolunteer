@@ -167,8 +167,7 @@ $(document).ready(function(){
 	
 		}
 	})
-	$("#responser_tel").blur(function()
-	{
+	$("#responser_tel").blur(function(){
 		var phone = $('#responser_tel').val();
 		var pattern =  new RegExp(/^(1(([35][0-9])|(47)|[8][01236789]))\d{8}$/);
 		if(!pattern.test(phone))
