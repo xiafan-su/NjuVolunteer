@@ -28,6 +28,6 @@ $tpl->assign("language",$info['language']);
 $tpl->assign("level",$info['language_level']);
 $tpl->assign("drive",$info['drive']);
 $tpl->assign("medical",$info['medical']);
-
+$tpl->assign("other_skills",$info['other_skills']);
 $tpl->display("include/infov.html");
 ?>

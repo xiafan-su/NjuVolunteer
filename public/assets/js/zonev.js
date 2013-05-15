@@ -181,4 +181,7 @@ $("#my_team").click(function(){
 $("#my_focused_team").click(function(){
 	$("#main_title").text("关注的团队");
 })
-
+function change_sign(){
+	alert($('#sign').val());
+		
+}

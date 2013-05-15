@@ -24,27 +24,31 @@
 <div class="main">
 		<div class="span_left">
 			<form class="form-horizontal" id="apply_activity" action="./handle/act_apply.php" method="POST">
-				<ul class="breadcrumb"><li>活动资料</li></ul>
+				<div class="breadcrumb">
+                	<div class="bar-left"></div>
+                    <div class="bar-title">活动资料</div>
+                    <div class="bar-right"></div>
+                </div>
 				<div class="control-group" id="user">
 					<label class="control-label" for="inputInfo">活动名称</label>
 					<div class="controls">
 						<div class="input_border">
-							<input id="activity_name" name="activity_name" class="user" type="text" />
+							<input id="activity_name" name="activity_name" class="user" type="text" placeholder="活动名称，20字以内"/>
                             
 						</div>
-                        <span id="activity_tip" class="input-tip"></span>
-						<span class="help-inline emailerror"></span>
+                       
+						<span id="activity_name_error"></span>
 					</div>
 				</div>
 				<div class="control-group" id="password">
 					<label class="control-label" for="inputInfo">活动地点</label>
 					<div class="controls">
 						<div class="input_border">
-							<input id="activity_place" name="activity_place" class="user" type="text" />
+							<input id="activity_place" name="activity_place" class="user" type="text" placeholder="南京市南京大学" />
                             
 						</div>
-                        <span id="place_tip" class="input-tip">活动地点不能为空</span>
-						<span class="help-inline passworderror"></span>
+                        
+						<span id="activity_place_error"></span>
 					</div>
 				</div>
 				<div class="control-group">
@@ -65,11 +69,18 @@
 							<select name="attribution_type" id="attribution_type">
 							  <option value="helpdisabled">助残</option>
                               <option value="supporteducation">支教</option>
+                              <option value="helpold">扶老</option>
+                              <option value="competition">大型赛会</option>
+                              <option value="other">其他</option>
 							</select>
 						</div>
 					</div>
 				</div>	
-				<ul class="breadcrumb"><li>活动时间</li></ul>
+				<div class="breadcrumb">
+                	<div class="bar-left"></div>
+                    <div class="bar-title">活动时间</div>
+                    <div class="bar-right"></div>
+                </div>
                 <div class="control-group" id="pho7676ne">
 					<label class="control-label" for="inputInfo" >开始日期</label>
 					<div class="controls">
@@ -78,7 +89,7 @@
                            
 						</div>
                          <span id="begin_time_tip" class="begin_time-tip"> </span>
-						<span class="help-inline phoneerror"></span>
+						<span id="begin_time_error"></span>
 					</div>
 				</div>
                 <div class="control-group" id="pho435ne">
@@ -89,38 +100,63 @@
                            
 						</div>
                          <span id="end_time_tip" class="end_time_tip"></span>
-						<span class="help-inline phoneerror"></span>
+						<span id="end_time_error"></span>
 					</div>
 				</div>
                 <div class="control-group" id="ph1212one">
 					<label class="control-label" for="inputInfo">持续时间</label>
 					<div class="controls">
 						<div class="input_border">
-							<input name="last_time" id="last_time" class="user" type="text" />
+							<input name="last_time" id="last_time" class="user" type="text" placeholder="一个数字，单位是小时，例如2"  />
                             
 						</div>
                         <span id="last_time_tip" class="last_time_tip"> </span>
-						<span class="help-inline phoneerror"></span>
+						<span id="last_time_error"></span>
+					</div>
+				</div>
+                <div class="control-group">
+					<label class="control-label">具体时间</label>
+					<div class="controls-n">
+                    	<input name="weekday" type="checkbox" value="1"  /><label>周一</label>
+                        <input name="weekday" type="checkbox" value="2"  /><label>周二</label>
+                        <input name="weekday" type="checkbox" value="4"  /><label>周三</label>
+                        <input name="weekday" type="checkbox" value="8"  /><label>周四</label>
+                        <input name="weekday" type="checkbox" value="16"  /><label>周五</label>
+                        <input name="weekday" type="checkbox" value="32"  /><label>周六</label>
+                        <input name="weekday" type="checkbox" value="64"  /><label>周日</label>
 					</div>
 				</div>
 				<div class="control-group" id="ph12one">
 					<label class="control-label" for="inputInfo">详细时间</label>
 					<div class="controls">
 						<div class="input_border">
-							<input name="detail_time" id="detail_time" class="user" type="text" placeholder="活动的详细时间描述"/>
+							<input name="detail_time" id="detail_time" class="user" type="text" placeholder="详细描述，例如：每周五下午"/>
 						</div>
-						<span class="help-inline phoneerror"></span>
+						<span id="detail_time_error"></span>
 					</div>
 				</div>
-				<ul class="breadcrumb"><li>活动要求</li></ul>
+				<div class="breadcrumb">
+                	<div class="bar-left"></div>
+                    <div class="bar-title">活动要求</div>
+                    <div class="bar-right"></div>
+                </div>
                 <div class="control-group" id="wqe">
 					<label class="control-label" for="inputInfo">招募人数</label>
 					<div class="controls">
 						<div class="input_border">
-							<input name="total_num" id="total_num" class="user" type="text" />
+							<input name="total_num" id="total_num" class="user" type="text" placeholder="人数，例如：20" />
 						</div>
-						<span class="help-inline phoneerror"></span>
+						<span id="total_num_error"></span>
 					</div>
+				</div>
+                <div class="control-group">
+					<label class="control-label">院系要求</label>
+					<div class="controls-n">
+                    	<input name="faculty_select" type="radio" value="false" checked /><label>否</label>
+                        <input name="faculty_select" type="radio" value="true" /><label>是</label>
+					</div>
+                    <div id="faculty_choose">
+                    </div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="inputInfo">审核类型</label>
@@ -132,8 +168,37 @@
 							</select>
 						</div>
 					</div>
-				</div>	
-                <ul class="breadcrumb"><li>联系人</li></ul>
+				</div>
+                <div class="control-group">
+					<label class="control-label">英语要求</label>
+					<div class="controls-n">
+                    	<input name="en_select" type="radio" value="false" checked /><label>否</label>
+                        <input name="en_select" type="radio" value="true" /><label>是</label>
+					</div>
+                    <div id="en_choose">
+                    </div>
+				</div>
+                <div class="control-group">
+					<label class="control-label" for="inputInfo">其他语言要求</label>
+					<div class="controls">
+						<div class="input_border">
+							<input name="other_language" id="other_language" class="user" type="text" placeholder="德语 法语 默认为无要求"/>
+						</div>
+					</div>
+				</div>
+                <div class="control-group">
+					<label class="control-label">其他要求</label>
+					<div class="controls-n">
+                    	<textarea name="other_com" class="other_com" cols="26" rows="5" style="resize:none" placeholder="热情 大方 善于交流等"></textarea>
+					</div>
+                    <div id="en_choose">
+                    </div>
+				</div>
+                <div class="breadcrumb">
+                	<div class="bar-left"></div>
+                    <div class="bar-title">负责人</div>
+                    <div class="bar-right"></div>
+                </div>
 				<div class="control-group" id="user">
 					<label class="control-label" for="inputInfo">姓名</label>
 					<div class="controls">
@@ -142,7 +207,7 @@
                            
 						</div>
                          <span id="responser_tip" class="responser_tip" ></span>
-						<span class="help-inline emailerror"></span>
+						<span id="responser_error"></span>
 					</div>
 				</div>
                 <div class="control-group" id="pho6786786ne">
@@ -153,10 +218,14 @@
                            	
 						</div>
                         <span id="tel_tip" class="tel_tip"></span>
-						<span class="help-inline phoneerror"></span>
+						<span id="responser_tel_error"></span>
 					</div>
 				</div>
-				<ul class="breadcrumb"><li>活动简介</li></ul>
+				<div class="breadcrumb">
+                	<div class="bar-left"></div>
+                    <div class="bar-title">活动简介</div>
+                    <div class="bar-right"></div>
+                </div>
                 <div  id="phone" >
 					<div class="controls" >
 						<div class="input_area" >
@@ -167,26 +236,17 @@
 				</div>                
 				<div class="control-group">
 					<div class="controls">
-						<input name="submit" class="button" id="submit"  value="提交" />
-                        <input name="preview" class="button" id="preview"  value="预览" />
-                        <input name="save" class="button" id="save"  value="保存" />
-					</div>
+                        <div class="button-ctrl">
+                            <input name="submit" type="button" id="submit"  value="提交" />
+                            <input name="preview" type="button" id="preview"  value="预览" />
+                            <input name="save" type="button" id="save"  value="保存" />
+                        </div>	
+                    </div>
 				</div>
 			</form>
 		</div>
 
-		<div class="span_right">
-			<?php
-			   //生成三个随机数
-			$rand1 = rand()*100%33;
-			$rand2 = 0;
-			$rand3 = 0;
-			while( ($rand2 = rand()*100%33) == $rand1 );
-			while( ($rand3 = rand()*100%33) == $rand1 || $rand3  == $rand2 );
-			?><!-- 220 146 -->
-			<img class="reg_nju_scene" src="../include/img/nju_scene/scene<?php  echo $rand1+1;  ?>.jpg" />
-			<img class="reg_nju_scene" src="../include/img/nju_scene/scene<?php  echo $rand2+1;  ?>.jpg" />
-			<img class="reg_nju_scene" src="../include/img/nju_scene/scene<?php  echo $rand3+1;  ?>.jpg" />
+		<div class="span_right" id="span_right">
 		</div>
  
 </div>

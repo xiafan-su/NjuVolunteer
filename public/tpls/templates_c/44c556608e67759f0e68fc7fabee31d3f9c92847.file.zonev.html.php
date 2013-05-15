@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 19:18:35
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 19:05:07
          compiled from "./tpls/templates\zonev.html" */ ?>
-<?php /*%%SmartyHeaderCode:3147751936f0b7d28d8-69744050%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:237935177976cd9d591-18584448%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '44c556608e67759f0e68fc7fabee31d3f9c92847' => 
     array (
       0 => './tpls/templates\\zonev.html',
-      1 => 1368538893,
+      1 => 1368615872,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3147751936f0b7d28d8-69744050',
+  'nocache_hash' => '237935177976cd9d591-18584448',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5177976cdf086',
   'variables' => 
   array (
     'user_name' => 0,
     'notes_number' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51936f0b8a2e6',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51936f0b8a2e6')) {function content_51936f0b8a2e6($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5177976cdf086')) {function content_5177976cdf086($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -37,6 +37,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <script type="text/javascript" src="./plugin/calendar/calendar-setup.js"></script>
 
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
+
 <title>个人空间</title>
 </head>
 <body>
@@ -102,7 +103,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <div id="vol_profile" class="menu_item_span">
                         	个人资料
                         </div>
-                        <div id="change_password" class="menu_item_span">
+                        <div id="change_profile" class="menu_item_span">
                         	修改资料
                         </div>
 					</div>
@@ -122,5 +123,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php echo $_smarty_tpl->getSubTemplate ("include/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 <script type="text/javascript" src="./assets/js/zonev.js"></script>
+
 </body>
 </html><?php }} ?>

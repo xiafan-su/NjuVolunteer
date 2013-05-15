@@ -13,8 +13,8 @@ margin:20px 0px;
 .breadcrumb {
 margin: 10px;
 padding: 10px 10px 10px 10px;
-background-color: rgb(245, 245, 245);
 clear:both;
+height:25px;
 }
 .control-group{
 margin-bottom: 30px;
@@ -25,6 +25,7 @@ float: left;
 width:160px;
 margin-top: 3px;
 text-align: right;
+border-radius:5px;
 }
 .control-group input{
 width: 184px;
@@ -32,11 +33,13 @@ height: 20px;
 padding: 4px 8px;
 vertical-align: middle;
 border-color: 1px #ccc solid;
+border-radius:5px;
 }
 .control-group input[type='button']{
 cursor:pointer;
 width:auto;
 height:30px;
+border-radius:5px;
 padding: 4px 14px; /* pg:page ps:pause pi:pitch  po:position */ 
 }
  .control-group select{
@@ -45,12 +48,14 @@ height: 30px;
 padding: 4px 8px;
 vertical-align: middle;
 border-color: 1px #ccc solid;
+border-radius:5px;
 }
 .control-group span{
 margin-left: 20px;
 padding-top: 20px;
 vertical-align: middle;
 color: red;
+border-radius:5px;
 }
 
 .input_border, .input_border_focus, .input_border_error, .input_border_error_focus{
@@ -61,6 +66,7 @@ width: 202px;
 height:30px;
 border-width: 1px;
 border-style: solid;
+border-radius:5px;
 }
 
 .input_area{
@@ -70,31 +76,93 @@ margin-bottom: 20px;
 width: 592px;
 border-width: 1px;
 border-style: solid;
+border-radius:5px;
 }
 
 .input_border {
 border-color: green;
+border-radius:5px;
 }
 .input_border_focus {
+border-radius:5px;
 box-shadow: -1px 0 5px rgb(0, 200, 0),0 -1px 5px rgb(0, 200, 0),0 1px 5px rgb(0, 200, 0),1px 0 5px rgb(0, 200, 0);
 }
 .input_border_error {
 border-color: red;
+border-radius:5px;
 }
 .input_border_error_focus {
 border-color: red;
+border-radius:5px;
 box-shadow: -1px 0 5px red,0 -1px 5px red,0 1px 5px red,1px 0 5px red;
 }
 
 .input-tip{
 display:none;
+border-radius:5px;
 }
-
+.bar-title{
+	float:left;
+	font-size:18px;
+	font-weight:bold;
+	margin-left:20px;
+	margin-right:20px;
+}
+.bar-left{
+	float:left;
+	margin-top:7px;
+	height:8px;
+	width:230px;
+	background:-webkit-gradient(linear, right top, left top, from(rgba(104,104,104,1)), to(rgba(225,225,225,0.2)));
+}
+.bar-right{
+	float:left;
+	margin-top:7px;
+	height:8px;
+	width:230px;
+	background:-webkit-gradient(linear, left top, right top, from(rgba(104,104,104,1)), to(rgba(225,225,225,0.2)));
+}
 
 .reg_nju_scene {
 width: 220px;
 height: 146px;
 margin: 5px;  /* mk:marks */
+}
+#en_choose{
+	display:none;
+	margin-top:-10px;
+	float:left;
+	margin-left:180px;
+	width:400px;
+	height:80px;	
+}
+#en_choose input{
+	width:80px;	
+}
+.button-ctrl{
+	float:right;
+	margin-right:20px;
+}
+.controls-n{
+	float:left;
+	margin-top:3px;
+	margin-left:15px;
+	margin-bottom:24px;
+}
+.controls-n input{
+	width:20px;	
+}
+.text_area{
+	margin-left:5px;
+	width:205px;
+	height:81px;
+	border:1px solid green;
+	border-radius:5px;
+}
+textarea{
+	border: 1px #ccc solid;
+	border-radius:5px;
+	padding:0;
 }
 
  #draggable { width: 50px; height: 50px; padding: 0.5em; float: right; margin: 10px 10px 10px 0; }
