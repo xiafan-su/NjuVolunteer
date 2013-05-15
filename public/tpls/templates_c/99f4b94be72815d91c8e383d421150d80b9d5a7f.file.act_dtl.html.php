@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 17:20:29
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 22:52:32
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:91615177d2ae9126f8-24185650%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368603497,
+      1 => 1368629551,
       2 => 'file',
     ),
   ),
@@ -133,38 +133,33 @@ $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
             <div id="comment_area">
 				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
 			</div-->
-            <table id="act_list">
-            <tr><th>评论人学号</th><th>评论人</th><th>评论时间</th><th>评论</th><th>回复</th>
-            
-            
           	<?php  $_smarty_tpl->tpl_vars['act_comment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act_comment']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['comment_detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['act_comment']->key => $_smarty_tpl->tpl_vars['act_comment']->value){
 $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
 ?>
-            <tr class="even">
-            <td><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
-</td>
-            <td><a href="http://www.baidu.com" target="_blank"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['name'];?>
-</a></td>
-            <td><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['time'];?>
-</td>
-            <td><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['content'];?>
-</td>
-            <td class="reply">
-            	<span onMouseOver="this.style.textDecoration='underline';" onMouseout="this.style.textDecoration='none';">回复</span>
-            </td>
-            </tr>
+            <div class="comment-panel">
+            	<div class="comment-title">
+                	<div class="comment-name"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['name'];?>
+(<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
+)</div>
+                    <div class="comment-time">[<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['time'];?>
+]</div>
+                </div>
+                <div class="comment-content">
+                	<span><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['content'];?>
+</span>
+                    <span class="name-used" style="display:none"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['name'];?>
+</span>
+                    <span class="reply">回复</span>
+                </div>
+            </div>
             <?php } ?>
-            </table>
             
-            
-            
-            
-            <ul class="div_title2"><li>提交自己的评论</li></ul>
+           <!-- <ul class="div_title2"><li>提交自己的评论</li></ul>-->
         	<br></br>
             
-     		<div id="comment_area">
+     		<div id="comment_area" style="margin-top:100px;">
 				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
 			</div>
       		<div class="control-group">

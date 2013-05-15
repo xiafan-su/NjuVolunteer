@@ -75,27 +75,21 @@
             <div id="comment_area">
 				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
 			</div-->
-            <table id="act_list">
-            <tr><th>评论人学号</th><th>评论人</th><th>评论时间</th><th>评论</th><th>回复</th>
-            
-            
           	<{foreach name=comment_data item=act_comment from=$comment_detail}>
-            <tr class="even">
-            <td><{$act_comment.id}></td>
-            <td><a href="http://www.baidu.com" target="_blank"><{$act_comment.name}></a></td>
-            <td><{$act_comment.time}></td>
-            <td><{$act_comment.content}></td>
-            <td class="reply">
-            	<span onMouseOver="this.style.textDecoration='underline';" onMouseout="this.style.textDecoration='none';">回复</span>
-            </td>
-            </tr>
+            <div class="comment-panel">
+            	<div class="comment-title">
+                	<div class="comment-name"><{$act_comment.name}>(<{$act_comment.id}>)</div>
+                    <div class="comment-time">[<{$act_comment.time}>]</div>
+                </div>
+                <div class="comment-content">
+                	<span><{$act_comment.content}></span>
+                    <span class="name-used" style="display:none"><{$act_comment.name}></span>
+                    <span class="reply">回复</span>
+                </div>
+            </div>
             <{/foreach}>
-            </table>
             
-            
-            
-            
-            <ul class="div_title2"><li>提交自己的评论</li></ul>
+           <!-- <ul class="div_title2"><li>提交自己的评论</li></ul>-->
         	<br></br>
             
      		<div id="comment_area">

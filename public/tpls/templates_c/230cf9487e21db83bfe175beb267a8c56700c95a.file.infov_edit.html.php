@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 21:24:34
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 22:41:37
          compiled from "../tpls/templates\include\infov_edit.html" */ ?>
 <?php /*%%SmartyHeaderCode:11240518ba78624bfd2-16047941%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '230cf9487e21db83bfe175beb267a8c56700c95a' => 
     array (
       0 => '../tpls/templates\\include\\infov_edit.html',
-      1 => 1368621719,
+      1 => 1368628713,
       2 => 'file',
     ),
   ),
@@ -94,13 +94,13 @@ table td{
     <th scope="row">E-mail</th>
     <td><input type="text" id="email" value="<?php echo $_smarty_tpl->tpl_vars['email']->value;?>
 "/></td>
-    <td>格式举例：IloveNJU@nju.edu.cn</td>
+    <td id="email_tip">格式举例：IloveNJU@nju.edu.cn</td>
   </tr>
   <tr>
     <th scope="row">手机</th>
     <td><input type="text" id="phone" value="<?php echo $_smarty_tpl->tpl_vars['phone']->value;?>
 "/></td>
-    <td id="telnum_tip">国内手机号码11位格式</td>
+    <td id="phone_tip">国内手机号码11位格式</td>
   </tr>
   <tr>
     <th scope="row">所在院系</th>
@@ -221,7 +221,7 @@ $_smarty_tpl->tpl_vars['nation']->_loop = true;
     <th scope="row">其他能力</th>
     <td><textarea name="other" id="other_skills" cols="40" rows="8"><?php echo $_smarty_tpl->tpl_vars['other_skills']->value;?>
 </textarea></td>
-    <td>100字以内</td>
+    <td id="other_skills_tip">100字以内</td>
   </tr>
 </table>
 <div id="operation">

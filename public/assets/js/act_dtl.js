@@ -142,8 +142,8 @@ $(function(){
 	});
 	
 	$('.reply').click(function(){
-		editor.html("Reply " + $(this).prev().prev().prev().text() + ":");
-		response_id =  $(this).prev().prev().prev().prev().text();
+		editor.html("Reply " + $(this).prev().text() + ":");
+		response_id =  $(this).prev().prev().text();
 		//alert($(this).prev().prev().text());
 	});
 });
