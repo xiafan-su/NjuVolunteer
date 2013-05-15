@@ -244,17 +244,6 @@
 		</div>
 
 		<div class="span_right" id="span_right">
-			<?php
-			   //生成三个随机数
-			$rand1 = rand()*100%33;
-			$rand2 = 0;
-			$rand3 = 0;
-			while( ($rand2 = rand()*100%33) == $rand1 );
-			while( ($rand3 = rand()*100%33) == $rand1 || $rand3  == $rand2 );
-			?><!-- 220 146 -->
-			<img class="reg_nju_scene" src="../include/img/nju_scene/scene<?php  echo $rand1+1;  ?>.jpg" />
-			<img class="reg_nju_scene" src="../include/img/nju_scene/scene<?php  echo $rand2+1;  ?>.jpg" />
-			<img class="reg_nju_scene" src="../include/img/nju_scene/scene<?php  echo $rand3+1;  ?>.jpg" />
 		</div>
  
 </div>
