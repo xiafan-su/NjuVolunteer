@@ -69,6 +69,9 @@
 							<select name="attribution_type" id="attribution_type">
 							  <option value="helpdisabled">助残</option>
                               <option value="supporteducation">支教</option>
+                              <option value="helpold">扶老</option>
+                              <option value="bigcompetition">大型赛会</option>
+                              <option value="others">其他</option>
 							</select>
 						</div>
 					</div>
@@ -169,10 +172,12 @@
                 <div class="control-group">
 					<label class="control-label">英语要求</label>
 					<div class="controls-n">
-                    	<input name="en_select" type="radio" value="false" checked /><label>否</label>
-                        <input name="en_select" type="radio" value="true" /><label>是</label>
+                    	<input name="en_select" type="radio" value="false" checked onclick="hide_en()"/><label>否</label>
+                        <input name="en_select" type="radio" value="true" onclick="show_en()"/><label>是</label>
 					</div>
                     <div id="en_choose">
+                    	CET-4大于<input type="text" name="cet4" id="cet4"/><br />
+                        CET-6大于<input type="text" name="cet6" id="cet6"/>
                     </div>
 				</div>
                 <div class="control-group">
@@ -187,7 +192,7 @@
 					<label class="control-label">其他要求</label>
 					<div class="controls-n">
                     	<div class="text_area">
-                    		<textarea name="other_com" class="other_com" cols="26" rows="5" style="resize:none"></textarea>
+                    		<textarea name="other_com" cols="26" rows="5" style="resize:none"></textarea>
                         </div>
 					</div>
                     <div id="en_choose">

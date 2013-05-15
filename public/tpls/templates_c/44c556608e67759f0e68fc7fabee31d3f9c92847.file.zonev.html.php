@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-13 16:41:09
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 14:00:21
          compiled from "./tpls/templates\zonev.html" */ ?>
 <?php /*%%SmartyHeaderCode:237935177976cd9d591-18584448%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '44c556608e67759f0e68fc7fabee31d3f9c92847' => 
     array (
       0 => './tpls/templates\\zonev.html',
-      1 => 1368431388,
+      1 => 1368597618,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'user_name' => 0,
-    'notes_number' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -31,6 +30,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="./assets/css/main.css" rel="stylesheet" />
 <link href="./assets/css/zonev.css" rel="stylesheet" />
+<link type="text/css" rel="stylesheet" href="./plugin/calendar/calendar.css" >
+<script type="text/javascript" src="./plugin/calendar/calendar.js" ></script>  
+<script type="text/javascript" src="./plugin/calendar/calendar-zh.js" ></script>
+<script type="text/javascript" src="./plugin/calendar/calendar-setup.js"></script>
 
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
 <title>个人空间</title>
@@ -48,11 +51,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<div id="person_info" class="person-info" style="float:left">
 			<div id="user_name" ><?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
 </div>
-			<div id="notification_bar" class="" >
-				<span id="notes" class="notification_item">通知(<span id="notes_number" class=""><?php echo $_smarty_tpl->tpl_vars['notes_number']->value;?>
-</span>)</span>
-			</div>
-
+            <div id="user_level">
+            	<img src="./assets/img/star.png" />
+                <img src="./assets/img/star.png" />
+                <img src="./assets/img/star.png" />
+            </div>
+			<div id="server-time">服务总时间：</div>
+            <div id="base-time">基础时间：</div>
+            <div id="honor-time">荣誉时间：</div>
+            <div id="signature">签名：
+            	<input type="text" class="signature" id="sign" value="我了个草/(ㄒoㄒ)/~~" onblur="change_sign()"/>
+            </div>
 		</div>
 	</div>
 <div id="down" class="">
@@ -99,7 +108,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         	个人资料
                         </div>
                         <div id="change_password" class="menu_item_span">
-                        	修改密码
+                        	修改资料
                         </div>
 					</div>
 				</div>

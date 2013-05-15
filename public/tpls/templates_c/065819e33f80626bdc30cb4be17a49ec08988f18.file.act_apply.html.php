@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 12:22:53
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 14:12:42
          compiled from "./tpls/templates\act_apply.html" */ ?>
 <?php /*%%SmartyHeaderCode:226025177bcd4242042-40208521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1368591703,
+      1 => 1368598359,
       2 => 'file',
     ),
   ),
@@ -91,6 +91,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<select name="attribution_type" id="attribution_type">
 							  <option value="helpdisabled">助残</option>
                               <option value="supporteducation">支教</option>
+                              <option value="helpold">扶老</option>
+                              <option value="bigcompetition">大型赛会</option>
+                              <option value="others">其他</option>
 							</select>
 						</div>
 					</div>
@@ -191,10 +194,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <div class="control-group">
 					<label class="control-label">英语要求</label>
 					<div class="controls-n">
-                    	<input name="en_select" type="radio" value="false" checked /><label>否</label>
-                        <input name="en_select" type="radio" value="true" /><label>是</label>
+                    	<input name="en_select" type="radio" value="false" checked onclick="hide_en()"/><label>否</label>
+                        <input name="en_select" type="radio" value="true" onclick="show_en()"/><label>是</label>
 					</div>
                     <div id="en_choose">
+                    	CET-4大于<input type="text" name="cet4" id="cet4"/><br />
+                        CET-6大于<input type="text" name="cet6" id="cet6"/>
                     </div>
 				</div>
                 <div class="control-group">
@@ -209,7 +214,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<label class="control-label">其他要求</label>
 					<div class="controls-n">
                     	<div class="text_area">
-                    		<textarea name="other_com" class="other_com" cols="26" rows="5" style="resize:none"></textarea>
+                    		<textarea name="other_com" cols="26" rows="5" style="resize:none"></textarea>
                         </div>
 					</div>
                     <div id="en_choose">

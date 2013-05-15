@@ -24,10 +24,17 @@
 		</div>
 		<div id="person_info" class="person-info" style="float:left">
 			<div id="user_name" ><{$user_name}></div>
-			<div id="notification_bar" class="" >
-				<span id="notes" class="notification_item">通知(<span id="notes_number" class=""><{$notes_number}></span>)</span>
-			</div>
-
+            <div id="user_level">
+            	<img src="./assets/img/star.png" />
+                <img src="./assets/img/star.png" />
+                <img src="./assets/img/star.png" />
+            </div>
+			<div id="server-time">服务总时间：</div>
+            <div id="base-time">基础时间：</div>
+            <div id="honor-time">荣誉时间：</div>
+            <div id="signature">签名：
+            	<input type="text" class="signature" id="sign" value="我了个草/(ㄒoㄒ)/~~" onblur="change_sign()"/>
+            </div>
 		</div>
 	</div>
 <div id="down" class="">

@@ -89,7 +89,7 @@ width:760px;
 	height:0;
 	top:300px;
 	background-color:rgba(102,51,102,0.5);
-	-webkit-border-radius:20px;
+	border-radius:20px;
 }
 .reply{
 	cursor:pointer;

@@ -15,7 +15,6 @@ margin: 10px;
 padding: 10px 10px 10px 10px;
 clear:both;
 height:25px;
--webkit-border-radius:10px;
 }
 .control-group{
 margin-bottom: 30px;
@@ -26,7 +25,7 @@ float: left;
 width:160px;
 margin-top: 3px;
 text-align: right;
--webkit-border-radius:5px;
+border-radius:5px;
 }
 .control-group input{
 width: 184px;
@@ -34,13 +33,13 @@ height: 20px;
 padding: 4px 8px;
 vertical-align: middle;
 border-color: 1px #ccc solid;
--webkit-border-radius:5px;
+border-radius:5px;
 }
 .control-group input[type='button']{
 cursor:pointer;
 width:auto;
 height:30px;
--webkit-border-radius:5px;
+border-radius:5px;
 padding: 4px 14px; /* pg:page ps:pause pi:pitch  po:position */ 
 }
  .control-group select{
@@ -49,14 +48,14 @@ height: 30px;
 padding: 4px 8px;
 vertical-align: middle;
 border-color: 1px #ccc solid;
--webkit-border-radius:5px;
+border-radius:5px;
 }
 .control-group span{
 margin-left: 20px;
 padding-top: 20px;
 vertical-align: middle;
 color: red;
--webkit-border-radius:5px;
+border-radius:5px;
 }
 
 .input_border, .input_border_focus, .input_border_error, .input_border_error_focus{
@@ -67,7 +66,7 @@ width: 202px;
 height:30px;
 border-width: 1px;
 border-style: solid;
--webkit-border-radius:5px;
+border-radius:5px;
 }
 
 .input_area{
@@ -77,30 +76,30 @@ margin-bottom: 20px;
 width: 592px;
 border-width: 1px;
 border-style: solid;
--webkit-border-radius:5px;
+border-radius:5px;
 }
 
 .input_border {
 border-color: green;
--webkit-border-radius:5px;
+border-radius:5px;
 }
 .input_border_focus {
--webkit-border-radius:5px;
+border-radius:5px;
 box-shadow: -1px 0 5px rgb(0, 200, 0),0 -1px 5px rgb(0, 200, 0),0 1px 5px rgb(0, 200, 0),1px 0 5px rgb(0, 200, 0);
 }
 .input_border_error {
 border-color: red;
--webkit-border-radius:5px;
+border-radius:5px;
 }
 .input_border_error_focus {
 border-color: red;
--webkit-border-radius:5px;
+border-radius:5px;
 box-shadow: -1px 0 5px red,0 -1px 5px red,0 1px 5px red,1px 0 5px red;
 }
 
 .input-tip{
 display:none;
--webkit-border-radius:5px;
+border-radius:5px;
 }
 .bar-title{
 	float:left;
@@ -113,14 +112,14 @@ display:none;
 	float:left;
 	margin-top:7px;
 	height:8px;
-	width:220px;
+	width:230px;
 	background:-webkit-gradient(linear, right top, left top, from(rgba(104,104,104,1)), to(rgba(225,225,225,0.2)));
 }
 .bar-right{
 	float:left;
 	margin-top:7px;
 	height:8px;
-	width:220px;
+	width:230px;
 	background:-webkit-gradient(linear, left top, right top, from(rgba(104,104,104,1)), to(rgba(225,225,225,0.2)));
 }
 
@@ -128,6 +127,17 @@ display:none;
 width: 220px;
 height: 146px;
 margin: 5px;  /* mk:marks */
+}
+#en_choose{
+	display:none;
+	margin-top:-10px;
+	float:left;
+	margin-left:180px;
+	width:400px;
+	height:80px;	
+}
+#en_choose input{
+	width:80px;	
 }
 .button-ctrl{
 	float:right;
@@ -147,11 +157,11 @@ margin: 5px;  /* mk:marks */
 	width:205px;
 	height:81px;
 	border:1px solid green;
-	-webkit-border-radius:5px;
+	border-radius:5px;
 }
 textarea{
 	border: 1px #ccc solid;
-	-webkit-border-radius:5px;
+	border-radius:5px;
 	padding:0;
 }
 

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-13 21:47:04
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 14:22:31
          compiled from "./tpls/templates\indext.html" */ ?>
 <?php /*%%SmartyHeaderCode:13773518f8b90a62573-85390918%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fcc6fe68a9e41e4d9da946fded2039d0b9e628f0' => 
     array (
       0 => './tpls/templates\\indext.html',
-      1 => 1368373430,
+      1 => 1368598690,
       2 => 'file',
     ),
   ),
@@ -27,6 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <link href="./assets/css/login.css" rel="stylesheet" />
 <link href="./assets/css/indext.css" rel="stylesheet" />
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="./assets/js/indext.js"></script>
 <title>个人主页</title>
 </head>
 
@@ -40,29 +41,28 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <div class="personal-info">
     	<div class="left">
         	<div class="photo">
-            	<img src="./assets/img/head_photo/boy/5.jpg"/>
+            	<img src="./assets/img/head_photo/boy/7.jpg"/>
             </div>
-            <div class="orgnization">
-            	<h3>当前所属团队：</h3>
-                <h3 style="color:rgb(102,51,102)" id="team">南京大学青年志愿者协会</h3>
+            <div class="follow">
+            	关注这个团队
             </div>
         </div>
         <div class="center">
-        	<div class="name">夏凡</div>
+        	<div class="name" id="name">计算机科学与技术系青协</div>
             <div class="honor"></div>
             <div class="per-info">
             	<table width="200" border="0">
                   <tr>
-                    <th scope="row">所属院系</th>
-                    <td>计算机科学与技术系</td>
+                    <th scope="row">团队负责人</th>
+                    <td>王鑫</td>
                   </tr>
                   <tr>
-                    <th scope="row">累计服务时间</th>
-                    <td><span id="all_time">20</span>小时</td>
+                    <th scope="row">累计活动</th>
+                    <td><span id="all_time">20</span>次</td>
                   </tr>
                   <tr>
-                    <th scope="row">荣誉时间</th>
-                    <td><span id="honor_time">10</span>小时</td>
+                    <th scope="row">本学期活动</th>
+                    <td><span id="honor_time">10</span>次</td>
                   </tr>
                   <tr>
                     <th scope="row">E-mail：</th>
@@ -82,7 +82,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="right">
         	<div class="top-bar"></div>
             <div class="scroll-item">
-            	这里是会滚动的信息
+            	<div id="scroll-panel"></div>
             </div>
             <div class="bottom-bar"></div>
         </div>
