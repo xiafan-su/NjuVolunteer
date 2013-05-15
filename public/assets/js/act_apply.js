@@ -4,8 +4,9 @@ var editor;
 KindEditor.ready(function(K) {
 	editor = K.create('textarea[name="content"]', {
 		resizeType : 1,
-		allowPreviewEmoticons : false,
-		allowImageUpload : false,
+		allowPreviewEmoticons : true,
+		allowImageUpload : true,
+		allowFileManager : true,
 		items : [
 			'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
 			'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
