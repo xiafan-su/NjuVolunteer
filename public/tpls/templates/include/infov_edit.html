@@ -123,7 +123,7 @@ table td{
   </tr>
   <tr>
     <th scope="row">其他外语</th>
-    <td><input type="text" id="other" value="<{$language}>"/></td>
+    <td><input type="text" id="other_language" value="<{$language}>"/></td>
     <td>你还会其他外语吗？若会多个则用分号隔开</td>
   </tr>
   <tr>
@@ -135,33 +135,27 @@ table td{
   </tr>
   <tr>
     <th scope="row">是否有医疗急救技能</th>
-    <td><{if $medical=="是"}>
-    	<input name="medical_select" type="radio" value="medical_true" checked/><label>是</label>
-    	<input name="medical_select" type="radio" value="medical_false" /><label>否</label>
-        <{else}>
-    	<input name="medical_select" type="radio" value="medical_true" /><label>是</label>
-    	<input name="medical_select" type="radio" value="medical_false" checked/><label>否</label>
-    	<{/if}>
+    <td>
+    	<input name="medical_select" type="radio" value="是" <{if $medical=='是'}>checked<{/if}>/><label>是</label>
+    	<input name="medical_select" type="radio" value="否" <{if $medical=='否'}>checked<{/if}>/><label>否</label>
     <td>是否经过急救培训</td>
   </tr>
   <tr>
     <th scope="row">是否有驾驶技能</th>
-    <td><{if $drive=="是"}>
-    	<input name="drive_select" type="radio" value="drive_true" checked/><label>是</label>
-    	<input name="drive_select" type="radio" value="drive_false" /><label>否</label>
-        <{else}>
-    	<input name="drive_select" type="radio" value="drive_true" /><label>是</label>
-    	<input name="drive_select" type="radio" value="drive_false" checked/><label>否</label>
-    	<{/if}>
+    <td>
+    	<input name="drive_select" type="radio" value="是" <{if $drive=='是'}>checked<{/if}>/><label>是</label>
+    	<input name="drive_select" type="radio" value="否" <{if $drive=='否'}>checked<{/if}>/><label>否</label>
     <td>是否有驾照</td>
   </tr>
   <tr>
     <th scope="row">其他能力</th>
-    <td><textarea name="other" cols="40" rows="8"><{$other_skills}></textarea></td>
-    <td></td>
+    <td><textarea name="other" id="other_skills" cols="40" rows="8"><{$other_skills}></textarea></td>
+    <td>100字以内</td>
   </tr>
 </table>
+<div id="operation">
 <input type="button" class="button" value="提交" onclick="handlechange()"/>
 <input type="button" class="button" value="回到默认" />
+</div>
 </div>
 </div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-14 19:24:25
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-14 21:30:51
          compiled from "../tpls/templates\include\infov_edit.html" */ ?>
 <?php /*%%SmartyHeaderCode:11240518ba78624bfd2-16047941%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '230cf9487e21db83bfe175beb267a8c56700c95a' => 
     array (
       0 => '../tpls/templates\\include\\infov_edit.html',
-      1 => 1368529561,
+      1 => 1368538224,
       2 => 'file',
     ),
   ),
@@ -191,7 +191,7 @@ $_smarty_tpl->tpl_vars['nation']->_loop = true;
   </tr>
   <tr>
     <th scope="row">其他外语</th>
-    <td><input type="text" id="other" value="<?php echo $_smarty_tpl->tpl_vars['language']->value;?>
+    <td><input type="text" id="other_language" value="<?php echo $_smarty_tpl->tpl_vars['language']->value;?>
 "/></td>
     <td>你还会其他外语吗？若会多个则用分号隔开</td>
   </tr>
@@ -204,34 +204,28 @@ $_smarty_tpl->tpl_vars['nation']->_loop = true;
   </tr>
   <tr>
     <th scope="row">是否有医疗急救技能</th>
-    <td><?php if ($_smarty_tpl->tpl_vars['medical']->value=="是"){?>
-    	<input name="medical_select" type="radio" value="medical_true" checked/><label>是</label>
-    	<input name="medical_select" type="radio" value="medical_false" /><label>否</label>
-        <?php }else{ ?>
-    	<input name="medical_select" type="radio" value="medical_true" /><label>是</label>
-    	<input name="medical_select" type="radio" value="medical_false" checked/><label>否</label>
-    	<?php }?>
+    <td>
+    	<input name="medical_select" type="radio" value="是" <?php if ($_smarty_tpl->tpl_vars['medical']->value=='是'){?>checked<?php }?>/><label>是</label>
+    	<input name="medical_select" type="radio" value="否" <?php if ($_smarty_tpl->tpl_vars['medical']->value=='否'){?>checked<?php }?>/><label>否</label>
     <td>是否经过急救培训</td>
   </tr>
   <tr>
     <th scope="row">是否有驾驶技能</th>
-    <td><?php if ($_smarty_tpl->tpl_vars['drive']->value=="是"){?>
-    	<input name="drive_select" type="radio" value="drive_true" checked/><label>是</label>
-    	<input name="drive_select" type="radio" value="drive_false" /><label>否</label>
-        <?php }else{ ?>
-    	<input name="drive_select" type="radio" value="drive_true" /><label>是</label>
-    	<input name="drive_select" type="radio" value="drive_false" checked/><label>否</label>
-    	<?php }?>
+    <td>
+    	<input name="drive_select" type="radio" value="是" <?php if ($_smarty_tpl->tpl_vars['drive']->value=='是'){?>checked<?php }?>/><label>是</label>
+    	<input name="drive_select" type="radio" value="否" <?php if ($_smarty_tpl->tpl_vars['drive']->value=='否'){?>checked<?php }?>/><label>否</label>
     <td>是否有驾照</td>
   </tr>
   <tr>
     <th scope="row">其他能力</th>
-    <td><textarea name="other" cols="40" rows="8"><?php echo $_smarty_tpl->tpl_vars['other_skills']->value;?>
+    <td><textarea name="other" id="other_skills" cols="40" rows="8"><?php echo $_smarty_tpl->tpl_vars['other_skills']->value;?>
 </textarea></td>
-    <td></td>
+    <td>100字以内</td>
   </tr>
 </table>
+<div id="operation">
 <input type="button" class="button" value="提交" onclick="handlechange()"/>
 <input type="button" class="button" value="回到默认" />
+</div>
 </div>
 </div><?php }} ?>

@@ -20,10 +20,27 @@ class User extends DB_Connect {
 		$results=mysql_fetch_assoc($select);
 		return $results;
 	} 
-	public function change_person_info($id,$name,$gender,$email)//修改个人资料
+	public function change_person_info($id,$name,$idcard_num,$gender,$email,$phone,$faculty,$birthday,$politics_status,$nation,$cloth_size,$dormitory,$cet4,$cet6,$language,$language_level,$drive,$medical,$other_skills)//修改个人资料
 	{
-		$sql="UPDATE user_info SET name='".$name."',gender='".$gender."',email='".$email."' where id='".$id."'";
-		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		$sql="UPDATE user_info SET 
+		
+		name='".$name."',						gender='".$gender."',					idcard_num='".$idcard_num."',
+		email='".$email."',						faculty='".$faculty."',
+		birthday='".$birthday."',				phone='".$phone."',						
+		politics_status='".$politics_status."',	nation='".$nation."',					cloth_size='".$cloth_size."',
+		dormitory='".$dormitory."',				cet4='".$cet4."',						cet6='".$cet6."',
+		language='".$language."',				language_level='".$language_level."',	drive='".$drive."',
+		medical='".$medical."',					other_skills='".$other_skills."'
+		
+	    WHERE id='".$id."'";
+		if (!mysql_query($sql, $this->root_conn) )
+		{
+			die('Error: ' . mysql_error());
+			return false;
+		}else
+		{
+			return true;
+		}
 	}
 	public function fetch_person_act($id)//获取我参与的活动
 	{
