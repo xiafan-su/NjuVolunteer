@@ -66,8 +66,9 @@
 .content{
 	margin-top:20px;
 	float:left;
-	width:640px;
-	height:410px;
+	width:636px;
+	height:406px;
+	border:2px solid #CCC;
 	background:rgb(245,245,245);
 	border-radius:20px;
 }
@@ -75,7 +76,7 @@
 	position:absolute;
 	margin-left:20px;
 	top:420px;
-	width:594px;
+	width:588px;
 	height:25px;
 	padding:6px 3px 0 3px;
 	font-size:14px;
@@ -92,13 +93,14 @@ input[type='button']{
 .detail{
 	float:left;
 	margin:20px 20px 0 20px;
-	width:600px;	
+	width:600px;
 }
 .detail li{
 	width:580px;
 	padding-left:20px;
 	height:22px;
 	padding-top:6px;
+	background:url(../img/index/list.jpg) 0 9px no-repeat;
 }
 .title-d{
 	float:left;
