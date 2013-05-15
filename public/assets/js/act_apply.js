@@ -1,5 +1,10 @@
 
-
+function show_en(){
+	$('#en_choose').show();	
+}
+function hide_en(){
+	$('#en_choose').hide();	
+}
 var editor;
 KindEditor.ready(function(K) {
 	editor = K.create('textarea[name="content"]', {

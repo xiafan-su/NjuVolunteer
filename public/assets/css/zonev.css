@@ -5,7 +5,7 @@ height: 100px;
 margin: 10px;
 margin-right:20px;
 padding: 10px; 
--webkit-border-radius:20px;
+border-radius:20px;
 }
 
 #down{
@@ -16,7 +16,7 @@ padding: 10px;
 	float: left;
 	border:1px rgb(200,200,200) solid;
 	width: 25%;  /* wi:windows */
-	-webkit-border-radius:10px;
+	border-radius:10px;
 	background:rgb(245,245,245);
 }
 #team_info p{
@@ -24,7 +24,10 @@ padding: 10px;
 	font-weight: 600;
 	padding-left: 200px;
 }
-
+.person-info{
+	float:left;	
+	width:500px;
+}
 #logo{
 	float: left;
 	margin-left: 100px;
@@ -33,11 +36,33 @@ padding: 10px;
 	
 }
 #user_name{
+	margin-top:3px;
+	float:left;
 	font-size:20px;
 	margin-left:20px;
 	font-weight:600;
-	margin-top:20px;
-	margin-bottom:20px;
+	margin-bottom:10px;
+}
+#user_level{
+	padding-left:10px;
+	width:450px;
+	height:30px;
+	margin-top:3px;
+}
+#server-time,#honor-time,#base-time{
+	float:left;
+	margin-left:20px;
+}
+#signature{
+	float:left;
+	margin-left:20px;
+	width:480px;
+	margin-top:10px;
+}
+.signature{
+	width:400px;
+	border-radius:4px;
+	background:rgb(245,245,245);
 }
 #notes{
 	margin-left:20px;
@@ -53,7 +78,7 @@ padding: 10px;
 }
 .menu_item_span:hover{
 	background-color: rgb(200,200,200); /*#F00 #FF0000 red */
-	-webkit-border-radius:10px;
+	border-radius:10px;
 	cursor:pointer;
 }
 .menu_item_span{
@@ -72,12 +97,12 @@ padding: 10px;
 	font-size: 16px;
 	border:1px rgb(200,200,200) solid;
 	margin: 10px; 
-	-webkit-border-radius:10px;
+	border-radius:10px;
 }
 #main_content{
 	margin: 10px;  /* mk:marks */
 	border:1px rgb(200,200,200) solid;
-	-webkit-border-radius:10px;
+	border-radius:10px;
 }
 #main_content2{
 	margin: 10px;  /* mk:marks */
@@ -112,11 +137,11 @@ a:hover{
 	text-align:center;
 	float:left;
 	font-size:18px;
-	-webkit-border-radius:10px;	
+	border-radius:10px;	
 }
 table{
 	border-collapse:separate;
-	-webkit-border-radius:5px;
+	border-radius:5px;
 }
 table th{
 	color:rgb(102,51,102);
@@ -165,7 +190,7 @@ table td{
 	background:rgba(250,250,250,1);
 	display:none;
 	border:2px solid rgb(225,225,225);
-	-webkit-border-radius:20px;
+	border-radius:20px;
 }
 textarea{
 	resize:none;
