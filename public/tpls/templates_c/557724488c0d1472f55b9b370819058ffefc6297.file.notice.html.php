@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 20:25:07
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 21:00:39
          compiled from "./tpls/templates\notice.html" */ ?>
 <?php /*%%SmartyHeaderCode:1700951936ff20052c8-45431286%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '557724488c0d1472f55b9b370819058ffefc6297' => 
     array (
       0 => './tpls/templates\\notice.html',
-      1 => 1368620618,
+      1 => 1368622836,
       2 => 'file',
     ),
   ),
@@ -43,6 +43,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="online">
         	在线咨询
         </div>
+        <div class="online">
+        	心路历程
+        </div>
     </div>
     
     <div class="right">
@@ -53,12 +56,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
         <div class="content">
         	<div class="notice-list">
-            	<ul>
-                	<li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
+            	<ul class="detail">
+                	<li>
+                    	<div class="title-d">上学期所有志愿活动一览</div>
+                    	<div class="time-d">[2013-5-11]</div>
+                    </li>
                     <li>1</li>
                     <li>1</li>
                     <li>1</li>

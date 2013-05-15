@@ -28,7 +28,7 @@
 	margin:30px;
 }
 .online{
-	margin:0 30px 0 30px;
+	margin:0 30px 30px 30px;
 }
 .notice:hover,.online:hover{
 	background:rgb(102,51,102);
@@ -89,8 +89,20 @@ input[type='button']{
 	font-size:12px;
 	color:rgb(102,51,102);
 }
-ul{
+.detail{
 	float:left;
-	margin:15px 20px 0 20px;
+	margin:20px 20px 0 20px;
 	width:600px;	
+}
+.detail li{
+	width:580px;
+	padding-left:20px;
+	height:22px;
+	padding-top:6px;
+}
+.title-d{
+	float:left;
+}
+.time-d{
+	float:right;
 }
