@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-04-24 22:46:54
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 09:19:30
          compiled from "./tpls/templates\act_apply.html" */ ?>
 <?php /*%%SmartyHeaderCode:226025177bcd4242042-40208521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1366814017,
+      1 => 1368580629,
       2 => 'file',
     ),
   ),
@@ -46,7 +46,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div class="main">
 		<div class="span_left">
 			<form class="form-horizontal" id="apply_activity" action="./handle/act_apply.php" method="POST">
-				<ul class="breadcrumb"><li>活动资料</li></ul>
+				<div class="breadcrumb">
+                	<div class="bar-left"></div>
+                    <div class="bar-title">活动资料</div>
+                    <div class="bar-right"></div>
+                </div>
 				<div class="control-group" id="user">
 					<label class="control-label" for="inputInfo">活动名称</label>
 					<div class="controls">
@@ -91,7 +95,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</div>
 					</div>
 				</div>	
-				<ul class="breadcrumb"><li>活动时间</li></ul>
+				<div class="breadcrumb">
+                	<div class="bar-left"></div>
+                    <div class="bar-title">活动时间</div>
+                    <div class="bar-right"></div>
+                </div>
                 <div class="control-group" id="pho7676ne">
 					<label class="control-label" for="inputInfo" >开始日期</label>
 					<div class="controls">
@@ -125,6 +133,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<span class="help-inline phoneerror"></span>
 					</div>
 				</div>
+                <div class="control-group">
+					<label class="control-label">持续时间</label>
+					<div class="controls-n">
+                    	<input name="weekday" type="checkbox" value="1" checked /><label>周一</label>
+                        <input name="weekday" type="checkbox" value="2" checked /><label>周二</label>
+                        <input name="weekday" type="checkbox" value="4" checked /><label>周三</label>
+                        <input name="weekday" type="checkbox" value="8" checked /><label>周四</label>
+                        <input name="weekday" type="checkbox" value="16" checked /><label>周五</label>
+                        <input name="weekday" type="checkbox" value="32" checked /><label>周六</label>
+                        <input name="weekday" type="checkbox" value="64" checked /><label>周日</label>
+					</div>
+				</div>
 				<div class="control-group" id="ph12one">
 					<label class="control-label" for="inputInfo">详细时间</label>
 					<div class="controls">
@@ -134,7 +154,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<span class="help-inline phoneerror"></span>
 					</div>
 				</div>
-				<ul class="breadcrumb"><li>活动要求</li></ul>
+				<div class="breadcrumb">
+                	<div class="bar-left"></div>
+                    <div class="bar-title">活动要求</div>
+                    <div class="bar-right"></div>
+                </div>
                 <div class="control-group" id="wqe">
 					<label class="control-label" for="inputInfo">招募人数</label>
 					<div class="controls">
@@ -143,6 +167,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</div>
 						<span class="help-inline phoneerror"></span>
 					</div>
+				</div>
+                <div class="control-group">
+					<label class="control-label">院系要求</label>
+					<div class="controls-n">
+                    	<input name="faculty_select" type="radio" value="false" checked /><label>否</label>
+                        <input name="faculty_select" type="radio" value="true" /><label>是</label>
+					</div>
+                    <div id="faculty_choose">
+                    </div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="inputInfo">审核类型</label>
@@ -154,8 +187,37 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							</select>
 						</div>
 					</div>
-				</div>	
-                <ul class="breadcrumb"><li>联系人</li></ul>
+				</div>
+                <div class="control-group">
+					<label class="control-label">英语要求</label>
+					<div class="controls-n">
+                    	<input name="en_select" type="radio" value="false" checked /><label>否</label>
+                        <input name="en_select" type="radio" value="true" /><label>是</label>
+					</div>
+                    <div id="en_choose">
+                    </div>
+				</div>
+                <div class="control-group">
+					<label class="control-label" for="inputInfo">其他语言要求</label>
+					<div class="controls">
+						<div class="input_border">
+							<input name="other_language" id="other_language" class="user" type="text" />
+						</div>
+					</div>
+				</div>
+                <div class="control-group">
+					<label class="control-label">其他要求</label>
+					<div class="controls-n">
+                    	<textarea name="other_com" class="other_com" cols="26" rows="5" style="resize:none"></textarea>
+					</div>
+                    <div id="en_choose">
+                    </div>
+				</div>
+                <div class="breadcrumb">
+                	<div class="bar-left"></div>
+                    <div class="bar-title">联系人</div>
+                    <div class="bar-right"></div>
+                </div>
 				<div class="control-group" id="user">
 					<label class="control-label" for="inputInfo">姓名</label>
 					<div class="controls">
@@ -178,7 +240,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<span class="help-inline phoneerror"></span>
 					</div>
 				</div>
-				<ul class="breadcrumb"><li>活动简介</li></ul>
+				<div class="breadcrumb">
+                	<div class="bar-left"></div>
+                    <div class="bar-title">活动简介</div>
+                    <div class="bar-right"></div>
+                </div>
                 <div  id="phone" >
 					<div class="controls" >
 						<div class="input_area" >
@@ -189,15 +255,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				</div>                
 				<div class="control-group">
 					<div class="controls">
-						<input name="submit" class="button" id="submit"  value="提交" />
-                        <input name="preview" class="button" id="preview"  value="预览" />
-                        <input name="save" class="button" id="save"  value="保存" />
-					</div>
+                        <div class="button-ctrl">
+                            <input name="submit" type="button" id="submit"  value="提交" />
+                            <input name="preview" type="button" id="preview"  value="预览" />
+                            <input name="save" type="button" id="save"  value="保存" />
+                        </div>	
+                    </div>
 				</div>
 			</form>
 		</div>
 
-		<div class="span_right">
+		<div class="span_right" id="span_right">
 			<<?php ?>?php
 			   //生成三个随机数
 			$rand1 = rand()*100%33;
