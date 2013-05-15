@@ -11,7 +11,6 @@
 	float:left;
 	margin:0 40px 0 40px;
 	width:640px;
-	height:480px;
 }
 .notice,.online{
 	padding-top:10px;
@@ -107,4 +106,44 @@ input[type='button']{
 }
 .time-d{
 	float:right;
+}
+.notice-detail{
+	float:left;
+	width:636px;
+	border:2px solid #CCC;
+	background:rgb(245,245,245);
+	border-radius:20px;
+	padding-bottom:20px;
+	margin-bottom:20px;
+}
+.d-title{
+	float:left;
+	width:636px;
+	margin:20px 0 0 0;
+	font-size:24px;
+	font-weight:bold;
+	color:rgb(102,51,102);
+	text-align:center;	
+}
+.d-time{
+	float:left;
+	width:636px;
+	margin:20px 0 0 0;	
+}
+.time-detail{
+	float:left;
+	width:300px;
+	padding-right:18px;
+	text-align:right
+}
+.times-detail{
+	float:left;
+	width:300px;
+	padding-left:18px;
+	text-align:left;
+}
+.d-content{
+	float:left;
+	width:600;
+	padding:20px 18px 0 18px;
 }
