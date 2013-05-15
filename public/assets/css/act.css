@@ -22,7 +22,7 @@ img{
 	padding:10px;
 	margin-top:10px;
 	border:1px solid white;
-	-webkit-border-radius:10px;
+	border-radius:10px;
 }
 .summary:hover{
 	background-color:rgb(245,245,245);
@@ -98,7 +98,7 @@ img{
 	float:left;
 	margin-top:10px;
 	width:100%;
-	height:300px;	
+	height:300px;
 }
 .hotact2{
 	float:left;
@@ -109,6 +109,9 @@ img{
 .title{
 	width:100%;
 	height:64px;
+}
+.title-op{	
+	border-radius:5px;
 }
 .title-op:hover{
 	background-color:#606;
@@ -175,6 +178,7 @@ img{
 	width:800px;
 	float:left;
 	height:300px;
+	box-shadow:10px 10px 20px #666;
 }
 .switch{
 	position:relative;
@@ -186,9 +190,9 @@ img{
 	float:left;
 	height:300px;
 	width:80px;
-	-webkit-border-radius: 20px 0 0 20px;
-	background-color:#606;
-	background-image:url(../img/activity_center/left.gif);
+	border-radius: 20px 0 0 20px;
+	background:rgb(102,51,102);
+	box-shadow:10px 10px 20px #666;
 }
 .pageup:hover{
 	background-color:#909;
@@ -202,9 +206,9 @@ img{
 	float:right;
 	height:300px;
 	width:80px;
-	-webkit-border-radius: 0 20px 20px 0;
-	background-color:#606;
-	background-image:url(../img/activity_center/right.gif);
+	border-radius: 0 20px 20px 0;
+	background:rgb(102,51,102);
+	box-shadow:10px 10px 20px #666;
 }
 .more{
 	margin-top:20px;
@@ -213,7 +217,7 @@ img{
 	margin-right:80px;
 	float:left;
 	background-color:rgba(102,51,102,0.5);
-	-webkit-border-radius:20px;
+	border-radius:20px;
 	color:#FFF;
 }
 .more:hover{

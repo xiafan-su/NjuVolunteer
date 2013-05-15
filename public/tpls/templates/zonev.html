@@ -11,6 +11,7 @@
 <script type="text/javascript" src="./plugin/calendar/calendar-setup.js"></script>
 
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
+
 <title>个人空间</title>
 </head>
 <body>
@@ -24,10 +25,17 @@
 		</div>
 		<div id="person_info" class="person-info" style="float:left">
 			<div id="user_name" ><{$user_name}></div>
-			<div id="notification_bar" class="" >
-				<span id="notes" class="notification_item">通知(<span id="notes_number" class=""><{$notes_number}></span>)</span>
-			</div>
-
+            <div id="user_level">
+            	<img src="./assets/img/star.png" />
+                <img src="./assets/img/star.png" />
+                <img src="./assets/img/star.png" />
+            </div>
+			<div id="server-time">服务总时间：</div>
+            <div id="base-time">基础时间：</div>
+            <div id="honor-time">荣誉时间：</div>
+            <div id="signature">签名：
+            	<input type="text" class="signature" id="sign" value="我了个草/(ㄒoㄒ)/~~" onblur="change_sign()"/>
+            </div>
 		</div>
 	</div>
 <div id="down" class="">
@@ -92,5 +100,6 @@
 <div id="note_detail"></div>
 <{include file="include/footer.html"}>
 <script type="text/javascript" src="./assets/js/zonev.js"></script>
+
 </body>
 </html>

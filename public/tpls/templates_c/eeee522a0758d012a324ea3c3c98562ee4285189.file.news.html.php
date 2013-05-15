@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-11 20:51:12
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 17:21:05
          compiled from "./tpls/templates\news.html" */ ?>
 <?php /*%%SmartyHeaderCode:864651775feaaf6a27-85262281%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'eeee522a0758d012a324ea3c3c98562ee4285189' => 
     array (
       0 => './tpls/templates\\news.html',
-      1 => 1367730835,
+      1 => 1368609656,
       2 => 'file',
     ),
   ),
@@ -26,7 +26,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="./assets/css/main.css" rel="stylesheet" />
 <link href="./assets/css/login.css" rel="stylesheet" />
+<link href="./assets/css/news.css" rel="stylesheet" />
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="./assets/js/news.js"></script>
 <title>新闻中心</title>
 </head>
 <body>
@@ -34,7 +36,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 
 <div class="main">
-这里是新闻中心
+<div class="cons_img">
+	<img src="./assets/img/under_construction.jpg" />
+</div>
+<div id="content1">
+	
+</div>
+<div id="content2">
+
+</div>
 </div>
 
 <?php echo $_smarty_tpl->getSubTemplate ("include/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>

@@ -332,7 +332,7 @@ table td{
 	position:fixed;
 	width:500px;
 	background-color:#FFF;
-	-webkit-border-radius: 10px;
+	border-radius: 10px;
 	z-index:230;	
 	left:50%;
 	margin-left:-250px;

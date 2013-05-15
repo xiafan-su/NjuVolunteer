@@ -1,0 +1,149 @@
+/* CSS Document */
+
+.left{
+	float:left;
+	margin-left:40px;
+	width:200px;
+	height:450px;
+}
+
+.right{
+	float:left;
+	margin:0 40px 0 40px;
+	width:640px;
+}
+.notice,.online{
+	padding-top:10px;
+	float:left;
+	width:140px;
+	text-align:center;
+	height:30px;
+	background:rgb(188,188,188);
+	border-radius:10px;
+	font-weight:bold;
+	color:rgb(102,51,102);
+}
+.notice{
+	margin:30px;
+}
+.online{
+	margin:0 30px 30px 30px;
+}
+.notice:hover,.online:hover{
+	background:rgb(102,51,102);
+	color:#FFF;
+	cursor:pointer;
+	box-shadow:0 0 20px #666;
+}
+.title-bar{
+	float:left;
+	width:640px;
+	height:20px;
+}
+#type{
+	float:left;	
+	font-size:20px;
+	color:rgb(102,51,102);
+	font-weight:bold;
+	width:120px;
+	text-align:center;
+}
+.left-bar{
+	margin-top:6px;
+	float:left;
+	width:260px;
+	height:8px;
+	background:-webkit-gradient(linear, right top, left top, from(rgba(104,104,104,1)), to(rgba(225,225,225,0.2)));
+}
+.right-bar{
+	margin-top:6px;
+	float:left;
+	width:260px;
+	height:8px;
+	background:-webkit-gradient(linear, left top, right top, from(rgba(104,104,104,1)), to(rgba(225,225,225,0.2)));
+}
+.content{
+	margin-top:20px;
+	float:left;
+	width:636px;
+	height:406px;
+	border:2px solid #CCC;
+	background:rgb(245,245,245);
+	border-radius:20px;
+}
+.bottom-s{
+	position:absolute;
+	margin-left:20px;
+	top:420px;
+	width:588px;
+	height:25px;
+	padding:6px 3px 0 3px;
+	font-size:14px;
+	font-weight:bold;
+	color:rgb(102,51,102);
+	border:1px solid #CCC;
+}
+input[type='button']{
+	margin-top:-3px;
+	font-weight:bold;
+	font-size:12px;
+	color:rgb(102,51,102);
+}
+.detail{
+	float:left;
+	margin:20px 20px 0 20px;
+	width:600px;
+}
+.detail li{
+	width:580px;
+	padding-left:20px;
+	height:22px;
+	padding-top:6px;
+	background:url(../img/index/list.jpg) 0 9px no-repeat;
+}
+.title-d{
+	float:left;
+}
+.time-d{
+	float:right;
+}
+.notice-detail{
+	float:left;
+	width:636px;
+	border:2px solid #CCC;
+	background:rgb(245,245,245);
+	border-radius:20px;
+	padding-bottom:20px;
+	margin-bottom:20px;
+}
+.d-title{
+	float:left;
+	width:636px;
+	margin:20px 0 0 0;
+	font-size:24px;
+	font-weight:bold;
+	color:rgb(102,51,102);
+	text-align:center;	
+}
+.d-time{
+	float:left;
+	width:636px;
+	margin:20px 0 0 0;	
+}
+.time-detail{
+	float:left;
+	width:300px;
+	padding-right:18px;
+	text-align:right
+}
+.times-detail{
+	float:left;
+	width:300px;
+	padding-left:18px;
+	text-align:left;
+}
+.d-content{
+	float:left;
+	width:600;
+	padding:20px 18px 0 18px;
+}

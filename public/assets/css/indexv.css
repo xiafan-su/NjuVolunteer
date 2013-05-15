@@ -1,6 +1,6 @@
 /* CSS Document */
 img{
-	-webkit-border-radius:25px;	
+	border-radius:25px;	
 }
 .bar-top{
 	float:left;
@@ -63,7 +63,7 @@ img{
 	width:240px;
 	height:20px;
 	background:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(225,225,225,1)));
-	-webkit-border-radius:10px 10px 0 0;	
+	border-radius:10px 10px 0 0;	
 }
 .bottom-bar{
 	position:absolute;
@@ -71,7 +71,7 @@ img{
 	width:240px;
 	height:20px;
 	background:-webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,0.5)), to(rgba(225,225,225,1)));
-	-webkit-border-radius:0 0 10px 10px;
+	border-radius:0 0 10px 10px;
 }
 .left-bar{
 	float:left;
@@ -106,7 +106,7 @@ img{
 	height:6px;
 	margin-left:20px;
 	background-color:rgba(102,51,102,1);
-	-webkit-border-radius:4px;
+	border-radius:4px;
 }
 .title-content{
 	margin-top:5px;

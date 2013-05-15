@@ -44,9 +44,18 @@ class System extends DB_Connect {
 			}
 		}
 	}
-	public function send_note($recv_id,$titla,$content)
+	public function send_note($recv_id,$title,$content)
 	{
-		
+		$sql="INSERT INTO note(sender_id,recv_type,recv_id,title,content,time,state) 
+			  VALUES('system','0','".$recv_id."','".$title."','".$content."','".date('Y-m-d H:i:s',time())."','unread')
+		";
+		if (mysql_query($sql, $this->root_conn))
+				return true;
+		else 
+		{
+			die('Error: ' . mysql_error());
+			return false;
+		}
 	}
 	
 	
