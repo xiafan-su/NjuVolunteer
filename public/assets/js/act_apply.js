@@ -42,11 +42,19 @@ function submit_click()
 {
 	//alert("您好！");
 	profile = editor.html();
+	var Weekday=document.getElementsByName("weekday");
+	var Weekday_time=0;
+	for(var i=0;i<Weekday.length;i++)
+  	{
+    	 if(Weekday.item(i).checked){
+        	 Weekday_time=Weekday_time+Weekday.item(i).getAttribute("value");  
+		 }
+ 	}
 	//alert(profile);
 	//alert($('#begin_time').val());
 	$.ajax({
 		type:"POST",
-		data:{activity_name:$('#activity_name').val(),activity_place:$("#activity_place").val(),time_type:$('#time_type').val(),attribution_type:$('#attribution_type').val(),begin_time:$('#begin_time').val(),end_time:$('#end_time').val(),detail_time:$('#detail_time').val(),total_num:$('#total_num').val(),need_audit:$('#need_audit').val(),responser:$('#responser').val(),responser_tel:$('#responser_tel').val(),last_time:$('#last_time').val(),activity_profile:profile,state:cur_state},
+		data:{activity_name:$('#activity_name').val(),activity_place:$("#activity_place").val(),time_type:$('#time_type').val(),attribution_type:$('#attribution_type').val(),begin_time:$('#begin_time').val(),end_time:$('#end_time').val(),detail_time:$('#detail_time').val(),total_num:$('#total_num').val(),need_audit:$('#need_audit').val(),responser:$('#responser').val(),responser_tel:$('#responser_tel').val(),last_time:$('#last_time').val(),activity_profile:profile,state:cur_state,weekday_time:Weekday_time},
 		url:"./handle/act_apply.php",
 		success:function(html){
 		//alert(html);
@@ -54,7 +62,7 @@ function submit_click()
 				alert("申请成功,请等待管理员审核");
 				window.close();
 			} else {
-				alert("申请失败");
+				alert("申请失败"+html);
 			}
 		}	
 	});

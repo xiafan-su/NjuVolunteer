@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-13 15:53:51
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 13:33:01
          compiled from "./tpls/templates\include\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:2711516a173f9c4c08-18384765%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1368431388,
+      1 => 1368595978,
       2 => 'file',
     ),
   ),
@@ -35,9 +35,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<li><a href="./act.php">活动中心</a></li>
 					
 					<?php if (isset($_smarty_tpl->tpl_vars['user_permission']->value)){?>
-						<?php if ($_smarty_tpl->tpl_vars['user_permission']->value==1||$_smarty_tpl->tpl_vars['user_permission']->value==2){?>
+						<?php if ($_smarty_tpl->tpl_vars['user_permission']->value==1){?>
 							<li><a href="./zonev.php">个人空间</a></li>
-						<?php }elseif($_smarty_tpl->tpl_vars['user_permission']->value==3){?>
+						<?php }elseif($_smarty_tpl->tpl_vars['user_permission']->value==2){?>
 							<li><a href="./zonet.php">团队空间</a></li>
 						<?php }?>
 					<?php }?>
