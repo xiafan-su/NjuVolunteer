@@ -113,6 +113,7 @@ img{
 	float:left;
 	width:100%;
 	text-align:center;	
+	cursor:pointer;
 }
 #content{
 	float:left;

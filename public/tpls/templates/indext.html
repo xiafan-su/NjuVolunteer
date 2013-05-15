@@ -6,7 +6,9 @@
 <link href="./assets/css/login.css" rel="stylesheet" />
 <link href="./assets/css/indext.css" rel="stylesheet" />
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
-<title>个人主页</title>
+<script type="text/javascript" src="./assets/js/indext.js"></script>
+
+<title>团队主页</title>
 </head>
 
 <body>
@@ -18,37 +20,36 @@
     <div class="personal-info">
     	<div class="left">
         	<div class="photo">
-            	<img src="./assets/img/head_photo/boy/5.jpg"/>
+            	<img src="./assets/img/head_photo/boy/7.jpg"/>
             </div>
-            <div class="orgnization">
-            	<h3>当前所属团队：</h3>
-                <h3 style="color:rgb(102,51,102)" id="team">南京大学青年志愿者协会</h3>
+            <div class="follow">
+            	关注这个团队
             </div>
         </div>
         <div class="center">
-        	<div class="name">夏凡</div>
+        	<div class="name" id="name"><{$team_name}></div>
             <div class="honor"></div>
             <div class="per-info">
             	<table width="200" border="0">
                   <tr>
-                    <th scope="row">所属院系</th>
-                    <td>计算机科学与技术系</td>
+                    <th scope="row">团队负责人</th>
+                    <td><{$leader_name}></td>
                   </tr>
                   <tr>
-                    <th scope="row">累计服务时间</th>
-                    <td><span id="all_time">20</span>小时</td>
+                    <th scope="row">累计活动</th>
+                    <td><span id="all_time"><{$all_act_num}></span>次</td>
                   </tr>
                   <tr>
-                    <th scope="row">荣誉时间</th>
-                    <td><span id="honor_time">10</span>小时</td>
+                    <th scope="row">本学期活动</th>
+                    <td><span id="honor_time"><{$now_act_num}></span>次</td>
                   </tr>
                   <tr>
                     <th scope="row">E-mail：</th>
-                    <td><div id="email">*****@***.com</div></td>
+                    <td><div id="email"><{$leader_email}></div></td>
                   </tr>
                   <tr>
                     <th scope="row">Tel：</th>
-                    <td><div id="phone">15996256592</div></td>
+                    <td><div id="phone"><{$leader_phone}></div></td>
                   </tr>
                   <tr>
                     <th scope="row">签名档：</th>
@@ -60,7 +61,7 @@
         <div class="right">
         	<div class="top-bar"></div>
             <div class="scroll-item">
-            	这里是会滚动的信息
+            	<div id="scroll-panel"></div>
             </div>
             <div class="bottom-bar"></div>
         </div>
@@ -69,14 +70,41 @@
     	<div class="left-bar"></div>
         <div class="team">
         	<div class="title-bar"></div>
-            <div class="title-content">他关注的团队</div>
+            <div id="team_comment" class="title-content">与他相关的评论</div>
         </div>
         <div class="center-bar"></div>
         <div class="act">
         	<div class="title-bar"></div>
-            <div class="title-content">他参加的活动</div>
+            <div id="team_activity" class="title-content">他发起的活动</div>
         </div>
         <div class="right-bar"></div>
+    </div>
+    
+    <div id="table_activity" style="display:none;">
+    <br>
+    <table>
+    <th>活动名称</th><th>活动时间</th>
+    <{foreach name=data item=act from=$activity_info}>
+    <{if ($smarty.foreach.data.iteration % 2 == 0)}>
+    <tr class="even">
+    <{else}>
+    <tr class="odd">
+    <{/if}>
+    <td><a href="act_dtl.php?act_id=<{$act.id}>" target="_blank"><{$act.name}></a></td>
+    <td><{$act.begin_time}> --- <{$act.end_time}></td>
+    </tr>
+    <{/foreach}>
+    </table>
+    </br>
+    </div>
+    
+    <div id="table_comment" style="display:none;">
+    <br>
+    <table>
+    <th>评论人</th><th>评论内容</th>
+    
+    </table>
+    </br>
     </div>
     <div id="content">
     

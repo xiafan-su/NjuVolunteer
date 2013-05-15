@@ -15,6 +15,81 @@ class Team extends DB_Connect {
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;		
 	}
+	public function fetch_team_name($id)
+	{
+		$query="select * from team where id='".$id."'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_array($select);
+		return $result;
+	}
+	public function fetch_leader($id)
+	{
+		$query="select u.* from team t,user_info u where t.id='".$id."' and leader=u.id";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result;
+	}
+	public function fetch_all_doc_num($id)
+	{
+		$query="select ai.* from act_doc ad,activity_info ai where ad.act_id=ai.id and ai.publisher='".$id."'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$count=0;
+		while ($row=mysql_fetch_assoc($select))
+			$count ++;
+		return $count;
+	}
+	public function fetch_now_doc_num($id)
+	{
+		$current_month=date("m");
+		$current_year=date("Y");
+		$query="select ai.* from act_doc ad,activity_info ai where ad.act_id=ai.id and ai.publisher='".$id."'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		if ($current_month >=2 && $current_month<=7){
+			$count=0;
+			while ($row=mysql_fetch_assoc($select)){
+				$begin_strtimes = explode(" ",$row['begin_time']);
+				$begin_timearray = explode("-",$begin_strtimes[0]);
+				$begin_year = $begin_timearray[0];
+				$begin_month = $begin_timearray[1];
+				
+				$end_strtimes = explode(" ",$row['begin_time']);
+				$end_timearray = explode("-",$end_strtimes[0]);
+				$end_year = $end_timearray[0];
+				$end_month = $end_timearray[1];
+				
+				if ($begin_year==$current_year 
+					&& $end_year==$current_year
+					&& $begin_month>=2
+					&& $end_month<=7
+					)
+					$count ++;
+			}
+			return $count;
+		}
+		if ($current_month >=9 && $current_month<=12){
+			$count=0;
+			while ($row=mysql_fetch_assoc($select)){
+				$begin_strtimes = explode(" ",$row['begin_time']);
+				$begin_timearray = explode("-",$begin_strtimes[0]);
+				$begin_year = $begin_timearray[0];
+				$begin_month = $begin_timearray[1];
+				
+				$end_strtimes = explode(" ",$row['begin_time']);
+				$end_timearray = explode("-",$end_strtimes[0]);
+				$end_year = $end_timearray[0];
+				$end_month = $end_timearray[1];
+				
+				if ($begin_year==$current_year 
+					&& $end_year==$current_year
+					&& $begin_month>=9
+					&& $end_month<=12
+					)
+					$count ++;
+			}
+			return $count;
+		}
+		return 0;
+	}
 	public function fetch_all_nation()
 	{
 		$query="select nation from nations order by id";

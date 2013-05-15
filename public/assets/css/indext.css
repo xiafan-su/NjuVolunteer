@@ -1,6 +1,6 @@
 /* CSS Document */
 img{
-	-webkit-border-radius:25px;	
+	border-radius:25px;	
 }
 .bar-top{
 	float:left;
@@ -30,9 +30,19 @@ img{
 	width:200px;
 	height:200px;
 }
-.orgnization{
+.follow{
 	float:left;
-	margin-top:10px;	
+	width:200px;
+	margin-top:10px;
+	text-align:center;
+	padding-top:10px;
+	background:rgb(188,188,188);
+	height:28px;
+	border-radius:10px;
+}
+.follow:hover{
+	cursor:pointer;
+	background:rgb(245,245,245);
 }
 .center{
 	float:left;
@@ -56,14 +66,18 @@ img{
 }
 .scroll-item{
 	position:absolute;
-	top:100px;
+	height:200px;
+	width:200px;
+	margin:20px;
+	top:55px;
+	overflow:hidden;
 }
 .top-bar{
 	position:absolute;
 	width:240px;
 	height:20px;
 	background:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(225,225,225,1)));
-	-webkit-border-radius:10px 10px 0 0;	
+	border-radius:10px 10px 0 0;	
 }
 .bottom-bar{
 	position:absolute;
@@ -71,7 +85,7 @@ img{
 	width:240px;
 	height:20px;
 	background:-webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,0.5)), to(rgba(225,225,225,1)));
-	-webkit-border-radius:0 0 10px 10px;
+	border-radius:0 0 10px 10px;
 }
 .left-bar{
 	float:left;
@@ -106,19 +120,27 @@ img{
 	height:6px;
 	margin-left:20px;
 	background-color:rgba(102,51,102,1);
-	-webkit-border-radius:4px;
+	border-radius:4px;
 }
 .title-content{
 	margin-top:5px;
 	float:left;
 	width:100%;
 	text-align:center;	
+	cursor:pointer;
 }
 #content{
 	float:left;
 	margin-top:10px;
 	width:100%;
 	
+}
+#scroll-panel{
+	position:absolute;
+	top:200px;
+	width:200px;
+	height:200px;
+	overflow:hidden;
 }
 table th,table td{
 	background:rgb(225,225,225);

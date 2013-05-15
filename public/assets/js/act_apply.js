@@ -47,7 +47,7 @@ function submit_click()
 	for(var i=0;i<Weekday.length;i++)
   	{
     	 if(Weekday.item(i).checked){
-        	 Weekday_time=Weekday_time+Weekday.item(i).getAttribute("value");  
+        	 Weekday_time=Weekday_time+parseInt(Weekday.item(i).getAttribute("value"));  
 		 }
  	}
 	//alert(profile);
