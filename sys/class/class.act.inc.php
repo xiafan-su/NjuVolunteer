@@ -92,7 +92,7 @@ class Act extends DB_Connect {
 		}
 		return $comment_info;
 	}
-	public function create_new( $name,$place,$time_type,$attribution_type,$begin_time,$end_time,$detail_time,$total_num,$need_audit,$responser,$responser_tel,$last_time,$activity_profile,$state,$publisher){
+	public function create_new( $name,$place,$time_type,$attribution_type,$begin_time,$end_time,$detail_time,$total_num,$need_audit,$responser,$responser_tel,$last_time,$activity_profile,$state,$publisher,$weekday_time){
 		$accepted_num		=0;
 		$offer_num			=0;
 		$begin_time=$begin_time." 00:00:0";
@@ -106,7 +106,7 @@ class Act extends DB_Connect {
 				name,place,time_type,attribution_type,
 				detail_time,total_num,need_audit,
 				responser,responser_tel,last_time,
-				begin_time,end_time,state,profile,publisher
+				begin_time,end_time,state,profile,publisher,weekday_time
 			) 
 			values
 			(
@@ -114,7 +114,7 @@ class Act extends DB_Connect {
 				'".$detail_time."','".$total_num."','".$need_audit."',
 				'".$responser."','".$responser_tel."','".$last_time."',
 				'".$begin_time."','".$end_time."','".$state."','".$activity_profile."',
-				18
+				'".$publisher."','".$weekday_time."'
 					
 			);";
 			if (!mysql_query($insert,$this->root_conn))

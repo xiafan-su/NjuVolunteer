@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 13:06:13
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 19:05:20
          compiled from "../tpls/templates\include\infov_edit.html" */ ?>
 <?php /*%%SmartyHeaderCode:11240518ba78624bfd2-16047941%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '230cf9487e21db83bfe175beb267a8c56700c95a' => 
     array (
       0 => '../tpls/templates\\include\\infov_edit.html',
-      1 => 1368590163,
+      1 => 1368615916,
       2 => 'file',
     ),
   ),
@@ -50,6 +50,7 @@ table td{
 	text-align:left;
 }
 </style>
+<script type="text/javascript" src="./assets/js/infov_edit.js"></script>
 <div id="" style="margin-bottom:20px;">
     
     <div id="base">
@@ -63,7 +64,7 @@ table td{
     <th scope="row">姓名</th>
     <td><input type="text" id="name" value="<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
 "/></td>
-    <td></td>
+    <td id="name_tip"></td>
   </tr>
   <tr>
     <th scope="row">学号</th>
@@ -75,7 +76,7 @@ table td{
     <th scope="row">身份证号</th>
     <td><input type="text" id="idcard_num" value="<?php echo $_smarty_tpl->tpl_vars['idcard_num']->value;?>
 "/></td>
-    <td></td>
+    <td id="id_number"></td>
   </tr>
   <tr>
     <th scope="row">性别</th>
@@ -99,10 +100,10 @@ table td{
     <th scope="row">手机</th>
     <td><input type="text" id="phone" value="<?php echo $_smarty_tpl->tpl_vars['phone']->value;?>
 "/></td>
-    <td>国内手机号码11位格式</td>
+    <td id="telnum_tip">国内手机号码11位格式</td>
   </tr>
   <tr>
-    <th scope="row">所在院</th>
+    <th scope="row">所在院系</th>
     <td>
     	<select id="faculty" class="myselect">
         <?php  $_smarty_tpl->tpl_vars['faculty'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['faculty']->_loop = false;
@@ -122,7 +123,7 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
     <th scope="row">出生日期</th>
     <td><input type="text" id="birthday" onClick="return showCalendar('birthday', 'y-mm-dd');" value="<?php echo $_smarty_tpl->tpl_vars['birthday']->value;?>
 "/></td>
-    <td>yyyy-mm-dd，中间用‘-’分开（例：1992-04-30）</td>
+    <td id="birthday_tip">yyyy-mm-dd，中间用‘-’分开（例：1992-04-30）</td>
   </tr>
   <tr>
     <th scope="row">政治面貌</th>
@@ -181,17 +182,17 @@ $_smarty_tpl->tpl_vars['nation']->_loop = true;
     <th scope="row">cet4</th>
     <td><input type="text" id="cet4" value="<?php echo $_smarty_tpl->tpl_vars['cet4']->value;?>
 "/></td>
-    <td>您的四级英语成绩，没有则留空</td>
+    <td id="cet4_tip">您的四级英语成绩，没有则留空</td>
   </tr>
    <tr>
     <th scope="row">cet6</th>
     <td><input type="text" id="cet6" value="<?php echo $_smarty_tpl->tpl_vars['cet6']->value;?>
 "/></td>
-    <td>您的6级英语成绩，没有则留空</td>
+    <td id="cet6_tip">您的6级英语成绩，没有则留空</td>
   </tr>
   <tr>
     <th scope="row">其他外语</th>
-    <td><input type="text" id="other" value="<?php echo $_smarty_tpl->tpl_vars['language']->value;?>
+    <td><input type="text" id="other_language" value="<?php echo $_smarty_tpl->tpl_vars['language']->value;?>
 "/></td>
     <td>你还会其他外语吗？若会多个则用分号隔开</td>
   </tr>
@@ -204,34 +205,28 @@ $_smarty_tpl->tpl_vars['nation']->_loop = true;
   </tr>
   <tr>
     <th scope="row">是否有医疗急救技能</th>
-    <td><?php if ($_smarty_tpl->tpl_vars['medical']->value=="是"){?>
-    	<input name="medical_select" type="radio" value="medical_true" checked/><label>是</label>
-    	<input name="medical_select" type="radio" value="medical_false" /><label>否</label>
-        <?php }else{ ?>
-    	<input name="medical_select" type="radio" value="medical_true" /><label>是</label>
-    	<input name="medical_select" type="radio" value="medical_false" checked/><label>否</label>
-    	<?php }?>
+    <td>
+    	<input name="medical_select" type="radio" value="是" <?php if ($_smarty_tpl->tpl_vars['medical']->value=='是'){?>checked<?php }?>/><label>是</label>
+    	<input name="medical_select" type="radio" value="否" <?php if ($_smarty_tpl->tpl_vars['medical']->value=='否'){?>checked<?php }?>/><label>否</label>
     <td>是否经过急救培训</td>
   </tr>
   <tr>
     <th scope="row">是否有驾驶技能</th>
-    <td><?php if ($_smarty_tpl->tpl_vars['drive']->value=="是"){?>
-    	<input name="drive_select" type="radio" value="drive_true" checked/><label>是</label>
-    	<input name="drive_select" type="radio" value="drive_false" /><label>否</label>
-        <?php }else{ ?>
-    	<input name="drive_select" type="radio" value="drive_true" /><label>是</label>
-    	<input name="drive_select" type="radio" value="drive_false" checked/><label>否</label>
-    	<?php }?>
+    <td>
+    	<input name="drive_select" type="radio" value="是" <?php if ($_smarty_tpl->tpl_vars['drive']->value=='是'){?>checked<?php }?>/><label>是</label>
+    	<input name="drive_select" type="radio" value="否" <?php if ($_smarty_tpl->tpl_vars['drive']->value=='否'){?>checked<?php }?>/><label>否</label>
     <td>是否有驾照</td>
   </tr>
   <tr>
     <th scope="row">其他能力</th>
-    <td><textarea name="other" cols="40" rows="8"><?php echo $_smarty_tpl->tpl_vars['other_skills']->value;?>
+    <td><textarea name="other" id="other_skills" cols="40" rows="8"><?php echo $_smarty_tpl->tpl_vars['other_skills']->value;?>
 </textarea></td>
-    <td></td>
+    <td>100字以内</td>
   </tr>
 </table>
+<div id="operation">
 <input type="button" class="button" value="提交" onclick="handlechange()"/>
-<input type="button" class="button" value="回到默认" />
+<input type="button" class="button" value="重置" onclick="init()" />
+</div>
 </div>
 </div><?php }} ?>

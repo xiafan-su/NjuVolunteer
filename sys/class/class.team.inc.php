@@ -51,11 +51,14 @@ class Team extends DB_Connect {
 			return true;
 		}
 	}
-	public function add_doc($doc_id,$act_id,$leader,$profile,$summary,$tel,$vol_time)//增加一个活动档案
+	public function add_doc($act_id,$leader,$profile,$summary,$tel,$vol_time)//增加一个活动档案
 	{
-		$query = "INSERT INTO act_doc(act_id,leader,profile,summary,tel,vol_time)VALUES('".$act_id."','".$leader."','".$profile."','".$summary."','".$tel."','".$vol_time."')";
-		//$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-		if(!mysql_query($query,$this->root_conn)) return false;
+		$query = "INSERT INTO act_doc(act_id,leader,profile,summary,tel,vol_time,date)VALUES('".$act_id."','".$leader."','".$profile."','".$summary."','".$tel."','".$vol_time."','".date('Y-m-d H:i:s',time())."')";
+		if(!mysql_query($query,$this->root_conn)) 
+		{
+			die('Error: ' . mysql_error());
+			return false;
+		}
 		else return true;
 	}
 	public function delete_doc($doc_id)//删除一个活动档案
@@ -64,11 +67,109 @@ class Team extends DB_Connect {
 		$query="DELETE FROM act_doc WHERE id='".$doc_id."'";
 		if (!mysql_query($query,$this->root_conn))
 		{
+			die('Error: ' . mysql_error());
 			return false;
 		}else
 		{
 			return true;
 		}
+	}
+	public function audit_vol($vol_list,$state,$reason)//审核
+	{
+		$vol = explode(" ", $vol_list);
+		$s=new System();
+		if ($state==1)//审核通过
+		{
+			foreach ($vol as $value)
+			{
+				$sql="UPDATE apply_team SET state='1',time='".date('Y-m-d H:i:s',time())."' where user_id='".$value."' and team_id='".$_SESSION[User::USER][User::FACULTY_ID]."'";
+				if (!mysql_query($sql,$this->root_conn))
+				{
+					die('Error: ' . mysql_error());
+					return false;
+				}
+			} 
+		}else//审核未过，需要发送通知给个人
+		{
+			foreach($vol as $value)
+			{
+				$sql_update="UPDATE apply_team SET state='2',time='".date('Y-m-d H:i:s',time())."' where user_id='".$value."' and team_id='".$_SESSION[User::USER][User::FACULTY_ID]."'";
+				if (!mysql_query($sql_update,$this->root_conn))
+				{
+					die('Error: ' . mysql_error());
+					return false;
+				}
+				$title="您申请加入的".$_SESSION[User::USER][User::FACULTY]."组织，审核未通过";
+				if (!$s->send_note($value,$title,$reason)) return false;//发送审核未过的理由
+			}
+		}
+		return true;
+	}
+	public function import_vol_to_doc($doc_id,$vol_list)//导入人员进档案表，即添加活动记录表
+	{
+		$vol = explode(" ", $vol_list);
+		foreach ($vol as $value)
+		{
+			$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and user_id='".$value."'";
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			$num_of_results=mysql_num_rows($select);
+			if ($num_of_results==0)
+			{
+				$sql_insert="INSERT INTO act_record(doc_id,user_id) VALUES('".$doc_id."','".$value."')";
+				if (!mysql_query($sql_insert,$this->root_conn))
+				{
+					die('Error: ' . mysql_error());
+					return false;
+				}
+			}
+		} 
+		return true;
+	}
+	public function delete_vol_from_doc($doc_id,$vol_list)//将vol_list中的志愿者从doc中删除
+	{
+		$vol = explode(" ", $vol_list);
+		foreach ($vol as $value)
+		{
+			$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and user_id='".$value."'";
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			$num_of_results=mysql_num_rows($select);
+			if ($num_of_results!=0)
+			{
+				$sql_delete="DELETE FROM act_record WHERE doc_id='".$doc_id."' and user_id='".$value."'";
+				if (!mysql_query($sql_delete,$this->root_conn))
+				{
+					die('Error: ' . mysql_error());
+					return false;
+				}
+			}
+		} 
+		return true;
+	}
+	public function register_voltime($record_list)//为这些志愿者录入服务记录
+	{
+		foreach ($record_list as $record)
+		{
+			$sql="SELECT * FROM act_record WHERE doc_id='".$record['doc_id']."' and user_id='".$record['user_id']."'";
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			$num_of_results=mysql_num_rows($select);
+			if ($num_of_results!=0)
+			{
+				$sql_update="UPDATE act_record SET base_time='".$record['base_time']."',honor_time='".$record['honor_time']."',comment='".$record['comment']."',performance_level='".$record['performance_level']."' WHERE doc_id='".$record['doc_id']."' and user_id='".$record['user_id']."'";
+				if (!mysql_query($sql_update,$this->root_conn))
+				{
+					die('Error: ' . mysql_error());
+					return false;
+				}
+				$sql="SELECT i.name FROM act_doc d,activity_info i WHERE d.act_id=i.id";
+				$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+				$result=mysql_fetch_assoc($select);
+				$s=new System();
+				$time=$record['base_time']+$record['honor_time'];
+				$s->send_note($record['user_id'],"恭喜您获得".$time."小时服务时间","您参与的".$result['name']."活动成功完成了，获得了".$record['base_time']."小时基础时间，".$record['honor_time']."小时荣誉时间。具体请查看您的服务记录。");
+			}
+			
+		} 
+		return true;
 	}
 	public function fetch_apply_volunteer($act_id)//报名情况
 	{
