@@ -14,7 +14,7 @@ table td{
 <table width="200" border="1">
   <tr>
     <th scope="row">姓名</th>
-    <td><{$name}></td>
+    <td><input type="text" id="name" value="<{$name}>"/></td>
     <td></td>
   </tr>
   <tr>
@@ -24,12 +24,19 @@ table td{
   </tr>
   <tr>
     <th scope="row">身份证号</th>
-    <td><{$idcard_num}></td>
+    <td><input type="text" id="idcard_num" value="<{$idcard_num}>"/></td>
     <td></td>
   </tr>
   <tr>
     <th scope="row">性别</th>
-    <td><{$gender}></td>
+    
+    <td><{if $gender=="男"}>
+    	<input name="gender_select" type="radio" value="男" checked/><label>男</label>
+    	<input name="gender_select" type="radio" value="女" /><label>女</label>
+        <{else}>
+    	<input name="gender_select" type="radio" value="男" /><label>男</label>
+    	<input name="gender_select" type="radio" value="女" checked/><label>女</label>
+    	<{/if}></td>
     <td></td>
   </tr>
   <tr>
@@ -44,33 +51,51 @@ table td{
   </tr>
   <tr>
     <th scope="row">所在院</th>
-    <td><{$faculty}></td>
-    <td></td>
-  </tr>
-  <tr>
-    <th scope="row">所在系</th>
-    <td><{$department}></td>
+    <td>
+    	<select id="faculty" class="myselect">
+        <{foreach item=faculty from=$faculty_list}>
+		<option value="<{$faculty.name}>"<{if $faculty.name==$my_faculty}>selected="selected"<{/if}>><{$faculty.name}></option>
+		<{/foreach}>
+   		</select>
+    </td>
     <td></td>
   </tr>
   <tr>
     <th scope="row">出生日期</th>
-    <td><input type="text" id="birthday" value="<{$birthday}>"/></td>
+    <td><input type="text" id="birthday" onClick="return showCalendar('birthday', 'y-mm-dd');" value="<{$birthday}>"/></td>
     <td>yyyy-mm-dd，中间用‘-’分开（例：1992-04-30）</td>
   </tr>
   <tr>
     <th scope="row">政治面貌</th>
-    <td><input type="text" id="social" value="<{$politics_status}>"/></td>
+    <td><input name="politics_select" type="radio" value="团员" <{if $politics_status=='团员'}>checked<{/if}>/><label>团员</label>
+    	<input name="politics_select" type="radio" value="党员" <{if $politics_status=='党员'}>checked<{/if}>/><label>党员</label>
+        <input name="politics_select" type="radio" value="群众" <{if $politics_status=='群众'}>checked<{/if}>/><label>群众</label></td>
     <td>群众、团员、党员</td>
   </tr>
   <tr>
     <th scope="row">民族</th>
-    <td><input type="text" id="race" value="<{$nation}>"/></td>
+    
+    <td>
+        <select id="nation" class="myselect">
+        <{foreach item=nation from=$nation_list}>
+		<option value="<{$nation.name}>"<{if $nation.name==$my_nation}>selected="selected"<{/if}>><{$nation.name}></option>
+		<{/foreach}>
+   		</select>
+    </td>
     <td>中华56个名族你是哪一个名族？</td>
   </tr>
   <tr>
     <th scope="row">服装大小</th>
-    <td><input type="text" id="height" value="<{$cloth_size}>"/></td>
-    <td>您的身高，以厘米做单位</td>
+    <td> 
+    	<select id="cloth_size" class="myselect">
+		<option value="XS"<{if $cloth_size=='XS'}>selected="selected"<{/if}>>XS</option>
+        <option value="XL"<{if $cloth_size=='XL'}>selected="selected"<{/if}>>XL</option>
+        <option value="S"<{if $cloth_size=='S'}>selected="selected"<{/if}>>S</option>
+        <option value="M"<{if $cloth_size=='M'}>selected="selected"<{/if}>>M</option>
+        <option value="L"<{if $cloth_size=='L'}>selected="selected"<{/if}>>L</option>
+   		</select>
+    </td>
+    <td>国际标准</td>
   </tr>
   <tr>
     <th scope="row">宿舍</th>
@@ -99,13 +124,13 @@ table td{
   <tr>
     <th scope="row">其他外语</th>
     <td><input type="text" id="other" value="<{$language}>"/></td>
-    <td>你还会其他外语吗？</td>
+    <td>你还会其他外语吗？若会多个则用分号隔开</td>
   </tr>
   <tr>
     <th scope="row">水平</th>
-    <td><input name="level_select" type="radio" value="level_1" checked/><label>一般</label>
-    	<input name="level_select" type="radio" value="level_2" /><label>熟练</label>
-        <input name="level_select" type="radio" value="level_3" /><label>精通</label></td>
+    <td><input name="level_select" type="radio" value="一般" <{if $level=='一般'}>checked<{/if}>/><label>一般</label>
+    	<input name="level_select" type="radio" value="熟练" <{if $level=='熟练'}>checked<{/if}>/><label>熟练</label>
+        <input name="level_select" type="radio" value="精通" <{if $level=='精通'}>checked<{/if}>/><label>精通</label></td>
     <td>你所会的其他外语水平是？</td>
   </tr>
   <tr>
@@ -132,11 +157,11 @@ table td{
   </tr>
   <tr>
     <th scope="row">其他能力</th>
-    <td><textarea name="other" cols="40" rows="8"></textarea></td>
+    <td><textarea name="other" cols="40" rows="8"><{$other_skills}></textarea></td>
     <td></td>
   </tr>
 </table>
-<input type="button" class="button" value="提交" onclick="handlechange"/>
+<input type="button" class="button" value="提交" onclick="handlechange()"/>
 <input type="button" class="button" value="回到默认" />
 </div>
 </div>

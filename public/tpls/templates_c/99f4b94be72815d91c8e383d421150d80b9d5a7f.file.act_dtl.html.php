@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-12 18:35:12
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-14 19:28:23
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:91615177d2ae9126f8-24185650%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368354833,
+      1 => 1368530851,
       2 => 'file',
     ),
   ),
@@ -103,12 +103,41 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 			</div>
             
-            <ul class="div_title2"><li>评论</li></ul>
-            <br>
-            <table>
+            <ul class="div_title2"><li>活动评论详情</li></ul>
+            <hr color="green">
+            
+            <!--div class="act_comment" id="comment_list">
+            <?php  $_smarty_tpl->tpl_vars['act_comment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act_comment']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['comment_detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['act_comment']->key => $_smarty_tpl->tpl_vars['act_comment']->value){
+$_smarty_tpl->tpl_vars['act_comment']->_loop = true;
+?>
+            
+            <dl class="comment_list">
+        		<dd>
+                	<a id="<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['name'];?>
+</a>
+                    :<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['content'];?>
+
+            		(<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['time'];?>
+)
+            		<div class="info">
+                    <span class="W_linkb">
+                    <span id="reply" class="reply" onMouseOver="this.style.textDecoration='underline';" onMouseout="this.style.textDecoration='none';">回复</span>
+        		</div>
+			</div>
+            
+            <?php } ?>
+            <!--/div>
+            <div id="comment_area">
+				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
+			</div-->
+            <table id="act_list">
             <tr><th>评论人学号</th><th>评论人</th><th>评论时间</th><th>评论</th><th>回复</th>
             
-           	<?php  $_smarty_tpl->tpl_vars['act_comment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act_comment']->_loop = false;
+            
+          	<?php  $_smarty_tpl->tpl_vars['act_comment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act_comment']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['comment_detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['act_comment']->key => $_smarty_tpl->tpl_vars['act_comment']->value){
 $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
@@ -128,7 +157,10 @@ $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
             </tr>
             <?php } ?>
             </table>
-            </br>
+            
+            
+            
+            
             <ul class="div_title2"><li>提交自己的评论</li></ul>
         	<br></br>
             
@@ -137,11 +169,11 @@ $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
 			</div>
       		<div class="control-group">
 				<div class="controls">
-				<input name="com_submit" class="button" id="submit_comment"  value="评论" />
+				<input name="com_submit" class="button" id="submit_comment" type="submit" value="评论"/>
 				</div>
 			</div>
             
-            <div class="div_title2"><div>参加过这项活动的人还参加了</div>
+            <div class="div_title2" ><div>参加过这项活动的人还参加了</div>
             <br>
             <table id="act_people_table" class="act_people_table">
             <tr><th>名称</th><th>负责人</th></tr>
@@ -171,15 +203,15 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
         </div>
         
         <!--<div class="drop-cover" id="drop_cover"></div>-->
-        <div class="drop" id="drop">
+        <div class="drop" id="drop" style="display:none">
         	<!--form action="../public/handle/upload_picture.php" method="post" enctype="multipart/form-data">
             <label for="file">Filename:</label>
             <input type="file" name="file" id="file" />
             <br />
             <input type="submit" name="submit" id="upload_submit" value="Submit" />
             </form-->
-            
             <form aciton="/file-upload" class="dropzone" id="my_dropzone"></form>
+            
         </div>
         
         

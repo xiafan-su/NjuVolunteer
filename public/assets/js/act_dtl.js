@@ -1,5 +1,6 @@
 ﻿var editor;
 KindEditor.ready(function(K) {
+	
 	editor = K.create('textarea[name="com_content"]', {
 		resizeType : 1,
 		allowPreviewEmoticons : false,
@@ -112,12 +113,13 @@ $(function(){
 				
 			}
 		});
-
     });
 	
 	$('#upload_pic').click(function(){
 		$('#drop_cover').animate({opacity:'0.5'},1000);
 		$('#drop').animate({top:'100px',marginLeft:'-250px',height:'300px',width:'500',opacity:'1'},1000);
+		document.getElementById("drop").style.display="block";
+		//alert("。。。。。。。。。");
 	});
 
 	$('#update_text').bind("click", function(){
@@ -133,15 +135,16 @@ $(function(){
 			data:{content:editor.html(),res_id:response_id,act_id:$('#act_id').attr("value")},
 			success:function(html){
 				window.location.reload();
-				alert(html);
+				//alert(html);
 			}
 		});
-		editor.html(" ");
+		
 	});
 	
 	$('.reply').click(function(){
 		editor.html("Reply " + $(this).prev().prev().prev().text() + ":");
 		response_id =  $(this).prev().prev().prev().prev().text();
+		//alert($(this).prev().prev().text());
 	});
 });
 
