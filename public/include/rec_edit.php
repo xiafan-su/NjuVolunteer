@@ -5,9 +5,18 @@ $_SMARTY_ROOT = "../tpls";
 
 include_once '../../sys/core/init.inc.php';
 
+echo  "activityId=".$_POST['activityId'];
+
 $tpl->assign( "update_time", date("Y-m-d H:i:s") );
 
+if( isset($_POST['documentId']) ) {
+	$tpl->assign( "docId", $_POST['documentId']);
+} else {
+	$tpl->assign( "docId", -1);
+}
+
 $tpl->display( "include/rec_edit.html" );
+
 
 ?>
 

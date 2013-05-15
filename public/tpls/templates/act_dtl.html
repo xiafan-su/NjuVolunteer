@@ -6,14 +6,22 @@
 <link href="./assets/css/main.css" rel="stylesheet" />
 <link href="./assets/css/login.css" rel="stylesheet" />
 <link href="./assets/css/act_dtl.css" rel="stylesheet" />
+<link href="./assets/css/dropzone.css" rel="stylesheet" />
 
+
+<script charset="utf-8" src="./plugin/kindeditor-4.1.5/kindeditor-min.js"></script>
+<script charset="utf-8" src="./plugin/kindeditor-4.1.5/lang/zh_CN.js"></script>
+<script type="text/javascript" src="./plugin/dropzone.js"></script>
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="./assets/js/act_dtl.js"></script>
+
+
 <title>活动详细页面</title>
 </head>
 <body>
 <{include file="include/header.html"}>
 <input type="button" id="act_id" value="<{$id}>" style="display:none" />
+
+
 <div class="main">
 	<div id="left">
         <{include file="include/act_dtl_left.html"}>
@@ -44,13 +52,101 @@
             <div id="act_introduction">
 				<{$act_profile}>
 			</div>
-            <div class="div_title2"><div>参加过这项活动的人还参加了</div></div>
+            
+            <ul class="div_title2"><li>活动评论详情</li></ul>
+            <hr color="green">
+            
+            <!--div class="act_comment" id="comment_list">
+            <{foreach name=comment_data item=act_comment from=$comment_detail}>
+            
+            <dl class="comment_list">
+        		<dd>
+                	<a id="<{$act_comment.id}>"><{$act_comment.name}></a>
+                    :<{$act_comment.content}>
+            		(<{$act_comment.time}>)
+            		<div class="info">
+                    <span class="W_linkb">
+                    <span id="reply" class="reply" onMouseOver="this.style.textDecoration='underline';" onMouseout="this.style.textDecoration='none';">回复</span>
+        		</div>
+			</div>
+            
+            <{/foreach}>
+            <!--/div>
+            <div id="comment_area">
+				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
+			</div-->
+            <table id="act_list">
+            <tr><th>评论人学号</th><th>评论人</th><th>评论时间</th><th>评论</th><th>回复</th>
+            
+            
+          	<{foreach name=comment_data item=act_comment from=$comment_detail}>
+            <tr class="even">
+            <td><{$act_comment.id}></td>
+            <td><a href="http://www.baidu.com" target="_blank"><{$act_comment.name}></a></td>
+            <td><{$act_comment.time}></td>
+            <td><{$act_comment.content}></td>
+            <td class="reply">
+            	<span onMouseOver="this.style.textDecoration='underline';" onMouseout="this.style.textDecoration='none';">回复</span>
+            </td>
+            </tr>
+            <{/foreach}>
+            </table>
+            
+            
+            
+            
+            <ul class="div_title2"><li>提交自己的评论</li></ul>
+        	<br></br>
+            
+     		<div id="comment_area">
+				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
+			</div>
+      		<div class="control-group">
+				<div class="controls">
+				<input name="com_submit" class="button" id="submit_comment" type="submit" value="评论"/>
+				</div>
+			</div>
+            
+            <div class="div_title2" ><div>参加过这项活动的人还参加了</div>
+            <br>
+            <table id="act_people_table" class="act_people_table">
+            <tr><th>名称</th><th>负责人</th></tr>
+            <{foreach name=data item=act from=$act_same}>
+            <{if ($smarty.foreach.data.iteration % 2 == 0)}>
+            <tr class="even">
+            <{else}>
+            <tr class="odd">
+            <{/if}>
+            <td><a href="act_dtl.php?act_id=<{$act.id}>" target="_blank"><{$act.name}></a></td>
+            <td><{$act.responser}></td>
+            </tr>
+            <{/foreach}>
+            </table>
+            </br>
+        	</div>
             <div id="act_same"  class="div_content"></div>
         </div>
+        
+        <!--<div class="drop-cover" id="drop_cover"></div>-->
+        <div class="drop" id="drop" style="display:none">
+        	<!--form action="../public/handle/upload_picture.php" method="post" enctype="multipart/form-data">
+            <label for="file">Filename:</label>
+            <input type="file" name="file" id="file" />
+            <br />
+            <input type="submit" name="submit" id="upload_submit" value="Submit" />
+            </form-->
+            <form aciton="/file-upload" class="dropzone" id="my_dropzone"></form>
+            
+        </div>
+        
+        
 		<div id="" class="clearBar">&nbsp;</div>
+        
     </div><!-- 结束right div -->
 </div>
 
 <{include file="include/footer.html"}>
+
 </body>
+<script type="text/javascript" src="./assets/js/act_dtl.js"></script>
 </html>

@@ -22,7 +22,7 @@ include_once '../../sys/core/init.inc.php';
 	$offer_num			=0;
 	$begin_time=$begin_time." 00:00:0";
 	$end_time=$end_time." 00:00:0";*/
-	$publisher=$_SESSION[User::USER][User::FACULTY_ID];
+	$publisher=$_SESSION[User::USER][User::FACULTY];
 	$act=new Act();
 	$result=$act->create_new($_POST['activity_name'],$_POST['activity_place'],$_POST['time_type'],$_POST['attribution_type'],$_POST['begin_time'],$_POST['end_time'],$_POST['detail_time'],$_POST['total_num'],$_POST['need_audit'],$_POST['responser'],$_POST['responser_tel'],$_POST['last_time'],$_POST['activity_profile'],$_POST['state'],$publisher);
 	if ($result==1) echo "1";

@@ -8,12 +8,30 @@ include_once '../../sys/core/init.inc.php';
 
 $apply_list = array();
 
+$act = new Act();
+$act_info_row = $act->fetch_one( $_POST['activityId'] );
+if( $act_info_row ){
+	$tpl->assign( "activity_name", $act_info_row['name'] );
+} else {
+	$tpl->assign( "activity_name", "【什么也没找到】" );
+}
+
+
 $team = new Team();
 $apply_info = $team->fetch_apply_volunteer( $_POST['activityId'] );
+
+
 while( $apply_row = mysql_fetch_array($apply_info)  ){
-	$apply_list[] = array( "id"=>$apply_row['id'], "name"=>$apply_row['name'], 
-			"faculty"=>$apply_row['faculty'], 
-			"grade"=>$apply_row['grade'], "tel"=>$apply_row['phone'], "qq"=>$apply_row['qq'] );
+	$apply_list[] = array( 
+		"id"=>$apply_row['id'], 
+		"name"=>$apply_row['name'], 
+		"faculty"=>$apply_row['faculty'], 
+		"grade"=>$apply_row['grade'], 
+		"tel"=>$apply_row['phone'], 
+		"qq"=>$apply_row['qq'],
+		"state"=>$apply_row['state'],
+		"dischoosabled"=>( $apply_row['state']=="auditing"?"false":"true" ), //当且仅当为正在审核中才有效
+	);
 }
 
 

@@ -5,6 +5,7 @@ height: 100px;
 margin: 10px;
 margin-right:20px;
 padding: 10px; 
+-webkit-border-radius: 20px;
 }
 
 #down{
@@ -12,9 +13,11 @@ padding: 10px;
 }
 #down_left{
 	margin: 0px;
+	background-color: rgb(245,245,245);
 	float: left;
 	border:1px rgb(200,200,200) solid;
-	width: 25%;  /* wi:windows */
+	width: 25%;
+	-webkit-border-radius: 10px;
 }
 
 
@@ -39,12 +42,13 @@ padding: 10px;
 }
 .menu_item_title, .menu_item_span{
 	font-size: 16px;
-	cursor:pointer;
 	padding: 10px;
 	padding-left: 10px;
 }
-.menu_item_title:hover, .menu_item_span:hover{
+.menu_item_span:hover{
 	background-color: rgb(200,200,200); /*#F00 #FF0000 red */
+	-webkit-border-radius:10px;
+	cursor:pointer;
 }
 .menu_item_span{
 	padding-left: 30px;  /* mk:marks */
@@ -62,15 +66,18 @@ padding: 10px;
 	font-size: 16px;
 	border:1px rgb(200,200,200) solid;
 	margin: 10px; 
+	-webkit-border-radius: 10px;
 }
 #main_content{
 	margin: 10px;  /* mk:marks */
 	border:1px rgb(200,200,200) solid;
+	-webkit-border-radius:10px;
 }
 #main_content2{
 	margin: 10px;  /* mk:marks */
 	display: none;
 	border:1px rgb(200,200,200) solid;
+	-webkit-border-radius:10px;
 }
 a{
 	text-decoration:none;
@@ -93,4 +100,25 @@ a:hover{
 
 #act_people_div{
 	display: none;
+}
+
+
+table{
+	display: table;
+	border: 1px gray solid;
+	border-spacing: 2px;
+	border-collapse:separate;
+	-webkit-border-radius:5px;
+}
+table th{
+	color:rgb(102,51,102);
+	border:0px;
+	background:rgb(245,245,245);
+	width:100px;
+	height:30px;
+}
+table td{
+	height:30px;
+	background:rgb(245,245,245);
+	border:0px;
 }

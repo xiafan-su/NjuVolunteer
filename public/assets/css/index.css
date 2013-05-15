@@ -1,3 +1,6 @@
+a{
+	color:rgb(104,51,104);
+}
 body{
 	background-color:rgb(225,225,225);	
 }
@@ -52,6 +55,7 @@ h2{
 	margin-left:24px;
 	margin-top:10px;
 	background-color:rgba(102,51,102,1);
+	-webkit-border-radius:5px;
 }
 .title-content{
 	float:left;
@@ -59,6 +63,9 @@ h2{
 	padding-top:6px;
 	width:110px;
 	font-size:18px;
+}
+.title-content:hover{
+	cursor:pointer;	
 }
 .show-cover{
 	position:absolute;
@@ -259,4 +266,35 @@ h2{
 	float:left;
 	height:80px;
 	text-align:center;
+}
+.claimshow{
+	width:400px;	
+}
+.volclaim{
+	position:fixed;
+	top:220px;
+	left:50%;
+	width:0px;
+	font-size:20px;
+	display:block;
+	background-color:rgb(102,51,102);
+	z-index:200;
+	-webkit-border-radius:20px;
+	text-align:center;
+	margin-top:10px;
+	line-height:35px;
+	color:#FFF;
+	text-shadow:0 5px 5px #FFF;
+}
+.volclaim2{
+	padding-top:10px;
+	margin-top:-40px;
+	float:left;
+	width:100%;
+	background-color:rgb(104,51,104);
+	text-align:center;
+	opacity:0;
+	-webkit-border-radius:20px;
+	color:#FFF;
+	text-shadow:0 2px 2px #FFF;
 }

@@ -2,35 +2,38 @@ var act=1;
 var flag=0;
 var topp=['-952px','-796px','-1088px','-887px'];
 var left=['-1200px','-1140px','-1134px','-963px'];
-var showp=['<h2 style="color:#FFF">夏凡参加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">魏子华参加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">王逸群加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">夏畅参加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">席胜渠参加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">肖耿参加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">段文娜参加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">王瑶菁参加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">王鑫参加XXX活动获得2小时志愿时间</h2>'];
-var showp2=['<h2 style="color:#FFF">夏凡参加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">魏子华参加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">王逸群加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">夏畅参加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">席胜渠参加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">肖耿参加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">段文娜参加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">王瑶菁参加XXX活动获得2小时志愿时间</h2>',
-			'<h2 style="color:#FFF">王鑫参加XXX活动获得2小时志愿时间</h2>'];
-
+var showp=['<h2 style="color:#FFF">恭喜夏凡同学参加仙林中学支教获得2小时志愿时间</h2>',
+			'<h2 style="color:#FFF">恭喜魏子华同学参加宁工小学支教获得3小时志愿时间并获得0.5小时荣誉时间</h2>',
+			'<h2 style="color:#FFF">恭喜王逸群同学加城市义工岗获得2小时志愿时间</h2>',
+			'<h2 style="color:#FFF">恭喜夏畅同学参加图书馆整理图书活动获得2小时志愿时间</h2>',
+			'<h2 style="color:#FFF">恭喜席胜渠同学参加仙林中学支教获得2小时志愿时间</h2>',
+			'<h2 style="color:#FFF">恭喜肖耿同学参加仙林中学获得2小时志愿时间</h2>',
+			'<h2 style="color:#FFF">恭喜段文娜同学参加宁工小学支教获得3小时志愿时间</h2>',
+			'<h2 style="color:#FFF">恭喜王瑶菁同学参加博物馆讲解活动获得2小时志愿时间</h2>',
+			'<h2 style="color:#FFF">恭喜王鑫同学参加老年公寓活动获得2小时志愿时间</h2>'];
+var showp2=['<h2 style="color:#FFF">恭喜夏凡同学参加临终关怀活动获得2小时志愿时间</h2>',
+			'<h2 style="color:#FFF">恭喜魏子华同学参加万家帮活动获得2小时志愿时间</h2>',
+			'<h2 style="color:#FFF">恭喜王逸群同学加万家帮活动获得2小时志愿时间</h2>',
+			'<h2 style="color:#FFF">恭喜夏畅同学参加甘家巷小学支教获得2小时志愿时间</h2>',
+			'<h2 style="color:#FFF">恭喜席胜渠同学参加希望之星大赛志愿者获得2小时志愿时间</h2>',
+			'<h2 style="color:#FFF">恭喜肖耿同学参加佛缘会志愿者获得2小时志愿时间</h2>',
+			'<h2 style="color:#FFF">恭喜段文娜同学参加校庆志愿者活动获得2小时志愿时间</h2>',
+			'<h2 style="color:#FFF">恭喜王瑶菁同学参加博爱安养庇护活动获得3小时志愿时间</h2>',
+			'<h2 style="color:#FFF">恭喜王鑫同学参加尧化门小学支教获得4小时志愿时间</h2>'];
+var claimstr = "志愿宣言：-我愿意成为一名光荣的志愿者-我承诺-尽己所能-不计报酬-帮助他人-服务社会-践行志愿精神-传播先进文化-为建设团结互助-平等友爱-共同前进的美好社会贡献力量";
+var claimindex = 0;
 var next=1;
 var hide=1;
+var autoindex = 1;
 var shownum=0;
 var shownum2=0;
 $(document).ready(function(){
-	for(i=2;i<5;i++){
+	for(i=2;i<6;i++){
 		$('#act-img'+i).hide();
 		$('#act-detail'+i).hide();
 	}
 	$('#map-img').animate({marginTop:topp[0],marginLeft:left[0]});
+	var int1 = self.setInterval("nextpic()",5000);
 	showpeople();
 	setTimeout("showpeople2()",1500);
 });
@@ -45,6 +48,9 @@ function changeact(temp){
 		act=temp;
 		setTimeout("flag=0",800);
 	}
+}
+function show3dwall(){
+	window.open("./plugin/cooliris/3Dshow.php");
 }
 function showpeople(){
 	if(shownum==9)
@@ -73,4 +79,33 @@ function showpeople2(){
 	setTimeout("$('#iitem'+shownum2).animate({marginTop:'20px',opacity:'0'},1000)",2000);
 	setTimeout("document.getElementById('iitem'+shownum2).style.display='none'",3000);
 	setTimeout("showpeople2()",3000);
+}
+function nextpic(){
+	if(autoindex == 4)
+		autoindex = 0;
+	autoindex++;
+	changeact(autoindex);
+}
+function showclaim(){
+	if(claimindex==0){
+		$('#volclaim').animate({height:'430px',top:'100px',marginLeft:'-200px',width:'400px',opacity:'0.8'},1000);
+		setTimeout("claima()",1000);
+	}
+}
+function claima(){
+	if(claimindex<86){
+		if(claimstr[claimindex]=='-')
+			$('#volclaim').append('<br />');
+		else
+			$('#volclaim').append(claimstr[claimindex]);
+		claimindex++;
+		setTimeout("claima()",100);
+	}
+}
+function hiddenit(){
+	if(claimindex>=86){
+		$('#volclaim').animate({height:'0px',top:'220px',marginLeft:'0px',width:'0px',opacity:'0'},1000)	
+		$('#volclaim').html('');
+		claimindex=0;
+	}
 }

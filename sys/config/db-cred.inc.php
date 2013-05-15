@@ -8,6 +8,6 @@ $Const['DB_USER'] = 'root';
 
 $Const['DB_PASS'] = '525916';
 
-$Const['DB_NAME'] = 'volunteer';
+$Const['DB_NAME'] = 'nju_volunteer';
 
 ?>

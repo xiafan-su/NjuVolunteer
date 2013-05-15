@@ -3,29 +3,45 @@
 include_once '../sys/core/init.inc.php';
 include './include/header.php';
 include './include/act_left.php';
+$activity_id = $_GET['act_id'];
+$act = new Act();
+$item = $act->fetch_one($activity_id);
+$tpl->assign( "id", $activity_id);
 
-$id=$_GET['act_id'];
+switch($item['state']){
+	case "audited" :$tpl->assign( "act_state", "已审核" );break;
+	case "auditing" :$tpl->assign( "act_state", "未审核" );break;
+	default : $tpl->assign( "act_state","未知类型" );
+}
 
-$a=new Act();
+switch($item['time_type']){
+	case "longtime" : $tpl->assign( "act_time_type", "长期活动" );break;
+	case "temp": $tpl->assign( "act_time_type", "临时活动" );break;
+	default : $tpl->assign("act_time_type","未知类型");
+}
 
-$result=$a->fetch_one($id);
-if ($result['time_type']=='longtime')
-	$timetype="长期活动";
-	else $timetype="临时活动";
-	if ($result['attribution_type']=='supporteducation')
-	$atype="支教";
-	else $atype="助残";
-$tpl->assign( "act_title", $result['name'] );
-$tpl->assign( "act_state", $result['state'] );
-$tpl->assign( "act_begin_time", $result['begin_time'] );
-$tpl->assign( "act_end_time", $result['end_time'] );
-$tpl->assign( "last_time", $result['last_time'] );
-$tpl->assign( "act_time_type", $timetype );
-$tpl->assign( "act_attr_type", $atype );
-$tpl->assign( "act_place", $result['place'] );
-$tpl->assign( "act_profile", $result['profile'] );
-$tpl->assign( "id", $id );
+switch($item['attribution_type']){
+	case "helpdisabled" : $tpl->assign( "act_attr_type", "助残" );break;
+	case "supporteducation" : $tpl->assign( "act_attr_type", "支教");break;
+	case "helptheold" : $tpl->assign( "act_attr_type", "扶老");break;
+	case "bigmatch" : $tpl->assign( "act_attr_type", "大型赛事");break;
+	default : $tpl->assign( "act_attr_type", "其他");
+}
 
+$same_act =$act->find_same($activity_id);
+$tpl->assign( "act_same", $same_act);
+$tpl->assign("id",$activity_id);
+$tpl->assign( "act_place", $item['place'] );
+$tpl->assign( "act_profile", $item['summary'] );
+$tpl->assign( "act_title", $item['name'] );
+$tpl->assign( "act_begin_time", $item['begin_time'] );
+$tpl->assign( "act_end_time", $item['end_time']);
+$tpl->assign( "last_time", $item['last_time'] );
+
+
+$comment_info=$act->get_comment($activity_id);
+
+$tpl->assign( "comment_detail",$comment_info);
 
 $tpl->display('act_dtl.html');
 ?>

@@ -4,7 +4,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="./assets/css/main.css" rel="stylesheet" />
-<link href="./assets/css/zonet.css" rel="stylesheet" />
+<link href="./assets/css/zonev.css" rel="stylesheet" />
+<link type="text/css" rel="stylesheet" href="./plugin/calendar/calendar.css" >
+<script type="text/javascript" src="./plugin/calendar/calendar.js" ></script>  
+<script type="text/javascript" src="./plugin/calendar/calendar-zh.js" ></script>
+<script type="text/javascript" src="./plugin/calendar/calendar-setup.js"></script>
 
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
 <title>个人空间</title>
@@ -15,14 +19,15 @@
 <div class="main">
 
 	<div id="up" class="">
-		<div id="logo" class="">
-			<img src="" width="80px" height="80px" border="0" alt="">
+		<div id="logo" class="" style="float:left">
+			<img src="./assets/img/head_photo/boy/178.jpg" width="80px" height="80px" border="0" alt="">
 		</div>
-		<div id="team_info" class="">
-			<p><{$user_name}></p>
-			<div id="notification_bar" class="">
+		<div id="person_info" class="person-info" style="float:left">
+			<div id="user_name" ><{$user_name}></div>
+			<div id="notification_bar" class="" >
 				<span id="notes" class="notification_item">通知(<span id="notes_number" class=""><{$notes_number}></span>)</span>
 			</div>
+
 		</div>
 	</div>
 <div id="down" class="">
@@ -69,7 +74,7 @@
                         	个人资料
                         </div>
                         <div id="change_password" class="menu_item_span">
-                        	修改密码
+                        	修改资料
                         </div>
 					</div>
 				</div>
@@ -84,6 +89,7 @@
 			</div>
 	</div>
 </div>
+<div id="note_detail"></div>
 <{include file="include/footer.html"}>
 <script type="text/javascript" src="./assets/js/zonev.js"></script>
 </body>
