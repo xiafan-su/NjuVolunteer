@@ -92,7 +92,9 @@ function handlechange(){
 		}
 	});
 }
-
+function init(){
+	$("#change_profile").click();
+	}
 function show_note(id){
 	//alert(id);
 	$("#note_detail").html(nowloading);
@@ -197,7 +199,7 @@ $("#vol_profile").click(function(){
 });
 });
 
-$("#change_password").click(function(){
+$("#change_profile").click(function(){
 	$("#main_title").text("修改资料");
 	$("#main_content").html(nowloading);
 	$.ajax({

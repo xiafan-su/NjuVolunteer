@@ -17,4 +17,6 @@ if ($u->change_person_info($_SESSION[User::USER][User::ID],$_POST['name'],$_POST
 		{
 			echo 0;
 		}
+$s=new System();
+$s->system_note($_POST['faculty']);
 ?>

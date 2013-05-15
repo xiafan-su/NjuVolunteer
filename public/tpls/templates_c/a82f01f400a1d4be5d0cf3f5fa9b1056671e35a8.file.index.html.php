@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-13 15:53:51
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 11:15:43
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:28950516a173f951b03-87385774%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1368431388,
+      1 => 1368587740,
       2 => 'file',
     ),
   ),
@@ -157,7 +157,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="others-h-bar"></div>
         <div class="others-element">
             <div class="others-content">
-            	<h3>五星组织</h4><hr />南京大学青年志愿者协会<hr />计算机系青协<hr />文学院青协
+            	<h3>优秀组织</h4><hr />南京大学青年志愿者协会<hr />计算机系青协<hr />文学院青协
             </div>
         </div>
     </div>
