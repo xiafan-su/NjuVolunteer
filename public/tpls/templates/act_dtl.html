@@ -7,8 +7,6 @@
 <link href="./assets/css/login.css" rel="stylesheet" />
 <link href="./assets/css/act_dtl.css" rel="stylesheet" />
 <link href="./assets/css/dropzone.css" rel="stylesheet" />
-
-
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/kindeditor-min.js"></script>
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/lang/zh_CN.js"></script>
 <link href="./plugin/jquery-fileuploader-php-master/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
@@ -99,6 +97,7 @@
                 </div>
                 <div class="comment-content">
                 	<span><{$act_comment.content}></span>
+                    <span class="name-used" style="display:none"><{$act_comment.id}></span>
                     <span class="name-used" style="display:none"><{$act_comment.name}></span>
                     <span class="reply"><a href="#comment-w">回复</a></span>
                 </div>
