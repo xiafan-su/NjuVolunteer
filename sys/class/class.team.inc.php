@@ -287,7 +287,7 @@ class Team extends DB_Connect {
 		} 
 		return true;
 	}
-	public function register_voltime($record_list)//为这些志愿者录入服务记录
+	public function register_voltime($record_list)//为这些志愿者录入服务记录,录入时只修改已存在的，不进行添加。
 	{
 		foreach ($record_list as $record)
 		{
@@ -296,7 +296,7 @@ class Team extends DB_Connect {
 			$num_of_results=mysql_num_rows($select);
 			if ($num_of_results!=0)
 			{
-				$sql_update="UPDATE act_record SET base_time='".$record['base_time']."',honor_time='".$record['honor_time']."',comment='".$record['comment']."',performance_level='".$record['performance_level']."' WHERE doc_id='".$record['doc_id']."' and user_id='".$record['user_id']."'";
+				$sql_update="UPDATE act_record SET base_time='".$record['base_time']."',honor_time='".$record['honor_time']."',comment='".$record['comment']."',performance_level='".$record['performance_level']."',honor_leader='".$record['honor_leader']."',honor_excellent='".$record['honor_excellent']."' WHERE doc_id='".$record['doc_id']."' and user_id='".$record['user_id']."'";
 				if (!mysql_query($sql_update,$this->root_conn))
 				{
 					die('Error: ' . mysql_error());

@@ -9,10 +9,6 @@ KindEditor.ready(function(K) {
         	'emoticons', 'image']
 		});
 });
-
-$(document).ready(function(){
-document.getElementById("drop_cover").style.display="none";
-//$('#drop_cover').animate({opacity:'0'},10);
 		jQuery(function($){
 			$('.fileUpload').fileUploader({
 				autoUpload: false,
@@ -23,6 +19,10 @@ document.getElementById("drop_cover").style.display="none";
 				allowedExtension: 'jpg|jpeg|gif|png'
 				});
 		});
+$(document).ready(function(){
+document.getElementById("drop_cover").style.display="none";
+//$('#drop_cover').animate({opacity:'0'},10);
+
 	
 	 $.ajax({
 			type:"POST",

@@ -3,9 +3,11 @@ include_once '../sys/core/init.inc.php';
 include './include/header.php';
 
 
-
-$t=new Team();
-$t->fetch_act_all('101220130',0);
+$a=new Act();
+$id=$a->create_new_act();
+echo $id;
+//$t=new Team();
+//$t->fetch_act_all('101220130',0);
 //$t->modify_doc(7,"夏畅","这是一次不多的活动","bucu","15996256569","3.5","2010-5-7");
 //$id=$t->add_doc(6,'夏凡','test','test','15996256592','2','2013-5-7');
 //echo $id;
