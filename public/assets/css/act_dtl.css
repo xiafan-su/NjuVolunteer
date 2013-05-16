@@ -84,6 +84,7 @@ width:630px;
 #act_introduction{
 	float:left;	
 	width:600px;
+	overflow:scroll;
 }
 .drop-cover{
 	z-index:190;
