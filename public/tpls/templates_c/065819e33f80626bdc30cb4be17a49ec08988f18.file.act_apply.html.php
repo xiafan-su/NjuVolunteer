@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 22:23:15
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 09:57:54
          compiled from "./tpls/templates\act_apply.html" */ ?>
 <?php /*%%SmartyHeaderCode:226025177bcd4242042-40208521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1368627793,
+      1 => 1368669473,
       2 => 'file',
     ),
   ),
@@ -37,6 +37,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/kindeditor-min.js"></script>
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/lang/zh_CN.js"></script>
 <script type="text/javascript" src="./assets/js/act_apply.js"></script>
+
+<link href="./plugin/jquery-fileuploader-php-master/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
+<link href="./plugin/jquery-fileuploader-php-master/css/fileUploader.css" rel="stylesheet" type="text/css" />
+
+<script src="./plugin/jquery-fileuploader-php-master/js/jquery-ui-1.8.14.custom.min.js" type="text/javascript"></script>
+<script src="./plugin/jquery-fileuploader-php-master/js/jquery.fileUploader.js" type="text/javascript"></script>
 
 <title>活动申请</title>
 </head>
@@ -232,7 +238,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<span id="responser_error"></span>
 					</div>
 				</div>
-                <div class="control-group" id="pho6786786ne">
+                <div class="control-group" id="phone">
 					<label class="control-label" for="inputInfo">电话</label>
 					<div class="controls">
 						<div class="input_border">
@@ -243,6 +249,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<span id="responser_tel_error"></span>
 					</div>
 				</div>
+     
 				<div class="breadcrumb">
                 	<div class="bar-left"></div>
                     <div class="bar-title">活动简介</div>
@@ -255,7 +262,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</div>
 						<span class="help-inline phoneerror"></span>
 					</div>
-				</div>                
+				</div>    
+                <div class="breadcrumb">
+                	<div class="bar-left"></div>
+                    <div class="bar-title">上传策划</div>
+                    <div class="bar-right"></div>
+                </div> 
+                    <form action="./handle/upload_picture.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="userfile" class="fileUpload" multiple>
+                    <button id="px-submit" type="submit">Upload</button>
+                    <button id="px-clear" type="reset">Clear</button>
+                    </form>
+       
 				<div class="control-group">
 					<div class="controls">
                         <div class="button-ctrl">

@@ -24,6 +24,16 @@ function check_before_submit(){
 }
 $(document).ready(function(){
 	//alert("ready");
+	jQuery(function($){
+			$('.fileUpload').fileUploader({
+				autoUpload: false,
+				limit: false,
+				buttonUpload: '#px-submit',
+				buttonClear: '#px-clear',
+				selectFileLabel: 'Select files',
+				allowedExtension: 'zip|rar'
+				});
+		});
 	$("#activity_name").blur(function(){
 		if($("#activity_name").val().replace(/\s/g,"")==""){
 			$("#activity_name_error").html("\(^o^)/~讨厌，人家不能为空啦...");

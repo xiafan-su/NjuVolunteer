@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 21:55:50
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 00:35:45
          compiled from "./tpls/templates\notice.html" */ ?>
 <?php /*%%SmartyHeaderCode:1700951936ff20052c8-45431286%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '557724488c0d1472f55b9b370819058ffefc6297' => 
     array (
       0 => './tpls/templates\\notice.html',
-      1 => 1368626061,
+      1 => 1368627851,
       2 => 'file',
     ),
   ),
@@ -48,41 +48,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
     </div>
     
-    <div class="right">
-        <div class="title-bar" id="title_bar">
-        	<div class="left-bar"></div>
-            <span id="type">公告通知</span>
-            <div class="right-bar"></div>
-        </div>
-        <div class="content">
-        	<div class="notice-list">
-            	<ul class="detail">
-                	<li>
-                    	<div class="title-d">上学期所有志愿活动一览</div>
-                    	<div class="time-d">[2013-5-11]</div>
-                    </li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                </ul>
-            </div>
-            <div class="bottom-s">
-            	<div style="float:left">第页/总页，共条</div>
-                <div style="float:right">
-                	<input type="button" value="首页"/>
-                    <input type="button" value="上一页"/>
-                    <input type="button" value="下一页"/>
-                    <input type="button" value="末页"/>
-                </div>
-            </div>
-        </div>
+    <div class="right" id="right">
+        <?php echo $_smarty_tpl->getSubTemplate ("include/notice_detail.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
     </div>
 </div>
 <?php echo $_smarty_tpl->getSubTemplate ("include/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>

@@ -1,13 +1,14 @@
 <?php
-include("classes/easy_upload/upload_class.php"); //classes is the map where the class file is stored
+$_BASE_PATH = "../../";
+
+include_once '../../sys/core/init.inc.php';
+include("../plugin/jquery-fileuploader-php-master/classes/easy_upload/upload_class.php"); //classes is the map where the class file is stored
 	
 $upload = new file_upload();
 
-$upload->upload_dir = 'uploads/';
-$upload->extensions = array('.png', '.jpg', '.zip', '.pdf','.docx','.txt'); // specify the allowed extensions here
+$upload->upload_dir = 'upload_plan/';
+$upload->extensions = array('.zip', '.rar'); // specify the allowed extensions here
 $upload->rename_file = true;
-
-
 if(!empty($_FILES)) {
 	$upload->the_temp_file = $_FILES['userfile']['tmp_name'];
 	$upload->the_file = $_FILES['userfile']['name'];
@@ -27,4 +28,7 @@ if(!empty($_FILES)) {
 		
 	}
 }
+//$act = new Act();
+//$result = $act->upload_picture();
+
 ?>

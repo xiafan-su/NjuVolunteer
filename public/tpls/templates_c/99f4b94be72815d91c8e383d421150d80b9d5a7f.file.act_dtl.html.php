@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 23:45:39
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 09:37:24
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:91615177d2ae9126f8-24185650%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368631915,
+      1 => 1368668242,
       2 => 'file',
     ),
   ),
@@ -49,8 +49,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/kindeditor-min.js"></script>
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/lang/zh_CN.js"></script>
-<script type="text/javascript" src="./plugin/dropzone.js"></script>
-<script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
+<link href="./plugin/jquery-fileuploader-php-master/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
+<link href="./plugin/jquery-fileuploader-php-master/css/fileUploader.css" rel="stylesheet" type="text/css" />
+
+<script src="./plugin/jquery-fileuploader-php-master/js/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="./plugin/jquery-fileuploader-php-master/js/jquery-ui-1.8.14.custom.min.js" type="text/javascript"></script>
+<script src="./plugin/jquery-fileuploader-php-master/js/jquery.fileUploader.js" type="text/javascript"></script>
 
 
 <title>活动详细页面</title>
@@ -102,7 +106,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<?php echo $_smarty_tpl->tpl_vars['act_profile']->value;?>
 
 			</div>
-            
+            <div id="drop_cover" style="width:400px;height:5px;background:#999;float:left;display:"none";">
+            	<form action="./handle/upload_picture.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="userfile" class="fileUpload" multiple>
+                
+                <button id="px-submit" type="submit">Upload</button>
+                <button id="px-clear" type="reset">Clear</button>
+          		</form>
+
+            </div>
             <ul class="div_title2"><li>活动评论详情</li></ul>
             <hr color="green">
             
@@ -167,7 +179,7 @@ $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
 				<input name="com_submit" class="button" id="submit_comment" type="submit" value="评论"/>
 				</div>
 			</div>
-            
+
             <div class="div_title2" ><div>参加过这项活动的人还参加了</div>
             <br>
             <table id="act_people_table" class="act_people_table">
@@ -196,21 +208,8 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
         	</div>
             <div id="act_same"  class="div_content"></div>
         </div>
+
         
-        <!--<div class="drop-cover" id="drop_cover"></div>-->
-        <div class="drop" id="drop" style="display:none">
-        	<!--form action="../public/handle/upload_picture.php" method="post" enctype="multipart/form-data">
-            <label for="file">Filename:</label>
-            <input type="file" name="file" id="file" />
-            <br />
-            <input type="submit" name="submit" id="upload_submit" value="Submit" />
-            </form-->
-            <form aciton="/file-upload" class="dropzone" id="my_dropzone"></form>
-            
-        </div>
-        
-        
-		<div id="" class="clearBar">&nbsp;</div>
         
     </div><!-- 结束right div -->
 </div>

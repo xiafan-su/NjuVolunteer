@@ -96,11 +96,29 @@ class Team extends DB_Connect {
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;		
 	}
-	public function fetch_act_all($faculty_id)//发起的活动
+	public function fetch_act_all($faculty_id,$state)//发起/完成的活动,state为1表示发起,0表示完成
 	{
-		$query="select * from activity_info where publisher = '".$faculty_id."'";
-		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-		return $select;
+		if ($state==0)
+		{
+			$query="select * from activity_info where publisher = '".$faculty_id."' and state<>'end'";
+			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			return $select;
+		}else
+		{
+			$query="select * from activity_info where publisher = '".$faculty_id."' and state='end'";
+			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			return $select;			
+		}
+	}
+	public function change_act_state($act_id,$state)//state即为数据库中的值，audited,auditing,editing,end
+	{
+			$query="UPDATE activity_info SET state='".$state."' WHERE id = '".$act_id."'";
+			if(!mysql_query($query,$this->root_conn))
+			{
+				die('Error: ' . mysql_error());
+				return false;
+			}else
+			return true;	
 	}
 	public function fetch_act_doc_all($act_id)//该活动的所有活动档案
 	{
@@ -120,6 +138,7 @@ class Team extends DB_Connect {
 		//$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		if (!mysql_query($query,$this->root_conn))
 		{
+			die('Error: ' . mysql_error());
 			return false;
 		}else
 		{

@@ -39,7 +39,14 @@ h2 {
 	</form>
 	<script type="text/javascript">
 		jQuery(function($){
-			$('.fileUpload').fileUploader();
+			$('.fileUpload').fileUploader({
+				autoUpload: false,
+				limit: false,
+				buttonUpload: '#px-submit',
+				buttonClear: '#px-clear',
+				selectFileLabel: 'Select files',
+				allowedExtension: 'jpg|jpeg|gif|png|docx'
+				});
 		});
 	</script>
 </div>

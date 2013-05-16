@@ -5,7 +5,7 @@ include './include/header.php';
 
 
 $t=new Team();
-$t->audit_act_vol(6,"101220129",1,"太丑啦");
+$t->fetch_act_all('101220130',0);
 //$t->modify_doc(7,"夏畅","这是一次不多的活动","bucu","15996256569","3.5","2010-5-7");
 //$id=$t->add_doc(6,'夏凡','test','test','15996256592','2','2013-5-7');
 //echo $id;
