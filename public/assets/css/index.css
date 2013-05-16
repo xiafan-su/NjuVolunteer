@@ -270,8 +270,22 @@ h2{
 .claimshow{
 	width:400px;	
 }
+.data-statistics{
+	position:absolute;
+	left:50%;
+	top:300px;
+	width:400px;
+	height:200px;
+	margin-left:-203px;
+	background:#FFF;
+	border:3px solid #aaa;
+	z-index:180;
+	border-radius:20px;
+	opacity:0;
+	display:none;
+}
 .volclaim{
-	position:fixed;
+	position:absolute;
 	top:220px;
 	left:50%;
 	width:0px;
