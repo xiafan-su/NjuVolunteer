@@ -44,18 +44,24 @@ class System extends DB_Connect {
 			}
 		}
 	}
-	public function send_note($recv_id,$title,$content)
+	public function send_note($recv_id_list,$title,$content,$sender_id='system')//
 	{
-		$sql="INSERT INTO note(sender_id,recv_type,recv_id,title,content,time,state) 
-			  VALUES('system','0','".$recv_id."','".$title."','".$content."','".date('Y-m-d H:i:s',time())."','unread')
-		";
-		if (mysql_query($sql, $this->root_conn))
-				return true;
-		else 
+		$recv_id = explode(" ", $recv_id_list);
+		foreach ($recv_id as $value)
 		{
-			die('Error: ' . mysql_error());
-			return false;
+			if ($value!=NULL)
+			{
+				$sql="INSERT INTO note(sender_id,recv_type,recv_id,title,content,time,state) 
+					  VALUES('".$sender_id."','0','".$value."','".$title."','".$content."','".date('Y-m-d H:i:s',time())."','unread')
+				";
+				if (!mysql_query($sql, $this->root_conn))
+				{
+					die('Error: ' . mysql_error());
+					return false;
+				}
+			}
 		}
+		return true;
 	}
 	
 	
