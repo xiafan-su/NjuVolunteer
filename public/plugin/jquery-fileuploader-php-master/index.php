@@ -34,19 +34,12 @@ h2 {
 	<form action="upload.php" method="post" enctype="multipart/form-data">
 		<input type="file" name="userfile" class="fileUpload" multiple>
 		
-		<button id="px-submit" type="submit">上传</button>
-		<button id="px-clear" type="reset">清除</button>
+		<button id="px-submit" type="submit">Upload</button>
+		<button id="px-clear" type="reset">Clear</button>
 	</form>
 	<script type="text/javascript">
 		jQuery(function($){
-			$('.fileUpload').fileUploader({
-				autoUpload: false,
-				limit: false,
-				buttonUpload: '#px-submit',
-				buttonClear: '#px-clear',
-				selectFileLabel: 'Select files',
-				allowedExtension: 'jpg|jpeg|gif|png|docx'
-				});
+			$('.fileUpload').fileUploader();
 		});
 	</script>
 </div>

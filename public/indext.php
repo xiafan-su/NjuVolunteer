@@ -6,7 +6,7 @@ include_once '../sys/core/init.inc.php';
 include './include/header.php';
 
 //
-$id="101220130";
+$id="NJU001";
 //
 
 
@@ -30,7 +30,7 @@ $day = $timearray[2];
 echo $month;*/
 
 
-$act_result=$team->fetch_act_all($id,2);
+$act_result=$team->fetch_act_all($id);
 while ($row=mysql_fetch_assoc($act_result))
 	$act_info[] = array('id'=>$row['id'],'name'=>$row['name'],'begin_time'=>$row['begin_time'],'end_time'=>$row['end_time']);
 

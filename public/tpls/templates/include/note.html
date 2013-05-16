@@ -1,32 +1,3 @@
-
-<div id="" class=""  style="margin: 0 20px">
-	
-
-
-
-
-
-
-<table>
-	<{section name=note_index loop=$note_list}>
-		<tr class="note_table_row" id="note_table_row_<{$note_list[note_index].id}>">
-			<td>
-				<{if $note_list[note_index].type == 0}><{*0表示未读，1表示已读，2表示发送*}>
-					<img src="./assets/img/zonet/note_unread.png" width="24" height="24" border="0" alt="">
-				<{elseif $note_list[note_index].type == 1}>
-					<img src="./assets/img/zonet/note_read.png" width="24" height="24" border="0" alt="">
-				<{elseif $note_list[note_index].type == 2}>
-					<img src="./assets/img/zonet/note_send.png" width="24" height="24" border="0" alt="">
-				<{/if}>
-			</td>
-			<td><{$note_list[note_index].title}></td>
-			<td><{$note_list[note_index].content|truncate:12:"……":true}></td>
-			<td><{$note_list[note_index].time}></td>
-		</tr>
-	<{/section}>
-</table>
-
-
-
-
+<div id="" class="">
+	团队空间右边的通知列表div
 </div>

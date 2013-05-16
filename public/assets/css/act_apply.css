@@ -128,13 +128,13 @@ width: 220px;
 height: 146px;
 margin: 5px;  /* mk:marks */
 }
-#en_choose,#faculty_choose{
+#en_choose{
 	display:none;
 	margin-top:-10px;
 	float:left;
 	margin-left:180px;
 	width:400px;
-	margin-bottom:15px;	
+	height:80px;	
 }
 #en_choose input{
 	width:80px;	
@@ -159,11 +159,10 @@ margin: 5px;  /* mk:marks */
 	border:1px solid green;
 	border-radius:5px;
 }
-.controls-n textarea{
+textarea{
 	border: 1px #ccc solid;
-	border-radius:3px;
-	margin-left:5px;
-	padding:12px;
+	border-radius:5px;
+	padding:0;
 }
 
  #draggable { width: 50px; height: 50px; padding: 0.5em; float: right; margin: 10px 10px 10px 0; }

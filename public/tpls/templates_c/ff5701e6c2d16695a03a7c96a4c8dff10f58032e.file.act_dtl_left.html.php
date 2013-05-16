@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 11:27:54
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 22:20:41
          compiled from "./tpls/templates\include\act_dtl_left.html" */ ?>
-<?php /*%%SmartyHeaderCode:323775194523ab2cad4-16299542%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:109585177d2ae997052-56911016%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ff5701e6c2d16695a03a7c96a4c8dff10f58032e' => 
     array (
       0 => './tpls/templates\\include\\act_dtl_left.html',
-      1 => 1368538893,
+      1 => 1368590163,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '323775194523ab2cad4-16299542',
+  'nocache_hash' => '109585177d2ae997052-56911016',
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5194523ab314b',
+  'unifunc' => 'content_5177d2ae9992a',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5194523ab314b')) {function content_5194523ab314b($_smarty_tpl) {?><!--script src="./assets/js/act_dtl.js" ></script-->
+<?php if ($_valid && !is_callable('content_5177d2ae9992a')) {function content_5177d2ae9992a($_smarty_tpl) {?><!--script src="./assets/js/act_dtl.js" ></script-->
 <div id="act_image">
     <img src="./assets/img/activity_center/0.jpg" height="300" width="180" />
 </div>

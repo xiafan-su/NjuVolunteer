@@ -30,9 +30,9 @@ switch($item['attribution_type']){
 
 $same_act =$act->find_same($activity_id);
 $tpl->assign( "act_same", $same_act);
-$tpl->assign( "id", $activity_id);
+$tpl->assign("id",$activity_id);
 $tpl->assign( "act_place", $item['place'] );
-$tpl->assign( "act_profile", $item['profile'] );
+$tpl->assign( "act_profile", $item['summary'] );
 $tpl->assign( "act_title", $item['name'] );
 $tpl->assign( "act_begin_time", $item['begin_time'] );
 $tpl->assign( "act_end_time", $item['end_time']);

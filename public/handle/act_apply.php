@@ -24,7 +24,7 @@ include_once '../../sys/core/init.inc.php';
 	$end_time=$end_time." 00:00:0";*/
 	$publisher=$_SESSION[User::USER][User::ID];
 	$act=new Act();
-	$result=$act->update_act($_POST['id'],$_POST['activity_name'],$_POST['activity_place'],$_POST['time_type'],$_POST['attribution_type'],$_POST['begin_time'],$_POST['end_time'],$_POST['deadline'],$_POST['detail_time'],$_POST['total_num'],$_POST['need_audit'],$_POST['responser'],$_POST['responser_tel'],$_POST['last_time'],$_POST['activity_profile'],$_POST['state'],$publisher,$_POST['weekday_time']);
+	$result=$act->create_new($_POST['activity_name'],$_POST['activity_place'],$_POST['time_type'],$_POST['attribution_type'],$_POST['begin_time'],$_POST['end_time'],$_POST['detail_time'],$_POST['total_num'],$_POST['need_audit'],$_POST['responser'],$_POST['responser_tel'],$_POST['last_time'],$_POST['activity_profile'],$_POST['state'],$publisher,$_POST['weekday_time']);
 	if ($result==1) echo "1";
 		else echo"0";
 	/*$query="select name from activity_info where name='".$name."'";

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 15:33:47
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 22:47:26
          compiled from "./tpls/templates\include\login.html" */ ?>
 <?php /*%%SmartyHeaderCode:22569519363ed2a53b3-05569551%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bade9366763f2c3ef3f5c78c15ec9639ccea326d' => 
     array (
       0 => './tpls/templates\\include\\login.html',
-      1 => 1368689575,
+      1 => 1368431388,
       2 => 'file',
     ),
   ),
@@ -50,7 +50,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					</tr>
 					<tr>
 						<td>
-							<input name="submit" class="btn btn-warning span2" type="submit" value="登录" style="background:rgba(102,51,102,0.7)"/>
+							<input name="submit" class="btn btn-warning span2" type="submit" value="登录" />
 						</td>
 					</tr>
 				</tbody>

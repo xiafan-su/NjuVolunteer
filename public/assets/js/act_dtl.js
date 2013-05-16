@@ -11,19 +11,6 @@ KindEditor.ready(function(K) {
 });
 
 $(document).ready(function(){
-//document.getElementById("drop_cover").style.display="none";
-//$('#drop_cover').animate({opacity:'0'},10);
-		jQuery(function($){
-			$('.fileUpload').fileUploader({
-				autoUpload: false,
-				limit: false,
-				buttonUpload: '#px-submit',
-				buttonClear: '#px-clear',
-				selectFileLabel: 'Select files',
-				allowedExtension: 'jpg|jpeg|gif|png'
-				});
-		});
-	
 	 $.ajax({
 			type:"POST",
 			url:"./handle/participate_state.php",
@@ -104,7 +91,6 @@ $(function(){
 	} );
 	
 	$("#take_part_in").click(function() {
-		//alert($('#act_id').val());
          $.ajax({
 			type:"POST",
 			url:"./handle/participate_act.php",
@@ -123,50 +109,40 @@ $(function(){
 					$('#take_part_in').text("参加活动");
 				}
 				 else
-				 alert("失败"+html);
+				 alert("失败");
 				
 			}
 		});
     });
 	
 	$('#upload_pic').click(function(){
-		$('#cover-m').show();
-		$('#drop_cover').show();
-		$('#cover-m').animate({opacity:'1'},1000);
-		$('#drop_cover').animate({opacity:'1'},1000);
-		document.getElementById("drop_cover").style.display="block";
+		$('#drop_cover').animate({opacity:'0.5'},1000);
+		$('#drop').animate({top:'100px',marginLeft:'-250px',height:'300px',width:'500',opacity:'1'},1000);
+		document.getElementById("drop").style.display="block";
 		//alert("。。。。。。。。。");
-	});
-	
-	$('#cover-m').click(function(){
-		$('#cover-m').animate({opacity:'0'},1000);
-		$('#drop_cover').animate({opacity:'0'},1000);
-		setTimeout("$('#cover-m').hide()",1000);
-		setTimeout("$('#drop_cover').hide()",1000);	
 	});
 
 	$('#update_text').bind("click", function(){
 		update_people();
 	});
 	
-	var response_id = -1;
+	var response_id = null;
 	$('#submit_comment').click(function() {
 		content = editor.html();
-		//alert(editor.html());
 		$.ajax({
 			type:"POST",
 			url:"./handle/comment_apply.php",
 			data:{content:editor.html(),res_id:response_id,act_id:$('#act_id').attr("value")},
 			success:function(html){
 				window.location.reload();
-				alert(html);
+				//alert(html);
 			}
 		});
 		
 	});
 	
 	$('.reply').click(function(){
-		editor.text("回复 " + $(this).prev().text() + ":");
+		editor.html("Reply " + $(this).prev().text() + ":");
 		response_id =  $(this).prev().prev().text();
 		//alert($(this).prev().prev().text());
 	});
