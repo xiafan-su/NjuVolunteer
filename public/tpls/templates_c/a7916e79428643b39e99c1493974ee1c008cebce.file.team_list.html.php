@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 16:56:25
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 21:17:51
          compiled from "./tpls/templates\team_list.html" */ ?>
 <?php /*%%SmartyHeaderCode:257955194954d21ef70-81971850%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a7916e79428643b39e99c1493974ee1c008cebce' => 
     array (
       0 => './tpls/templates\\team_list.html',
-      1 => 1368694583,
+      1 => 1368710223,
       2 => 'file',
     ),
   ),
@@ -78,11 +78,11 @@ button{
         
      </div>
      <div class="dot_button" id="dot_button">
-     	<input type="radio" name="img_choice" id="dot1" value="1" onclick="switchimg(1)"/>
-     	<input type="radio" name="img_choice" id="dot2" value="2" onclick="switchimg(2)"/>
-     	<input type="radio" name="img_choice" id="dot3" value="3" onclick="switchimg(3)"/>
-     	<input type="radio" name="img_choice" id="dot4" value="4" onclick="switchimg(4)"/>
-     	<input type="radio" name="img_choice" id="dot5" value="5" onclick="switchimg(5)"/>
+     	<div id="dot1" onclick="switchimg(1)"></div>
+     	<div id="dot2" onclick="switchimg(2)"></div>
+     	<div id="dot3" onclick="switchimg(3)"></div>
+     	<div id="dot4" onclick="switchimg(4)"></div>
+     	<div id="dot5" onclick="switchimg(5)"></div>
      </div>
      <div class="assortment" id="assortment_list">
      <!--<div style="height:5px;float:left;width:100%;background-color:#333"></div>
@@ -122,7 +122,7 @@ button{
    		<div class="pic">
         	<img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1" />
         	<div class="float_state" id="float_state1">
-        		星级：五星<br />
+        		团队宣言<br />
         		南京大学计算机系青协期待您的加入
         	</div>
        	</div>

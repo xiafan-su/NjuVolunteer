@@ -169,10 +169,11 @@
                 <div class="control-group">
 					<label class="control-label">院系要求</label>
 					<div class="controls-n">
-                    	<input name="faculty_select" type="radio" value="false" checked /><label>否</label>
-                        <input name="faculty_select" type="radio" value="true" /><label>是</label>
+                    	<input name="faculty_select" type="radio" value="false" onclick="hide_faculty()" checked /><label>否</label>
+                        <input name="faculty_select" type="radio" value="true" onclick="show_faculty()" /><label>是</label>
 					</div>
                     <div id="faculty_choose">
+                    	caocaocao
                     </div>
 				</div>
 				<div class="control-group">
@@ -208,7 +209,7 @@
                 <div class="control-group">
 					<label class="control-label">其他要求</label>
 					<div class="controls-n">
-                    	<textarea name="other_com" class="other_com" cols="26" rows="5" style="resize:none" placeholder="热情 大方 善于交流等"></textarea>
+                    	<textarea name="other_com" class="other_com" cols="23" rows="5" style="resize:none" placeholder="热情 大方 善于交流等"></textarea>
 					</div>
                     <div id="en_choose">
                     </div>
@@ -245,7 +246,7 @@
                     <div class="bar-title">上传策划</div>
                     <div class="bar-right"></div>
                 </div> 
-                <div class="" style="margin-left:100px">
+                <div class="upload_panel" style="margin-left:180px">
                  	<span id="plan_upload">上传文件格式为rar和zip</span>
                     <form action="./handle/upload_zip.php" method="post" enctype="multipart/form-data">
                     <input type="file" name="userfile" class="fileUpload" multiple>

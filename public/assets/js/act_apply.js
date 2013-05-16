@@ -1,9 +1,15 @@
 
 function show_en(){
-	$('#en_choose').show();	
+	$('#en_choose').slideDown();
 }
 function hide_en(){
-	$('#en_choose').hide();	
+	$('#en_choose').slideUp();	
+}
+function show_faculty(){
+	$('#faculty_choose').slideDown();	
+}
+function hide_faculty(){
+	$('#faculty_choose').slideUp();	
 }
 var editor;
 KindEditor.ready(function(K) {

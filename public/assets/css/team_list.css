@@ -22,8 +22,10 @@
 }
 .dot_button{
 	/*margin-top:-25px; */
+	position:absolute;
 	z-index:200; 
-	float:right;
+	top:165px;
+	left:10px;
 }
 .switch{
 	position:relative;
@@ -96,6 +98,7 @@ li.tn-img-t{
 	-khtml-opacity:0.8;
 	opacity:0.8;
 	background:#FFF;
+	vertical-align:middle;
 }
 .content{
 	height:100px;
@@ -186,4 +189,18 @@ li.tn-img-t{
 	width:100px;
 	text-align:center;
 	cursor:pointer;
+}
+#dot2,#dot3,#dot4,#dot5{
+	float:left;
+	height:14px;
+	width:14px;
+	margin-right:8px;
+	background:rgb(102,51,102);
+}
+#dot1{
+	float:left;
+	height:14px;
+	width:14px;
+	margin-right:8px;
+	background:#FFF;
 }
