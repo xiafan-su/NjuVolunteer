@@ -7,7 +7,7 @@ include("../plugin/jquery-fileuploader-php-master/classes/easy_upload/upload_cla
 $upload = new file_upload();
 
 $upload->upload_dir = 'upload_pic/';
-$upload->extensions = array('.png', '.jpg', '.zip', '.pdf','.docx','.txt'); // specify the allowed extensions here
+$upload->extensions = array('.png', '.jpg',',jpeg','.gif'); // specify the allowed extensions here
 $upload->rename_file = true;
 if(!empty($_FILES)) {
 	$upload->the_temp_file = $_FILES['userfile']['tmp_name'];

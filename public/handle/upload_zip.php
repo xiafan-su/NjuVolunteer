@@ -5,7 +5,7 @@ include_once '../../sys/core/init.inc.php';
 include("../plugin/jquery-fileuploader-php-master/classes/easy_upload/upload_class.php"); //classes is the map where the class file is stored
 	
 $upload = new file_upload();
-
+$t=new Team();
 $upload->upload_dir = 'upload_plan/';
 $upload->extensions = array('.zip', '.rar'); // specify the allowed extensions here
 $upload->rename_file = true;
@@ -15,11 +15,15 @@ if(!empty($_FILES)) {
 	$upload->http_error = $_FILES['userfile']['error'];
 	$upload->do_filename_check = 'y'; // use this boolean to check for a valid filename
 	if ($upload->upload()){
-		
+		$_SESSION['plan_url']=$upload->file_copy;
 		echo '<div id="status">success</div>';
 		echo '<div id="message">'. $upload->file_copy .' Successfully Uploaded</div>';
 		//return the upload file
 		echo '<div id="uploadedfile">'. $upload->file_copy .'</div>';
+        $a=new Act();
+        $a->attachment($_POST['act_id'],$upload->file_copy);
+  			
+       
 		
 	} else {
 		

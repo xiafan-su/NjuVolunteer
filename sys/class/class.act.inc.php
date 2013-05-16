@@ -92,11 +92,50 @@ class Act extends DB_Connect {
 		}
 		return $comment_info;
 	}
-	public function create_new( $name,$place,$time_type,$attribution_type,$begin_time,$end_time,$detail_time,$total_num,$need_audit,$responser,$responser_tel,$last_time,$activity_profile,$state,$publisher,$weekday_time){
+	public function attachment($act_id,$filename)
+	{
+		$query="UPDATE activity_info SET plan_url='".$filename."' WHERE id='".$act_id."'";
+		if(!mysql_query($query,$this->root_conn))
+		{
+			die('Error: ' . mysql_error());
+			return false; 
+		}else
+		{
+			return true;
+		}
+	}
+	public function create_new_act()
+	{
+		$hash=rand(1,100);
+		$apply_date_hash=date('Y-m-d H:i:s',time())." ".$hash;
+		$query="INSERT INTO activity_info(publisher,apply_date_hash) values('".$_SESSION[User::USER][User::FACULTY_ID]."','".$apply_date_hash."')";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$sql="SELECT id FROM activity_info WHERE publisher='".$_SESSION[User::USER][User::FACULTY_ID]."' and apply_date_hash='".$apply_date_hash."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result['id'];
+	}
+	public function update_act($id, $name,$place,$time_type,$attribution_type,$begin_time,$end_time,$deadline,$detail_time,$total_num,$need_audit,$responser,$responser_tel,$last_time,$activity_profile,$state,$publisher,$weekday_time){
 		$accepted_num		=0;
 		$offer_num			=0;
 		$begin_time=$begin_time." 00:00:0";
 		$end_time=$end_time." 00:00:0";
+		$update="
+			UPDATE activity_info SET name='".$name."',place='".$place."',time_type='".$time_type."',attribution_type='".$attribution_type."',
+			detail_time='".$detail_time."',total_num='".$total_num."',need_audit='".$need_audit."',
+			responser='".$responser."',responser_tel='".$responser_tel."',last_time='".$last_time."',
+			begin_time='".$begin_time."',end_time='".$end_time."',deadline='".$deadline."',state='".$state."',profile='".$activity_profile."',
+			publisher='".$publisher."',weekday_time='".$weekday_time."'
+			WHERE id='".$id."';
+		";
+		if (!mysql_query($update,$this->root_conn))
+		{
+		  	die('Error: ' . mysql_error());
+		  	return 0;
+		}
+		return 1;
+		
+		/*
 		$query="select name from activity_info where name='".$name."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		if(mysql_num_rows($select) == 0) {
@@ -106,7 +145,7 @@ class Act extends DB_Connect {
 				name,place,time_type,attribution_type,
 				detail_time,total_num,need_audit,
 				responser,responser_tel,last_time,
-				begin_time,end_time,state,profile,publisher,weekday_time
+				begin_time,end_time,state,profile,publisher,weekday_time,plan_url
 			) 
 			values
 			(
@@ -114,7 +153,7 @@ class Act extends DB_Connect {
 				'".$detail_time."','".$total_num."','".$need_audit."',
 				'".$responser."','".$responser_tel."','".$last_time."',
 				'".$begin_time."','".$end_time."','".$state."','".$activity_profile."',
-				'".$publisher."','".$weekday_time."'
+				'".$publisher."','".$weekday_time."','".$plan_url."'
 					
 			);";
 			if (!mysql_query($insert,$this->root_conn))
@@ -126,7 +165,7 @@ class Act extends DB_Connect {
 		{
 			return 0;
 		}
-
+		*/
 	}
 
 	public function fetch_one( $id ){
