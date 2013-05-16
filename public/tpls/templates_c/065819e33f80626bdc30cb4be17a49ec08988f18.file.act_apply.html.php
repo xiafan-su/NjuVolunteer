@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 20:38:59
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 21:02:54
          compiled from "./tpls/templates\act_apply.html" */ ?>
 <?php /*%%SmartyHeaderCode:226025177bcd4242042-40208521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1368707911,
+      1 => 1368709373,
       2 => 'file',
     ),
   ),
@@ -195,10 +195,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <div class="control-group">
 					<label class="control-label">院系要求</label>
 					<div class="controls-n">
-                    	<input name="faculty_select" type="radio" value="false" checked /><label>否</label>
-                        <input name="faculty_select" type="radio" value="true" /><label>是</label>
+                    	<input name="faculty_select" type="radio" value="false" onclick="hide_faculty()" checked /><label>否</label>
+                        <input name="faculty_select" type="radio" value="true" onclick="show_faculty()" /><label>是</label>
 					</div>
                     <div id="faculty_choose">
+                    	caocaocao
                     </div>
 				</div>
 				<div class="control-group">
@@ -234,7 +235,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <div class="control-group">
 					<label class="control-label">其他要求</label>
 					<div class="controls-n">
-                    	<textarea name="other_com" class="other_com" cols="26" rows="5" style="resize:none" placeholder="热情 大方 善于交流等"></textarea>
+                    	<textarea name="other_com" class="other_com" cols="23" rows="5" style="resize:none" placeholder="热情 大方 善于交流等"></textarea>
 					</div>
                     <div id="en_choose">
                     </div>
@@ -271,7 +272,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <div class="bar-title">上传策划</div>
                     <div class="bar-right"></div>
                 </div> 
-                <div class="" style="margin-left:100px">
+                <div class="upload_panel" style="margin-left:180px">
                  	<span id="plan_upload">上传文件格式为rar和zip</span>
                     <form action="./handle/upload_zip.php" method="post" enctype="multipart/form-data">
                     <input type="file" name="userfile" class="fileUpload" multiple>

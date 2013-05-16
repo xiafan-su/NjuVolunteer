@@ -1,4 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 21:17:51
+         compiled from "./tpls/templates\team_list.html" */ ?>
+<?php /*%%SmartyHeaderCode:257955194954d21ef70-81971850%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'a7916e79428643b39e99c1493974ee1c008cebce' => 
+    array (
+      0 => './tpls/templates\\team_list.html',
+      1 => 1368710223,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '257955194954d21ef70-81971850',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5194954d26aa3',
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_5194954d26aa3')) {function content_5194954d26aa3($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -19,7 +40,8 @@ button{
 
 </head>
 <body>
-<{include file="include/header.html"}>
+<?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 <div class="main">
 	<div class="main_search">
     	<a href="team.php">
@@ -312,6 +334,8 @@ button{
     </div>
 </div>
 </div>
-<{include file="include/footer.html"}>
+<?php echo $_smarty_tpl->getSubTemplate ("include/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 </body>
 </html>
+<?php }} ?>
