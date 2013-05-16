@@ -4,6 +4,60 @@ $_BASE_PATH = "../../";
 $_SMARTY_ROOT = "../tpls";
 include_once '../../sys/core/init.inc.php';
 
+$note_info = array();
+
+if( $_POST['type'] == "recv" ) {
+	$note_info = array(
+		array( 
+			"id" => 123,
+			"type"=>0, 
+			"title"=>"这是title1", 
+			"content"=>"这是内容1,这是内容,这是内容,这是内容,这是内容,这是内容", 
+			"time"=>"2013年5月16日18:45:09" ),
+		array( 
+			"id" => 234,
+			"type"=>0, 
+			"title"=>"这是title2", 
+			"content"=>"这是内容2,这是内容,这是内容,这是内容,这是内容,这是内容", 
+			"time"=>"2013年5月16日17:45:09" ),
+		array( 
+			"id" => 356,
+			"type"=>1, 
+			"title"=>"这是title3", 
+			"content"=>"这是内容3,这是内容,这是内容,这是内容,这是内容,这是内容", 
+			"time"=>"2013年5月16日16:45:09" ),
+
+	);
+} else if( $_POST['type'] == "sent" ){
+	$note_info = array(
+		array( 
+			"id" => 123,
+			"type"=>2, 
+			"title"=>"这是title1", 
+			"content"=>"这是内容1,这是内容,这是内容,这是内容,这是内容,这是内容", 
+			"time"=>"2013年5月16日18:45:09" ),
+		array( 
+			"id" => 234,
+			"type"=>2, 
+			"title"=>"这是title2", 
+			"content"=>"这是内容2,这是内容,这是内容,这是内容,这是内容,这是内容", 
+			"time"=>"2013年5月16日17:45:09" ),
+		array( 
+			"id" => 356,
+			"type"=>2, 
+			"title"=>"这是title3", 
+			"content"=>"这是内容3,这是内容,这是内容,这是内容,这是内容,这是内容", 
+			"time"=>"2013年5月16日16:45:09" ),
+
+	);
+}
+
+$tpl->assign( "note_list",  $note_info);
+
+
+$tpl->display( "include/note.html" );
+
+
 ?>
 页面内容：<br />
 （收、发）通知列表<br />

@@ -4,12 +4,7 @@ $_BASE_PATH = "../../";
 $_SMARTY_ROOT = "../tpls";
 include_once '../../sys/core/init.inc.php';
 
+$tpl->display( "include/note_edit.html" );
+
+
 ?>
-页面内容：<br />
-嘿，这里显示通知编辑<br />
-<br />
-页面参数：<br />
-无<br />
-<br />
-其他：<br />
-当前团队id请直接从SESSION获取<br />

@@ -9,7 +9,7 @@ include_once '../../sys/core/init.inc.php';
 
 <table>
 <tr><th>学号</th><th>姓名</th><th>年级</th><th>院系</th><th>联系方式</th></tr>
-<tr><td>b101220101</td><td>胡老师</td><td>2010</td><td>计算机</td><td>15998765678</td></tr>
+<tr><td><?php  echo $_GET['userId']; ?></td><td>胡老师</td><td>2010</td><td>计算机</td><td>15998765678</td></tr>
 </table>
 <table>
 <tr><th>参加的组织</th><th>职务</th></tr>
