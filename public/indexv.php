@@ -11,7 +11,7 @@ $id=101220129;
 
 
 $user=new User();
-$student=$user->fetch_person_info($id);
+$student=$user->fetch_person_info($_SESSION[USER::USER][USER::ID]);
 $activity_detail=$user->fetch_person_act($id);
 
 while ($row=mysql_fetch_assoc($activity_detail))

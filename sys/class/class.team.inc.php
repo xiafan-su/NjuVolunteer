@@ -96,7 +96,7 @@ class Team extends DB_Connect {
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;		
 	}
-	public function fetch_act_all($faculty_id,$state)//发起/完成的活动,state为1表示发起,0表示完成
+	public function fetch_act_all($faculty_id,$state)//发起/完成的活动,state为1表示发起,0表示完成,2表示审核通过的活动
 	{
 		if ($state==0)
 		{
@@ -104,10 +104,17 @@ class Team extends DB_Connect {
 			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			return $select;
 		}else
+		if ($state==1)
 		{
 			$query="select * from activity_info where publisher = '".$faculty_id."' and state='end'";
 			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			return $select;			
+		}else
+		if ($state==2)
+		{
+			$query="select * from activity_info where publisher = '".$faculty_id."' and state='audited'";
+			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			return $select;				
 		}
 	}
 	public function change_act_state($act_id,$state)//state即为数据库中的值，audited,auditing,editing,end

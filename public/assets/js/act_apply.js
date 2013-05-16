@@ -18,7 +18,7 @@ KindEditor.ready(function(K) {
 			'insertunorderedlist', '|', 'emoticons', 'image', 'link','unlink','image','baidumap','fullscreen']
 	});
 });
-var cur_state;
+var cur_state,preview_flag=0;
 function check_before_submit(){
 	
 }
@@ -199,14 +199,17 @@ $(document).ready(function(){
 	
 	$("#submit").click(function(){
 			//alert("submit");
+			preview_flag=0;
 			cur_state="auditing";
 			submit_click();
 		});
 	$("#preview").click(function(){
+			preview_flag=1;
 			cur_state="editing";
 			submit_click();	
 		});
 	$("#save").click(function(){
+			preview_flag=0;
 			cur_state="editing";
 			submit_click();	
 		});
@@ -242,8 +245,18 @@ function submit_click()
 		success:function(html){
 		//alert(html);
 			if(html == 1) {
-				alert("申请成功,请等待管理员审核");
-				window.close();
+				if (preview_flag==0)
+				{
+					if (cur_state=='auditing')
+						alert("申请成功,请等待管理员审核");
+					else if (cur_state=='editing')
+						alert("保存成功");
+					window.close();
+				}else
+				{
+					//alert('http://localhost/njuvolunteer/public/act_dtl.php?act_id='+act_id);
+					window.open('http://localhost/njuvolunteer/public/act_dtl.php?act_id='+act_id);
+				}
 			} else {
 				alert("申请失败"+html);
 			}

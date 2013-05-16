@@ -37,7 +37,7 @@ $("#idcard_num").blur(function(){
 	
 	if($("#idcard_num").val().replace(/\s/g,"")==""){
 		//alert("hello");
-		$("#id_number").text("\(^o^)/~讨厌，人家不能为空啦...");
+		$("#id_number").text("不能为空");
 		document.getElementById("id_number").style.color="red";
 		flag++;
 	}
@@ -49,7 +49,7 @@ $("#idcard_num").blur(function(){
 $("#birthday").blur(function(){
 	var reg=/^(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))-02-29) $/;
 	if(!reg.test($("#birthday").val())){
-		$("#birthday_tip").text("哎呀，人家都说了格式是yyyy-mm-dd~~");
+		$("#birthday_tip").text("格式是yyyy-mm-dd");
 		document.getElementById("birthday_tip").style.color="red";
 	}
 	else{
@@ -62,7 +62,7 @@ $("#cet4").blur(function(){
 	var reg=/^\d*$/;
 	if($("#cet4").val().replace(/\s/g,"")!=""){
 		if(!reg.test($("#cet4").val())){
-			$("#cet4_tip").text("\(^o^)/~讨厌，人家更喜欢数字啦...");
+			$("#cet4_tip").text("分数应该是一个数字");
 			document.getElementById("cet4_tip").style.color="red";
 		}
 	}
@@ -76,7 +76,7 @@ $("#cet6").blur(function(){
 	var reg=/^\d*$/;
 	if($("#cet6").val().replace(/\s/g,"")!=""){
 		if(!reg.test($("#cet6").val())){
-			$("#cet6_tip").text("\(^o^)/~讨厌，人家更喜欢数字啦...");
+			$("#cet6_tip").text("分数应该是一个数字");
 			document.getElementById("cet6_tip").style.color="red";
 		}
 	}
@@ -121,7 +121,7 @@ $("#email").blur(function(){
 
 $("#other_skills").blur(function(){
 	if($("#other_skills").val().length>100){
-		$("#other_skills_tip").text("原来是100字以内的呀");
+		$("#other_skills_tip").text("超过100字");
 		document.getElementById("other_skills_tip").style.color="red";
 	}
 	else{
