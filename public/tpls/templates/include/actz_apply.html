@@ -5,11 +5,13 @@
 
 	<h2><{$activity_name}></h2>
 	<div id="base">
-		<div>
-			<div class="left-bar"></div>
-			<div class="main-content-subtitle">报名情况</div>
-			<div class="right-bar"></div>
-		</div>
+		<{if $show_op_button}>
+			<div>
+				<div class="left-bar"></div>
+				<div class="main-content-subtitle">报名情况</div>
+				<div class="right-bar"></div>
+			</div>
+		<{/if}>
 		<table id="act_people_table">
 			<tr>
 				<th><input id="check_all_act_people"  type="checkbox" title="全选" /></th>
@@ -22,19 +24,22 @@
 				<th>状态</th>
 			</tr>
 			<{section name=vol_index loop=$apply_list}>
-				<tr class="even">
+				<tr class="even" id="act_people_table_tr_<{$apply_list[vol_index].id}>">
 					<td><input class="checkbox" type="checkbox" id="act_people_table_checkbox_<{$apply_list[vol_index].id}>" 
 						<{if $apply_list[vol_index].dischoosabled == "true" }>
 						disabled="true"
 						<{/if}>
-					noid="<{$apply_list[vol_index].id}>"/></td>
+						<{if $apply_list[vol_index].checked == "true" }>
+						checked="checked"
+						<{/if}>
+					noid="<{$apply_list[vol_index].id}>"  un="<{$apply_list[vol_index].name}>" uf="<{$apply_list[vol_index].faculty}>" /></td>
 					<td><a class="apply_id_col" title="点击查看该学生的信息"><{$apply_list[vol_index].id}></a></td>
 					<td><{$apply_list[vol_index].name}></td>
-					<td><{$apply_list[vol_index].faculty}></td>
+					<td style="white-space:nowrap; overflow: hidden;"><{$apply_list[vol_index].faculty}></td>
 					<td><{$apply_list[vol_index].grade}></td>
 					<td><{$apply_list[vol_index].tel}></td>
 					<td><{$apply_list[vol_index].qq}></td>
-					<td><{$apply_list[vol_index].state}></td>
+					<td id="act_people_table_col_state_<{$apply_list[vol_index].id}>"><{$apply_list[vol_index].state}></td>
 				</tr>
 			<{sectionelse}>
 				<tr class="even">
@@ -43,8 +48,12 @@
 			<{/section}>
 		</table>
 	</div>
-	<input type="button" class="button" id="btn_audit_ok" value="通过" title="将选择的报名人员设置为审核通过"/>
-	<input type="button" class="button" id="btn_audit_fail" value="再改改" title="将选择的报名人员设置为审核失败"/>
-	<input type="button" class="button" id="go_back_home" value="返回" />
+	<{if $show_op_button}>
+		<input type="button" class="button" id="btn_audit_ok" actid="<{$actid}>"  value="通过" title="将选择的报名人员设置为审核通过"/>
+		<input type="button" class="button" id="btn_audit_fail" actid="<{$actid}>"  value="退回" title="将选择的报名人员设置为审核失败"/>
+		<input type="button" class="button" id="go_back_home" value="返回" />
+	<{else}>
+		<input type="button" class="button" id="btn_import_ok" docid="<{$docid}>"  value="确定" title="将选择的报名人员导入参与表"/>
+	<{/if}>
 
 </div>
