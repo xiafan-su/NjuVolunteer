@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 21:22:14
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 00:06:47
          compiled from "./tpls/templates\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:93195194dd864dab29-79158576%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:210265194e28b87e8f8-72329459%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1368587740,
+      1 => 1368720308,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '93195194dd864dab29-79158576',
+  'nocache_hash' => '210265194e28b87e8f8-72329459',
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5194dd8652147',
+  'unifunc' => 'content_5194e28b8cc24',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5194dd8652147')) {function content_5194dd8652147($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5194e28b8cc24')) {function content_5194e28b8cc24($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -95,9 +95,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
         <div class="box-element">
         	<div class="title-bar"></div>
-            <div class="title-content">统计数据</div>
+            <div class="title-content" id="statistics">统计数据</div>
         </div>
         <div class="box-bar-right"></div>
+    </div>
+    <div class="data-statistics" id="data-statistics">
+    	<div>本网站访问次数：</div>
+        <div>注册团队总数：</div>
+        <div>注册志愿者总数：</div>
+        <div>累计举办活动总数：</div>
+        <div>正在进行中活动总数：</div>
+        <div>累计志愿者服务时间：</div>
     </div>
     <div class="volclaim" id="volclaim" onclick="hiddenit()">
     </div>
