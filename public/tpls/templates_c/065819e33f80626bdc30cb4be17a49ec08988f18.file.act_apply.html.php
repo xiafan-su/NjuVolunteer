@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 15:05:13
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 20:33:26
          compiled from "./tpls/templates\act_apply.html" */ ?>
 <?php /*%%SmartyHeaderCode:226025177bcd4242042-40208521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1368687909,
+      1 => 1368707605,
       2 => 'file',
     ),
   ),
@@ -215,10 +215,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <div class="control-group">
 					<label class="control-label">英语要求</label>
 					<div class="controls-n">
-                    	<input name="en_select" type="radio" value="false" checked /><label>否</label>
-                        <input name="en_select" type="radio" value="true" /><label>是</label>
+                    	<input name="en_select" type="radio" value="false" onclick="hide_en()" checked /><label>否</label>
+                        <input name="en_select" type="radio" value="true" onclick="show_en()"/><label>是</label>
 					</div>
                     <div id="en_choose">
+                    	CET-4大于<input id="cet4" type="text" /><br />
+                        CET-6大于<input id="cet6" type="text" />
                     </div>
 				</div>
                 <div class="control-group">

@@ -189,10 +189,12 @@
                 <div class="control-group">
 					<label class="control-label">英语要求</label>
 					<div class="controls-n">
-                    	<input name="en_select" type="radio" value="false" checked /><label>否</label>
-                        <input name="en_select" type="radio" value="true" /><label>是</label>
+                    	<input name="en_select" type="radio" value="false" onclick="hide_en()" checked /><label>否</label>
+                        <input name="en_select" type="radio" value="true" onclick="show_en()"/><label>是</label>
 					</div>
                     <div id="en_choose">
+                    	CET-4大于<input id="cet4" type="text" /><br />
+                        CET-6大于<input id="cet6" type="text" />
                     </div>
 				</div>
                 <div class="control-group">
