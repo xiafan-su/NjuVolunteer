@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 09:37:24
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 15:22:08
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:91615177d2ae9126f8-24185650%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368668242,
+      1 => 1368688918,
       2 => 'file',
     ),
   ),
@@ -83,7 +83,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <ul>
                     <li><div class="div_content_attr">时间</div>
                     <div class="div_content_value"><?php echo $_smarty_tpl->tpl_vars['act_begin_time']->value;?>
- --- <?php echo $_smarty_tpl->tpl_vars['act_end_time']->value;?>
+ -- <?php echo $_smarty_tpl->tpl_vars['act_end_time']->value;?>
 </div></li>
                     <li><div class="div_content_attr">持续</div>
                     <div class="div_content_value"><?php echo $_smarty_tpl->tpl_vars['last_time']->value;?>
@@ -100,23 +100,27 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </ul>
             </div>
         </div>
-        <div id="act_detail" class="div">
+        <div id="act_detail" class="act-detail">
             <div class="div_title2"><div>活动介绍</div></div>
             <div id="act_introduction">
 				<?php echo $_smarty_tpl->tpl_vars['act_profile']->value;?>
 
 			</div>
-            <div id="drop_cover" style="width:400px;height:5px;background:#999;float:left;display:"none";">
-            	<form action="./handle/upload_picture.php" method="post" enctype="multipart/form-data">
+        </div>
+        <div class="act-comment">
+            <!--<div id="drop_cover" style="width:400px;height:5px;background:#999;float:left;display:"none";">-->
+            <div class="cover-m" id="cover-m"></div>
+            <div class="upload-m" id="drop_cover">	
+                <form action="./handle/upload_picture.php" method="post" enctype="multipart/form-data">
                 <input type="file" name="userfile" class="fileUpload" multiple>
                 
                 <button id="px-submit" type="submit">Upload</button>
                 <button id="px-clear" type="reset">Clear</button>
           		</form>
-
-            </div>
+			</div>
+           <!-- </div>-->
             <ul class="div_title2"><li>活动评论详情</li></ul>
-            <hr color="green">
+           <!-- <hr color="green" style="float:left"></div>-->
             
             <!--div class="act_comment" id="comment_list">
             <?php  $_smarty_tpl->tpl_vars['act_comment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act_comment']->_loop = false;
@@ -169,17 +173,15 @@ $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
             <?php } ?>
             
            <!-- <ul class="div_title2"><li>提交自己的评论</li></ul>-->
-        	<br></br>
-            
+            <div style="width:100%;height:10px;float:left"></div>
      		<div id="comment_area">
 				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
 			</div>
-      		<div class="control-group">
-				<div class="controls">
+            <div class="comment_submit">
 				<input name="com_submit" class="button" id="submit_comment" type="submit" value="评论"/>
-				</div>
 			</div>
-
+        </div>
+        <div class="other-act">
             <div class="div_title2" ><div>参加过这项活动的人还参加了</div>
             <br>
             <table id="act_people_table" class="act_people_table">

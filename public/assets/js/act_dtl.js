@@ -11,7 +11,7 @@ KindEditor.ready(function(K) {
 });
 
 $(document).ready(function(){
-document.getElementById("drop_cover").style.display="none";
+//document.getElementById("drop_cover").style.display="none";
 //$('#drop_cover').animate({opacity:'0'},10);
 		jQuery(function($){
 			$('.fileUpload').fileUploader({
@@ -129,10 +129,19 @@ $(function(){
     });
 	
 	$('#upload_pic').click(function(){
-		//$('#drop_cover').animate({opacity:'0.5'},1000);
-		$('#drop_cover').animate({marginTop:'00px',marginLeft:'200px',height:'300px',width:'500',opacity:'1'},1000);
+		$('#cover-m').show();
+		$('#drop_cover').show();
+		$('#cover-m').animate({opacity:'1'},1000);
+		$('#drop_cover').animate({opacity:'1'},1000);
 		document.getElementById("drop_cover").style.display="block";
 		//alert("。。。。。。。。。");
+	});
+	
+	$('#cover-m').click(function(){
+		$('#cover-m').animate({opacity:'0'},1000);
+		$('#drop_cover').animate({opacity:'0'},1000);
+		setTimeout("$('#cover-m').hide()",1000);
+		setTimeout("$('#drop_cover').hide()",1000);	
 	});
 
 	$('#update_text').bind("click", function(){
