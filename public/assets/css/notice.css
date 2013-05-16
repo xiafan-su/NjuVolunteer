@@ -108,13 +108,30 @@ input[type='button']{
 	float:right;
 }
 .notice-detail{
-	float:left;
+	position:absolute;
+	top:150px;
+	left:50%;
+	margin-left:-318px;
 	width:636px;
 	border:2px solid #CCC;
 	background:rgb(245,245,245);
 	border-radius:20px;
 	padding-bottom:20px;
 	margin-bottom:20px;
+	z-index:190;
+	display:none;
+	opacity:0;
+}
+.notice-cover{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:rgba(255,255,255,0.6);
+	display:none;
+	opacity:0;
+	z-index:180;
 }
 .d-title{
 	float:left;
