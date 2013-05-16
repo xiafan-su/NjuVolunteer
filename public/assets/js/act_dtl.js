@@ -11,6 +11,19 @@ KindEditor.ready(function(K) {
 });
 
 $(document).ready(function(){
+//document.getElementById("drop_cover").style.display="none";
+//$('#drop_cover').animate({opacity:'0'},10);
+		jQuery(function($){
+			$('.fileUpload').fileUploader({
+				autoUpload: false,
+				limit: false,
+				buttonUpload: '#px-submit',
+				buttonClear: '#px-clear',
+				selectFileLabel: 'Select files',
+				allowedExtension: 'jpg|jpeg|gif|png'
+				});
+		});
+	
 	 $.ajax({
 			type:"POST",
 			url:"./handle/participate_state.php",
@@ -109,17 +122,26 @@ $(function(){
 					$('#take_part_in').text("参加活动");
 				}
 				 else
-				 alert("失败");
+				 alert("失败"+html);
 				
 			}
 		});
     });
 	
 	$('#upload_pic').click(function(){
-		$('#drop_cover').animate({opacity:'0.5'},1000);
-		$('#drop').animate({top:'100px',marginLeft:'-250px',height:'300px',width:'500',opacity:'1'},1000);
-		document.getElementById("drop").style.display="block";
+		$('#cover-m').show();
+		$('#drop_cover').show();
+		$('#cover-m').animate({opacity:'1'},1000);
+		$('#drop_cover').animate({opacity:'1'},1000);
+		document.getElementById("drop_cover").style.display="block";
 		//alert("。。。。。。。。。");
+	});
+	
+	$('#cover-m').click(function(){
+		$('#cover-m').animate({opacity:'0'},1000);
+		$('#drop_cover').animate({opacity:'0'},1000);
+		setTimeout("$('#cover-m').hide()",1000);
+		setTimeout("$('#drop_cover').hide()",1000);	
 	});
 
 	$('#update_text').bind("click", function(){

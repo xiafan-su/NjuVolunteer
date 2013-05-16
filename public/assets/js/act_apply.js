@@ -22,11 +22,27 @@ var cur_state;
 function check_before_submit(){
 	
 }
+var plan_url=123;
 $(document).ready(function(){
 	//alert("ready");
+	jQuery(function($){
+		$('.fileUpload').fileUploader({
+			autoUpload: false,
+			limit: false,
+			buttonUpload: '#px-submit',
+			buttonClear: '#px-clear',
+			selectFileLabel: '选择文件',
+			allowedExtension: 'zip|rar',
+			afterUpload: function(formContainer) {
+ 				//alert(formContainer);
+				//plan_url=$("#uploadedfile").val();
+				//alert(plan_url);
+			}
+			});
+	});
 	$("#activity_name").blur(function(){
 		if($("#activity_name").val().replace(/\s/g,"")==""){
-			$("#activity_name_error").html("\(^o^)/~讨厌，人家不能为空啦...");
+			$("#activity_name_error").html("活动名称不能为空");
 			//document.getElementById("activity_name_error").style.color="red";
 		}
 		else{
@@ -40,7 +56,7 @@ $(document).ready(function(){
 	})
 	$("#activity_place").blur(function(){
 		if($("#activity_place").val().replace(/\s/g,"")==""){
-			$("#activity_place_error").html("活动地点不能为空哦");
+			$("#activity_place_error").html("活动地点不能为空");
 			//document.getElementById("activity_name_error").style.color="red";
 		}
 		else{
@@ -93,7 +109,7 @@ $(document).ready(function(){
  					var starttimeTemp = starttimes[0] + "/" + starttimes[1] + "/" + starttimes[2];
  					var endtimesTemp = endtimes[0] + "/" + endtimes[1] + "/" + endtimes[2];
 					if(Date.parse(new   Date(starttimeTemp))>Date.parse(new   Date(endtimesTemp))){
-						$('#end_time_tip').html('开始不能在结束之后的哦(*^__^*) ');
+						$('#end_time_tip').html('开始时间不能在结束时间之后');
 						}
 					else{
 						//alert("world");
@@ -217,10 +233,11 @@ function submit_click()
 		 }
  	}
 	//alert(profile);
+	var act_id=document.getElementById("act_id").innerHTML;
 	//alert($('#begin_time').val());
 	$.ajax({
 		type:"POST",
-		data:{activity_name:$('#activity_name').val(),activity_place:$("#activity_place").val(),time_type:$('#time_type').val(),attribution_type:$('#attribution_type').val(),begin_time:$('#begin_time').val(),end_time:$('#end_time').val(),detail_time:$('#detail_time').val(),total_num:$('#total_num').val(),need_audit:$('#need_audit').val(),responser:$('#responser').val(),responser_tel:$('#responser_tel').val(),last_time:$('#last_time').val(),activity_profile:profile,state:cur_state,weekday_time:Weekday_time},
+		data:{id:act_id,activity_name:$('#activity_name').val(),activity_place:$("#activity_place").val(),time_type:$('#time_type').val(),attribution_type:$('#attribution_type').val(),begin_time:$('#begin_time').val(),end_time:$('#end_time').val(),deadline:$('#deadline').val(),detail_time:$('#detail_time').val(),total_num:$('#total_num').val(),need_audit:$('#need_audit').val(),responser:$('#responser').val(),responser_tel:$('#responser_tel').val(),last_time:$('#last_time').val(),activity_profile:profile,state:cur_state,weekday_time:Weekday_time},
 		url:"./handle/act_apply.php",
 		success:function(html){
 		//alert(html);

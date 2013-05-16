@@ -7,6 +7,17 @@ $(document).ready(function(){
 	}
 	//alert($('#name').text());
 	scrollit();
+	
+	$('#team_comment').click(function(){
+		$('#table_activity').hide();
+		$('#table_comment').show();
+	});
+	
+	$('#team_activity').click(function(){
+		$('#table_comment').hide();
+		$('#table_activity').show();
+	});
+	
 });
 
 function scrollit(){

@@ -6,6 +6,8 @@
 <link href="./assets/css/login.css" rel="stylesheet" />
 <link href="./assets/css/indexv.css" rel="stylesheet" />
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="./assets/js/indexv.js"></script>
+
 <title>个人主页</title>
 </head>
 
@@ -26,29 +28,29 @@
             </div>
         </div>
         <div class="center">
-        	<div class="name">夏凡</div>
+        	<div class="name"><{$name}></div>
             <div class="honor"></div>
             <div class="per-info">
             	<table width="200" border="0">
                   <tr>
                     <th scope="row">所属院系</th>
-                    <td>计算机科学与技术系</td>
+                    <td><{$faculty}></td>
                   </tr>
                   <tr>
                     <th scope="row">累计服务时间</th>
-                    <td><span id="all_time">20</span>小时</td>
+                    <td><span id="all_time"><{$volunteer_time}></span>小时</td>
                   </tr>
                   <tr>
                     <th scope="row">荣誉时间</th>
-                    <td><span id="honor_time">10</span>小时</td>
+                    <td><span id="honor_time"><{$honor_time}></span>小时</td>
                   </tr>
                   <tr>
                     <th scope="row">E-mail：</th>
-                    <td><div id="email">*****@***.com</div></td>
+                    <td><div id="email"><{$email}></div></td>
                   </tr>
                   <tr>
                     <th scope="row">Tel：</th>
-                    <td><div id="phone">15996256592</div></td>
+                    <td><div id="phone"><{$phone_number}></div></td>
                   </tr>
                   <tr>
                     <th scope="row">签名档：</th>
@@ -69,15 +71,43 @@
     	<div class="left-bar"></div>
         <div class="team">
         	<div class="title-bar"></div>
-            <div class="title-content">他关注的团队</div>
+            <div id="id_team" class="title-content">他关注的团队</div>
         </div>
         <div class="center-bar"></div>
         <div class="act">
         	<div class="title-bar"></div>
-            <div class="title-content">他参加的活动</div>
-        </div>
+            <div id="id_activity" class="title-content">他参加的活动</div>
+        </div>    
         <div class="right-bar"></div>
     </div>
+    
+    <div id="table_for_activity" style="display:none;">
+    	<br>
+        <table class="act_people_table">
+        <tr><th>活动名称</th><th>活动负责人</th></tr>
+        <{foreach name=data item=act from=$apply}>
+        <{if ($smarty.foreach.data.iteration % 2 == 0)}>
+        <tr class="even">
+        <{else}>
+        <tr class="odd">
+        <{/if}>
+        <td><a href="act_dtl.php?act_id=<{$act.id}>" target="_blank"><{$act.name}></a></td>
+        <td><{$act.responser}></td>
+        </tr>
+        <{/foreach}>
+        </table>
+        </br>
+    </div>
+    
+    <div id="table_for_team" style="display:none;">
+    	<br>
+        <table class="act_people_table">
+        <tr><th>团队名称</th><th>活动负责人</th></tr>
+        
+        </table>
+        </br>
+    </div>
+    
     <div id="content">
     
     </div>
