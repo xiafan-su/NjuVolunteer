@@ -88,21 +88,18 @@
 				$(e).wrap('<div class="px-input-button" />');
 				px.form.children('.px-input-button').prepend('<span>'+ config.selectFileLabel +'</span>');
 				
-				//move upload and clear button into id px_button
-				px.form.find(config.buttonUpload + ',' + config.buttonClear).appendTo(pxButton);
-				
 				//Transform file input into ui button
-				px.form.find('.px-input-button').button({
+				$(".px-input-button").button({
 					icons: {
                			primary: "ui-icon-circle-plus"
             		}
 				});
-				$(config.buttonUpload, pxButton).button({
+				$(config.buttonUpload).button({
 					icons: {
                			primary: "ui-icon-arrowthickstop-1-n"
             		}
 				});
-				$(config.buttonClear, pxButton).button({
+				$(config.buttonClear).button({
 					icons: {
                			primary: "ui-icon-circle-close"
             		}
@@ -110,6 +107,9 @@
 				
 				//clear all form data
 				px.clearFormData(px.form);
+				
+				//move upload and clear button into id px_button
+				px.form.find(config.buttonUpload + ',' + config.buttonClear).appendTo(pxButton);
 				
 				px.form.hide();
 				this.printForm();

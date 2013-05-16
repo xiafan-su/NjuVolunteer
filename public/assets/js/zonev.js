@@ -2,10 +2,13 @@
 var nowloading="<div class=\"loading\"><img src=\"./assets/img/loading/loading.gif\"/></div>";
 
 function handlechange(){
+
 	var Gender=document.getElementsByName("gender_select");
 	var Politic=document.getElementsByName("politics_select");
 	var LanguageLevel=document.getElementsByName("level_select");
-	var myGender,myPolitic,myLanguageLevel;
+	var Drive=document.getElementsByName("drive_select");
+	var Medical=document.getElementsByName("medical_select");
+	var myGender,myPolitic,myLanguageLevel,myMedical,myDrive;
 	
    	for(var i=0;i<Gender.length;i++)
   	{
@@ -28,12 +31,28 @@ function handlechange(){
   	 		 break;
 		 }
  	}
+	for(var i=0;i<Drive.length;i++)
+  	{
+    	 if(Drive.item(i).checked){
+        	 myDrive=Drive.item(i).getAttribute("value");  
+  	 		 break;
+		 }
+ 	}
+	for(var i=0;i<Medical.length;i++)
+  	{
+    	 if(Medical.item(i).checked){
+        	 myMedical=Medical.item(i).getAttribute("value");  
+  	 		 break;
+		 }
+ 	}
 	var f = document.getElementById("faculty"); 
 	var n = document.getElementById("nation");
 	var c = document.getElementById("cloth_size");
 	//alert(t.options[t.selectedIndex].value);
 	//alert(myGender);
 	//var t = document.getElementById("faculty"); 
+	//var main_content=$("#main_content").html();
+	$("#operation").html(nowloading);
 	$.ajax({
 		type:"POST",
 		data:{
@@ -50,15 +69,33 @@ function handlechange(){
 			dormitory:$("#dormitory").val(),
 			cet4:$("#cet4").val(),
 			cet6:$("#cet6").val(),
-			other:$("#other").val(),
+			language:$("#other_language").val(),
+			language_level:myLanguageLevel,
+			drive:myDrive,
+			medical:myMedical,
+			other_skills:$("#other_skills").val()
 			},
 		url:"./handle/change_vol_info.php",
 		success:function(html){
-			alert(html);
+			//alert(html);
+			if (html==1)
+			{
+				alert("修改成功");
+				$("#vol_profile").click();
+			}
+			else 
+			{	
+				alert(html);
+				//$("#main_content").html(main_content);
+			}
+			
 		}
 	});
 }
 
+function init(){
+	$("#change_profile").click();
+	}
 function show_note(id){
 	//alert(id);
 	$("#note_detail").html(nowloading);
@@ -106,13 +143,13 @@ $("#my_activity").click(function(){
 	$("#main_title").text("我参与的活动");
 	$("#main_content").html(nowloading);
 	$.ajax({
-	type:"POST",
-	url:"./include/actv_takein.php",
-	success:function(html){
-		//alert(html);
-		$("#main_content").html(html);
-	}	
-});
+		type:"POST",
+		url:"./include/actv_takein.php",
+		success:function(html){
+			//alert(html);
+			$("#main_content").html(html);
+		}	
+	});
 });
 $("#activity_record").click(function(){
 	$("#main_title").text("活动记录");
@@ -163,7 +200,7 @@ $("#vol_profile").click(function(){
 });
 });
 
-$("#change_password").click(function(){
+$("#change_profile").click(function(){
 	$("#main_title").text("修改资料");
 	$("#main_content").html(nowloading);
 	$.ajax({
@@ -171,17 +208,17 @@ $("#change_password").click(function(){
 		url:"./include/infov_edit.php",
 		success:function(html){
 			//alert(html);
+			
 			$("#main_content").html(html);
 		}
 	});
-})
+});
 $("#my_team").click(function(){
 	$("#main_title").text("我的团队");
-})
+});
 $("#my_focused_team").click(function(){
 	$("#main_title").text("关注的团队");
-})
-function change_sign(){
-	alert($('#sign').val());
-		
-}
+});
+
+
+

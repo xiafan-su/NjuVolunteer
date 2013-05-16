@@ -6,7 +6,7 @@ include_once '../../sys/core/init.inc.php';
 
 
 $u=new User();
-$info=$u->fetch_person_info($_SESSION[User::USER][User::ID]);
+$info=$u->fetch_person_info($_SESSION[USER::USER][USER::ID]);
 
 
 $tpl->assign("name",$info['name']);

@@ -15,23 +15,117 @@ class Team extends DB_Connect {
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;		
 	}
+	public function fetch_team_name($id)
+	{
+		$query="select * from team where id='".$id."'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_array($select);
+		return $result;
+	}
+	public function fetch_leader($id)
+	{
+		$query="select u.* from team t,user_info u where t.id='".$id."' and leader=u.id";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result;
+	}
+	public function fetch_all_doc_num($id)
+	{
+		$query="select ai.* from act_doc ad,activity_info ai where ad.act_id=ai.id and ai.publisher='".$id."'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$count=0;
+		while ($row=mysql_fetch_assoc($select))
+			$count ++;
+		return $count;
+	}
+	public function fetch_now_doc_num($id)
+	{
+		$current_month=date("m");
+		$current_year=date("Y");
+		$query="select ai.* from act_doc ad,activity_info ai where ad.act_id=ai.id and ai.publisher='".$id."'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		if ($current_month >=2 && $current_month<=7){
+			$count=0;
+			while ($row=mysql_fetch_assoc($select)){
+				$begin_strtimes = explode(" ",$row['begin_time']);
+				$begin_timearray = explode("-",$begin_strtimes[0]);
+				$begin_year = $begin_timearray[0];
+				$begin_month = $begin_timearray[1];
+				
+				$end_strtimes = explode(" ",$row['begin_time']);
+				$end_timearray = explode("-",$end_strtimes[0]);
+				$end_year = $end_timearray[0];
+				$end_month = $end_timearray[1];
+				
+				if ($begin_year==$current_year 
+					&& $end_year==$current_year
+					&& $begin_month>=2
+					&& $end_month<=7
+					)
+					$count ++;
+			}
+			return $count;
+		}
+		if ($current_month >=9 && $current_month<=12){
+			$count=0;
+			while ($row=mysql_fetch_assoc($select)){
+				$begin_strtimes = explode(" ",$row['begin_time']);
+				$begin_timearray = explode("-",$begin_strtimes[0]);
+				$begin_year = $begin_timearray[0];
+				$begin_month = $begin_timearray[1];
+				
+				$end_strtimes = explode(" ",$row['begin_time']);
+				$end_timearray = explode("-",$end_strtimes[0]);
+				$end_year = $end_timearray[0];
+				$end_month = $end_timearray[1];
+				
+				if ($begin_year==$current_year 
+					&& $end_year==$current_year
+					&& $begin_month>=9
+					&& $end_month<=12
+					)
+					$count ++;
+			}
+			return $count;
+		}
+		return 0;
+	}
 	public function fetch_all_nation()
 	{
 		$query="select nation from nations order by id";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;		
 	}
-	public function fetch_act_all($faculty_id, $state)//发起的活动,$state=1表示发起，0为完成
+	public function fetch_act_all($faculty_id,$state)//发起/完成的活动,state为1表示发起,0表示完成,2表示审核通过的活动
 	{
-		if( $state == 1 ) {
-			$query="select * from activity_info where publisher = '".$faculty_id."' and state<>'end' ";
+		if ($state==0)
+		{
+			$query="select * from activity_info where publisher = '".$faculty_id."' and state<>'end'";
 			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			return $select;
-		} else {
-			$query="select * from activity_info where publisher = '".$faculty_id."' and state='end' ";
+		}else
+		if ($state==1)
+		{
+			$query="select * from activity_info where publisher = '".$faculty_id."' and state='end'";
 			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-			return $select;
+			return $select;			
+		}else
+		if ($state==2)
+		{
+			$query="select * from activity_info where publisher = '".$faculty_id."' and state='audited'";
+			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			return $select;				
 		}
+	}
+	public function change_act_state($act_id,$state)//state即为数据库中的值，audited,auditing,editing,end
+	{
+			$query="UPDATE activity_info SET state='".$state."' WHERE id = '".$act_id."'";
+			if(!mysql_query($query,$this->root_conn))
+			{
+				die('Error: ' . mysql_error());
+				return false;
+			}else
+			return true;	
 	}
 	public function fetch_act_doc_all($act_id)//该活动的所有活动档案
 	{
@@ -45,27 +139,35 @@ class Team extends DB_Connect {
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
-	public function modify_doc($doc_id,$leader,$profile,$summary,$tel,$vol_time)//修改这个活动档案
+	public function modify_doc($doc_id,$leader,$profile,$summary,$tel,$vol_time,$date)//修改这个活动档案
 	{
-		$query="UPDATE act_doc SET leader = '".$leader."',profile='".$profile."',summary='".$summary."',tel='".$tel."',vol_time='".$vol_time."' where id='".$doc_id."'";
+		$query="UPDATE act_doc SET leader = '".$leader."',profile='".$profile."',summary='".$summary."',tel='".$tel."',vol_time='".$vol_time."',date='".$date."' where id='".$doc_id."'";
 		//$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		if (!mysql_query($query,$this->root_conn))
 		{
+			die('Error: ' . mysql_error());
 			return false;
 		}else
 		{
 			return true;
 		}
 	}
-	public function add_doc($act_id,$leader,$profile,$summary,$tel,$vol_time)//增加一个活动档案
+	public function add_doc($act_id,$leader,$profile,$summary,$tel,$vol_time,$date)//增加一个活动档案
 	{
-		$query = "INSERT INTO act_doc(act_id,leader,profile,summary,tel,vol_time,date)VALUES('".$act_id."','".$leader."','".$profile."','".$summary."','".$tel."','".$vol_time."','".date('Y-m-d H:i:s',time())."')";
+		$systemtime=date('Y-m-d H:i:s',time());
+		$query = "INSERT INTO act_doc(act_id,leader,profile,summary,tel,vol_time,date,system_time)VALUES('".$act_id."','".$leader."','".$profile."','".$summary."','".$tel."','".$vol_time."','".$date."','".$systemtime."')";
 		if(!mysql_query($query,$this->root_conn)) 
 		{
 			die('Error: ' . mysql_error());
-			return false;
+			return -1;
 		}
-		else return true;
+		else
+		{ 
+			$sql="SELECT id FROM act_doc where act_id='".$act_id."' and system_time='".$systemtime."' and date='".$date."'";
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			$result=mysql_fetch_assoc($select);
+			return $result['id'];
+		}
 	}
 	public function delete_doc($doc_id)//删除一个活动档案
 	{
@@ -80,7 +182,7 @@ class Team extends DB_Connect {
 			return true;
 		}
 	}
-	public function audit_vol($vol_list,$state,$reason)//审核
+	public function audit_vol($vol_list,$state,$reason)//审核报名该组织的志愿者
 	{
 		$vol = explode(" ", $vol_list);
 		$s=new System();
@@ -94,6 +196,9 @@ class Team extends DB_Connect {
 					die('Error: ' . mysql_error());
 					return false;
 				}
+				$title="恭喜您申请加入的".$_SESSION[User::USER][User::FACULTY]."组织，审核通过";
+				$reason="加入组织后，您就可以去活动中心参加活动了。";
+				if (!$s->send_note($value,$title,$reason)) return false;//发送审核未过的理由
 			} 
 		}else//审核未过，需要发送通知给个人
 		{
@@ -189,7 +294,7 @@ class Team extends DB_Connect {
 		} 
 		return true;
 	}
-	public function register_voltime($record_list)//为这些志愿者录入服务记录
+	public function register_voltime($record_list)//为这些志愿者录入服务记录,录入时只修改已存在的，不进行添加。
 	{
 		foreach ($record_list as $record)
 		{
@@ -215,7 +320,6 @@ class Team extends DB_Connect {
 		} 
 		return true;
 	}
-
 	public function fetch_apply_volunteer($act_id)//报名情况
 	{
 		$query="select * from apply_act,user_info where act_id = '".$act_id."' and apply_act.user_id=user_info.id";
