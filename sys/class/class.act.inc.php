@@ -176,14 +176,30 @@ class Act extends DB_Connect {
 	}
 	public function participate($activity_id){
 		$user_id=$_SESSION[USER::USER][USER::ID];
-		$query="INSERT INTO apply_act(user_id,act_id,state,time) VALUES ('".$user_id."','".$activity_id."','auditing'),'".date('Y-m-d H:i:s',time())."'";
-		if (!mysql_query($query,$this->root_conn)) return false;
+		$sql="SELECT need_audit FROM activity_info WHERE id='".$activity_id."'";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		$status=1;
+		if ($result['need_audit']=='false')
+			$status='1';
+		else
+			$status='0';
+		$query="INSERT INTO apply_act(user_id,act_id,state,time) VALUES ('".$user_id."','".$activity_id."','".$status."','".date('Y-m-d H:i:s',time())."')";
+		if (!mysql_query($query,$this->root_conn))
+		{ 
+			die('Error'.mysql_error());
+			return false;
+		}
 		else return true;
 	}
 	public function quit($activity_id){
 		$user_id=$_SESSION[USER::USER][USER::ID];
 		$query="DELETE FROM apply_act WHERE user_id='".$user_id."' and act_id='".$activity_id."'";
-		if (!mysql_query($query,$this->root_conn)) return false;
+		if (!mysql_query($query,$this->root_conn))
+		{
+			die('Error'.mysql_error());
+			return false;
+		}
 		else return true;
 	}
 	public function participate_state($activity_id){
@@ -191,7 +207,10 @@ class Act extends DB_Connect {
 		$query="select * from apply_act where user_id='".$user_id."' and act_id='".$activity_id."'";
 		$select=mysql_query($query,$this->root_conn);
 		if (mysql_num_rows($select)==1) return true;
-		else return false;
+		else 
+		{
+			return false;
+		}
 	}
 
 	public function upload_picture(){
