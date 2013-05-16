@@ -122,7 +122,7 @@ $(function(){
 					$('#take_part_in').text("参加活动");
 				}
 				 else
-				 alert("失败");
+				 alert("失败"+html);
 				
 			}
 		});

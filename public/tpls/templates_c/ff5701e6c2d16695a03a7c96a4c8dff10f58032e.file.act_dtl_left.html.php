@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 14:54:22
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 15:33:47
          compiled from "./tpls/templates\include\act_dtl_left.html" */ ?>
 <?php /*%%SmartyHeaderCode:109585177d2ae997052-56911016%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ff5701e6c2d16695a03a7c96a4c8dff10f58032e' => 
     array (
       0 => './tpls/templates\\include\\act_dtl_left.html',
-      1 => 1368687260,
+      1 => 1368689575,
       2 => 'file',
     ),
   ),

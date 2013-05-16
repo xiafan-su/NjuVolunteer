@@ -4,8 +4,9 @@ include './include/header.php';
 
 
 $a=new Act();
-$id=$a->create_new_act();
-echo $id;
+if ($a->participate_state(7)) echo 1;;
+//$id=$a->create_new_act();
+//echo $id;
 //$t=new Team();
 //$t->fetch_act_all('101220130',0);
 //$t->modify_doc(7,"夏畅","这是一次不多的活动","bucu","15996256569","3.5","2010-5-7");
