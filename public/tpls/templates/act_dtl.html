@@ -100,7 +100,7 @@
                 <div class="comment-content">
                 	<span><{$act_comment.content}></span>
                     <span class="name-used" style="display:none"><{$act_comment.name}></span>
-                    <span class="reply">回复</span>
+                    <span class="reply"><a href="#comment-w">回复</a></span>
                 </div>
             </div>
             <{/foreach}>
@@ -108,6 +108,7 @@
            <!-- <ul class="div_title2"><li>提交自己的评论</li></ul>-->
             <div style="width:100%;height:10px;float:left"></div>
      		<div id="comment_area">
+            	<a name="comment-w"></a>
 				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
 			</div>
             <div class="comment_submit">
