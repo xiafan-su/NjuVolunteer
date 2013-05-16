@@ -1,9 +1,15 @@
 
 function show_en(){
-	$('#en_choose').show();	
+	$('#en_choose').slideDown();
 }
 function hide_en(){
-	$('#en_choose').hide();	
+	$('#en_choose').slideUp();	
+}
+function show_faculty(){
+	$('#faculty_choose').slideDown();	
+}
+function hide_faculty(){
+	$('#faculty_choose').slideUp();	
 }
 var editor;
 KindEditor.ready(function(K) {
@@ -18,15 +24,31 @@ KindEditor.ready(function(K) {
 			'insertunorderedlist', '|', 'emoticons', 'image', 'link','unlink','image','baidumap','fullscreen']
 	});
 });
-var cur_state;
+var cur_state,preview_flag=0;
 function check_before_submit(){
 	
 }
+var plan_url=123;
 $(document).ready(function(){
 	//alert("ready");
+	jQuery(function($){
+		$('.fileUpload').fileUploader({
+			autoUpload: false,
+			limit: false,
+			buttonUpload: '#px-submit',
+			buttonClear: '#px-clear',
+			selectFileLabel: '选择文件',
+			allowedExtension: 'zip|rar',
+			afterUpload: function(formContainer) {
+ 				//alert(formContainer);
+				//plan_url=$("#uploadedfile").val();
+				//alert(plan_url);
+			}
+			});
+	});
 	$("#activity_name").blur(function(){
 		if($("#activity_name").val().replace(/\s/g,"")==""){
-			$("#activity_name_error").html("\(^o^)/~讨厌，人家不能为空啦...");
+			$("#activity_name_error").html("活动名称不能为空");
 			//document.getElementById("activity_name_error").style.color="red";
 		}
 		else{
@@ -40,7 +62,7 @@ $(document).ready(function(){
 	})
 	$("#activity_place").blur(function(){
 		if($("#activity_place").val().replace(/\s/g,"")==""){
-			$("#activity_place_error").html("活动地点不能为空哦");
+			$("#activity_place_error").html("活动地点不能为空");
 			//document.getElementById("activity_name_error").style.color="red";
 		}
 		else{
@@ -93,7 +115,7 @@ $(document).ready(function(){
  					var starttimeTemp = starttimes[0] + "/" + starttimes[1] + "/" + starttimes[2];
  					var endtimesTemp = endtimes[0] + "/" + endtimes[1] + "/" + endtimes[2];
 					if(Date.parse(new   Date(starttimeTemp))>Date.parse(new   Date(endtimesTemp))){
-						$('#end_time_tip').html('开始不能在结束之后的哦(*^__^*) ');
+						$('#end_time_tip').html('开始时间不能在结束时间之后');
 						}
 					else{
 						//alert("world");
@@ -183,14 +205,17 @@ $(document).ready(function(){
 	
 	$("#submit").click(function(){
 			//alert("submit");
+			preview_flag=0;
 			cur_state="auditing";
 			submit_click();
 		});
 	$("#preview").click(function(){
+			preview_flag=1;
 			cur_state="editing";
 			submit_click();	
 		});
 	$("#save").click(function(){
+			preview_flag=0;
 			cur_state="editing";
 			submit_click();	
 		});
@@ -217,16 +242,27 @@ function submit_click()
 		 }
  	}
 	//alert(profile);
+	var act_id=document.getElementById("act_id").innerHTML;
 	//alert($('#begin_time').val());
 	$.ajax({
 		type:"POST",
-		data:{activity_name:$('#activity_name').val(),activity_place:$("#activity_place").val(),time_type:$('#time_type').val(),attribution_type:$('#attribution_type').val(),begin_time:$('#begin_time').val(),end_time:$('#end_time').val(),detail_time:$('#detail_time').val(),total_num:$('#total_num').val(),need_audit:$('#need_audit').val(),responser:$('#responser').val(),responser_tel:$('#responser_tel').val(),last_time:$('#last_time').val(),activity_profile:profile,state:cur_state,weekday_time:Weekday_time},
+		data:{id:act_id,activity_name:$('#activity_name').val(),activity_place:$("#activity_place").val(),time_type:$('#time_type').val(),attribution_type:$('#attribution_type').val(),begin_time:$('#begin_time').val(),end_time:$('#end_time').val(),deadline:$('#deadline').val(),detail_time:$('#detail_time').val(),total_num:$('#total_num').val(),need_audit:$('#need_audit').val(),responser:$('#responser').val(),responser_tel:$('#responser_tel').val(),last_time:$('#last_time').val(),activity_profile:profile,state:cur_state,weekday_time:Weekday_time},
 		url:"./handle/act_apply.php",
 		success:function(html){
 		//alert(html);
 			if(html == 1) {
-				alert("申请成功,请等待管理员审核");
-				window.close();
+				if (preview_flag==0)
+				{
+					if (cur_state=='auditing')
+						alert("申请成功,请等待管理员审核");
+					else if (cur_state=='editing')
+						alert("保存成功");
+					window.close();
+				}else
+				{
+					//alert('http://localhost/njuvolunteer/public/act_dtl.php?act_id='+act_id);
+					window.open('http://localhost/njuvolunteer/public/act_dtl.php?act_id='+act_id);
+				}
 			} else {
 				alert("申请失败"+html);
 			}

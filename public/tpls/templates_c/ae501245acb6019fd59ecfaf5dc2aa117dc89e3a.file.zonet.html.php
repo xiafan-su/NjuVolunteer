@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 22:48:54
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 20:47:34
          compiled from "./tpls/templates\zonet.html" */ ?>
 <?php /*%%SmartyHeaderCode:5694517779d6eb16b0-54176246%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ae501245acb6019fd59ecfaf5dc2aa117dc89e3a' => 
     array (
       0 => './tpls/templates\\zonet.html',
-      1 => 1368629034,
+      1 => 1368708389,
       2 => 'file',
     ),
   ),
@@ -37,6 +37,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <link href="./assets/css/rec_dtl.css" rel="stylesheet" />
 <link href="./assets/css/rec_edit.css" rel="stylesheet" />
 <link href="./assets/css/mem.css" rel="stylesheet" />
+<link href="./assets/css/note.css" rel="stylesheet" />
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
 <title>团队空间</title>
 </head>
@@ -125,6 +126,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <script src="./assets/js/mem.js"></script><!-- 一定要在zonet.js前面 -->
 <script src="./assets/js/zonet.js"></script>
 <script src="./assets/js/actz.js"></script>
+<script src="./assets/js/note.js"></script>
 <!--
 <script language="javascript">
 $.ajax({

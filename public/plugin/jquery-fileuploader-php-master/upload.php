@@ -4,7 +4,7 @@ include("classes/easy_upload/upload_class.php"); //classes is the map where the 
 $upload = new file_upload();
 
 $upload->upload_dir = 'uploads/';
-$upload->extensions = array('.png', '.jpg', '.zip', '.pdf'); // specify the allowed extensions here
+$upload->extensions = array('.png', '.jpg', '.zip', '.pdf','.docx','.txt'); // specify the allowed extensions here
 $upload->rename_file = true;
 
 

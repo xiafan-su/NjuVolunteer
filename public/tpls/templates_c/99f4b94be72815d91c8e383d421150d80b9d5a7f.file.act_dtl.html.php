@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 22:52:32
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 20:22:57
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:91615177d2ae9126f8-24185650%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368629551,
+      1 => 1368705918,
       2 => 'file',
     ),
   ),
@@ -45,12 +45,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <link href="./assets/css/login.css" rel="stylesheet" />
 <link href="./assets/css/act_dtl.css" rel="stylesheet" />
 <link href="./assets/css/dropzone.css" rel="stylesheet" />
-
-
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/kindeditor-min.js"></script>
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/lang/zh_CN.js"></script>
-<script type="text/javascript" src="./plugin/dropzone.js"></script>
-<script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
+<link href="./plugin/jquery-fileuploader-php-master/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
+<link href="./plugin/jquery-fileuploader-php-master/css/fileUploader.css" rel="stylesheet" type="text/css" />
+
+<script src="./plugin/jquery-fileuploader-php-master/js/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="./plugin/jquery-fileuploader-php-master/js/jquery-ui-1.8.14.custom.min.js" type="text/javascript"></script>
+<script src="./plugin/jquery-fileuploader-php-master/js/jquery.fileUploader.js" type="text/javascript"></script>
 
 
 <title>活动详细页面</title>
@@ -79,7 +81,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <ul>
                     <li><div class="div_content_attr">时间</div>
                     <div class="div_content_value"><?php echo $_smarty_tpl->tpl_vars['act_begin_time']->value;?>
- --- <?php echo $_smarty_tpl->tpl_vars['act_end_time']->value;?>
+ -- <?php echo $_smarty_tpl->tpl_vars['act_end_time']->value;?>
 </div></li>
                     <li><div class="div_content_attr">持续</div>
                     <div class="div_content_value"><?php echo $_smarty_tpl->tpl_vars['last_time']->value;?>
@@ -96,15 +98,27 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </ul>
             </div>
         </div>
-        <div id="act_detail" class="div">
+        <div id="act_detail" class="act-detail">
             <div class="div_title2"><div>活动介绍</div></div>
             <div id="act_introduction">
 				<?php echo $_smarty_tpl->tpl_vars['act_profile']->value;?>
 
 			</div>
-            
+        </div>
+        <div class="act-comment">
+            <!--<div id="drop_cover" style="width:400px;height:5px;background:#999;float:left;display:"none";">-->
+            <div class="cover-m" id="cover-m"></div>
+            <div class="upload-m" id="drop_cover">	
+                <form action="./handle/upload_picture.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="userfile" class="fileUpload" multiple>
+                
+                <button id="px-submit" type="submit">Upload</button>
+                <button id="px-clear" type="reset">Clear</button>
+          		</form>
+			</div>
+           <!-- </div>-->
             <ul class="div_title2"><li>活动评论详情</li></ul>
-            <hr color="green">
+           <!-- <hr color="green" style="float:left"></div>-->
             
             <!--div class="act_comment" id="comment_list">
             <?php  $_smarty_tpl->tpl_vars['act_comment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act_comment']->_loop = false;
@@ -149,25 +163,26 @@ $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
                 <div class="comment-content">
                 	<span><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['content'];?>
 </span>
+                    <span class="name-used" style="display:none"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
+</span>
                     <span class="name-used" style="display:none"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['name'];?>
 </span>
-                    <span class="reply">回复</span>
+                    <span class="reply"><a href="#comment-w">回复</a></span>
                 </div>
             </div>
             <?php } ?>
             
            <!-- <ul class="div_title2"><li>提交自己的评论</li></ul>-->
-        	<br></br>
-            
-     		<div id="comment_area" style="margin-top:100px;">
+            <div style="width:100%;height:10px;float:left"></div>
+     		<div id="comment_area">
+            	<a name="comment-w"></a>
 				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
 			</div>
-      		<div class="control-group">
-				<div class="controls">
+            <div class="comment_submit">
 				<input name="com_submit" class="button" id="submit_comment" type="submit" value="评论"/>
-				</div>
 			</div>
-            
+        </div>
+        <div class="other-act">
             <div class="div_title2" ><div>参加过这项活动的人还参加了</div>
             <br>
             <table id="act_people_table" class="act_people_table">
@@ -196,21 +211,8 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
         	</div>
             <div id="act_same"  class="div_content"></div>
         </div>
+
         
-        <!--<div class="drop-cover" id="drop_cover"></div>-->
-        <div class="drop" id="drop" style="display:none">
-        	<!--form action="../public/handle/upload_picture.php" method="post" enctype="multipart/form-data">
-            <label for="file">Filename:</label>
-            <input type="file" name="file" id="file" />
-            <br />
-            <input type="submit" name="submit" id="upload_submit" value="Submit" />
-            </form-->
-            <form aciton="/file-upload" class="dropzone" id="my_dropzone"></form>
-            
-        </div>
-        
-        
-		<div id="" class="clearBar">&nbsp;</div>
         
     </div><!-- 结束right div -->
 </div>

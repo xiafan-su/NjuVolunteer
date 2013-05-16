@@ -4,7 +4,7 @@
 <div id="" class="" style="margin: 0px 20px">
 	
 	<span id="show_activity_text" class="">更新</span>时间：<{$update_time}>
-	<h3>XXX活动的记录</h3>
+	<h2><{$activity_name}></h2>
 
 	<div id="base">
 		<div>
@@ -13,14 +13,22 @@
 			<div class="right-bar"></div>
 		</div>
 		<table>
-			<tr><td style="text-align:right">活动名称</td><td style="text-align:left"><input type="text" ></td></tr>
-			<tr><td style="text-align:right">负责人</td><td style="text-align:left"><input type="text" ></td></tr>
-			<tr><td style="text-align:right">联系方式</td><td style="text-align:left"><input type="text" ></td></tr>
+			<tr>
+				<td style="text-align:right">活动代号</td>
+				<td style="text-align:left"><{$doc_name}></td></tr>
+			<tr>
+				<td style="text-align:right">负责人</td>
+				<td style="text-align:left"><input type="text"  value="<{$doc_leader}>"  id="doc_edit_leader"></td></tr>
+			<tr>
+				<td style="text-align:right">联系方式</td>
+				<td style="text-align:left"><input type="text"   value="<{$doc_tel}>"  id="doc_edit_tel"></td></tr>
 			<tr>
 				<td style="text-align:right" title="此时长将作为基本志愿服务时间">活动时长</td>
-				<td style="text-align:left"><input type="text" ></td>
+				<td style="text-align:left"><input type="text"  value="<{$doc_vol_time}>"  id="doc_edit_time"></td>
 			</tr>
-			<tr><td style="text-align:right">开始时间</td><td style="text-align:left"><input type="text" ></td></tr>
+			<tr>
+				<td style="text-align:right">开始时间</td><td style="text-align:left">
+				<input type="text"   value="<{$doc_date}>"  id="doc_edit_date_start"></td></tr>
 		</table>
 	</div>
 
@@ -30,16 +38,33 @@
 			<div class="main-content-subtitle">参与人员</div>
 			<div class="right-bar"></div>
 		</div>
-		<table>
+		<table id="doc_edit_part_table">
 			<tr>
-				<th><input type="checkbox" title="全选" /></th>
+				<th><input type="checkbox" title="全选" id="check_all_part_people"/></th>
 				<th>学号</th><th>姓名</th><th>院系</th>
-				<th>志愿时间</th><th>带队奖</th><th>优秀奖</th><th>备注</th>
+				<th>志愿时间</th><th>评价</th><th>带队奖</th><th>优秀奖</th><th>备注</th>
 			</tr>
+			<{section name=part_doc_index loop=$part_doc_list}>
+			<tr id="part_people_table_tr_<{$part_doc_list[part_doc_index].id}>">
+				<td><input type="checkbox" title="" id="doc_checkbox_head_<{$part_doc_list[part_doc_index].id}>" noid="<{$part_doc_list[part_doc_index].id}>" /></td>
+				<td><{$part_doc_list[part_doc_index].id}></td>
+				<td><{$part_doc_list[part_doc_index].name}></td>
+				<td><{$part_doc_list[part_doc_index].faculty}></td>
+				<td><{$part_doc_list[part_doc_index].time}></td>
+				<td><{$part_doc_list[part_doc_index].level}></td>
+				<td><input type="checkbox"  id="doc_checkbox_leader_<{$part_doc_list[part_doc_index].id}>" <{if $part_doc_list[part_doc_index].honor_leader == 1}> checked="checked" <{/if}>  title="" /></td>
+				<td><input type="checkbox"   id="doc_checkbox_excellent_<{$part_doc_list[part_doc_index].id}>"  <{if $part_doc_list[part_doc_index].honor_excellent == 1}> checked="checked" <{/if}>   title="" /></td>
+				<td><textarea col="5" id="doc_comment_<{$part_doc_list[part_doc_index].id}>"><{$part_doc_list[part_doc_index].comment}></textarea></td>
+			</tr>
+			<{sectionelse}>
+			<tr id="doc_edit_part_table_tr_tip"><td colspan="9">还没有人参加这个活动哦！</td></tr>
+			<{/section}>
 		</table>
-		<input type="button" class="button" value="导入" title="从活动报名表导入" id="doc_op_import">
-		<input type="button" class="button" value="移除" title="移除选择的志愿者" id="doc_op_remove">
-		<input type="button" class="button" value="设置" title="将选择的志愿者设置服务时间为活动的时长" id="doc_op_choose">
+
+
+		<input type="button" class="button" value="导入" title="从活动报名表导入" id="doc_op_import" actid="<{$actId}>"  docid="<{$docId}>"   />
+		<input type="button" class="button" value="移除" title="移除选择的志愿者" id="doc_op_remove" docid="<{$docId}>"  />
+		<input type="button" class="button" value="确定" title="确定您所做的修改" id="doc_op_submit" docid="<{$docId}>"   />
 	</div>
 
 	<div id="more">
@@ -52,20 +77,21 @@
 			<tr>
 				<td style="text-align:right">活动详细介绍</td>
 				<td style="text-align:left">
-					<textarea name="" rows="5" cols="80"></textarea>
+					<textarea name="" rows="5" cols="80"   id="doc_edit_profile" ><{$doc_profile}></textarea>
 				</td>
 			</tr>
 			<tr>
 				<td style="text-align:right">活动总结</td>
 				<td style="text-align:left">
-					<textarea name="" rows="5" cols="80"></textarea>
+					<textarea name="" rows="5" cols="80"   id="doc_edit_summary"><{$doc_summary}></textarea>
 				</td>
 			</tr>
 		</table>
 	</div>
 
-	<input type="button" class="button" value="提交" id="submit_act_doc">
-	<input type="button" class="button" value="删除" disabled="true" docid="<{$docId}>" id="delete_act_doc">
+	<input type="button" class="button" value="保存" id="submit_act_doc">
+	<input type="button" class="button" value="删除" id="delete_act_doc" docid="<{$docId}>" >
+	<input type="button" class="button" value="提交" title="提交您所做的修改，提交后志愿时间将会公示一周，并且除非有异议不得再修改" id="doc_op_submit">
 	<input type="button" class="button" value="返回" id="go_back_home">
 
 

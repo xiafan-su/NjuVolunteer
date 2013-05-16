@@ -23,10 +23,11 @@
 							<table>
 								<tr><th>序号</th><th>时间</th><th>带队人</th><th>联系方式</th></tr>
 									<{section name=doc_index loop=$act_list[act_index].doc_list}>
-										<tr class="odd">
+										<tr class="odd zonet-doc-row" actid="<{$act_list[act_index].act_id}>" 
+										docid="<{$act_list[act_index].doc_list[doc_index].doc_id}>">
 											<td><{$smarty.section.doc_index.iteration}></td>
 											<td><{$act_list[act_index].doc_list[doc_index].doc_time}></td>
-											<td><span docid=<{$act_list[act_index].doc_list[doc_index].doc_id}> class="util_doc_index"><{$act_list[act_index].doc_list[doc_index].leader}></span></td>
+											<td><{$act_list[act_index].doc_list[doc_index].leader}></td>
 											<td><{$act_list[act_index].doc_list[doc_index].tel}></td>
 										</tr>
 									<{sectionelse}>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 22:23:15
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 21:58:24
          compiled from "./tpls/templates\act_apply.html" */ ?>
 <?php /*%%SmartyHeaderCode:226025177bcd4242042-40208521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1368627793,
+      1 => 1368712682,
       2 => 'file',
     ),
   ),
@@ -17,6 +17,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.7',
   'unifunc' => 'content_5177bcd42e277',
+  'variables' => 
+  array (
+    'act_id' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5177bcd42e277')) {function content_5177bcd42e277($_smarty_tpl) {?>
@@ -28,8 +32,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 
 <link href="./assets/css/act_apply.css" rel="stylesheet" />
-<script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
 
+<script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
 <link type="text/css" rel="stylesheet" href="./plugin/calendar/calendar.css" >
 <script type="text/javascript" src="./plugin/calendar/calendar.js" ></script>  
 <script type="text/javascript" src="./plugin/calendar/calendar-zh.js" ></script>
@@ -38,6 +42,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/lang/zh_CN.js"></script>
 <script type="text/javascript" src="./assets/js/act_apply.js"></script>
 
+<link href="./plugin/jquery-fileuploader-php-master/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
+<link href="./plugin/jquery-fileuploader-php-master/css/fileUploader.css" rel="stylesheet" type="text/css" />
+<script src="./plugin/jquery-fileuploader-php-master/js/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="./plugin/jquery-fileuploader-php-master/js/jquery-ui-1.8.14.custom.min.js" type="text/javascript"></script>
+<script src="./plugin/jquery-fileuploader-php-master/js/jquery.fileUploader.js" type="text/javascript"></script>
+
 <title>活动申请</title>
 </head>
 <body>
@@ -45,7 +55,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <div class="main">
 		<div class="span_left">
-			<form class="form-horizontal" id="apply_activity" action="./handle/act_apply.php" method="POST">
+			
 				<div class="breadcrumb">
                 	<div class="bar-left"></div>
                     <div class="bar-title">活动资料</div>
@@ -103,7 +113,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <div class="bar-title">活动时间</div>
                     <div class="bar-right"></div>
                 </div>
-                <div class="control-group" id="pho7676ne">
+                <div class="control-group" >
 					<label class="control-label" for="inputInfo" >开始日期</label>
 					<div class="controls">
 						<div class="input_border">
@@ -114,7 +124,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<span id="begin_time_error"></span>
 					</div>
 				</div>
-                <div class="control-group" id="pho435ne">
+                <div class="control-group" >
 					<label class="control-label" for="inputInfo">结束日期</label>
 					<div class="controls">
 						<div class="input_border">
@@ -125,7 +135,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<span id="end_time_error"></span>
 					</div>
 				</div>
-                <div class="control-group" id="ph1212one">
+                <div class="control-group" >
+					<label class="control-label" for="inputInfo">报名截止日期</label>
+					<div class="controls">
+						<div class="input_border">
+							<input name="deadline" class="user" type="text" id="deadline" onClick="return showCalendar('deadline', 'y-mm-dd');"/>
+                           
+						</div>
+                         <span id="deadline_tip" class="end_time_tip"></span>
+						<span id="deadline_error"></span>
+					</div>
+				</div>
+                <div class="control-group" >
 					<label class="control-label" for="inputInfo">持续时间</label>
 					<div class="controls">
 						<div class="input_border">
@@ -148,7 +169,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <input name="weekday" type="checkbox" value="64"  /><label>周日</label>
 					</div>
 				</div>
-				<div class="control-group" id="ph12one">
+				<div class="control-group" >
 					<label class="control-label" for="inputInfo">详细时间</label>
 					<div class="controls">
 						<div class="input_border">
@@ -162,7 +183,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <div class="bar-title">活动要求</div>
                     <div class="bar-right"></div>
                 </div>
-                <div class="control-group" id="wqe">
+                <div class="control-group" >
 					<label class="control-label" for="inputInfo">招募人数</label>
 					<div class="controls">
 						<div class="input_border">
@@ -174,10 +195,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <div class="control-group">
 					<label class="control-label">院系要求</label>
 					<div class="controls-n">
-                    	<input name="faculty_select" type="radio" value="false" checked /><label>否</label>
-                        <input name="faculty_select" type="radio" value="true" /><label>是</label>
+                    	<input name="faculty_select" type="radio" value="false" onclick="hide_faculty()" checked /><label>否</label>
+                        <input name="faculty_select" type="radio" value="true" onclick="show_faculty()" /><label>是</label>
 					</div>
                     <div id="faculty_choose">
+                    	caocaocao
                     </div>
 				</div>
 				<div class="control-group">
@@ -194,10 +216,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <div class="control-group">
 					<label class="control-label">英语要求</label>
 					<div class="controls-n">
-                    	<input name="en_select" type="radio" value="false" checked /><label>否</label>
-                        <input name="en_select" type="radio" value="true" /><label>是</label>
+                    	<input name="en_select" type="radio" value="false" onclick="hide_en()" checked /><label>否</label>
+                        <input name="en_select" type="radio" value="true" onclick="show_en()"/><label>是</label>
 					</div>
                     <div id="en_choose">
+                    	CET-4大于<input id="cet4" type="text" value="0"/><br />
+                        CET-6大于<input id="cet6" type="text" value="0"/>
                     </div>
 				</div>
                 <div class="control-group">
@@ -211,7 +235,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <div class="control-group">
 					<label class="control-label">其他要求</label>
 					<div class="controls-n">
-                    	<textarea name="other_com" class="other_com" cols="26" rows="5" style="resize:none" placeholder="热情 大方 善于交流等"></textarea>
+                    	<textarea name="other_com" class="other_com" cols="23" rows="5" style="resize:none" placeholder="热情 大方 善于交流等"></textarea>
 					</div>
                     <div id="en_choose">
                     </div>
@@ -221,7 +245,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <div class="bar-title">负责人</div>
                     <div class="bar-right"></div>
                 </div>
-				<div class="control-group" id="user">
+				<div class="control-group" >
 					<label class="control-label" for="inputInfo">姓名</label>
 					<div class="controls">
 						<div class="input_border">
@@ -232,7 +256,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<span id="responser_error"></span>
 					</div>
 				</div>
-                <div class="control-group" id="pho6786786ne">
+                <div class="control-group" >
 					<label class="control-label" for="inputInfo">电话</label>
 					<div class="controls">
 						<div class="input_border">
@@ -243,6 +267,21 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<span id="responser_tel_error"></span>
 					</div>
 				</div>
+                <div class="breadcrumb">
+                	<div class="bar-left"></div>
+                    <div class="bar-title">上传策划</div>
+                    <div class="bar-right"></div>
+                </div> 
+                <div class="upload_panel" style="margin-left:180px">
+                 	<span id="plan_upload">上传文件格式为rar和zip</span>
+                    <form action="./handle/upload_zip.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="userfile" class="fileUpload" multiple>
+                    <input type="hidden" name="act_id" value="<?php echo $_smarty_tpl->tpl_vars['act_id']->value;?>
+">
+                    <button id="px-submit" type="submit">上传</button>
+                    <button id="px-clear" type="reset">清除</button>
+                    </form>
+    			</div>
 				<div class="breadcrumb">
                 	<div class="bar-left"></div>
                     <div class="bar-title">活动简介</div>
@@ -255,17 +294,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</div>
 						<span class="help-inline phoneerror"></span>
 					</div>
-				</div>                
+				</div>    
+
+  
 				<div class="control-group">
 					<div class="controls">
                         <div class="button-ctrl">
+                        	<lable id="act_id"style="display:none;"><?php echo $_smarty_tpl->tpl_vars['act_id']->value;?>
+</lable>
                             <input name="submit" type="button" id="submit"  value="提交" />
                             <input name="preview" type="button" id="preview"  value="预览" />
                             <input name="save" type="button" id="save"  value="保存" />
                         </div>	
                     </div>
 				</div>
-			</form>
 		</div>
 
 		<div class="span_right" id="span_right">
