@@ -284,6 +284,13 @@ h2{
 	opacity:0;
 	display:none;
 }
+.data-statistics div{
+	color:rgb(102,51,102);
+	font-weight:bold;
+	width:400px;
+	text-align:center;
+	margin:10px 0 12px 0px;
+}
 .volclaim{
 	position:absolute;
 	top:220px;
