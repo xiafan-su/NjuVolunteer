@@ -166,7 +166,7 @@ $(function(){
 	});
 	
 	$('.reply').click(function(){
-		editor.text("Reply " + $(this).prev().text() + ":");
+		editor.text("回复 " + $(this).prev().text() + ":");
 		response_id =  $(this).prev().prev().text();
 		//alert($(this).prev().prev().text());
 	});
