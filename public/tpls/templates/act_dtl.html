@@ -26,7 +26,10 @@
 
 <div class="main">
 	<div id="left">
-        <{include file="include/act_dtl_left.html"}>
+        <div id="act_image">
+   			 <img src="./assets/img/activity_center/0.jpg" height="250" width="220" />
+             <span id="upload_pic" name="upload_pic">上传图片</span>
+		</div>
     </div>
 	<div id="right">
         <div id="act_simple">
@@ -49,12 +52,24 @@
                 </ul>
             </div>
         </div>
+    </div>
+    	
+    <div class="bottom">
+    	<div class="apply-state">
+        	<div style="width:100%;float:left">
+                <div class="div_title2" style="margin-top:12px">已报名的人数：</div>
+                <div id="option">
+                    <span id="take_part_in" name="take_part_in"></span>  
+                </div>	
+            </div>
+        </div>
         <div id="act_detail" class="act-detail">
             <div class="div_title2"><div>活动介绍</div></div>
             <div id="act_introduction">
 				<{$act_profile}>
 			</div>
         </div>
+        
         <div class="act-comment">
             <!--<div id="drop_cover" style="width:400px;height:5px;background:#999;float:left;display:"none";">-->
             <div class="cover-m" id="cover-m"></div>
@@ -66,29 +81,9 @@
                 <button id="px-clear" type="reset">Clear</button>
           		</form>
 			</div>
-           <!-- </div>-->
+
             <ul class="div_title2"><li>活动评论详情</li></ul>
-           <!-- <hr color="green" style="float:left"></div>-->
-            
-            <!--div class="act_comment" id="comment_list">
-            <{foreach name=comment_data item=act_comment from=$comment_detail}>
-            
-            <dl class="comment_list">
-        		<dd>
-                	<a id="<{$act_comment.id}>"><{$act_comment.name}></a>
-                    :<{$act_comment.content}>
-            		(<{$act_comment.time}>)
-            		<div class="info">
-                    <span class="W_linkb">
-                    <span id="reply" class="reply" onMouseOver="this.style.textDecoration='underline';" onMouseout="this.style.textDecoration='none';">回复</span>
-        		</div>
-			</div>
-            
-            <{/foreach}>
-            <!--/div>
-            <div id="comment_area">
-				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
-			</div-->
+          
           	<{foreach name=comment_data item=act_comment from=$comment_detail}>
             <div class="comment-panel">
             	<div class="comment-title">
@@ -98,25 +93,23 @@
                 <div class="comment-content">
                 	<span><{$act_comment.content}></span>
                     <span class="name-used" style="display:none"><{$act_comment.id}></span>
-                    <span class="name-used" style="display:none"><{$act_comment.name}></span>
+                    <span class="name-used" style="display:none"><{$act_comment.name}>(<{$act_comment.id}>)</span>
                     <span class="reply"><a href="#comment-w">回复</a></span>
                 </div>
             </div>
             <{/foreach}>
             
-           <!-- <ul class="div_title2"><li>提交自己的评论</li></ul>-->
             <div style="width:100%;height:10px;float:left"></div>
      		<div id="comment_area">
             	<a name="comment-w"></a>
-				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
+				<textarea id="comment_input" name="com_content" style="width:340px;height:110px;visibility:hidden;" ></textarea>
 			</div>
-            <div class="comment_submit">
+            <div class="comment_submit" style="width:340px;">
 				<input name="com_submit" class="button" id="submit_comment" type="submit" value="评论"/>
 			</div>
         </div>
         <div class="other-act">
             <div class="div_title2" ><div>参加过这项活动的人还参加了</div>
-            <br>
             <table id="act_people_table" class="act_people_table">
             <tr><th>名称</th><th>负责人</th></tr>
             <{foreach name=data item=act from=$act_same}>
@@ -130,7 +123,6 @@
             </tr>
             <{/foreach}>
             </table>
-            </br>
         	</div>
             <div id="act_same"  class="div_content"></div>
         </div>
