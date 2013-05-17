@@ -24,7 +24,9 @@
             </div>
             <div class="orgnization">
             	<h3>当前所属团队：</h3>
-                <h3 style="color:rgb(102,51,102)" id="team">南京大学青年志愿者协会</h3>
+                <{foreach item=team from=$teamlist}>
+                <h3 style="color:rgb(102,51,102)" id="team"><{$team.name}></h3>
+                <{/foreach}>
             </div>
         </div>
         <div class="center">
@@ -102,8 +104,12 @@
     <div id="table_for_team" style="display:none;">
     	<br>
         <table class="act_people_table">
-        <tr><th>团队名称</th><th>活动负责人</th></tr>
-        
+        <tr><th>团队名称</th></tr>
+        <{foreach item=follow from=$followlist}>
+        <tr>
+        	<td><a href="indext.php?team_id=<{$follow.teamid}>" target="_blank"><{$follow.name}></a></td>
+        </tr>
+        <{/foreach}>
         </table>
         </br>
     </div>

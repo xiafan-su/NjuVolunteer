@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 15:54:53
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 17:38:57
          compiled from "./tpls/templates\team_list.html" */ ?>
 <?php /*%%SmartyHeaderCode:257955194954d21ef70-81971850%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a7916e79428643b39e99c1493974ee1c008cebce' => 
     array (
       0 => './tpls/templates\\team_list.html',
-      1 => 1368774052,
+      1 => 1368783530,
       2 => 'file',
     ),
   ),
@@ -131,10 +131,10 @@ foreach ($_from as $_smarty_tpl->tpl_vars['item']->key => $_smarty_tpl->tpl_vars
 $_smarty_tpl->tpl_vars['item']->_loop = true;
 ?>
      <li class="explore-item">
-   		<div class="pic" onmouseover="stateshow(<?php echo $_smarty_tpl->tpl_vars['item']->value['cal'];?>
+   		<div class="pic">
+        	<img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1"  onmouseover="stateshow(<?php echo $_smarty_tpl->tpl_vars['item']->value['cal'];?>
 )" onmouseout="statehide(<?php echo $_smarty_tpl->tpl_vars['item']->value['cal'];?>
-)">
-        	<img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1" />
+)"/>
         	<div class="float_state" id="float_state<?php echo $_smarty_tpl->tpl_vars['item']->value['cal'];?>
 ">
         		<?php echo $_smarty_tpl->tpl_vars['item']->value['slogan'];?>
