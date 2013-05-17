@@ -81,6 +81,7 @@ function slideright(){
 }
 function returntoday(){
 	mydate = new Date();
+	//$("#day1").html(getday(mydate.getDay())).show();
 	$("#day1").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
 	$("#day2").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
@@ -93,7 +94,28 @@ function returntoday(){
 	mydate.setDate(mydate.getDate()+1);
 	$("#day6").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
-	$("#day7").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();	
+	$("#day7").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
+	//alert(mydate.setFullYear(mydate.getDate(),mydate.getMonth(),mydate.getDate()));
+	//alert(mydate.getDay());
+	//mydate.setDate(mydate.getDate()-6);
+	//alert(mydate.getDay());
+	transdate=new Date();
+	//alert(transdate.getYear());
+	$.ajax({
+		type:"POST",
+		url:"./handle/week_act_list.php",
+		data:{
+			
+			date:transdate.getDate(),
+			month:(transdate.getMonth()+1),
+			year:(transdate.getYear()+1900),
+			day:transdate.getDay(),
+		},
+		success:function(html){
+			//alert(html);
+			$("#act_day11").html(html);
+		}	
+	});
 }
 function preweek(){
 	mydate.setDate(mydate.getDate()-13);
