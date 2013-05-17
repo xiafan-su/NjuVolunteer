@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 20:50:20
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 21:18:12
          compiled from "./tpls/templates\indext.html" */ ?>
 <?php /*%%SmartyHeaderCode:297785195fbfbe842c4-34934656%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fcc6fe68a9e41e4d9da946fded2039d0b9e628f0' => 
     array (
       0 => './tpls/templates\\indext.html',
-      1 => 1368794987,
+      1 => 1368796683,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'team_id' => 0,
+    'already_follow' => 0,
     'team_name' => 0,
     'leader_name' => 0,
     'all_act_num' => 0,
@@ -59,7 +60,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             	<img src="./assets/img/head_photo/boy/7.jpg"/>
             </div>
             <div class="follow" id="followit">
+            <?php if ($_smarty_tpl->tpl_vars['already_follow']->value==1){?>
+            	取消关注这个团队
+            <?php }else{ ?>
             	关注这个团队
+               <?php }?>
             </div>
         </div>
         <div class="center">

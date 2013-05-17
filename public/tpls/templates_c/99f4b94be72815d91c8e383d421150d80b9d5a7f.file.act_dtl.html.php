@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 16:02:33
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 21:29:45
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:91615177d2ae9126f8-24185650%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368770366,
+      1 => 1368797383,
       2 => 'file',
     ),
   ),
@@ -29,6 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'act_attr_type' => 0,
     'act_place' => 0,
     'act_profile' => 0,
+    'act_id' => 0,
     'comment_detail' => 0,
     'act_comment' => 0,
     'act_same' => 0,
@@ -124,10 +125,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div class="cover-m" id="cover-m"></div>
             <div class="upload-m" id="drop_cover">	
                 <form action="./handle/upload_picture.php" method="post" enctype="multipart/form-data">
-                <input type="file" name="userfile" class="fileUpload" multiple>
-                
-                <button id="px-submit" type="submit">Upload</button>
-                <button id="px-clear" type="reset">Clear</button>
+
+                <input type="file" name="userfile"  class="fileUpload" multiple>
+
+                 <input type="hidden" name="act_id" value="<?php echo $_smarty_tpl->tpl_vars['act_id']->value;?>
+">
           		</form>
 			</div>
 
@@ -170,28 +172,15 @@ $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
         </div>
         <div class="other-act">
             <div class="div_title2" ><div>参加过这项活动的人还参加了</div>
-            <table id="act_people_table" class="act_people_table">
-            <tr><th>名称</th><th>负责人</th></tr>
             <?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['act_same']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
- $_smarty_tpl->tpl_vars['smarty']->value['foreach']['data']['iteration']=0;
 foreach ($_from as $_smarty_tpl->tpl_vars['act']->key => $_smarty_tpl->tpl_vars['act']->value){
 $_smarty_tpl->tpl_vars['act']->_loop = true;
- $_smarty_tpl->tpl_vars['smarty']->value['foreach']['data']['iteration']++;
 ?>
-            <?php if (($_smarty_tpl->getVariable('smarty')->value['foreach']['data']['iteration']%2==0)){?>
-            <tr class="even">
-            <?php }else{ ?>
-            <tr class="odd">
-            <?php }?>
-            <td><a href="act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
+			<div style="margin:20px 0 20px 0"><a href="act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
 " target="_blank"><?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
-</a></td>
-            <td><?php echo $_smarty_tpl->tpl_vars['act']->value['responser'];?>
-</td>
-            </tr>
+</a></div>
             <?php } ?>
-            </table>
         	</div>
             <div id="act_same"  class="div_content"></div>
         </div>

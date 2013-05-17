@@ -21,14 +21,18 @@ $(document).ready(function(){
 		//alert($('#team_id').text());
 		$.ajax({
 			type:'POST',
-			data:{team_id:$('#team_id').val()},
+			data:{team_id:$('#team_id').text()},
 			url:"./handle/follow_team.php",
 			success:function(html){
-				if(html == 1){
+				alert(html);
+				if(html == 2){
 					$('#followit').html("关注这个团队");	
 				}
-				else if(html == 0){
+				else if(html == 1){
 					$('#followit').html("取消关注这个团队");
+				}
+				else if(html == 0){
+					alert("貌似有什么出错了，联系超管吧>_<");	
 				}
 			}
 		});

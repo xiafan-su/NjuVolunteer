@@ -152,7 +152,30 @@ class User extends DB_Connect {
 		}
 		
 	}
+	public function follow_state($team_id)//关注一个团队的状态
+	{
+		$sql="SELECT * FROM follow WHERE user_id='".$_SESSION[USER::USER][USER::ID]."' and team_id='".$team_id."'";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		$num_of_results=mysql_num_rows($select);
+		if ($num_of_results==0) return false;
+		else return true;
+	}
+	public function follow($team_id)//关注一个团队
+	{
 
+		if (!($this->follow_state($team_id)))
+		{
+			$sql="INSERT INTO follow(user_id,team_id,time)VALUES('".$_SESSION[USER::USER][USER::ID]."','".$team_id."','".date('Y-m-d H:i:s',time())."')";
+			$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+			return 1;//关注成功
+		}else
+		{
+			$sql="DELETE FROM follow WHERE user_id='".$_SESSION[USER::USER][USER::ID]."' and team_id='".$team_id."'";
+			$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+			return 2;//取消关注成功
+		}
+		return 0;//失败
+	}
 }
 
 ?>

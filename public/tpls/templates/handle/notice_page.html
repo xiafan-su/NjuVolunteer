@@ -1,0 +1,22 @@
+<div class="d-title" id="d-title">
+    <{$content.title}>
+</div>
+<div class="d-time">
+    <div class="time-detail" id="time-detail">发布时间：<{$content.time}></div>
+    <div class="times-detail" id="times-detail">
+    	<{if $type == 1}>
+        浏览次数：<{$content.counts}>次
+        <{else if $type == 2}>
+        E-mail:<{$content.email}>
+        <{else if $type == 3}>
+        作者：<{$content.writer}>
+        <{/if}>
+    </div>
+</div>
+<hr>
+<div class="d-content" id="d-content">
+	<{$content.content}>
+    <{if $type == 2}>
+    <br/>回答：<{$content.answer}>
+    <{/if}>
+</div>

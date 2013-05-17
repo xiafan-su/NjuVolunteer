@@ -15,7 +15,6 @@ if(!empty($_FILES)) {
 	$upload->http_error = $_FILES['userfile']['error'];
 	$upload->do_filename_check = 'y'; // use this boolean to check for a valid filename
 	if ($upload->upload()){
-		$_SESSION['plan_url']=$upload->file_copy;
 		echo '<div id="status">success</div>';
 		echo '<div id="message">'. $upload->file_copy .' Successfully Uploaded</div>';
 		//return the upload file

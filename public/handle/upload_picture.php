@@ -7,15 +7,17 @@ include("../plugin/jquery-fileuploader-php-master/classes/easy_upload/upload_cla
 $upload = new file_upload();
 
 $upload->upload_dir = 'upload_pic/';
-$upload->extensions = array('.png', '.jpg',',jpeg','.gif'); // specify the allowed extensions here
+$upload->extensions = array('.png', '.jpg','.jpeg','.gif'); // specify the allowed extensions here
 $upload->rename_file = true;
+$act_id=$_POST['act_id'];
 if(!empty($_FILES)) {
 	$upload->the_temp_file = $_FILES['userfile']['tmp_name'];
 	$upload->the_file = $_FILES['userfile']['name'];
 	$upload->http_error = $_FILES['userfile']['error'];
 	$upload->do_filename_check = 'y'; // use this boolean to check for a valid filename
 	if ($upload->upload()){
-		
+		$a=new Act();
+		$a->upload_pic($act_id,$upload->file_copy);
 		echo '<div id="status">success</div>';
 		echo '<div id="message">'. $upload->file_copy .' Successfully Uploaded</div>';
 		//return the upload file

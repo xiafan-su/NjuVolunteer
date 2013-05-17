@@ -430,7 +430,7 @@ class Team extends DB_Connect {
 	}
 	public function fetch_my_fellows($faculty_id)//获取我的所有院系成员，返回数据集
 	{
-		$query="select u.*,a.state from user_info u,apply_team a where a.user_id=u.id and a.team_id='".$faculty_id."',a.state<>'2' order by u.id";
+		$query="select u.*,a.state from user_info u,apply_team a where a.user_id=u.id and a.team_id='".$faculty_id."' and a.state<>'2' order by u.id";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
