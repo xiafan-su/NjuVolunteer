@@ -10,14 +10,27 @@
 	margin: 3px;
 	display:inline-block;
 	background-color: silver; 
+	border:1px green solid;
+	padding: 2px;
+	cursor: default;
+}
+.receiver-card-same {
+	margin: 3px;
+	display:inline-block;
+	background-color: silver; 
 	border:1px gray solid;
 	padding: 2px;
+	cursor: default;
 }
+
 
 .img_note_del{
 cursor:pointer;
-width:17px;
-height:17px;
+width:19px;
+height:19px;
 border:0;
 }
 
+#switch_note_recv_list_div{
+	cursor: pointer;
+}
