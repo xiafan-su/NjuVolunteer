@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 16:02:33
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 21:26:12
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:91615177d2ae9126f8-24185650%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368770366,
+      1 => 1368789179,
       2 => 'file',
     ),
   ),
@@ -29,6 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'act_attr_type' => 0,
     'act_place' => 0,
     'act_profile' => 0,
+    'act_id' => 0,
     'comment_detail' => 0,
     'act_comment' => 0,
     'act_same' => 0,
@@ -124,10 +125,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div class="cover-m" id="cover-m"></div>
             <div class="upload-m" id="drop_cover">	
                 <form action="./handle/upload_picture.php" method="post" enctype="multipart/form-data">
-                <input type="file" name="userfile" class="fileUpload" multiple>
-                
-                <button id="px-submit" type="submit">Upload</button>
-                <button id="px-clear" type="reset">Clear</button>
+
+                <input type="file" name="userfile"  class="fileUpload" multiple>
+
+                 <input type="hidden" name="act_id" value="<?php echo $_smarty_tpl->tpl_vars['act_id']->value;?>
+">
           		</form>
 			</div>
 

@@ -69,13 +69,17 @@ class Act extends DB_Connect {
 	}
 	public function find_same($activity_id){
 		$act_info=NULL;
-		$select = mysql_query("select * from apply_act where act_id = '".$activity_id."'")or trigger_error(mysql_error(),E_USER_ERROR);
+		$i=0;
+		$select = mysql_query("select * from apply_act where act_id = '".$activity_id."' and state='1'")or trigger_error(mysql_error(),E_USER_ERROR);
 		while ($row = mysql_fetch_array($select)){
 			$result = mysql_query("select * from apply_act where user_id = '".$row['user_id']."' and act_id != '".$activity_id."'")or trigger_error(mysql_error(),E_USER_ERROR);
 			while ($roow = mysql_fetch_array($result)){
 				$info = mysql_query("select * from activity_info where id = '".$roow['act_id']."'")or trigger_error(mysql_error(),E_USER_ERROR);
 				while ($detail = mysql_fetch_array($info)){
-					$act_info[] = array('name' => $detail['name'],'responser' => $detail['responser'],'id' => $detail['id']);
+					if ($i<3)
+						$act_info[] = array('name' => $detail['name'],'responser' => $detail['responser'],'id' => $detail['id']);
+					else  break;
+					$i++;
 				}
 			}
 		}
