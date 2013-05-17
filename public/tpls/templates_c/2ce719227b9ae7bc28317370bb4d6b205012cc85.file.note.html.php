@@ -1,29 +1,29 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 15:21:30
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 18:04:18
          compiled from "../tpls/templates\include\note.html" */ ?>
-<?php /*%%SmartyHeaderCode:262885195c52c4d7cc2-31900718%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:24952519600a2e35b27-81820643%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '2ce719227b9ae7bc28317370bb4d6b205012cc85' => 
     array (
       0 => '../tpls/templates\\include\\note.html',
-      1 => 1368775288,
+      1 => 1368769060,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '262885195c52c4d7cc2-31900718',
+  'nocache_hash' => '24952519600a2e35b27-81820643',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5195c52c5be56',
   'variables' => 
   array (
     'note_list' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519600a333f0a',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5195c52c5be56')) {function content_5195c52c5be56($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'F:\\z-htdocs\\NjuVolunteer\\Smarty\\libs\\plugins\\modifier.truncate.php';
+<?php if ($_valid && !is_callable('content_519600a333f0a')) {function content_519600a333f0a($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'D:\\PHPWeb\\NjuVolunteer\\Smarty\\libs\\plugins\\modifier.truncate.php';
 ?>
 <div id="" class=""  style="margin: 0 20px">
 	
@@ -58,8 +58,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['note_index']['index_next'] =
 $_smarty_tpl->tpl_vars['smarty']->value['section']['note_index']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['note_index']['iteration'] == 1);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['note_index']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['note_index']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['note_index']['total']);
 ?>
-		<tr class="note_table_row" noteid="<?php echo $_smarty_tpl->tpl_vars['note_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['note_index']['index']]['id'];?>
-" id="note_table_row_<?php echo $_smarty_tpl->tpl_vars['note_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['note_index']['index']]['id'];?>
+		<tr class="note_table_row" id="note_table_row_<?php echo $_smarty_tpl->tpl_vars['note_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['note_index']['index']]['id'];?>
 ">
 			<td>
 				<?php if ($_smarty_tpl->tpl_vars['note_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['note_index']['index']]['type']==0){?>
@@ -77,9 +76,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['note_index']['last']       =
 			<td><?php echo $_smarty_tpl->tpl_vars['note_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['note_index']['index']]['time'];?>
 </td>
 		</tr>
-	<?php endfor; else: ?>
-		<tr><td colspan="4" style="text-align:left">您什么也没有收到！</td></tr>
-	<?php endif; ?>
+	<?php endfor; endif; ?>
 </table>
 
 

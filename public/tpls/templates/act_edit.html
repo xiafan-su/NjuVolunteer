@@ -15,7 +15,7 @@
 <script type="text/javascript" src="./plugin/calendar/calendar-setup.js"></script>
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/kindeditor-min.js"></script>
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/lang/zh_CN.js"></script>
-<script type="text/javascript" src="./assets/js/act_apply.js"></script>
+<script type="text/javascript" src="./assets/js/act_edit.js"></script>
 
 <link href="./plugin/jquery-fileuploader-php-master/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
 <link href="./plugin/jquery-fileuploader-php-master/css/fileUploader.css" rel="stylesheet" type="text/css" />
@@ -39,7 +39,7 @@
 					<label class="control-label" for="inputInfo">活动名称</label>
 					<div class="controls">
 						<div class="input_border">
-							<input id="activity_name" name="activity_name" class="user" type="text" placeholder="活动名称，20字以内"/>
+							<input id="activity_name" name="activity_name" value="<{$act_name}>" class="user" type="text" placeholder="活动名称，20字以内"/>
                             
 						</div>
                        
@@ -50,7 +50,7 @@
 					<label class="control-label" for="inputInfo">活动地点</label>
 					<div class="controls">
 						<div class="input_border">
-							<input id="activity_place" name="activity_place" class="user" type="text" placeholder="50字以内" />
+							<input id="activity_place" name="activity_place" value="<{$act_place}>" class="user" type="text" placeholder="50字以内" />
                             
 						</div>
                         
@@ -62,8 +62,8 @@
 					<div class="controls">
 						<div class="input_border">
 							<select name="time_type" id="time_type">
-							  <option value="longtime">长期活动</option>
-                              <option value="temp">临时活动</option>
+							  <option value="longtime" <{if $time_type=='longtime'}>selected="selected"<{/if}>>长期活动</option>
+                              <option value="temp"<{if $time_type=='temp'}>selected="selected"<{/if}>>临时活动</option>
 							</select>
 						</div>
 					</div>
@@ -73,11 +73,11 @@
 					<div class="controls">
 						<div class="input_border">
 							<select name="attribution_type" id="attribution_type">
-							  <option value="helpdisabled">助残</option>
-                              <option value="supporteducation">支教</option>
-                              <option value="helpold">扶老</option>
-                              <option value="competition">大型赛会</option>
-                              <option value="other">其他</option>
+							  <option value="helpdisabled" <{if $attribution_type=='helpdisabled'}>selected="selected"<{/if}>>助残</option>
+                              <option value="supporteducation"<{if $attribution_type=='supporteducation'}>selected="selected"<{/if}>>支教</option>
+                              <option value="helpold"<{if $attribution_type=='helpold'}>selected="selected"<{/if}>>扶老</option>
+                              <option value="competition"<{if $attribution_type=='competition'}>selected="selected"<{/if}>>大型赛会</option>
+                              <option value="other"<{if $attribution_type=='other'}>selected="selected"<{/if}>>其他</option>
 							</select>
 						</div>
 					</div>
@@ -91,7 +91,7 @@
 					<label class="control-label" for="inputInfo" >开始日期</label>
 					<div class="controls">
 						<div class="input_border">
-							<input name="begin_time" class="user" type="text" id="begin_time" onClick="return showCalendar('begin_time', 'y-mm-dd');" />
+							<input name="begin_time" class="user" value="<{$begin_date}>" type="text" id="begin_time" onClick="return showCalendar('begin_time', 'y-mm-dd');" />
                            
 						</div>
                          <span id="begin_time_tip" class="begin_time-tip"> </span>
@@ -102,7 +102,7 @@
 					<label class="control-label" for="inputInfo">结束日期</label>
 					<div class="controls">
 						<div class="input_border">
-							<input name="end_time" class="user" type="text" id="end_time" onClick="return showCalendar('end_time', 'y-mm-dd');"/>
+							<input name="end_time" class="user" value="<{$end_date}>" type="text" id="end_time" onClick="return showCalendar('end_time', 'y-mm-dd');"/>
                            
 						</div>
                          <span id="end_time_tip" class="end_time_tip"></span>
@@ -113,7 +113,7 @@
 					<label class="control-label" for="inputInfo">报名截止日期</label>
 					<div class="controls">
 						<div class="input_border">
-							<input name="deadline" class="user" type="text" id="deadline" onClick="return showCalendar('deadline', 'y-mm-dd');"/>
+							<input name="deadline" class="user" value="<{$dead_date}>" type="text" id="deadline" onClick="return showCalendar('deadline', 'y-mm-dd');"/>
                            
 						</div>
                          <span id="deadline_tip" class="end_time_tip"></span>
@@ -124,7 +124,7 @@
 					<label class="control-label" for="inputInfo">持续时间</label>
 					<div class="controls">
 						<div class="input_border">
-							<input name="last_time" id="last_time" class="user" type="text" placeholder="一个数字，单位是小时，例如2"  />
+							<input name="last_time" id="last_time" value="<{$last_time}>" class="user" type="text" placeholder="一个数字，单位是小时，例如2"  />
                             
 						</div>
                         <span id="last_time_tip" class="last_time_tip"> </span>
@@ -134,20 +134,20 @@
                 <div class="control-group">
 					<label class="control-label">具体时间</label>
 					<div class="controls-n">
-                    	<input name="weekday" type="checkbox" value="1"  /><label>周一</label>
-                        <input name="weekday" type="checkbox" value="2"  /><label>周二</label>
-                        <input name="weekday" type="checkbox" value="4"  /><label>周三</label>
-                        <input name="weekday" type="checkbox" value="8"  /><label>周四</label>
-                        <input name="weekday" type="checkbox" value="16"  /><label>周五</label>
-                        <input name="weekday" type="checkbox" value="32"  /><label>周六</label>
-                        <input name="weekday" type="checkbox" value="64"  /><label>周日</label>
+                    	<input name="weekday" type="checkbox" value="1"  <{if $weekday1  ==1  }>checked<{/if}> /><label>周一</label>
+                        <input name="weekday" type="checkbox" value="2"  <{if $weekday2  ==1  }>checked<{/if}> /><label>周二</label>
+                        <input name="weekday" type="checkbox" value="4"  <{if $weekday3  ==1  }>checked<{/if}> /><label>周三</label>
+                        <input name="weekday" type="checkbox" value="8"  <{if $weekday4  ==1  }>checked<{/if}> /><label>周四</label>
+                        <input name="weekday" type="checkbox" value="16" <{if $weekday5  ==1  }>checked<{/if}> /><label>周五</label>
+                        <input name="weekday" type="checkbox" value="32" <{if $weekday6  ==1  }>checked<{/if}> /> <label>周六</label>
+                        <input name="weekday" type="checkbox" value="64" <{if $weekday7  ==1  }>checked<{/if}> /><label>周日</label>
 					</div>
 				</div>
 				<div class="control-group" >
 					<label class="control-label" for="inputInfo">详细时间</label>
 					<div class="controls">
 						<div class="input_border">
-							<input name="detail_time" id="detail_time" class="user" type="text" placeholder="详细描述，例如：每周五下午"/>
+							<input name="detail_time" id="detail_time" value="<{$detail_time}>"class="user" type="text" placeholder="详细描述，例如：每周五下午"/>
 						</div>
 						<span id="detail_time_error"></span>
 					</div>
@@ -161,7 +161,7 @@
 					<label class="control-label" for="inputInfo">招募人数</label>
 					<div class="controls">
 						<div class="input_border">
-							<input name="total_num" id="total_num" class="user" type="text" placeholder="人数，例如：20" />
+							<input name="total_num" id="total_num" value="<{$total_num}>" class="user" type="text" placeholder="人数，例如：20" />
 						</div>
 						<span id="total_num_error"></span>
 					</div>
@@ -169,13 +169,13 @@
                 <div class="control-group">
 					<label class="control-label">院系要求</label>
 					<div class="controls-n">
-                    	<input name="faculty_select" type="radio" value="false" onclick="hide_faculty()" checked /><label>否</label>
-                        <input name="faculty_select" type="radio" value="true" onclick="show_faculty()" /><label>是</label>
+                    	<input name="faculty_select" type="radio" value="false" onclick="hide_faculty()" <{if $facultylimit==0}>checked<{/if}> /><label>否</label>
+                        <input name="faculty_select" type="radio" value="true" onclick="show_faculty()"  <{if $facultylimit==1}>checked<{/if}>/><label>是</label>
                         <lable>(只允许打钩的院系志愿者参加)</label>
 					</div>
-                    <div id="faculty_choose">
+                    <div id="faculty_choose" <{if $facultylimit==1}>style="display:block"<{/if}>>
                    	<{foreach item=faculty from=$faculty_list}>
-						<div style="height:30px;"><input type="checkbox" value="<{$faculty.name}>" name="faculty_choose"><label><{$faculty.name}><label></div>
+						<div style="height:30px;"><input type="checkbox" value="<{$faculty.name}>" name="faculty_choose" <{$faculty.limit}>><label><{$faculty.name}><label></div>
 					<{/foreach}>
                     </div>
 				</div>
@@ -193,19 +193,19 @@
                 <div class="control-group">
 					<label class="control-label">英语要求</label>
 					<div class="controls-n">
-                    	<input name="en_select" type="radio" value="false" onclick="hide_en()" checked /><label>否</label>
-                        <input name="en_select" type="radio" value="true" onclick="show_en()"/><label>是</label>
+                    	<input name="en_select" type="radio" value="false" onclick="hide_en()" <{if $englishlimit==0}>checked<{/if}>/><label>否</label>
+                        <input name="en_select" type="radio" value="true" onclick="show_en()"  <{if $englishlimit==1}>checked<{/if}>/><label>是</label>
 					</div>
-                    <div id="en_choose">
-                    	CET-4大于<input id="cet4" type="text" value="0"/><br />
-                        CET-6大于<input id="cet6" type="text" value="0"/>
+                    <div id="en_choose"<{if $facultylimit==1}>style="display:block"<{/if}>>
+                    	CET-4大于<input id="cet4" type="text" value="<{$cet4}>"/><br />
+                        CET-6大于<input id="cet6" type="text" value="<{$cet6}>"/>
                     </div>
 				</div>
                 <div class="control-group">
 					<label class="control-label" for="inputInfo">其他语言要求</label>
 					<div class="controls">
 						<div class="input_border">
-							<input name="other_language" id="other_language" class="user" type="text" placeholder="德语 法语 默认为无要求"/>
+							<input name="other_language" id="other_language" value="<{$other_language}>"class="user" type="text" placeholder="德语 法语 默认为无要求"/>
 						</div>
 					</div>
 				</div>
@@ -218,7 +218,7 @@
 					<label class="control-label" for="inputInfo">姓名</label>
 					<div class="controls">
 						<div class="input_border">
-							<input name="responser" id="responser" class="user" type="text" />
+							<input name="responser" id="responser"value="<{$responser}>" class="user" type="text" />
                            
 						</div>
                          <span id="responser_tip" class="responser_tip" ></span>
@@ -229,7 +229,7 @@
 					<label class="control-label" for="inputInfo">电话</label>
 					<div class="controls">
 						<div class="input_border">
-							<input name="responser_tel" id="responser_tel" class="phone" type="text" />
+							<input name="responser_tel" id="responser_tel" value="<{$responser_tel}>" class="phone" type="text" />
                            	
 						</div>
                         <span id="tel_tip" class="tel_tip"></span>
@@ -258,7 +258,7 @@
                 <div  id="phone" >
 					<div class="controls" >
 						<div class="input_area" >
-							<textarea id="activity_profile" name="content" style="width:590px;height:200px;visibility:hidden;" placeholder="1500字以内" ></textarea>
+							<textarea id="activity_profile" name="content" style="width:590px;height:200px;visibility:hidden;" ><{$profile}></textarea>
 						</div>
 						<span class="help-inline phoneerror"></span>
 					</div>

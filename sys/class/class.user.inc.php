@@ -20,6 +20,32 @@ class User extends DB_Connect {
 		$results=mysql_fetch_assoc($select);
 		return $results;
 	} 
+	
+	public function fetch_my_team($id)//获取个人的团队
+	{
+		$sql="SELECT team.id as TID,team.name as TNAME from apply_team,team where apply_team.state='1' and  team.id=apply_team.team_id         and   user_id='".$id."' ";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;
+	} 	
+	
+	public function fetch_my_follow($id)//获取关注的团队
+	{
+		$sql="SELECT team.id as TID,team.name as TNAME from follow,team where team.id=follow.teamid  and   follow.userid='".$id."' ";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;
+	} 	
+	
+	public function fetch_my_act($id)//获取参加的活动
+	{
+		$sql="select activity_info.id as AID,activity_info.name as ANAME from act_doc,act_record,activity_info  where act_doc.act_id=activity_info.id and act_record.doc_id=act_doc.id  and act_record.user_id='".$id."' ";
+		
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;
+	} 		
+	
+	
+	
+	
 	public function change_person_info($id,$name,$idcard_num,$gender,$email,$phone,$faculty,$birthday,$politics_status,$nation,$cloth_size,$dormitory,$cet4,$cet6,$language,$language_level,$drive,$medical,$other_skills)//修改个人资料
 	{
 		$sql="UPDATE user_info SET 
@@ -126,7 +152,30 @@ class User extends DB_Connect {
 		}
 		
 	}
+	public function follow_state($team_id)//关注一个团队的状态
+	{
+		$sql="SELECT * FROM follow WHERE user_id='".$_SESSION[USER::USER][USER::ID]."' and team_id='".$team_id."'";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		$num_of_results=mysql_num_rows($select);
+		if ($num_of_results==0) return false;
+		else return true;
+	}
+	public function follow($team_id)//关注一个团队
+	{
 
+		if (!($this->follow_state($team_id)))
+		{
+			$sql="INSERT INTO follow(user_id,team_id,time)VALUES('".$_SESSION[USER::USER][USER::ID]."','".$team_id."','".date('Y-m-d H:i:s',time())."')";
+			$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+			return 1;//关注成功
+		}else
+		{
+			$sql="DELETE FROM follow WHERE user_id='".$_SESSION[USER::USER][USER::ID]."' and team_id='".$team_id."'";
+			$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+			return 2;//取消关注成功
+		}
+		return 0;//失败
+	}
 }
 
 ?>

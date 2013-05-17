@@ -79,29 +79,30 @@
         </div>
         <div class="right-bar"></div>
     </div>
-    
+
     <div id="table_activity" style="display:none;">
-    <br>
-    <table>
-    <th>活动名称</th><th>活动时间</th>
-    <{foreach name=data item=act from=$activity_info}>
-    <{if ($smarty.foreach.data.iteration % 2 == 0)}>
-    <tr class="even">
-    <{else}>
-    <tr class="odd">
-    <{/if}>
-    <td><a href="act_dtl.php?act_id=<{$act.id}>" target="_blank"><{$act.name}></a></td>
-    <td><{$act.begin_time}> --- <{$act.end_time}></td>
-    </tr>
-    <{/foreach}>
-    </table>
-    </br>
+      	<table>
+        <tr>
+        	<th scope="col">活动名称</th>
+        	<th scope="col">活动时间</th>
+		</tr>
+        <{foreach name=data item=act from=$activity_info}>
+        <{if ($smarty.foreach.data.iteration % 2 == 0)}>
+        <tr class="even">
+        <{else}>
+        <tr class="odd">
+        <{/if}>
+        <td><a href="act_dtl.php?act_id=<{$act.id}>" target="_blank"><{$act.name}></a></td>
+        <td><{$act.begin_time}> --- <{$act.end_time}></td>
+        </tr>
+        <{/foreach}>
+        </table>
     </div>
     
     <div id="table_comment" style="display:none;">
     <br>
     <table>
-    <th>评论人</th><th>评论内容</th>
+    	<th>评论人</th><th>评论内容</th>
     
     </table>
     </br>

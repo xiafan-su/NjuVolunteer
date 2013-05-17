@@ -3,13 +3,9 @@ $_BASE_PATH = "../../";
 $_SMARTY_ROOT="../tpls";
 include_once '../../sys/core/init.inc.php';
 
-$a=new Admin();
+$team_id=$_POST['team_id'];
 
-$id=$_POST['act_id'];
-
-if ($a->audit_pass($id)) echo 1;
-	else echo 0;
-
+$a=new Act();
 
 
 ?>

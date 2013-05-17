@@ -6,7 +6,7 @@ KindEditor.ready(function(K) {
 		allowPreviewEmoticons : false,
         allowImageUpload : false,
         items : [
-        	'emoticons', 'image']
+        	'emoticons']
 		});
 });
 
@@ -15,11 +15,9 @@ $(document).ready(function(){
 //$('#drop_cover').animate({opacity:'0'},10);
 		jQuery(function($){
 			$('.fileUpload').fileUploader({
-				autoUpload: false,
+				autoUpload: true,
 				limit: false,
-				buttonUpload: '#px-submit',
-				buttonClear: '#px-clear',
-				selectFileLabel: 'Select files',
+				selectFileLabel: '拖拽至此',
 				allowedExtension: 'jpg|jpeg|gif|png'
 				});
 		});
@@ -123,7 +121,7 @@ $(function(){
 					$('#take_part_in').text("参加活动");
 				}
 				 else
-				 alert("失败"+html);
+				 alert("您不满足此项活动的报名条件");
 				
 			}
 		});

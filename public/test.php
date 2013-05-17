@@ -38,7 +38,7 @@ $select=$t->fetch_all_team();
 while ($result=mysql_fetch_assoc($select))
 {
 	echo $result['name']." ";
-}*/
+}
 $s=new System();
 $s->new_visitor();
 $s->fetch_visit_times();
@@ -53,5 +53,24 @@ $s->fetch_total_teams();
 echo '</br>';
 $s->fetch_person_times();
 echo '</br>';
-$s->fetch_total_hours();
+$s->fetch_total_hours();*/
+//$s=new System();
+//$s->send_note("101220129 101220125 ","You来测试啦","恭喜您中了测试将","101220130");
+/*$t=new Team();
+$vol_list[]=array('user_id'=>'101220125','base_time'=>'2','honor_leader'=>'0','honor_excellent'=>'1','comment'=>'不错','performance_level'=>'良好');
+$vol_list[]=array('user_id'=>'101220129','base_time'=>'2','honor_leader'=>'1','honor_excellent'=>'1','comment'=>'不错','performance_level'=>'一般');
+//$t->edit_voltime(8,$vol_list);
+$t->register_voltime(8,$vol_list);*/
+$t=new Team();
+$recv_list=$t->fetch_my_send_note_detail(1);
+echo $recv_list['content'];
+//$select=$t->fetch_my_send_notes(101220130);
+//$result=mysql_fetch_assoc($select);
+//echo $result['content'];
+//$a=new Act();
+//$a->upload_pic(41,"asd");
+//$t=new Team();
+//$vol_list[]=array('user_id'=>'101220125','base_time'=>'2','honor_leader'=>'0','honor_excellent'=>'1','comment'=>'不错','performance_level'=>'良好');
+//$vol_list[]=array('user_id'=>'101220129','base_time'=>'2','honor_leader'=>'1','honor_excellent'=>'1','comment'=>'不错','performance_level'=>'一般');
+//if (! $t->register_voltime(8,$vol_list)) echo 'false';
 ?>

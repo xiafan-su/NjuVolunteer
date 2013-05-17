@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 15:15:26
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 20:55:06
          compiled from "./tpls/templates\act_apply.html" */ ?>
-<?php /*%%SmartyHeaderCode:29505195d90e4a9c47-65865690%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:226025177bcd4242042-40208521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1368766516,
+      1 => 1368786437,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '29505195d90e4a9c47-65865690',
+  'nocache_hash' => '226025177bcd4242042-40208521',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5177bcd42e277',
   'variables' => 
   array (
     'faculty_list' => 0,
@@ -22,10 +24,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'act_id' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5195d90e60eb3',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5195d90e60eb3')) {function content_5195d90e60eb3($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5177bcd42e277')) {function content_5177bcd42e277($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -242,14 +242,6 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
 							<input name="other_language" id="other_language" class="user" type="text" placeholder="德语 法语 默认为无要求"/>
 						</div>
 					</div>
-				</div>
-                <div class="control-group">
-					<label class="control-label">其他要求</label>
-					<div class="controls-n">
-                    	<textarea name="other_com" id="other_com" class="other_com" cols="23" rows="5" style="resize:none" placeholder="热情 大方 善于交流等"></textarea>
-					</div>
-                    <div id="en_choose">
-                    </div>
 				</div>
                 <div class="breadcrumb">
                 	<div class="bar-left"></div>
