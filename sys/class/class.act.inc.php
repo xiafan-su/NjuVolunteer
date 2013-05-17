@@ -272,12 +272,23 @@ class Act extends DB_Connect {
 	
 	public function fetch_weekact($year,$month,$date){
 		$str="$year"."-"."$month"."-"."$date";
-		$date1=$date+7;
+		$date1=$date+6;
 		$str1="$year"."-"."$month"."-"."$date1";
 		$query="select * from activity_info where datediff(end_time,'".$str."')>0 and datediff(begin_time,'".$str1."')<0";
 		//$query="select makedate('".$year."',)";
 		$select=mysql_query($query, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
+	}
+	
+	public function concern_team($team_id){
+		$user_id=$_SESSION[USER::USER][USER::ID];
+		$query="INSERT INTO follow(userid,teamid) VALUES('".$user_id."','".$team_id."')";
+		if (!mysql_query($query,$this->root_conn))
+		{ 
+			die('Error'.mysql_error());
+			return false;
+		}
+		else return true;
 	}
 	
 	public function modify( $id/* 其他参数未设置 */ ){
