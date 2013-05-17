@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 20:48:18
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 11:33:35
          compiled from "../tpls/templates\include\actz_apply.html" */ ?>
-<?php /*%%SmartyHeaderCode:26959519368a86ca4a4-87138406%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:219115195a50fe200c2-51458942%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,12 +11,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '26959519368a86ca4a4-87138406',
+  'nocache_hash' => '219115195a50fe200c2-51458942',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519368a87b363',
   'variables' => 
   array (
     'update_time' => 0,
@@ -27,8 +25,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'docid' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5195a50fee669',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519368a87b363')) {function content_519368a87b363($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5195a50fee669')) {function content_5195a50fee669($_smarty_tpl) {?>
 <div id="" class="" style="margin: 0 20px">
 	
 	<!-- <span id="show_activity_text" class="">更新</span>时间：<?php echo $_smarty_tpl->tpl_vars['update_time']->value;?>

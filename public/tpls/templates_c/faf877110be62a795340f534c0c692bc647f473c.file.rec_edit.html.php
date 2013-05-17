@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 20:48:10
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 11:33:11
          compiled from "../tpls/templates\include\rec_edit.html" */ ?>
-<?php /*%%SmartyHeaderCode:158325193739798bbe5-76876918%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:62425195a4f7a9fb61-69648276%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,12 +11,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '158325193739798bbe5-76876918',
+  'nocache_hash' => '62425195a4f7a9fb61-69648276',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51937397a0096',
   'variables' => 
   array (
     'update_time' => 0,
@@ -33,8 +31,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'doc_summary' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5195a4f7c671e',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51937397a0096')) {function content_51937397a0096($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5195a4f7c671e')) {function content_5195a4f7c671e($_smarty_tpl) {?>
 
 
 <div id="" class="" style="margin: 0px 20px">
