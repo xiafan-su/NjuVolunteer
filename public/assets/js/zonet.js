@@ -26,11 +26,15 @@ var zt_url_infot = "./include/infot.php";
 var zt_url_infot_edit = "./include/infot_edit.php";
 
 //活动档案索引类（活动列表中的档案列表索引）
-var zt_elem_doc_index = ".util_doc_index";
+var zt_elem_doc_index = ".zonet-doc-row";
 var zt_elem_doc_add = ".util_doc_add";
 var zt_elem_doc_apply = ".util_doc_apply";//每次小活动的报名情况
 var zt_elem_doc_list = ".util_doc_list";//活动档案列表元素
 var zt_elem_doc_fold = ".util_doc_fold";//用于折叠、展开活动档案列表操作的元素
+//通知
+var zt_elem_note_row = ".note_table_row";
+var zt_elem_note_recv_act_select = "#note_recv_act_select";
+
 
 
 //点击“发起的活动”、“完成的活动”的回调函数
@@ -42,6 +46,15 @@ var zt_func_doc_add = function(){};
 var zt_func_doc_apply = function(){};
 var zt_func_doc_fold = function(elem){};
 
+//点击“收到的通知”/“发送的通知”的回调函数
+var zt_func_note_recv = function(){};
+var zt_func_note_sent = function(){};
+var zt_func_note_send = function(){};
+//以下函数在note.js中国实现
+var nt_func_note_read = function(){};
+var nt_func_note_sent = function(){};//发送的通知
+//var nt_func_note_send = function(){};//发通知
+var nt_func_note_recv_act_select = function(){};
 
 
 //转换主副页面
@@ -108,12 +121,25 @@ zt_func_mem = function(html){
 	bindStudentInfo();//此函数在mem.js中定义
 }
 
+zt_func_note_recv = function(html){
+	$(zt_elem_main_content).html(html);
+	$(zt_elem_note_row).bind( "click", nt_func_note_read );
+}
+zt_func_note_sent = function(html){
+	$(zt_elem_main_content).html(html);
+	$(zt_elem_note_row).bind( "click", nt_func_note_sent );
+}
+zt_func_note_send = function(html){
+	$(zt_elem_main_content).html(html);
+	$(zt_elem_note_recv_act_select).bind( "change", nt_func_note_recv_act_select );
+}
+
 //注册点击事件
 register_click_event( $( zt_elem_start_act ), "发起的活动", zt_url_act, {type:"start"}, zt_func_start_act );
 register_click_event( $( zt_elem_finished_act ), "完成的活动", zt_url_act, {type:"finished"}, zt_func_finished_act );
-register_click_event( $( zt_elem_note_edit ), "发通知", zt_url_note_edit);
-register_click_event( $( zt_elem_note_recv ), "收到的通知", zt_url_note, {type:"recv"} );
-register_click_event( $( zt_elem_note_sent ), "发送的通知", zt_url_note, {type:"sent"} );
+register_click_event( $( zt_elem_note_edit ), "发通知", zt_url_note_edit, null, zt_func_note_send);
+register_click_event( $( zt_elem_note_recv ), "收到的通知", zt_url_note, {type:"recv"}, zt_func_note_recv );
+register_click_event( $( zt_elem_note_sent ), "发送的通知", zt_url_note, {type:"sent"}, zt_func_note_sent );
 register_click_event( $( zt_elem_mem ), "成员", zt_url_mem, null, zt_func_mem );
 register_click_event( $( zt_elem_infot ), "资料", zt_url_infot );
 

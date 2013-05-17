@@ -44,22 +44,72 @@ class System extends DB_Connect {
 			}
 		}
 	}
-	public function send_note($recv_id,$title,$content)
+	public function send_note($recv_id_list,$title,$content,$sender_id='system')//
 	{
-		$sql="INSERT INTO note(sender_id,recv_type,recv_id,title,content,time,state) 
-			  VALUES('system','0','".$recv_id."','".$title."','".$content."','".date('Y-m-d H:i:s',time())."','unread')
-		";
-		if (mysql_query($sql, $this->root_conn))
-				return true;
-		else 
+		$recv_id = explode(" ", $recv_id_list);
+		foreach ($recv_id as $value)
 		{
-			die('Error: ' . mysql_error());
-			return false;
+			if ($value!=NULL)
+			{
+				$sql="INSERT INTO note(sender_id,recv_type,recv_id,title,content,time,state) 
+					  VALUES('".$sender_id."','0','".$value."','".$title."','".$content."','".date('Y-m-d H:i:s',time())."','unread')
+				";
+				if (!mysql_query($sql, $this->root_conn))
+				{
+					die('Error: ' . mysql_error());
+					return false;
+				}
+			}
 		}
+		return true;
 	}
-	
-	
-	
+	public function new_visitor()
+	{
+		$sql="UPDATE statistics SET visit_times=visit_times+1 where id='0'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+	}
+	public function fetch_visit_times()
+	{
+		$sql="SELECT visit_times FROM statistics where id ='0'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result['visit_times'];
+	}
+	public function fetch_total_volunteers()
+	{
+		$sql="SELECT count(*) as count FROM user_info";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result['count'];
+	}
+	public function fetch_total_activities()
+	{
+		$sql="SELECT count(*) as count FROM activity_info where name<>''";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result['count'];
+	}	
+	public function fetch_total_teams()
+	{
+		$sql="SELECT count(*) as count FROM team";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result['count'];
+	}	
+	public function fetch_person_times()
+	{
+		$sql="SELECT count(*) as count FROM act_record";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result['count'];
+	}	
+	public function fetch_total_hours()
+	{
+		$sql="SELECT sum(base_time) as base_hours,sum(honor_time) as honor_hours FROM act_record";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result['base_hours']+$result['honor_hours'];
+	}	
 }
 
 

@@ -6,6 +6,20 @@ include_once '../../sys/core/init.inc.php';
 
 
 
+$info_list = array();
+
+
+$info_list[] = array( "name"=>"团队名称", "value"=>"XXXX" );
+$info_list[] = array( "name"=>"团队年龄", "value"=>"XXXX" );
+$info_list[] = array( "name"=>"团队负责人", "value"=>"XXXX" );
+
+
+
+$tpl->assign( "info_list", $info_list );
+
+
+$tpl->display( "include/infot.html" );
+
 ?>
 
 页面内容：<br />

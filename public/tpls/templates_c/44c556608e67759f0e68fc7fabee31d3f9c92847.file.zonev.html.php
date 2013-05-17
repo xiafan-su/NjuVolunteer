@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 22:55:20
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 22:48:51
          compiled from "./tpls/templates\zonev.html" */ ?>
 <?php /*%%SmartyHeaderCode:237935177976cd9d591-18584448%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '44c556608e67759f0e68fc7fabee31d3f9c92847' => 
     array (
       0 => './tpls/templates\\zonev.html',
-      1 => 1368629034,
+      1 => 1368706884,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'user_name' => 0,
+    'volunteer_time' => 0,
+    'base_time' => 0,
+    'honor_time' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -57,9 +60,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <img src="./assets/img/star.png" />
                 <img src="./assets/img/star.png" />
             </div>
-			<div id="server-time">服务总时间：</div>
-            <div id="base-time">基础时间：</div>
-            <div id="honor-time">荣誉时间：</div>
+			<div id="server-time">服务总时间：<?php echo $_smarty_tpl->tpl_vars['volunteer_time']->value;?>
+小时</div>
+            <div id="base-time">基础时间：<?php echo $_smarty_tpl->tpl_vars['base_time']->value;?>
+小时</div>
+            <div id="honor-time">荣誉时间：<?php echo $_smarty_tpl->tpl_vars['honor_time']->value;?>
+小时</div>
             <div id="signature">签名：
             	<input type="text" class="signature" id="sign" value="我了个草/(ㄒoㄒ)/~~" onblur="change_sign()"/>
             </div>

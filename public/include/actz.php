@@ -6,18 +6,20 @@ $_SMARTY_ROOT = "../tpls";
 
 include_once '../../sys/core/init.inc.php';
 
-//echo '$_SESSION[User::USER][User::FACULTY_ID]='.$_SESSION[User::USER][User::FACULTY_ID];
+//18 ---信息管理学院
 
+$faculty_id = $_SESSION[User::USER][User::FACULTY_ID];
+//echo $_SESSION[User::USER][User::PERM_ID];
 
 $act_list = array();
 
 $team = new Team();
 $act_info = "";
-if( isset($_POST['type']) ){//18为“信息管理学院”
+if( isset($_POST['type']) ){
 	if( $_POST['type'] == "finished" ) {
-		$act_info = $team->fetch_act_all( "" );
+		$act_info = $team->fetch_act_all( $faculty_id, 0 );
 	} else {
-		$act_info = $team->fetch_act_all( 18 );
+		$act_info = $team->fetch_act_all( $faculty_id, 1 );
 	}
 }
 while($act_row = mysql_fetch_array($act_info) ) {

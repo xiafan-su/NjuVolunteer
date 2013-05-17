@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-15 21:59:44
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 21:45:27
          compiled from "./tpls/templates\include\notice_list.html" */ ?>
-<?php /*%%SmartyHeaderCode:9373519394d0589256-74161587%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:319665194e2f789dfb9-42273805%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,15 +11,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '9373519394d0589256-74161587',
+  'nocache_hash' => '319665194e2f789dfb9-42273805',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519394d058c1f',
+  'unifunc' => 'content_5194e2f78a25e',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519394d058c1f')) {function content_519394d058c1f($_smarty_tpl) {?><div class="title-bar" id="title_bar">
+<?php if ($_valid && !is_callable('content_5194e2f78a25e')) {function content_5194e2f78a25e($_smarty_tpl) {?><div class="title-bar" id="title_bar">
     <div class="left-bar"></div>
     <span id="type">公告通知</span>
     <div class="right-bar"></div>
