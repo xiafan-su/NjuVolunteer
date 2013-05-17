@@ -100,6 +100,7 @@ function returntoday(){
 	//mydate.setDate(mydate.getDate()-6);
 	//alert(mydate.getDay());
 	transdate=new Date();
+	
 	//alert(transdate.getYear());
 	$.ajax({
 		type:"POST",
@@ -113,12 +114,23 @@ function returntoday(){
 		},
 		success:function(html){
 			//alert(html);
-			$("#act_day11").html(html);
+			//alert("hello");
+			//$("#act_day11").html(html);
+			document.getElementById("weekact").style.display="none";
+			$("#weekact_list").html(html);
+			document.getElementById("weekact_list").style.display="block";
+			
 		}	
 	});
 }
 function preweek(){
 	mydate.setDate(mydate.getDate()-13);
+	predate=new Date();
+	//alert(mydate.getYear());
+	predate.setYear(mydate.getYear()+1900);
+		//alert(predate.getYear());
+	predate.setMonth(mydate.getMonth(),mydate.getDate());
+	//alert(predate.getDate());
 	$("#day1").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
 	$("#day2").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
@@ -132,9 +144,37 @@ function preweek(){
 	$("#day6").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
 	$("#day7").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
+	
+	//alert(predate.getYear());
+	$.ajax({
+		type:"POST",
+		url:"./handle/week_act_list.php",
+		data:{
+			
+			date:predate.getDate(),
+			month:(predate.getMonth()+1),
+			year:(predate.getYear()+1900),
+			day:predate.getDay(),
+		},
+		success:function(html){
+			//alert(html);
+			//$("#act_day11").html(html);
+			document.getElementById("weekact").style.display="none";
+			$("#weekact_list").html(html);
+			document.getElementById("weekact_list").style.display="block";
+		}	
+	});
 }
+tdate=new Date();
 function nextweek(){
 	mydate.setDate(mydate.getDate()+1);
+	tdate=new Date();
+	tdate.setYear(mydate.getYear()+1900);
+	//alert(tdate.getYear());
+	tdate.setMonth(mydate.getMonth(),mydate.getDate());
+	//tdate.setDate(mydate.getDate());
+	//alert(mydate.getMonth()+" "+tdate.getMonth()+" "+tdate.getDate());
+	//alert(tdate.getMonth()+1);
 	$("#day1").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
 	$("#day2").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
@@ -148,6 +188,25 @@ function nextweek(){
 	$("#day6").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	mydate.setDate(mydate.getDate()+1);
 	$("#day7").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
+	//alert(tdate.getMonth()+"--"+tdate.getDate());
+	$.ajax({
+		type:"POST",
+		url:"./handle/week_act_list.php",
+		data:{
+			
+			date:tdate.getDate(),
+			month:(tdate.getMonth()+1),
+			year:(tdate.getYear()+1900),
+			day:tdate.getDay(),
+		},
+		success:function(html){
+			//alert(html);
+			document.getElementById("weekact").style.display="none";
+			$("#weekact_list").html(html);
+			document.getElementById("weekact_list").style.display="block";
+			//$("#act_day11").html(html);
+		}	
+	});
 }
 function getday(temp){
 	if(temp=='0')
