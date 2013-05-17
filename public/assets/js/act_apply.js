@@ -1,9 +1,15 @@
 
 function show_en(){
-	$('#en_choose').show();	
+	$('#en_choose').slideDown();
 }
 function hide_en(){
-	$('#en_choose').hide();	
+	$('#en_choose').slideUp();	
+}
+function show_faculty(){
+	$('#faculty_choose').slideDown();	
+}
+function hide_faculty(){
+	$('#faculty_choose').slideUp();	
 }
 var editor;
 KindEditor.ready(function(K) {
@@ -15,7 +21,7 @@ KindEditor.ready(function(K) {
 		items : [
 			'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
 			'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-			'insertunorderedlist', '|', 'emoticons', 'image', 'link','unlink','image','baidumap','fullscreen']
+			'insertunorderedlist', '|', 'emoticons', 'image', 'link','unlink','baidumap','fullscreen']
 	});
 });
 var cur_state,preview_flag=0;
@@ -238,9 +244,19 @@ function submit_click()
 	//alert(profile);
 	var act_id=document.getElementById("act_id").innerHTML;
 	//alert($('#begin_time').val());
+	var faculty=document.getElementsByName("faculty_choose");
+	var faculty_limit="";
+   	for(var i=0;i<faculty.length;i++)
+  	{
+    	 if(faculty.item(i).checked){
+        	 faculty_limit=faculty_limit.concat(faculty.item(i).getAttribute("value").concat(" "));
+			 //alert(faculty_limit);
+		 }
+ 	}
+	//alert(faculty_limit);
 	$.ajax({
 		type:"POST",
-		data:{id:act_id,activity_name:$('#activity_name').val(),activity_place:$("#activity_place").val(),time_type:$('#time_type').val(),attribution_type:$('#attribution_type').val(),begin_time:$('#begin_time').val(),end_time:$('#end_time').val(),deadline:$('#deadline').val(),detail_time:$('#detail_time').val(),total_num:$('#total_num').val(),need_audit:$('#need_audit').val(),responser:$('#responser').val(),responser_tel:$('#responser_tel').val(),last_time:$('#last_time').val(),activity_profile:profile,state:cur_state,weekday_time:Weekday_time},
+		data:{id:act_id,activity_name:$('#activity_name').val(),activity_place:$("#activity_place").val(),time_type:$('#time_type').val(),attribution_type:$('#attribution_type').val(),begin_time:$('#begin_time').val(),end_time:$('#end_time').val(),deadline:$('#deadline').val(),detail_time:$('#detail_time').val(),total_num:$('#total_num').val(),need_audit:$('#need_audit').val(),responser:$('#responser').val(),responser_tel:$('#responser_tel').val(),last_time:$('#last_time').val(),activity_profile:profile,state:cur_state,weekday_time:Weekday_time,other_language:$("#other_language").val(),other_com:document.getElementById('other_com').value,faculty_limit:faculty_limit,cet4:$('#cet4').val(),cet6:$('#cet6').val()},
 		url:"./handle/act_apply.php",
 		success:function(html){
 		//alert(html);

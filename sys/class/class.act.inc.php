@@ -115,7 +115,7 @@ class Act extends DB_Connect {
 		$result=mysql_fetch_assoc($select);
 		return $result['id'];
 	}
-	public function update_act($id, $name,$place,$time_type,$attribution_type,$begin_time,$end_time,$deadline,$detail_time,$total_num,$need_audit,$responser,$responser_tel,$last_time,$activity_profile,$state,$publisher,$weekday_time){
+	public function update_act($id, $name,$place,$time_type,$attribution_type,$begin_time,$end_time,$deadline,$detail_time,$total_num,$need_audit,$responser,$responser_tel,$last_time,$activity_profile,$state,$publisher,$weekday_time,$other_language,$other_com,$faculty_limit,$cet4,$cet6){
 		$accepted_num		=0;
 		$offer_num			=0;
 		$begin_time=$begin_time." 00:00:0";
@@ -125,7 +125,8 @@ class Act extends DB_Connect {
 			detail_time='".$detail_time."',total_num='".$total_num."',need_audit='".$need_audit."',
 			responser='".$responser."',responser_tel='".$responser_tel."',last_time='".$last_time."',
 			begin_time='".$begin_time."',end_time='".$end_time."',deadline='".$deadline."',state='".$state."',profile='".$activity_profile."',
-			publisher='".$publisher."',weekday_time='".$weekday_time."'
+			publisher='".$publisher."',weekday_time='".$weekday_time."',other_language='".$other_language."',requirements='".$other_com."',
+			faculty_limit='".$faculty_limit."',cet4='".$cet4."',cet6='".$cet6."'
 			WHERE id='".$id."';
 		";
 		if (!mysql_query($update,$this->root_conn))

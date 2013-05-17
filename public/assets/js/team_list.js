@@ -33,17 +33,13 @@ $(document).ready(function(){
 	
 });
 function slideleft(){
-	if(imgflag==0){
-		imgflag=1;
-		current_img += 1;
-		if(current_img<imgnum+1)
-			$("#switch").animate({left:'-=960px'});
-		else{
-			current_img = 1;
-			document.getElementById("switch").style.left="0px";
-			$("#switch").animate({left:'-=960px'});
-		}
-		setTimeout("imgflag=0",500);
+	
+	if((current_img+1)<imgnum+1)
+		switchimg(current_img+1);
+	else{
+		current_img = 0;
+		document.getElementById("switch").style.left="0px";
+		switchimg(current_img+1);
 	}
 }
 function slide(){
@@ -53,14 +49,14 @@ function slide(){
 function switchimg(temp){
 	if(imgflag==0){
 		imgflag=1;
+		for(j=1;j<=5;j++){
+			document.getElementById('dot'+j).style.background='rgb(102,51,102)';	
+		}
+		document.getElementById('dot'+temp).style.background='#FFF';
 		if(current_img<imgnum+1 && current_img != temp){
 			current_img = temp;
 			var left = -(temp*960);
-			document.getElementById("switch").style.left=left+"px";
-			$('#img_state'+temp).show();
-		}
-		else{
-			$("#result-bar").html("已是当前图片!").show();
+			$('#switch').animate({left:left+'px'},500);
 			$('#img_state'+temp).show();
 		}
 		setTimeout($('#img_state'+temp).hide(),500);

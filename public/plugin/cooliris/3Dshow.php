@@ -5,6 +5,15 @@
 <style>
 html{height:100%;overflow:hidden;}
 body{height:100%;margin:0;padding:0;}
+.cover{
+	position:fixed;
+	top:100%;
+	left:0;
+	width:100%;
+	height:25px;
+	margin-top:-25px;
+	background:#AAA;	
+}
 </style>
 </head>
 
@@ -24,6 +33,6 @@ body{height:100%;margin:0;padding:0;}
      		 	allowScriptAccess="always" />
     </object>
 </div>
-
+<div class="cover"></div>
 </body>
 </html>
