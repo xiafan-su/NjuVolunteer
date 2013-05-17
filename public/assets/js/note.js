@@ -5,10 +5,28 @@ var const_recv_title_remove = "从接收者列表移除";
 
 
 nt_func_note_read = function(){
-	alert( "tersf" );
+	$.ajax({
+		type:"POST",
+		url:"./include/note_edit.php",
+		data:{type:"readset", noteId: $(this).attr("noteid")},
+		success:function(html){
+			//alert(html);
+			switch_main_content( "->" );
+			$( zt_elem_main_content2 ).html(html);
+		}
+	});
 }
 nt_func_note_sent = function(){
-	alert( "terss" );
+	$.ajax({
+		type:"POST",
+		url:"./include/note_edit.php",
+		data:{type:"teamread", noteId: $(this).attr("noteid")},
+		success:function(html){
+			//alert(html);
+			switch_main_content( "->" );
+			$( zt_elem_main_content2 ).html(html);
+		}
+	});
 }
 
 function change_text_and_pic(elem, state){
@@ -190,7 +208,7 @@ function nt_func_note_send(){
 	}
 	var topic = $("input#note_edit_topic").val();
 	var content = $("textarea#note_edit_content").val();
-	alert( topic+", "+id_list+", "+content);
+	//alert( topic+", "+id_list+", "+content);
 	$.ajax({
 		type:"POST",
 		url:"./handle/note.php",
@@ -198,6 +216,7 @@ function nt_func_note_send(){
 		success:function(html){
 			if( html == 0 ){
 				alert("发送成功！");
+				$("#util_note_sent").trigger( "click" );
 			} else {
 				alert(html);
 			}

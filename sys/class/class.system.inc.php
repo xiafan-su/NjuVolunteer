@@ -47,12 +47,21 @@ class System extends DB_Connect {
 	public function send_note($recv_id_list,$title,$content,$sender_id='system')//
 	{
 		$recv_id = explode(" ", $recv_id_list);
+		$date=date('Y-m-d H:i:s',time());
+		$sql="INSERT INTO note_send(sender_id,send_type,recv_id_list,title,content,date) 
+				VALUES('".$sender_id."','0','".$recv_id_list."','".$title."','".$content."','".$date."')
+		";
+		if (!mysql_query($sql, $this->root_conn))
+		{
+			die('Error: ' . mysql_error());
+			return false;
+		}
 		foreach ($recv_id as $value)
 		{
 			if ($value!=NULL)
 			{
 				$sql="INSERT INTO note(sender_id,recv_type,recv_id,title,content,time,state) 
-					  VALUES('".$sender_id."','0','".$value."','".$title."','".$content."','".date('Y-m-d H:i:s',time())."','unread')
+					  VALUES('".$sender_id."','0','".$value."','".$title."','".$content."','".$date."','unread')
 				";
 				if (!mysql_query($sql, $this->root_conn))
 				{

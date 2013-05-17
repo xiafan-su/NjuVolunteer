@@ -18,17 +18,40 @@
 				<td style="text-align:left"><{$doc_name}></td></tr>
 			<tr>
 				<td style="text-align:right">负责人</td>
-				<td style="text-align:left"><input type="text"  value="<{$doc_leader}>"  id="doc_edit_leader"></td></tr>
+				<td style="text-align:left">
+						<{if $is_finished}>
+							<{$doc_leader}>
+						<{else}>
+							<input type="text"  value="<{$doc_leader}>"  id="doc_edit_leader">
+						<{/if}>
+				</td></tr>
 			<tr>
 				<td style="text-align:right">联系方式</td>
-				<td style="text-align:left"><input type="text"   value="<{$doc_tel}>"  id="doc_edit_tel"></td></tr>
+				<td style="text-align:left">
+						<{if $is_finished}>
+							<{$doc_tel}>
+						<{else}>
+							<input type="text"   value="<{$doc_tel}>"  id="doc_edit_tel">
+						<{/if}>
+				</td></tr>
 			<tr>
 				<td style="text-align:right" title="此时长将作为基本志愿服务时间">活动时长</td>
-				<td style="text-align:left"><input type="text"  value="<{$doc_vol_time}>"  id="doc_edit_time"></td>
+				<td style="text-align:left">
+						<{if $is_finished}>
+							<{$doc_vol_time}>
+						<{else}>
+						<input type="text"  value="<{$doc_vol_time}>"  id="doc_edit_time">
+						<{/if}>
+				</td>
 			</tr>
 			<tr>
 				<td style="text-align:right">开始时间</td><td style="text-align:left">
-				<input type="text"   value="<{$doc_date}>"  id="doc_edit_date_start"></td></tr>
+					<{if $is_finished}>
+							<{$doc_date}>
+						<{else}>
+							<input type="text"   value="<{$doc_date}>"  id="doc_edit_date_start">
+				<{/if}>
+			</td></tr>
 		</table>
 	</div>
 
@@ -40,31 +63,71 @@
 		</div>
 		<table id="doc_edit_part_table">
 			<tr>
-				<th><input type="checkbox" title="全选" id="check_all_part_people"/></th>
+				<th><input type="checkbox" title="全选" id="check_all_part_people" <{if $is_finished}> disabled="true" <{/if}> /></th>
 				<th>学号</th><th>姓名</th><th>院系</th>
 				<th>志愿时间</th><th>评价</th><th>带队奖</th><th>优秀奖</th><th>备注</th>
 			</tr>
 			<{section name=part_doc_index loop=$part_doc_list}>
-			<tr id="part_people_table_tr_<{$part_doc_list[part_doc_index].id}>">
-				<td><input type="checkbox" title="" id="doc_checkbox_head_<{$part_doc_list[part_doc_index].id}>" noid="<{$part_doc_list[part_doc_index].id}>" /></td>
-				<td><{$part_doc_list[part_doc_index].id}></td>
+			<tr uid="<{$part_doc_list[part_doc_index].id}>" id="part_people_table_tr_<{$part_doc_list[part_doc_index].id}>">
+				<td><input type="checkbox" class="doc_checkbox_head" id="doc_checkbox_head_<{$part_doc_list[part_doc_index].id}>" noid="<{$part_doc_list[part_doc_index].id}>" onclick="change_rec_edit_head_checkbox();"
+				<{if $is_finished}> disabled="true" <{/if}>
+				/></td>
+				<td>
+					<span noid="<{$part_doc_list[part_doc_index].id}>" title="点击查看该学生信息" ><{$part_doc_list[part_doc_index].id}></span>
+				</td>
 				<td><{$part_doc_list[part_doc_index].name}></td>
 				<td><{$part_doc_list[part_doc_index].faculty}></td>
-				<td><{$part_doc_list[part_doc_index].time}></td>
-				<td><{$part_doc_list[part_doc_index].level}></td>
-				<td><input type="checkbox"  id="doc_checkbox_leader_<{$part_doc_list[part_doc_index].id}>" <{if $part_doc_list[part_doc_index].honor_leader == 1}> checked="checked" <{/if}>  title="" /></td>
-				<td><input type="checkbox"   id="doc_checkbox_excellent_<{$part_doc_list[part_doc_index].id}>"  <{if $part_doc_list[part_doc_index].honor_excellent == 1}> checked="checked" <{/if}>   title="" /></td>
-				<td><textarea col="5" id="doc_comment_<{$part_doc_list[part_doc_index].id}>"><{$part_doc_list[part_doc_index].comment}></textarea></td>
+				<td>
+					<span title="点击修改" class="doc_time"  onclick = "change_doc_time_handle(this, 1)"                id="doc_time_<{$part_doc_list[part_doc_index].id}>"><{$part_doc_list[part_doc_index].time}></span>
+					<span class="" style="display: none; white-space:nowrap;" id="doc_time_set_<{$part_doc_list[part_doc_index].id}>">
+							<input type="text" value="<{$part_doc_list[part_doc_index].time}>" uid="<{$part_doc_list[part_doc_index].id}>" onblur="change_doc_time_handle(this, 2)" />
+					</span> 
+				</td>
+				<td>
+					<span title="点击修改" class="doc_level"  id="doc_level_<{$part_doc_list[part_doc_index].id}>" onclick="change_doc_level_handle(this, 1);" ><{$part_doc_list[part_doc_index].level}></span>
+					<span class="" style="display: none; white-space:nowrap;" id="doc_level_set_<{$part_doc_list[part_doc_index].id}>">
+						<select name="doc_level_select" id="doc_level_select_<{$part_doc_list[part_doc_index].id}>" onblur="change_doc_level_handle(this, 2)">
+							<option name="一般" value="一般">一般</option>
+							<option  name="良好" value="良好">良好</option>
+							<option name="优秀"  value="优秀">优秀</option>
+						</select>
+					</span>
+				</td>
+				<td>
+					<input onclick="change_doc_honnor_leader_handle(this, 1);"  type="checkbox"  <{if $is_finished}> disabled="true" <{/if}> id="doc_checkbox_leader_<{$part_doc_list[part_doc_index].id}>" <{if $part_doc_list[part_doc_index].honor_leader == 1}> checked="checked" <{/if}>  title="荣获带队奖的志愿者将获得额外的志愿时间" />
+				</td>
+				<td>
+					<input onclick="change_doc_honnor_leader_handle(this, 2);"  type="checkbox"    <{if $is_finished}> disabled="true" <{/if}> id="doc_checkbox_excellent_<{$part_doc_list[part_doc_index].id}>"  <{if $part_doc_list[part_doc_index].honor_excellent == 1}> checked="checked" <{/if}>   title="荣获优秀奖的志愿者将获得额外的志愿时间" />
+				</td>
+				<td title="点击修改">
+					<span id="doc_comment_<{$part_doc_list[part_doc_index].id}>" onclick="change_doc_comment_handle(this, 1)"> 
+						<{if $part_doc_list[part_doc_index].commentlength == 0}>无
+						<{else}><{$part_doc_list[part_doc_index].comment}>
+						<{/if}>
+					</span>
+					<span class=""  style="display: none;">
+						<textarea id="doc_comment_set_<{$part_doc_list[part_doc_index].id}>" name="" rows="3" cols="10"  onblur="change_doc_comment_handle(this, 2)"><{$part_doc_list[part_doc_index].comment}></textarea>
+					</span>
+				</td>
 			</tr>
 			<{sectionelse}>
 			<tr id="doc_edit_part_table_tr_tip"><td colspan="9">还没有人参加这个活动哦！</td></tr>
 			<{/section}>
 		</table>
-
-
+		
+		<{if $is_finished}>
+		<input type="button" class="button" disabled="true"  value="导入" title="活动记录已提交，不能导入" id="doc_op_import" actid="<{$actId}>"  docid="<{$docId}>"  />
+		<input type="button" class="button" disabled="true" value="移除" title="活动记录已提交，不能移除" id="doc_op_remove" docid="<{$docId}>"    />
+		<input onclick="doc_edit_submit_handle(this);" type="button" class="button" value="确定" title="活动记录已提交，不能修改" id="doc_op_modify" docid="<{$docId}>" disabled="true"   />
+		<{else}>
+		<div id="modify_tip" class="modify_tip" >
+			<span class="" style="color:red; ">注意：1.表中的修改将对选择的志愿者做同样的操作。2.修改后必须点击“确定”才有效！</span>
+			<span class="" style="color:black; cursor:pointer" onclick="javascript:$(this).parent().toggle(200);">知道了</span>
+		</div>
 		<input type="button" class="button" value="导入" title="从活动报名表导入" id="doc_op_import" actid="<{$actId}>"  docid="<{$docId}>"   />
-		<input type="button" class="button" value="移除" title="移除选择的志愿者" id="doc_op_remove" docid="<{$docId}>"  />
-		<input type="button" class="button" value="确定" title="确定您所做的修改" id="doc_op_submit" docid="<{$docId}>"   />
+		<input type="button" class="button" value="移除" title="请先勾选要移除的志愿者" id="doc_op_remove" docid="<{$docId}>" disabled="true"    />
+		<input onclick="doc_edit_submit_handle(this);" type="button" class="button" value="确定" title="您还没有修改任何内容" id="doc_op_modify" docid="<{$docId}>" disabled="true"   />
+		<{/if}>
 	</div>
 
 	<div id="more">
@@ -75,24 +138,31 @@
 		</div>
 		<table>
 			<tr>
-				<td style="text-align:right">活动详细介绍</td>
+				<th style="text-align:right">活动详细介绍</th>
 				<td style="text-align:left">
+							<{if $is_finished}><{$doc_profile}>
+							<{else}>
 					<textarea name="" rows="5" cols="80"   id="doc_edit_profile" ><{$doc_profile}></textarea>
+							<{/if}>
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align:right">活动总结</td>
+				<th style="text-align:right">活动总结</th>
 				<td style="text-align:left">
+							<{if $is_finished}><{$doc_summary}>
+							<{else}>
 					<textarea name="" rows="5" cols="80"   id="doc_edit_summary"><{$doc_summary}></textarea>
+							<{/if}>
 				</td>
 			</tr>
 		</table>
 	</div>
-
-	<input type="button" class="button" value="保存" id="submit_act_doc">
-	<input type="button" class="button" value="删除" id="delete_act_doc" docid="<{$docId}>" >
-	<input type="button" class="button" value="提交" title="提交您所做的修改，提交后志愿时间将会公示一周，并且除非有异议不得再修改" id="doc_op_submit">
-	<input type="button" class="button" value="返回" id="go_back_home">
+<{if !$is_finished}>
+	<input type="button" class="button" value="保存" id="submit_act_doc" />
+	<input type="button" class="button" value="删除" id="delete_act_doc" docid="<{$docId}>" />
+	<input type="button" class="button" value="提交" title="提交您所做的修改，提交后志愿时间将会公示一周，并且除非有异议不得再修改" id="doc_op_submit" docid="<{$docId}>" onclick="javascript: submit_doc(this);"/>
+<{/if}>
+	<input type="button" class="button" value="返回" id="go_back_home" />
 
 
 </div>
