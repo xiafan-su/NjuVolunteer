@@ -121,12 +121,35 @@ img{
 	width:100%;
 	
 }
-table th,table td{
+.per-info table th,.per-info table td{
 	background:rgb(225,225,225);
 	color:rgb(102,51,102);
 	text-align:left;
 	border:1px solid rgb(225,225,225);	
 }
-table{
+.per-info table{
 	border:1px solid rgb(225,225,225);
+}
+
+#table_for_team{
+	margin:0 60px 0 60px;
+}
+#table_for_team table{
+	border-radius:10px;
+}
+#table_for_team table th,#table_for_team table td{
+	color:#000;
+	border-collapse:collapse;
+	background:rgb(215,215,215);
+}
+#table_for_activity{
+	margin:0 60px 0 60px;
+}
+#table_for_activity table{
+	border-radius:10px;
+}
+#table_for_activity table th,#table_for_activity table td{
+	color:#000;
+	border-collapse:collapse;
+	background:rgb(215,215,215);
 }

@@ -1,22 +1,26 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 18:08:52
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 19:42:11
          compiled from "./tpls/templates\indexv.html" */ ?>
-<?php /*%%SmartyHeaderCode:10415519601b4b982e1-60767446%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:31865195f7a1e67177-65663659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7eb1dfe49ab8c6a3a0e890bd108136bf58dec260' => 
     array (
       0 => './tpls/templates\\indexv.html',
-      1 => 1368701284,
+      1 => 1368790928,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '10415519601b4b982e1-60767446',
+  'nocache_hash' => '31865195f7a1e67177-65663659',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5195f7a231408',
   'variables' => 
   array (
+    'teamlist' => 0,
+    'team' => 0,
     'name' => 0,
     'faculty' => 0,
     'volunteer_time' => 0,
@@ -25,12 +29,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'phone_number' => 0,
     'apply' => 0,
     'act' => 0,
+    'followlist' => 0,
+    'follow' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519601b4d1799',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519601b4d1799')) {function content_519601b4d1799($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if ($_valid && !is_callable('content_5195f7a231408')) {function content_5195f7a231408($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -57,7 +61,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             </div>
             <div class="orgnization">
             	<h3>当前所属团队：</h3>
-                <h3 style="color:rgb(102,51,102)" id="team">南京大学青年志愿者协会</h3>
+                <?php  $_smarty_tpl->tpl_vars['team'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['team']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['teamlist']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['team']->key => $_smarty_tpl->tpl_vars['team']->value){
+$_smarty_tpl->tpl_vars['team']->_loop = true;
+?>
+                <h3 style="color:rgb(102,51,102)" id="team"><?php echo $_smarty_tpl->tpl_vars['team']->value['name'];?>
+</h3>
+                <?php } ?>
             </div>
         </div>
         <div class="center">
@@ -150,8 +161,18 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
     <div id="table_for_team" style="display:none;">
     	<br>
         <table class="act_people_table">
-        <tr><th>团队名称</th><th>活动负责人</th></tr>
-        
+        <tr><th>团队名称</th></tr>
+        <?php  $_smarty_tpl->tpl_vars['follow'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['follow']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['followlist']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['follow']->key => $_smarty_tpl->tpl_vars['follow']->value){
+$_smarty_tpl->tpl_vars['follow']->_loop = true;
+?>
+        <tr>
+        	<td><a href="indext.php?team_id=<?php echo $_smarty_tpl->tpl_vars['follow']->value['teamid'];?>
+" target="_blank"><?php echo $_smarty_tpl->tpl_vars['follow']->value['name'];?>
+</a></td>
+        </tr>
+        <?php } ?>
         </table>
         </br>
     </div>

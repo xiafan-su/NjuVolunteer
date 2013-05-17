@@ -69,13 +69,17 @@ class Act extends DB_Connect {
 	}
 	public function find_same($activity_id){
 		$act_info=NULL;
-		$select = mysql_query("select * from apply_act where act_id = '".$activity_id."'")or trigger_error(mysql_error(),E_USER_ERROR);
+		$i=0;
+		$select = mysql_query("select * from apply_act where act_id = '".$activity_id."' and state='1'")or trigger_error(mysql_error(),E_USER_ERROR);
 		while ($row = mysql_fetch_array($select)){
 			$result = mysql_query("select * from apply_act where user_id = '".$row['user_id']."' and act_id != '".$activity_id."'")or trigger_error(mysql_error(),E_USER_ERROR);
 			while ($roow = mysql_fetch_array($result)){
 				$info = mysql_query("select * from activity_info where id = '".$roow['act_id']."'")or trigger_error(mysql_error(),E_USER_ERROR);
 				while ($detail = mysql_fetch_array($info)){
-					$act_info[] = array('name' => $detail['name'],'responser' => $detail['responser'],'id' => $detail['id']);
+					if ($i<3)
+						$act_info[] = array('name' => $detail['name'],'responser' => $detail['responser'],'id' => $detail['id']);
+					else  break;
+					$i++;
 				}
 			}
 		}
@@ -92,7 +96,7 @@ class Act extends DB_Connect {
 		}
 		return $comment_info;
 	}
-	public function attachment($act_id,$filename)
+	public function attachment($act_id,$filename)//活动申请时候，上传附件
 	{
 		$query="UPDATE activity_info SET plan_url='".$filename."' WHERE id='".$act_id."'";
 		if(!mysql_query($query,$this->root_conn))
@@ -103,6 +107,22 @@ class Act extends DB_Connect {
 		{
 			return true;
 		}
+	}
+	public function upload_pic($act_id,$filename)//活动详细页面，上传照片
+	{
+		$query="INSERT INTO photos(act_id,pic_name,time) VALUES('".$act_id."','".$filename."','".date('Y-m-d H:i:s',time())."')";
+		if(!mysql_query($query,$this->root_conn))
+		{
+			die('Error: ' . mysql_error());
+			return false; 
+		}
+		$query="INSERT INTO 3d_data(time,url) VALUES('".date('Y-m-d H:i:s',time())."','".$filename."')";
+		if(!mysql_query($query,$this->root_conn))
+		{
+			die('Error: ' . mysql_error());
+			return false; 
+		}
+		return true;
 	}
 	public function create_new_act()
 	{
@@ -115,7 +135,7 @@ class Act extends DB_Connect {
 		$result=mysql_fetch_assoc($select);
 		return $result['id'];
 	}
-	public function update_act($id, $name,$place,$time_type,$attribution_type,$begin_time,$end_time,$deadline,$detail_time,$total_num,$need_audit,$responser,$responser_tel,$last_time,$activity_profile,$state,$publisher,$weekday_time,$other_language,$other_com,$faculty_limit,$cet4,$cet6){
+	public function update_act($id, $name,$place,$time_type,$attribution_type,$begin_time,$end_time,$deadline,$detail_time,$total_num,$need_audit,$responser,$responser_tel,$last_time,$activity_profile,$state,$publisher,$weekday_time,$other_language,$faculty_limit,$cet4,$cet6){
 		$accepted_num		=0;
 		$offer_num			=0;
 		$begin_time=$begin_time." 00:00:0";
@@ -125,7 +145,7 @@ class Act extends DB_Connect {
 			detail_time='".$detail_time."',total_num='".$total_num."',need_audit='".$need_audit."',
 			responser='".$responser."',responser_tel='".$responser_tel."',last_time='".$last_time."',
 			begin_time='".$begin_time."',end_time='".$end_time."',deadline='".$deadline."',state='".$state."',profile='".$activity_profile."',
-			publisher='".$publisher."',weekday_time='".$weekday_time."',other_language='".$other_language."',requirements='".$other_com."',
+			publisher='".$publisher."',weekday_time='".$weekday_time."',other_language='".$other_language."',
 			faculty_limit='".$faculty_limit."',cet4='".$cet4."',cet6='".$cet6."'
 			WHERE id='".$id."';
 		";

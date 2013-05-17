@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 18:09:15
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 18:52:00
          compiled from "./tpls/templates\indext.html" */ ?>
-<?php /*%%SmartyHeaderCode:7460519601cb16d9d1-37406636%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:297785195fbfbe842c4-34934656%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'fcc6fe68a9e41e4d9da946fded2039d0b9e628f0' => 
     array (
       0 => './tpls/templates\\indext.html',
-      1 => 1368701284,
+      1 => 1368787773,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '7460519601cb16d9d1-37406636',
+  'nocache_hash' => '297785195fbfbe842c4-34934656',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5195fbfc0e0e6',
   'variables' => 
   array (
     'team_name' => 0,
@@ -27,10 +29,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'act' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519601cb2ec69',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519601cb2ec69')) {function content_519601cb2ec69($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if ($_valid && !is_callable('content_5195fbfc0e0e6')) {function content_5195fbfc0e0e6($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -118,39 +118,40 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
         <div class="right-bar"></div>
     </div>
-    
+
     <div id="table_activity" style="display:none;">
-    <br>
-    <table>
-    <th>活动名称</th><th>活动时间</th>
-    <?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
+      	<table>
+        <tr>
+        	<th scope="col">活动名称</th>
+        	<th scope="col">活动时间</th>
+		</tr>
+        <?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['activity_info']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
  $_smarty_tpl->tpl_vars['smarty']->value['foreach']['data']['iteration']=0;
 foreach ($_from as $_smarty_tpl->tpl_vars['act']->key => $_smarty_tpl->tpl_vars['act']->value){
 $_smarty_tpl->tpl_vars['act']->_loop = true;
  $_smarty_tpl->tpl_vars['smarty']->value['foreach']['data']['iteration']++;
 ?>
-    <?php if (($_smarty_tpl->getVariable('smarty')->value['foreach']['data']['iteration']%2==0)){?>
-    <tr class="even">
-    <?php }else{ ?>
-    <tr class="odd">
-    <?php }?>
-    <td><a href="act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
+        <?php if (($_smarty_tpl->getVariable('smarty')->value['foreach']['data']['iteration']%2==0)){?>
+        <tr class="even">
+        <?php }else{ ?>
+        <tr class="odd">
+        <?php }?>
+        <td><a href="act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
 " target="_blank"><?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
 </a></td>
-    <td><?php echo $_smarty_tpl->tpl_vars['act']->value['begin_time'];?>
+        <td><?php echo $_smarty_tpl->tpl_vars['act']->value['begin_time'];?>
  --- <?php echo $_smarty_tpl->tpl_vars['act']->value['end_time'];?>
 </td>
-    </tr>
-    <?php } ?>
-    </table>
-    </br>
+        </tr>
+        <?php } ?>
+        </table>
     </div>
     
     <div id="table_comment" style="display:none;">
     <br>
     <table>
-    <th>评论人</th><th>评论内容</th>
+    	<th>评论人</th><th>评论内容</th>
     
     </table>
     </br>

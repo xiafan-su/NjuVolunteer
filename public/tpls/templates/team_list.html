@@ -99,8 +99,8 @@ button{
      
      <{foreach name=data item=item from=$department_info}>
      <li class="explore-item">
-   		<div class="pic" onmouseover="stateshow(<{$item.cal}>)" onmouseout="statehide(<{$item.cal}>)">
-        	<img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1" />
+   		<div class="pic">
+        	<img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1"  onmouseover="stateshow(<{$item.cal}>)" onmouseout="statehide(<{$item.cal}>)"/>
         	<div class="float_state" id="float_state<{$item.cal}>">
         		<{$item.slogan}>
         	</div>
