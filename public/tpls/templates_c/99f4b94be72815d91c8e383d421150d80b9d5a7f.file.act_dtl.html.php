@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 02:07:46
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 13:48:52
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:668651952072459039-19676846%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368706814,
+      1 => 1368769731,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519520725c756',
   'variables' => 
   array (
     'id' => 0,
@@ -33,8 +35,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'act' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519520725c756',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_519520725c756')) {function content_519520725c756($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -66,8 +66,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <div class="main">
 	<div id="left">
-        <?php echo $_smarty_tpl->getSubTemplate ("include/act_dtl_left.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
-
+        <div id="act_image">
+   			 <img src="./assets/img/activity_center/0.jpg" height="250" width="220" />
+             <span id="upload_pic" name="upload_pic">上传图片</span>
+		</div>
     </div>
 	<div id="right">
         <div id="act_simple">
@@ -98,12 +100,23 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </ul>
             </div>
         </div>
+    </div>
+    	
+    <div class="bottom">
         <div id="act_detail" class="act-detail">
             <div class="div_title2"><div>活动介绍</div></div>
             <div id="act_introduction">
 				<?php echo $_smarty_tpl->tpl_vars['act_profile']->value;?>
 
 			</div>
+        </div>
+        <div class="apply-state">
+        	<div style="width:100%;float:left">
+                <div class="div_title2" style="margin-top:15px">已报名的人数：</div>
+                <div id="option">
+                    <span id="take_part_in" name="take_part_in"></span>  
+                </div>	
+            </div>
         </div>
         <div class="act-comment">
             <!--<div id="drop_cover" style="width:400px;height:5px;background:#999;float:left;display:"none";">-->
@@ -116,37 +129,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <button id="px-clear" type="reset">Clear</button>
           		</form>
 			</div>
-           <!-- </div>-->
-            <ul class="div_title2"><li>活动评论详情</li></ul>
-           <!-- <hr color="green" style="float:left"></div>-->
-            
-            <!--div class="act_comment" id="comment_list">
-            <?php  $_smarty_tpl->tpl_vars['act_comment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act_comment']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['comment_detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['act_comment']->key => $_smarty_tpl->tpl_vars['act_comment']->value){
-$_smarty_tpl->tpl_vars['act_comment']->_loop = true;
-?>
-            
-            <dl class="comment_list">
-        		<dd>
-                	<a id="<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['name'];?>
-</a>
-                    :<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['content'];?>
 
-            		(<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['time'];?>
-)
-            		<div class="info">
-                    <span class="W_linkb">
-                    <span id="reply" class="reply" onMouseOver="this.style.textDecoration='underline';" onMouseout="this.style.textDecoration='none';">回复</span>
-        		</div>
-			</div>
-            
-            <?php } ?>
-            <!--/div>
-            <div id="comment_area">
-				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
-			</div-->
+            <ul class="div_title2"><li>活动评论详情</li></ul>
+          
           	<?php  $_smarty_tpl->tpl_vars['act_comment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act_comment']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['comment_detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['act_comment']->key => $_smarty_tpl->tpl_vars['act_comment']->value){
@@ -166,25 +151,24 @@ $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
                     <span class="name-used" style="display:none"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
 </span>
                     <span class="name-used" style="display:none"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['name'];?>
-</span>
+(<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
+)</span>
                     <span class="reply"><a href="#comment-w">回复</a></span>
                 </div>
             </div>
             <?php } ?>
             
-           <!-- <ul class="div_title2"><li>提交自己的评论</li></ul>-->
             <div style="width:100%;height:10px;float:left"></div>
      		<div id="comment_area">
             	<a name="comment-w"></a>
-				<textarea id="comment_input" name="com_content" style="width:590px;height:200px;visibility:hidden;" ></textarea>
+				<textarea id="comment_input" name="com_content" style="width:340px;height:110px;visibility:hidden;" ></textarea>
 			</div>
-            <div class="comment_submit">
+            <div class="comment_submit" style="width:340px;">
 				<input name="com_submit" class="button" id="submit_comment" type="submit" value="评论"/>
 			</div>
         </div>
         <div class="other-act">
             <div class="div_title2" ><div>参加过这项活动的人还参加了</div>
-            <br>
             <table id="act_people_table" class="act_people_table">
             <tr><th>名称</th><th>负责人</th></tr>
             <?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
@@ -207,7 +191,6 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
             </tr>
             <?php } ?>
             </table>
-            </br>
         	</div>
             <div id="act_same"  class="div_content"></div>
         </div>

@@ -6,7 +6,7 @@ KindEditor.ready(function(K) {
 		allowPreviewEmoticons : false,
         allowImageUpload : false,
         items : [
-        	'emoticons', 'image']
+        	'emoticons']
 		});
 });
 
