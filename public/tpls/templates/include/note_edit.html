@@ -8,16 +8,42 @@
 	<tr>
 		<th style="text-align:right">主题</th>
 		<td style="text-align:left">
-			<input type="text" id="note_edit_topic" />
+			<{if !$read_only}>
+				<input type="text" id="note_edit_topic" value="<{$topic}>"/>
+			<{else}> 
+				<{$topic}>
+			<{/if}>
 		</td>
 	</tr><!-- white-space:nowrap;  -->
+
+	<{if isset($sender)}>
+		<tr>
+			<th style="text-align:right">发送者</th>
+			<td style="text-align:left"><{$sender}></td>
+		</tr>
+	<{/if}>
+
+	<{if isset($time)}>
+		<tr>
+			<th style="text-align:right">时间</th>
+			<td style="text-align:left"><{$time}></td>
+		</tr>
+	<{/if}>
+	<{if !$recv}>
 	<tr>
 		<th style="text-align:right">接收者</th>
 		<td style="text-align:left">
 			<!-- <span class="">选择</span> -->
 			<div id="" class="">
 				<!-- 这里放选择的接收者 -->
-				<div id="note_recv_list" class="note_recv_list"> </div>
+				<div id="note_recv_list" class="note_recv_list">
+					<{section name=recv_index loop=$recv_list}>
+							<div class="receiver-card" uid="<{$recv_list[recv_index].id}>" sid="<{$smarty.section.recv_index.iteration}>">
+								<span class="note_recv_name" ><{$recv_list[recv_index].name}></span>
+							</div>
+					<{/section}>
+				</div>
+				<{if !$read_only}>
 				<span id="switch_note_recv_list_div" class="" onclick="switch_note_recv_list_div(this);">展开</span>
 				<div id="note_recv_list_div" class="" style="display:none">
 					<hr style="border:1px gray solid;" />
@@ -58,18 +84,31 @@
 					</span>
 					<div id="note_recv_vol_list" class="note_recv"> </div>
 				</div>
+				<{/if}>
 			</div>
 		</td>
 	</tr>
+	<{/if}>
+
+
+
 	<tr>
 		<th style="text-align:right">内容</th>
 		<td style="text-align:left">
-			<textarea name="" rows="5" cols="70" id="note_edit_content"></textarea>
+			<{if !$read_only}>
+				<textarea name="" rows="5" cols="70" id="note_edit_content"><{$content}></textarea>
+			<{else}>
+				<{$content}>
+			<{/if}>
 		</td>
 	</tr>
 </table>
 
-<input type="button" class="button" value="发送"  onclick="nt_func_note_send()"/>
+<{if !$read_only}><!-- 不显示发送按钮 -->
+	<input type="button" class="button" value="发送"  onclick="nt_func_note_send()"/>
+<{else}>
+	<input type="button" class="button" value="返回" onclick="switch_main_content( '<-' );" />
+<{/if}>
 
 
 

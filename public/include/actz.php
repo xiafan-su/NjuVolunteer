@@ -78,7 +78,7 @@ $tpl->display('include/actz.html');
 
 
 ?>
-
+<!-- 
 页面内容：<br />
 （发起的、已完成的）活动列表<br />
 <br />
@@ -101,3 +101,4 @@ $tpl->display('include/actz.html');
 当前团队id请直接从SESSION获取<br />
 
 
+ -->

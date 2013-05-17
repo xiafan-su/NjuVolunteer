@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 16:04:11
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 20:55:06
          compiled from "./tpls/templates\act_apply.html" */ ?>
 <?php /*%%SmartyHeaderCode:226025177bcd4242042-40208521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1368764990,
+      1 => 1368786437,
       2 => 'file',
     ),
   ),
@@ -242,14 +242,6 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
 							<input name="other_language" id="other_language" class="user" type="text" placeholder="德语 法语 默认为无要求"/>
 						</div>
 					</div>
-				</div>
-                <div class="control-group">
-					<label class="control-label">其他要求</label>
-					<div class="controls-n">
-                    	<textarea name="other_com" id="other_com" class="other_com" cols="23" rows="5" style="resize:none" placeholder="热情 大方 善于交流等"></textarea>
-					</div>
-                    <div id="en_choose">
-                    </div>
 				</div>
                 <div class="breadcrumb">
                 	<div class="bar-left"></div>

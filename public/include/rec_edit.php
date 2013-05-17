@@ -5,9 +5,10 @@ $_SMARTY_ROOT = "../tpls";
 
 include_once '../../sys/core/init.inc.php';
 
-echo  "activityId=".$_POST['activityId'];
-
+//echo  "activityId=".$_POST['activityId'];
+$is_finished = true;
 $tpl->assign( "update_time", date("Y-m-d H:i:s") );
+
 
 //以下设置标题
 $act = new Act();
@@ -33,7 +34,8 @@ if( isset($_POST['documentId']) ) {
 		$tpl->assign( "doc_vol_time", $doc_row['vol_time']);
 		$tpl->assign( "doc_date", $doc_row['date']);
 		$is_assign = true;
-	}
+		$is_finished = ($doc_row['state'] == "final");
+	} else $is_finished = false;
 } 
 if( ! $is_assign ) {
 	$tpl->assign( "docId", -1);
@@ -60,16 +62,19 @@ if( isset($_POST['documentId']) ) {
 				"honor_leader"=>	$part_row[ 'honor_leader' ],
 				"honor_excellent"=>	$part_row[ 'honor_excellent' ],
 				"comment"=>	$part_row[ 'comment' ],
+				"commentlength"=> strlen($part_row[ 'comment' ])
 			);
 	}
 }
 $tpl->assign( "part_doc_list", $part_doc_list );
 
+$tpl->assign( "is_finished", $is_finished );
+
 $tpl->display( "include/rec_edit.html" );
 
 
 ?>
-
+<!-- 
 <br /><br />
 页面内容：<br />
 活动档案添加/编辑<br />
@@ -92,3 +97,4 @@ $tpl->display( "include/rec_edit.html" );
 其他：<br />
 当前团队id请直接从SESSION获取<br />
 
+ -->

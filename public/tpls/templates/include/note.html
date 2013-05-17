@@ -9,7 +9,7 @@
 
 <table>
 	<{section name=note_index loop=$note_list}>
-		<tr class="note_table_row" id="note_table_row_<{$note_list[note_index].id}>">
+		<tr class="note_table_row" noteid="<{$note_list[note_index].id}>" id="note_table_row_<{$note_list[note_index].id}>">
 			<td>
 				<{if $note_list[note_index].type == 0}><{*0表示未读，1表示已读，2表示发送*}>
 					<img src="./assets/img/zonet/note_unread.png" width="24" height="24" border="0" alt="">
@@ -23,6 +23,8 @@
 			<td><{$note_list[note_index].content|truncate:12:"……":true}></td>
 			<td><{$note_list[note_index].time}></td>
 		</tr>
+	<{sectionelse}>
+		<tr><td colspan="4" style="text-align:left">您什么也没有收到！</td></tr>
 	<{/section}>
 </table>
 

@@ -1,0 +1,40 @@
+			<div class="title">
+                <div style="float:left;height:26px;margin-top:20px;margin-right:10px;width:10px;background-color:#606"></div>
+                <h3 style="float:left;font-size:24px;padding-top:10px;">本周活动</h3>
+                <ul style="float:right;padding-top:20px">
+                    <li class="title-op" style="float:left;margin:7px;font-size:14px;padding:3px" onclick="returntoday()">回到本周</li>
+                    <li class="title-op" style="float:left;margin:7px;font-size:14px;padding:3px" onclick="preweek()">上一周</li>
+                    <li class="title-op" style="float:left;margin:7px;font-size:14px;padding:3px" onclick="nextweek()">下一周</li>
+                </ul>
+                </ul>
+            </div>
+            <div style="padding-top:3px;padding-bottom:3px;background-color:#333"></div>
+            <{foreach item=weekact from=$retlist}>
+            <div class="weeka">
+                <div class="weekdate" id="day1"></div>
+                <div class="act-content" id="act_day11">
+                
+                	<a href="act_dtl.php? act_id=<{$weekact.id1}>"><{$weekact.name1}></a>
+                    </br>
+                    <{if isset($weekact.detail_time1)}>
+                   	<span>时间:<{$weekact.detail_time1}></span>
+                    <{/if}>
+                    </br>
+                    <{if isset($weekact.deadline1)}>
+                    <span>报名截止:<{$weekact.deadline1}></span>
+                    <{/if}>
+                </div>
+                <div class="act-content" id="act_day12">
+                	<a href="act_dtl.php? act_id=<{$weekact.id2}>"><{$weekact.name2}></a>
+                    </br>
+                    <{if isset($weekact.detail_time2)}>
+                   	<span>时间:<{$weekact.detail_time2}></span>
+                    <{/if}>
+                    </br>
+                    <{if isset($weekact.deadline2)}>
+                    <span>报名截止:<{$weekact.deadline2}></span>
+                    <{/if}>
+                </div>
+            </div>
+            <{/foreach}>
+

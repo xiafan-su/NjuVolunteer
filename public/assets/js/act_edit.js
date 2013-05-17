@@ -28,15 +28,15 @@ var cur_state,preview_flag=0;
 function check_before_submit(){
 	
 }
-var name_flag=0;
-var place_flag=0;
-var begin_time_flag=0;
-var end_time_flag=0;
-var last_time_flag=0;
-var detail_time_flag=0;
-var total_num_flag=0;
-var responser_flag=0;
-var responser_tel_flag=0;
+var name_flag=1;
+var place_flag=1;
+var begin_time_flag=1;
+var end_time_flag=1;
+var last_time_flag=1;
+var detail_time_flag=1;
+var total_num_flag=1;
+var responser_flag=1;
+var responser_tel_flag=1;
 $(document).ready(function(){
 	//alert("ready");
 	jQuery(function($){
@@ -252,9 +252,9 @@ $(document).ready(function(){
 	$("#save").click(function(){
 			preview_flag=0;
 			cur_state="editing";
-			if ( name_flag==1 )
-				submit_click();
-			else alert("最少需要填写活动名称才能保存");
+			if ( name_flag==1)
+			submit_click();
+			else alert("最少需要填写活动标题");
 		});
 
 var rand1 = Math.ceil(Math.random()*100)%33;

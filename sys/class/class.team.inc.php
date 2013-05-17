@@ -208,15 +208,25 @@ class Team extends DB_Connect {
 	}
 	public function delete_doc($doc_id)//删除一个活动档案
 	{
-		
-		$query="DELETE FROM act_doc WHERE id='".$doc_id."'";
-		if (!mysql_query($query,$this->root_conn))
+		$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and final='true'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$num_of_results=mysql_num_rows($select);
+		if ($num_of_results>0)
 		{
-			die('Error: ' . mysql_error());
 			return false;
 		}else
 		{
-			return true;
+			$sql="DELETE FROM act_record WHERE doc_id='".$doc_id."'";
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			$query="DELETE FROM act_doc WHERE id='".$doc_id."'";
+			if (!mysql_query($query,$this->root_conn))
+			{
+				die('Error: ' . mysql_error());
+				return false;
+			}else
+			{
+				return true;
+			}
 		}
 	}
 	public function audit_vol($vol_list,$state,$reason)//审核报名该组织的志愿者
@@ -376,6 +386,8 @@ class Team extends DB_Connect {
 	}
 	public function register_voltime($doc_id,$record_list)//确定将这些志愿者时间录入,进行通知和公示，录入时只修改已存在的，不进行添加。
 	{
+		$sql="UPDATE act_doc SET state='final' WHERE id='".$doc_id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);//提交后，活动档案将不再能够修改
 		foreach ($record_list as $record)
 		{
 			$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and user_id='".$record['user_id']."'";
@@ -436,15 +448,46 @@ class Team extends DB_Connect {
 	}
 	public function fetch_my_send_notes($team_id)//获取我发送的通知列表
 	{
-		$query="select * from note_send where sender_id='".$team_id."' order by date";
+		$query="select * from note_send where sender_id='".$team_id."' order by date DESC";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;		
 	}
-	public function fetch_my_send_note_detail($send_note_id)//获取我发送的某个具体通知
+	public function fetch_my_send_note_detail_recv_list($send_note_id)//获取我发送的某个具体通知,返回接收者的列表
 	{
 		$query="select * from note_send where id='".$send_note_id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-		return $select;		
+		$recv_id_list=mysql_fetch_assoc($select);
+		$recv_list=explode(" ",$recv_id_list['recv_id_list']);
+		foreach ($recv_list as $value)
+		{
+			$sql="SELECT id,name FROM team WHERE id='".$value."'";
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			$num_of_results=mysql_num_rows($select);
+			if ($num_of_results!=0)
+			{
+				$result=mysql_fetch_assoc($select);
+				$recv_name_list[]=array('id'=>$result['id'],'name'=>$result['name']);
+			}
+		}		
+		foreach ($recv_list as $value)
+		{
+			$sql="SELECT id,name FROM user_info WHERE id='".$value."'";
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			$num_of_results=mysql_num_rows($select);
+			if ($num_of_results!=0)
+			{
+				$result=mysql_fetch_assoc($select);
+				$recv_name_list[]=array('id'=>$result['id'],'name'=>$result['name']);
+			}
+		}
+		return $recv_name_list;		
 	}	
+	public function fetch_my_send_note_detail($send_note_id)//返回这条通知的详细信息
+	{
+		$query="select * from note_send where id='".$send_note_id."'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$recv_id_list=mysql_fetch_assoc($select);
+		return $recv_id_list;
+	}
 }
 ?>

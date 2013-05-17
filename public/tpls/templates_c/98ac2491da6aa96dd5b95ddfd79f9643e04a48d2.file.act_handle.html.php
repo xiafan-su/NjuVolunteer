@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 22:04:16
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 21:26:53
          compiled from "../tpls/templates\handle\act_handle.html" */ ?>
-<?php /*%%SmartyHeaderCode:3236851962a1db0ddb5-33189672%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:179345196301dee2e33-43163880%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '98ac2491da6aa96dd5b95ddfd79f9643e04a48d2' => 
     array (
       0 => '../tpls/templates\\handle\\act_handle.html',
-      1 => 1368799433,
+      1 => 1368355156,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3236851962a1db0ddb5-33189672',
+  'nocache_hash' => '179345196301dee2e33-43163880',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51962a1dc1d0e',
   'variables' => 
   array (
     'act_list' => 0,
@@ -24,8 +22,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'have_more' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5196301e04a2a',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51962a1dc1d0e')) {function content_51962a1dc1d0e($_smarty_tpl) {?><?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
+<?php if ($_valid && !is_callable('content_5196301e04a2a')) {function content_5196301e04a2a($_smarty_tpl) {?><?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['act_list']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['act']->key => $_smarty_tpl->tpl_vars['act']->value){
 $_smarty_tpl->tpl_vars['act']->_loop = true;
@@ -33,7 +33,7 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
 <div class="summary">
     <div class="act_img">
         <img src="./assets/img/activity_center/<?php echo $_smarty_tpl->tpl_vars['act']->value['img'];?>
-.jpg" href="www.baidu.com"/>
+.jpg" width="200px" height="130px" href="www.baidu.com"/>
     </div>
     <div class="words">
         <div>
@@ -41,8 +41,8 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
 " target="_blank"><?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
 </a><span class="atc_state"><?php echo $_smarty_tpl->tpl_vars['act']->value['state'];?>
 </span></h2>
-            <span style="height:70px;width:660px;float:left;overflow:hidden"><?php echo $_smarty_tpl->tpl_vars['act']->value['profile'];?>
-</span>
+            <p><?php echo $_smarty_tpl->tpl_vars['act']->value['profile'];?>
+</p>
         </div>
         <div class="otherInfo">
             <span class="first">活动时间：<?php echo $_smarty_tpl->tpl_vars['act']->value['time'];?>
