@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 13:48:52
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 13:59:27
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:668651952072459039-19676846%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368769731,
+      1 => 1368770366,
       2 => 'file',
     ),
   ),
@@ -103,6 +103,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     </div>
     	
     <div class="bottom">
+    	<div class="apply-state">
+        	<div style="width:100%;float:left">
+                <div class="div_title2" style="margin-top:12px">已报名的人数：</div>
+                <div id="option">
+                    <span id="take_part_in" name="take_part_in"></span>  
+                </div>	
+            </div>
+        </div>
         <div id="act_detail" class="act-detail">
             <div class="div_title2"><div>活动介绍</div></div>
             <div id="act_introduction">
@@ -110,14 +118,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 			</div>
         </div>
-        <div class="apply-state">
-        	<div style="width:100%;float:left">
-                <div class="div_title2" style="margin-top:15px">已报名的人数：</div>
-                <div id="option">
-                    <span id="take_part_in" name="take_part_in"></span>  
-                </div>	
-            </div>
-        </div>
+        
         <div class="act-comment">
             <!--<div id="drop_cover" style="width:400px;height:5px;background:#999;float:left;display:"none";">-->
             <div class="cover-m" id="cover-m"></div>
