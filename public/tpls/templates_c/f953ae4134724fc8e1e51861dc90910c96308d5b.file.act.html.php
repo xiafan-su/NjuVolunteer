@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 01:40:24
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 19:19:49
          compiled from "./tpls/templates\act.html" */ ?>
-<?php /*%%SmartyHeaderCode:3046751951a08826034-91307537%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:13169516a185eddbdb8-59389361%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
     array (
       0 => './tpls/templates\\act.html',
-      1 => 1368626061,
+      1 => 1368703027,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3046751951a08826034-91307537',
+  'nocache_hash' => '13169516a185eddbdb8-59389361',
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51951a0888cfe',
+  'unifunc' => 'content_516a185ee3648',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51951a0888cfe')) {function content_51951a0888cfe($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_516a185ee3648')) {function content_516a185ee3648($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -160,38 +160,38 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div style="padding-top:3px;padding-bottom:3px;background-color:#333"></div>
             <div class="weeka">
                 <div class="weekdate" id="day1"></div>
-                <div class="act-content"></div>
-                <div class="act-content"></div>
+                <div class="act-content" id="act_day11"></div>
+                <div class="act-content" id="act_day12"></div>
             </div>
             <div class="weeka">
                 <div class="weekdate" id="day2"></div>
-                <div class="act-content"></div>
-                <div class="act-content"></div>
+                <div class="act-content" id="act_day21"></div>
+                <div class="act-content" id="act_day22"></div>
             </div>
             <div class="weeka">
                 <div class="weekdate" id="day3"></div>
-                <div class="act-content"></div>
-                <div class="act-content"></div>
+                <div class="act-content" id="act_day31"></div>
+                <div class="act-content" id="act_day32"></div>
             </div>
             <div class="weeka">
                 <div class="weekdate" id="day4"></div>
-                <div class="act-content"></div>
-                <div class="act-content"></div>
+                <div class="act-content" id="act_day41"></div>
+                <div class="act-content" id="act_day42"></div>
             </div>
             <div class="weeka">
                 <div class="weekdate" id="day5"></div>
-                <div class="act-content"></div>
-                <div class="act-content"></div>
+                <div class="act-content" id="act_day51"></div>
+                <div class="act-content" id="act_day52"></div>
             </div>
             <div class="weeka">
                 <div class="weekdate" id="day6"></div>
-                <div class="act-content"></div>
-                <div class="act-content"></div>
+                <div class="act-content" id="act_day61"></div>
+                <div class="act-content" id="act_day62"></div>
             </div>
             <div class="weeka" style="margin-right:0px">
                 <div class="weekdate" id="day7"></div>
-                <div class="act-content"></div>
-                <div class="act-content"></div>
+                <div class="act-content" id="act_day71"></div>
+                <div class="act-content" id="act_day72"></div>
             </div>
         </div>
 	</div>

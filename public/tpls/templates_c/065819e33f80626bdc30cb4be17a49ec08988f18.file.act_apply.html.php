@@ -1,31 +1,29 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 12:31:35
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 21:58:24
          compiled from "./tpls/templates\act_apply.html" */ ?>
-<?php /*%%SmartyHeaderCode:32519519508a9626018-92933531%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:226025177bcd4242042-40208521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1368764990,
+      1 => 1368712682,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '32519519508a9626018-92933531',
+  'nocache_hash' => '226025177bcd4242042-40208521',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519508a969549',
+  'unifunc' => 'content_5177bcd42e277',
   'variables' => 
   array (
-    'faculty_list' => 0,
-    'faculty' => 0,
     'act_id' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519508a969549')) {function content_519508a969549($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5177bcd42e277')) {function content_5177bcd42e277($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -199,18 +197,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<div class="controls-n">
                     	<input name="faculty_select" type="radio" value="false" onclick="hide_faculty()" checked /><label>否</label>
                         <input name="faculty_select" type="radio" value="true" onclick="show_faculty()" /><label>是</label>
-                        <lable>(只允许打钩的院系志愿者参加)</label>
 					</div>
                     <div id="faculty_choose">
-                   	<?php  $_smarty_tpl->tpl_vars['faculty'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['faculty']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['faculty_list']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['faculty']->key => $_smarty_tpl->tpl_vars['faculty']->value){
-$_smarty_tpl->tpl_vars['faculty']->_loop = true;
-?>
-						<div style="height:30px;"><input type="checkbox" value="<?php echo $_smarty_tpl->tpl_vars['faculty']->value['name'];?>
-" name="faculty_choose"><label><?php echo $_smarty_tpl->tpl_vars['faculty']->value['name'];?>
-<label></div>
-					<?php } ?>
+                    	caocaocao
                     </div>
 				</div>
 				<div class="control-group">
@@ -246,7 +235,7 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
                 <div class="control-group">
 					<label class="control-label">其他要求</label>
 					<div class="controls-n">
-                    	<textarea name="other_com" id="other_com" class="other_com" cols="23" rows="5" style="resize:none" placeholder="热情 大方 善于交流等"></textarea>
+                    	<textarea name="other_com" class="other_com" cols="23" rows="5" style="resize:none" placeholder="热情 大方 善于交流等"></textarea>
 					</div>
                     <div id="en_choose">
                     </div>
