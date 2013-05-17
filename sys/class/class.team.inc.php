@@ -28,6 +28,37 @@ class Team extends DB_Connect {
 		$result=mysql_fetch_array($select);
 		return $result;
 	}
+	public function fetch_department_info()
+	{
+		$query="select * from team where layer = '0'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		while ($result=mysql_fetch_assoc($select))
+		{
+			$query_num="select * from apply_team where team_id='".$result['id']."' and state= '1'";
+			$num=mysql_query($query_num,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			$count=0;
+			while ($row=mysql_fetch_assoc($num))
+				$count++;
+			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan'],"cal"=>$result['cal']);
+		}
+		return $team_info;
+	}
+	
+	public function fetch_other_info()
+	{
+		$query="select * from team where layer != '0'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		while ($result=mysql_fetch_assoc($select))
+		{
+			$query_num="select * from apply_team where team_id='".$result['id']."' and state=1";
+			$num=mysql_query($query_num,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			$count=0;
+			while ($row=mysql_fetch_assoc($num))
+				$count ++;
+			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan'],"cal"=>$result['cal']);
+		}
+		return $team_info;
+	}
 	public function fetch_leader($id)
 	{
 		$query="select u.* from team t,user_info u where t.id='".$id."' and leader=u.id";

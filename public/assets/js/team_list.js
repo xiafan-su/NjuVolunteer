@@ -1,6 +1,5 @@
 // JavaScript Document
 var keyword="";
-var teamnum=9;
 var dtnum; //院系团队个数
 var otnum; //其它组织的团队个数
 var imgnum=5;
@@ -17,10 +16,6 @@ var tn_img=[
 $(document).ready(function(){
 	document.getElementById("switch").style.left="-960px";
 	$("#switch").html(tn_img[4]+tn_img[0]+tn_img[1]+tn_img[2]+tn_img[3]+tn_img[4]).show();
-	for(i=1;i<teamnum+1;i++){
-		stateshow(i);
-		statehide(i);
-	}
 	for(k=1;k<imgnum+1;k++){
 		imgstateshow(k);
 		imgstatehide(k);
@@ -77,16 +72,12 @@ function somelist(temp) {
 	}
 }
 function stateshow(temp){
-	$('#pic'+temp).mouseover(function(){
 		//$('#float_cover'+temp).fadeIn();
 		$('#float_state'+temp).fadeIn();
-	});
 }
 function statehide(temp){
-	$('#pic'+temp).mouseout(function(){
 		//$('#float_cover'+temp).fadeOut();
 		$('#float_state'+temp).fadeOut();
-	});
 }
 function imgstateshow(temp){
 	$('#tn-img-t'+temp).mouseover(function(){
