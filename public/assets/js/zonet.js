@@ -33,6 +33,7 @@ var zt_elem_doc_list = ".util_doc_list";//活动档案列表元素
 var zt_elem_doc_fold = ".util_doc_fold";//用于折叠、展开活动档案列表操作的元素
 //通知
 var zt_elem_note_row = ".note_table_row";
+var zt_elem_note_recv_act_select = "#note_recv_act_select";
 
 
 
@@ -48,9 +49,12 @@ var zt_func_doc_fold = function(elem){};
 //点击“收到的通知”/“发送的通知”的回调函数
 var zt_func_note_recv = function(){};
 var zt_func_note_sent = function(){};
+var zt_func_note_send = function(){};
 //以下函数在note.js中国实现
-var zt_func_note_read = function(){};
-var zt_func_note_sent = function(){};
+var nt_func_note_read = function(){};
+var nt_func_note_sent = function(){};//发送的通知
+//var nt_func_note_send = function(){};//发通知
+var nt_func_note_recv_act_select = function(){};
 
 
 //转换主副页面
@@ -119,17 +123,21 @@ zt_func_mem = function(html){
 
 zt_func_note_recv = function(html){
 	$(zt_elem_main_content).html(html);
-	$(zt_elem_note_row).bind( "click", zt_func_note_read );
+	$(zt_elem_note_row).bind( "click", nt_func_note_read );
 }
 zt_func_note_sent = function(html){
 	$(zt_elem_main_content).html(html);
-	$(zt_elem_note_row).bind( "click", zt_func_note_sent );
+	$(zt_elem_note_row).bind( "click", nt_func_note_sent );
+}
+zt_func_note_send = function(html){
+	$(zt_elem_main_content).html(html);
+	$(zt_elem_note_recv_act_select).bind( "change", nt_func_note_recv_act_select );
 }
 
 //注册点击事件
 register_click_event( $( zt_elem_start_act ), "发起的活动", zt_url_act, {type:"start"}, zt_func_start_act );
 register_click_event( $( zt_elem_finished_act ), "完成的活动", zt_url_act, {type:"finished"}, zt_func_finished_act );
-register_click_event( $( zt_elem_note_edit ), "发通知", zt_url_note_edit);
+register_click_event( $( zt_elem_note_edit ), "发通知", zt_url_note_edit, null, zt_func_note_send);
 register_click_event( $( zt_elem_note_recv ), "收到的通知", zt_url_note, {type:"recv"}, zt_func_note_recv );
 register_click_event( $( zt_elem_note_sent ), "发送的通知", zt_url_note, {type:"sent"}, zt_func_note_sent );
 register_click_event( $( zt_elem_mem ), "成员", zt_url_mem, null, zt_func_mem );

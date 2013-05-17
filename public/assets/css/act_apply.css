@@ -152,6 +152,9 @@ margin: 5px;  /* mk:marks */
 .controls-n input{
 	width:20px;	
 }
+#faculty_choose input{
+	width:20px;	
+}
 .text_area{
 	margin-left:5px;
 	width:205px;

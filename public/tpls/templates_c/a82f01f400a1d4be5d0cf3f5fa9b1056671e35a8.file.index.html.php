@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 00:06:47
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 01:13:18
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:210265194e28b87e8f8-72329459%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1368720308,
+      1 => 1368724396,
       2 => 'file',
     ),
   ),
@@ -100,12 +100,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="box-bar-right"></div>
     </div>
     <div class="data-statistics" id="data-statistics">
-    	<div>本网站访问次数：</div>
-        <div>注册团队总数：</div>
-        <div>注册志愿者总数：</div>
-        <div>累计举办活动总数：</div>
-        <div>正在进行中活动总数：</div>
-        <div>累计志愿者服务时间：</div>
+
     </div>
     <div class="volclaim" id="volclaim" onclick="hiddenit()">
     </div>

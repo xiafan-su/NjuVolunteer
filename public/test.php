@@ -19,7 +19,7 @@ include './include/header.php';
 //$vol_list[]=array('doc_id'=>'1','user_id'=>'101220126','base_time'=>'2','honor_time'=>'0.3','comment'=>'不错','performance_level'=>'良好');
 //$vol_list[]=array('doc_id'=>'2','user_id'=>'101220129','base_time'=>'2','honor_time'=>'0.3','comment'=>'不错','performance_level'=>'一般');
 //$t->register_voltime($vol_list);
-$s=new System();
+/*$s=new System();
 if ($s->send_note("101220129 101220125 101220128 ","大家好","我是来测试的","101220130"))
 echo "success";
 $t=new Team();
@@ -38,5 +38,20 @@ $select=$t->fetch_all_team();
 while ($result=mysql_fetch_assoc($select))
 {
 	echo $result['name']." ";
-}
+}*/
+$s=new System();
+$s->new_visitor();
+$s->fetch_visit_times();
+echo '</br>';
+$s->fetch_total_volunteers();
+echo '</br>';
+$s->fetch_total_activities();
+echo '</br>';
+$s->fetch_total_teams();
+echo '</br>';
+$s->fetch_total_teams();
+echo '</br>';
+$s->fetch_person_times();
+echo '</br>';
+$s->fetch_total_hours();
 ?>

@@ -8,25 +8,14 @@
 		<th>状态</th><th width="100px">身份</th>
 	</tr>
 
-	<tr>
-		<td><span title="点击查看该学生信息" class="studentNo">b101220105</span></td>
-		<td><a href="./zonev.php"  title="进入个人空间" target="_blank">谭琦存</a></td>
-		<td>男</td><td>15900000000</td>
-		<td>已审</td>
-		<td><span title="点击修改" class="clickable capacity">主席</span></td>
-	</tr>
-	<tr>
-		<td><span title="点击查看该学生信息" class="studentNo">b101220105</span></td>
-		<td><a href="./zonev.php"  title="进入个人空间" target="_blank">谭琦存</a></td>
-		<td>男</td><td>15900000001</td>
-		<td><span title="点击修改" class="clickable checkNode">未审</span></td>
-		<td><span title="点击修改" class="clickable capacity">主席</span></td>
-	</tr>
-	<tr>
-		<td><span title="点击查看该学生信息" class="studentNo">b101220105</span></td>
-		<td><a href="./zonev.php"  title="进入个人空间" target="_blank">谭琦存</a></td>
-		<td>男</td><td>15900000002</td>
-		<td><span title="点击修改" class="clickable checkNode">未审</span></td>
-		<td><span title="点击修改" class="clickable capacity">成员</span></td>
-	</tr>
+	<{section name=mem_index loop=$mem_list}>
+		<tr>
+			<td><span title="点击查看该学生信息" class="studentNo"><{$mem_list[mem_index].id}></span></td>
+			<td><a href="./zonev.php"  title="进入个人空间" target="_blank"><{$mem_list[mem_index].name}></a></td>
+			<td><{$mem_list[mem_index].gender}></td>
+			<td><{$mem_list[mem_index].tel}></td>
+			<td><{$mem_list[mem_index].state}></td>
+			<td><span title="点击修改" class="clickable capacity"><{$mem_list[mem_index].q}></span></td>
+		</tr>
+	<{/section}>
 </table>

@@ -171,9 +171,12 @@
 					<div class="controls-n">
                     	<input name="faculty_select" type="radio" value="false" onclick="hide_faculty()" checked /><label>否</label>
                         <input name="faculty_select" type="radio" value="true" onclick="show_faculty()" /><label>是</label>
+                        <lable>(只允许打钩的院系志愿者参加)</label>
 					</div>
                     <div id="faculty_choose">
-                    	caocaocao
+                   	<{foreach item=faculty from=$faculty_list}>
+						<div style="height:30px;"><input type="checkbox" value="<{$faculty.name}>" name="faculty_choose"><label><{$faculty.name}><label></div>
+					<{/foreach}>
                     </div>
 				</div>
 				<div class="control-group">
@@ -209,7 +212,7 @@
                 <div class="control-group">
 					<label class="control-label">其他要求</label>
 					<div class="controls-n">
-                    	<textarea name="other_com" class="other_com" cols="23" rows="5" style="resize:none" placeholder="热情 大方 善于交流等"></textarea>
+                    	<textarea name="other_com" id="other_com" class="other_com" cols="23" rows="5" style="resize:none" placeholder="热情 大方 善于交流等"></textarea>
 					</div>
                     <div id="en_choose">
                     </div>

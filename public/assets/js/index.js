@@ -1,3 +1,4 @@
+var nowloading="<div class=\"loading\"><img src=\"./assets/img/loading/loading.gif\"/></div>";
 var act=1;
 var flag=0;
 var topp=['-952px','-796px','-1088px','-887px'];
@@ -39,6 +40,16 @@ $(document).ready(function(){
 	$('#statistics').click(function(){
 		$('#data-statistics').show();
 		$('#data-statistics').animate({opacity:'1'});
+		$('#data-statistics').html(nowloading);
+		$.ajax({
+		type:"POST",
+		url:"./handle/statistics.php",
+		success:function(html){
+
+			$('#data-statistics').html(html);
+
+		}
+	});
 	});
 	$('#data-statistics').click(function(){
 		$('#data-statistics').animate({opacity:'0'},500);

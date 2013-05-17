@@ -1,3 +1,13 @@
-<div id="" class="">
-	团队空间右边的团队信息div
+
+
+
+<div id="" class="" style="margin: 0px 20px 20px">
+	<table>
+		<{section name=info_index loop=$info_list}>
+			<tr>
+				<th><{$info_list[info_index].name}></th>
+				<td><{$info_list[info_index].value}></td>
+			</tr>
+		<{/section}>
+	</table>
 </div>
