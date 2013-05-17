@@ -142,12 +142,23 @@ img{
 	height:200px;
 	overflow:hidden;
 }
-table th,table td{
+.per-info table th,.per-info table td{
 	background:rgb(225,225,225);
 	color:rgb(102,51,102);
 	text-align:left;
 	border:1px solid rgb(225,225,225);	
 }
-table{
+.per-info table{
 	border:1px solid rgb(225,225,225);
+}
+#table_activity{
+	margin:0 60px 0 60px;
+}
+#table_activity table{
+	border-radius:10px;
+}
+#table_activity table th,#table_activity table td{
+	color:#000;
+	border-collapse:collapse;
+	background:rgb(215,215,215);
 }

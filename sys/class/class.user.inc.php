@@ -20,6 +20,32 @@ class User extends DB_Connect {
 		$results=mysql_fetch_assoc($select);
 		return $results;
 	} 
+	
+	public function fetch_my_team($id)//获取个人的团队
+	{
+		$sql="SELECT team.id as TID,team.name as TNAME from apply_team,team where apply_team.state='1' and  team.id=apply_team.team_id         and   user_id='".$id."' ";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;
+	} 	
+	
+	public function fetch_my_follow($id)//获取关注的团队
+	{
+		$sql="SELECT team.id as TID,team.name as TNAME from follow,team where team.id=follow.teamid  and   follow.userid='".$id."' ";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;
+	} 	
+	
+	public function fetch_my_act($id)//获取参加的活动
+	{
+		$sql="select activity_info.id as AID,activity_info.name as ANAME from act_doc,act_record,activity_info  where act_doc.act_id=activity_info.id and act_record.doc_id=act_doc.id  and act_record.user_id='".$id."' ";
+		
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;
+	} 		
+	
+	
+	
+	
 	public function change_person_info($id,$name,$idcard_num,$gender,$email,$phone,$faculty,$birthday,$politics_status,$nation,$cloth_size,$dormitory,$cet4,$cet6,$language,$language_level,$drive,$medical,$other_skills)//修改个人资料
 	{
 		$sql="UPDATE user_info SET 
