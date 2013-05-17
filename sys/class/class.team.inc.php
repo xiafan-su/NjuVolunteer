@@ -349,27 +349,59 @@ class Team extends DB_Connect {
 		} 
 		return true;
 	}
-	public function register_voltime($record_list)//为这些志愿者录入服务记录,录入时只修改已存在的，不进行添加。
+	public function edit_voltime($doc_id,$record_list)//修改对应服务记录的时间，但不提交给系统，不修改个人信息，不进行通知和公示
 	{
 		foreach ($record_list as $record)
 		{
-			$sql="SELECT * FROM act_record WHERE doc_id='".$record['doc_id']."' and user_id='".$record['user_id']."'";
+			$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and user_id='".$record['user_id']."'";
 			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			$num_of_results=mysql_num_rows($select);
 			if ($num_of_results!=0)
 			{
-				$sql_update="UPDATE act_record SET base_time='".$record['base_time']."',honor_time='".$record['honor_time']."',comment='".$record['comment']."',performance_level='".$record['performance_level']."',honor_leader='".$record['honor_leader']."',honor_excellent='".$record['honor_excellent']."' WHERE doc_id='".$record['doc_id']."' and user_id='".$record['user_id']."'";
+				$honor_time=0;
+				if ($record['honor_excellent']==1)
+					$honor_time=$honor_time+$record['base_time']*0.15;
+				if ($record['honor_leader']==1)
+					$honor_time=$honor_time+$record['base_time']*0.15;//根据带队奖优秀奖计算荣誉
+				$sql_update="UPDATE act_record SET base_time='".$record['base_time']."',honor_time='".$honor_time."',comment='".$record['comment']."',performance_level='".$record['performance_level']."',honor_leader='".$record['honor_leader']."',honor_excellent='".$record['honor_excellent']."' WHERE doc_id='".$doc_id."' and user_id='".$record['user_id']."'";
 				if (!mysql_query($sql_update,$this->root_conn))
 				{
 					die('Error: ' . mysql_error());
 					return false;
 				}
-				$sql="SELECT i.name FROM act_doc d,activity_info i WHERE d.act_id=i.id";
+			}
+			
+		} 
+		return true;		
+	}
+	public function register_voltime($doc_id,$record_list)//确定将这些志愿者时间录入,进行通知和公示，录入时只修改已存在的，不进行添加。
+	{
+		foreach ($record_list as $record)
+		{
+			$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and user_id='".$record['user_id']."'";
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			$num_of_results=mysql_num_rows($select);
+			if ($num_of_results!=0)
+			{
+				$honor_time=0;
+				if ($record['honor_excellent']==1)
+					$honor_time=$honor_time+$record['base_time']*0.15;
+				if ($record['honor_leader']==1)
+					$honor_time=$honor_time+$record['base_time']*0.15;//根据带队奖优秀奖计算荣誉时间
+				$sql_update="UPDATE act_record SET base_time='".$record['base_time']."',honor_time='".$honor_time."',comment='".$record['comment']."',performance_level='".$record['performance_level']."',honor_leader='".$record['honor_leader']."',honor_excellent='".$record['honor_excellent']."',final='true' WHERE doc_id='".$doc_id."' and user_id='".$record['user_id']."'";//修改act_record表，修改后不再可以修改
+				if (!mysql_query($sql_update,$this->root_conn))
+				{
+					die('Error: ' . mysql_error());
+					return false;
+				}
+				$sql_update_user_info="UPDATE user_info SET base_time=base_time+'".$record['base_time']."',honor_time=honor_time+'".$honor_time."',volunteer_time=base_time+honor_time WHERE id='".$record['user_id']."'";//修改个人信息中的志愿时间
+				$select=mysql_query($sql_update_user_info,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+				$sql="SELECT i.name FROM act_doc d,activity_info i WHERE d.act_id=i.id";//获取活动名称，为了发送通知
 				$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 				$result=mysql_fetch_assoc($select);
-				$s=new System();
-				$time=$record['base_time']+$record['honor_time'];
-				$s->send_note($record['user_id'],"恭喜您获得".$time."小时服务时间","您参与的".$result['name']."活动成功完成了，获得了".$record['base_time']."小时基础时间，".$record['honor_time']."小时荣誉时间。具体请查看您的服务记录。");
+				$s=new System();//发送通知
+				$time=$record['base_time']+$honor_time;
+				$s->send_note($record['user_id'],"恭喜您获得".$time."小时服务时间","您参与的".$result['name']."活动成功完成了，获得了".$record['base_time']."小时基础时间，".$honor_time."小时荣誉时间。具体请查看您的服务记录。");
 			}
 			
 		} 
@@ -396,13 +428,23 @@ class Team extends DB_Connect {
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
-	public function fetch_my_fellows()//获取我的所有院系成员，返回数据集
+	public function fetch_my_fellows($faculty_id)//获取我的所有院系成员，返回数据集
 	{
-		$query="select u.* from user_info u,apply_team a where a.user_id=u.id and a.team_id='".$_SESSION[USER::USER][USER::FACULTY_ID]."' order by u.id";
+		$query="select u.*,a.state from user_info u,apply_team a where a.user_id=u.id and a.team_id='".$faculty_id."',a.state<>'2' order by u.id";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
-
-	
+	public function fetch_my_send_notes($team_id)//获取我发送的通知列表
+	{
+		$query="select * from note_send where sender_id='".$team_id."' order by date";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;		
+	}
+	public function fetch_my_send_note_detail($send_note_id)//获取我发送的某个具体通知
+	{
+		$query="select * from note_send where id='".$send_note_id."'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;		
+	}	
 }
 ?>
