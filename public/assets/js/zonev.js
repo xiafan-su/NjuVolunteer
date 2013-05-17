@@ -215,9 +215,29 @@ $("#change_profile").click(function(){
 });
 $("#my_team").click(function(){
 	$("#main_title").text("我的团队");
+	$("#main_content").html(nowloading);
+	$.ajax({
+		type:"POST",
+		url:"./handle/my_team.php",
+		success:function(html){
+			//alert(html);
+			
+			$("#main_content").html(html);
+		}
+	});
 });
 $("#my_focused_team").click(function(){
 	$("#main_title").text("关注的团队");
+	$("#main_content").html(nowloading);
+	$.ajax({
+		type:"POST",
+		url:"./handle/my_followteam.php",
+		success:function(html){
+			//alert(html);
+			
+			$("#main_content").html(html);
+		}
+	});
 });
 
 

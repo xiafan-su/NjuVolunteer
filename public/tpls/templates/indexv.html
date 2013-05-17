@@ -85,7 +85,7 @@
     
     <div id="table_for_activity" style="display:none;">
     	<br>
-        <table class="act_people_table">
+        <table class="act_people_table" border="1">
         <tr><th>活动名称</th><th>活动负责人</th></tr>
         <{foreach name=data item=act from=$apply}>
         <{if ($smarty.foreach.data.iteration % 2 == 0)}>
@@ -103,7 +103,7 @@
     
     <div id="table_for_team" style="display:none;">
     	<br>
-        <table class="act_people_table">
+        <table class="act_people_table" border="1">
         <tr><th>团队名称</th></tr>
         <{foreach item=follow from=$followlist}>
         <tr>

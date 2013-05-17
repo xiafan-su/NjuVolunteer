@@ -14,6 +14,7 @@
 <body>
 <{include file="include/header.html"}>
 
+<div id="team_id" style="display:none"><{$team_id}></div>
 <div class="main">
 	<div class="bar-top"></div>
     <div class="bar-top2"></div>
@@ -22,7 +23,7 @@
         	<div class="photo">
             	<img src="./assets/img/head_photo/boy/7.jpg"/>
             </div>
-            <div class="follow">
+            <div class="follow" id="followit">
             	关注这个团队
             </div>
         </div>
@@ -81,7 +82,7 @@
     </div>
 
     <div id="table_activity" style="display:none;">
-      	<table>
+      	<table border="1">
         <tr>
         	<th scope="col">活动名称</th>
         	<th scope="col">活动时间</th>
@@ -100,12 +101,10 @@
     </div>
     
     <div id="table_comment" style="display:none;">
-    <br>
-    <table>
+    <table border="1">
     	<th>评论人</th><th>评论内容</th>
     
     </table>
-    </br>
     </div>
     <div id="content">
     

@@ -14,6 +14,7 @@ $team=new Team();
 $leader=$team->fetch_leader($id);
 $team_name=$team->fetch_team_name($id);
 
+$tpl->assign("team_id",$team_name['id']);
 $tpl->assign("team_name",$team_name['name']);
 $tpl->assign("leader_name",$leader['name']);
 $tpl->assign("leader_email",$leader['email']);

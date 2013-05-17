@@ -17,7 +17,22 @@ $(document).ready(function(){
 		$('#table_comment').hide();
 		$('#table_activity').show();
 	});
-	
+	$('#followit').click(function(){
+		//alert($('#team_id').text());
+		$.ajax({
+			type:'POST',
+			data:{team_id:$('#team_id').val()},
+			url:"./handle/follow_team.php",
+			success:function(html){
+				if(html == 1){
+					$('#followit').html("关注这个团队");	
+				}
+				else if(html == 0){
+					$('#followit').html("取消关注这个团队");
+				}
+			}
+		});
+	});
 });
 
 function scrollit(){

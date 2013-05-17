@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 18:52:00
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 20:50:20
          compiled from "./tpls/templates\indext.html" */ ?>
 <?php /*%%SmartyHeaderCode:297785195fbfbe842c4-34934656%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fcc6fe68a9e41e4d9da946fded2039d0b9e628f0' => 
     array (
       0 => './tpls/templates\\indext.html',
-      1 => 1368787773,
+      1 => 1368794987,
       2 => 'file',
     ),
   ),
@@ -19,6 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_5195fbfc0e0e6',
   'variables' => 
   array (
+    'team_id' => 0,
     'team_name' => 0,
     'leader_name' => 0,
     'all_act_num' => 0,
@@ -47,6 +48,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 
+<div id="team_id" style="display:none"><?php echo $_smarty_tpl->tpl_vars['team_id']->value;?>
+</div>
 <div class="main">
 	<div class="bar-top"></div>
     <div class="bar-top2"></div>
@@ -55,7 +58,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         	<div class="photo">
             	<img src="./assets/img/head_photo/boy/7.jpg"/>
             </div>
-            <div class="follow">
+            <div class="follow" id="followit">
             	关注这个团队
             </div>
         </div>
@@ -120,7 +123,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     </div>
 
     <div id="table_activity" style="display:none;">
-      	<table>
+      	<table border="1">
         <tr>
         	<th scope="col">活动名称</th>
         	<th scope="col">活动时间</th>
@@ -149,12 +152,10 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
     </div>
     
     <div id="table_comment" style="display:none;">
-    <br>
-    <table>
+    <table border="1">
     	<th>评论人</th><th>评论内容</th>
     
     </table>
-    </br>
     </div>
     <div id="content">
     
