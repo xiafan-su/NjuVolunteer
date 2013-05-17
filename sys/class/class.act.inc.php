@@ -92,7 +92,7 @@ class Act extends DB_Connect {
 		}
 		return $comment_info;
 	}
-	public function attachment($act_id,$filename)
+	public function attachment($act_id,$filename)//活动申请时候，上传附件
 	{
 		$query="UPDATE activity_info SET plan_url='".$filename."' WHERE id='".$act_id."'";
 		if(!mysql_query($query,$this->root_conn))
@@ -103,6 +103,22 @@ class Act extends DB_Connect {
 		{
 			return true;
 		}
+	}
+	public function upload_pic($act_id,$filename)//活动详细页面，上传照片
+	{
+		$query="INSERT INTO photos(act_id,pic_name,time) VALUES('".$act_id."','".$filename."','".date('Y-m-d H:i:s',time())."')";
+		if(!mysql_query($query,$this->root_conn))
+		{
+			die('Error: ' . mysql_error());
+			return false; 
+		}
+		$query="INSERT INTO 3d_data(time,url) VALUES('".date('Y-m-d H:i:s',time())."','".$filename."')";
+		if(!mysql_query($query,$this->root_conn))
+		{
+			die('Error: ' . mysql_error());
+			return false; 
+		}
+		return true;
 	}
 	public function create_new_act()
 	{

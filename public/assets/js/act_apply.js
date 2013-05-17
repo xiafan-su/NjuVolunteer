@@ -28,7 +28,7 @@ var cur_state,preview_flag=0;
 function check_before_submit(){
 	
 }
-var plan_url=123;
+
 $(document).ready(function(){
 	//alert("ready");
 	jQuery(function($){
