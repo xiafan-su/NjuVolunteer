@@ -62,7 +62,8 @@ $vol_list[]=array('user_id'=>'101220129','base_time'=>'2','honor_leader'=>'1','h
 //$t->edit_voltime(8,$vol_list);
 $t->register_voltime(8,$vol_list);*/
 $t=new Team();
-$t->delete_doc(8);
+$recv_list=$t->fetch_my_send_note_detail(1);
+echo $recv_list['content'];
 //$select=$t->fetch_my_send_notes(101220130);
 //$result=mysql_fetch_assoc($select);
 //echo $result['content'];

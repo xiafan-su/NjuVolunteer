@@ -140,6 +140,13 @@ class Act extends DB_Connect {
 		$offer_num			=0;
 		$begin_time=$begin_time." 00:00:0";
 		$end_time=$end_time." 00:00:0";
+		$deadline=$deadline." 00:00:0";
+		if ($total_num==NULL)
+			$total_num=0;
+		if ($responser_tel==NULL)
+			$responser_tel=0;		
+		if ($last_time==NULL)
+			$last_time=0;		
 		$update="
 			UPDATE activity_info SET name='".$name."',place='".$place."',time_type='".$time_type."',attribution_type='".$attribution_type."',
 			detail_time='".$detail_time."',total_num='".$total_num."',need_audit='".$need_audit."',
@@ -197,14 +204,27 @@ class Act extends DB_Connect {
 	}
 	public function participate($activity_id){
 		$user_id=$_SESSION[USER::USER][USER::ID];
-		$sql="SELECT need_audit FROM activity_info WHERE id='".$activity_id."'";
+		
+		$sql="SELECT * FROM activity_info WHERE id='".$activity_id."'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
-		$result=mysql_fetch_assoc($select);
+		$act_info=mysql_fetch_assoc($select);//获取活动的信息
+		
+		$sql="SELECT * FROM user_info WHERE id='".$user_id."'";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		$user_info=mysql_fetch_assoc($select);//获取个人的信息
+		$flag=1;
+		if ($user_info['cet4']<$act_info['cet4'] && $user_info['cet6']<$act_info['cet6'])
+			$flag=0;
+		if ($act_info['faculty_limit']!=NULL && strpos("hehe".$act_info['faculty_limit'],$user_info['faculty'])==FALSE)
+			$flag=0;
+		if ($flag==0) return false;
 		$status=1;
 		if ($result['need_audit']=='false')
 			$status='1';
 		else
 			$status='0';
+		$sql="SELECT * FROM user_info WHERE id='".$user_id."'";
+		
 		$query="INSERT INTO apply_act(user_id,act_id,state,time) VALUES ('".$user_id."','".$activity_id."','".$status."','".date('Y-m-d H:i:s',time())."')";
 		if (!mysql_query($query,$this->root_conn))
 		{ 
