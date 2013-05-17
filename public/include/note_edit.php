@@ -34,7 +34,7 @@ while( $act_row = mysql_fetch_array( $act_info ) ){
 $tpl->assign( "act_list", $act_list );
 //成员
 $mem_list = array();
-$mem_info = $team->fetch_my_fellows();
+$mem_info = $team->fetch_my_fellows($_SESSION[USER::USER][USER::FACULTY_ID]);
 while( $mem_row = mysql_fetch_array( $mem_info ) ){
 	$mem_list[] = array(
 		"id" => 	$mem_row['id'],

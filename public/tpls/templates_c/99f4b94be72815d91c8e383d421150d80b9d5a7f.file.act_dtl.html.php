@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-16 18:53:27
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 15:07:21
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:91615177d2ae9126f8-24185650%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368701284,
+      1 => 1368706814,
       2 => 'file',
     ),
   ),
@@ -45,8 +45,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <link href="./assets/css/login.css" rel="stylesheet" />
 <link href="./assets/css/act_dtl.css" rel="stylesheet" />
 <link href="./assets/css/dropzone.css" rel="stylesheet" />
-
-
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/kindeditor-min.js"></script>
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/lang/zh_CN.js"></script>
 <link href="./plugin/jquery-fileuploader-php-master/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
@@ -164,6 +162,8 @@ $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
                 </div>
                 <div class="comment-content">
                 	<span><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['content'];?>
+</span>
+                    <span class="name-used" style="display:none"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
 </span>
                     <span class="name-used" style="display:none"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['name'];?>
 </span>

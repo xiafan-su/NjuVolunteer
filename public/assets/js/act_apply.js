@@ -256,7 +256,7 @@ function submit_click()
 	//alert(faculty_limit);
 	$.ajax({
 		type:"POST",
-		data:{id:act_id,activity_name:$('#activity_name').val(),activity_place:$("#activity_place").val(),time_type:$('#time_type').val(),attribution_type:$('#attribution_type').val(),begin_time:$('#begin_time').val(),end_time:$('#end_time').val(),deadline:$('#deadline').val(),detail_time:$('#detail_time').val(),total_num:$('#total_num').val(),need_audit:$('#need_audit').val(),responser:$('#responser').val(),responser_tel:$('#responser_tel').val(),last_time:$('#last_time').val(),activity_profile:profile,state:cur_state,weekday_time:Weekday_time,other_language:$("#other_language").val(),other_com:document.getElementById('other_com').value,faculty_limit:faculty_limit,cet4:$('#cet4').val(),cet6:$('#cet6').val()},
+		data:{id:act_id,activity_name:$('#activity_name').val(),activity_place:$("#activity_place").val(),time_type:$('#time_type').val(),attribution_type:$('#attribution_type').val(),begin_time:$('#begin_time').val(),end_time:$('#end_time').val(),deadline:$('#deadline').val(),detail_time:$('#detail_time').val(),total_num:$('#total_num').val(),need_audit:$('#need_audit').val(),responser:$('#responser').val(),responser_tel:$('#responser_tel').val(),last_time:$('#last_time').val(),activity_profile:profile,state:cur_state,weekday_time:Weekday_time,other_language:$("#other_language").val(),faculty_limit:faculty_limit,cet4:$('#cet4').val(),cet6:$('#cet6').val()},
 		url:"./handle/act_apply.php",
 		success:function(html){
 		//alert(html);

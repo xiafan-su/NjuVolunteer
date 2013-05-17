@@ -3,8 +3,8 @@ $_BASE_PATH = "../../";
 $_SMARTY_ROOT="../tpls";
 include_once '../../sys/core/init.inc.php';
 
-
-$tid=$_POST['teamid'];
+$tid=$_POST['cteam'];
+//$tid=$_POST['teamid'];
 $pwd=$_POST['password'];
 
  $a=new Admin();

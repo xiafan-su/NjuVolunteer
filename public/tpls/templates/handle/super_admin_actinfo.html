@@ -1,1 +1,17 @@
 目前所有的活动个数是：<{$num}>
+
+
+<{foreach item=if from=$all_listinfo}>
+<div>
+     
+   		<div class="hiden-msg">
+        	团队名:<{$if.name}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            团队人数:<{$if.people}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            团队举办活动数:<{$if.act}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            团队举办活动参与人次:<{$if.apn}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            团队举办活动参与总时间:<{$if.time}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div> 
+            
+    
+</div>
+<{/foreach}>

@@ -7,7 +7,7 @@ include_once '../../sys/core/init.inc.php';
 
 $mem_list = array();
 $team = new Team();
-$mem_info = $team->fetch_my_fellows();
+$mem_info = $team->fetch_my_fellows($_SESSION[USER::USER][USER::FACULTY_ID]);
 while( $mem_row = mysql_fetch_array( $mem_info ) ){
 	$mem_list[] = array(
 			"id"=>$mem_row['id'],
