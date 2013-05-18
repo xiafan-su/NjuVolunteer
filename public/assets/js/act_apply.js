@@ -1,15 +1,15 @@
 
 function show_en(){
-	$('#en_choose').slideDown();
+	$('#en_choose').show();
 }
 function hide_en(){
-	$('#en_choose').slideUp();	
+	$('#en_choose').hide();	
 }
 function show_faculty(){
-	$('#faculty_choose').slideDown();	
+	$('#faculty_choose').show();	
 }
 function hide_faculty(){
-	$('#faculty_choose').slideUp();	
+	$('#faculty_choose').hide();	
 }
 var editor;
 KindEditor.ready(function(K) {
