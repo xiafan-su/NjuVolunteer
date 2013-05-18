@@ -64,6 +64,7 @@ if( isset($_POST['documentId']) ) {
 				"comment"=>	$part_row[ 'comment' ],
 				"commentlength"=> strlen($part_row[ 'comment' ])
 			);
+			//echo "#2323#".$part_row[ 'base_time' ];
 	}
 }
 $tpl->assign( "part_doc_list", $part_doc_list );

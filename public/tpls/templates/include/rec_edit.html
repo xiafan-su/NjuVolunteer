@@ -3,7 +3,7 @@
 
 <div id="" class="" style="margin: 0px 20px">
 	
-	<span id="show_activity_text" class="">更新</span>时间：<{$update_time}>
+	<!-- <span id="show_activity_text" class="">更新</span>时间：<{$update_time}> -->
 	<h2><{$activity_name}></h2>
 
 	<div id="base">
@@ -73,34 +73,34 @@
 				<{if $is_finished}> disabled="true" <{/if}>
 				/></td>
 				<td>
-					<span noid="<{$part_doc_list[part_doc_index].id}>" title="点击查看该学生信息" ><{$part_doc_list[part_doc_index].id}></span>
+					<span class="clickable" onclick="popup_volunteer_info(<{$part_doc_list[part_doc_index].id}>);" noid="<{$part_doc_list[part_doc_index].id}>" title="点击查看该学生信息" ><{$part_doc_list[part_doc_index].id}></span>
 				</td>
 				<td><{$part_doc_list[part_doc_index].name}></td>
 				<td><{$part_doc_list[part_doc_index].faculty}></td>
 				<td>
-					<span title="点击修改" class="doc_time"  onclick = "change_doc_time_handle(this, 1)"                id="doc_time_<{$part_doc_list[part_doc_index].id}>"><{$part_doc_list[part_doc_index].time}></span>
+					<span class="doc_time" <{if !$is_finished}>title="点击修改"  onclick = "change_doc_time_handle(this, 1)"                id="doc_time_<{$part_doc_list[part_doc_index].id}>" <{/if}> ><{$part_doc_list[part_doc_index].time}></span>
 					<span class="" style="display: none; white-space:nowrap;" id="doc_time_set_<{$part_doc_list[part_doc_index].id}>">
 							<input type="text" value="<{$part_doc_list[part_doc_index].time}>" uid="<{$part_doc_list[part_doc_index].id}>" onblur="change_doc_time_handle(this, 2)" />
 					</span> 
 				</td>
 				<td>
-					<span title="点击修改" class="doc_level"  id="doc_level_<{$part_doc_list[part_doc_index].id}>" onclick="change_doc_level_handle(this, 1);" ><{$part_doc_list[part_doc_index].level}></span>
+					<span class="doc_level" id="doc_level_<{$part_doc_list[part_doc_index].id}>" <{if !$is_finished}>  title="点击修改"   onclick="change_doc_level_handle(this, 1);" <{/if}> ><{$part_doc_list[part_doc_index].level}></span>
 					<span class="" style="display: none; white-space:nowrap;" id="doc_level_set_<{$part_doc_list[part_doc_index].id}>">
 						<select name="doc_level_select" id="doc_level_select_<{$part_doc_list[part_doc_index].id}>" onblur="change_doc_level_handle(this, 2)">
-							<option name="一般" value="一般">一般</option>
-							<option  name="良好" value="良好">良好</option>
-							<option name="优秀"  value="优秀">优秀</option>
+							<option id="option_level_1" name="一般" value="一般" <{if $part_doc_list[part_doc_index].level == "一般"}>selected="true"<{/if}> >一般</option>
+							<option  id="option_level_2" name="良好" value="良好" <{if $part_doc_list[part_doc_index].level == "良好"}>selected="true" "<{/if}> >良好</option>
+							<option id="option_level_3" name="优秀"  value="优秀" <{if $part_doc_list[part_doc_index].level == "优秀"}>selected="true" "<{/if}> >优秀</option>
 						</select>
 					</span>
 				</td>
 				<td>
-					<input onclick="change_doc_honnor_leader_handle(this, 1);"  type="checkbox"  <{if $is_finished}> disabled="true" <{/if}> id="doc_checkbox_leader_<{$part_doc_list[part_doc_index].id}>" <{if $part_doc_list[part_doc_index].honor_leader == 1}> checked="checked" <{/if}>  title="荣获带队奖的志愿者将获得额外的志愿时间" />
+					<input   type="checkbox"  <{if !$is_finished}>  onclick="change_doc_honnor_leader_handle(this, 1);"<{else}>disabled="true" <{/if}> id="doc_checkbox_leader_<{$part_doc_list[part_doc_index].id}>" <{if $part_doc_list[part_doc_index].honor_leader == 1}> checked="checked" <{/if}>  title="荣获带队奖的志愿者将获得额外的志愿时间" />
 				</td>
 				<td>
-					<input onclick="change_doc_honnor_leader_handle(this, 2);"  type="checkbox"    <{if $is_finished}> disabled="true" <{/if}> id="doc_checkbox_excellent_<{$part_doc_list[part_doc_index].id}>"  <{if $part_doc_list[part_doc_index].honor_excellent == 1}> checked="checked" <{/if}>   title="荣获优秀奖的志愿者将获得额外的志愿时间" />
+					<input  type="checkbox" <{if !$is_finished}> onclick="change_doc_honnor_leader_handle(this, 2);" <{else}> disabled="true" <{/if}> id="doc_checkbox_excellent_<{$part_doc_list[part_doc_index].id}>"  <{if $part_doc_list[part_doc_index].honor_excellent == 1}> checked="checked" <{/if}>   title="荣获优秀奖的志愿者将获得额外的志愿时间" />
 				</td>
-				<td title="点击修改">
-					<span id="doc_comment_<{$part_doc_list[part_doc_index].id}>" onclick="change_doc_comment_handle(this, 1)"> 
+				<td>
+					<span id="doc_comment_<{$part_doc_list[part_doc_index].id}>"  <{if !$is_finished}>  title="点击修改" onclick="change_doc_comment_handle(this, 1)"  <{/if}> > 
 						<{if $part_doc_list[part_doc_index].commentlength == 0}>无
 						<{else}><{$part_doc_list[part_doc_index].comment}>
 						<{/if}>
@@ -124,7 +124,7 @@
 			<span class="" style="color:red; ">注意：1.表中的修改将对选择的志愿者做同样的操作。2.修改后必须点击“确定”才有效！</span>
 			<span class="" style="color:black; cursor:pointer" onclick="javascript:$(this).parent().toggle(200);">知道了</span>
 		</div>
-		<input type="button" class="button" value="导入" title="从活动报名表导入" id="doc_op_import" actid="<{$actId}>"  docid="<{$docId}>"   />
+		<input type="button" class="button" value="导入"  id="doc_op_import" actid="<{$actId}>"  docid="<{$docId}>" <{if $docId == -1}>disabled="true" title="您必须点击“保存”后才能进行此操作" <{else}>title="从活动报名表导入" <{/if}>  />
 		<input type="button" class="button" value="移除" title="请先勾选要移除的志愿者" id="doc_op_remove" docid="<{$docId}>" disabled="true"    />
 		<input onclick="doc_edit_submit_handle(this);" type="button" class="button" value="确定" title="您还没有修改任何内容" id="doc_op_modify" docid="<{$docId}>" disabled="true"   />
 		<{/if}>
@@ -158,9 +158,13 @@
 		</table>
 	</div>
 <{if !$is_finished}>
-	<input type="button" class="button" value="保存" id="submit_act_doc" />
-	<input type="button" class="button" value="删除" id="delete_act_doc" docid="<{$docId}>" />
+	<input type="button" class="button" value="保存" title="保存活动记录" id="submit_act_doc" />
+	<input type="button" class="button" value="删除" title="删除该活动" id="delete_act_doc" docid="<{$docId}>" />
 	<input type="button" class="button" value="提交" title="提交您所做的修改，提交后志愿时间将会公示一周，并且除非有异议不得再修改" id="doc_op_submit" docid="<{$docId}>" onclick="javascript: submit_doc(this);"/>
+<{else}>
+	<input type="button" class="button" disabled="true" value="保存" title="不满足条件，无法保存" id="" />
+	<input type="button" class="button" disabled="true" value="删除"title="该活动已经提交，无法删除"  id="" docid="<{$docId}>" />
+	<input type="button" class="button" disabled="true" value="提交" title="该活动已经提交" id="" docid="<{$docId}>" />
 <{/if}>
 	<input type="button" class="button" value="返回" id="go_back_home" />
 

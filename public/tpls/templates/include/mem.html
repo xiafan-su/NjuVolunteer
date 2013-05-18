@@ -1,6 +1,7 @@
 
 
-
+<div id="" class="" style="margin: 0 20px 10px;">
+	
 <table>
 	<tr>
 		<th>学号</th><th>姓名</th>
@@ -14,8 +15,35 @@
 			<td><a href="./zonev.php"  title="进入个人空间" target="_blank"><{$mem_list[mem_index].name}></a></td>
 			<td><{$mem_list[mem_index].gender}></td>
 			<td><{$mem_list[mem_index].tel}></td>
-			<td><{$mem_list[mem_index].state}></td>
-			<td><span title="点击修改" class="clickable capacity"><{$mem_list[mem_index].q}></span></td>
+			<td>
+				<{if $mem_list[mem_index].state == 0}>
+				<span class="" onclick="turn_to_set_mem_state(this);" style="cursor:pointer" change="1" title="点击修改">审核中</span>
+				<span class="" style="display: none; white-space:nowrap;" >
+					<select name="" uid="<{$mem_list[mem_index].id}>" >
+						<option value="0" selected="true">审核中</option>
+						<option value="1" >通过</option>
+						<option value="2" >退回</option>
+					</select>
+					<span class="" onclick="mem_state_handle(this)" style="cursor:pointer" >确定</span>
+				</span>
+				<{elseif $mem_list[mem_index].state == 1}>
+				<span class="">通过</span>
+				<{/if}>
+			</td>
+			<td>
+				<span title="点击修改" class="clickable " onclick="turn_to_set_mem_position(this);"><{$mem_list[mem_index].q}></span>
+				<span class="" style="display: none; white-space:nowrap;" >
+					<select name="" uid="<{$mem_list[mem_index].id}>" >
+						<option value="0" <{if $mem_list[mem_index].q == "主席"}>selected="true"<{/if}>>主席</option>
+						<option value="1" <{if $mem_list[mem_index].q == "副主席"}>selected="true"<{/if}>>副主席</option>
+						<option value="2" <{if $mem_list[mem_index].q == "成员"}>selected="true"<{/if}>>成员</option>
+					</select>
+					<span class=""onclick="mem_position_handle(this)" style="cursor:pointer" onclick="mem_position_handle(this)" >确定</span>
+				</span>
+			</td>
 		</tr>
 	<{/section}>
 </table>
+
+
+</div>
