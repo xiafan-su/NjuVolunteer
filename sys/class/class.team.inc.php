@@ -470,6 +470,7 @@ class Team extends DB_Connect {
 		foreach ($recv_list as $value)
 		{
 			$sql="SELECT id,name FROM user_info WHERE id='".$value."'";
+			$recv_name_list=NULL;
 			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			$num_of_results=mysql_num_rows($select);
 			if ($num_of_results!=0)
