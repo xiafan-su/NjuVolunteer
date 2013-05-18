@@ -384,37 +384,35 @@ class Team extends DB_Connect {
 		} 
 		return true;		
 	}
-	public function register_voltime($doc_id,$record_list)//确定将这些志愿者时间录入,进行通知和公示，录入时只修改已存在的，不进行添加。
+	public function register_voltime($doc_id)//确定将这些志愿者时间录入,进行通知和公示，录入时只修改已存在的，不进行添加。
 	{
 		$sql="UPDATE act_doc SET state='final' WHERE id='".$doc_id."'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);//提交后，活动档案将不再能够修改
-		foreach ($record_list as $record)
+
+		$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."'";
+		$select1=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		while ($record=mysql_fetch_assoc($select1))
 		{
-			$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and user_id='".$record['user_id']."'";
-			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-			$num_of_results=mysql_num_rows($select);
-			if ($num_of_results!=0)
+			$honor_time=0;
+			if ($record['honor_excellent']==1)
+				$honor_time=$honor_time+$record['base_time']*0.15;
+			if ($record['honor_leader']==1)
+				$honor_time=$honor_time+$record['base_time']*0.15;//根据带队奖优秀奖计算荣誉间
+			$sql_update="UPDATE act_record SET final='true' WHERE doc_id='".$doc_id."' and user_id='".$record['user_id']."'";//修改act_record表，修改后不再可以修改
+			if (!mysql_query($sql_update,$this->root_conn))
 			{
-				$honor_time=0;
-				if ($record['honor_excellent']==1)
-					$honor_time=$honor_time+$record['base_time']*0.15;
-				if ($record['honor_leader']==1)
-					$honor_time=$honor_time+$record['base_time']*0.15;//根据带队奖优秀奖计算荣誉时间
-				$sql_update="UPDATE act_record SET base_time='".$record['base_time']."',honor_time='".$honor_time."',comment='".$record['comment']."',performance_level='".$record['performance_level']."',honor_leader='".$record['honor_leader']."',honor_excellent='".$record['honor_excellent']."',final='true' WHERE doc_id='".$doc_id."' and user_id='".$record['user_id']."'";//修改act_record表，修改后不再可以修改
-				if (!mysql_query($sql_update,$this->root_conn))
-				{
-					die('Error: ' . mysql_error());
-					return false;
-				}
-				$sql_update_user_info="UPDATE user_info SET base_time=base_time+'".$record['base_time']."',honor_time=honor_time+'".$honor_time."',volunteer_time=base_time+honor_time WHERE id='".$record['user_id']."'";//修改个人信息中的志愿时间
-				$select=mysql_query($sql_update_user_info,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-				$sql="SELECT i.name FROM act_doc d,activity_info i WHERE d.act_id=i.id";//获取活动名称，为了发送通知
-				$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-				$result=mysql_fetch_assoc($select);
-				$s=new System();//发送通知
-				$time=$record['base_time']+$honor_time;
-				$s->send_note($record['user_id'],"恭喜您获得".$time."小时服务时间","您参与的".$result['name']."活动成功完成了，获得了".$record['base_time']."小时基础时间，".$honor_time."小时荣誉时间。具体请查看您的服务记录。");
+				die('Error: ' . mysql_error());
+				return false;
 			}
+			$sql_update_user_info="UPDATE user_info SET base_time=base_time+'".$record['base_time']."',honor_time=honor_time+'".$honor_time."',volunteer_time=base_time+honor_time WHERE id='".$record['user_id']."'";//修改个人信息中的志愿时间
+			$select=mysql_query($sql_update_user_info,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			$sql="SELECT i.name FROM act_doc d,activity_info i WHERE d.act_id=i.id";//获取活动名称，为了发送通知
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			$result=mysql_fetch_assoc($select);
+			$s=new System();//发送通知
+			$time=$record['base_time']+$honor_time;
+			$s->send_note($record['user_id'],"恭喜您获得".$time."小时服务时间","您参与的".$result['name']."活动成功完成了，获得了".$record['base_time']."小时基础时间，".$honor_time."小时荣誉时间。具体请查看您的服务记录。");
+		
 			
 		} 
 		return true;
@@ -436,13 +434,13 @@ class Team extends DB_Connect {
 	
 	public function fetch_apply_doc_volunteer($doc_id)//报名情况
 	{
-		$query="select * from act_record,user_info where doc_id = '".$doc_id."' and act_record.user_id=user_info.id";
+		$query="select user_info.name,user_info.faculty,act_record.* from act_record,user_info where doc_id = '".$doc_id."' and act_record.user_id=user_info.id";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
 	public function fetch_my_fellows($faculty_id)//获取我的所有院系成员，返回数据集
 	{
-		$query="select u.*,a.state from user_info u,apply_team a where a.user_id=u.id and a.team_id='".$faculty_id."' and a.state<>'2' order by u.id";
+		$query="select u.*,a.state,a.position from user_info u,apply_team a where a.user_id=u.id and a.team_id='".$faculty_id."' and a.state<>'2' order by u.id";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
@@ -489,5 +487,37 @@ class Team extends DB_Connect {
 		$recv_id_list=mysql_fetch_assoc($select);
 		return $recv_id_list;
 	}
+	//点成员姓名后进入的页面
+	public function fetch_my_fellow_detail_info($user_id)//获取成员的基本资料
+	{
+		$sql="SELECT id,name,grade,faculty,phone FROM user_info WHERE id='".$user_id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result;
+	}
+	public function fetch_my_fellow_position($user_id)//获取他的职位
+	{
+		$sql="SELECT t.name,a.position FROM apply_team a,team t WHERE a.user_id='".$user_id."' and a.team_id=t.id and a.state='1'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;
+	}
+	public function fetch_my_fellow_record($user_id)//获取他的活动记录
+	{
+		$sql="SELECT r.*,i.name,d.date FROM act_record r,act_doc d,activity_info i WHERE r.user_id='".$user_id."' and r.final='true' and r.doc_id=d.id and d.act_id=i.id";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;		
+	}
+	public function edit_my_fellow_position($user_id,$position)//修改成员的身份
+	{
+		$sql="UPDATE apply_team SET position='".$position."' WHERE user_id='".$user_id."' and state='1'";
+		if(!mysql_query($sql,$this->root_conn))
+		{
+			die('ERROR'.mysql_error());
+			return false;
+		}
+		return true;
+				
+	}
 }
 ?>
+

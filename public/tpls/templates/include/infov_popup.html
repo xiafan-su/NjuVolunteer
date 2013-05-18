@@ -1,3 +1,30 @@
+
+
 <div id="" class="">
-	弹出个人信息窗口div
+	
+<table>
+<tr><th>学号</th><th>姓名</th><th>年级</th><th>院系</th><th>联系方式</th></tr>
+<tr><td><{$uid}></td><td><{$uname}></td><td><{$ugrade}></td><td><{$ufaculty}></td><td><{$uphone}></td></tr>
+</table>
+<table>
+	<tr><th>参加的组织</th><th>职务</th></tr>
+	<{section name=pos_index loop=$position_list}>
+	<tr>
+		<td><{$position_list[pos_index].tname}></td><td><{$position_list[pos_index].pos}></td>
+	</tr>
+	<{sectionelse}>
+	<tr><td colspan="2">该同学什么组织液没有参加！</td></tr>
+	<{/section}>
+</table>
+<table>
+	<tr><th>活动时间</th><th>活动内容</th><th>服务时间</th><th>服务评价</th></tr>
+	<{section name=doc_index loop=$doc_list}>
+	<tr><td><{$doc_list[doc_index].date}></td><td><{$doc_list[doc_index].content}></td><td><{$doc_list[doc_index].base_time}>+<{$doc_list[doc_index].honor_time}></td><td><{$doc_list[doc_index].level}></td></tr>
+	<{sectionelse}>
+	<tr><td colspan="4">该同学什么活动也没有参加！</td></tr>
+	<{/section}>
+</table>
+
+
+
 </div>

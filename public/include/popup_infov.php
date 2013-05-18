@@ -5,30 +5,43 @@ $_BASE_PATH = "../../";
 $_SMARTY_ROOT = "../tpls";
 include_once '../../sys/core/init.inc.php';
 
-?>
 
-<table>
-<tr><th>学号</th><th>姓名</th><th>年级</th><th>院系</th><th>联系方式</th></tr>
-<tr><td><?php  echo $_GET['userId']; ?></td><td>胡老师</td><td>2010</td><td>计算机</td><td>15998765678</td></tr>
-</table>
-<table>
-<tr><th>参加的组织</th><th>职务</th></tr>
-<tr><td>南大青协</td><td>主席</td></tr>
-<tr><td>弘毅社</td><td>间谍</td></tr>
-<tr><td>南大青协</td><td>主席</td></tr>
-<tr><td>弘毅社</td><td>间谍</td></tr>
-</table>
-<table>
-<tr><th>活动时间</th><th>活动内容</th><th>服务时间</th><th>服务评价</th></tr>
-<tr><td>2012-3-15</td><td>仙林中学</td><td>2小时</td><td>该同学很有热情</td></tr>
-<tr><td>2011-6-15</td><td>宁工小学</td><td>2小时</td><td>该同学很有热情</td></tr>
-<tr><td>2013-5-15</td><td>仙林中学</td><td>2小时</td><td>该同学很有热情</td></tr>
-<tr><td>2013-1-15</td><td>仙林中学</td><td>2小时</td><td>该同学很有热情</td></tr>
-<tr><td>2013-2-15</td><td>仙林中学</td><td>2小时</td><td>该同学很有热情</td></tr>
-<tr><td>2013-4-15</td><td>仙林中学</td><td>2小时</td><td>该同学很有热情</td></tr>
-<tr><td>2011-6-15</td><td>宁工小学</td><td>2小时</td><td>该同学很有热情</td></tr>
-<tr><td>2013-5-15</td><td>仙林中学</td><td>2小时</td><td>该同学很有热情</td></tr>
-<tr><td>2013-1-15</td><td>仙林中学</td><td>2小时</td><td>该同学很有热情</td></tr>
-<tr><td>2013-2-15</td><td>仙林中学</td><td>2小时</td><td>该同学很有热情</td></tr>
-<tr><td>2013-4-15</td><td>仙林中学</td><td>2小时</td><td>该同学很有热情</td></tr>
-</table>
+$uid = $_GET['userId'];
+$position_list = array();
+$doc_list = array();
+
+$team = new Team();
+$user_info = $team->fetch_my_fellow_detail_info( $uid );
+if( $user_info != NULL){
+	$uname = $user_info['name'];
+	$ugrade = $user_info['grade'];
+	$ufaculty = $user_info['faculty'];
+	$uphone = $user_info['phone'];
+}
+$pos_info = $team->fetch_my_fellow_position( $uid );
+while( $pos_row = mysql_fetch_array( $pos_info ) ){
+	$position_list[] = array( "tname"=>$pos_row['name'], "pos"=>$pos_row['position'] );
+}
+
+$doc_info = $team->fetch_my_fellow_record( $uid );
+while( $doc_row = mysql_fetch_array( $doc_info ) ){
+	$doc_list[] = array( 
+			"date"=>$doc_row['date'],
+			"content"=>$doc_row['name'],
+			"base_time"=>$doc_row['base_time'],
+			"honor_time"=>$doc_row['honor_time'],
+			"level"=>$doc_row['performance_level'],
+	);
+}
+
+
+$tpl->assign( "uid", $uid );
+$tpl->assign( "uname", $uname );
+$tpl->assign( "ugrade", $ugrade );
+$tpl->assign( "ufaculty", $ufaculty );
+$tpl->assign( "uphone", $uphone );
+$tpl->assign( "position_list", $position_list );
+$tpl->assign( "doc_list", $doc_list );
+$tpl->display( "include/infov_popup.html" );
+
+?>

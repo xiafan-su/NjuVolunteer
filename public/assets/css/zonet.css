@@ -40,8 +40,16 @@ padding: 10px;
 .menu_item{
 	margin: 5px;  /* mk:marks */
 }
+
+.menu_item_title{
+font-size: 17px;
+cursor: default;
+}
+.menu_item_span{
+font-size: 15px;
+}
+
 .menu_item_title, .menu_item_span{
-	font-size: 16px;
 	padding: 10px;
 	padding-left: 10px;
 }

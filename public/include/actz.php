@@ -7,9 +7,12 @@ $_SMARTY_ROOT = "../tpls";
 include_once '../../sys/core/init.inc.php';
 
 //18 ---信息管理学院
+$act_state_transfer = array( "audited"=>"审核通过", "auditing"=>"审核中", "editing"=>"编辑中" );
 
 $faculty_id = $_SESSION[User::USER][User::FACULTY_ID];
 //echo $_SESSION[User::USER][User::PERM_ID];
+
+$is_add = false;
 
 $act_list = array();
 
@@ -26,7 +29,8 @@ while($act_row = mysql_fetch_array($act_info) ) {
 	$act_elem['act_id'] = (int)$act_row['id'];
 	$act_elem['act_title'] = $act_row['name']."，测试一下比较长的标题是怎么显示的";
 	$act_elem['consult'] = $act_row['responser'];
-	$act_elem['state'] = $act_row['state'];
+	$act_elem['state'] = $act_state_transfer[$act_row['state']];
+	$act_elem['is_add']=$act_row['state']=="audited";
 
 	$doc_info = $team->fetch_act_doc_all( $act_row['id'] );
 	$doc_list = array();
@@ -34,9 +38,10 @@ while($act_row = mysql_fetch_array($act_info) ) {
 		$doc_list[] = array( "doc_id"=>$doc_row['id'],
 				"doc_time"=>$doc_row['vol_time'], 
 				"leader"=> $doc_row['leader'], 
-				"tel"=>$doc_row['tel']
+				"tel"=>$doc_row['tel'],
 		);
 	}
+				
 	$act_elem['doc_list'] = $doc_list;
 	$act_list[] = $act_elem;
 }

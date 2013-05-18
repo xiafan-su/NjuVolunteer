@@ -21,7 +21,7 @@ $tpl->assign( "actid", $_POST['activityId'] );
 
 
 $team = new Team();
-$apply_info = $team->fetch_apply_volunteer( $_POST['activityId'], 1 );
+$apply_info = $team->fetch_apply_volunteer( $_POST['activityId'], 0 );
 
 if( isset( $_POST['type']) &&  $_POST['type'] == "choose"  && isset($_POST['documentId']) ) {
 	$tpl->assign( "show_op_button", false );//不显示“通过”/“退回”/"返回"按钮
