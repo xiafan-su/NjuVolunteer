@@ -163,17 +163,17 @@ margin: 5px;  /* mk:marks */
 	margin-left:5px;
 	padding:12px;
 }
-table{
+.span_left table{
 	border-collapse:separate;
 	border-radius:5px;	
 }
-table td{
+.span_left table td{
 	width:225px;
 	height:30px;
 	background:rgb(245,245,245);
 	border:0px;
 }
-table th{
+.span_left table th{
 	width:150px;
 	color:rgb(102,51,102);
 	border:0px;
