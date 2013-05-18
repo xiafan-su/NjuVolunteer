@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 12:12:37
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 13:54:47
          compiled from "./tpls/templates\act.html" */ ?>
 <?php /*%%SmartyHeaderCode:294635196321ee34991-61562401%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
     array (
       0 => './tpls/templates\\act.html',
-      1 => 1368850353,
+      1 => 1368856486,
       2 => 'file',
     ),
   ),
@@ -48,6 +48,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</div>
 		
 	</div>
+    <hr />
     <div class="search-result" id="result">
         <div style="height:5px;float:left;width:100%;background-color:#333"></div>
         <div style="height:30px;float:left;width:100%;background-color:#DDD;">
