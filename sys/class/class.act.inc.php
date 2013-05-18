@@ -38,13 +38,28 @@ class Act extends DB_Connect {
 	public function fetch_all($keywords,$timetype,$attributiontype,$timelimit,$actstate,$num)
 	{
 			$time_type = array("longtime","temp");
-			$attribution_type=array("supporteducation","helpdisabled");
+			$attribution_type=array("helpold","supporteducation","helpdisabled","campus","competition","other");
 			
 			$query="select * from activity_info where state='audited' and (name LIKE '%".$keywords."%')";
 			if ($timetype!=0)
 				$query = sprintf("%s and (time_type='".$time_type[$timetype-1]."')", $query);
 			if ($attributiontype!=0)
 				$query = sprintf("%s and (attribution_type='".$attribution_type[$attributiontype-1]."')", $query);
+			if ($timelimit!=0)
+			{
+				$timelimit=pow(2,$timelimit-1);
+				$query = sprintf("%s and (weekday_time|'".$timelimit."'='".$timelimit."')", $query);
+			}
+			if ($actstate==1)
+			{
+				$query = sprintf("%s and (deadline>='".date("Y-m-d H:i:s",time())."')", $query);
+			}else if ($actstate==2)
+			{
+				$query = sprintf("%s and (end_time<'".date("Y-m-d H:i:s",time())."')", $query);
+			}else if ($actstate==3)
+			{
+				$query = sprintf("%s and (begin_time<='".date("Y-m-d H:i:s",time())."' and end_time>='".date("Y-m-d H:i:s",time())."')", $query);
+			}
 			$query = sprintf("%s LIMIT 0, %d", $query, $num);
 			
 			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
@@ -261,8 +276,8 @@ class Act extends DB_Connect {
 		else return true;
 	}
 	public function participate_state($activity_id){
-		if(!$this->judge_participate_button_state($activity_id))
-			return -1;//已经过了deadline或者没有权限参加
+		$t=$this->judge_participate_button_state($activity_id);
+		if ($t!=1) return $t;
 		$user_id=$_SESSION[USER::USER][USER::ID];
 		$query="select * from apply_act where user_id='".$user_id."' and act_id='".$activity_id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
@@ -279,11 +294,13 @@ class Act extends DB_Connect {
 		$act_info=mysql_fetch_assoc($select);
 		//echo $act_info['deadline'].'</br>';
 		if ($act_info['deadline']<(date('Y-m-d H:i:s',time())))
-			return false;
+			return -1;
 		if (isset($_SESSION[USER::USER][USER::PERM_ID]))
-			if($_SESSION[USER::USER][USER::PERM_ID]!=1)
-				return false;
-		return true;	
+		{	if($_SESSION[USER::USER][USER::PERM_ID]!=1)
+				return -2;
+		}
+		else return -3;
+		return 1;	
 	}
 
 	public function upload_picture(){

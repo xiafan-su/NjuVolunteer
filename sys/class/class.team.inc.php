@@ -39,7 +39,7 @@ class Team extends DB_Connect {
 			$count=0;
 			while ($row=mysql_fetch_assoc($num))
 				$count++;
-			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan'],"cal"=>$result['cal']);
+			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan'],"id"=>$result['id']);
 		}
 		return $team_info;
 	}
@@ -55,7 +55,7 @@ class Team extends DB_Connect {
 			$count=0;
 			while ($row=mysql_fetch_assoc($num))
 				$count ++;
-			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan'],"cal"=>$result['cal']);
+			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan']);
 		}
 		return $team_info;
 	}
@@ -390,8 +390,8 @@ class Team extends DB_Connect {
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);//提交后，活动档案将不再能够修改
 
 		$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."'";
-		$select1=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-		while ($record=mysql_fetch_assoc($select1))
+		$record_id_list=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		while ($record=mysql_fetch_assoc($record_id_list))
 		{
 			$honor_time=0;
 			if ($record['honor_excellent']==1)
@@ -470,6 +470,7 @@ class Team extends DB_Connect {
 		foreach ($recv_list as $value)
 		{
 			$sql="SELECT id,name FROM user_info WHERE id='".$value."'";
+			$recv_name_list=NULL;
 			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			$num_of_results=mysql_num_rows($select);
 			if ($num_of_results!=0)
@@ -520,4 +521,3 @@ class Team extends DB_Connect {
 	}
 }
 ?>
-
