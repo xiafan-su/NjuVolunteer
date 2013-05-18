@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 19:35:01
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 19:22:30
          compiled from "./tpls/templates\act_apply.html" */ ?>
 <?php /*%%SmartyHeaderCode:686851974adf042e96-79134526%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1368876509,
+      1 => 1368876147,
       2 => 'file',
     ),
   ),
@@ -233,7 +233,6 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
 							<input name="other_language" id="other_language" class="user" type="text" placeholder="德语 法语 默认为无要求"/>
 						</td>
 					<td></td>
-				</div>
                 </tr>
                 </table>
                 <div class="breadcrumb">
