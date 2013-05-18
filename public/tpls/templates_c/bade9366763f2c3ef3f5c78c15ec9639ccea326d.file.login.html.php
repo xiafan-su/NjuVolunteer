@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 20:59:57
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 22:42:17
          compiled from "./tpls/templates\include\login.html" */ ?>
-<?php /*%%SmartyHeaderCode:20411519629cdac3167-64599379%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:6222519641c9c417a5-66103520%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'bade9366763f2c3ef3f5c78c15ec9639ccea326d' => 
     array (
       0 => './tpls/templates\\include\\login.html',
-      1 => 1368678820,
+      1 => 1368701284,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '20411519629cdac3167-64599379',
+  'nocache_hash' => '6222519641c9c417a5-66103520',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519629cdbffc2',
+  'unifunc' => 'content_519641c9c478c',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519629cdbffc2')) {function content_519629cdbffc2($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_519641c9c478c')) {function content_519641c9c478c($_smarty_tpl) {?>
 
 <div id="loginModal" class="loginModal" >
 	<div align="center" class="modal-header">
