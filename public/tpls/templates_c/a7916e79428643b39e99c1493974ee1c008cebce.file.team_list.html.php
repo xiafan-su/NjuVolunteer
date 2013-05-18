@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 22:38:08
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 00:51:26
          compiled from "./tpls/templates\team_list.html" */ ?>
 <?php /*%%SmartyHeaderCode:257955194954d21ef70-81971850%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a7916e79428643b39e99c1493974ee1c008cebce' => 
     array (
       0 => './tpls/templates\\team_list.html',
-      1 => 1368887769,
+      1 => 1368895883,
       2 => 'file',
     ),
   ),
@@ -91,7 +91,8 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
                 <div class="title">
                 	<span onclick="window.location.href='indext.php?team_id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
 '"><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
-</span>
+哈哈哈哈哈啊哈
+                    </span>
                 </div>
                 <div class="favs">
                     <?php echo $_smarty_tpl->tpl_vars['item']->value['slogan'];?>

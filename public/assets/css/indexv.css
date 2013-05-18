@@ -31,8 +31,10 @@
 }
 .per-info table{
 	margin-top:0px;
-	border-radius:10px;
-	border-collapse:collapse;
+	border-radius:5px;
+	border-collapse:separate;
+	border-color:#666;
+	padding:1px;
 }
 #table_for_team{
 	float:left;
@@ -46,8 +48,11 @@
 	box-shadow:10px 10px 10px #777;
 }
 #table_for_team table{
-	border-radius:10px;
 	margin:0;
+	border-radius:5px;
+	border-collapse:separate;
+	border-color:#666;
+	padding:1px;
 }
 #table_for_team table th,#table_for_team table td{
 	color:#000;
@@ -65,7 +70,10 @@
 	box-shadow:10px 10px 10px #777;
 }
 #table_for_activity table{
-	border-radius:10px;
+	border-radius:5px;
+	border-collapse:separate;
+	border-color:#666;
+	padding:1px;
 	margin-top:0px;
 }
 #table_for_activity table th,#table_for_activity table td{

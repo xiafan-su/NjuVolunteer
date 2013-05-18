@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 22:21:36
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 01:04:32
          compiled from "./tpls/templates\indexv.html" */ ?>
 <?php /*%%SmartyHeaderCode:21473519771cb2c9883-80941995%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7eb1dfe49ab8c6a3a0e890bd108136bf58dec260' => 
     array (
       0 => './tpls/templates\\indexv.html',
-      1 => 1368886464,
+      1 => 1368893019,
       2 => 'file',
     ),
   ),
@@ -54,7 +54,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <div class="main">
 	<div class="vol_name">
-    	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:#606;">
+    	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:40px;color:rgb(102,51,102);">
         	<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
 
         </div>

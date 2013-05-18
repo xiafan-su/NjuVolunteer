@@ -89,7 +89,7 @@ li.tn-img-t{
 }
 .group{
 	/*left:400px;*/
-	margin:30px 0px 0px 0px;
+	margin:35px 0px 0px 0px;
 	float:left;
 	width:960px;
 }
@@ -108,7 +108,7 @@ li.tn-img-t{
 	height:250px;
 	background:rgb(0,0,0,0);
 	border-radius:20px;
-	box-shadow:10px 10px 10px #666;
+	box-shadow:10px 10px 40px #666;
 }
 .pic{
 	width:220px;
@@ -146,8 +146,8 @@ li.tn-img-t{
 .content{
 	height:80px;
 	float:left;
-	margin:20px 0 0px 0px;
-	width:220px;
+	margin:20px 20px 0 20px;
+	width:180px;
 	text-align:center;
 }
 .title{
@@ -202,26 +202,27 @@ li.tn-img-t{
 }
 .left-bar{
 	float:left;
-	margin-top:16px;
-	margin-bottom:20px;
-	width:150px;
+	margin-top:15px;
+	margin-bottom:21px;
+	margin-right:20px;
+	width:100px;
 	height:6px;
 	background:-webkit-gradient(linear, left top, right top, from(rgba(225,225,225,1)), to(rgba(104,104,104,1)));
 }
 .bar-title{
-	float:left;	
-	width:100px;
+	float:left;
 	margin-top:7px;
 	height:35px;
-	color:rgb(104,104,104);
-	font-size:20px;
+	color:rgb(102,51,102);
+	font-size:24px;
 	font-weight:bold;
 	text-align:center;
 }
 .right-bar{
 	float:left;
-	margin-bottom:20px;
-	margin-top:16px;
+	margin-bottom:21px;
+	margin-top:15px;
+	margin-left:20px;
 	width:700px;
 	height:6px;
 	background:-webkit-gradient(linear, right top, left top, from(rgba(225,225,225,1)), to(rgba(104,104,104,1)));

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 20:43:09
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 00:12:07
          compiled from "./tpls/templates\indext.html" */ ?>
 <?php /*%%SmartyHeaderCode:178535197775d8e1b81-74588997%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fcc6fe68a9e41e4d9da946fded2039d0b9e628f0' => 
     array (
       0 => './tpls/templates\\indext.html',
-      1 => 1368853684,
+      1 => 1368893525,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5197775d9e4b9',
   'variables' => 
   array (
     'team_id' => 0,
@@ -29,8 +31,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'act' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5197775d9e4b9',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5197775d9e4b9')) {function content_5197775d9e4b9($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -53,7 +53,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </div>
 <div class="main">
 	<div class="team_name">
-    	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:#606;">
+    	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:40px;color:rgb(102,51,102);">
         	<?php echo $_smarty_tpl->tpl_vars['team_name']->value;?>
 
         </div>
@@ -116,16 +116,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</tr>
         <?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['activity_info']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
- $_smarty_tpl->tpl_vars['smarty']->value['foreach']['data']['iteration']=0;
 foreach ($_from as $_smarty_tpl->tpl_vars['act']->key => $_smarty_tpl->tpl_vars['act']->value){
 $_smarty_tpl->tpl_vars['act']->_loop = true;
- $_smarty_tpl->tpl_vars['smarty']->value['foreach']['data']['iteration']++;
 ?>
-        <?php if (($_smarty_tpl->getVariable('smarty')->value['foreach']['data']['iteration']%2==0)){?>
-        <tr class="even">
-        <?php }else{ ?>
-        <tr class="odd">
-        <?php }?>
+        <tr>
         <td><a href="act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
 " target="_blank"><?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
 </a></td>
