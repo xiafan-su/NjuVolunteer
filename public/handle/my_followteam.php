@@ -8,7 +8,7 @@ $uid=$_SESSION[USER::USER][USER::ID];
 $user=new User();
 
 
-
+$myfollowlist=NULL;
 $myfollow=$user->fetch_my_follow($_SESSION[USER::USER][USER::ID]);	
 while ($row3=mysql_fetch_assoc($myfollow)){
 	$myfollowlist[]=array('teamid'=>$row3['TID'],'name'=>$row3['TNAME']);

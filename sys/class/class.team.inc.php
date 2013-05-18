@@ -39,7 +39,7 @@ class Team extends DB_Connect {
 			$count=0;
 			while ($row=mysql_fetch_assoc($num))
 				$count++;
-			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan'],"cal"=>$result['cal'],"id"=>$result['id']);
+			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan'],"id"=>$result['id']);
 		}
 		return $team_info;
 	}
@@ -55,7 +55,7 @@ class Team extends DB_Connect {
 			$count=0;
 			while ($row=mysql_fetch_assoc($num))
 				$count ++;
-			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan'],"cal"=>$result['cal']);
+			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan']);
 		}
 		return $team_info;
 	}

@@ -9,7 +9,10 @@ include './include/header.php';
 $id=101220129;
 //
 
-
+$activity=NULL;
+$myteamlist=NULL;
+$myfollowlist=NULL;
+$myactlist=NULL;
 $user=new User();
 $student=$user->fetch_person_info($_SESSION[USER::USER][USER::ID]);
 $activity_detail=$user->fetch_person_act($id);
