@@ -98,11 +98,11 @@ az_func_loaded_doc_edit = function(html){
 	$("#submit_act_doc").bind( "click", az_func_doc_submit_doc);//记录编辑的“提交”按钮
 	$("#delete_act_doc").bind( "click", az_func_doc_delete_doc);//"删除"按钮
 	$("#check_all_part_people").bind( "click", az_funz_doc_select_all);//全选
-	$("#doc_op_import").bind( "click", az_funcz_doc_import_part);//"移除"按钮
+	$("#doc_op_import").bind( "click", az_funcz_doc_import_part);//"导入"按钮
 	$("#doc_op_remove").bind( "click", az_funcz_doc_remove_part);//"移除"按钮
 }
 
-//点击活动档案的“提交”按钮的处理函数
+//点击活动档案的“保存”按钮的处理函数
 az_func_doc_submit_doc = function(){
 	//alert( current_document_id );
 	var doc_edit_leader = $( "#doc_edit_leader" ).val();
@@ -116,14 +116,20 @@ az_func_doc_submit_doc = function(){
 		url:"./handle/rec.php",
 		data:{
 			type:"add", 
-			activityId: current_activity_id, documentId: current_document_id,
-			leader: doc_edit_leader, profile: doc_edit_profile, 
-			summary: doc_edit_summary, tel: doc_edit_tel,
-			volTime: doc_edit_time
+			activityId: current_activity_id, 
+			documentId: current_document_id,
+			leader: doc_edit_leader, 
+			profile: doc_edit_profile, 
+			summary: doc_edit_summary, 
+			tel: doc_edit_tel,
+			volTime: doc_edit_time,
+			start_date: doc_edit_date_start
 		},
 		success:function(html){
 			if( html == 0 ){
-				alert( "提交成功！" );
+				//switch_main_content( "<-" );
+				alert( "保存成功！" );
+				$("#util_start_activity").trigger("click");
 			} else {
 				alert( html );
 			}
@@ -137,7 +143,12 @@ az_func_doc_delete_doc = function(){
 		url:"./handle/rec.php",
 		data:{type:"delete", documentId: $(this).attr("docid") },
 		success:function(html){
-			alert( html );
+			if( html == 0 ){//删除成功！
+				//switch_main_content( "<-" );
+				$("#util_start_activity").trigger("click");
+			} else {
+				alert( html );
+			}
 		}
 	});
 }
@@ -190,6 +201,7 @@ az_funcz_doc_remove_part = function(){
 		}
 	});
 }
+//导入成功的处理函数！
 az_funcz_doc_import_ok = function(){
 	//alert( "test -ok" );
 	$.ajax({
@@ -204,7 +216,7 @@ az_funcz_doc_import_ok = function(){
 			}
 			$("#doc_edit_part_table_tr_tip").remove();//移除“还没有人参加这个活动哦”提示
 			var tr = '<tr id="part_people_table_tr_{id}">'+
-				'<td><input type="checkbox" title="" id="doc_checkbox_head_{id}" noid="{id}" /></td>'+
+				'<td><input type="checkbox" title="" id="doc_checkbox_head_{id}" noid="{id}" onclick="change_rec_edit_head_checkbox();" /></td>'+
 				'<td>{id}(来自JS)</td>'+
 				'<td>{name}(来自JS)</td>'+
 				'<td>{faculty}(来自JS)</td>'+
@@ -335,4 +347,194 @@ az_funz_doc_select_all = function(){
 			$(all_checkbox[i]).prop("checked", checked);
 		}
 	}//*/
+	change_rec_edit_head_checkbox();//设置“移除”按钮
+}
+
+
+
+function change_rec_edit_head_checkbox(){
+	//一个for循环，查看所有的checkbox_head是否存在选中的
+
+	var all_head_checkbox = $('[type="checkbox"]');
+	//	alert( "L="+all_head_checkbox.length );
+	for( var i = 0; i < all_head_checkbox.length; i ++ ){
+		//alert( i );
+		var per_head_checkbox = all_head_checkbox[i];
+		//alert( "id="+$(per_head_checkbox).attr("id") );
+		if( $(per_head_checkbox).attr("id").search( "doc_checkbox_head_" ) < 0 ) continue;//
+		if( $(per_head_checkbox).prop("checked") ){
+			$("#doc_op_remove").attr( "disabled", false );//找到打钩的
+			$("#doc_op_remove").attr(  "title", "将选择的志愿者移除参与表" );
+			return;
+		}
+	}
+	$("#doc_op_remove").attr( "disabled", true );
+	$("#doc_op_remove").attr(  "title", "请先勾选要移除的志愿者" );
+}
+
+
+//设置参与表的“确定”按钮有效
+function set_submit_enable(  ){
+	$("#doc_op_submit").attr( "disabled", true );
+	$("#doc_op_submit").attr( "title", "您必须点击“确定”按钮保存参与表后才能提交！" );
+
+	var submit_button = $("#doc_op_submit");
+	submit_button.attr( "disabled", false );
+	submit_button.attr( "title", "修改后点击此按钮生效" );
+
+}
+
+//以下几个函数处理，参与表的修改
+function change_doc_time_handle(elem, no){
+	const time = 100;
+	if( no == 1 ){
+		$(elem).toggle( time );
+		$(elem).next().toggle( time );
+		$(elem).next().find(":first-child").focus();
+	} else {//no == 2
+		$(elem).parent().prev().toggle( time );
+		$(elem).parent().toggle( time );
+		$(elem).parent().prev().text( $(elem).val() );
+
+		var val = $(elem).val();
+		var all_selected_box = $(".doc_checkbox_head:checked");
+		for( var i = 0; i < all_selected_box.length; i ++ ){
+			var uid = $(all_selected_box[i]).attr( "noid" );
+			var span = $( "#doc_time_"+uid );
+			span.text( val );
+			span.next().find(":first-child").val( val );
+		}
+		
+		set_submit_enable();//确定按钮有效
+	}
+}
+function change_doc_level_handle(elem, no){
+	//alert( $(elem).attr("id") );
+	const time = 100;
+	if( no == 1 ){
+		$(elem).toggle( time );
+		$(elem).next().toggle( time );
+		$(elem).next().find(":first-child").focus();
+	} else {//no == 2
+		var newval = $(elem).find(":selected").text();
+		$(elem).parent().prev().toggle( time );
+		$(elem).parent().toggle( time );
+		$(elem).parent().prev().text( newval  );
+
+		var all_selected_box = $(".doc_checkbox_head:checked");
+		for( var i = 0; i < all_selected_box.length; i ++ ){
+			var uid = $(all_selected_box[i]).attr( "noid" );
+			var span = $( "#doc_level_"+uid );
+			span.text( newval );
+			//$("#select_id  ").attr("selected", true); 
+			var sel = $("#doc_level_select_"+uid);
+			alert( sel.attr("id") );
+			//sel.attr( "value", newval );
+		}
+		set_submit_enable();//确定按钮有效
+		
+
+	}
+}
+function change_doc_comment_handle(elem, no){
+	const time = 100;
+	if( no == 1 ){
+		$(elem).toggle( time );
+		$(elem).next().toggle( time );
+		$(elem).next().find(":first-child").focus();
+	} else {//no == 2
+		$(elem).parent().prev().toggle( time );
+		$(elem).parent().toggle( time );
+		//alert( $(elem).val().length );
+		if( $(elem).val().trim().length == 0 ) {
+			$(elem).parent().prev().html( "无" );
+		} else {
+			$(elem).parent().prev().text( $(elem).val() );
+		}
+		set_submit_enable();//确定按钮有效
+	}
+}
+function change_doc_honnor_leader_handle(elem, type){//type ==1 表示“带队”，2表示“优秀”
+	var newval = $(elem).prop("checked");
+
+	var all_selected_box = $(".doc_checkbox_head:checked");
+	if( type == 1 ) {
+		for( var i = 0; i < all_selected_box.length; i ++ ){
+			var uid = $(all_selected_box[i]).attr( "noid" );
+			$( "#doc_checkbox_leader_"+uid ).prop( "checked", newval );
+			//span.next().find(":first-child").val( newval );
+		}
+	} else {//优秀
+		for( var i = 0; i < all_selected_box.length; i ++ ){
+			var uid = $(all_selected_box[i]).attr( "noid" );
+			$( "#doc_checkbox_excellent_"+uid ).prop( "checked", newval );
+			//span.next().find(":first-child").val( newval );
+		}
+	}
+	set_submit_enable();//确定按钮有效
+}
+
+
+//确定按钮
+function doc_edit_submit_handle(elem){
+	//alert( "ter" );
+	var submit_button = $("#doc_op_submit");
+	submit_button.attr( "disabled", true );
+	submit_button.attr( "title", "正在提交到服务器上……" );
+
+	var all_head_checkbox = $(".doc_checkbox_head");
+
+	var token = "&n&b&";
+	var str = "";
+	for( var i = 0; i < all_head_checkbox.length; i ++ ){
+		var uid = $( all_head_checkbox[i]).attr( "noid" );
+		var elem_t = $("#doc_time_set_"+uid).find(":first-child");//时间
+		var elem_p = $("#doc_level_set_"+uid).find(":first-child");//评价
+		var elem_l = $("#doc_checkbox_leader_"+uid);//是否带队
+		var elem_e = $("#doc_checkbox_excellent_"+uid);//是否优秀
+		var elem_c = $("#doc_comment_set_"+uid );//评论
+		//alert( elem_t.val() );
+		//alert( elem_p.find(":selected").text() );
+		//alert( elem_l.prop("checked") );
+		//alert( elem_e.prop("checked") );
+		//alert( elem_c.val() );
+		str += uid+token+elem_t.val() + token + elem_p.find(":selected").text() + token + (elem_l.prop("checked")?1:0) + token + (elem_e.prop("checked")?1:0) +token+ elem_c.val() + token;
+	}
+	alert( str );
+
+	var docid = $(elem).attr("docid");
+	$.ajax({ 
+		type:"POST",
+		url:"./handle/actz.php",
+		data:{setStr:str, type:"setpart", documentId: docid },
+		success:function(html){
+			alert(html);
+			var submit_button = $("#doc_op_submit");
+			submit_button.attr( "disabled", true );
+			submit_button.attr( "title", "之前的修改已保存，您还没有新的修改" );
+
+			
+			$("#doc_op_submit").attr( "disabled", false );
+			$("#doc_op_submit").attr( "title", "提交您所做的修改，提交后志愿时间将会公示一周，并且除非有异议不得再修改！" );
+		}
+	});
+}
+
+//提交按钮
+function submit_doc(elem){
+	$("#doc_op_submit").attr( "disabled", false );
+	$("#doc_op_submit").attr( "title", "正在向服务器提交您的请求……" );
+
+	$.ajax({ 
+		type:"POST",
+		url:"./handle/actz.php",
+		data:{ type:"submit", documentId: $(elem).attr("docid") },
+		success:function(html){
+			if( html == 0){
+				alert( "提交成功！" );
+			} else {
+				alert( html );
+			}
+		}
+	});
 }

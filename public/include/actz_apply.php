@@ -7,7 +7,7 @@ $_SMARTY_ROOT = "../tpls";
 include_once '../../sys/core/init.inc.php';
 
 $apply_list = array();
-$apply_state_tip_list = array( 0=>"中", 1=>"过", 2=>"退" );
+$apply_state_tip_list = array( 0=>"未审核", 1=>"通过", 2=>"退" );
 
 $act = new Act();
 $act_info_row = $act->fetch_one( $_POST['activityId'] );
@@ -21,7 +21,7 @@ $tpl->assign( "actid", $_POST['activityId'] );
 
 
 $team = new Team();
-$apply_info = $team->fetch_apply_volunteer( $_POST['activityId'] );
+$apply_info = $team->fetch_apply_volunteer( $_POST['activityId'], 1 );
 
 if( isset( $_POST['type']) &&  $_POST['type'] == "choose"  && isset($_POST['documentId']) ) {
 	$tpl->assign( "show_op_button", false );//不显示“通过”/“退回”/"返回"按钮
@@ -79,7 +79,7 @@ $tpl->display('include/actz_apply.html');
 
 
 ?>
-
+<!-- 
 页面内容：<br />
 活动报名情况列表<br />
 <br />
@@ -106,4 +106,4 @@ $tpl->display('include/actz_apply.html');
 其他：<br />
 当前团队id请直接从SESSION获取<br />
 
-
+ -->

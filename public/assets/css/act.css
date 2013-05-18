@@ -41,6 +41,8 @@ img{
 	width:200px;
 	float:left;
 	padding:10px;
+	height:120px;
+	overflow:hidden;
 }
 .atc_state{
 	font-size:14px;

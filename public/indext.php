@@ -13,7 +13,14 @@ $id=$_GET['team_id'];
 $team=new Team();
 $leader=$team->fetch_leader($id);
 $team_name=$team->fetch_team_name($id);
-
+$u=new User();
+if ($u->follow_state($id))
+{
+	$tpl->assign("already_follow",1);
+}
+else
+$tpl->assign("already_follow",0);
+$tpl->assign("team_id",$team_name['id']);
 $tpl->assign("team_name",$team_name['name']);
 $tpl->assign("leader_name",$leader['name']);
 $tpl->assign("leader_email",$leader['email']);

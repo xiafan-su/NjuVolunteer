@@ -4,55 +4,47 @@ $_BASE_PATH = "../../";
 $_SMARTY_ROOT = "../tpls";
 include_once '../../sys/core/init.inc.php';
 
-$note_info = array();
+$note_list = array();
 
 if( $_POST['type'] == "recv" ) {
-	$note_info = array(
-		array( 
-			"id" => 123,
-			"type"=>0, 
-			"title"=>"这是title1", 
-			"content"=>"这是内容1,这是内容,这是内容,这是内容,这是内容,这是内容", 
-			"time"=>"2013年5月16日18:45:09" ),
-		array( 
-			"id" => 234,
-			"type"=>0, 
-			"title"=>"这是title2", 
-			"content"=>"这是内容2,这是内容,这是内容,这是内容,这是内容,这是内容", 
-			"time"=>"2013年5月16日17:45:09" ),
-		array( 
-			"id" => 356,
-			"type"=>1, 
-			"title"=>"这是title3", 
-			"content"=>"这是内容3,这是内容,这是内容,这是内容,这是内容,这是内容", 
-			"time"=>"2013年5月16日16:45:09" ),
+	$user = new User();
+	$note_info = $user->fetch_notes($_SESSION[User::USER][User::FACULTY_ID], 0);
+	while( $note_row = mysql_fetch_array($note_info) ){
+		$note_list[] =array( 
+				"id" => $note_row['id'],
+				"type"=>0, //0未读1已读
+				"title"=>$note_row['title'], 
+				"content"=>$note_row['content'], 
+				"time"=>$note_row['time'] 
+		);
+	}
+	$note_info = $user->fetch_notes($_SESSION[User::USER][User::FACULTY_ID], 1);
+	while( $note_row = mysql_fetch_array($note_info) ){
+		$note_list[] =array( 
+				"id" => $note_row['id'],
+				"type"=>1, //0未读1已读
+				"title"=>$note_row['title'], 
+				"content"=>$note_row['content'], 
+				"time"=>$note_row['time'] 
+		);
+	}
 
-	);
 } else if( $_POST['type'] == "sent" ){
-	$note_info = array(
-		array( 
-			"id" => 123,
-			"type"=>2, 
-			"title"=>"这是title1", 
-			"content"=>"这是内容1,这是内容,这是内容,这是内容,这是内容,这是内容", 
-			"time"=>"2013年5月16日18:45:09" ),
-		array( 
-			"id" => 234,
-			"type"=>2, 
-			"title"=>"这是title2", 
-			"content"=>"这是内容2,这是内容,这是内容,这是内容,这是内容,这是内容", 
-			"time"=>"2013年5月16日17:45:09" ),
-		array( 
-			"id" => 356,
-			"type"=>2, 
-			"title"=>"这是title3", 
-			"content"=>"这是内容3,这是内容,这是内容,这是内容,这是内容,这是内容", 
-			"time"=>"2013年5月16日16:45:09" ),
+	$team = new Team();
+	$note_info = $team->fetch_my_send_notes($_SESSION[User::USER][User::FACULTY_ID], 0);
+	while( $note_row = mysql_fetch_array($note_info) ){
+		$note_list[] =array( 
+				"id" => $note_row['id'],
+				"type"=>2, //发送
+				"title"=>$note_row['title'], 
+				"content"=>$note_row['content'], 
+				"time"=>$note_row['date'] 
+		);
+	}
 
-	);
 }
 
-$tpl->assign( "note_list",  $note_info);
+$tpl->assign( "note_list",  $note_list);
 
 
 $tpl->display( "include/note.html" );

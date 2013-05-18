@@ -18,14 +18,15 @@ if( $_POST['type'] == "add" ){
 	//echo "收到您的添加请求！我们会及时处理！docid=".$_POST['documentId'];
 	if( isset( $_POST['activityId'] )&&isset($_POST['documentId']) ) {
 		$team = new Team();
+		//echo "##".$_POST['date'];
 		if( $_POST['documentId'] == -1 ){
-			if($team->add_doc( $_POST['activityId'], $_POST['leader'], $_POST['profile'], $_POST['summary'], $_POST['tel'], $_POST['volTime'] )){
+			if($team->add_doc( $_POST['activityId'], $_POST['leader'], $_POST['profile'], $_POST['summary'], $_POST['tel'], $_POST['volTime'], $_POST['start_date'] )){
 				echo "0";
 			} else {
 				echo "添加失败！";
 			}
 		} else {
-			if($team->modify_doc( $_POST['documentId'], $_POST['leader'], $_POST['profile'], $_POST['summary'], $_POST['tel'], $_POST['volTime'] )){
+			if($team->modify_doc( $_POST['documentId'], $_POST['leader'], $_POST['profile'], $_POST['summary'], $_POST['tel'], $_POST['volTime'],$_POST['start_date'] )){
 				echo "0";
 			} else {
 				echo "修改失败！".$_POST['documentId'].", ".$_POST['leader'].", ".$_POST['profile'].", ".$_POST['summary'].", ".$_POST['tel'].", ".$_POST['volTime'];
@@ -36,7 +37,15 @@ if( $_POST['type'] == "add" ){
 	}
 } else if( $_POST['type'] == "delete" ){//删除该活动记录
 	if( isset( $_POST['documentId'] ) ) {
-		echo "收到您的删除请求(docid=".$_POST['documentId'].")！我们会及时处理！";
+		//echo "收到您的删除请求(docid=".$_POST['documentId'].")！我们会及时处理！";
+		if( $_POST['documentId'] != -1 ){
+			$team = new Team();
+			if( $team->delete_doc($_POST['documentId'] ) ){
+				echo "0";
+			} else {
+				echo "删除失败！";
+			}
+		}
 	} else {
 		echo "收到您的删除请求！但是您没有给我们您要删除的档案ID，所以我们无法完成您的需求！";
 	}
@@ -63,7 +72,7 @@ if( $_POST['type'] == "add" ){
 		echo "参数错误";
 	}
 }  else {
-	echo "收到您的qita请求！我们会及时处理！";
+	echo "收到您的其他请求！我们会及时处理！";
 }
 //
 

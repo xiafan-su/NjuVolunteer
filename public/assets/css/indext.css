@@ -162,3 +162,14 @@ img{
 	border-collapse:collapse;
 	background:rgb(215,215,215);
 }
+#table_comment{
+	margin:0 60px 0 60px;
+}
+#table_comment table{
+	border-radius:10px;
+}
+#table_comment table th,#table_comment table td{
+	color:#000;
+	border-collapse:collapse;
+	background:rgb(215,215,215);
+}

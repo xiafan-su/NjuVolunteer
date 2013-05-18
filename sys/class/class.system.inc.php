@@ -44,24 +44,97 @@ class System extends DB_Connect {
 			}
 		}
 	}
+	public function fetch_notice_num()//取得所有通告的个数
+	{
+		$query="select count(*) as count from assignment";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$row=mysql_fetch_assoc($select);
+		return $row['count'];
+	}
+	public function fetch_notice($page)//取得某一页的通知
+	{
+		$end=$page*11;
+		$begin=$end-10;
+		$query="select * from assignment where id >='".$begin."' and id <='".$end."'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$notice_info=NULL;
+		while($row=mysql_fetch_assoc($select))
+		{
+			$notice_info[]=array("title"=>$row['title'],"time"=>$row['time'],"id"=>$row['id']);
+		}
+		return $notice_info;
+	}
+	public function fetch_content($type,$id)//取出具体信息
+	{
+		if ($type==1)
+			$query="select * from assignment where id='".$id."'";
+		if ($type==2)
+			$query="select * from online_question where id='".$id."'";
+		if ($type==3)
+			$query="select * from vol_journal where id='".$id."'";
+			
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$row=mysql_fetch_assoc($select);
+		
+		if ($type==1)
+			$content=array("title"=>$row['title'],"time"=>$row['time'],"content"=>$row['content'],"counts"=>$row['counts']);
+		if ($type==2)
+			$content=array("title"=>$row['title'],"content"=>$row['content'],"time"=>$row['time'],"answer"=>$row['answer'],"email"=>$row['email']);
+		if ($type==3)
+			$content=array("title"=>$row['title'],"content"=>$row['content'],"writer"=>$row['writer'],"time"=>$row['time']);
+		
+		return $content;
+			
+	}
+	public function fetch_online_question_num()//取得所有在线咨询的个数
+	{
+		$query="select count(*) as count from online_question";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$row=mysql_fetch_assoc($select);
+		return $row['count'];
+	}
+	public function fetch_online_question($page)//取得某一页在线咨询详细情况
+	{
+		$end=$page*11;
+		$begin=$end-10;
+		$query="select * from online_question where id >='".$begin."' and id <='".$end."'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$question_info=NULL;
+		while($row=mysql_fetch_assoc($select))
+		{
+			$question_info[]=array("title"=>$row['title'],"time"=>$row['time'],"id"=>$row['id']);
+		}
+		return $question_info;
+	}
+	public function fetch_vol_journal_num()//取得所有心路历程的个数
+	{
+		$query="select count(*) as count from vol_journal";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$row=mysql_fetch_assoc($select);
+		return $row['count'];
+	}
+	public function fetch_vol_journal($page)//取得某一页的心路历程
+	{
+		$end=$page*11;
+		$begin=$end-10;
+		$query="select * from vol_journal where id >='".$begin."' and id <='".$end."'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$journal_info=NULL;
+		while($row=mysql_fetch_assoc($select))
+		{
+			$journal_info[]=array("title"=>$row['title'],"time"=>$row['time'],"id"=>$row['id']);
+		}
+		return $journal_info;
+	}
 	public function send_note($recv_id_list,$title,$content,$sender_id='system')//
 	{
 		$recv_id = explode(" ", $recv_id_list);
-		$date=date('Y-m-d H:i:s',time());
-		$sql="INSERT INTO note_send(sender_id,send_type,recv_id_list,title,content,date) 
-				VALUES('".$sender_id."','0','".$recv_id_list."','".$title."','".$content."','".$date."')
-		";
-		if (!mysql_query($sql, $this->root_conn))
-		{
-			die('Error: ' . mysql_error());
-			return false;
-		}
 		foreach ($recv_id as $value)
 		{
 			if ($value!=NULL)
 			{
 				$sql="INSERT INTO note(sender_id,recv_type,recv_id,title,content,time,state) 
-					  VALUES('".$sender_id."','0','".$value."','".$title."','".$content."','".$date."','unread')
+					  VALUES('".$sender_id."','0','".$value."','".$title."','".$content."','".date('Y-m-d H:i:s',time())."','unread')
 				";
 				if (!mysql_query($sql, $this->root_conn))
 				{
