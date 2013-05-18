@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 13:36:14
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 00:51:26
          compiled from "./tpls/templates\team_list.html" */ ?>
 <?php /*%%SmartyHeaderCode:257955194954d21ef70-81971850%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a7916e79428643b39e99c1493974ee1c008cebce' => 
     array (
       0 => './tpls/templates\\team_list.html',
-      1 => 1368855372,
+      1 => 1368895883,
       2 => 'file',
     ),
   ),
@@ -59,36 +59,23 @@ button{
 		<div class="input_search">
 			<input id="keyword" name="keyword" class="email" type="text" placeholder="请输入关键字" />
 		</div>
-	</div>
-     <div class="search-result" id="result">
-       	<div style="height:5px;float:left;width:100%;background-color:#333"></div>
-        <div style="height:30px;float:left;width:100%;background-color:#DDD;">
-        	<div style="padding-top:5px;padding-left:10px" id="result-bar"></div>
+	 </div>
+     <hr />
+     <div class="hotact">
+        <div class="pageup" id="slideleft"><img src="./assets/img/activity_center/left.gif" /></div>
+        <div class="switchtable">
+            <ul class="switch" id="switch">
+                
+            </ul>
         </div>
-     </div>
-     <div class="teams-list" style="float:left" id="teams_list">
-     </div>
-     <div class="team_news" id="visualnews">
-        <ul class="switch" id="switch">
+        <div class="pagedown" id="slideright"><img src="./assets/img/activity_center/right.gif" /></div>
+    </div>
 
-        </ul>   
-     </div>
-     <div class="dot_button" id="dot_button">
-     	<div id="dot1" onclick="switchimg(1)"></div>
-     	<div id="dot2" onclick="switchimg(2)"></div>
-     	<div id="dot3" onclick="switchimg(3)"></div>
-     	<div id="dot4" onclick="switchimg(4)"></div>
-     	<div id="dot5" onclick="switchimg(5)"></div>
-     </div>
-     <div class="assortment" id="assortment_list">
-     <!--<div style="height:5px;float:left;width:100%;background-color:#333"></div>
-        <div style="height:30px;float:left;width:100%;background-color:#DDD;">
-        	<div style="padding-top:5px;padding-left:10px" id="result-bar"></div>
-        </div>
-     </div>-->
     
    	 <div class="group" id="group1">
-     	<div class="group-title">院系组织</div>
+     	<div class="left-bar"></div>
+     	<div class="bar-title">院系组织</div>
+        <div class="right-bar"></div>
          <ul >
          
          <?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false;
@@ -104,7 +91,8 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
                 <div class="title">
                 	<span onclick="window.location.href='indext.php?team_id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
 '"><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
-</span>
+哈哈哈哈哈啊哈
+                    </span>
                 </div>
                 <div class="favs">
                     <?php echo $_smarty_tpl->tpl_vars['item']->value['slogan'];?>
@@ -118,9 +106,10 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
     </div>
     
     <div class="group" id="group2">
-    <div class="group-title">其他组织</div>
+    <div class="left-bar"></div>
+     	<div class="bar-title">其他组织</div>
+        <div class="right-bar"></div>
      <ul>
-     
      <?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['other_team_info']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['item']->key => $_smarty_tpl->tpl_vars['item']->value){
@@ -131,7 +120,8 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
         	<img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1"/>
        	</div>
    		<div class="content" >
-        	<div class="title">
+        	<div class="title" onclick="window.location.href='indext.php?team_id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+'">
             		<?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
 
         	</div>

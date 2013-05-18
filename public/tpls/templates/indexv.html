@@ -16,7 +16,7 @@
 
 <div class="main">
 	<div class="vol_name">
-    	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:#606;">
+    	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:40px;color:rgb(102,51,102);">
         	<{$name}>
         </div>
     </div>
@@ -57,7 +57,7 @@
               </tr>
               <tr>
                 <th scope="row">签名档：</th>
-                <td><div id="sign">我是一个猥琐男，啦啦啦啦啦~</div></td>
+                <td><div id="sign"><{$signature}></div></td>
               </tr>
             </table>
         </div>
@@ -66,7 +66,7 @@
     <div id="table_for_activity">
     	<br>
         <table class="act_people_table" border="1">
-        <tr><th>活动名称</th><th>活动负责人</th></tr>
+        <tr><th>活动名称</th><th>服务时间</th></tr>
         <{foreach name=data item=act from=$apply}>
         <{if ($smarty.foreach.data.iteration % 2 == 0)}>
         <tr class="even">
@@ -74,7 +74,7 @@
         <tr class="odd">
         <{/if}>
         <td><a href="act_dtl.php?act_id=<{$act.id}>" target="_blank"><{$act.name}></a></td>
-        <td><{$act.responser}></td>
+        <td><{$act.basetime}></td>
         </tr>
         <{/foreach}>
         </table>

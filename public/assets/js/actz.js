@@ -31,11 +31,13 @@ var az_funcz_doc_remove_part = function(){};
 
 
 function popup_volunteer_info(id){
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"GET",
 		url:"./include/popup_infov.php",
 		data:{userId:id},
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			tipsWindown("学生信息","text:"+html,"900","427","true","","true","");
 		}
 	});
@@ -47,31 +49,39 @@ zt_func_doc_index = function(){
 	//alert( ""+$(this).attr("actid")+","+$(this).attr("docid") );
 	current_activity_id = $(this).attr("actid");
 	current_document_id = $(this).attr("docid");
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./include/rec_edit.php",
 		data:{activityId: current_activity_id, documentId: current_document_id },
-		success:function(html){ az_func_loaded_doc_edit(html); }
+		success:function(html){ 
+			document.getElementById('loading-bar').style.display='none';
+			az_func_loaded_doc_edit(html); }
 	});
 }
 zt_func_doc_add = function(){
 	switch_main_content( "->" );
 	current_activity_id = $(this).attr("actid");
 	current_document_id = -1;
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./include/rec_edit.php",
 		data:{activityId: current_activity_id, documentId: current_document_id },
-		success:function(html){ az_func_loaded_doc_edit(html); }
+		success:function(html){ 
+			document.getElementById('loading-bar').style.display='none';
+			az_func_loaded_doc_edit(html); }
 	});
 }
 zt_func_doc_apply = function(){
 	switch_main_content( "->" );
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./include/actz_apply.php",
 		data:{activityId:$(this).attr("actid")},
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			$( zt_elem_main_content2 ).html(html);
 			$(zt_elem_go_back_home).bind("click", function(){ switch_main_content( "<-" ); });
 			$( az_elem_apply_audit_ok ).bind( "click",  az_funz_apply_audit_ok );//"审核通过"
@@ -133,6 +143,7 @@ az_func_doc_submit_doc = function(){
 	var doc_edit_date_start = $( "#doc_edit_date_start" ).val();
 	var doc_edit_profile = $( "#doc_edit_profile" ).val();
 	var doc_edit_summary = $( "#doc_edit_summary" ).val();
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./handle/rec.php",
@@ -148,6 +159,7 @@ az_func_doc_submit_doc = function(){
 			start_date: doc_edit_date_start
 		},
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			if( html == 0 ){
 				//switch_main_content( "<-" );
 				alert( "保存成功！" );
@@ -160,11 +172,13 @@ az_func_doc_submit_doc = function(){
 }
 //点击活动档案的“删除”按钮的处理函数
 az_func_doc_delete_doc = function(){
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./handle/rec.php",
 		data:{type:"delete", documentId: $(this).attr("docid") },
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			if( html == 0 ){//删除成功！
 				//switch_main_content( "<-" );
 				$("#util_start_activity").trigger("click");
@@ -177,12 +191,14 @@ az_func_doc_delete_doc = function(){
 //参与人员的“导入”
 az_funcz_doc_import_part = function(){
 	var list = az_func_getIdList( "doc_checkbox_head_", "all" );
+	document.getElementById('loading-bar').style.display='block';
 	//alert( list );
 	$.ajax({
 		type:"POST",
 		url:"./include/actz_apply.php",//从“报名”页面导入
 		data:{type:"choose", activityId: $(this).attr("actid"), idList: list, documentId: $(this).attr("docid") },
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			tipsWindown("报名信息","text:"+html,"900","427","true","","true","");
 			$( "#btn_import_ok" ).bind( "click", az_funcz_doc_import_ok );//点击“导入”对话框中的“确定”按钮
 			$( za_elem_apply_select_all ).bind( "change",  az_funz_apply_select_all );//"选择全部"
@@ -193,11 +209,13 @@ az_funcz_doc_import_part = function(){
 az_funcz_doc_remove_part = function(){
 	var list = az_func_getIdList( "doc_checkbox_head_" );
 	//alert( list );
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./handle/rec.php",
 		data:{type:"remove", documentId: $(this).attr("docid"), idList: list },
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			if( html == 0 ){
 				//alert( "移除成功！" );
 				var all_checkbox = $( "[type='checkbox']" );
@@ -227,11 +245,13 @@ az_funcz_doc_remove_part = function(){
 //导入成功的处理函数！
 az_funcz_doc_import_ok = function(){
 	//alert( "test -ok" );
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type: "POST",
 		url: "./handle/rec.php",
 		data:{ type:"import", idList: az_func_getIdList(  "act_people_table_checkbox_" ), documentId: $(this).attr( "docid" ) },
 		success:function(html){//0-成功，其他-失败
+		document.getElementById('loading-bar').style.display='none';
 			if( html == 0 ){	
 				$("#doc_edit_part_table_tr_tip").remove();//移除“还没有人参加这个活动哦”提示
 
@@ -352,12 +372,14 @@ var az_func_getIdList = function( preffix, match ){
 //点击活动报名情况的“审核通过”按钮的处理函数
 az_funz_apply_audit_ok = function(){
 	var actid = $(this).attr( "actid" );
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type: "POST",
 		url: "./handle/actz.php",
 		data:{ type:"actApply", idList: az_func_getIdList( "act_people_table_checkbox_" ),
 			target:1, reason: " 暂时没有", activityId: $(this).attr( "actid" ) },
 		success:function(html){//0-成功，其他-失败
+			document.getElementById('loading-bar').style.display='none';
 			//alert( html );
 			if( html == 0 ){//成功
 				//alert( "修改审核状态成功！" );
@@ -383,12 +405,14 @@ az_funz_apply_audit_ok = function(){
 az_funz_apply_audit_fail= function(){
 	var reason = $("#textarea_back_reason").val().trim();
 	var actid = $(this).attr( "actid" );
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type: "POST",
 		url: "./handle/actz.php",
 		data:{ type:"actApply", idList: az_func_getIdList( "act_people_table_checkbox_" ), 
 			target:0, reason: reason, activityId: $(this).attr( "actid" ) },
 		success:function(html){//0-成功，其他-失败
+			document.getElementById('loading-bar').style.display='none';
 			if( html == 0 ){//成功
 				//alert( "修改审核状态成功！" );
 				var all_checkbox = $( "[type='checkbox']" );
@@ -659,12 +683,13 @@ function doc_edit_submit_handle(elem){
 	}
 
 	var docid = $(elem).attr("docid");
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({ 
 		type:"POST",
 		url:"./handle/actz.php",
 		data:{setStr:str, type:"setpart", documentId: docid },
 		success:function(html){
-		
+			document.getElementById('loading-bar').style.display='none';
 			var modify_button = $("#doc_op_modify");
 			modify_button.attr( "disabled", true );
 			modify_button.attr( "title", "之前的修改已保存，您还没有新的修改" );
@@ -679,12 +704,13 @@ function doc_edit_submit_handle(elem){
 function submit_doc(elem){
 	$("#doc_op_submit").attr( "disabled", true );
 	$("#doc_op_submit").attr( "title", "正在向服务器提交您的请求……" );
-
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({ 
 		type:"POST",
 		url:"./handle/actz.php",
 		data:{ type:"submit", documentId: $(elem).attr("docid") },
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			if( html == 0){
 				alert( "提交成功！" );
 				$("#doc_op_submit").attr( "disabled", false );
@@ -712,11 +738,13 @@ function mem_state_handle(elem){
 	var uid = $(elem).prev().attr("uid");
 	var newval = $(elem).prev().find(":selected").val();
 	var newtext = $(elem).prev().find(":selected").text();
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./handle/mem.php",
 		data:{type:"modifyState", uid: uid, state: newval, reason: "暂时没有"},
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			if( html == 0 ){
 				$(elem).parent().prev().text( newtext );				
 				$(elem).parent().toggle();
@@ -746,11 +774,13 @@ function mem_position_handle(elem){
 	var uid = $(elem).prev().attr("uid");
 	var newval = $(elem).prev().find(":selected").val();
 	var newtext = $(elem).prev().find(":selected").text();
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./handle/mem.php",
 		data:{type:"modifyPosition", uid: uid, position: newtext, reason: "暂时没有"},
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			//alert( html );
 			if( html == 0 ){
 				$(elem).parent().prev().text( newtext );				

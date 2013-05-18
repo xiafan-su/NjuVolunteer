@@ -55,11 +55,13 @@ function hide(){
 	setTimeout("$('#notice-detail').hide()",500);
 }
 function detail_show(temp){
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:'POST',
 		url:"handle/notice_page.php",
 		data:{type:$('#type').text(),id:temp},
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			show();
 			$('#notice-detail').html(html);
 		}	

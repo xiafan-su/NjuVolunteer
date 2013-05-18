@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 16:28:31
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 23:42:01
          compiled from "./tpls/templates\act_dtl.html" */ ?>
-<?php /*%%SmartyHeaderCode:2041351973bafa5f3b6-98121488%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1345519748a073c1b8-21839618%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368858222,
+      1 => 1368891428,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2041351973bafa5f3b6-98121488',
+  'nocache_hash' => '1345519748a073c1b8-21839618',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519748a0b33c3',
   'variables' => 
   array (
     'id' => 0,
@@ -34,10 +36,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'act' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51973bafb785d',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51973bafb785d')) {function content_51973bafb785d($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_519748a0b33c3')) {function content_519748a0b33c3($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -68,7 +68,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div class="main">
 	<div id="left">
         <div id="act_image">
-   			 <img src="./assets/img/activity_center/0.jpg" height="250" width="220" />
+   			 <img src="./assets/img/activity_center/0.jpg" height="244" width="214" />
              <span id="upload_pic" name="upload_pic">上传图片</span>
 		</div>
     </div>
@@ -143,9 +143,10 @@ $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
 ?>
             <div class="comment-panel">
             	<div class="comment-title">
-                	<div class="comment-name"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['name'];?>
+                	<div class="comment-name"><a href="indexv.php?user_id=<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['name'];?>
 (<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
-)</div>
+)</a></div>
                     <div class="comment-time">[<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['time'];?>
 ]</div>
                 </div>

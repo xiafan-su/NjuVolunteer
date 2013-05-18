@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 19:13:59
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 23:54:25
          compiled from "./tpls/templates\act.html" */ ?>
-<?php /*%%SmartyHeaderCode:161265197627721e5b8-16271166%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:122115197715b893666-11506394%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
     array (
       0 => './tpls/templates\\act.html',
-      1 => 1368858222,
+      1 => 1368892463,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '161265197627721e5b8-16271166',
+  'nocache_hash' => '122115197715b893666-11506394',
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5197627730771',
+  'unifunc' => 'content_5197715b90476',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5197627730771')) {function content_5197627730771($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5197715b90476')) {function content_5197715b90476($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -38,7 +38,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div class="main">
 	<div class="main_search">
     	<a href="act.php">
-        	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:#606;">活动中心</div>
+        	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:rgb(102,51,102);">活动中心</div>
         </a>
         <div class="submit_search">
 			<input id="submit" style="background-color:#606;color:#FFF" name="submit" class="btn btn-warning span2" onclick="searchit()" type="submit" value="搜索" />
@@ -46,7 +46,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<div class="input_search" >
 			<input id="keyword" name="keyword" class="email" type="text" placeholder="请输入关键字" />
 		</div>
-		
 	</div>
     <hr />
     <div class="search-result" id="result">
@@ -66,8 +65,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <a class="type-list" href="javascript:searchattributiontype(1)" id="a1">扶老</a>
             <a class="type-list" href="javascript:searchattributiontype(2)" id="a2">支教</a>
             <a class="type-list" href="javascript:searchattributiontype(3)" id="a3">助残</a>
-            <a class="type-list" href="javascript:searchattributiontype(4)" id="a4">大型赛会</a>
-            <a class="type-list" href="javascript:searchattributiontype(5)" id="a5">其他</a>
+            <a class="type-list" href="javascript:searchattributiontype(4)" id="a4">校园</a>
+            <a class="type-list" href="javascript:searchattributiontype(5)" id="a5">大型赛会</a>
+            <a class="type-list" href="javascript:searchattributiontype(6)" id="a6">其他</a>
         </div>
         <div class="type">
             <div class="type-title">时间限制:</div>
@@ -105,11 +105,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="hotact2">
             <div class="title">
                 <div class="hotact-left"></div>
-                <h3 style="float:left;font-size:24px;padding-top:10px;">人气活动</h3>
+                <h3 style="float:left;font-size:24px;padding-top:10px;color:rgb(102,51,102)">人气活动</h3>
                 <div class="hotact-right"></div>
             </div>
-            <div style="padding-top:3px;padding-bottom:3px;background-color:#333"></div>
             <div class="hottable">
+            	<div class="hot-cover1"></div>
+                <div class="hot-cover2"></div>
                 <ul class="hotlist" id="hotlist">
                 <div id="hotlist1">
                     <li class="hot">
@@ -152,7 +153,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="weekact" id="weekact" style="display:block">
             <div class="title">
                 <div class="hotact-left"></div>
-                <h3 style="float:left;font-size:24px;padding-top:10px;">本周活动</h3>
+                <h3 style="float:left;font-size:24px;padding-top:10px; color:rgb(102,51,102)">本周活动</h3>
                 <div class="hotact-right"></div>
                 </ul>
             </div>

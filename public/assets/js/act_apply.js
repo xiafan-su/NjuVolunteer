@@ -1,15 +1,15 @@
 
 function show_en(){
-	$('#en_choose').slideDown();
+	$('#en_choose').show();
 }
 function hide_en(){
-	$('#en_choose').slideUp();	
+	$('#en_choose').hide();	
 }
 function show_faculty(){
-	$('#faculty_choose').slideDown();	
+	$('#faculty_choose').show();	
 }
 function hide_faculty(){
-	$('#faculty_choose').slideUp();	
+	$('#faculty_choose').hide();	
 }
 var editor;
 KindEditor.ready(function(K) {
@@ -291,11 +291,13 @@ function submit_click()
 		 }
  	}
 	//alert(faculty_limit);
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		data:{id:act_id,activity_name:$('#activity_name').val(),activity_place:$("#activity_place").val(),time_type:$('#time_type').val(),attribution_type:$('#attribution_type').val(),begin_time:$('#begin_time').val(),end_time:$('#end_time').val(),deadline:$('#deadline').val(),detail_time:$('#detail_time').val(),total_num:$('#total_num').val(),need_audit:$('#need_audit').val(),responser:$('#responser').val(),responser_tel:$('#responser_tel').val(),last_time:$('#last_time').val(),activity_profile:profile,state:cur_state,weekday_time:Weekday_time,other_language:$("#other_language").val(),faculty_limit:faculty_limit,cet4:$('#cet4').val(),cet6:$('#cet6').val()},
 		url:"./handle/act_apply.php",
 		success:function(html){
+		document.getElementById('loading-bar').style.display='none';
 		//alert(html);
 			if(html == 1) {
 				if (preview_flag==0)

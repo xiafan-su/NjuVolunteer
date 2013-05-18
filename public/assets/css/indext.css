@@ -46,8 +46,10 @@
 }
 .per-info table{
 	margin-top:0px;
-	border-radius:10px;
-	border-collapse:collapse;
+	border-radius:5px;
+	border-collapse:separate;
+	border-color:#666;
+	padding:1px;
 }
 
 img{
@@ -64,14 +66,17 @@ img{
 	box-shadow:10px 10px 10px #777;
 }
 #table_activity table{
-	border-radius:10px;
+	border-radius:5px;
+	padding:1px;
 	margin:0;
+	border-collapse:separate;
+	border-color:#666;
 }
 #table_activity table th,#table_activity table td{
 	color:#000;
-	border-collapse:collapse;
 	background:rgb(215,215,215);
 }
+
 #table_comment{
 	float:left;
 	margin-top:30px;
@@ -84,16 +89,20 @@ img{
 	box-shadow:10px 10px 10px #777;
 }
 #table_comment table{
-	border-radius:10px;
+	border-radius:5px;
+	padding:1px;
+	border-collapse:separate;
 	margin:0;
+	border-color:#666;
 }
 #table_comment table th,#table_comment table td{
 	color:#000;
-	border-collapse:collapse;
 	background:rgb(215,215,215);
 }
 
-
+#table_activity table th,#table_comment table th{
+	color:rgb(102,51,102);	
+}
 
 
 

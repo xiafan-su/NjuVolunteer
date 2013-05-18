@@ -6,7 +6,6 @@
 .main_search{
 	width:960px;
 	height:100px;
-	border-bottom:1px solid rgb(200,200,200);
 }
 .input_search{
 	margin-left:10px;
@@ -27,10 +26,47 @@
 	top:165px;
 	left:10px;
 }
+.pageup{
+	float:left;
+	height:300px;
+	width:80px;
+	border-radius: 20px 0 0 20px;
+	background:rgb(102,51,102);
+	box-shadow:10px 10px 20px #666;
+}
+.pageup:hover{
+	background-color:#909;
+	cursor:pointer;
+}
+.pagedown:hover{
+	background-color:#909;
+	cursor:pointer;
+}
+.pagedown{
+	float:right;
+	height:300px;
+	width:80px;
+	border-radius: 0 20px 20px 0;
+	background:rgb(102,51,102);
+	box-shadow:10px 10px 20px #666;
+}
 .switch{
 	position:relative;
-	width:5760px; /*应该是图片的张数加1后乘以960的值*/
-	height:350px;
+	width:4000px;
+	height:300px;
+}
+.switchlist{
+	display:block;
+	float:left;
+	width:800px;
+	height:300px;
+}
+.switchtable{
+	overflow:hidden;
+	width:800px;
+	float:left;
+	height:300px;
+	box-shadow:10px 10px 20px #666;
 }
 li.tn-img-t{
 	float:left;
@@ -53,12 +89,9 @@ li.tn-img-t{
 }
 .group{
 	/*left:400px;*/
-	margin:30px 0px 0px 0px;
+	margin:35px 0px 0px 0px;
 	float:left;
 	width:960px;
-	background:#FFF;
-	border-radius:20px;
-	box-shadow:10px 10px 10px #777;
 }
 .group-title{
 	width:900px;
@@ -68,18 +101,23 @@ li.tn-img-t{
 }
 .explore-item{
 	margin:10px 10px 10px 10px;
+	padding:10px 0 0 0;
 	float:left;
 	/*width:400px;*/
 	width:220px;
 	height:250px;
+	background:rgb(0,0,0,0);
+	border-radius:20px;
+	box-shadow:10px 10px 40px #666;
 }
 .pic{
-	width:350px;
+	width:220px;
 	height:150px;
+	text-align:center;
 }
 .pic img{
 	border-radius:20px;	
-	box-shadow:10px 10px 10px #666;
+	box-shadow:0px 0px 10px #666;
 }
 .t-portrait{
 	width:150px;
@@ -108,7 +146,9 @@ li.tn-img-t{
 .content{
 	height:80px;
 	float:left;
-	margin:20px 0 0 20px;
+	margin:20px 20px 0 20px;
+	width:180px;
+	text-align:center;
 }
 .title{
 	font-size:18px;
@@ -162,23 +202,29 @@ li.tn-img-t{
 }
 .left-bar{
 	float:left;
-	margin-top:16px;
-	width:280px;
-	height:8px;
+	margin-top:15px;
+	margin-bottom:21px;
+	margin-right:20px;
+	width:100px;
+	height:6px;
 	background:-webkit-gradient(linear, left top, right top, from(rgba(225,225,225,1)), to(rgba(104,104,104,1)));
 }
-.center-bar{
+.bar-title{
 	float:left;
-	margin-top:16px;
-	width:200px;
-	height:8px;
-	background:rgba(104,104,104,1);
+	margin-top:7px;
+	height:35px;
+	color:rgb(102,51,102);
+	font-size:24px;
+	font-weight:bold;
+	text-align:center;
 }
 .right-bar{
 	float:left;
-	margin-top:16px;
-	width:280px;
-	height:8px;
+	margin-bottom:21px;
+	margin-top:15px;
+	margin-left:20px;
+	width:700px;
+	height:6px;
 	background:-webkit-gradient(linear, right top, left top, from(rgba(225,225,225,1)), to(rgba(104,104,104,1)));
 }
 .title-bar{

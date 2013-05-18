@@ -17,7 +17,7 @@
 <div id="team_id" style="display:none"><{$team_id}></div>
 <div class="main">
 	<div class="team_name">
-    	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:#606;">
+    	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:40px;color:rgb(102,51,102);">
         	<{$team_name}>
         </div>
     </div>
@@ -73,11 +73,7 @@
         	<th scope="col">活动时间</th>
 		</tr>
         <{foreach name=data item=act from=$activity_info}>
-        <{if ($smarty.foreach.data.iteration % 2 == 0)}>
-        <tr class="even">
-        <{else}>
-        <tr class="odd">
-        <{/if}>
+        <tr>
         <td><a href="act_dtl.php?act_id=<{$act.id}>" target="_blank"><{$act.name}></a></td>
         <td><{$act.begin_time}> --- <{$act.end_time}></td>
         </tr>

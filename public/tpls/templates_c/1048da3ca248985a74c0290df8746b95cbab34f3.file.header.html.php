@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 16:23:16
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 23:37:34
          compiled from "./tpls/templates\include\header.html" */ ?>
-<?php /*%%SmartyHeaderCode:1520851973a74923630-36251731%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:49055197a03e9cd604-77183648%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1368627667,
+      1 => 1368871549,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1520851973a74923630-36251731',
+  'nocache_hash' => '49055197a03e9cd604-77183648',
   'function' => 
   array (
   ),
@@ -22,9 +22,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51973a74a3fff',
+  'unifunc' => 'content_5197a03ea5357',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51973a74a3fff')) {function content_51973a74a3fff($_smarty_tpl) {?><div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
+<?php if ($_valid && !is_callable('content_5197a03ea5357')) {function content_5197a03ea5357($_smarty_tpl) {?><div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
 <div style="width:100%;position:absolute;top:88px;height:20px;left:0;background:-webkit-gradient(linear, left top, left bottom, from(rgb(102,102,102)), to(rgba(255,255,255,0)))"></div>
 <div class="header">
 	<div class="header_content">
@@ -67,6 +67,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
  <?php echo $_smarty_tpl->getSubTemplate ("include/login.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
  
 <div class="backdrop" id="backdrop" onclick="hideit()">
+</div>
+<div id="loading-bar">
+	<div class="loading-cover"></div>
+	<div class="loading-pic"><img src="./assets/img/loading/loading.gif"/></div>
 </div>
 <script type="text/javascript">
 var flag=0;

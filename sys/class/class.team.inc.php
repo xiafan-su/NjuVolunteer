@@ -46,7 +46,7 @@ class Team extends DB_Connect {
 	
 	public function fetch_other_info()
 	{
-		$query="select * from team where layer != '0'";
+		$query="select * from team where layer != '0'  and id<>'admin' and id<>'system'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		while ($result=mysql_fetch_assoc($select))
 		{
@@ -54,8 +54,8 @@ class Team extends DB_Connect {
 			$num=mysql_query($query_num,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			$count=0;
 			while ($row=mysql_fetch_assoc($num))
-				$count ++;
-			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan']);
+				$count++;
+			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan'],"id"=>$result['id']);
 		}
 		return $team_info;
 	}
@@ -567,4 +567,3 @@ class Team extends DB_Connect {
 	}
 }
 ?>
-

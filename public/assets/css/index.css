@@ -10,6 +10,7 @@ h3{
 h2{
 	color:rgb(104,104,104);	
 }
+
 .act-show{
 	width:100%;
 	float:left;
@@ -20,6 +21,7 @@ h2{
 	float:left;
 	height:250px;
 	overflow:hidden;
+	cursor:pointer;
 }
 .little-box{
 	width:100%;
@@ -283,6 +285,7 @@ h2{
 	border-radius:20px;
 	opacity:0;
 	display:none;
+	font-size:10px;
 }
 .data-statistics div{
 	color:rgb(102,51,102);
@@ -318,4 +321,7 @@ h2{
 	border-radius:20px;
 	color:#FFF;
 	text-shadow:0 2px 2px #FFF;
+}
+.digital{
+	color:rgb(102,51,102);	
 }

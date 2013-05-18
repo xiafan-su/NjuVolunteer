@@ -16,7 +16,7 @@
 <div class="main">
 	<div class="main_search">
     	<a href="act.php">
-        	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:#606;">活动中心</div>
+        	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:rgb(102,51,102);">活动中心</div>
         </a>
         <div class="submit_search">
 			<input id="submit" style="background-color:#606;color:#FFF" name="submit" class="btn btn-warning span2" onclick="searchit()" type="submit" value="搜索" />
@@ -24,7 +24,6 @@
 		<div class="input_search" >
 			<input id="keyword" name="keyword" class="email" type="text" placeholder="请输入关键字" />
 		</div>
-		
 	</div>
     <hr />
     <div class="search-result" id="result">
@@ -44,8 +43,9 @@
             <a class="type-list" href="javascript:searchattributiontype(1)" id="a1">扶老</a>
             <a class="type-list" href="javascript:searchattributiontype(2)" id="a2">支教</a>
             <a class="type-list" href="javascript:searchattributiontype(3)" id="a3">助残</a>
-            <a class="type-list" href="javascript:searchattributiontype(4)" id="a4">大型赛会</a>
-            <a class="type-list" href="javascript:searchattributiontype(5)" id="a5">其他</a>
+            <a class="type-list" href="javascript:searchattributiontype(4)" id="a4">校园</a>
+            <a class="type-list" href="javascript:searchattributiontype(5)" id="a5">大型赛会</a>
+            <a class="type-list" href="javascript:searchattributiontype(6)" id="a6">其他</a>
         </div>
         <div class="type">
             <div class="type-title">时间限制:</div>
@@ -83,11 +83,12 @@
         <div class="hotact2">
             <div class="title">
                 <div class="hotact-left"></div>
-                <h3 style="float:left;font-size:24px;padding-top:10px;">人气活动</h3>
+                <h3 style="float:left;font-size:24px;padding-top:10px;color:rgb(102,51,102)">人气活动</h3>
                 <div class="hotact-right"></div>
             </div>
-            <div style="padding-top:3px;padding-bottom:3px;background-color:#333"></div>
             <div class="hottable">
+            	<div class="hot-cover1"></div>
+                <div class="hot-cover2"></div>
                 <ul class="hotlist" id="hotlist">
                 <div id="hotlist1">
                     <li class="hot">
@@ -130,7 +131,7 @@
         <div class="weekact" id="weekact" style="display:block">
             <div class="title">
                 <div class="hotact-left"></div>
-                <h3 style="float:left;font-size:24px;padding-top:10px;">本周活动</h3>
+                <h3 style="float:left;font-size:24px;padding-top:10px; color:rgb(102,51,102)">本周活动</h3>
                 <div class="hotact-right"></div>
                 </ul>
             </div>

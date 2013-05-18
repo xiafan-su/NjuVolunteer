@@ -97,13 +97,12 @@ img{
 }
 .hotact{
 	float:left;
-	margin-top:10px;
 	width:100%;
 	height:300px;
 }
 .hotact2{
 	float:left;
-	margin-top:10px;
+	margin-top:20px;
 	width:100%;
 	height:420px;
 }
@@ -111,16 +110,16 @@ img{
 	float:left;
 	width:100px;
 	margin-right:20px;
-	height:8px;
-	margin-top:28px;
+	height:6px;
+	margin-top:30px;
 	background:-webkit-gradient(linear, left top, right top, from(rgba(225,225,225,1)), to(rgba(104,104,104,1)));	
 }
 .hotact-right{
 	float:left;
 	width:700px;
 	margin-left:20px;
-	height:8px;
-	margin-top:28px;
+	height:6px;
+	margin-top:30px;
 	background:-webkit-gradient(linear, right top, left top, from(rgba(225,225,225,1)), to(rgba(104,104,104,1)));
 }
 .title{
@@ -136,19 +135,38 @@ img{
 }
 .search-result{
 	display:none;
-	margin-top:15px;
 	width:100%;
 	float:left;
 }
 .hottable{
+	position:relative;
 	overflow:hidden;
 	width:100%;
 	height:350px;
 }
 .hotlist{
-	position:relative;
+	position:absolute;
 	width:1920px;
 	height:350px;	
+}
+.hot-cover1{
+	position:absolute;
+	height:350px;
+	width:100px;
+	z-index:190;
+	top:0;
+	left:0;
+	background:-webkit-gradient(linear, left top, right top, from(rgba(225,225,225,1)), to(rgba(225,225,225,0)));
+}
+.hot-cover2{
+	position:absolute;
+	height:350px;
+	width:100px;
+	z-index:190;
+	top:0;
+	left:100%;
+	margin-left:-100px;
+	background:-webkit-gradient(linear,right top, left top, from(rgba(225,225,225,1)), to(rgba(225,225,225,0)));
 }
 .hot{
 	float:left;
@@ -180,7 +198,7 @@ img{
 	float:left;
 	width:100%;
 	height:25px;
-	background:#AAA;
+	background: rgba(102,51,102,0.5);
 	border-radius:0 0 10px 10px;
 	text-align:center;
 	padding-top:5px	
@@ -208,28 +226,34 @@ img{
 	width:800px;
 	float:left;
 	height:300px;
-	box-shadow:10px 10px 20px #666;
+	/*box-shadow:10px 10px 20px #666;*/
 }
 .switch{
 	position:relative;
 	width:4000px;
 	height:300px;
 }
-
+.hot img{
+	box-shadow:0 0 20px #666;
+	padding:1px;
+	border:1px solid rgb(104,104,104);
+	width:166px;
+	height:224px;	
+}
 .pageup{
 	float:left;
 	height:300px;
 	width:80px;
 	border-radius: 20px 0 0 20px;
-	background:rgb(102,51,102);
-	box-shadow:10px 10px 20px #666;
+	background:rgb(225,225,225);
+	box-shadow: 10px 10px 40px #666;
 }
 .pageup:hover{
 	background-color:#909;
 	cursor:pointer;
 }
 .pagedown:hover{
-	background-color:#909;
+	/*background-color:#909;*/
 	cursor:pointer;
 }
 .pagedown{
@@ -237,8 +261,8 @@ img{
 	height:300px;
 	width:80px;
 	border-radius: 0 20px 20px 0;
-	background:rgb(102,51,102);
-	box-shadow:10px 10px 20px #666;
+	/*background:rgb(102,51,102);*/
+	box-shadow:10px 10px 40px #666;
 }
 .more{
 	margin-top:20px;

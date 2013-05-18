@@ -24,17 +24,22 @@
 			<img src="./assets/img/head_photo/boy/178.jpg" width="80px" height="80px" border="0" alt="">
 		</div>
 		<div id="person_info" class="person-info" style="float:left">
-			<div id="user_name" ><{$user_name}></div>
+			<div id="user_name" ><{$user_name}>&nbsp;&nbsp;&nbsp;</div>
             <div id="user_level">
             	<img src="./assets/img/star.png" />
+                <img src="./assets/img/star.png" />
+                <img src="./assets/img/star.png" />
                 <img src="./assets/img/star.png" />
                 <img src="./assets/img/star.png" />
             </div>
 			<div id="server-time">服务总时间：<{$volunteer_time}>小时</div>
             <div id="base-time">基础时间：<{$base_time}>小时</div>
             <div id="honor-time">荣誉时间：<{$honor_time}>小时</div>
-            <div id="signature">签名：
-            	<input type="text" class="signature" id="sign" value="我了个草/(ㄒoㄒ)/~~" onblur="change_sign()"/>
+            <div id="signature">
+            	<span>签名：</span>
+            	<span  class="signature" onclick="$(this).toggle();$(this).next().toggle();$(this).next().focus();"><{$signature}></span>
+            	<input style="display:none" type="text" class="signature" id="sign" value="<{$signature}>" onblur="change_sign(); $(this).toggle(); $(this).prev().text($(this).val()); $(this).prev().toggle();"/>
+              
             </div>
 		</div>
 	</div>

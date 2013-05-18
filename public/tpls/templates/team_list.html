@@ -31,36 +31,23 @@ button{
 		<div class="input_search">
 			<input id="keyword" name="keyword" class="email" type="text" placeholder="请输入关键字" />
 		</div>
-	</div>
-     <div class="search-result" id="result">
-       	<div style="height:5px;float:left;width:100%;background-color:#333"></div>
-        <div style="height:30px;float:left;width:100%;background-color:#DDD;">
-        	<div style="padding-top:5px;padding-left:10px" id="result-bar"></div>
+	 </div>
+     <hr />
+     <div class="hotact">
+        <div class="pageup" id="slideleft"><img src="./assets/img/activity_center/left.gif" /></div>
+        <div class="switchtable">
+            <ul class="switch" id="switch">
+                
+            </ul>
         </div>
-     </div>
-     <div class="teams-list" style="float:left" id="teams_list">
-     </div>
-     <div class="team_news" id="visualnews">
-        <ul class="switch" id="switch">
+        <div class="pagedown" id="slideright"><img src="./assets/img/activity_center/right.gif" /></div>
+    </div>
 
-        </ul>   
-     </div>
-     <div class="dot_button" id="dot_button">
-     	<div id="dot1" onclick="switchimg(1)"></div>
-     	<div id="dot2" onclick="switchimg(2)"></div>
-     	<div id="dot3" onclick="switchimg(3)"></div>
-     	<div id="dot4" onclick="switchimg(4)"></div>
-     	<div id="dot5" onclick="switchimg(5)"></div>
-     </div>
-     <div class="assortment" id="assortment_list">
-     <!--<div style="height:5px;float:left;width:100%;background-color:#333"></div>
-        <div style="height:30px;float:left;width:100%;background-color:#DDD;">
-        	<div style="padding-top:5px;padding-left:10px" id="result-bar"></div>
-        </div>
-     </div>-->
     
    	 <div class="group" id="group1">
-     	<div class="group-title">院系组织</div>
+     	<div class="left-bar"></div>
+     	<div class="bar-title">院系组织</div>
+        <div class="right-bar"></div>
          <ul >
          
          <{foreach name=data item=item from=$department_info}>
@@ -70,7 +57,8 @@ button{
             </div>
             <div class="content">
                 <div class="title">
-                	<span onclick="window.location.href='indext.php?team_id=<{$item.id}>'"><{$item.name}></span>
+                	<span onclick="window.location.href='indext.php?team_id=<{$item.id}>'"><{$item.name}>哈哈哈哈哈啊哈
+                    </span>
                 </div>
                 <div class="favs">
                     <{$item.slogan}>
@@ -83,16 +71,17 @@ button{
     </div>
     
     <div class="group" id="group2">
-    <div class="group-title">其他组织</div>
+    <div class="left-bar"></div>
+     	<div class="bar-title">其他组织</div>
+        <div class="right-bar"></div>
      <ul>
-     
      <{foreach name=data item=item from=$other_team_info}>
      <li class="explore-item">
    		<div class="pic">
         	<img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1"/>
        	</div>
    		<div class="content" >
-        	<div class="title">
+        	<div class="title" onclick="window.location.href='indext.php?team_id=<{$item.id}>'">
             		<{$item.name}>
         	</div>
         	<div class="favs">

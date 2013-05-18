@@ -19,12 +19,14 @@ $(document).ready(function(){
 	});
 	$('#followit').click(function(){
 		//alert($('#team_id').text());
+		document.getElementById('loading-bar').style.display='block';
 		$.ajax({
 			type:'POST',
 			data:{team_id:$('#team_id').text()},
 			url:"./handle/follow_team.php",
 			success:function(html){
-				alert(html);
+				document.getElementById('loading-bar').style.display='none';
+				//alert(html);
 				if(html == 2){
 					$('#followit').html("关注这个团队");	
 				}
