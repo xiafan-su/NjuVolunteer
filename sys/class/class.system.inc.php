@@ -66,8 +66,11 @@ class System extends DB_Connect {
 	}
 	public function fetch_content($type,$id)//取出具体信息
 	{
-		if ($type==1)
+		if ($type==1){
+			$sql="UPDATE assignment SET counts=counts+1 WHERE id='".$id."'";
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			$query="select * from assignment where id='".$id."'";
+		}
 		if ($type==2)
 			$query="select * from online_question where id='".$id."'";
 		if ($type==3)
@@ -192,6 +195,20 @@ class System extends DB_Connect {
 		$result=mysql_fetch_assoc($select);
 		return $result['base_hours']+$result['honor_hours'];
 	}	
+	public function add_assignment()
+	{
+		for ($i=1;$i<100;$i++)
+		{
+			$title=rand(1,1000);
+			$content=rand(1,1000000);
+			$time=date('Y-m-d H:i:s',time());
+			$count=0;
+			$sql="INSERT INTO assignment(title,time,content,counts)
+			VALUES('".$title."','".$time."','".$content."','".$count."');
+			";
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		}
+	}
 }
 
 

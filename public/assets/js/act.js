@@ -8,6 +8,7 @@ var actnum=0;
 var left=0;
 var picnum=5;
 var flag=0;
+var slidehot=0;
 var hot=[
 '<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/1.jpg\" /></li>',
 '<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/2.jpg\" /></li>',
@@ -49,6 +50,8 @@ $(document).ready(function(){
 	});
 	setTimeout('slide()',5000);	
 	returntoday();
+	$('#hotlist').animate({left:'-960px'},10000,'linear');
+	setTimeout("slidehott()",10000);
 });
 function slideleft(){
 	if(flag==0){
@@ -82,19 +85,7 @@ function slideright(){
 function returntoday(){
 	mydate = new Date();
 	//$("#day1").html(getday(mydate.getDay())).show();
-	$("#day1").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
-	mydate.setDate(mydate.getDate()+1);
-	$("#day2").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
-	mydate.setDate(mydate.getDate()+1);
-	$("#day3").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
-	mydate.setDate(mydate.getDate()+1);
-	$("#day4").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
-	mydate.setDate(mydate.getDate()+1);
-	$("#day5").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
-	mydate.setDate(mydate.getDate()+1);
-	$("#day6").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
-	mydate.setDate(mydate.getDate()+1);
-	$("#day7").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
+	
 	//alert(mydate.setFullYear(mydate.getDate(),mydate.getMonth(),mydate.getDate()));
 	//alert(mydate.getDay());
 	//mydate.setDate(mydate.getDate()-6);
@@ -119,6 +110,19 @@ function returntoday(){
 			document.getElementById("weekact").style.display="none";
 			$("#weekact_list").html(html);
 			document.getElementById("weekact_list").style.display="block";
+			$("#day1").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
+			mydate.setDate(mydate.getDate()+1);
+			$("#day2").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
+			mydate.setDate(mydate.getDate()+1);
+			$("#day3").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
+			mydate.setDate(mydate.getDate()+1);
+			$("#day4").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
+			mydate.setDate(mydate.getDate()+1);
+			$("#day5").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
+			mydate.setDate(mydate.getDate()+1);
+			$("#day6").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
+			mydate.setDate(mydate.getDate()+1);
+			$("#day7").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 			
 		}	
 	});
@@ -228,12 +232,16 @@ function slide(){
 	slideleft();
 	setTimeout('slide()',5000);	
 }
-function highshow(){
-	$("#hotlist").animate({left:'-960px'});
+function slidehott(){
+	var list1=$('#hotlist1').html();
+	var list2=$('#hotlist2').html();
+	$('#hotlist1').html(list2);
+	$('#hotlist2').html(list1);
+	$('#hotlist').animate({left:'0px'},0);
+	$('#hotlist').animate({left:'-960px'},10000,'linear');
+	setTimeout("slidehott()",10000);
 }
-function hotshow(){
-	$("#hotlist").animate({left:'0px'});
-}
+
 function searchit(){
 	keyword=$("#keyword").val();
 	//if(keyword==""){

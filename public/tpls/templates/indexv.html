@@ -15,75 +15,55 @@
 <{include file="include/header.html"}>
 
 <div class="main">
-	<div class="bar-top"></div>
-    <div class="bar-top2"></div>
-    <div class="personal-info">
-    	<div class="left">
-        	<div class="photo">
-            	<img src="./assets/img/head_photo/boy/5.jpg"/>
-            </div>
-            <div class="orgnization">
-            	<h3>当前所属团队：</h3>
-                <{foreach item=team from=$teamlist}>
-                <h3 style="color:rgb(102,51,102)" id="team"><{$team.name}></h3>
-                <{/foreach}>
-            </div>
-        </div>
-        <div class="center">
-        	<div class="name"><{$name}></div>
-            <div class="honor"></div>
-            <div class="per-info">
-            	<table width="200" border="0">
-                  <tr>
-                    <th scope="row">所属院系</th>
-                    <td><{$faculty}></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">累计服务时间</th>
-                    <td><span id="all_time"><{$volunteer_time}></span>小时</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">荣誉时间</th>
-                    <td><span id="honor_time"><{$honor_time}></span>小时</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">E-mail：</th>
-                    <td><div id="email"><{$email}></div></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Tel：</th>
-                    <td><div id="phone"><{$phone_number}></div></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">签名档：</th>
-                    <td><div id="sign">我是一个猥琐男，啦啦啦啦啦~</div></td>
-                  </tr>
-                </table>
-            </div>
-        </div>
-        <div class="right">
-        	<div class="top-bar"></div>
-            <div class="scroll-item">
-            	这里是会滚动的信息
-            </div>
-            <div class="bottom-bar"></div>
+	<div class="vol_name">
+    	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:#606;">
+        	<{$name}>
         </div>
     </div>
-    <div style="width:100%;height:40px;float:left">
-    	<div class="left-bar"></div>
-        <div class="team">
-        	<div class="title-bar"></div>
-            <div id="id_team" class="title-content">他关注的团队</div>
+    <hr />
+    <div class="left">
+        <div class="photo">
+            <img src="./assets/img/head_photo/boy/5.jpg"/>
         </div>
-        <div class="center-bar"></div>
-        <div class="act">
-        	<div class="title-bar"></div>
-            <div id="id_activity" class="title-content">他参加的活动</div>
-        </div>    
-        <div class="right-bar"></div>
+        <div class="orgnization">
+            <h3>当前所属团队：</h3>
+            <{foreach item=team from=$teamlist}>
+            <h3 style="color:rgb(102,51,102)" id="team"><{$team.name}></h3>
+            <{/foreach}>
+        </div>
+    </div>
+    <div class="center">
+        <div class="per-info">
+            <table width="200" border="0">
+              <tr>
+                <th scope="row">所属院系</th>
+                <td><{$faculty}></td>
+              </tr>
+              <tr>
+                <th scope="row">累计服务时间</th>
+                <td><span id="all_time"><{$volunteer_time}></span>小时</td>
+              </tr>
+              <tr>
+                <th scope="row">荣誉时间</th>
+                <td><span id="honor_time"><{$honor_time}></span>小时</td>
+              </tr>
+              <tr>
+                <th scope="row">E-mail：</th>
+                <td><div id="email"><{$email}></div></td>
+              </tr>
+              <tr>
+                <th scope="row">Tel：</th>
+                <td><div id="phone"><{$phone_number}></div></td>
+              </tr>
+              <tr>
+                <th scope="row">签名档：</th>
+                <td><div id="sign">我是一个猥琐男，啦啦啦啦啦~</div></td>
+              </tr>
+            </table>
+        </div>
     </div>
     
-    <div id="table_for_activity" style="display:none;">
+    <div id="table_for_activity">
     	<br>
         <table class="act_people_table" border="1">
         <tr><th>活动名称</th><th>活动负责人</th></tr>
@@ -101,7 +81,7 @@
         </br>
     </div>
     
-    <div id="table_for_team" style="display:none;">
+    <div id="table_for_team">
     	<br>
         <table class="act_people_table" border="1">
         <tr><th>团队名称</th></tr>
@@ -112,10 +92,6 @@
         <{/foreach}>
         </table>
         </br>
-    </div>
-    
-    <div id="content">
-    
     </div>
 </div>
 

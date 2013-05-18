@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 21:20:19
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 13:36:14
          compiled from "./tpls/templates\team_list.html" */ ?>
 <?php /*%%SmartyHeaderCode:257955194954d21ef70-81971850%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a7916e79428643b39e99c1493974ee1c008cebce' => 
     array (
       0 => './tpls/templates\\team_list.html',
-      1 => 1368796818,
+      1 => 1368855372,
       2 => 'file',
     ),
   ),
@@ -51,7 +51,7 @@ button{
 <div class="main">
 	<div class="main_search">
     	<a href="team.php">
-        	<div style="float:left;margin-left:130px;margin-top:25px;font-weight:bold;font-size:50px;color:rgb(102,51,102);">团队组织</div>
+        	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:rgb(102,51,102);">团队组织</div>
         </a>
         <div class="submit_search">
             <input id="submit" style="background-color:#606;color:#FFF" name="submit" class="btn btn-warning span2" onclick="searchteam()" type="submit" value="搜索" />
@@ -69,19 +69,9 @@ button{
      <div class="teams-list" style="float:left" id="teams_list">
      </div>
      <div class="team_news" id="visualnews">
-     	<!--<h3>这里是滚动新闻图片</h3>-->
         <ul class="switch" id="switch">
-        <!--<li class="tn-img-t"><img src="../../assets/img/team_list/news5.jpg" /></li>,
-		<li class="tn-img-t"><img src="../../assets/img/team_list/news2.jpg" /></li>,
-		<li class="tn-img-t"><img src="../../assets/img/team_list/news3.jpg" /></li>,
-		<li class="tn-img-t"><img src="../../assets/img/team_list/news4.jpg" /></li>,
-        <div class="tn-img-t" id="t-img1"><img src="../../assets/img/team_list/news5.jpg" /></div>
-        <div class="tn-img-t" id="t-img2"><img src="../../assets/img/team_list/news2.png" /></div>
-        <div class="tn-img-t" id="t-img3"><img src="../../assets/img/team_list/news3.png" /></div>
-        <div class="tn-img-t" id="t-img4"><img src="../../assets/img/team_list/news4.png" /></div>-->
-        </ul>
-        <!--<p>文化祭志愿活动现场</p>-->
-        
+
+        </ul>   
      </div>
      <div class="dot_button" id="dot_button">
      	<div id="dot1" onclick="switchimg(1)"></div>
@@ -96,67 +86,39 @@ button{
         	<div style="padding-top:5px;padding-left:10px" id="result-bar"></div>
         </div>
      </div>-->
-     <div class="explore_bd" style="margin-top:20px;">
-        <!--<h3>来这里发现团队家族吧</h3>-->
-        <!--<ul class="team_menu">
-        <li class="team_class">
-        <!--<div class="department">-->
-       <!-- <button type="button" onclick="somelist(1)"><div class="text">
-        院系团队</div></button>
-        </li>
-        <li class="team_class">
-         <button type="button" onclick="somelist(2)"><div class="text">
-        其它团队</div></button>
-        </li>
-        </ul>-->
-    	<div class="left-bar"></div>
-        <div class="departmemt">
-        	<div class="title-bar"></div>
-            <span class="title-content" onclick="somelist(1)">院系团队</span>
-        </div>
-        <div class="center-bar"></div>
-        <div class="otherts">
-        	<div class="title-bar"></div>
-            <span class="title-content" onclick="somelist(2)" >其它团队</span>
-        </div>
-        <div class="right-bar"></div>
-     </div>
     
-     <div class="group" id="group1">
-     <ul >
-     
-     <?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false;
+   	 <div class="group" id="group1">
+     	<div class="group-title">院系组织</div>
+         <ul >
+         
+         <?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['department_info']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['item']->key => $_smarty_tpl->tpl_vars['item']->value){
 $_smarty_tpl->tpl_vars['item']->_loop = true;
 ?>
-     <li class="explore-item">
-   		<div class="pic">
-        	<img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1"  onmouseover="stateshow(<?php echo $_smarty_tpl->tpl_vars['item']->value['cal'];?>
-)" onmouseout="statehide(<?php echo $_smarty_tpl->tpl_vars['item']->value['cal'];?>
-)"/>
-        	<div class="float_state" id="float_state<?php echo $_smarty_tpl->tpl_vars['item']->value['cal'];?>
-">
-        		<?php echo $_smarty_tpl->tpl_vars['item']->value['slogan'];?>
-
-        	</div>
-       	</div>
-   		<div class="content" >
-        	<div class="title">
-            		<?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
-
-        	</div>
-        	<div class="favs">
-            	<?php echo $_smarty_tpl->tpl_vars['item']->value['count'];?>
-个靠谱青年在此聚集
+         <li class="explore-item">
+            <div class="pic">
+                <img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1"/>
             </div>
-    	</div>
-     </li>
-     <?php } ?>
-     
-    </ul>
+            <div class="content">
+                <div class="title">
+                	<span onclick="window.location.href='indext.php?team_id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+'"><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
+</span>
+                </div>
+                <div class="favs">
+                    <?php echo $_smarty_tpl->tpl_vars['item']->value['slogan'];?>
+
+                </div>
+            </div>
+         </li>
+         <?php } ?>
+         
+        </ul>
     </div>
+    
     <div class="group" id="group2">
+    <div class="group-title">其他组织</div>
      <ul>
      
      <?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false;
@@ -166,14 +128,7 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 ?>
      <li class="explore-item">
    		<div class="pic">
-        	<img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1" onmouseover="stateshow(<?php echo $_smarty_tpl->tpl_vars['item']->value['cal'];?>
-)" onmouseout="statehide(<?php echo $_smarty_tpl->tpl_vars['item']->value['cal'];?>
-)"/>
-        	<div class="float_state" id="float_state<?php echo $_smarty_tpl->tpl_vars['item']->value['cal'];?>
-">
-        		<?php echo $_smarty_tpl->tpl_vars['item']->value['slogan'];?>
-
-        	</div>
+        	<img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1"/>
        	</div>
    		<div class="content" >
         	<div class="title">
@@ -181,8 +136,8 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 
         	</div>
         	<div class="favs">
-            	<?php echo $_smarty_tpl->tpl_vars['item']->value['count'];?>
-个靠谱青年在此聚集
+            	<?php echo $_smarty_tpl->tpl_vars['item']->value['slogan'];?>
+
             </div>
     	</div>
      </li>

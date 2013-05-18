@@ -61,6 +61,9 @@ $vol_list[]=array('user_id'=>'101220125','base_time'=>'2','honor_leader'=>'0','h
 $vol_list[]=array('user_id'=>'101220129','base_time'=>'2','honor_leader'=>'1','honor_excellent'=>'1','comment'=>'不错','performance_level'=>'一般');
 //$t->edit_voltime(8,$vol_list);
 $t->register_voltime(8,$vol_list);*/
+$s=new System();
+$s->add_assignment();
+
 $t=new Team();
 $recv_list=$t->fetch_my_send_note_detail(1);
 echo $recv_list['content'];

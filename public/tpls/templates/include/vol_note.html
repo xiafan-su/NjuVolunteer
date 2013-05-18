@@ -7,7 +7,7 @@
   <{if isset($note_list)}>
     <{foreach item=note from=$note_list}>
       <tr>
-        <td id="title" onclick="show_note(<{$note.note_id}>)"><{$note.title}></td>
+        <td id="title" style="cursor:pointer" onclick="show_note(<{$note.note_id}>)"><{$note.title}></td>
         <td id="time"><{$note.time}></td>
       </tr>
     <{/foreach}>

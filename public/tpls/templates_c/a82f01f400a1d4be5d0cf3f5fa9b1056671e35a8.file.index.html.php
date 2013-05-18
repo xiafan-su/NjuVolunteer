@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 10:37:57
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 13:40:00
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:2983451964c1f65f481-92839456%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1368841821,
+      1 => 1368855598,
       2 => 'file',
     ),
   ),
@@ -91,7 +91,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
         <div class="box-element">
         	<div class="title-bar"></div>
-            <div class="title-content">心路历程</div>
+            <div class="title-content"><a href="notice.php?type=3&page=1">心路历程</a></div>
         </div>
         <div class="box-element">
         	<div class="title-bar"></div>
@@ -154,7 +154,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="others-h-bar"></div>
     	<div class="others-element">
             <div class="others-content">
-            	<h3>留言咨询</h4><hr />请问希望之星的志愿者招募满了吗？<hr />请问在哪可以办理志愿服务的证明？<hr />这学期还有仙林中学的活动吗？
+            	<h3><a href="notice.php?type=2&page=1">留言咨询</a></h4><hr />请问希望之星的志愿者招募满了吗？<hr />请问在哪可以办理志愿服务的证明？<hr />这学期还有仙林中学的活动吗？
             </div>
         </div>
         <div class="others-h-bar"></div>

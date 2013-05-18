@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 21:18:12
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 13:08:10
          compiled from "./tpls/templates\indext.html" */ ?>
 <?php /*%%SmartyHeaderCode:297785195fbfbe842c4-34934656%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fcc6fe68a9e41e4d9da946fded2039d0b9e628f0' => 
     array (
       0 => './tpls/templates\\indext.html',
-      1 => 1368796683,
+      1 => 1368853684,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'team_id' => 0,
-    'already_follow' => 0,
     'team_name' => 0,
+    'already_follow' => 0,
     'leader_name' => 0,
     'all_act_num' => 0,
     'now_act_num' => 0,
@@ -52,82 +52,63 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div id="team_id" style="display:none"><?php echo $_smarty_tpl->tpl_vars['team_id']->value;?>
 </div>
 <div class="main">
-	<div class="bar-top"></div>
-    <div class="bar-top2"></div>
-    <div class="personal-info">
-    	<div class="left">
-        	<div class="photo">
-            	<img src="./assets/img/head_photo/boy/7.jpg"/>
-            </div>
-            <div class="follow" id="followit">
-            <?php if ($_smarty_tpl->tpl_vars['already_follow']->value==1){?>
-            	取消关注这个团队
-            <?php }else{ ?>
-            	关注这个团队
-               <?php }?>
-            </div>
-        </div>
-        <div class="center">
-        	<div class="name" id="name"><?php echo $_smarty_tpl->tpl_vars['team_name']->value;?>
-</div>
-            <div class="honor"></div>
-            <div class="per-info">
-            	<table width="200" border="0">
-                  <tr>
-                    <th scope="row">团队负责人</th>
-                    <td><?php echo $_smarty_tpl->tpl_vars['leader_name']->value;?>
-</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">累计活动</th>
-                    <td><span id="all_time"><?php echo $_smarty_tpl->tpl_vars['all_act_num']->value;?>
-</span>次</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">本学期活动</th>
-                    <td><span id="honor_time"><?php echo $_smarty_tpl->tpl_vars['now_act_num']->value;?>
-</span>次</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">E-mail：</th>
-                    <td><div id="email"><?php echo $_smarty_tpl->tpl_vars['leader_email']->value;?>
-</div></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Tel：</th>
-                    <td><div id="phone"><?php echo $_smarty_tpl->tpl_vars['leader_phone']->value;?>
-</div></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">签名档：</th>
-                    <td><div id="sign">我是一个猥琐男，啦啦啦啦啦~</div></td>
-                  </tr>
-                </table>
-            </div>
-        </div>
-        <div class="right">
-        	<div class="top-bar"></div>
-            <div class="scroll-item">
-            	<div id="scroll-panel"></div>
-            </div>
-            <div class="bottom-bar"></div>
+	<div class="team_name">
+    	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:#606;">
+        	<?php echo $_smarty_tpl->tpl_vars['team_name']->value;?>
+
         </div>
     </div>
-    <div style="width:100%;height:40px;float:left">
-    	<div class="left-bar"></div>
-        <div class="team">
-        	<div class="title-bar"></div>
-            <div id="team_comment" class="title-content">与他相关的评论</div>
+    <hr />
+    <div class="left">
+        <div class="photo">
+            <img src="./assets/img/head_photo/boy/7.jpg"/>
         </div>
-        <div class="center-bar"></div>
-        <div class="act">
-        	<div class="title-bar"></div>
-            <div id="team_activity" class="title-content">他发起的活动</div>
+        <div class="follow" id="followit">
+            <?php if ($_smarty_tpl->tpl_vars['already_follow']->value==1){?>
+                取消关注这个团队
+            <?php }else{ ?>
+                关注这个团队
+            <?php }?>
         </div>
-        <div class="right-bar"></div>
+    </div>
+    <div class="center">
+        <div class="per-info">
+            <table width="200" border="1">
+              <tr>
+                <th scope="row">团队负责人</th>
+                <td><?php echo $_smarty_tpl->tpl_vars['leader_name']->value;?>
+</td>
+              </tr>
+              <tr>
+                <th scope="row">累计活动</th>
+                <td><span id="all_time"><?php echo $_smarty_tpl->tpl_vars['all_act_num']->value;?>
+</span>次</td>
+              </tr>
+              <tr>
+                <th scope="row">本学期活动</th>
+                <td><span id="honor_time"><?php echo $_smarty_tpl->tpl_vars['now_act_num']->value;?>
+</span>次</td>
+              </tr>
+              <tr>
+                <th scope="row">E-mail：</th>
+                <td><div id="email"><?php echo $_smarty_tpl->tpl_vars['leader_email']->value;?>
+</div></td>
+              </tr>
+              <tr>
+                <th scope="row">Tel：</th>
+                <td><div id="phone"><?php echo $_smarty_tpl->tpl_vars['leader_phone']->value;?>
+</div></td>
+              </tr>
+              <tr>
+                <th scope="row">签名档：</th>
+                <td><div id="sign">我是一个猥琐男，啦啦啦啦啦~</div></td>
+              </tr>
+            </table>
+        </div>
     </div>
 
-    <div id="table_activity" style="display:none;">
+
+    <div id="table_activity">
       	<table border="1">
         <tr>
         	<th scope="col">活动名称</th>
@@ -156,7 +137,7 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
         </table>
     </div>
     
-    <div id="table_comment" style="display:none;">
+    <div id="table_comment">
     <table border="1">
     	<th>评论人</th><th>评论内容</th>
     

@@ -108,6 +108,22 @@ img{
 	width:100%;
 	height:420px;
 }
+.hotact-left{
+	float:left;
+	width:100px;
+	margin-right:20px;
+	height:8px;
+	margin-top:28px;
+	background:-webkit-gradient(linear, left top, right top, from(rgba(225,225,225,1)), to(rgba(104,104,104,1)));	
+}
+.hotact-right{
+	float:left;
+	width:700px;
+	margin-left:20px;
+	height:8px;
+	margin-top:28px;
+	background:-webkit-gradient(linear, right top, left top, from(rgba(225,225,225,1)), to(rgba(104,104,104,1)));
+}
 .title{
 	width:100%;
 	height:64px;
@@ -147,27 +163,40 @@ img{
 	width:100%;
 	height:450px;
 	margin-top:10px;
+	margin-bottom:20px;
 }
 .weeka{
 	float:left;
 	width:120px;
-	height:380px;
-	margin-right:20px;
+	height:352px;
+	margin:0 8px 0 8px;
+	background:rgb(225,225,225);
+	border-radius:0 0 20px 20px;
+	box-shadow:10px 10px 10px #777;
+}
+.weeka:hover{
+	background:#FFF;
+}
+.weekdate-cover{
+	float:left;
+	width:100%;
+	height:25px;
+	background:#AAA;
+	border-radius:0 0 10px 10px;
+	text-align:center;
+	padding-top:5px	
 }
 .weekdate{
 	float:left;
-	width:108px;
+	width:120px;
 	height:30px;
-	font-size:18px;
-	padding-left:10px;
-	padding-top:8px;
-	border:1px solid #DDD;
+	margin:0 8px 0 8px;
 }
 .act-content{
 	float:left;
-	width:118px;
-	height:168px;
-	border:1px solid #DDD;
+	width:110px;
+	height:160px;
+	margin:4px;
 }
 .switchlist{
 	display:block;
