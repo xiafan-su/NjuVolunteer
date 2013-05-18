@@ -35,7 +35,7 @@ $year = $timearray[0];
 $month = $timearray[1];
 $day = $timearray[2];
 echo $month;*/
-
+$act_info=NULL;
 
 $act_result=$team->fetch_act_all($id,2);
 while ($row=mysql_fetch_assoc($act_result))

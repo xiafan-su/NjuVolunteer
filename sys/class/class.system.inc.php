@@ -132,6 +132,14 @@ class System extends DB_Connect {
 	public function send_note($recv_id_list,$title,$content,$sender_id='system')//
 	{
 		$recv_id = explode(" ", $recv_id_list);
+		$sql="INSERT INTO note_send(sender_id,send_type,recv_id_list,title,content,date)
+		VALUES('".$sender_id."','0','".$recv_id_list."','".$title."','".$content."','".date('Y-m-d H:i:s',time())."')
+		";
+		if (!mysql_query($sql, $this->root_conn))
+			{
+				die('Error: ' . mysql_error());
+				//return false;
+			}
 		foreach ($recv_id as $value)
 		{
 			if ($value!=NULL)
