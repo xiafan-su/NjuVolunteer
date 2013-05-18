@@ -23,7 +23,7 @@ $(document).ready(function(){
 	/*for(k=2;k<imgnum+1;k++){
 		$('#t-img'+k).hide();
 	}*/
-	document.getElementById('group2').style.display='none';
+	//document.getElementById('group2').style.display='none';
 	setTimeout('slide()',5000);	
 	
 });
@@ -70,14 +70,6 @@ function somelist(temp) {
 		document.getElementById('group2').style.display='block';
 		listflag=2;
 	}
-}
-function stateshow(temp){
-		//$('#float_cover'+temp).fadeIn();
-		$('#float_state'+temp).fadeIn();
-}
-function statehide(temp){
-		//$('#float_cover'+temp).fadeOut();
-		$('#float_state'+temp).fadeOut();
 }
 function imgstateshow(temp){
 	$('#tn-img-t'+temp).mouseover(function(){

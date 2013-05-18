@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 11:27:45
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 13:54:47
          compiled from "./tpls/templates\act.html" */ ?>
-<?php /*%%SmartyHeaderCode:255695196f5315b2607-30980246%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:294635196321ee34991-61562401%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
     array (
       0 => './tpls/templates\\act.html',
-      1 => 1368802412,
+      1 => 1368856486,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '255695196f5315b2607-30980246',
+  'nocache_hash' => '294635196321ee34991-61562401',
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5196f5315f36a',
+  'unifunc' => 'content_5196321eef71c',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5196f5315f36a')) {function content_5196f5315f36a($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5196321eef71c')) {function content_5196321eef71c($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -48,6 +48,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</div>
 		
 	</div>
+    <hr />
     <div class="search-result" id="result">
         <div style="height:5px;float:left;width:100%;background-color:#333"></div>
         <div style="height:30px;float:left;width:100%;background-color:#DDD;">
@@ -103,16 +104,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
         <div class="hotact2">
             <div class="title">
-                <div style="float:left;height:26px;margin-top:20px;margin-right:10px;width:10px;background-color:#606"></div>
+                <div class="hotact-left"></div>
                 <h3 style="float:left;font-size:24px;padding-top:10px;">人气活动</h3>
-                <ul style="float:right;padding-top:20px">
-                    <li class="title-op" style="float:left;margin:5px;font-size:18px;padding:5px" onmouseover="hotshow()">热门</li>
-                    <li class="title-op" style="float:left;margin:5px;font-size:18px;padding:5px" onmouseover="highshow()">高评</li>
-                </ul>
+                <div class="hotact-right"></div>
             </div>
             <div style="padding-top:3px;padding-bottom:3px;background-color:#333"></div>
             <div class="hottable">
                 <ul class="hotlist" id="hotlist">
+                <div id="hotlist1">
                     <li class="hot">
                     	<img src="./assets/img/activity_center/1.jpg" width=170px/>
                         <div class="img-bar">仙林中学支教<br />时间：每周日<br />所属团队：南大青协</div></li>
@@ -128,6 +127,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <li class="hot">
                     	<img src="./assets/img/activity_center/5.jpg" width=170px/>
                         <div class="img-bar">云锦博物馆义务讲解员<br />时间：每周三、周五<br />所属团队：计算机系青协</div></li>
+                </div>
+                <div id="hotlist2">
                     <li class="hot">
                     	<img src="./assets/img/activity_center/6.jpg" width=170px/>
                         <div class="img-bar">城市义工岗<br />时间：任意时间<br />所属团队：南大青协</div></li>
@@ -143,19 +144,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <li class="hot">
                     	<img src="./assets/img/activity_center/0.jpg" width=170px/>
                         <div class="img-bar">关爱农民工志愿服务<br />时间：6月12日<br />所属团队：计算机系青协</div></li>
+                </div>
                 </ul>
             </div>
         </div>
         <div class="weekact" id="weekact_list" style="display:none"></div>
         <div class="weekact" id="weekact" style="display:block">
             <div class="title">
-                <div style="float:left;height:26px;margin-top:20px;margin-right:10px;width:10px;background-color:#606"></div>
+                <div class="hotact-left"></div>
                 <h3 style="float:left;font-size:24px;padding-top:10px;">本周活动</h3>
-                <ul style="float:right;padding-top:20px">
-                    <li class="title-op" style="float:left;margin:7px;font-size:14px;padding:3px" onclick="returntoday()">回到本周</li>
-                    <li class="title-op" style="float:left;margin:7px;font-size:14px;padding:3px" onclick="preweek()">上一周</li>
-                    <li class="title-op" style="float:left;margin:7px;font-size:14px;padding:3px" onclick="nextweek()">下一周</li>
-                </ul>
+                <div class="hotact-right"></div>
                 </ul>
             </div>
             <div style="padding-top:3px;padding-bottom:3px;background-color:#333"></div>

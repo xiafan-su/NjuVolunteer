@@ -103,6 +103,7 @@ input[type='button']{
 }
 .title-d{
 	float:left;
+	cursor:pointer;
 }
 .time-d{
 	float:right;
