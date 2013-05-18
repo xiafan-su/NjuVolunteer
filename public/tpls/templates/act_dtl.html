@@ -88,7 +88,7 @@
           	<{foreach name=comment_data item=act_comment from=$comment_detail}>
             <div class="comment-panel">
             	<div class="comment-title">
-                	<div class="comment-name"><{$act_comment.name}>(<{$act_comment.id}>)</div>
+                	<div class="comment-name"><a href="indexv.php?user_id=<{$act_comment.id}>"><{$act_comment.name}>(<{$act_comment.id}>)</a></div>
                     <div class="comment-time">[<{$act_comment.time}>]</div>
                 </div>
                 <div class="comment-content">

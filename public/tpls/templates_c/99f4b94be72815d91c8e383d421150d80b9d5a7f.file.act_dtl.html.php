@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 17:23:44
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 20:19:20
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:1345519748a073c1b8-21839618%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368866418,
+      1 => 1368879559,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519748a0b33c3',
   'variables' => 
   array (
     'id' => 0,
@@ -34,8 +36,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'act' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519748a0b33c3',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_519748a0b33c3')) {function content_519748a0b33c3($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -143,9 +143,10 @@ $_smarty_tpl->tpl_vars['act_comment']->_loop = true;
 ?>
             <div class="comment-panel">
             	<div class="comment-title">
-                	<div class="comment-name"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['name'];?>
+                	<div class="comment-name"><a href="indexv.php?user_id=<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['name'];?>
 (<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
-)</div>
+)</a></div>
                     <div class="comment-time">[<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['time'];?>
 ]</div>
                 </div>

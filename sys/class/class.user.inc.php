@@ -49,7 +49,7 @@ class User extends DB_Connect {
 	
 	public function fetch_my_act($id)//获取参加的活动
 	{
-		$sql="select activity_info.id as AID,activity_info.name as ANAME from act_doc,act_record,activity_info  where act_doc.act_id=activity_info.id and act_record.doc_id=act_doc.id  and act_record.user_id='".$id."' ";
+		$sql="select activity_info.id as AID,activity_info.name as name,sum(act_record.base_time) as base_time,sum(act_record.honor_time) as honor_time from act_doc,act_record,activity_info  where act_doc.act_id=activity_info.id and act_record.doc_id=act_doc.id  and act_record.user_id='".$id."' and act_record.final='true' ";
 		
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
