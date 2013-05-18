@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 13:36:14
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 19:29:19
          compiled from "./tpls/templates\team_list.html" */ ?>
 <?php /*%%SmartyHeaderCode:257955194954d21ef70-81971850%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a7916e79428643b39e99c1493974ee1c008cebce' => 
     array (
       0 => './tpls/templates\\team_list.html',
-      1 => 1368855372,
+      1 => 1368876558,
       2 => 'file',
     ),
   ),
@@ -59,15 +59,8 @@ button{
 		<div class="input_search">
 			<input id="keyword" name="keyword" class="email" type="text" placeholder="请输入关键字" />
 		</div>
-	</div>
-     <div class="search-result" id="result">
-       	<div style="height:5px;float:left;width:100%;background-color:#333"></div>
-        <div style="height:30px;float:left;width:100%;background-color:#DDD;">
-        	<div style="padding-top:5px;padding-left:10px" id="result-bar"></div>
-        </div>
-     </div>
-     <div class="teams-list" style="float:left" id="teams_list">
-     </div>
+	 </div>
+     <hr />
      <div class="team_news" id="visualnews">
         <ul class="switch" id="switch">
 
