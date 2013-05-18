@@ -217,6 +217,12 @@ class System extends DB_Connect {
 			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		}
 	}
+	public function fetch_pub_list()
+	{
+		$sql="SELECT u.id as UID,i.id AS ACTID,u.name AS UNAME,u.faculty,i.name AS ACTNAME,r.base_time,r.honor_time,r.comment  FROM user_info u,act_record r,activity_info i,act_doc d WHERE u.id=r.user_id and r.doc_id=d.id and d.act_id=i.id ";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;
+	}
 }
 
 

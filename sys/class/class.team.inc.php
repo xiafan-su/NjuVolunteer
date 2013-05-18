@@ -137,19 +137,19 @@ class Team extends DB_Connect {
 	{
 		if ($state==0)
 		{
-			$query="select * from activity_info where publisher = '".$faculty_id."' and state='end'";
+			$query="select * from activity_info where publisher = '".$faculty_id."' and name<>'NULL' and state='end'";
 			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			return $select;
 		}else
 		if ($state==1)
 		{
-			$query="select * from activity_info where publisher = '".$faculty_id."' and state<>'end'";
+			$query="select * from activity_info where publisher = '".$faculty_id."' and name<>'NULL' and state<>'end'";
 			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			return $select;			
 		}else
 		if ($state==2)
 		{
-			$query="select * from activity_info where publisher = '".$faculty_id."' and state='audited'";
+			$query="select * from activity_info where publisher = '".$faculty_id."' and name<>'NULL' and state='audited'";
 			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			return $select;				
 		}
@@ -389,7 +389,7 @@ class Team extends DB_Connect {
 		$sql="UPDATE act_doc SET state='final' WHERE id='".$doc_id."'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);//提交后，活动档案将不再能够修改
 
-		$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."'";
+		$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and final='false'";//获取非强制添加的志愿的服务记录
 		$record_id_list=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		while ($record=mysql_fetch_assoc($record_id_list))
 		{
@@ -398,7 +398,7 @@ class Team extends DB_Connect {
 				$honor_time=$honor_time+$record['base_time']*0.15;
 			if ($record['honor_leader']==1)
 				$honor_time=$honor_time+$record['base_time']*0.15;//根据带队奖优秀奖计算荣誉间
-			$sql_update="UPDATE act_record SET final='true' WHERE doc_id='".$doc_id."' and user_id='".$record['user_id']."'";//修改act_record表，修改后不再可以修改
+			$sql_update="UPDATE act_record SET final='true',date='".date("Y-m-d H-i-s",time())."' WHERE doc_id='".$doc_id."' and user_id='".$record['user_id']."'";//修改act_record表，修改后不再可以修改
 			if (!mysql_query($sql_update,$this->root_conn))
 			{
 				die('Error: ' . mysql_error());
@@ -406,7 +406,7 @@ class Team extends DB_Connect {
 			}
 			$sql_update_user_info="UPDATE user_info SET base_time=base_time+'".$record['base_time']."',honor_time=honor_time+'".$honor_time."',volunteer_time=base_time+honor_time WHERE id='".$record['user_id']."'";//修改个人信息中的志愿时间
 			$select=mysql_query($sql_update_user_info,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-			$sql="SELECT i.name FROM act_doc d,activity_info i WHERE d.act_id=i.id";//获取活动名称，为了发送通知
+			$sql="SELECT i.name FROM act_doc d,activity_info i WHERE d.act_id=i.id and d.id='".$doc_id."'";//获取活动名称，为了发送通知
 			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			$result=mysql_fetch_assoc($select);
 			$s=new System();//发送通知
@@ -516,8 +516,54 @@ class Team extends DB_Connect {
 			die('ERROR'.mysql_error());
 			return false;
 		}
+		return true;		
+	}
+	public function delete_my_activity($id)//删除一个活动
+	{
+		$sql="SELECT * FROM act_record r,act_doc d WHERE r.final='true' and r.doc_id=d.id and d.act_id='".$id."'";//首先看下是否已经有志愿者的服务时间是已经提交了的
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$results=mysql_num_rows($select);
+		if ($results>0) return false;//存在已经提交的志愿服务记录，不得删除
+		$sql="DELETE r from act_record r,act_doc d WHERE r.doc_id=d.id and d.act_id='".$id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$sql="DELETE  from act_doc WHERE act_id='".$id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$sql="DELETE  from apply_act WHERE act_id='".$id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$sql="DELETE  from act_comment WHERE act_id='".$id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$sql="DELETE  from activity_info WHERE id='".$id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return true;
-				
+	}
+	public function insert_act_record($uid,$doc_id,$time,$level,$excellent,$leader,$comment)//1成功,0失败,-1已有记录
+	{
+		$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and user_id='".$uid."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		if  (mysql_num_rows($select)!=0)
+			return -1;
+		$honor_time=$time*0.15*($leader+$excellent);
+		$sql="INSERT INTO act_record(doc_id,user_id,base_time,honor_time,comment,performance_level,honor_leader,honor_excellent,final,date)
+		VALUES('".$doc_id."','".$uid."','".$time."','".$honor_time."','".$comment."','".$level."','".$leader."','".$excellent."','".true."','".date("Y-m-d H:i:s",time())."')
+		";
+		if(!mysql_query($sql,$this->root_conn))
+		{
+			die('ERROR'.mysql_error());
+			return 0;
+		}
+		$sql_update_user_info="UPDATE user_info SET base_time=base_time+'".$time."',honor_time=honor_time+'".$honor_time."',volunteer_time=base_time+honor_time WHERE id='".$uid."'";//修改个人信息中的志愿时间
+		if(!mysql_query($sql_update_user_info,$this->root_conn))
+		{
+			die('ERROR'.mysql_error());
+			return 0;
+		}
+		$sql="SELECT i.name FROM act_doc d,activity_info i WHERE d.act_id=i.id and d.id='".$doc_id."'";//获取活动名称，为了发送通知
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		$s=new System();//发送通知
+		$total_time=$time+$honor_time;
+		$s->send_note($uid,"恭喜您获得".$total_time."小时服务时间","您参与的".$result['name']."活动成功完成了，获得了".$time."小时基础时间，".$honor_time."小时荣誉时间。具体请查看您的服务记录。");
+		return 1;
 	}
 }
 ?>

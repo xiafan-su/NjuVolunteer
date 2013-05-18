@@ -57,6 +57,7 @@ $tpl->assign("phone_number",$student['phone']);
 $tpl->assign("volunteer_time",$student['volunteer_time']);
 $tpl->assign("honor_time",$student['honor_time']);
 $tpl->assign("faculty",$student['faculty']);
+$tpl->assign("signature",$student['signature']);
 $tpl->assign("apply",$myactlist);
 $tpl->assign("teamlist",$myteamlist);
 $tpl->assign("followlist",$myfollowlist);

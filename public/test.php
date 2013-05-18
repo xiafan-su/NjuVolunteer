@@ -98,7 +98,12 @@ while ($result=mysql_fetch_assoc($select))
 
 $a=new Act();
 if (!$a->judge_participate_button_state(6)) echo "过期";*/
-$a=new Act();
-echo $a->participate_state(6);
+//$a=new Act();
+//echo $a->participate_state(6);
+$t=new Team();
+if(!$t->insert_act_record(101220119,6,3,'优秀',1,0,'这孩子不错'))echo "wrong";
+$t->register_voltime(6);
+//if($t->delete_my_activity(121)) echo "可以删除";
+//else echo "不可删除";
 
 ?>

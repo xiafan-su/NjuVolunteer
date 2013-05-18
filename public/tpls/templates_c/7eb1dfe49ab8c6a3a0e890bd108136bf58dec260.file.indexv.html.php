@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 20:35:59
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 21:26:41
          compiled from "./tpls/templates\indexv.html" */ ?>
 <?php /*%%SmartyHeaderCode:21473519771cb2c9883-80941995%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7eb1dfe49ab8c6a3a0e890bd108136bf58dec260' => 
     array (
       0 => './tpls/templates\\indexv.html',
-      1 => 1368880553,
+      1 => 1368883520,
       2 => 'file',
     ),
   ),
@@ -27,6 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'honor_time' => 0,
     'email' => 0,
     'phone_number' => 0,
+    'signature' => 0,
     'apply' => 0,
     'act' => 0,
     'followlist' => 0,
@@ -105,7 +106,8 @@ $_smarty_tpl->tpl_vars['team']->_loop = true;
               </tr>
               <tr>
                 <th scope="row">签名档：</th>
-                <td><div id="sign">我是一个猥琐男，啦啦啦啦啦~</div></td>
+                <td><div id="sign"><?php echo $_smarty_tpl->tpl_vars['signature']->value;?>
+</div></td>
               </tr>
             </table>
         </div>
@@ -114,7 +116,7 @@ $_smarty_tpl->tpl_vars['team']->_loop = true;
     <div id="table_for_activity">
     	<br>
         <table class="act_people_table" border="1">
-        <tr><th>活动名称</th><th>活动时间</th></tr>
+        <tr><th>活动名称</th><th>服务时间</th></tr>
         <?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['apply']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
  $_smarty_tpl->tpl_vars['smarty']->value['foreach']['data']['iteration']=0;
