@@ -1,0 +1,17 @@
+/* CSS Document */
+table{
+	background:rgb(245,245,245);
+	border-radius:5px;
+	border-collapse:collapse;
+}
+table th,table td{
+	background:rgb(245,245,245);
+	border-color:#AAA;
+}	
+table th{
+	color:rgb(102,51,102);
+	font-weight:bold;
+}
+table td{
+	color:#000;	
+}
