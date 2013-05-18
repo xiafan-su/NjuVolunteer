@@ -78,14 +78,13 @@ button{
     <div class="group" id="group2">
     <div class="group-title">其他组织</div>
      <ul>
-     
      <{foreach name=data item=item from=$other_team_info}>
      <li class="explore-item">
    		<div class="pic">
         	<img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1"/>
        	</div>
    		<div class="content" >
-        	<div class="title">
+        	<div class="title" onclick="window.location.href='indext.php?team_id=<{$item.id}>'">
             		<{$item.name}>
         	</div>
         	<div class="favs">
