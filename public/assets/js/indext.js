@@ -24,7 +24,7 @@ $(document).ready(function(){
 			data:{team_id:$('#team_id').text()},
 			url:"./handle/follow_team.php",
 			success:function(html){
-				alert(html);
+				//alert(html);
 				if(html == 2){
 					$('#followit').html("关注这个团队");	
 				}
