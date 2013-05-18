@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 17:01:54
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 18:11:29
          compiled from "../tpls/templates\handle\act_handle.html" */ ?>
-<?php /*%%SmartyHeaderCode:27931519743820ff671-84878450%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:23909519745628e90c6-69695765%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,10 +11,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '27931519743820ff671-84878450',
+  'nocache_hash' => '23909519745628e90c6-69695765',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519745629aee7',
   'variables' => 
   array (
     'act_list' => 0,
@@ -22,10 +24,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'have_more' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5197438218b0a',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5197438218b0a')) {function content_5197438218b0a($_smarty_tpl) {?><?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
+<?php if ($_valid && !is_callable('content_519745629aee7')) {function content_519745629aee7($_smarty_tpl) {?><?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['act_list']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['act']->key => $_smarty_tpl->tpl_vars['act']->value){
 $_smarty_tpl->tpl_vars['act']->_loop = true;

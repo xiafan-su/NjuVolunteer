@@ -5,11 +5,13 @@ var const_recv_title_remove = "从接收者列表移除";
 
 
 nt_func_note_read = function(){
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./include/note_edit.php",
 		data:{type:"readset", noteId: $(this).attr("noteid")},
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			//alert(html);
 			switch_main_content( "->" );
 			$( zt_elem_main_content2 ).html(html);
@@ -17,11 +19,13 @@ nt_func_note_read = function(){
 	});
 }
 nt_func_note_sent = function(){
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./include/note_edit.php",
 		data:{type:"teamread", noteId: $(this).attr("noteid")},
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			//alert(html);
 			switch_main_content( "->" );
 			$( zt_elem_main_content2 ).html(html);
@@ -112,11 +116,13 @@ nt_func_note_recv_act_select = function(){
 	$( "#zt_elem_note_select_all_act_part").prop("checked", false);
 	$( "#zt_elem_note_select_all_act_part").attr( "title", "全选" );
 	var act_id = $(this).val();
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./handle/note.php",
 		data:{activityId:act_id, type:"getmem"},
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			$("#note_recv_vol_list").html(html);
 
 			//将已经在接收者列表中的，设置为灰色
@@ -209,11 +215,13 @@ function nt_func_note_send(){
 	var topic = $("input#note_edit_topic").val();
 	var content = $("textarea#note_edit_content").val();
 	//alert( topic+", "+id_list+", "+content);
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./handle/note.php",
 		data:{ type:"sendnote", topic:topic, content:content, idList:id_list },
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			if( html == 0 ){
 				alert("发送成功！");
 				$("#util_note_sent").trigger( "click" );

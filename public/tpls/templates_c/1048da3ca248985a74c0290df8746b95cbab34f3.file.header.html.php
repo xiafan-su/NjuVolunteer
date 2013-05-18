@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 16:54:52
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 18:06:44
          compiled from "./tpls/templates\include\header.html" */ ?>
-<?php /*%%SmartyHeaderCode:12971519741dcabd203-77479078%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1833151973e9f219db9-72892216%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1368595978,
+      1 => 1368871549,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '12971519741dcabd203-77479078',
+  'nocache_hash' => '1833151973e9f219db9-72892216',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51973e9f2d74b',
   'variables' => 
   array (
     'user_permission' => 0,
     'user_name' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519741dcb3816',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519741dcb3816')) {function content_519741dcb3816($_smarty_tpl) {?><div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
+<?php if ($_valid && !is_callable('content_51973e9f2d74b')) {function content_51973e9f2d74b($_smarty_tpl) {?><div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
 <div style="width:100%;position:absolute;top:88px;height:20px;left:0;background:-webkit-gradient(linear, left top, left bottom, from(rgb(102,102,102)), to(rgba(255,255,255,0)))"></div>
 <div class="header">
 	<div class="header_content">
@@ -67,6 +67,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
  <?php echo $_smarty_tpl->getSubTemplate ("include/login.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
  
 <div class="backdrop" id="backdrop" onclick="hideit()">
+</div>
+<div id="loading-bar">
+	<div class="loading-cover"></div>
+	<div class="loading-pic"><img src="./assets/img/loading/loading.gif"/></div>
 </div>
 <script type="text/javascript">
 var flag=0;

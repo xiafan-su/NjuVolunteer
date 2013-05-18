@@ -241,6 +241,7 @@ function handlechange(){
 	}
 	else{
 		$("#operation").html(nowloading);
+		document.getElementById('loading-bar').style.display='block';
 		$.ajax({
 			type:"POST",
 			data:{
@@ -265,6 +266,7 @@ function handlechange(){
 				},
 			url:"./handle/change_vol_info.php",
 			success:function(html){
+				document.getElementById('loading-bar').style.display='none';
 				//alert(html);
 				if (html==1)
 				{
@@ -287,7 +289,7 @@ function init(){
 	}
 function show_note(id){
 	//alert(id);
-	$("#note_detail").html(nowloading);
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		data:{
@@ -295,6 +297,7 @@ function show_note(id){
 			},
 		url:"./include/vol_note_detail.php",
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			$("#note_detail").html(html);
 			$("#note_detail").show();
 			$('#note_detail').animate({opacity:'1'},500);
@@ -307,6 +310,7 @@ function readit(id,state){
 	if (state=='unread')
 	{
 		//alert(state);
+		document.getElementById('loading-bar').style.display='block';
 		$.ajax({
 			type:"POST",
 			data:{
@@ -314,6 +318,7 @@ function readit(id,state){
 				},
 			url:"./handle/read_note.php",
 			success:function(html){
+				document.getElementById('loading-bar').style.display='none';
 				//alert(html);
 				//$("#note_detail").html(html);
 				$('#note_detail').animate({opacity:'0'},1);
@@ -330,11 +335,12 @@ function readit(id,state){
 }
 $("#my_activity").click(function(){
 	$("#main_title").text("我参与的活动");
-	$("#main_content").html(nowloading);
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./include/actv_takein.php",
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			//alert(html);
 			$("#main_content").html(html);
 		}	
@@ -342,11 +348,12 @@ $("#my_activity").click(function(){
 });
 $("#activity_record").click(function(){
 	$("#main_title").text("活动记录");
-	$("#main_content").html(nowloading);
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 	type:"POST",
 	url:"./include/vol_act_record.php",
 	success:function(html){
+		document.getElementById('loading-bar').style.display='none';
 		//alert(html);
 		$("#main_content").html(html);
 	}	
@@ -354,35 +361,38 @@ $("#activity_record").click(function(){
 });
 $("#new_notice").click(function(){
 	$("#main_title").text("新通知");
-	$("#main_content").html(nowloading);
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 	type:"POST",
 	data:{read:0},
 	url:"./include/vol_note.php",
 	success:function(html){
+		document.getElementById('loading-bar').style.display='none';
 			$("#main_content").html(html);
 	}
 });
 });
 $("#notice_record").click(function(){
 	$("#main_title").text("历史通知");
-	$("#main_content").html(nowloading);
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 	type:"POST",
 	data:{read:1},
 	url:"./include/vol_note.php",
 	success:function(html){
+		document.getElementById('loading-bar').style.display='none';
 			$("#main_content").html(html);
 	}
 });
 })
 $("#vol_profile").click(function(){
 	$("#main_title").text("个人资料");
-	$("#main_content").html(nowloading);
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 	type:"POST",
 	url:"./include/infov.php",
 	success:function(html){
+		document.getElementById('loading-bar').style.display='none';
 		//alert(html);
 		$('#main_content').html(html);
 	}	
@@ -391,39 +401,39 @@ $("#vol_profile").click(function(){
 
 $("#change_profile").click(function(){
 	$("#main_title").text("修改资料");
-	$("#main_content").html(nowloading);
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./include/infov_edit.php",
 		success:function(html){
 			//alert(html);
-			
+			document.getElementById('loading-bar').style.display='none';
 			$("#main_content").html(html);
 		}
 	});
 });
 $("#my_team").click(function(){
 	$("#main_title").text("我的团队");
-	$("#main_content").html(nowloading);
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./handle/my_team.php",
 		success:function(html){
 			//alert(html);
-			
+			document.getElementById('loading-bar').style.display='none';
 			$("#main_content").html(html);
 		}
 	});
 });
 $("#my_focused_team").click(function(){
 	$("#main_title").text("关注的团队");
-	$("#main_content").html(nowloading);
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./handle/my_followteam.php",
 		success:function(html){
 			//alert(html);
-			
+			document.getElementById('loading-bar').style.display='none';
 			$("#main_content").html(html);
 		}
 	});

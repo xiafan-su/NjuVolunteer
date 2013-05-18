@@ -1,33 +1,32 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 17:13:52
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 17:22:37
          compiled from "./tpls/templates\zonev.html" */ ?>
-<?php /*%%SmartyHeaderCode:19230519741eccf0a99-95741065%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:159625197485d817f19-77523568%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '44c556608e67759f0e68fc7fabee31d3f9c92847' => 
     array (
       0 => './tpls/templates\\zonev.html',
-      1 => 1368868409,
+      1 => 1368706884,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '19230519741eccf0a99-95741065',
+  'nocache_hash' => '159625197485d817f19-77523568',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519741ecd63a2',
   'variables' => 
   array (
     'user_name' => 0,
     'volunteer_time' => 0,
     'base_time' => 0,
     'honor_time' => 0,
-    'signature' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5197485d968da',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519741ecd63a2')) {function content_519741ecd63a2($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5197485d968da')) {function content_5197485d968da($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -68,8 +67,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div id="honor-time">荣誉时间：<?php echo $_smarty_tpl->tpl_vars['honor_time']->value;?>
 小时</div>
             <div id="signature">签名：
-            	<input type="text" class="signature" id="sign" value="<?php echo $_smarty_tpl->tpl_vars['signature']->value;?>
-" onblur="change_sign()"/>
+            	<input type="text" class="signature" id="sign" value="我了个草/(ㄒoㄒ)/~~" onblur="change_sign()"/>
             </div>
 		</div>
 	</div>

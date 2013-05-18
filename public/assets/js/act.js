@@ -91,8 +91,8 @@ function returntoday(){
 	//mydate.setDate(mydate.getDate()-6);
 	//alert(mydate.getDay());
 	transdate=new Date();
-	
 	//alert(transdate.getYear());
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./handle/week_act_list.php",
@@ -104,6 +104,7 @@ function returntoday(){
 			day:transdate.getDay(),
 		},
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			//alert(html);
 			//alert("hello");
 			//$("#act_day11").html(html);
@@ -150,6 +151,7 @@ function preweek(){
 	$("#day7").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	
 	//alert(predate.getYear());
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./handle/week_act_list.php",
@@ -161,6 +163,7 @@ function preweek(){
 			day:predate.getDay(),
 		},
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			//alert(html);
 			//$("#act_day11").html(html);
 			document.getElementById("weekact").style.display="none";
@@ -193,6 +196,7 @@ function nextweek(){
 	mydate.setDate(mydate.getDate()+1);
 	$("#day7").html(mydate.getMonth()+1+"-"+mydate.getDate()+"-"+getday(mydate.getDay())).show();
 	//alert(tdate.getMonth()+"--"+tdate.getDate());
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./handle/week_act_list.php",
@@ -204,6 +208,7 @@ function nextweek(){
 			day:tdate.getDay(),
 		},
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			//alert(html);
 			document.getElementById("weekact").style.display="none";
 			$("#weekact_list").html(html);
@@ -332,6 +337,7 @@ function more(){
 	searchitt();	
 }
 function searchitt(){
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./handle/act.php",
@@ -343,6 +349,7 @@ function searchitt(){
 			actstate:actstate,
 			actnum:actnum},
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			$("#act_list").html(html);
 		}	
 	});

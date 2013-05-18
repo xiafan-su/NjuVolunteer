@@ -21,12 +21,13 @@ $(document).ready(function(){
 				allowedExtension: 'jpg|jpeg|gif|png'
 				});
 		});
-	
+	document.getElementById('loading-bar').style.display='block';
 	 $.ajax({
 			type:"POST",
 			url:"./handle/participate_state.php",
 			data:{act_id:$('#act_id').val()},
 			success:function(html){
+				document.getElementById('loading-bar').style.display='none';
 				//alert(html);
 				//alert("success");
 				if (html =='-1')
@@ -64,11 +65,13 @@ $(function(){
 	var register_update_text = function(){};
 	function update_people(){
 		$('#update_text').text("正在刷新……");
+		document.getElementById('loading-bar').style.display='block';
 		$.ajax({
 			type:"POST",
 			url:"activity/handle/act_people.php",
 			data:"",
 			success:function(html){
+				document.getElementById('loading-bar').style.display='none';
 				$('#update_text').text('刷新');
 				$(".act_user_id_col").unbind("click");//释放上一次bind资源
 				//$("#act_people_update").unbind("click");
@@ -78,11 +81,13 @@ $(function(){
 				//给所有的学号添加事件
 				$(".act_user_id_col").bind("click", function(){
 					var id = $(this).text();
+					document.getElementById('loading-bar').style.display='block';
 					$.ajax({
 						type:"GET",
 						url:"activity/handle/exp_people.php",
 						data:{user_id:id},
 						success:function(html){
+							document.getElementById('loading-bar').style.display='none';
 							tipsWindown("学生信息","text:"+html,"900","427","true","","true","");
 							var ex2 = new tableSort('exp_people_table',1,2,999,'up','down','hov');
 						}
@@ -119,11 +124,13 @@ $(function(){
 	
 	$("#take_part_in").click(function() {
 		//alert($('#act_id').val());
+		document.getElementById('loading-bar').style.display='block';
          $.ajax({
 			type:"POST",
 			url:"./handle/participate_act.php",
 			data:{act_id:$('#act_id').val()},
 			success:function(html){
+				document.getElementById('loading-bar').style.display='none';
 				//alert(html);
 				//alert("success");
 				if (html == 1)
@@ -188,11 +195,13 @@ $(function(){
 	$('#submit_comment').click(function() {
 		content = editor.html();
 		//alert(editor.html());
+		document.getElementById('loading-bar').style.display='block';
 		$.ajax({
 			type:"POST",
 			url:"./handle/comment_apply.php",
 			data:{content:editor.html(),res_id:response_id,act_id:$('#act_id').attr("value")},
 			success:function(html){
+				document.getElementById('loading-bar').style.display='none';
 				window.location.reload();
 				alert(html);
 			}
