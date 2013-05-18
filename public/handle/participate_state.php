@@ -4,13 +4,18 @@ $_SMARTY_ROOT="../tpls";
 include_once '../../sys/core/init.inc.php';
 $a=new Act();
 $id=$_POST['act_id'];
-if ($a->participate_state($id))
+$status=$a->participate_state($id);
+if ($status==0)
 {
-	echo 1;
-}else
+	echo 0;
+}else if ($status==-1)
 {
-	echo 0;	
+	echo -1;	
+}else if ($status==1)
+{
+	echo 1;	
 }
+
 
 
 

@@ -83,9 +83,22 @@ $record_list=$t->fetch_my_fellow_record(101220129);
 while ($record=mysql_fetch_assoc($record_list))
 	echo $record['base_time'].$record['performance_level'].'</br>';
 $t->edit_my_fellow_position(101220129,'成员');*/
-$t=new Team();
+/*$t=new Team();
 $select=$t->fetch_apply_doc_volunteer(1);
 while ($result=mysql_fetch_assoc($select))
- echo $result['name'].$result['user_id'].$result['base_time'];
+ echo $result['name'].$result['user_id'].$result['base_time'];*/
+ 
+/*$t=new Team();
+$t->register_voltime(1);
+$select=$t->fetch_my_fellow_record(101220129);
+while ($result=mysql_fetch_assoc($select))
+	echo $result['name'].' '.$result['date'].' '.$result['base_time'].'</br>';
+
+
+
+$a=new Act();
+if (!$a->judge_participate_button_state(6)) echo "过期";*/
+$a=new Act();
+echo $a->participate_state(6);
 
 ?>
