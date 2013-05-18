@@ -1,4 +1,31 @@
-
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 18:37:15
+         compiled from "./tpls/templates\act_apply.html" */ ?>
+<?php /*%%SmartyHeaderCode:686851974adf042e96-79134526%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '065819e33f80626bdc30cb4be17a49ec08988f18' => 
+    array (
+      0 => './tpls/templates\\act_apply.html',
+      1 => 1368873433,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '686851974adf042e96-79134526',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51974adf33e87',
+  'variables' => 
+  array (
+    'faculty_list' => 0,
+    'faculty' => 0,
+    'act_id' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_51974adf33e87')) {function content_51974adf33e87($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -26,7 +53,8 @@
 <title>活动申请</title>
 </head>
 <body>
-<{include file="include/header.html"}>
+<?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 <div class="main">
 		<div class="span_left">
 			
@@ -161,10 +189,16 @@
                 <tr  id="faculty_choose">
                 <th></th>
                 <td>
-                    <{foreach item=faculty from=$faculty_list}>
- 						<input type="checkbox" value="<{$faculty.name}>" name="faculty_choose">
-                        <label><{$faculty.name}></label><br />
-                    <{/foreach}>
+                    <?php  $_smarty_tpl->tpl_vars['faculty'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['faculty']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['faculty_list']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['faculty']->key => $_smarty_tpl->tpl_vars['faculty']->value){
+$_smarty_tpl->tpl_vars['faculty']->_loop = true;
+?>
+ 						<input type="checkbox" value="<?php echo $_smarty_tpl->tpl_vars['faculty']->value['name'];?>
+" name="faculty_choose">
+                        <label><?php echo $_smarty_tpl->tpl_vars['faculty']->value['name'];?>
+</label><br />
+                    <?php } ?>
                 </td>
                 <td></td>
                 </tr>
@@ -238,7 +272,8 @@
                  	<span id="plan_upload">上传文件格式为rar和zip</span>
                     <form action="./handle/upload_zip.php" method="post" enctype="multipart/form-data">
                     <input type="file" name="userfile" class="fileUpload" multiple>
-                    <input type="hidden" name="act_id" value="<{$act_id}>">
+                    <input type="hidden" name="act_id" value="<?php echo $_smarty_tpl->tpl_vars['act_id']->value;?>
+">
                     <button id="px-submit" type="submit">上传</button>
                     <button id="px-clear" type="reset">清除</button>
                     </form>
@@ -261,7 +296,8 @@
 				<div class="control-group">
 					<div class="controls">
                         <div class="button-ctrl">
-                        	<lable id="act_id"style="display:none;"><{$act_id}></lable>
+                        	<lable id="act_id"style="display:none;"><?php echo $_smarty_tpl->tpl_vars['act_id']->value;?>
+</lable>
                             <input name="submit" type="button" id="submit"  value="提交" />
                             <input name="preview" type="button" id="preview"  value="预览" />
                             <input name="save" type="button" id="save"  value="保存" />
@@ -274,6 +310,7 @@
 		</div>
  
 </div>
-<{include file="include/footer.html"}>
+<?php echo $_smarty_tpl->getSubTemplate ("include/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 </body>
-</html>
+</html><?php }} ?>
