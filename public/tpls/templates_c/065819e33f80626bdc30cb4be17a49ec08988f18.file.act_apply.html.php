@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 18:46:31
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 18:59:07
          compiled from "./tpls/templates\act_apply.html" */ ?>
 <?php /*%%SmartyHeaderCode:686851974adf042e96-79134526%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1368873919,
+      1 => 1368874724,
       2 => 'file',
     ),
   ),
@@ -56,8 +56,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 <div class="main">
-		<div class="span_left">
-			
+		<div class="span_left">	
 				<div class="breadcrumb">
                 	<div class="bar-left"></div>
                     <div class="bar-title">活动资料</div>
