@@ -61,9 +61,9 @@ $vol_list[]=array('user_id'=>'101220125','base_time'=>'2','honor_leader'=>'0','h
 $vol_list[]=array('user_id'=>'101220129','base_time'=>'2','honor_leader'=>'1','honor_excellent'=>'1','comment'=>'不错','performance_level'=>'一般');
 //$t->edit_voltime(8,$vol_list);
 $t->register_voltime(8,$vol_list);*/
-$t=new Team();
-$recv_list=$t->fetch_my_send_note_detail(1);
-echo $recv_list['content'];
+//$t=new Team();
+//$recv_list=$t->fetch_my_send_note_detail(1);
+//echo $recv_list['content'];
 //$select=$t->fetch_my_send_notes(101220130);
 //$result=mysql_fetch_assoc($select);
 //echo $result['content'];
@@ -73,4 +73,19 @@ echo $recv_list['content'];
 //$vol_list[]=array('user_id'=>'101220125','base_time'=>'2','honor_leader'=>'0','honor_excellent'=>'1','comment'=>'不错','performance_level'=>'良好');
 //$vol_list[]=array('user_id'=>'101220129','base_time'=>'2','honor_leader'=>'1','honor_excellent'=>'1','comment'=>'不错','performance_level'=>'一般');
 //if (! $t->register_voltime(8,$vol_list)) echo 'false';
+/*$t=new Team();
+$detail=$t->fetch_my_fellow_detail_info(101220129);
+echo $detail['name'].$detail['grade'].$detail['faculty'].'</br>';
+$position=$t->fetch_my_fellow_position(101220129);
+while($result=mysql_fetch_assoc($position))
+	echo $result['name'].$result['position'].'</br>';
+$record_list=$t->fetch_my_fellow_record(101220129);
+while ($record=mysql_fetch_assoc($record_list))
+	echo $record['base_time'].$record['performance_level'].'</br>';
+$t->edit_my_fellow_position(101220129,'成员');*/
+$t=new Team();
+$select=$t->fetch_apply_doc_volunteer(1);
+while ($result=mysql_fetch_assoc($select))
+ echo $result['name'].$result['user_id'].$result['base_time'];
+
 ?>

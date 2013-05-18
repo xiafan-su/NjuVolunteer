@@ -436,7 +436,7 @@ class Team extends DB_Connect {
 	
 	public function fetch_apply_doc_volunteer($doc_id)//报名情况
 	{
-		$query="select * from act_record,user_info where doc_id = '".$doc_id."' and act_record.user_id=user_info.id";
+		$query="select user_info.name,user_info.faculty,act_record.* from act_record,user_info where doc_id = '".$doc_id."' and act_record.user_id=user_info.id";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
@@ -488,6 +488,37 @@ class Team extends DB_Connect {
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$recv_id_list=mysql_fetch_assoc($select);
 		return $recv_id_list;
+	}
+	//点成员姓名后进入的页面
+	public function fetch_my_fellow_detail_info($user_id)//获取成员的基本资料
+	{
+		$sql="SELECT id,name,grade,faculty,phone FROM user_info WHERE id='".$user_id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result;
+	}
+	public function fetch_my_fellow_position($user_id)//获取他的职位
+	{
+		$sql="SELECT t.name,a.position FROM apply_team a,team t WHERE a.user_id='".$user_id."' and a.team_id=t.id";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;
+	}
+	public function fetch_my_fellow_record($user_id)//获取他的活动记录
+	{
+		$sql="SELECT * FROM act_record WHERE user_id='".$user_id."' and final='true'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;		
+	}
+	public function edit_my_fellow_position($user_id,$position)//修改成员的身份
+	{
+		$sql="UPDATE apply_team SET position='".$position."' WHERE user_id='".$user_id."' and state='1'";
+		if(!mysql_query($sql,$this->root_conn))
+		{
+			die('ERROR'.mysql_error());
+			return false;
+		}
+		return true;
+				
 	}
 }
 ?>
