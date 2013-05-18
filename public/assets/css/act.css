@@ -111,7 +111,7 @@ img{
 	float:left;
 	width:100px;
 	margin-right:20px;
-	height:8px;
+	height:6px;
 	margin-top:28px;
 	background:-webkit-gradient(linear, left top, right top, from(rgba(225,225,225,1)), to(rgba(104,104,104,1)));	
 }
@@ -119,8 +119,8 @@ img{
 	float:left;
 	width:700px;
 	margin-left:20px;
-	height:8px;
-	margin-top:28px;
+	height:6px;
+	margin-top:30px;
 	background:-webkit-gradient(linear, right top, left top, from(rgba(225,225,225,1)), to(rgba(104,104,104,1)));
 }
 .title{
@@ -235,7 +235,13 @@ img{
 	width:4000px;
 	height:300px;
 }
-
+.hot img{
+	box-shadow:0 0 20px #666;
+	padding:1px;
+	border:1px solid rgb(104,104,104);
+	width:166px;
+	height:224px;	
+}
 .pageup{
 	float:left;
 	height:300px;

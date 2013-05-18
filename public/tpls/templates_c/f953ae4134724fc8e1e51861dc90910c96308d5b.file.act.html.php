@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 21:42:24
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 23:00:57
          compiled from "./tpls/templates\act.html" */ ?>
 <?php /*%%SmartyHeaderCode:122115197715b893666-11506394%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
     array (
       0 => './tpls/templates\\act.html',
-      1 => 1368884522,
+      1 => 1368889254,
       2 => 'file',
     ),
   ),
@@ -106,10 +106,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="hotact2">
             <div class="title">
                 <div class="hotact-left"></div>
-                <h3 style="float:left;font-size:24px;padding-top:10px;">人气活动</h3>
+                <h3 style="float:left;font-size:24px;padding-top:10px;color:rgb(102,51,102)">人气活动</h3>
                 <div class="hotact-right"></div>
             </div>
-            <div style="padding-top:3px;padding-bottom:3px;background-color:#333"></div>
             <div class="hottable">
             	<div class="hot-cover1"></div>
                 <div class="hot-cover2"></div>
@@ -155,7 +154,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="weekact" id="weekact" style="display:block">
             <div class="title">
                 <div class="hotact-left"></div>
-                <h3 style="float:left;font-size:24px;padding-top:10px;">本周活动</h3>
+                <h3 style="float:left;font-size:24px;padding-top:10px; color:rgb(102,51,102)">本周活动</h3>
                 <div class="hotact-right"></div>
                 </ul>
             </div>
