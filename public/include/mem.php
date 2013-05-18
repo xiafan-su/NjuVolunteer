@@ -15,7 +15,7 @@ while( $mem_row = mysql_fetch_array( $mem_info ) ){
 			"gender"=>$mem_row['gender'],
 			"tel"=>$mem_row['phone'],
 			"state"=>$mem_row['state'],
-			"q"=>"主席",
+			"q"=>$mem_row['position'],
 	);
 }
 /*

@@ -67,8 +67,8 @@ if( $_POST['type'] == "actApply" ){
 		echo "提交失败！";
 	} else {
 		$team = new Team();
-		$record_list = array();//留空
-		if($team->register_voltime( $_POST['documentId'] , $record_list )){
+	//	$record_list = array();//留空
+		if($team->register_voltime( $_POST['documentId']/* , $record_list*/ )){
 			echo "0";
 		} else {
 			echo "提交失败！";

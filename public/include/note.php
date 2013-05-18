@@ -51,6 +51,8 @@ $tpl->display( "include/note.html" );
 
 
 ?>
+
+<!-- 
 页面内容：<br />
 （收、发）通知列表<br />
 <br />
@@ -71,3 +73,6 @@ $tpl->display( "include/note.html" );
 <br />
 其他：<br />
 当前团队id请直接从SESSION获取<br />
+
+ -->
+

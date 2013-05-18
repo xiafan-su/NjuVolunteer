@@ -62,16 +62,21 @@ function switch_main_content( direction ){
 	var switch_style = "slow";
 	var switch_time = 1000;
 	if( direction == "<-" ){	
-		$(zt_elem_main_content2).animate({width:0}, switch_style );
+	/*	$(zt_elem_main_content2).animate({width:0}, switch_style );
 		$(zt_elem_main_content2).hide(switch_time);
 		$(zt_elem_main_content).animate({width:683}, switch_style );
-		$(zt_elem_main_content).show(switch_time);
+		$(zt_elem_main_content).show(switch_time);//*/
+		$(zt_elem_main_content2).fadeOut( 200 );
+		$(zt_elem_main_content).fadeIn( 500 );
 	} else if( direction == "->" ) {
-		$( zt_elem_main_content2 ).html( "正在载入……" );
+/*		$( zt_elem_main_content2 ).html( "正在载入……" );
 		$( zt_elem_main_content ).animate({width:0}, switch_style );
 		$( zt_elem_main_content ).hide(switch_time);
 		$( zt_elem_main_content2 ).animate({width:683}, switch_style );
-		$( zt_elem_main_content2 ).show(switch_time);
+		$( zt_elem_main_content2 ).show(switch_time);//*/
+		$( zt_elem_main_content2 ).html( "正在载入……" );
+		$(zt_elem_main_content2).fadeIn( 200 );
+		$(zt_elem_main_content).fadeOut( 500 );
 	}
 }
 

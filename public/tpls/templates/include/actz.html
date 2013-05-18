@@ -33,16 +33,21 @@
 									<{sectionelse}>
 										<tr class="odd"><td colspan="4">该活动没有记录！</td></tr>
 									<{/section}>
-									<{if $is_add == true}>
 										<tr class="odd">
 											<td colspan="4" style="text-align:left">
+													<{if $act_list[act_index].is_add}>
 													<span actid="<{$act_list[act_index].act_id}>" class="util_doc_add">
 														<img src="./assets/img/zonet/form_yellow_add.png" width="18" height="18" 
 														border="0" title="添加活动档案">
 													</span>
+													<{else}>
+													<span actid="<{$act_list[act_index].act_id}>" class="util_doc_add_disabled">
+														<img src="./assets/img/zonet/form_yellow_add.png" width="18" height="18" 
+														border="0" title="不满足添加活动档案的条件">
+													</span>
+													<{/if}>
 											</td>
 										</tr>
-									<{/if}>
 							</table>
 						</div>
 				</td>
