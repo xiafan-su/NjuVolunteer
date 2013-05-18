@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 21:35:26
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 10:38:00
          compiled from "./tpls/templates\act.html" */ ?>
 <?php /*%%SmartyHeaderCode:294635196321ee34991-61562401%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
     array (
       0 => './tpls/templates\\act.html',
-      1 => 1368627667,
+      1 => 1368800899,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
   'unifunc' => 'content_5196321eef71c',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5196321eef71c')) {function content_5196321eef71c($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -146,7 +146,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </ul>
             </div>
         </div>
-        <div class="weekact">
+        <div class="weekact" id="weekact_list" style="display:none"></div>
+        <div class="weekact" id="weekact" style="display:block">
             <div class="title">
                 <div style="float:left;height:26px;margin-top:20px;margin-right:10px;width:10px;background-color:#606"></div>
                 <h3 style="float:left;font-size:24px;padding-top:10px;">本周活动</h3>
@@ -160,38 +161,38 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div style="padding-top:3px;padding-bottom:3px;background-color:#333"></div>
             <div class="weeka">
                 <div class="weekdate" id="day1"></div>
-                <div class="act-content"></div>
-                <div class="act-content"></div>
+                <div class="act-content" id="act_day11"></div>
+                <div class="act-content" id="act_day12"></div>
             </div>
             <div class="weeka">
                 <div class="weekdate" id="day2"></div>
-                <div class="act-content"></div>
-                <div class="act-content"></div>
+                <div class="act-content" id="act_day21"></div>
+                <div class="act-content" id="act_day22"></div>
             </div>
             <div class="weeka">
                 <div class="weekdate" id="day3"></div>
-                <div class="act-content"></div>
-                <div class="act-content"></div>
+                <div class="act-content" id="act_day31"></div>
+                <div class="act-content" id="act_day32"></div>
             </div>
             <div class="weeka">
                 <div class="weekdate" id="day4"></div>
-                <div class="act-content"></div>
-                <div class="act-content"></div>
+                <div class="act-content" id="act_day41"></div>
+                <div class="act-content" id="act_day42"></div>
             </div>
             <div class="weeka">
                 <div class="weekdate" id="day5"></div>
-                <div class="act-content"></div>
-                <div class="act-content"></div>
+                <div class="act-content" id="act_day51"></div>
+                <div class="act-content" id="act_day52"></div>
             </div>
             <div class="weeka">
                 <div class="weekdate" id="day6"></div>
-                <div class="act-content"></div>
-                <div class="act-content"></div>
+                <div class="act-content" id="act_day61"></div>
+                <div class="act-content" id="act_day62"></div>
             </div>
             <div class="weeka" style="margin-right:0px">
                 <div class="weekdate" id="day7"></div>
-                <div class="act-content"></div>
-                <div class="act-content"></div>
+                <div class="act-content" id="act_day71"></div>
+                <div class="act-content" id="act_day72"></div>
             </div>
         </div>
 	</div>

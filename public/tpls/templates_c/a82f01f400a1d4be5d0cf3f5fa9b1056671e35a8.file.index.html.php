@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-17 23:26:23
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 10:37:57
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:2983451964c1f65f481-92839456%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1368769060,
+      1 => 1368841821,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
   'unifunc' => 'content_51964c1f7836e',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51964c1f7836e')) {function content_51964c1f7836e($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -148,7 +148,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <div class="others">
     	<div class="others-element">
             <div class="others-content">
-            	<h3>公告通知</h3><hr />"我的南大梦"征文启事 <hr />"美丽南大"摄影大赛征稿启事<hr />南京大学2012年校园开放日公告
+            	<h3><a href="notice.php?type=1&page=1">公告通知</a></h3><hr />"我的南大梦"征文启事 <hr />"美丽南大"摄影大赛征稿启事<hr />南京大学2012年校园开放日公告
             </div>
         </div>
         <div class="others-h-bar"></div>
