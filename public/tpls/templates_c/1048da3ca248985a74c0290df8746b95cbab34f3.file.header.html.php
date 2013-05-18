@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 20:14:29
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 20:52:23
          compiled from "./tpls/templates\include\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:20014519770a5e1e302-62524354%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1368868083,
+      1 => 1368871549,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519770a5e8bde',
   'variables' => 
   array (
     'user_permission' => 0,
     'user_name' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519770a5e8bde',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_519770a5e8bde')) {function content_519770a5e8bde($_smarty_tpl) {?><div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
 <div style="width:100%;position:absolute;top:88px;height:20px;left:0;background:-webkit-gradient(linear, left top, left bottom, from(rgb(102,102,102)), to(rgba(255,255,255,0)))"></div>

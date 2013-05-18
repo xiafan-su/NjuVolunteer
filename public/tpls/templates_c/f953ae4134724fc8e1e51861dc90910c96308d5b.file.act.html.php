@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 20:17:31
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 21:42:24
          compiled from "./tpls/templates\act.html" */ ?>
 <?php /*%%SmartyHeaderCode:122115197715b893666-11506394%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
     array (
       0 => './tpls/templates\\act.html',
-      1 => 1368879233,
+      1 => 1368884522,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
   'unifunc' => 'content_5197715b90476',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5197715b90476')) {function content_5197715b90476($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -66,8 +66,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <a class="type-list" href="javascript:searchattributiontype(1)" id="a1">扶老</a>
             <a class="type-list" href="javascript:searchattributiontype(2)" id="a2">支教</a>
             <a class="type-list" href="javascript:searchattributiontype(3)" id="a3">助残</a>
-            <a class="type-list" href="javascript:searchattributiontype(4)" id="a4">大型赛会</a>
-            <a class="type-list" href="javascript:searchattributiontype(5)" id="a5">校园</a>
+            <a class="type-list" href="javascript:searchattributiontype(4)" id="a4">校园</a>
+            <a class="type-list" href="javascript:searchattributiontype(5)" id="a5">大型赛会</a>
             <a class="type-list" href="javascript:searchattributiontype(6)" id="a6">其他</a>
         </div>
         <div class="type">

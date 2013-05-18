@@ -16,9 +16,20 @@
         <th scope="col">姓名</th>
         <th scope="col">院系</th>
         <th scope="col">活动名称</th>
-        <th scope="col">志愿时间</th>
+        <th scope="col">基础时间</th>
+        <th scope="col">服务时间</th>
         <th scope="col">备注</th>
       </tr>
+      <{foreach item=publicity from=$publicity_list}>
+            <tr>
+		<td><a href="indexv.php?user_id=<{$publicity.uid}>" target="_blank"><{$publicity.name}></a></td>
+        <td><{$publicity.faculty}></td>
+        <td><a href="act_dtl.php?act_id=<{$publicity.actid}>" target="_blank"><{$publicity.act_name}></a></td>
+        <td><{$publicity.basetime}></td>
+        <td><{$publicity.honortime}></td>
+        <td><{$publicity.comment}></td>
+              </tr>
+	  <{/foreach}>
     </table>
 </div>
 <{include file="include/footer.html"}>
