@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 20:52:23
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 21:09:50
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:14505519770a5d86851-33620730%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1368881074,
+      1 => 1368882589,
       2 => 'file',
     ),
   ),
@@ -83,11 +83,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     	<div class="box-bar-left"></div>
     	<div class="box-element">
         	<div class="title-bar"></div>
-            <div class="title-content" onclick="showclaim()">志愿宣言</div>
+            <div class="title-content" onclick="showclaim()"><a>志愿宣言</a></div>
         </div>
     	<div class="box-element">
         	<div class="title-bar"></div>
-            <div class="title-content" onclick="show3dwall()">图片故事</div>
+            <div class="title-content" onclick="show3dwall()"><a>图片故事</a></div>
         </div>
         <div class="box-element">
         	<div class="title-bar"></div>
@@ -95,7 +95,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
         <div class="box-element">
         	<div class="title-bar"></div>
-            <div class="title-content" id="statistics">统计数据</div>
+            <div class="title-content" id="statistics"><a>统计数据</a></div>
         </div>
         <div class="box-bar-right"></div>
     </div>
@@ -131,16 +131,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="share-to">
         	<h2>关注我们</h2>
             <div class="share-element">
-                人人
+                <a href="http://www.renren.com/336828625/profile?ref=opensearch_normal">人人</a>
             </div>
             <div class="share-element">
-                微博
+                <a href="http://weibo.com/njuvolunteer">微博</a>
             </div>
             <div class="share-element">
-                豆瓣
+                <a href="#">豆瓣</a>
             </div>
             <div class="share-element">
-                天涯
+                <a href="#">天涯</a>
             </div>
         </div>
         <div class="share-bar-right"></div>

@@ -50,8 +50,8 @@ $(document).ready(function(){
 	});
 	setTimeout('slide()',5000);	
 	returntoday();
-	$('#hotlist').animate({left:'-960px'},10000,'linear');
-	setTimeout("slidehott()",10000);
+	$('#hotlist').animate({left:'-960px'},25000,'linear');
+	setTimeout("slidehott()",25000);
 });
 function slideleft(){
 	if(flag==0){
@@ -243,8 +243,8 @@ function slidehott(){
 	$('#hotlist1').html(list2);
 	$('#hotlist2').html(list1);
 	$('#hotlist').animate({left:'0px'},0);
-	$('#hotlist').animate({left:'-960px'},10000,'linear');
-	setTimeout("slidehott()",10000);
+	$('#hotlist').animate({left:'-960px'},25000,'linear');
+	setTimeout("slidehott()",25000);
 }
 
 function searchit(){
