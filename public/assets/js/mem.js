@@ -3,11 +3,13 @@ var register_capacity = function(){};
 function bindStudentInfo(){
 	$(".studentNo").bind( "click", function(){
 		var id = this.innerText;
+		document.getElementById('loading-bar').style.display='block';
 		$.ajax({
 			type:"GET",
 			url:"./include/popup_infov.php",
 			data:{userId:id},
 			success:function(html){
+				document.getElementById('loading-bar').style.display='none';
 				tipsWindown("学生信息","text:"+html,"900","427","true","","true","");
 			}
 		});

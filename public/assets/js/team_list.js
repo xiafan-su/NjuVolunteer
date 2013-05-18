@@ -97,6 +97,7 @@ function searchteam(){
 	}
 }
 function searchitt(){
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
 		url:"./handle/act.php",
@@ -104,6 +105,7 @@ function searchitt(){
 			keyword:keyword,
 			},
 		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
 			$("#teams_list").html(html);
 		}	
 	});

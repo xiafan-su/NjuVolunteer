@@ -1,4 +1,30 @@
-<div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 17:08:46
+         compiled from "./tpls/templates\include\header.html" */ ?>
+<?php /*%%SmartyHeaderCode:1833151973e9f219db9-72892216%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '1048da3ca248985a74c0290df8746b95cbab34f3' => 
+    array (
+      0 => './tpls/templates\\include\\header.html',
+      1 => 1368868083,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '1833151973e9f219db9-72892216',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51973e9f2d74b',
+  'variables' => 
+  array (
+    'user_permission' => 0,
+    'user_name' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_51973e9f2d74b')) {function content_51973e9f2d74b($_smarty_tpl) {?><div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
 <div style="width:100%;position:absolute;top:88px;height:20px;left:0;background:-webkit-gradient(linear, left top, left bottom, from(rgb(102,102,102)), to(rgba(255,255,255,0)))"></div>
 <div class="header">
 	<div class="header_content">
@@ -7,40 +33,39 @@
 			<ul>
 				<li><a href="./index.php">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>
 				<li><a href="./act.php">活动中心</a></li>
-					<{* 
-						1表示未经过审核的志愿者，
-						2表示审核通过志愿者，
-						3表示志愿团队，
-					*}>
-					<{if isset($user_permission) }>
-						<{if $user_permission == 1}>
+					
+					<?php if (isset($_smarty_tpl->tpl_vars['user_permission']->value)){?>
+						<?php if ($_smarty_tpl->tpl_vars['user_permission']->value==1){?>
 							<li><a href="./zonev.php">个人空间</a></li>
-						<{elseif $user_permission == 2}>
+						<?php }elseif($_smarty_tpl->tpl_vars['user_permission']->value==2){?>
 							<li><a href="./zonet.php">团队空间</a></li>
-						<{/if}>
-					<{/if}>
+						<?php }?>
+					<?php }?>
 				<li><a href="./news.php">新闻广场</a></li>
 				<li><a href="./team.php">团队组织</a></li>
 			</ul>
 		</div>
 		<div  class="welcome_bar">
-			<{if isset( $user_permission ) && $user_permission > 0 && isset($user_name)}>
-				<{if $user_permission < 3}>
-					您好，<a href="./zonev.php"><{$user_name}></a>！
-				<{elseif $user_permission == 3}>
-					您好，<a href="./zonet.php"><{$user_name}></a>！
-				<{/if}>
+			<?php if (isset($_smarty_tpl->tpl_vars['user_permission']->value)&&$_smarty_tpl->tpl_vars['user_permission']->value>0&&isset($_smarty_tpl->tpl_vars['user_name']->value)){?>
+				<?php if ($_smarty_tpl->tpl_vars['user_permission']->value<3){?>
+					您好，<a href="./zonev.php"><?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
+</a>！
+				<?php }elseif($_smarty_tpl->tpl_vars['user_permission']->value==3){?>
+					您好，<a href="./zonet.php"><?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
+</a>！
+				<?php }?>
 				&nbsp;&nbsp;<a href="./handle/logout.php">退出</a>
-			<{else}>
+			<?php }else{ ?>
 				<a onclick="showit()" id="login_button">登录</a>
-			<{/if}>
+			<?php }?>
 		</div>
 	</div>
 </div>
 <div class="changelanguage">
 <div style="float:right"><a href="#">中文</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">English</a></div>
 </div>
- <{include file="include/login.html"}> 
+ <?php echo $_smarty_tpl->getSubTemplate ("include/login.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+ 
 <div class="backdrop" id="backdrop" onclick="hideit()">
 </div>
 <div id="loading-bar">
@@ -90,4 +115,4 @@ function hideit(){
 		setTimeout("temp=0",600);
 	}
 }
-</script>
+</script><?php }} ?>

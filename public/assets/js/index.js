@@ -40,12 +40,12 @@ $(document).ready(function(){
 	$('#statistics').click(function(){
 		$('#data-statistics').show();
 		$('#data-statistics').animate({opacity:'1'});
-		$('#data-statistics').html(nowloading);
+		document.getElementById('loading-bar').style.display='block';
 		$.ajax({
 		type:"POST",
 		url:"./handle/statistics.php",
 		success:function(html){
-
+			document.getElementById('loading-bar').style.display='none';
 			$('#data-statistics').html(html);
 
 		}

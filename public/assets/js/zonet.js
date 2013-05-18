@@ -90,10 +90,12 @@ var register_click_event = function ( elem, new_title, handle_url, url_param, ha
 	elem.click( function(){
 		$( zt_elem_main_title ).text( new_title );
 		switch_main_content( "<-" );
+		document.getElementById('loading-bar').style.display='block';
 		$.ajax({type:"POST", 
 			url: handle_url, 
 			data: url_param, 
 			success: function(html){
+				document.getElementById('loading-bar').style.display='none';
 				if( handle_func == null ){
 					$( zt_elem_main_content ).html(html);
 				} else {
