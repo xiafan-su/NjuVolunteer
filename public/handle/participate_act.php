@@ -6,10 +6,19 @@ $a=new Act();
 $act_id=$_POST['act_id'];
 if (!($a->participate_state($act_id)))
 {
-	if ($a->participate($act_id))
+	$status=$a->participate($act_id);
+	if ($status==0)
 		echo 1;
-	else
-		echo 0;
+	if ($status==1)	
+		echo -1;
+	if ($status==2)	
+		echo -2;
+	if ($status==3)	
+		echo -3;
+	if ($status==4)	
+		echo -4;
+	if ($status==5)	
+		echo -5;
 }else 
 {
 	if ($a->quit($act_id))

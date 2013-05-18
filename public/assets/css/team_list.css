@@ -53,20 +53,25 @@ li.tn-img-t{
 }
 .group{
 	/*left:400px;*/
-	margin:10px 0px 0px 0px;
+	margin:30px 0px 0px 0px;
 	float:left;
 	width:960px;
-	/*width:790px;*/
+	background:#FFF;
+	border-radius:20px;
+	box-shadow:10px 10px 10px #777;
+}
+.group-title{
+	width:900px;
+	margin:20px 30px 0 30px;
+	font-size:18px;
+	font-weight:bold;
 }
 .explore-item{
 	margin:10px 10px 10px 10px;
 	float:left;
 	/*width:400px;*/
-	width:300px;
+	width:220px;
 	height:250px;
-	border-bottom-style:dashed;
-	border-bottom-width:thin;
-	border-bottom-color:#8BE2E2;
 }
 .pic{
 	width:350px;
@@ -74,6 +79,7 @@ li.tn-img-t{
 }
 .pic img{
 	border-radius:20px;	
+	box-shadow:10px 10px 10px #666;
 }
 .t-portrait{
 	width:150px;
@@ -100,11 +106,15 @@ li.tn-img-t{
 	vertical-align:middle;
 }
 .content{
-	height:100px;
+	height:80px;
 	float:left;
+	margin:20px 0 0 20px;
 }
 .title{
 	font-size:18px;
+	color:rgb(102,51,102);
+	font-weight:bold;
+	cursor:pointer;
 }
 .favs{
 	font-size:16px;

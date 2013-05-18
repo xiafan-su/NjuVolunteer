@@ -24,7 +24,7 @@ while ($row2=mysql_fetch_assoc($myteam)){
 }
 
 	
-$myfollow=$user->fetch_my_follow($_SESSION[USER::USER][USER::ID]);	
+$myfollow=$user->fetch_my_follow($_SESSION[USER::USER][USER::ID]);
 while ($row3=mysql_fetch_assoc($myfollow)){
 	$myfollowlist[]=array('teamid'=>$row3['TID'],'name'=>$row3['TNAME']);
 }

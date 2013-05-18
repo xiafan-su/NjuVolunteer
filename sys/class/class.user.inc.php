@@ -30,7 +30,7 @@ class User extends DB_Connect {
 	
 	public function fetch_my_follow($id)//获取关注的团队
 	{
-		$sql="SELECT team.id as TID,team.name as TNAME from follow,team where team.id=follow.teamid  and   follow.userid='".$id."' ";
+		$sql="SELECT team.id as TID,team.name as TNAME from follow,team where team.id=follow.team_id  and   follow.user_id='".$id."' ";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	} 	

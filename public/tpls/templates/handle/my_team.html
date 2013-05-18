@@ -1,0 +1,18 @@
+<div style="margin-left:20px;margin-right:20px;">
+	<table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">团队ID</th>
+        <th scope="col">团队名称</th>
+      </tr>
+      
+      <{foreach item=team from=$teamlist}>
+        <tr>
+            <td><{$team.teamid}></td>
+            <td><a href="indext.php?team_id=<{$team.teamid}>" target="_blank"><{$team.name}></a></td>
+        </tr>
+      <{/foreach}>
+      </tbody>
+    </table>
+
+</div>

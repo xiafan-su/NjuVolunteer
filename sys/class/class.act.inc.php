@@ -204,7 +204,25 @@ class Act extends DB_Connect {
 	}
 	public function participate($activity_id){
 		$user_id=$_SESSION[USER::USER][USER::ID];
-		
+		$sql="SELECT * FROM apply_team WHERE user_id='".$user_id."'";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		if (mysql_num_rows($select)==0)
+		{
+			return 3;//尚未完善个人资料
+		}
+		else
+		{
+			while ($result=mysql_fetch_assoc($select))
+			{
+				$sql="SELECT layer FROM team WHERE id='".$result['team_id']."'";
+				$team_info=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+				$team=mysql_fetch_assoc($team_info);
+				if ($team['layer']=='0' && $result['state']=='0')
+					return 4;//院系正在审核您的资料
+				if ($team['layer']=='0' && $result['state']=='2')
+					return 5;//资尚未通过院系的
+			}
+		}
 		$sql="SELECT * FROM activity_info WHERE id='".$activity_id."'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		$act_info=mysql_fetch_assoc($select);//获取活动的信息
@@ -212,26 +230,25 @@ class Act extends DB_Connect {
 		$sql="SELECT * FROM user_info WHERE id='".$user_id."'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		$user_info=mysql_fetch_assoc($select);//获取个人的信息
-		$flag=1;
+		$flag=0;
 		if ($user_info['cet4']<$act_info['cet4'] && $user_info['cet6']<$act_info['cet6'])
-			$flag=0;
+			$flag=1;//英语成绩未达标
 		if ($act_info['faculty_limit']!=NULL && strpos("hehe".$act_info['faculty_limit'],$user_info['faculty'])==FALSE)
-			$flag=0;
-		if ($flag==0) return false;
+			$flag=2;//不满足院系报名条件
+		if ($flag!=0) return $flag;
 		$status=1;
-		if ($result['need_audit']=='false')
+		if ($act_info['need_audit']=='false')
 			$status='1';
 		else
 			$status='0';
-		$sql="SELECT * FROM user_info WHERE id='".$user_id."'";
 		
 		$query="INSERT INTO apply_act(user_id,act_id,state,time) VALUES ('".$user_id."','".$activity_id."','".$status."','".date('Y-m-d H:i:s',time())."')";
 		if (!mysql_query($query,$this->root_conn))
 		{ 
 			die('Error'.mysql_error());
-			return false;
+			return 3;
 		}
-		else return true;
+		else return 0;
 	}
 	public function quit($activity_id){
 		$user_id=$_SESSION[USER::USER][USER::ID];
@@ -244,14 +261,29 @@ class Act extends DB_Connect {
 		else return true;
 	}
 	public function participate_state($activity_id){
+		if(!$this->judge_participate_button_state($activity_id))
+			return -1;//已经过了deadline或者没有权限参加
 		$user_id=$_SESSION[USER::USER][USER::ID];
 		$query="select * from apply_act where user_id='".$user_id."' and act_id='".$activity_id."'";
-		$select=mysql_query($query,$this->root_conn);
-		if (mysql_num_rows($select)==1) return true;
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		if (mysql_num_rows($select)==1) return 1;//已经参加了活动
 		else 
 		{
-			return false;
+			return 0;//尚未参加活动
 		}
+	}
+	public function judge_participate_button_state($activity_id)//判断是否过了deadline，是否用户为个人
+	{
+		$sql="SELECT deadline FROM activity_info WHERE id='".$activity_id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$act_info=mysql_fetch_assoc($select);
+		//echo $act_info['deadline'].'</br>';
+		if ($act_info['deadline']<(date('Y-m-d H:i:s',time())))
+			return false;
+		if (isset($_SESSION[USER::USER][USER::PERM_ID]))
+			if($_SESSION[USER::USER][USER::PERM_ID]!=1)
+				return false;
+		return true;	
 	}
 
 	public function upload_picture(){

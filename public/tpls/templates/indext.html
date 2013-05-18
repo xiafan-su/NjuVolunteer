@@ -14,74 +14,60 @@
 <body>
 <{include file="include/header.html"}>
 
+<div id="team_id" style="display:none"><{$team_id}></div>
 <div class="main">
-	<div class="bar-top"></div>
-    <div class="bar-top2"></div>
-    <div class="personal-info">
-    	<div class="left">
-        	<div class="photo">
-            	<img src="./assets/img/head_photo/boy/7.jpg"/>
-            </div>
-            <div class="follow">
-            	关注这个团队
-            </div>
-        </div>
-        <div class="center">
-        	<div class="name" id="name"><{$team_name}></div>
-            <div class="honor"></div>
-            <div class="per-info">
-            	<table width="200" border="0">
-                  <tr>
-                    <th scope="row">团队负责人</th>
-                    <td><{$leader_name}></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">累计活动</th>
-                    <td><span id="all_time"><{$all_act_num}></span>次</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">本学期活动</th>
-                    <td><span id="honor_time"><{$now_act_num}></span>次</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">E-mail：</th>
-                    <td><div id="email"><{$leader_email}></div></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Tel：</th>
-                    <td><div id="phone"><{$leader_phone}></div></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">签名档：</th>
-                    <td><div id="sign">我是一个猥琐男，啦啦啦啦啦~</div></td>
-                  </tr>
-                </table>
-            </div>
-        </div>
-        <div class="right">
-        	<div class="top-bar"></div>
-            <div class="scroll-item">
-            	<div id="scroll-panel"></div>
-            </div>
-            <div class="bottom-bar"></div>
+	<div class="team_name">
+    	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:#606;">
+        	<{$team_name}>
         </div>
     </div>
-    <div style="width:100%;height:40px;float:left">
-    	<div class="left-bar"></div>
-        <div class="team">
-        	<div class="title-bar"></div>
-            <div id="team_comment" class="title-content">与他相关的评论</div>
+    <hr />
+    <div class="left">
+        <div class="photo">
+            <img src="./assets/img/head_photo/boy/7.jpg"/>
         </div>
-        <div class="center-bar"></div>
-        <div class="act">
-        	<div class="title-bar"></div>
-            <div id="team_activity" class="title-content">他发起的活动</div>
+        <div class="follow" id="followit">
+            <{if $already_follow==1}>
+                取消关注这个团队
+            <{else}>
+                关注这个团队
+            <{/if}>
         </div>
-        <div class="right-bar"></div>
+    </div>
+    <div class="center">
+        <div class="per-info">
+            <table width="200" border="1">
+              <tr>
+                <th scope="row">团队负责人</th>
+                <td><{$leader_name}></td>
+              </tr>
+              <tr>
+                <th scope="row">累计活动</th>
+                <td><span id="all_time"><{$all_act_num}></span>次</td>
+              </tr>
+              <tr>
+                <th scope="row">本学期活动</th>
+                <td><span id="honor_time"><{$now_act_num}></span>次</td>
+              </tr>
+              <tr>
+                <th scope="row">E-mail：</th>
+                <td><div id="email"><{$leader_email}></div></td>
+              </tr>
+              <tr>
+                <th scope="row">Tel：</th>
+                <td><div id="phone"><{$leader_phone}></div></td>
+              </tr>
+              <tr>
+                <th scope="row">签名档：</th>
+                <td><div id="sign">我是一个猥琐男，啦啦啦啦啦~</div></td>
+              </tr>
+            </table>
+        </div>
     </div>
 
-    <div id="table_activity" style="display:none;">
-      	<table>
+
+    <div id="table_activity">
+      	<table border="1">
         <tr>
         	<th scope="col">活动名称</th>
         	<th scope="col">活动时间</th>
@@ -99,13 +85,11 @@
         </table>
     </div>
     
-    <div id="table_comment" style="display:none;">
-    <br>
-    <table>
+    <div id="table_comment">
+    <table border="1">
     	<th>评论人</th><th>评论内容</th>
     
     </table>
-    </br>
     </div>
     <div id="content">
     

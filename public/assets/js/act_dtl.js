@@ -29,13 +29,18 @@ $(document).ready(function(){
 			success:function(html){
 				//alert(html);
 				//alert("success");
+				if (html =='-1')
+				{
+					$('#take_part_in').prop("disabled",true);
+					$('#take_part_in').prop("value","报名截止");
+				}
 				if (html == '1')
 				{
-					$('#take_part_in').text("退出活动");
+					$('#take_part_in').prop("value","退出活动");
 				}
-				else
+				else if (html =='0')
 				{
-					$('#take_part_in').text("参加活动");
+					$('#take_part_in').prop("value","报名活动");
 					                                          
 				}
 				
@@ -113,16 +118,37 @@ $(function(){
 				if (html == 1)
 				{
 				 	alert("报名成功");
-					$('#take_part_in').text("退出活动");
+					$('#take_part_in').prop("value","退出活动");
 				}
 				else if (html == 2)
 				{
 					alert("退出成功");
-					$('#take_part_in').text("参加活动");
+					$('#take_part_in').prop("value","参加活动");
 				}
-				 else
-				 alert("您不满足此项活动的报名条件");
-				
+				else if (html == -1)
+				{
+					alert("您的英语不满足活动要求");
+				}
+				else if (html == -2)
+				{
+					alert("院系不满足要求");
+				}
+				else if (html == -3)
+				{
+					alert("请先完善您的个人资料，院系审核通过后方可报名活动");
+				}
+				else if (html == -4)
+				{
+					alert("院系正在审核您的资料");
+				}
+				else if (html == -5)
+				{
+					alert("您的资料未能通过院系审核，请查看具体的通知");
+				}
+				else if (html == 0)
+				{
+					alert("报名失败");
+				}
 			}
 		});
     });
