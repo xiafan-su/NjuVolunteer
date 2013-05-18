@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 14:01:31
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 18:01:11
          compiled from "./tpls/templates\act.html" */ ?>
 <?php /*%%SmartyHeaderCode:294635196321ee34991-61562401%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
     array (
       0 => './tpls/templates\\act.html',
-      1 => 1368856776,
+      1 => 1368871269,
       2 => 'file',
     ),
   ),
@@ -67,7 +67,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <a class="type-list" href="javascript:searchattributiontype(2)" id="a2">支教</a>
             <a class="type-list" href="javascript:searchattributiontype(3)" id="a3">助残</a>
             <a class="type-list" href="javascript:searchattributiontype(4)" id="a4">大型赛会</a>
-            <a class="type-list" href="javascript:searchattributiontype(5)" id="a5">其他</a>
+            <a class="type-list" href="javascript:searchattributiontype(5)" id="a5">校园</a>
+            <a class="type-list" href="javascript:searchattributiontype(6)" id="a6">其他</a>
         </div>
         <div class="type">
             <div class="type-title">时间限制:</div>

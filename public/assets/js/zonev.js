@@ -9,7 +9,22 @@ var flag_phone=0;
 var flag_cet4=0;
 var flag_cet6=0;
 var flag_other_skills=0;
-
+function change_sign(){
+		$.ajax({
+		type:"POST",
+		data:{
+			signature:$("#sign").val()
+			},
+		url:"./handle/change_sign.php",
+		success:function(html){
+			//alert(html);
+			//$("#note_detail").html(html);
+			if (html!=1)
+				alert(html);
+		}
+	});
+	
+	}
 function test_name(){
 	if($("#name").val().replace(/\s/g,"")==""){
 		$("#name_tip").text("*不能为空");

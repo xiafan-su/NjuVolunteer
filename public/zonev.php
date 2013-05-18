@@ -9,5 +9,6 @@ $tpl->assign( "notes_number", 3 );
 $tpl->assign("volunteer_time",$result['volunteer_time'] );
 $tpl->assign("base_time",$result['base_time'] );
 $tpl->assign("honor_time",$result['honor_time'] );
+$tpl->assign("signature",$result['signature'] );
 $tpl->display('zonev.html');
 ?>

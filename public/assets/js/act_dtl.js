@@ -33,7 +33,12 @@ $(document).ready(function(){
 				{
 					$('#take_part_in').prop("disabled",true);
 					$('#take_part_in').prop("value","报名截止");
-				}
+				}else
+				if (html =='-2')
+				{
+					$('#take_part_in').prop("disabled",true);
+					$('#take_part_in').prop("value","等待报名");					
+				}else
 				if (html == '1')
 				{
 					$('#take_part_in').prop("value","退出活动");
@@ -42,6 +47,12 @@ $(document).ready(function(){
 				{
 					$('#take_part_in').prop("value","报名活动");
 					                                          
+				}
+				else if (html =='-3')
+				{
+					$('#take_part_in').prop("disabled",true);
+					$('#take_part_in').prop("value","报名活动");
+					$('#take_part_in').prop("title","请先登陆");                                          
 				}
 				
 			}
