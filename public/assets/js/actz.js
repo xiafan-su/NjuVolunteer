@@ -77,10 +77,10 @@ zt_func_doc_apply = function(){
 			$( az_elem_apply_audit_ok ).bind( "click",  az_funz_apply_audit_ok );//"审核通过"
 			$( az_elem_apply_audit_fail ).bind( "click", az_funz_apply_audit_fail );//"审核失败"
 			$( za_elem_apply_select_all ).bind( "change",  az_funz_apply_select_all );//"选择全部"
-			$(".apply_id_col").bind("click", function(){//查看个人信息----弹框
+		/*	$(".apply_id_col").bind("click", function(){//查看个人信息----弹框
 				var id = $(this).text();
 				popup_volunteer_info(id);
-			});
+			});//*/
 		}
 	});
 }
@@ -93,6 +93,24 @@ zt_func_doc_fold = function( ){
 		this.src = getNewPitureURL( this.src, "navigate_plus.png" );
 		$( "#doc_list_"+$(this).attr("actid") ).css("display", "none");//
 	}
+}
+
+zt_func_doc_del = function(){
+	var actid = $(this).attr("actid");
+
+	$.ajax({
+		type:"POST",
+		url:"./handle/actz.php",
+		data:{activityId:actid, type:"del"},
+		success:function(html){
+			if( html == 0 ){
+				alert( "删除成功！" );
+				$("#util_start_activity").trigger( "click" );
+			} else {
+				alert( html );
+			}
+		}
+	});
 }
 
 //加载完“记录编辑”(包括添加)之后要做的事
@@ -351,7 +369,7 @@ az_funz_apply_audit_ok = function(){
 							$(all_checkbox[i]).prop("disabled", true);
 							$(all_checkbox[i]).prop("checked", false);
 							var t = $( "#act_people_table_col_state_"+$(all_checkbox[i]).attr("noid" ) );//找到对应的"状态"单元格
-							if( t != null ) t.text( "过(来自JS)" );
+							if( t != null ) t.text( "通过" );
 						}
 					}
 				}
@@ -361,13 +379,15 @@ az_funz_apply_audit_ok = function(){
 		}
 	});
 }
+//报名表下方的“退回”按钮
 az_funz_apply_audit_fail= function(){
+	var reason = $("#textarea_back_reason").val().trim();
 	var actid = $(this).attr( "actid" );
 	$.ajax({
 		type: "POST",
 		url: "./handle/actz.php",
 		data:{ type:"actApply", idList: az_func_getIdList( "act_people_table_checkbox_" ), 
-			target:0, reason: " 暂时没有", activityId: $(this).attr( "actid" ) },
+			target:0, reason: reason, activityId: $(this).attr( "actid" ) },
 		success:function(html){//0-成功，其他-失败
 			if( html == 0 ){//成功
 				//alert( "修改审核状态成功！" );
@@ -389,8 +409,50 @@ az_funz_apply_audit_fail= function(){
 		}
 	});
 }
+//报名表下方的退回理由文本域-
+function textarea_back_reason_on_change(elem, check){//check表示是否检查了head_check，即报名表最左边的复选框
+	//alert( $(elem).val() );
+	if( check == false ) {
+		var all_checkbox = $( ".checkbox_head[type='checkbox']:checked" );
+		if( all_checkbox.length == 0 ){
+			$("#btn_audit_ok").prop( "disabled", true );
+			$("#btn_audit_ok").attr( "title", "请先勾选审核通过的志愿者" );
+			$("#btn_audit_fail").prop( "disabled", true );
+			$("#btn_audit_fail").attr( "title", "请先勾选要退回志愿者并填写退回理由" );
+			return;
+		} else {
+			$("#btn_audit_ok").prop( "disabled", false );
+			$("#btn_audit_ok").attr( "title", "将选择的报名人员设置为审核通过" );
+
+			var t = $(elem).val().trim();
+			if( t.length == 0 || t.length > 100 ){//字数超过100个字
+				$("#btn_audit_fail").prop( "disabled", true );
+				$("#btn_audit_fail").attr( "title", "请先勾选要退回志愿者并填写退回理由" );
+				return;
+			} else {
+				$("#btn_audit_fail").prop( "disabled", false );
+				$("#btn_audit_fail").attr( "title", "将选择的报名人员设置为审核失败" );
+				return;
+			}
+		}
+	} else {
+			var t = $(elem).val().trim();
+			if( t.length == 0 || t.length > 100 ){//字数超过100个字
+				$("#btn_audit_fail").prop( "disabled", true );
+				$("#btn_audit_fail").attr( "title", "请先勾选要退回志愿者并填写退回理由" );
+				return;
+			} else {
+				$("#btn_audit_fail").prop( "disabled", false );
+				$("#btn_audit_fail").attr( "title", "将选择的报名人员设置为审核失败" );
+				return;
+			}
+			return;
+	}
+}
+
 //活动报名情况的"全选"复选框
-az_funz_apply_select_all = function(){
+az_funz_apply_select_all = function( check ){//是否检查了文本域
+	var in_checked = false;//是否存在勾选的志愿者
 	var checked = $("#check_all_act_people").prop( "checked" );
 	var all_checkbox = $( "[type='checkbox']" );
 	//alert( all_checkbox.length );//*
@@ -400,7 +462,32 @@ az_funz_apply_select_all = function(){
 		if( $(all_checkbox[i]).prop("disabled") ) { } else {//如果不是“不可选的”
 			$(all_checkbox[i]).prop("checked", checked);
 		}
+		if( $(all_checkbox[i]).prop("checked") ) {
+				in_checked = true;
+		}
 	}//*/
+	if( in_checked ){//当存在
+		//alert( "in!" );
+		$("#btn_audit_ok").prop( "disabled", false );
+		$("#btn_audit_ok").attr( "title", "将选择的报名人员设置为审核通过" );
+		if( check == true ){//已经核对，并且符合条件（文本域不为空）
+			//alert( "check box" );
+			$("#btn_audit_fail").prop( "disabled", false );
+			$("#btn_audit_fail").attr( "title", "将选择的报名人员设置为审核失败" );
+		} else {
+			//alert( "~check box" );
+			textarea_back_reason_on_change( $("#textarea_back_reason"), true );
+		}
+	} else {
+		$("#btn_audit_ok").prop( "disabled", true );
+		$("#btn_audit_ok").attr( "title", "请先勾选审核通过的志愿者" );
+		$("#btn_audit_fail").prop( "disabled", true );
+		$("#btn_audit_fail").attr( "title", "请先勾选要退回志愿者并填写退回理由" );
+	}
+}
+//报名表 左边复选框
+function act_apply_head_check(){
+	textarea_back_reason_on_change( $("#textarea_back_reason"), false );
 }
 //参与表的“全选”
 az_funz_doc_select_all = function(){
@@ -466,6 +553,7 @@ function change_doc_level_handle(elem, no){//评价-一般良好优秀
 		$(elem).next().find(":first-child").focus();
 	} else {//no == 2
 		var newval = $(elem).find(":selected").text();
+		var newIndex = elem.selectedIndex;
 		$(elem).parent().prev().toggle( time );
 		$(elem).parent().toggle( time );
 		$(elem).parent().prev().text( newval  );
@@ -476,10 +564,15 @@ function change_doc_level_handle(elem, no){//评价-一般良好优秀
 			var span = $( "#doc_level_"+uid );
 			span.text( newval );
 			//$("#select_id  ").attr("selected", true); 
+			/*
 			var sel = $("#doc_level_select_"+uid+" > option");
 			alert( sel.length );
 			alert( sel[0].attr("id") );
-			sel[0].attr("selected", "selected");
+			sel[0].attr("selected", "selected");//*/
+			var select_level = document.getElementById( "doc_level_select_"+uid );
+			//alert( select_level );
+			//alert( select_level.options[select_level.selectedIndex].value );
+			select_level.options[newIndex].selected = true;
 		}
 		set_submit_enable();//确定按钮有效
 		
@@ -512,7 +605,7 @@ function change_doc_comment_handle(elem, no){
 			var span = $( "#doc_comment_"+uid );
 			span.text( dis_val );
 			var set = $("#doc_comment_set_"+uid);
-			set.text( real_val );
+			set.val( real_val );
 		}
 
 		set_submit_enable();//确定按钮有效
@@ -673,3 +766,78 @@ function mem_position_handle(elem){
 	});
 }
 
+//快捷录入时间
+function extend_act_select_change_handle(elem){
+	var actid = elem[elem.selectedIndex].value;
+	$.ajax({
+		type:"POST",
+		url:"./handle/actz_time.php",
+		data:{type:"getdoc", activityId:actid},
+		success:function(html){
+			$("#extend_table_td_container_doc").html( html );
+		}
+	});
+}
+//设置“快捷操作”中的“确定”按钮是否有效
+function verify_extend_time_handle(){
+
+	$("#extend_op_ok").prop( "disabled", true );
+
+	var ok = true;
+	var uid = $("#extend_uid").val().trim();
+	var time = $("#extend_input_time").val();
+	var comment = $("#extend_ta_comment").val().trim();
+	var level = $("input[name='extend_honor_level']:checked").val();
+	var leader = $("input[name='extend_honor_leader']:checked").val();
+	var excellent = $("input[name='extend_honor_excellent']:checked").val();
+
+	var docselect = document.getElementById("extend_select_doc");
+	var docid = docselect.options[docselect.selectedIndex].value;
+	
+	if( uid.length == 0 || uid.length > 20){
+		ok = false;
+		$("#extend_op_ok").attr( "title", "学号长度错误" );
+	} else {
+		if( docid < 0 ){
+			ok = false;
+			$("#extend_op_ok").attr( "title", "档案选择错误" );
+		} else {
+			if( time.length == 0 ){
+				ok = false;
+				$("#extend_op_ok").attr( "title", "服务时间格式错误" );
+			} else {
+				$("#extend_op_ok").attr( "title", "确认添加服务时间" );
+			}
+		}
+	}
+
+	$("#extend_op_ok").prop( "disabled", !ok );
+}
+
+function extend_ok_handle(){
+	var uid = $("#extend_uid").val().trim();
+	var time = $("#extend_input_time").val();
+	var comment = $("#extend_ta_comment").val().trim();
+	var level = $("input[name='extend_honor_level']:checked").val();
+	var leader = $("input[name='extend_honor_leader']:checked").val();
+	var excellent = $("input[name='extend_honor_excellent']:checked").val();
+
+	var docselect = document.getElementById("extend_select_doc");
+	var docid = docselect.options[docselect.selectedIndex].value;
+	//alert("adcasd");
+	var close = confirm("确认添加服务时间（添加后不能撤销）？");
+	if( ! close ){ return; }
+	$.ajax( {
+		type:"POST",
+		url:"./handle/actz_time.php",
+		data:{type:"addTime", uid:uid, documentId:docid, time:time,level:level, leader:leader, excellent:excellent, comment:comment},
+		success:function(html){
+			if( html == 0 ){
+				alert( "添加成功！" );
+			} else {
+				alert( html );
+			}
+		}
+		
+	} );
+}

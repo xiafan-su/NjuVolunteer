@@ -1,0 +1,68 @@
+
+
+
+
+<div id="" class="" style="margin: 0 20px 10px;">
+	<table>
+	<tr>
+		<th style="text-align:right">学号</th>
+		<td style="text-align:left">
+			<input type="text" id="extend_uid"  onblur="verify_extend_time_handle();" />
+		</td>
+	</tr>
+	<tr>
+		<th style="text-align:right">活动</th>
+		<td style="text-align:left">
+		<select name=""  onchange="extend_act_select_change_handle(this);">
+			<option value="-1" selected>请选择</option>
+			<{section name=act_index loop=$act_list}>
+			<option value="<{$act_list[act_index].id}>"><{$act_list[act_index].name}></option>
+			<{/section}>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<th style="text-align:right">档案</th>
+		<td style="text-align:left" id="extend_table_td_container_doc">
+			<select name="" disabled="true" id="extend_select_doc">
+				<option value="-1" selected>请先选择您举办的活动</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<th style="text-align:right">服务时长</th>
+		<td style="text-align:left">
+			<input type="text" id="extend_input_time"  onblur="verify_extend_time_handle();" />
+		</td>
+	</tr>
+	<tr>
+		<th style="text-align:right">表现</th>
+		<td style="text-align:left">
+			<input type="radio" value="一般" name="extend_honor_level">一般
+			<input type="radio" value="良好" name="extend_honor_level" >良好
+			<input type="radio" value="优秀" name="extend_honor_level" checked="true" >优秀
+		</td>
+	</tr>
+	<tr>
+		<th style="text-align:right">带队奖</th>
+		<td style="text-align:left">
+			<input type="radio" value="1" name="extend_honor_leader">是
+			<input type="radio" value="0" name="extend_honor_leader" checked="true" >否
+		</td>
+	</tr>
+	<tr>
+		<th style="text-align:right">优秀奖</th>
+		<td style="text-align:left">
+			<input type="radio" value="1" name="extend_honor_excellent">是
+			<input type="radio" value="0" name="extend_honor_excellent" checked="true" >否
+		</td>
+	</tr>
+	<tr>
+		<th style="text-align:right">评论</th>
+		<td style="text-align:left">
+			<textarea name="" rows="3" cols="50" id="extend_ta_comment"  ></textarea>
+		</td>
+	</tr>
+	</table>
+	<input type="button" class="button" id="extend_op_ok" disabled="true"  value="确定"  onclick="extend_ok_handle()" title="您必须填写除评论外的所有项" />
+</div>

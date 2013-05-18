@@ -27,3 +27,11 @@ cursor:pointer;
 .zonet-doc-row{
 	cursor:pointer;
 }
+
+.util_doc_modify , .util_doc_del{
+	cursor: pointer;
+}
+
+.util_doc_modify_disabled, .util_doc_del_disabled{
+	cursor: default;
+}

@@ -15,10 +15,12 @@ var zt_elem_note_sent = "#util_note_sent";
 var zt_elem_mem = "#util_mem";
 var zt_elem_infot = "#util_infot";
 var zt_elem_infot_edit = "#util_infot_edit";
+var zt_elem_extend_time = "#util_extend_time";
 //对应URL
 var zt_url_apply_act = "./act_apply.php";
 var zt_url_act = "./include/actz.php";//发起的、完成的活动使用相同php
 var zt_url_note = "./include/note.php";//收到的、发送的通知使用相同php
+var zt_url_extend_time = "./include/act_time.php";
 var zt_url_note_edit = "./include/note_edit.php";
 var zt_url_note_dtl = "./include/note_dtl.php";
 var zt_url_mem = "./include/mem.php";
@@ -31,6 +33,7 @@ var zt_elem_doc_add = ".util_doc_add";
 var zt_elem_doc_apply = ".util_doc_apply";//每次小活动的报名情况
 var zt_elem_doc_list = ".util_doc_list";//活动档案列表元素
 var zt_elem_doc_fold = ".util_doc_fold";//用于折叠、展开活动档案列表操作的元素
+var zt_elem_doc_del = ".util_doc_del";//删除
 //通知
 var zt_elem_note_row = ".note_table_row";
 var zt_elem_note_recv_act_select = "#note_recv_act_select";
@@ -40,11 +43,13 @@ var zt_elem_note_recv_act_select = "#note_recv_act_select";
 //点击“发起的活动”、“完成的活动”的回调函数
 var zt_func_start_act = function(html){};
 var zt_func_finished_act = function(html){};
+var zt_func_extend_time = function(){};
 //以下函数在actz.js中实现
 var zt_func_doc_index = function(){};
 var zt_func_doc_add = function(){};
 var zt_func_doc_apply = function(){};
 var zt_func_doc_fold = function(elem){};
+var zt_func_doc_del = function(){};
 
 //点击“收到的通知”/“发送的通知”的回调函数
 var zt_func_note_recv = function(){};
@@ -112,6 +117,7 @@ zt_func_start_act = function(html){
 	$( zt_elem_doc_index ).bind("click", zt_func_doc_index );
 	$( zt_elem_doc_add ).bind("click", zt_func_doc_add );
 	$( zt_elem_doc_apply ).bind("click", zt_func_doc_apply );
+	$( zt_elem_doc_del ).bind("click", zt_func_doc_del );
 }
 zt_func_finished_act = function(html){
 	$(zt_elem_main_content).html(html);
@@ -119,6 +125,7 @@ zt_func_finished_act = function(html){
 	$( zt_elem_doc_fold ).bind("click", zt_func_doc_fold );
 	$( zt_elem_doc_index ).bind("click", zt_func_doc_index );
 	$( zt_elem_doc_apply ).bind("click", zt_func_doc_apply );
+	$( zt_elem_doc_del ).bind("click", zt_func_doc_del );
 }
 
 zt_func_mem = function(html){
@@ -142,6 +149,9 @@ zt_func_note_send = function(html){
 //注册点击事件
 register_click_event( $( zt_elem_start_act ), "发起的活动", zt_url_act, {type:"start"}, zt_func_start_act );
 register_click_event( $( zt_elem_finished_act ), "完成的活动", zt_url_act, {type:"finished"}, zt_func_finished_act );
+
+register_click_event( $( zt_elem_extend_time ), "快速添加服务时间", zt_url_extend_time );
+
 register_click_event( $( zt_elem_note_edit ), "发通知", zt_url_note_edit, null, zt_func_note_send);
 register_click_event( $( zt_elem_note_recv ), "收到的通知", zt_url_note, {type:"recv"}, zt_func_note_recv );
 register_click_event( $( zt_elem_note_sent ), "发送的通知", zt_url_note, {type:"sent"}, zt_func_note_sent );
