@@ -10,11 +10,13 @@ var picnum=5;
 var flag=0;
 var slidehot=0;
 var hot=[
-'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/1.jpg\" /></li>',
+'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/5.jpg\" /></li>',
 '<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/2.jpg\" /></li>',
 '<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/3.jpg\" /></li>',
 '<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/4.jpg\" /></li>',
-'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/5.jpg\" /></li>'];
+'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/1.jpg\" /></li>',
+'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/6.jpg\" /></li>',
+'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/7.jpg\" /></li>'];
 var mydate;
 $(document).ready(function(){
 	document.getElementById("switch").style.left="-800px";
