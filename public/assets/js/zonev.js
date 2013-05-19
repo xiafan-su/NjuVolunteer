@@ -361,6 +361,7 @@ $("#activity_record").click(function(){
 });
 $("#new_notice").click(function(){
 	$("#main_title").text("新通知");
+	$("#new_notice").text("新通知");
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 	type:"POST",
