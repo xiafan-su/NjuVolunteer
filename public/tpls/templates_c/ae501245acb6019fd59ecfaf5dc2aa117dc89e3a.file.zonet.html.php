@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 01:23:32
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 03:29:30
          compiled from "./tpls/templates\zonet.html" */ ?>
-<?php /*%%SmartyHeaderCode:1329451990a94b52326-22147911%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:28645199281ae12e40-20236313%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ae501245acb6019fd59ecfaf5dc2aa117dc89e3a' => 
     array (
       0 => './tpls/templates\\zonet.html',
-      1 => 1368983442,
+      1 => 1368988710,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1329451990a94b52326-22147911',
+  'nocache_hash' => '28645199281ae12e40-20236313',
   'function' => 
   array (
   ),
@@ -23,9 +23,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51990a94bb367',
+  'unifunc' => 'content_5199281aea468',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51990a94bb367')) {function content_51990a94bb367($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5199281aea468')) {function content_5199281aea468($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -127,6 +127,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php echo $_smarty_tpl->getSubTemplate ("include/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 </body>
+<script src="./assets/js/md5.js"></script>
 <script src="./assets/js/tipswindown.js"></script>
 <script src="./assets/js/mem.js"></script><!-- 一定要在zonet.js前面 -->
 <script src="./assets/js/zonet.js"></script>
