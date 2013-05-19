@@ -15,9 +15,10 @@ class User extends DB_Connect {
 	}
 	public function change_sign($sign)
 	{
+		$sign=htmlspecialchars($sign);
 		if (mb_strlen($sign)>80)
 			return "签名字数不超过80个字";
-		$sql="UPDATE user_info SET signature='".$sign."' WHERE id='".$_SESSION[USER::USER][USER::ID]."'";
+		$sql="UPDATE user_info SET signature='".htmlspecialchars($sign)."' WHERE id='".$_SESSION[USER::USER][USER::ID]."'";
 		if (!mysql_query($sql,$this->root_conn))
 		{
 			die('ERROR:'.mysql_error());
@@ -27,6 +28,7 @@ class User extends DB_Connect {
 	}
 	public function fetch_person_info($id)//获取个人资料
 	{
+		$id=htmlspecialchars($id);
 		$sql="SELECT * from user_info where id='".$id."' ";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		$results=mysql_fetch_assoc($select);
@@ -35,6 +37,7 @@ class User extends DB_Connect {
 	
 	public function fetch_my_team($id)//获取个人的团队
 	{
+		$id=htmlspecialchars($id);
 		$sql="SELECT team.id as TID,team.name as TNAME from apply_team,team where apply_team.state='1' and  team.id=apply_team.team_id         and   user_id='".$id."' ";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
@@ -42,6 +45,7 @@ class User extends DB_Connect {
 	
 	public function fetch_my_follow($id)//获取关注的团队
 	{
+		$id=htmlspecialchars($id);
 		$sql="SELECT team.id as TID,team.name as TNAME from follow,team where team.id=follow.team_id  and   follow.user_id='".$id."' ";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
@@ -49,8 +53,8 @@ class User extends DB_Connect {
 	
 	public function fetch_my_act($id)//获取参加的活动
 	{
+		$id=htmlspecialchars($id);
 		$sql="select activity_info.id as AID,activity_info.name as name,sum(act_record.base_time) as base_time,sum(act_record.honor_time) as honor_time from act_doc,act_record,activity_info  where act_doc.act_id=activity_info.id and act_record.doc_id=act_doc.id  and act_record.user_id='".$id."' and act_record.final='true' ";
-		
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	} 		
@@ -62,15 +66,15 @@ class User extends DB_Connect {
 	{
 		$sql="UPDATE user_info SET 
 		
-		name='".$name."',						gender='".$gender."',					idcard_num='".$idcard_num."',
-		email='".$email."',						faculty='".$faculty."',
-		birthday='".$birthday."',				phone='".$phone."',						
-		politics_status='".$politics_status."',	nation='".$nation."',					cloth_size='".$cloth_size."',
-		dormitory='".$dormitory."',				cet4='".$cet4."',						cet6='".$cet6."',
-		language='".$language."',				language_level='".$language_level."',	drive='".$drive."',
-		medical='".$medical."',					other_skills='".$other_skills."'
+		name='".htmlspecialchars($name)."',						gender='".htmlspecialchars($gender)."',					idcard_num='".htmlspecialchars($idcard_num)."',
+		email='".htmlspecialchars($email)."',						faculty='".htmlspecialchars($faculty)."',
+		birthday='".htmlspecialchars($birthday)."',				phone='".htmlspecialchars($phone)."',						
+		politics_status='".htmlspecialchars($politics_status)."',	nation='".htmlspecialchars($nation)."',					cloth_size='".htmlspecialchars($cloth_size)."',
+		dormitory='".htmlspecialchars($dormitory)."',				cet4='".htmlspecialchars($cet4)."',						cet6='".htmlspecialchars($cet6)."',
+		language='".htmlspecialchars($language)."',				language_level='".htmlspecialchars($language_level)."',	drive='".htmlspecialchars($drive)."',
+		medical='".htmlspecialchars($medical)."',					other_skills='".htmlspecialchars($other_skills)."'
 		
-	    WHERE id='".$id."'";
+	    WHERE id='".htmlspecialchars($id)."'";
 		if (!mysql_query($sql, $this->root_conn) )
 		{
 			die('Error: ' . mysql_error());
@@ -82,6 +86,7 @@ class User extends DB_Connect {
 	}
 	public function fetch_person_act($id)//获取我参与的活动
 	{
+		$id=htmlspecialchars($id);
 		$sql="SELECT ai.* from apply_act ac ,activity_info ai where ac.user_id='".$id."' and ac.act_id=ai.id";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		//$results=mysql_fetch_assoc($select);
@@ -89,6 +94,7 @@ class User extends DB_Connect {
 	} 
 	public function fetch_act_record($id)//获取我的活动记录
 	{
+		$id=htmlspecialchars($id);
 		$sql="SELECT ad.date,ai.name,ai.id,ar.base_time,ar.honor_time,ar.performance_level,ar.comment from act_doc ad, act_record ar ,activity_info ai where ar.user_id='".$id."' and ad.id=ar.doc_id and ai.id=ad.act_id";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		//$results=mysql_fetch_assoc($select);
@@ -96,6 +102,8 @@ class User extends DB_Connect {
 	} 
 	public function fetch_notes($id,$state)//获取我的通知
 	{
+		$id=htmlspecialchars($id);
+		$state=htmlspecialchars($state);
 		if ($state==0)//取出未读通知
 			$sql="SELECT * from note where recv_id='".$id."' and state='unread' and recv_type='0' order by time DESC";
 		else//取出历史所有通知
@@ -106,12 +114,14 @@ class User extends DB_Connect {
 	} 
 	public function fetch_one_note($id)//获取具体的通知
 	{
+		$id=htmlspecialchars($id);
 		$sql="SELECT t.name,n.title,n.content,n.time,n.state from note n,team t where n.id='".$id."' and t.id=n.sender_id";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	} 
 	public function read_note($id)//已读通知
 	{
+		$id=htmlspecialchars($id);
 		$sql="UPDATE note SET state='read' WHERE id='".$id."'";
 		if (!mysql_query($sql,$this->root_conn))
 		{
@@ -119,7 +129,7 @@ class User extends DB_Connect {
 		}
 	} 
 	public function login($id, $md5psd){
-
+		$id=htmlspecialchars($id);
 		//$sql="SELECT u.id,u.name,u.permission,f.faculty_name,f.faculty_id FROM user_info u,faculty f WHERE u.faculty = f.faculty_name AND u.id='".$id."' AND u.password='".$md5psd."'";
 		$sql="SELECT * from login where id='".$id."' AND password='".$md5psd."'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
@@ -166,6 +176,7 @@ class User extends DB_Connect {
 	}
 	public function follow_state($team_id)//关注一个团队的状态
 	{
+		$team_id=htmlspecialchars($team_id);
 		if (!isset($_SESSION[USER::USER][USER::ID]))
 			return false;
 		$sql="SELECT * FROM follow WHERE user_id='".$_SESSION[USER::USER][USER::ID]."' and team_id='".$team_id."'";
@@ -176,6 +187,7 @@ class User extends DB_Connect {
 	}
 	public function follow($team_id)//关注一个团队
 	{
+		$team_id=htmlspecialchars($team_id);
 		if (!isset($_SESSION[USER::USER][USER::ID]))
 			return -1;//请先登陆
 		if (isset($_SESSION[USER::USER][USER::PERM_ID]) and ($_SESSION[USER::USER][USER::PERM_ID]!=1))
@@ -195,6 +207,7 @@ class User extends DB_Connect {
 	}
 	public function apply_team($team_id)
 	{
+		$team_id=htmlspecialchars($team_id);
 		if (!isset($_SESSION[USER::USER][USER::ID]))
 			return -1;//请先登陆
 		else $user_id=$_SESSION[USER::USER][USER::ID];
@@ -229,6 +242,7 @@ class User extends DB_Connect {
 
 	public function apply_state($team_id)
 	{
+		$team_id=htmlspecialchars($team_id);
 		if (!isset($_SESSION[USER::USER][USER::ID]))
 			return false;
 		$sql="SELECT * FROM apply_team WHERE user_id='".$_SESSION[USER::USER][USER::ID]."' and team_id='".$team_id."'";

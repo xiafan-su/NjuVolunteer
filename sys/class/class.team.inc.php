@@ -23,6 +23,7 @@ class Team extends DB_Connect {
 	}
 	public function fetch_team_name($id)
 	{
+		$id=htmlspecialchars($id);
 		$query="select * from team where id='".$id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$result=mysql_fetch_array($select);
@@ -61,6 +62,7 @@ class Team extends DB_Connect {
 	}
 	public function fetch_leader($id)
 	{
+		$id=htmlspecialchars($id);
 		$query="select u.* from team t,user_info u where t.id='".$id."' and leader=u.id";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$result=mysql_fetch_assoc($select);
@@ -68,6 +70,7 @@ class Team extends DB_Connect {
 	}
 	public function fetch_all_doc_num($id)
 	{
+		$id=htmlspecialchars($id);
 		$query="select ai.* from act_doc ad,activity_info ai where ad.act_id=ai.id and ai.publisher='".$id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$row=mysql_num_rows($select);
@@ -75,6 +78,7 @@ class Team extends DB_Connect {
 	}
 	public function fetch_now_doc_num($id)
 	{
+		$id=htmlspecialchars($id);
 		$current_month=date("m");
 		$current_year=date("Y");
 		$query="select ai.* from act_doc ad,activity_info ai where ad.act_id=ai.id and ai.publisher='".$id."'";
@@ -133,6 +137,8 @@ class Team extends DB_Connect {
 	}
 	public function fetch_act_all($faculty_id,$state)//发起/完成的活动,state为1表示发起,0表示完成,2表示审核通过的活动
 	{
+		$faculty_id=htmlspecialchars($faculty_id);
+		$state=htmlspecialchars($state);
 		if ($state==0)
 		{
 			$query="select * from activity_info where publisher = '".$faculty_id."' and name<>'NULL' and state='end'";
@@ -154,28 +160,39 @@ class Team extends DB_Connect {
 	}
 	public function change_act_state($act_id,$state)//state即为数据库中的值，audited,auditing,editing,end
 	{
-			$query="UPDATE activity_info SET state='".$state."' WHERE id = '".$act_id."'";
-			if(!mysql_query($query,$this->root_conn))
-			{
-				die('Error: ' . mysql_error());
-				return false;
-			}else
-			return true;	
+		$act_id=htmlspecialchars($act_id);
+		$state=htmlspecialchars($state);
+		$query="UPDATE activity_info SET state='".$state."' WHERE id = '".$act_id."'";
+		if(!mysql_query($query,$this->root_conn))
+		{
+			die('Error: ' . mysql_error());
+			return false;
+		}else
+		return true;	
 	}
 	public function fetch_act_doc_all($act_id)//该活动的所有活动档案
 	{
+		$act_id=htmlspecialchars($act_id);
 		$query="select * from act_doc where act_id = '".$act_id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
 	public function fetch_act_doc_byid($doc_id)//某个具体活动档案的详细信息
 	{
+		$doc_id=htmlspecialchars($doc_id);
 		$query="select * from act_doc where id = '".$doc_id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
 	public function modify_doc($doc_id,$leader,$profile,$summary,$tel,$vol_time,$date)//修改这个活动档案
 	{
+		$doc_id=htmlspecialchars($doc_id);
+		$leader=htmlspecialchars($leader);
+		$profile=htmlspecialchars($profile);
+		$summary=htmlspecialchars($summary);
+		$tel=htmlspecialchars($tel);
+		$vol_time=htmlspecialchars($vol_time);
+		$date=htmlspecialchars($date);
 		$query="UPDATE act_doc SET leader = '".$leader."',profile='".$profile."',summary='".$summary."',tel='".$tel."',vol_time='".$vol_time."',date='".$date."' where id='".$doc_id."'";
 		//$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		if (!mysql_query($query,$this->root_conn))
@@ -189,6 +206,13 @@ class Team extends DB_Connect {
 	}
 	public function add_doc($act_id,$leader,$profile,$summary,$tel,$vol_time,$date)//增加一个活动档案
 	{
+		$doc_id=htmlspecialchars($doc_id);
+		$leader=htmlspecialchars($leader);
+		$profile=htmlspecialchars($profile);
+		$summary=htmlspecialchars($summary);
+		$tel=htmlspecialchars($tel);
+		$vol_time=htmlspecialchars($vol_time);
+		$date=htmlspecialchars($date);
 		$systemtime=date('Y-m-d H:i:s',time());
 		$query = "INSERT INTO act_doc(act_id,leader,profile,summary,tel,vol_time,date,system_time)VALUES('".$act_id."','".$leader."','".$profile."','".$summary."','".$tel."','".$vol_time."','".$date."','".$systemtime."')";
 		if(!mysql_query($query,$this->root_conn)) 
@@ -206,6 +230,7 @@ class Team extends DB_Connect {
 	}
 	public function delete_doc($doc_id)//删除一个活动档案
 	{
+		$doc_id=htmlspecialchars($doc_id);
 		$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and final='true'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$num_of_results=mysql_num_rows($select);
@@ -229,6 +254,9 @@ class Team extends DB_Connect {
 	}
 	public function audit_vol($vol_list,$state,$reason)//审核报名该组织的志愿者
 	{
+		$vol_list=htmlspecialchars($vol_list);
+		$state=htmlspecialchars($state);
+		$reason=htmlspecialchars($reason);
 		$vol = explode(" ", $vol_list);
 		$s=new System();
 		if ($state==1)//审核通过
@@ -269,6 +297,10 @@ class Team extends DB_Connect {
 	}
 	public function audit_act_vol($act_id,$vol_list,$state,$reason)//审核报名活动的志愿者
 	{
+		$act_id=htmlspecialchars($act_id);
+		$vol_list=htmlspecialchars($vol_list);
+		$state=htmlspecialchars($state);
+		$reason=htmlspecialchars($reason);			
 		$vol = explode(" ", $vol_list);
 		$s=new System();
 		$sql="SELECT name FROM activity_info where id='".$act_id."'";
@@ -313,6 +345,8 @@ class Team extends DB_Connect {
 	}
 	public function import_vol_to_doc($doc_id,$vol_list)//导入人员进档案表，即添加活动记录表
 	{
+		$act_id=htmlspecialchars($act_id);
+		$vol_list=htmlspecialchars($vol_list);
 		$vol = explode(" ", $vol_list);
 		foreach ($vol as $value)
 		{
@@ -336,6 +370,8 @@ class Team extends DB_Connect {
 	}
 	public function delete_vol_from_doc($doc_id,$vol_list)//将vol_list中的志愿者从doc中删除
 	{
+		$doc_id=htmlspecialchars($doc_id);
+		$vol_list=htmlspecialchars($vol_list);
 		$vol = explode(" ", $vol_list);
 		foreach ($vol as $value)
 		{
@@ -359,6 +395,8 @@ class Team extends DB_Connect {
 	}
 	public function edit_voltime($doc_id,$record_list)//修改对应服务记录的时间，但不提交给系统，不修改个人信息，不进行通知和公示
 	{
+		$doc_id=htmlspecialchars($doc_id);
+		$record_list=htmlspecialchars($record_list);
 		foreach ($record_list as $record)
 		{
 			$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and user_id='".$record['user_id']."'";
@@ -384,6 +422,7 @@ class Team extends DB_Connect {
 	}
 	public function register_voltime($doc_id)//确定将这些志愿者时间录入,进行通知和公示，录入时只修改已存在的，不进行添加。
 	{
+		$doc_id=htmlspecialchars($doc_id);
 		$sql="UPDATE act_doc SET state='final' WHERE id='".$doc_id."'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);//提交后，活动档案将不再能够修改
 
@@ -417,6 +456,8 @@ class Team extends DB_Connect {
 	}
 	public function fetch_apply_volunteer($act_id,$state=0)//报名情况,0为所有报名人员,1为通过审核的报名人员
 	{
+		$act_id=htmlspecialchars($act_id);
+		$state=htmlspecialchars($state);
 		if($state==0)
 		{
 			$query="select * from apply_act,user_info where act_id = '".$act_id."' and apply_act.user_id=user_info.id";
@@ -432,24 +473,28 @@ class Team extends DB_Connect {
 	
 	public function fetch_apply_doc_volunteer($doc_id)//报名情况
 	{
+		$doc_id=htmlspecialchars($doc_id);
 		$query="select user_info.name,user_info.faculty,act_record.* from act_record,user_info where doc_id = '".$doc_id."' and act_record.user_id=user_info.id";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
 	public function fetch_my_fellows($faculty_id)//获取我的所有院系成员，返回数据集
 	{
+		$faculty_id=htmlspecialchars($faculty_id);
 		$query="select u.*,a.state,a.position from user_info u,apply_team a where a.user_id=u.id and a.team_id='".$faculty_id."' and a.state<>'2' order by u.id";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
 	public function fetch_my_send_notes($team_id)//获取我发送的通知列表
 	{
+		$team_id=htmlspecialchars($team_id);
 		$query="select * from note_send where sender_id='".$team_id."' order by date DESC";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;		
 	}
 	public function fetch_my_send_note_detail_recv_list($send_note_id)//获取我发送的某个具体通知,返回接收者的列表
 	{
+		$send_note_id=htmlspecialchars($send_note_id);
 		$query="select * from note_send where id='".$send_note_id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$recv_id_list=mysql_fetch_assoc($select);
@@ -487,6 +532,7 @@ class Team extends DB_Connect {
 	}	
 	public function fetch_my_send_note_detail($send_note_id)//返回这条通知的详细信息
 	{
+		$send_note_id=htmlspecialchars($send_note_id);
 		$query="select * from note_send where id='".$send_note_id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$recv_id_list=mysql_fetch_assoc($select);
@@ -495,6 +541,7 @@ class Team extends DB_Connect {
 	//点成员姓名后进入的页面
 	public function fetch_my_fellow_detail_info($user_id)//获取成员的基本资料
 	{
+		$user_id=htmlspecialchars($user_id);
 		$sql="SELECT id,name,grade,faculty,phone FROM user_info WHERE id='".$user_id."'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$result=mysql_fetch_assoc($select);
@@ -502,18 +549,22 @@ class Team extends DB_Connect {
 	}
 	public function fetch_my_fellow_position($user_id)//获取他的职位
 	{
+		$user_id=htmlspecialchars($user_id);
 		$sql="SELECT t.name,a.position FROM apply_team a,team t WHERE a.user_id='".$user_id."' and a.team_id=t.id and a.state='1'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
 	public function fetch_my_fellow_record($user_id)//获取他的活动记录
 	{
+		$user_id=htmlspecialchars($user_id);
 		$sql="SELECT r.*,i.name,d.date FROM act_record r,act_doc d,activity_info i WHERE r.user_id='".$user_id."' and r.final='true' and r.doc_id=d.id and d.act_id=i.id";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;		
 	}
 	public function edit_my_fellow_position($user_id,$position)//修改成员的身份
 	{
+		$user_id=htmlspecialchars($user_id);
+		$position=htmlspecialchars($position);
 		$sql="UPDATE apply_team SET position='".$position."' WHERE user_id='".$user_id."' and state='1'";
 		if(!mysql_query($sql,$this->root_conn))
 		{
@@ -524,6 +575,7 @@ class Team extends DB_Connect {
 	}
 	public function delete_my_activity($id)//删除一个活动
 	{
+		$id=htmlspecialchars($id);
 		$sql="SELECT * FROM act_record r,act_doc d WHERE r.final='true' and r.doc_id=d.id and d.act_id='".$id."'";//首先看下是否已经有志愿者的服务时间是已经提交了的
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$results=mysql_num_rows($select);
@@ -542,6 +594,13 @@ class Team extends DB_Connect {
 	}
 	public function insert_act_record($uid,$doc_id,$time,$level,$excellent,$leader,$comment)//1成功,0失败,-1已有记录
 	{
+		$uid=htmlspecialchars($uid);
+		$doc_id=htmlspecialchars($doc_id);
+		$time=htmlspecialchars($time);
+		$level=htmlspecialchars($level);
+		$excellent=htmlspecialchars($excellent);
+		$leader=htmlspecialchars($leader);
+		$comment=htmlspecialchars($comment);
 		$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and user_id='".$uid."'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		if  (mysql_num_rows($select)!=0)
@@ -571,6 +630,7 @@ class Team extends DB_Connect {
 	}
 	public function fetch_team_profile($id)//获取团队的所有资料
 	{
+		$id=htmlspecialchars($id);
 		$sql="SELECT * FROM team WHERE id='".$id."'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$result=mysql_fetch_assoc($select);
@@ -579,6 +639,9 @@ class Team extends DB_Connect {
 	
 	public function modify_team_profile($profile,$slogan,$id)//修改编号为id的tema的简介和口号
 	{
+		$profile=htmlspecialchars($profile);
+		$slogan=htmlspecialchars($slogan);
+		$id=htmlspecialchars($id);
 		$sql="UPDATE team SET profile='".$profile."',slogan='".$slogan."' WHERE id='".$id."'";
 		if(!mysql_query($sql,$this->root_conn))
 		{
@@ -589,12 +652,12 @@ class Team extends DB_Connect {
 	}
 	public function fetch_my_new_notes_count($team_id)
 	{
-		$sql="SELECT count(*) AS count FROM note WHERE recv_id='".$team_id."' and state='unread' ";
+		$team_id=htmlspecialchars($team_id);
+		$sql="SELECT count(*) AS count FROM note WHERE recv_id='".$team_id."' and state='unread'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$result=mysql_fetch_assoc($select);
 		return $result['count'];
 	}
 }
 ?>
-
 

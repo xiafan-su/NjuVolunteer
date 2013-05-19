@@ -6,6 +6,7 @@ class System extends DB_Connect {
 	}
 	public function system_note($team_name)
 	{
+		$team_name=htmlspecialchars($team_name);
 		//查找是否已经申请过一个院系
 		$sql="SELECT id FROM team where name='".$team_name."'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
@@ -53,6 +54,7 @@ class System extends DB_Connect {
 	}
 	public function fetch_notice($page)//取得某一页的通知
 	{
+		$page=htmlspecialchars($page);
 		$end=$page*11;
 		$begin=$end-10;
 		$query="select * from assignment where id >='".$begin."' and id <='".$end."'";
@@ -66,6 +68,8 @@ class System extends DB_Connect {
 	}
 	public function fetch_content($type,$id)//取出具体信息
 	{
+		$type=htmlspecialchars($type);
+		$id=htmlspecialchars($id);
 		if ($type==1){
 			$sql="UPDATE assignment SET counts=counts+1 WHERE id='".$id."'";
 			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
@@ -98,6 +102,7 @@ class System extends DB_Connect {
 	}
 	public function fetch_online_question($page)//取得某一页在线咨询详细情况
 	{
+		$page=htmlspecialchars($page);
 		$end=$page*11;
 		$begin=$end-10;
 		$query="select * from online_question where id >='".$begin."' and id <='".$end."'";
@@ -118,6 +123,7 @@ class System extends DB_Connect {
 	}
 	public function fetch_vol_journal($page)//取得某一页的心路历程
 	{
+		$page=htmlspecialchars($page);
 		$end=$page*11;
 		$begin=$end-10;
 		$query="select * from vol_journal where id >='".$begin."' and id <='".$end."'";
@@ -131,6 +137,10 @@ class System extends DB_Connect {
 	}
 	public function send_note($recv_id_list,$title,$content,$sender_id='system')//
 	{
+		$recv_id_list=htmlspecialchars($recv_id_list);
+		$title=htmlspecialchars($title);
+		$content=htmlspecialchars($content);
+		$sender_id=htmlspecialchars($sender_id);
 		$recv_id = explode(" ", $recv_id_list);
 		$sql="INSERT INTO note_send(sender_id,send_type,recv_id_list,title,content,date)
 		VALUES('".$sender_id."','0','".$recv_id_list."','".$title."','".$content."','".date('Y-m-d H:i:s',time())."')

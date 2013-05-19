@@ -106,12 +106,14 @@ if (!$a->judge_participate_button_state(6)) echo "过期";*/
 //$t->modify_team_profile("we are together","我们是一家人","NJU001");
 //$u=new Act();
 //echo $u->participate('130');
-$a=new Act();
+/*$a=new Act();
 $select=$a->fetch_all("",0,0,1,0,5);
 while ($result=mysql_fetch_assoc($select))
 {
 	echo $result['name'].'<br />';	
-}
+}*/
+$t=new Team();
+echo $t->fetch_my_new_notes_count('NJU002');
 
 //if(!$t->insert_act_record(101220119,6,3,'优秀',1,0,'这孩子不错'))echo "wrong";
 //$t->register_voltime(6);

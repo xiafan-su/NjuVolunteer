@@ -131,7 +131,7 @@ $(function(){
 			data:{act_id:$('#act_id').val()},
 			success:function(html){
 				document.getElementById('loading-bar').style.display='none';
-				alert(html);
+				//alert(html);
 				//alert("success");
 				if (html >= 100000)
 				{
