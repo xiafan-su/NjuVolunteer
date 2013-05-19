@@ -12,7 +12,7 @@
 	<{section name=mem_index loop=$mem_list}>
 		<tr>
 			<td><span title="点击查看该学生信息" class="studentNo"><{$mem_list[mem_index].id}></span></td>
-			<td><a href="./zonev.php"  title="进入个人空间" target="_blank"><{$mem_list[mem_index].name}></a></td>
+			<td><a href="./indexv.php?user_id=<{$mem_list[mem_index].id}>"  title="进入个人空间" target="_blank"><{$mem_list[mem_index].name}></a></td>
 			<td><{$mem_list[mem_index].gender}></td>
 			<td><{$mem_list[mem_index].tel}></td>
 			<td>

@@ -2,12 +2,71 @@
 
 
 <div id="" class="" style="margin: 0px 20px 20px">
-	<table>
-		<{section name=info_index loop=$info_list}>
-			<tr>
-				<th style="text-align:right"><{$info_list[info_index].name}></th>
-				<td style="text-align:left"><{$info_list[info_index].value}></td>
-			</tr>
-		<{/section}>
-	</table>
+	<div id="" class="">
+		
+			<div>
+				<div class="left-bar"></div>
+				<div class="main-content-subtitle">备案资料</div>
+				<div class="right-bar"></div>
+			</div>
+			<div id="" class="">
+				
+				<table>
+						<tr>
+							<th style="text-align:right">名称</th>
+							<td style="text-align:left"><{$team_name}></td>
+						</tr>
+						<tr>
+							<th style="text-align:right">邮箱</th>
+							<td style="text-align:left"><{$team_email}></td>
+						</tr>
+						<tr>
+							<th style="text-align:right">负责人</th>
+							<td style="text-align:left"><{$team_leader}></td>
+						</tr>
+						<tr>
+							<th style="text-align:right">负责人联系方式</th>
+							<td style="text-align:left"><{$team_leader_phone}></td>
+						</tr>
+						<tr>
+							<th style="text-align:right">指导老师</th>
+							<td style="text-align:left"><{$team_director}></td>
+						</tr>
+						<tr>
+							<th style="text-align:right">指导老师联系方式</th>
+							<td style="text-align:left"><{$team_director_phone}></td>
+						</tr>
+						<tr>
+							<th style="text-align:right">附属单位</th>
+							<td style="text-align:left"><{$team_attched}></td>
+						</tr>
+				</table>
+			</div>
+	</div>
+
+	<div id="" class="">
+			<div>
+				<div class="left-bar"></div>
+				<div class="main-content-subtitle">个性资料</div>
+				<div class="right-bar"></div>
+			</div>
+			<table>
+				<tr>
+					<th style="text-align:right">简介</th>
+					<td style="text-align:left">
+						<span class="" onclick="$(this).toggle();$(this).next().toggle();$(this).next().focus();"><{$team_profile}></span>
+						<textarea name=""  style="display: none" rows="3" cols="70"
+						onblur="$(this).toggle();$(this).prev().toggle();"><{$team_profile}></textarea>
+					</td>
+				</tr>
+				<tr>
+					<th style="text-align:right">口号</th>
+					<td style="text-align:left"><{$team_signature}></td></tr>
+				<tr>
+					<th style="text-align:right">Logo</th>
+					<td style="text-align:left"></td>
+				</tr>
+			</table>
+	</div>
+
 </div>

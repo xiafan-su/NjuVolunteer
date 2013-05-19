@@ -16,6 +16,11 @@ type: "setpart" 设置参与人员
 documentId:记录列表
 setStr:设置列表
 
+type:"del"删除指定的活动
+activityId:要删除的活动id
+
+
+
 */
 //echo "0";
 //exit;
@@ -74,6 +79,20 @@ if( $_POST['type'] == "actApply" ){
 			echo "提交失败！";
 		}
 	}
+} else if( $_POST['type'] == "del" ){
+	if( !isset($_POST['activityId']) ){
+		echo "参数错误，删除失败！"; exit;
+	}
+	$actid = $_POST['activityId'];
+	$team = new Team();
+	if( $team->delete_my_activity($actid) ){
+		echo "0";
+	} else {
+		echo "删除失败！";
+	}
+	exit;
+	//echo "您要删除的请求已经收到（actid=".$actid."），我们会尽快处理！";
+	//echo "0";
 }
 
 ?>

@@ -1,29 +1,29 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 23:39:05
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 22:46:43
          compiled from "../tpls/templates\include\mem.html" */ ?>
-<?php /*%%SmartyHeaderCode:68675197a099e2a4d2-47975827%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:874951978992e80033-14403666%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'd9589185483075bbc18652f970ece25b1222a8d2' => 
     array (
       0 => '../tpls/templates\\include\\mem.html',
-      1 => 1368858925,
+      1 => 1368888400,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '68675197a099e2a4d2-47975827',
+  'nocache_hash' => '874951978992e80033-14403666',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519789930829a',
   'variables' => 
   array (
     'mem_list' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5197a099ee182',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5197a099ee182')) {function content_5197a099ee182($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_519789930829a')) {function content_519789930829a($_smarty_tpl) {?>
 
 <div id="" class="" style="margin: 0 20px 10px;">
 	
@@ -61,7 +61,8 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['mem_index']['last']       = 
 		<tr>
 			<td><span title="点击查看该学生信息" class="studentNo"><?php echo $_smarty_tpl->tpl_vars['mem_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['mem_index']['index']]['id'];?>
 </span></td>
-			<td><a href="./zonev.php"  title="进入个人空间" target="_blank"><?php echo $_smarty_tpl->tpl_vars['mem_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['mem_index']['index']]['name'];?>
+			<td><a href="./indexv.php?user_id=<?php echo $_smarty_tpl->tpl_vars['mem_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['mem_index']['index']]['id'];?>
+"  title="进入个人空间" target="_blank"><?php echo $_smarty_tpl->tpl_vars['mem_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['mem_index']['index']]['name'];?>
 </a></td>
 			<td><?php echo $_smarty_tpl->tpl_vars['mem_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['mem_index']['index']]['gender'];?>
 </td>

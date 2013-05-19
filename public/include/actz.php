@@ -7,7 +7,7 @@ $_SMARTY_ROOT = "../tpls";
 include_once '../../sys/core/init.inc.php';
 
 //18 ---信息管理学院
-$act_state_transfer = array( "audited"=>"审核通过", "auditing"=>"审核中", "editing"=>"编辑中" );
+$act_state_transfer = array( "audited"=>"审核通过，正在运转中", "auditing"=>"等待管理员审核", "editing"=>"编辑中", "end"=>"已结束" );
 
 $faculty_id = $_SESSION[User::USER][User::FACULTY_ID];
 //echo $_SESSION[User::USER][User::PERM_ID];
@@ -27,11 +27,13 @@ if( isset($_POST['type']) ){
 }
 while($act_row = mysql_fetch_array($act_info) ) {
 	$act_elem['act_id'] = (int)$act_row['id'];
-	$act_elem['act_title'] = $act_row['name']."，测试一下比较长的标题是怎么显示的";
+	$act_elem['act_title'] = $act_row['name'];//."，测试一下比较长的标题是怎么显示的";
 	$act_elem['consult'] = $act_row['responser'];
-	$act_elem['state'] = $act_state_transfer[$act_row['state']];
+	$act_elem['state_text'] = $act_state_transfer[$act_row['state']];
+	$act_elem['state'] = $act_row['state'];
 	$act_elem['is_add']=$act_row['state']=="audited";
-
+	$act_elem['editable'] = $act_row['state'] != "end";
+	$act_elem['deletable'] = $act_row['state'] != "end";//可删除的
 	$doc_info = $team->fetch_act_doc_all( $act_row['id'] );
 	$doc_list = array();
 	while( $doc_row = mysql_fetch_array( $doc_info ) ){
@@ -39,7 +41,10 @@ while($act_row = mysql_fetch_array($act_info) ) {
 				"doc_time"=>$doc_row['vol_time'], 
 				"leader"=> $doc_row['leader'], 
 				"tel"=>$doc_row['tel'],
+				"state"=>$doc_row['state'],
 		);
+		if( $doc_row['state'] == "final" )
+			$act_elem['deletable'] = false;
 	}
 				
 	$act_elem['doc_list'] = $doc_list;

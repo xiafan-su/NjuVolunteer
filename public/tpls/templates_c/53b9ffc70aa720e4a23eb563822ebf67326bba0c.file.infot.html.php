@@ -1,63 +1,115 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 23:39:06
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 10:31:42
          compiled from "../tpls/templates\include\infot.html" */ ?>
-<?php /*%%SmartyHeaderCode:261285197a09a5f2eb9-72961646%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:28996519787bd1387d7-70155005%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '53b9ffc70aa720e4a23eb563822ebf67326bba0c' => 
     array (
       0 => '../tpls/templates\\include\\infot.html',
-      1 => 1368858925,
+      1 => 1368930694,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '261285197a09a5f2eb9-72961646',
+  'nocache_hash' => '28996519787bd1387d7-70155005',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519787bd1abb0',
   'variables' => 
   array (
-    'info_list' => 0,
+    'team_name' => 0,
+    'team_email' => 0,
+    'team_leader' => 0,
+    'team_leader_phone' => 0,
+    'team_director' => 0,
+    'team_director_phone' => 0,
+    'team_attched' => 0,
+    'team_profile' => 0,
+    'team_signature' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5197a09a6453d',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5197a09a6453d')) {function content_5197a09a6453d($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_519787bd1abb0')) {function content_519787bd1abb0($_smarty_tpl) {?>
 
 
 <div id="" class="" style="margin: 0px 20px 20px">
-	<table>
-		<?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['info_index'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']);
-$_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['name'] = 'info_index';
-$_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['info_list']->value) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
-$_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['show'] = true;
-$_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['max'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['loop'];
-$_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['step'] = 1;
-$_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['start'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['step'] > 0 ? 0 : $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['loop']-1;
-if ($_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['show']) {
-    $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['total'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['loop'];
-    if ($_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['total'] == 0)
-        $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['show'] = false;
-} else
-    $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['total'] = 0;
-if ($_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['show']):
-
-            for ($_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['index'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['start'], $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['iteration'] = 1;
-                 $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['iteration'] <= $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['total'];
-                 $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['index'] += $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['step'], $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['iteration']++):
-$_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['rownum'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['iteration'];
-$_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['index_prev'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['index'] - $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['step'];
-$_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['index_next'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['index'] + $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['step'];
-$_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['iteration'] == 1);
-$_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['info_index']['total']);
-?>
-			<tr>
-				<th style="text-align:right"><?php echo $_smarty_tpl->tpl_vars['info_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['info_index']['index']]['name'];?>
-</th>
-				<td style="text-align:left"><?php echo $_smarty_tpl->tpl_vars['info_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['info_index']['index']]['value'];?>
+	<div id="" class="">
+		
+			<div>
+				<div class="left-bar"></div>
+				<div class="main-content-subtitle">备案资料</div>
+				<div class="right-bar"></div>
+			</div>
+			<div id="" class="">
+				
+				<table>
+						<tr>
+							<th style="text-align:right">名称</th>
+							<td style="text-align:left"><?php echo $_smarty_tpl->tpl_vars['team_name']->value;?>
 </td>
-			</tr>
-		<?php endfor; endif; ?>
-	</table>
+						</tr>
+						<tr>
+							<th style="text-align:right">邮箱</th>
+							<td style="text-align:left"><?php echo $_smarty_tpl->tpl_vars['team_email']->value;?>
+</td>
+						</tr>
+						<tr>
+							<th style="text-align:right">负责人</th>
+							<td style="text-align:left"><?php echo $_smarty_tpl->tpl_vars['team_leader']->value;?>
+</td>
+						</tr>
+						<tr>
+							<th style="text-align:right">负责人联系方式</th>
+							<td style="text-align:left"><?php echo $_smarty_tpl->tpl_vars['team_leader_phone']->value;?>
+</td>
+						</tr>
+						<tr>
+							<th style="text-align:right">指导老师</th>
+							<td style="text-align:left"><?php echo $_smarty_tpl->tpl_vars['team_director']->value;?>
+</td>
+						</tr>
+						<tr>
+							<th style="text-align:right">指导老师联系方式</th>
+							<td style="text-align:left"><?php echo $_smarty_tpl->tpl_vars['team_director_phone']->value;?>
+</td>
+						</tr>
+						<tr>
+							<th style="text-align:right">附属单位</th>
+							<td style="text-align:left"><?php echo $_smarty_tpl->tpl_vars['team_attched']->value;?>
+</td>
+						</tr>
+				</table>
+			</div>
+	</div>
+
+	<div id="" class="">
+			<div>
+				<div class="left-bar"></div>
+				<div class="main-content-subtitle">个性资料</div>
+				<div class="right-bar"></div>
+			</div>
+			<table>
+				<tr>
+					<th style="text-align:right">简介</th>
+					<td style="text-align:left">
+						<span class="" onclick="$(this).toggle();$(this).next().toggle();$(this).next().focus();"><?php echo $_smarty_tpl->tpl_vars['team_profile']->value;?>
+</span>
+						<textarea name=""  style="display: none" rows="3" cols="70"
+						onblur="$(this).toggle();$(this).prev().toggle();"><?php echo $_smarty_tpl->tpl_vars['team_profile']->value;?>
+</textarea>
+					</td>
+				</tr>
+				<tr>
+					<th style="text-align:right">口号</th>
+					<td style="text-align:left"><?php echo $_smarty_tpl->tpl_vars['team_signature']->value;?>
+</td></tr>
+				<tr>
+					<th style="text-align:right">Logo</th>
+					<td style="text-align:left"></td>
+				</tr>
+			</table>
+	</div>
+
 </div><?php }} ?>

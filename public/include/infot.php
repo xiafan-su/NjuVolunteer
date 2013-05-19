@@ -16,23 +16,34 @@ b)	团队口号
 c)	团队logo
 */
 
+$team_name = "XXX院系";
+$team_email = "XXXX@nju.edu.cn";
+$team_leader = "院系负责人";
+$team_leader_phone = "15900000000";
+$team_director = "这里是指导老师";
+$team_director_phone = "15900000000";
+$team_attched = "XXX团委";
 
-$info_list = array();
+$team_profile = "这里是团队资料";
+$team_signature = "这是口号";
+
+$tpl->assign( "team_name", $team_name );
+$tpl->assign( "team_email", $team_email );
+$tpl->assign( "team_leader", $team_leader );
+$tpl->assign( "team_leader_phone", $team_leader_phone );
+$tpl->assign( "team_director", $team_director );
+$tpl->assign( "team_director_phone", $team_director_phone );
+$tpl->assign( "team_attched", $team_attched );
 
 
-$info_list[] = array( "name"=>"团队名称", "value"=>"XXXX" );
-$info_list[] = array( "name"=>"团队年龄", "value"=>"XXXX" );
-$info_list[] = array( "name"=>"团队负责人", "value"=>"XXXX" );
-
-
-
-$tpl->assign( "info_list", $info_list );
+$tpl->assign( "team_profile", $team_profile );
+$tpl->assign( "team_signature", $team_signature );
 
 
 $tpl->display( "include/infot.html" );
 
 ?>
-
+<!-- 
 页面内容：<br />
 嘿，这里显示团队资料<br />
 <br />
@@ -41,3 +52,4 @@ $tpl->display( "include/infot.html" );
 <br />
 其他：<br />
 当前团队id请直接从SESSION获取<br />
+ -->
