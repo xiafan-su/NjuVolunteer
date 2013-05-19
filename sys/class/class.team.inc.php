@@ -70,10 +70,8 @@ class Team extends DB_Connect {
 	{
 		$query="select ai.* from act_doc ad,activity_info ai where ad.act_id=ai.id and ai.publisher='".$id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-		$count=0;
-		while ($row=mysql_fetch_assoc($select))
-			$count ++;
-		return $count;
+		$row=mysql_num_rows($select);
+		return $row;
 	}
 	public function fetch_now_doc_num($id)
 	{
@@ -456,27 +454,33 @@ class Team extends DB_Connect {
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$recv_id_list=mysql_fetch_assoc($select);
 		$recv_list=explode(" ",$recv_id_list['recv_id_list']);
+		$recv_name_list=NULL;
 		foreach ($recv_list as $value)
 		{
-			$sql="SELECT id,name FROM team WHERE id='".$value."'";
-			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-			$num_of_results=mysql_num_rows($select);
-			if ($num_of_results!=0)
+			if ($value!=NULL)
 			{
-				$result=mysql_fetch_assoc($select);
-				$recv_name_list[]=array('id'=>$result['id'],'name'=>$result['name']);
+				$sql="SELECT id,name FROM team WHERE id='".$value."'";
+				$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+				$num_of_results=mysql_num_rows($select);
+				if ($num_of_results!=0)
+				{
+					$result=mysql_fetch_assoc($select);
+					$recv_name_list[]=array('id'=>$result['id'],'name'=>$result['name']);
+				}
 			}
 		}		
 		foreach ($recv_list as $value)
 		{
-			$sql="SELECT id,name FROM user_info WHERE id='".$value."'";
-			$recv_name_list=NULL;
-			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-			$num_of_results=mysql_num_rows($select);
-			if ($num_of_results!=0)
+			if ($value!=NULL)
 			{
-				$result=mysql_fetch_assoc($select);
-				$recv_name_list[]=array('id'=>$result['id'],'name'=>$result['name']);
+				$sql="SELECT id,name FROM user_info WHERE id='".$value."'";
+				$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+				$num_of_results=mysql_num_rows($select);
+				if ($num_of_results!=0)
+				{
+					$result=mysql_fetch_assoc($select);
+					$recv_name_list[]=array('id'=>$result['id'],'name'=>$result['name']);
+				}
 			}
 		}
 		return $recv_name_list;		
@@ -565,5 +569,24 @@ class Team extends DB_Connect {
 		$s->send_note($uid,"恭喜您获得".$total_time."小时服务时间","您参与的".$result['name']."活动成功完成了，获得了".$time."小时基础时间，".$honor_time."小时荣誉时间。具体请查看您的服务记录。");
 		return 1;
 	}
+	public function fetch_team_profile($id)//获取团队的所有资料
+	{
+		$sql="SELECT * FROM team WHERE id='".$id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result;
+	}
+	
+	public function modify_team_profile($profile,$slogan,$id)//修改编号为id的tema的简介和口号
+	{
+		$sql="UPDATE team SET profile='".$profile."',slogan='".$slogan."' WHERE id='".$id."'";
+		if(!mysql_query($sql,$this->root_conn))
+		{
+			die('ERROR:'.mysql_error());
+			return false;
+		}
+		return true;		
+	}
 }
 ?>
+

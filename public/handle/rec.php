@@ -14,14 +14,21 @@ if( ! isset($_POST['type']) ) {
 	echo "请设置type！";
 	exit;
 }
+
 if( $_POST['type'] == "add" ){
 	//echo "收到您的添加请求！我们会及时处理！docid=".$_POST['documentId'];
-	if( isset( $_POST['activityId'] )&&isset($_POST['documentId']) ) {
+	if( isset( $_POST['activityId'] ) && isset($_POST['documentId']) && isset($_POST['leader'])
+		&& isset($_POST['profile']) && isset($_POST['summary']) && isset($_POST['tel'])
+		 && isset($_POST['volTime']) && isset($_POST['start_date'])  ) {
+		if( mb_strlen($_POST['leader']) == 0 || mb_strlen($_POST['leader']) > 20 ) { echo "负责人格式错误！";exit; }//检验负责人
+		if( ! preg_match("/^[0-9]{8,11}$/", $_POST['tel'] )){ echo "联系方式格式错误！"; exit; }//检验联系方式
+		if( ! is_numeric( $_POST['volTime']) ){ echo "服务时长格式错误！";exit; };
+		if( ! preg_match("/^[0-9]{4}(\-|\/)[0-9]{1,2}(\\1)[0-9]{1,2}(|\s+[0-9]{1,2}(|:[0-9]{1,2}(|:[0-9]{1,2})))$/", $_POST['start_date'] )){ echo "开始时间格式错误！"; exit; }
+
 		$team = new Team();
-		//echo "##".$_POST['date'];
 		if( $_POST['documentId'] == -1 ){
 			if($team->add_doc( $_POST['activityId'], $_POST['leader'], $_POST['profile'], $_POST['summary'], $_POST['tel'], $_POST['volTime'], $_POST['start_date'] )){
-				echo "0";
+				echo "0";//添加成功！
 			} else {
 				echo "添加失败！";
 			}

@@ -25,11 +25,15 @@
 		</div>
 		<div  class="welcome_bar">
 			<{if isset( $user_permission ) && $user_permission > 0 && isset($user_name)}>
-				<{if $user_permission < 3}>
-					您好，<a href="./zonev.php"><{$user_name}></a>！
+				您好，
+				<{if $user_permission < 2}>
+					<a href="./zonev.php">
+				<{elseif $user_permission == 2}>
+					<a href="./zonet.php">
 				<{elseif $user_permission == 3}>
-					您好，<a href="./zonet.php"><{$user_name}></a>！
+					<a href="./super_admin.php">
 				<{/if}>
+				<{$user_name}></a>！
 				&nbsp;&nbsp;<a href="./handle/logout.php">退出</a>
 			<{else}>
 				<a onclick="showit()" id="login_button">登录</a>

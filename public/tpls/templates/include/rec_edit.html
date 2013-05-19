@@ -47,11 +47,12 @@
 			<tr>
 				<td style="text-align:right">开始时间</td><td style="text-align:left">
 					<{if $is_finished}>
-							<{$doc_date}>
-						<{else}>
-							<input type="text"   value="<{$doc_date}>"  id="doc_edit_date_start">
-				<{/if}>
-			</td></tr>
+						<{$doc_date}>
+					<{else}>
+						<input type="text"   title="格式：2013-5-20或2013-05-02 14:00:45" value="<{$doc_date}>"  id="doc_edit_date_start">
+					<{/if}>
+				</td>
+			</tr>
 		</table>
 	</div>
 

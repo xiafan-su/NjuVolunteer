@@ -52,21 +52,28 @@
 			</div>
 			<table>
 				<tr>
-					<th style="text-align:right">简介</th>
+					<th style="text-align:right">Logo</th>
 					<td style="text-align:left">
-						<span class="" onclick="$(this).toggle();$(this).next().toggle();$(this).next().focus();"><{$team_profile}></span>
-						<textarea name=""  style="display: none" rows="3" cols="70"
-						onblur="$(this).toggle();$(this).prev().toggle();"><{$team_profile}></textarea>
+						<div id="" class="">
+							<img src="<{$team_logo}>" width="" style="border-radius:25px;" height="" border="0" alt="">
+						</div>
 					</td>
 				</tr>
 				<tr>
 					<th style="text-align:right">口号</th>
-					<td style="text-align:left"><{$team_signature}></td></tr>
+					<td style="text-align:left"><{$team_signature}></td>
+				</tr>
 				<tr>
-					<th style="text-align:right">Logo</th>
-					<td style="text-align:left"></td>
+					<th style="text-align:right">简介</th>
+					<td style="text-align:left" >
+						<span class=""  id="infot_profile" ><{$team_profile}></span>
+					</td>
 				</tr>
 			</table>
 	</div>
+	
+	<input type="button" class="button" id="team_info_modify" value="修改" disabled="true" title="修改个性资料【别急，这个功能还没做】" />
+	<input type="button" class="button" value="我的主页"  onclick="window.open('./indext.php?team_id=<{$team_id}>', '_blank')" title="在新页面查看我的主页" />
+
 
 </div>

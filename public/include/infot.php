@@ -16,17 +16,24 @@ b)	团队口号
 c)	团队logo
 */
 
-$team_name = "XXX院系";
-$team_email = "XXXX@nju.edu.cn";
-$team_leader = "院系负责人";
-$team_leader_phone = "15900000000";
-$team_director = "这里是指导老师";
-$team_director_phone = "15900000000";
-$team_attched = "XXX团委";
+$team = new Team();
+$team_info = $team->fetch_team_profile( $_SESSION[User::USER][User::FACULTY_ID]  );
 
-$team_profile = "这里是团队资料";
-$team_signature = "这是口号";
 
+$team_id = $_SESSION[User::USER][User::FACULTY_ID];
+$team_name = $team_info['name'];
+$team_email = $team_info['email'];
+$team_leader = $team_info['leader'];
+$team_leader_phone = $team_info['leader_phone'];
+$team_director = $team_info['adviser'];
+$team_director_phone = $team_info['adviser_tel'];
+$team_attched = $team_info['attached_institutions'];
+
+$team_logo = $team_info['logo'];
+$team_profile = $team_info['profile'];
+$team_signature = $team_info['slogan'];
+
+$tpl->assign( "team_id", $team_id );
 $tpl->assign( "team_name", $team_name );
 $tpl->assign( "team_email", $team_email );
 $tpl->assign( "team_leader", $team_leader );
@@ -36,8 +43,10 @@ $tpl->assign( "team_director_phone", $team_director_phone );
 $tpl->assign( "team_attched", $team_attched );
 
 
+$tpl->assign( "team_logo", $team_logo );
 $tpl->assign( "team_profile", $team_profile );
 $tpl->assign( "team_signature", $team_signature );
+
 
 
 $tpl->display( "include/infot.html" );

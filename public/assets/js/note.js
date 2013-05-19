@@ -33,6 +33,27 @@ nt_func_note_sent = function(){
 	});
 }
 
+
+
+//检查“发送通知”按钮是否有效
+function check_note_send_btn(){
+	var topic = $("input#note_edit_topic").val().trim();
+	var content = $("textarea#note_edit_content").val().trim();
+	var card_list_length = $("#note_recv_list").children().length;
+	var MAX_NOTE_LENGTH = 1000;
+	
+	if( topic.length > 0 && card_list_length > 0 && content.length  > 0 && content.length <= MAX_NOTE_LENGTH){
+	//alert( "card_list_length="+card_list_length );
+		$("#send_note_btn").prop( "disabled", false );
+		$("#send_note_btn").prop( "title", "发送通知" );
+	} else {
+		//alert( "card_list_length2="+card_list_length );
+		$("#send_note_btn").prop( "disabled", true );
+		$("#send_note_btn").prop( "title", "通知主题、接收者和内容均不能为空才能发送通知" );
+	}
+}
+
+
 function change_text_and_pic(elem, state){
 	if( state == 0 ){//add
 			var src = $(elem).attr( "src" );
@@ -108,6 +129,7 @@ function note_recv_button(elem){
 
 		}
 	}
+	check_note_send_btn();
 }
 
 
@@ -176,6 +198,7 @@ function nt_func_note_select_all_act_part(elem){
 		}
 		$( "#zt_elem_note_select_all_act_part").attr( "title", "全选" );
 	}
+	check_note_send_btn();
 }
 
 function nt_func_note_select_all_mem(elem){
@@ -204,16 +227,17 @@ function nt_func_note_select_all_mem(elem){
 		}
 		$( "#zt_elem_note_select_mem").attr( "title", "全选" );
 	}
+	check_note_send_btn();
 }
-
+//“发送”
 function nt_func_note_send(){
 	var card_list = $("#note_recv_list").children();
 	var id_list = "";
 	for(var i = 0; i < card_list.length; i ++){
 		id_list += $(card_list[i]).attr("uid") + " ";
 	}
-	var topic = $("input#note_edit_topic").val();
-	var content = $("textarea#note_edit_content").val();
+	var topic = $("input#note_edit_topic").val().trim();
+	var content = $("textarea#note_edit_content").val().trim();
 	//alert( topic+", "+id_list+", "+content);
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
@@ -248,7 +272,5 @@ function switch_note_recv_list_div(elem){
 	}
 	
 }
-
-
 
 

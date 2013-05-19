@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 10:31:42
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 17:26:13
          compiled from "../tpls/templates\include\infot.html" */ ?>
 <?php /*%%SmartyHeaderCode:28996519787bd1387d7-70155005%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '53b9ffc70aa720e4a23eb563822ebf67326bba0c' => 
     array (
       0 => '../tpls/templates\\include\\infot.html',
-      1 => 1368930694,
+      1 => 1368955565,
       2 => 'file',
     ),
   ),
@@ -26,8 +26,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'team_director' => 0,
     'team_director_phone' => 0,
     'team_attched' => 0,
-    'team_profile' => 0,
+    'team_logo' => 0,
     'team_signature' => 0,
+    'team_profile' => 0,
+    'team_id' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -92,24 +94,32 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			</div>
 			<table>
 				<tr>
-					<th style="text-align:right">简介</th>
+					<th style="text-align:right">Logo</th>
 					<td style="text-align:left">
-						<span class="" onclick="$(this).toggle();$(this).next().toggle();$(this).next().focus();"><?php echo $_smarty_tpl->tpl_vars['team_profile']->value;?>
-</span>
-						<textarea name=""  style="display: none" rows="3" cols="70"
-						onblur="$(this).toggle();$(this).prev().toggle();"><?php echo $_smarty_tpl->tpl_vars['team_profile']->value;?>
-</textarea>
+						<div id="" class="">
+							<img src="<?php echo $_smarty_tpl->tpl_vars['team_logo']->value;?>
+" width="" style="border-radius:25px;" height="" border="0" alt="">
+						</div>
 					</td>
 				</tr>
 				<tr>
 					<th style="text-align:right">口号</th>
 					<td style="text-align:left"><?php echo $_smarty_tpl->tpl_vars['team_signature']->value;?>
-</td></tr>
+</td>
+				</tr>
 				<tr>
-					<th style="text-align:right">Logo</th>
-					<td style="text-align:left"></td>
+					<th style="text-align:right">简介</th>
+					<td style="text-align:left" >
+						<span class=""  id="infot_profile" ><?php echo $_smarty_tpl->tpl_vars['team_profile']->value;?>
+</span>
+					</td>
 				</tr>
 			</table>
 	</div>
+	
+	<input type="button" class="button" id="team_info_modify" value="修改" disabled="true" title="修改个性资料【别急，这个功能还没做】" />
+	<input type="button" class="button" value="我的主页"  onclick="window.open('./indext.php?team_id=<?php echo $_smarty_tpl->tpl_vars['team_id']->value;?>
+', '_blank')" title="在新页面查看我的主页" />
+
 
 </div><?php }} ?>

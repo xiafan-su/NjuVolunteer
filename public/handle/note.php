@@ -15,6 +15,8 @@ content:内容
 idList:id列表
 */
 
+define( "MAX_NOTE_LEN", 1000 );//最大通知长度
+
 if( $_POST['type'] == "getmem" ){
 	$html = "";
 	$team = new Team();
@@ -32,12 +34,22 @@ if( $_POST['type'] == "getmem" ){
 	}
 	echo $html;
 } else if( $_POST['type'] == "sendnote" ){
-	$system = new System();
-	if($system->send_note( $_POST['idList'], $_POST['topic'], $_POST['content'], $_SESSION[User::USER][User::FACULTY_ID] )){
-		echo "0";
-	} else {
-		echo "发送失败！";
+	if( !isset( $_POST['idList'] )||!isset( $_POST['topic'] )||!isset( $_POST['content'] ) ){
+		echo "发送失败！参数错误";
+		exit;
 	}
+	$idlist = $_POST['idList'];
+	$topic = $_POST['topic'];
+	$content = $_POST['content'];
+	$facultyid = $_SESSION[User::USER][User::FACULTY_ID];
+	if( strlen($idlist) > 0 && strlen($topic) > 0 && strlen($content) > 0 && mb_strlen($content) <= MAX_NOTE_LEN ) {
+		$system = new System();
+		if($system->send_note( $idlist, $topic, $content, $facultyid )){
+			echo "0";//发送成功
+			exit;
+		}
+	}
+	echo "发送失败！";
 }
 
 

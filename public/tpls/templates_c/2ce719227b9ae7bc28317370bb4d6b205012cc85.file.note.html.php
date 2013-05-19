@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 02:07:35
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 16:11:01
          compiled from "../tpls/templates\include\note.html" */ ?>
 <?php /*%%SmartyHeaderCode:278425197a0981f3232-85002848%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2ce719227b9ae7bc28317370bb4d6b205012cc85' => 
     array (
       0 => '../tpls/templates\\include\\note.html',
-      1 => 1368888277,
+      1 => 1368951060,
       2 => 'file',
     ),
   ),
@@ -60,7 +60,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['note_index']['last']       =
 ?>
 		<tr class="note_table_row" noteid="<?php echo $_smarty_tpl->tpl_vars['note_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['note_index']['index']]['id'];?>
 " id="note_table_row_<?php echo $_smarty_tpl->tpl_vars['note_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['note_index']['index']]['id'];?>
-">
+" title="点击查看详细内容">
 			<td>
 				<?php if ($_smarty_tpl->tpl_vars['note_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['note_index']['index']]['type']==0){?>
 					<img src="./assets/img/zonet/note_unread.png" width="24" height="24" border="0" alt="">
@@ -70,9 +70,9 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['note_index']['last']       =
 					<img src="./assets/img/zonet/note_send.png" width="24" height="24" border="0" alt="">
 				<?php }?>
 			</td>
-			<td><?php echo $_smarty_tpl->tpl_vars['note_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['note_index']['index']]['title'];?>
+			<td style="font-weight:600;color:#606"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['note_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['note_index']['index']]['title'],20,"……",true);?>
 </td>
-			<td><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['note_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['note_index']['index']]['content'],12,"……",true);?>
+			<td style="text-align:left"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['note_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['note_index']['index']]['content'],20,"……",true);?>
 </td>
 			<td><?php echo $_smarty_tpl->tpl_vars['note_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['note_index']['index']]['time'];?>
 </td>

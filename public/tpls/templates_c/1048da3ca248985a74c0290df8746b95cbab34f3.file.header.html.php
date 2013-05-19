@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 01:56:49
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 17:00:52
          compiled from "./tpls/templates\include\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:49055197a03e9cd604-77183648%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1368899620,
+      1 => 1368951641,
       2 => 'file',
     ),
   ),
@@ -47,13 +47,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</div>
 		<div  class="welcome_bar">
 			<?php if (isset($_smarty_tpl->tpl_vars['user_permission']->value)&&$_smarty_tpl->tpl_vars['user_permission']->value>0&&isset($_smarty_tpl->tpl_vars['user_name']->value)){?>
-				<?php if ($_smarty_tpl->tpl_vars['user_permission']->value<3){?>
-					您好，<a href="./zonev.php"><?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
-</a>！
+				您好，
+				<?php if ($_smarty_tpl->tpl_vars['user_permission']->value<2){?>
+					<a href="./zonev.php">
+				<?php }elseif($_smarty_tpl->tpl_vars['user_permission']->value==2){?>
+					<a href="./zonet.php">
 				<?php }elseif($_smarty_tpl->tpl_vars['user_permission']->value==3){?>
-					您好，<a href="./zonet.php"><?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
-</a>！
+					<a href="./super_admin.php">
 				<?php }?>
+				<?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
+</a>！
 				&nbsp;&nbsp;<a href="./handle/logout.php">退出</a>
 			<?php }else{ ?>
 				<a onclick="showit()" id="login_button">登录</a>

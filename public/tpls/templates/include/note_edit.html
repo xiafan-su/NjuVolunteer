@@ -9,7 +9,7 @@
 		<th style="text-align:right">主题</th>
 		<td style="text-align:left">
 			<{if !$read_only}>
-				<input type="text" id="note_edit_topic" value="<{$topic}>"/>
+				<input type="text" onblur="check_note_send_btn();" id="note_edit_topic" value="<{$topic}>"/>
 			<{else}> 
 				<{$topic}>
 			<{/if}>
@@ -41,6 +41,8 @@
 							<div class="receiver-card" uid="<{$recv_list[recv_index].id}>" sid="<{$smarty.section.recv_index.iteration}>">
 								<span class="note_recv_name" ><{$recv_list[recv_index].name}></span>
 							</div>
+					<{sectionelse}>
+					可能发给了所有人，因为在数据库里什么也没有找到！
 					<{/section}>
 				</div>
 				<{if !$read_only}>
@@ -96,7 +98,7 @@
 		<th style="text-align:right">内容</th>
 		<td style="text-align:left">
 			<{if !$read_only}>
-				<textarea name="" rows="5" cols="70" id="note_edit_content"><{$content}></textarea>
+				<textarea name="" rows="10" cols="70" onblur="check_note_send_btn();"  title="通知字数不能超过1000" id="note_edit_content"><{$content}></textarea>
 			<{else}>
 				<{$content}>
 			<{/if}>
@@ -105,7 +107,7 @@
 </table>
 
 <{if !$read_only}><!-- 不显示发送按钮 -->
-	<input type="button" class="button" value="发送"  onclick="nt_func_note_send()"/>
+	<input type="button" class="button" disabled="true" title="通知主题、接收者和内容均不能为空才能发送通知" value="发送"  id="send_note_btn" onclick="nt_func_note_send()"/>
 <{else}>
 	<input type="button" class="button" value="返回" onclick="switch_main_content( '<-' );" />
 <{/if}>
