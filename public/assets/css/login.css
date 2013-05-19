@@ -206,7 +206,6 @@ table [class*=span], .row-fluid table [class*=span]
 	margin-top: 1px;
 	vertical-align: text-top;
 	display: inline-block;
-	background-image: url("./include/img/glyphicons-halflings.png");
 	background-repeat: no-repeat;
 	background-position-x: 14px;
 	background-position-y: 14px;

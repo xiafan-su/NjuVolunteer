@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 00:35:57
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 01:20:56
          compiled from "./tpls/templates\notice.html" */ ?>
-<?php /*%%SmartyHeaderCode:195785198ff6d01e5a1-81186606%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:15670519909f8e72bc3-20982429%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '557724488c0d1472f55b9b370819058ffefc6297' => 
     array (
       0 => './tpls/templates\\notice.html',
-      1 => 1368841821,
+      1 => 1368855632,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '195785198ff6d01e5a1-81186606',
+  'nocache_hash' => '15670519909f8e72bc3-20982429',
   'function' => 
   array (
   ),
@@ -26,9 +26,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5198ff6d2646c',
+  'unifunc' => 'content_519909f901fe9',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5198ff6d2646c')) {function content_5198ff6d2646c($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if ($_valid && !is_callable('content_519909f901fe9')) {function content_519909f901fe9($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

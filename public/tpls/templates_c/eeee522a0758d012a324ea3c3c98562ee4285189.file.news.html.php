@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 00:28:23
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 01:22:05
          compiled from "./tpls/templates\news.html" */ ?>
-<?php /*%%SmartyHeaderCode:41975198fda7d60817-28251080%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1336751990a3d75fa52-43244954%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'eeee522a0758d012a324ea3c3c98562ee4285189' => 
     array (
       0 => './tpls/templates\\news.html',
-      1 => 1368629034,
+      1 => 1368609656,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '41975198fda7d60817-28251080',
+  'nocache_hash' => '1336751990a3d75fa52-43244954',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5198fda7eaebf',
+  'unifunc' => 'content_51990a3d87eea',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5198fda7eaebf')) {function content_5198fda7eaebf($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_51990a3d87eea')) {function content_51990a3d87eea($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
