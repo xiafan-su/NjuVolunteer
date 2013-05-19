@@ -6,7 +6,8 @@ a:hover{
 	text-decoration:none;
 }
 img{
-	float:left;	
+	float:left;
+	padding: 1px;
 }
 .img-bar{
 	float:left;
@@ -38,11 +39,13 @@ img{
 	padding-top:10px;
 }
 .act_img{
-	width:200px;
+	width:172px;
 	float:left;
-	padding:10px;
-	height:120px;
+	padding:0px;
+	margin: 10px;  /* mk:marks */
+	height:122px;
 	overflow:hidden;
+	border: 1px solid rgb(104,104,104);
 }
 .atc_state{
 	font-size:14px;
@@ -220,7 +223,7 @@ img{
 	width:800px;
 	float:left;
 	height:300px;
-	/*box-shadow:10px 10px 20px #666;*/
+	box-shadow:#666 0px 10px 20px;
 }
 .switch{
 	position:relative;

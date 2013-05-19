@@ -7,6 +7,7 @@
 		<th>学号</th><th>姓名</th>
 		<th>性别</th><th>联系方式</th>
 		<th>状态</th><th width="100px">身份</th>
+		<th>操作</th>
 	</tr>
 
 	<{section name=mem_index loop=$mem_list}>
@@ -41,6 +42,9 @@
 					<span class=""onclick="mem_position_handle(this)" style="cursor:pointer" onclick="mem_position_handle(this)" >确定</span>
 				</span>
 			</td>
+			<td><a target="_blank" href="./print_vol_time.php?user_id=<{$mem_list[mem_index].id}>">
+				<img src="./assets/img/zonet/printer.png" width="20px" height="20px" border="0" alt="打印" title="打印">
+			</a></td>
 		</tr>
 	<{/section}>
 </table>

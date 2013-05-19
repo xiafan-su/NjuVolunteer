@@ -31,15 +31,9 @@
 	height:300px;
 	width:80px;
 	border-radius: 20px 0 0 20px;
-	background:rgb(102,51,102);
 	box-shadow:10px 10px 20px #666;
 }
-.pageup:hover{
-	background-color:#909;
-	cursor:pointer;
-}
-.pagedown:hover{
-	background-color:#909;
+.pageup:hover, .pagedown:hover{
 	cursor:pointer;
 }
 .pagedown{
@@ -47,7 +41,6 @@
 	height:300px;
 	width:80px;
 	border-radius: 0 20px 20px 0;
-	background:rgb(102,51,102);
 	box-shadow:10px 10px 20px #666;
 }
 .switch{
@@ -66,7 +59,7 @@
 	width:800px;
 	float:left;
 	height:300px;
-	box-shadow:10px 10px 20px #666;
+	box-shadow:0px 10px 20px #666;
 }
 li.tn-img-t{
 	float:left;
