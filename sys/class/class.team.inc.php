@@ -38,6 +38,7 @@ class Team extends DB_Connect {
 			$query_num="select * from apply_team where team_id='".$result['id']."' and state= '1'";
 			$num=mysql_query($query_num,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			$count=0;
+			$team_info=NULL;
 			while ($row=mysql_fetch_assoc($num))
 				$count++;
 			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan'],"id"=>$result['id']);
@@ -206,7 +207,7 @@ class Team extends DB_Connect {
 	}
 	public function add_doc($act_id,$leader,$profile,$summary,$tel,$vol_time,$date)//增加一个活动档案
 	{
-		$doc_id=htmlspecialchars($doc_id);
+		$act_id=htmlspecialchars($act_id);
 		$leader=htmlspecialchars($leader);
 		$profile=htmlspecialchars($profile);
 		$summary=htmlspecialchars($summary);
@@ -345,7 +346,7 @@ class Team extends DB_Connect {
 	}
 	public function import_vol_to_doc($doc_id,$vol_list)//导入人员进档案表，即添加活动记录表
 	{
-		$act_id=htmlspecialchars($act_id);
+		$doc_id=htmlspecialchars($doc_id);
 		$vol_list=htmlspecialchars($vol_list);
 		$vol = explode(" ", $vol_list);
 		foreach ($vol as $value)
@@ -396,7 +397,7 @@ class Team extends DB_Connect {
 	public function edit_voltime($doc_id,$record_list)//修改对应服务记录的时间，但不提交给系统，不修改个人信息，不进行通知和公示
 	{
 		$doc_id=htmlspecialchars($doc_id);
-		$record_list=htmlspecialchars($record_list);
+		//$record_list=htmlspecialchars($record_list);
 		foreach ($record_list as $record)
 		{
 			$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and user_id='".$record['user_id']."'";

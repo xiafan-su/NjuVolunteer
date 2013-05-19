@@ -1,7 +1,7 @@
 .span_left{
 float: left;
-width: 65%;
-margin: 10px;  /* mk:marks */
+width: 620px;
+margin:10px 120px 0 120px;  /* mk:marks */
 font-size: 14px;
 line-height: 22px;
 }

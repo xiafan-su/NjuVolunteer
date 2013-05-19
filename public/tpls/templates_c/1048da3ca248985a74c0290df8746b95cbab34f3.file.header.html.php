@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 02:17:33
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 05:24:41
          compiled from "./tpls/templates\include\header.html" */ ?>
-<?php /*%%SmartyHeaderCode:53519909e91d32f5-07335621%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:471151994319610208-29233005%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1368987345,
+      1 => 1368998615,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '53519909e91d32f5-07335621',
+  'nocache_hash' => '471151994319610208-29233005',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519909e92c93d',
   'variables' => 
   array (
     'user_permission' => 0,
     'user_name' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51994319678b5',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519909e92c93d')) {function content_519909e92c93d($_smarty_tpl) {?><div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
+<?php if ($_valid && !is_callable('content_51994319678b5')) {function content_51994319678b5($_smarty_tpl) {?><div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
 <div class="header-border-down"></div>
 <div class="header">
 	<div class="header_content">
@@ -93,6 +93,7 @@ function showit(){
 			//$('#login_button').text('返回');
 			flag=1;
 			setTimeout("temp=0",600);
+			$("#login_id").focus();
 		}
 	}/*else
 	{
@@ -117,5 +118,26 @@ function hideit(){
 		flag=0;
 		setTimeout("temp=0",600);
 	}
+}
+function loginR(){
+	var id = $("#login_id").val();
+	var psd = $("#login_password").val();
+	alert( id+","+psd );
+	$.ajax( {
+		type:"POST",
+		url:"./handle/login.php",
+		data:{ user:id, password:psd },
+		success:function(html){
+			if( html == 1 ){
+				window.open( "./zonev.php" );
+			} else if ( html == 2 ) {
+				window.open( "./zonet.php", "团队空间",  "toolbar=yes,menubar=yes");
+			} else if ( html == 3 ) {
+				window.open( "./super_admin.php" );
+			} else {
+				alert( html );
+			}
+		}
+	} );
 }
 </script><?php }} ?>
