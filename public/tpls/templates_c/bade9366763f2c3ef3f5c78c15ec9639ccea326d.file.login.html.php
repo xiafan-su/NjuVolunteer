@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 01:20:41
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 04:27:36
          compiled from "./tpls/templates\include\login.html" */ ?>
 <?php /*%%SmartyHeaderCode:27850519909e9308169-25411509%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bade9366763f2c3ef3f5c78c15ec9639ccea326d' => 
     array (
       0 => './tpls/templates\\include\\login.html',
-      1 => 1368678820,
+      1 => 1368995248,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
   'unifunc' => 'content_519909e936dbd',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_519909e936dbd')) {function content_519909e936dbd($_smarty_tpl) {?>
 
@@ -49,7 +49,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td style="width:100%; text-align:center">
 							<input name="submit" class="btn btn-warning span2" type="submit" value="登录" style="background:rgba(102,51,102,0.7)"/>
 						</td>
 					</tr>
