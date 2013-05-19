@@ -454,27 +454,33 @@ class Team extends DB_Connect {
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$recv_id_list=mysql_fetch_assoc($select);
 		$recv_list=explode(" ",$recv_id_list['recv_id_list']);
+		$recv_name_list=NULL;
 		foreach ($recv_list as $value)
 		{
-			$sql="SELECT id,name FROM team WHERE id='".$value."'";
-			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-			$num_of_results=mysql_num_rows($select);
-			if ($num_of_results!=0)
+			if ($value!=NULL)
 			{
-				$result=mysql_fetch_assoc($select);
-				$recv_name_list[]=array('id'=>$result['id'],'name'=>$result['name']);
+				$sql="SELECT id,name FROM team WHERE id='".$value."'";
+				$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+				$num_of_results=mysql_num_rows($select);
+				if ($num_of_results!=0)
+				{
+					$result=mysql_fetch_assoc($select);
+					$recv_name_list[]=array('id'=>$result['id'],'name'=>$result['name']);
+				}
 			}
 		}		
 		foreach ($recv_list as $value)
 		{
-			$sql="SELECT id,name FROM user_info WHERE id='".$value."'";
-			$recv_name_list=NULL;
-			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-			$num_of_results=mysql_num_rows($select);
-			if ($num_of_results!=0)
+			if ($value!=NULL)
 			{
-				$result=mysql_fetch_assoc($select);
-				$recv_name_list[]=array('id'=>$result['id'],'name'=>$result['name']);
+				$sql="SELECT id,name FROM user_info WHERE id='".$value."'";
+				$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+				$num_of_results=mysql_num_rows($select);
+				if ($num_of_results!=0)
+				{
+					$result=mysql_fetch_assoc($select);
+					$recv_name_list[]=array('id'=>$result['id'],'name'=>$result['name']);
+				}
 			}
 		}
 		return $recv_name_list;		

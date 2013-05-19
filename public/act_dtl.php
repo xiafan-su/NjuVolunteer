@@ -34,6 +34,7 @@ switch($item['attribution_type']){
 }
 $begin=explode(" ",$item['begin_time']);
 $end=explode(" ",$item['end_time']);
+$deadline=explode(" ",$item['deadline']);
 $same_act =$act->find_same($activity_id);
 $tpl->assign("act_state",$state);
 $tpl->assign( "act_same", $same_act);
@@ -46,6 +47,7 @@ $tpl->assign( "act_end_time", $end[0]);
 $tpl->assign( "last_time", $item['last_time'] );
 $tpl->assign( "signupnum", $item['offer_num'] );
 $tpl->assign( "total_num", $item['total_num'] );
+$tpl->assign( "deadline", $deadline[0] );
 $tpl->assign( "act_id", $activity_id);
 
 $comment_info=$act->get_comment($activity_id);
