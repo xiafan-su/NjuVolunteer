@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 02:07:35
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 11:16:05
          compiled from "../tpls/templates\include\note.html" */ ?>
 <?php /*%%SmartyHeaderCode:278425197a0981f3232-85002848%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2ce719227b9ae7bc28317370bb4d6b205012cc85' => 
     array (
       0 => '../tpls/templates\\include\\note.html',
-      1 => 1368888277,
+      1 => 1368932172,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5197a09828fc2')) {function content_5197a09828fc2($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'F:\\z-htdocs\\NjuVolunteer\\Smarty\\libs\\plugins\\modifier.truncate.php';
+<?php if ($_valid && !is_callable('content_5197a09828fc2')) {function content_5197a09828fc2($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'D:\\apache\\htdocs\\NjuVolunteer\\Smarty\\libs\\plugins\\modifier.truncate.php';
 ?>
 <div id="" class=""  style="margin: 0 20px">
 	

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 02:03:08
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 13:01:21
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:1345519748a073c1b8-21839618%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368899620,
+      1 => 1368939663,
       2 => 'file',
     ),
   ),
@@ -28,6 +28,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'act_time_type' => 0,
     'act_attr_type' => 0,
     'act_place' => 0,
+    'signupnum' => 0,
+    'total_num' => 0,
     'act_profile' => 0,
     'act_id' => 0,
     'comment_detail' => 0,
@@ -106,7 +108,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <div class="bottom">
     	<div class="apply-state">
         	<div style="width:100%;float:left">
-                <div class="div_title2" style="margin-top:12px">已报名的人数：</div>
+                <div class="div_title2" style="margin-top:12px">已报名的人数：<?php echo $_smarty_tpl->tpl_vars['signupnum']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['total_num']->value;?>
+</div>
                 <div id="option">
                 	<input type="button" id="take_part_in" name="take_part_in" class="button">
                     
