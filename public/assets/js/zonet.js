@@ -73,8 +73,10 @@ function switch_main_content( direction ){
 		$(zt_elem_main_content2).hide(switch_time);
 		$(zt_elem_main_content).animate({width:683}, switch_style );
 		$(zt_elem_main_content).show(switch_time);//*/
-		$(zt_elem_main_content2).fadeOut( 200 );
-		$(zt_elem_main_content).fadeIn( 500 );
+	//	$(zt_elem_main_content2).fadeOut(  );
+	//	$(zt_elem_main_content).fadeIn(  );
+		$(zt_elem_main_content2).hide();
+		$(zt_elem_main_content).show();
 	} else if( direction == "->" ) {
 	/*	$( zt_elem_main_content2 ).html( "正在载入……" );
 		$( zt_elem_main_content ).animate({width:0}, switch_style );
@@ -82,8 +84,8 @@ function switch_main_content( direction ){
 		$( zt_elem_main_content2 ).animate({width:683}, switch_style );
 		$( zt_elem_main_content2 ).show(switch_time);//*/
 		$( zt_elem_main_content2 ).html( "正在载入……" );
-		$(zt_elem_main_content2).fadeIn( 200 );
-		$(zt_elem_main_content).fadeOut( 500 );
+		$(zt_elem_main_content2).show();
+		$(zt_elem_main_content).hide();
 	}
 }
 
