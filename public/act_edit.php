@@ -3,7 +3,7 @@
 include_once '../sys/core/init.inc.php';
 include './include/header.php';
 //$act_id=$_POST['act_id'];
-$act_id=121;
+$act_id=$_GET['activityId'];
 $a=new Act();
 $act_info=$a->fetch_one($act_id);
 $t=new Team();

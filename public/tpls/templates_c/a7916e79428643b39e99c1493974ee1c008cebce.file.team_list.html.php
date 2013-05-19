@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 02:02:03
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 16:49:07
          compiled from "./tpls/templates\team_list.html" */ ?>
 <?php /*%%SmartyHeaderCode:257955194954d21ef70-81971850%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a7916e79428643b39e99c1493974ee1c008cebce' => 
     array (
       0 => './tpls/templates\\team_list.html',
-      1 => 1368899620,
+      1 => 1368953341,
       2 => 'file',
     ),
   ),
@@ -53,12 +53,7 @@ button{
     	<a href="team.php">
         	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:rgb(102,51,102);">团队组织</div>
         </a>
-        <div class="submit_search">
-            <input id="submit" style="background-color:#606;color:#FFF" name="submit" class="btn btn-warning span2" onclick="searchteam()" type="submit" value="搜索" />
-		</div>
-		<div class="input_search">
-			<input id="keyword" name="keyword" class="email" type="text" placeholder="请输入关键字" />
-		</div>
+
 	 </div>
      <hr />
      <div class="hotact">
@@ -85,18 +80,18 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 ?>
          <li class="explore-item">
             <div class="pic">
-                <img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1"/>
+                <img src="./assets/img/team_list/<?php echo $_smarty_tpl->tpl_vars['item']->value['logo'];?>
+" class="t-portrait" id="pic1"/>
             </div>
             <div class="content">
                 <div class="title">
                 	<span onclick="window.location.href='indext.php?team_id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
 '"><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
-哈哈哈哈哈啊哈
+
                     </span>
                 </div>
                 <div class="favs">
-                    <?php echo $_smarty_tpl->tpl_vars['item']->value['slogan'];?>
-
+                    
                 </div>
             </div>
          </li>
@@ -117,7 +112,8 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 ?>
      <li class="explore-item">
    		<div class="pic">
-        	<img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1"/>
+        	<img src="./assets/img/team_list/<?php echo $_smarty_tpl->tpl_vars['item']->value['logo'];?>
+" class="t-portrait" id="pic1"/>
        	</div>
    		<div class="content" >
         	<div class="title" onclick="window.location.href='indext.php?team_id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
@@ -126,8 +122,7 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 
         	</div>
         	<div class="favs">
-            	<?php echo $_smarty_tpl->tpl_vars['item']->value['slogan'];?>
-
+            	
             </div>
     	</div>
      </li>

@@ -48,7 +48,8 @@ class Act extends DB_Connect {
 			if ($timelimit!=0)
 			{
 				$timelimit=pow(2,$timelimit-1);
-				$query = sprintf("%s and (weekday_time|'".$timelimit."'='".$timelimit."')", $query);
+				
+				$query = sprintf("%s and (weekday_time&'".$timelimit."'='".$timelimit."')", $query);
 			}
 			if ($actstate==1)
 			{
@@ -257,13 +258,25 @@ class Act extends DB_Connect {
 		else
 			$status='0';
 		
-		$query="INSERT INTO apply_act(user_id,act_id,state,time) VALUES ('".$user_id."','".$activity_id."','".$status."','".date('Y-m-d H:i:s',time())."')";
+		$query="INSERT INTO apply_act(user_id,act_id,state,time) VALUES ('".$user_id."','".$activity_id."','".$status."','".date('Y-m-d H:i:s',time())."')";//添加一条报名记录
 		if (!mysql_query($query,$this->root_conn))
 		{ 
 			die('Error'.mysql_error());
 			return 3;
 		}
-		else return 0;
+		//if ($status=='0')
+		$query="UPDATE activity_info SET offer_num=offer_num+1 WHERE id='".$activity_id."'";//报名人数加1
+		//else
+		//	$query="UPDATE activity_info SET offer_num=offer_num+1,accepted_num=accepted_num+1 WHERE id='".$activity_id."'";
+		if (!mysql_query($query,$this->root_conn))
+		{ 
+			die('Error'.mysql_error());
+			return 3;
+		}	
+		$sql="SELECT offer_num FROM activity_info WHERE id='".$activity_id."'";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		$act_info=mysql_fetch_assoc($select);//获取活动的信息	
+		return -(int)($act_info['offer_num']);//报名成功后返回人数负值
 	}
 	public function quit($activity_id){
 		$user_id=$_SESSION[USER::USER][USER::ID];
@@ -271,9 +284,14 @@ class Act extends DB_Connect {
 		if (!mysql_query($query,$this->root_conn))
 		{
 			die('Error'.mysql_error());
-			return false;
+			return -1;
 		}
-		else return true;
+		$query="UPDATE activity_info SET offer_num=offer_num-1 WHERE id='".$activity_id."'";
+		mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$query="SELECT offer_num  FROM activity_info WHERE id='".$activity_id."'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result['offer_num'];//退出成功后，刷新报名人数
 	}
 	public function participate_state($activity_id){
 		$t=$this->judge_participate_button_state($activity_id);

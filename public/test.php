@@ -100,9 +100,21 @@ $a=new Act();
 if (!$a->judge_participate_button_state(6)) echo "过期";*/
 //$a=new Act();
 //echo $a->participate_state(6);
-$t=new Team();
-if(!$t->insert_act_record(101220119,6,3,'优秀',1,0,'这孩子不错'))echo "wrong";
-$t->register_voltime(6);
+//$t=new Team();
+//$result=$t->fetch_team_profile('NJU001');
+//echo $result['name'];
+//$t->modify_team_profile("we are together","我们是一家人","NJU001");
+//$u=new Act();
+//echo $u->participate('130');
+$a=new Act();
+$select=$a->fetch_all("",0,0,1,0,5);
+while ($result=mysql_fetch_assoc($select))
+{
+	echo $result['name'].'<br />';	
+}
+
+//if(!$t->insert_act_record(101220119,6,3,'优秀',1,0,'这孩子不错'))echo "wrong";
+//$t->register_voltime(6);
 //if($t->delete_my_activity(121)) echo "可以删除";
 //else echo "不可删除";
 

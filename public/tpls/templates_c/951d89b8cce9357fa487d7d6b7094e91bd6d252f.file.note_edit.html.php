@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 15:50:46
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 11:16:06
          compiled from "../tpls/templates\include\note_edit.html" */ ?>
 <?php /*%%SmartyHeaderCode:426451975b93046463-28456268%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '951d89b8cce9357fa487d7d6b7094e91bd6d252f' => 
     array (
       0 => '../tpls/templates\\include\\note_edit.html',
-      1 => 1368949843,
+      1 => 1368845882,
       2 => 'file',
     ),
   ),
@@ -32,7 +32,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51975b9328436')) {function content_51975b9328436($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'F:\\z-htdocs\\NjuVolunteer\\Smarty\\libs\\plugins\\modifier.truncate.php';
+<?php if ($_valid && !is_callable('content_51975b9328436')) {function content_51975b9328436($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'D:\\apache\\htdocs\\NjuVolunteer\\Smarty\\libs\\plugins\\modifier.truncate.php';
 ?>
 
 <div id="" class="" style="margin:0 20px 20px;">
@@ -44,7 +44,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<th style="text-align:right">主题</th>
 		<td style="text-align:left">
 			<?php if (!$_smarty_tpl->tpl_vars['read_only']->value){?>
-				<input type="text" onblur="check_note_send_btn();" id="note_edit_topic" value="<?php echo $_smarty_tpl->tpl_vars['topic']->value;?>
+				<input type="text" id="note_edit_topic" value="<?php echo $_smarty_tpl->tpl_vars['topic']->value;?>
 "/>
 			<?php }else{ ?> 
 				<?php echo $_smarty_tpl->tpl_vars['topic']->value;?>
@@ -106,9 +106,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['recv_index']['last']       =
 								<span class="note_recv_name" ><?php echo $_smarty_tpl->tpl_vars['recv_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['recv_index']['index']]['name'];?>
 </span>
 							</div>
-					<?php endfor; else: ?>
-					可能发给了所有人，因为在数据库里什么也没有找到！
-					<?php endif; ?>
+					<?php endfor; endif; ?>
 				</div>
 				<?php if (!$_smarty_tpl->tpl_vars['read_only']->value){?>
 				<span id="switch_note_recv_list_div" class="" onclick="switch_note_recv_list_div(this);">展开</span>
@@ -244,7 +242,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['act_index']['last']       = 
 		<th style="text-align:right">内容</th>
 		<td style="text-align:left">
 			<?php if (!$_smarty_tpl->tpl_vars['read_only']->value){?>
-				<textarea name="" rows="10" cols="70" onblur="check_note_send_btn();"  title="通知字数不能超过1000" id="note_edit_content"><?php echo $_smarty_tpl->tpl_vars['content']->value;?>
+				<textarea name="" rows="5" cols="70" id="note_edit_content"><?php echo $_smarty_tpl->tpl_vars['content']->value;?>
 </textarea>
 			<?php }else{ ?>
 				<?php echo $_smarty_tpl->tpl_vars['content']->value;?>
@@ -255,7 +253,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['act_index']['last']       = 
 </table>
 
 <?php if (!$_smarty_tpl->tpl_vars['read_only']->value){?><!-- 不显示发送按钮 -->
-	<input type="button" class="button" disabled="true" title="通知主题、接收者和内容均不能为空才能发送通知" value="发送"  id="send_note_btn" onclick="nt_func_note_send()"/>
+	<input type="button" class="button" value="发送"  onclick="nt_func_note_send()"/>
 <?php }else{ ?>
 	<input type="button" class="button" value="返回" onclick="switch_main_content( '<-' );" />
 <?php }?>

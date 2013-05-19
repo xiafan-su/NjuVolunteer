@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 02:02:24
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 11:56:56
          compiled from "./tpls/templates\indext.html" */ ?>
 <?php /*%%SmartyHeaderCode:178535197775d8e1b81-74588997%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fcc6fe68a9e41e4d9da946fded2039d0b9e628f0' => 
     array (
       0 => './tpls/templates\\indext.html',
-      1 => 1368899620,
+      1 => 1368935813,
       2 => 'file',
     ),
   ),
@@ -27,6 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'now_act_num' => 0,
     'leader_email' => 0,
     'leader_phone' => 0,
+    'slogan' => 0,
     'activity_info' => 0,
     'act' => 0,
   ),
@@ -100,8 +101,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </div></td>
               </tr>
               <tr>
-                <th scope="row">签名档：</th>
-                <td><div id="sign">我是一个猥琐男，啦啦啦啦啦~</div></td>
+                <th scope="row">口号：</th>
+                <td><div id="sign"><?php echo $_smarty_tpl->tpl_vars['slogan']->value;?>
+</div></td>
               </tr>
             </table>
         </div>
@@ -120,11 +122,11 @@ foreach ($_from as $_smarty_tpl->tpl_vars['act']->key => $_smarty_tpl->tpl_vars[
 $_smarty_tpl->tpl_vars['act']->_loop = true;
 ?>
         <tr>
-        <td><a href="act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
+        <td style="text-align:left"><a href="act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
 " target="_blank"><?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
 </a></td>
         <td><?php echo $_smarty_tpl->tpl_vars['act']->value['begin_time'];?>
- --- <?php echo $_smarty_tpl->tpl_vars['act']->value['end_time'];?>
+ <br />-<br /> <?php echo $_smarty_tpl->tpl_vars['act']->value['end_time'];?>
 </td>
         </tr>
         <?php } ?>

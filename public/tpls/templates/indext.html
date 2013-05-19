@@ -58,8 +58,8 @@
                 <td><div id="phone"><{$leader_phone}></div></td>
               </tr>
               <tr>
-                <th scope="row">签名档：</th>
-                <td><div id="sign">我是一个猥琐男，啦啦啦啦啦~</div></td>
+                <th scope="row">口号：</th>
+                <td><div id="sign"><{$slogan}></div></td>
               </tr>
             </table>
         </div>
@@ -74,8 +74,8 @@
 		</tr>
         <{foreach name=data item=act from=$activity_info}>
         <tr>
-        <td><a href="act_dtl.php?act_id=<{$act.id}>" target="_blank"><{$act.name}></a></td>
-        <td><{$act.begin_time}> --- <{$act.end_time}></td>
+        <td style="text-align:left"><a href="act_dtl.php?act_id=<{$act.id}>" target="_blank"><{$act.name}></a></td>
+        <td><{$act.begin_time}> <br />-<br /> <{$act.end_time}></td>
         </tr>
         <{/foreach}>
         </table>

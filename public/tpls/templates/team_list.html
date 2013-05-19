@@ -25,12 +25,7 @@ button{
     	<a href="team.php">
         	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:rgb(102,51,102);">团队组织</div>
         </a>
-        <div class="submit_search">
-            <input id="submit" style="background-color:#606;color:#FFF" name="submit" class="btn btn-warning span2" onclick="searchteam()" type="submit" value="搜索" />
-		</div>
-		<div class="input_search">
-			<input id="keyword" name="keyword" class="email" type="text" placeholder="请输入关键字" />
-		</div>
+
 	 </div>
      <hr />
      <div class="hotact">
@@ -53,15 +48,15 @@ button{
          <{foreach name=data item=item from=$department_info}>
          <li class="explore-item">
             <div class="pic">
-                <img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1"/>
+                <img src="./assets/img/team_list/<{$item.logo}>" class="t-portrait" id="pic1"/>
             </div>
             <div class="content">
                 <div class="title">
-                	<span onclick="window.location.href='indext.php?team_id=<{$item.id}>'"><{$item.name}>哈哈哈哈哈啊哈
+                	<span onclick="window.location.href='indext.php?team_id=<{$item.id}>'"><{$item.name}>
                     </span>
                 </div>
                 <div class="favs">
-                    <{$item.slogan}>
+                    
                 </div>
             </div>
          </li>
@@ -78,14 +73,14 @@ button{
      <{foreach name=data item=item from=$other_team_info}>
      <li class="explore-item">
    		<div class="pic">
-        	<img src="./assets/img/team_list/mianma.jpg" class="t-portrait" id="pic1"/>
+        	<img src="./assets/img/team_list/<{$item.logo}>" class="t-portrait" id="pic1"/>
        	</div>
    		<div class="content" >
         	<div class="title" onclick="window.location.href='indext.php?team_id=<{$item.id}>'">
             		<{$item.name}>
         	</div>
         	<div class="favs">
-            	<{$item.slogan}>
+            	
             </div>
     	</div>
      </li>

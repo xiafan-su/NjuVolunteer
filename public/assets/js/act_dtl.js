@@ -131,17 +131,19 @@ $(function(){
 			data:{act_id:$('#act_id').val()},
 			success:function(html){
 				document.getElementById('loading-bar').style.display='none';
-				//alert(html);
+				alert(html);
 				//alert("success");
-				if (html == 1)
-				{
-				 	alert("报名成功");
-					$('#take_part_in').prop("value","退出活动");
-				}
-				else if (html == 2)
+				if (html >= 100000)
 				{
 					alert("退出成功");
+					document.getElementById("sign_up_num").innerHTML = html-100000;
 					$('#take_part_in').prop("value","参加活动");
+				}else
+				if (html >0 )
+				{
+				 	alert("报名成功");
+					document.getElementById("sign_up_num").innerHTML = html;
+					$('#take_part_in').prop("value","退出活动");
 				}
 				else if (html == -1)
 				{
