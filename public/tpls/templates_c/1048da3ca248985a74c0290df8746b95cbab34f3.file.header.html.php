@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 04:26:26
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 04:52:19
          compiled from "./tpls/templates\include\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:53519909e91d32f5-07335621%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1368993799,
+      1 => 1368996714,
       2 => 'file',
     ),
   ),
@@ -93,6 +93,7 @@ function showit(){
 			//$('#login_button').text('返回');
 			flag=1;
 			setTimeout("temp=0",600);
+			$("#login_id").focus();
 		}
 	}/*else
 	{
@@ -117,26 +118,5 @@ function hideit(){
 		flag=0;
 		setTimeout("temp=0",600);
 	}
-}
-function loginR(){
-	var id = $("#login_id").val();
-	var psd = $("#login_password").val();
-	alert( id+","+psd );
-	$.ajax( {
-		type:"POST",
-		url:"./handle/login.php",
-		data:{ user:id, password:psd },
-		success:function(html){
-			if( html == 1 ){
-				window.open( "./zonev.php" );
-			} else if ( html == 2 ) {
-				window.open( "./zonet.php", "团队空间",  "toolbar=yes,menubar=yes");
-			} else if ( html == 3 ) {
-				window.open( "./super_admin.php" );
-			} else {
-				alert( html );
-			}
-		}
-	} );
 }
 </script><?php }} ?>
