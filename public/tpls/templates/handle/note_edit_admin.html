@@ -1,0 +1,79 @@
+
+
+<div id="" class="" style="margin:0 20px 20px;">
+	
+
+
+<table>
+	<tr>
+		<th style="text-align:right">主题</th>
+		<td style="text-align:left">
+			<input type="text" id="note_edit_topic" />
+		</td>
+	</tr><!-- white-space:nowrap;  -->
+	<tr>
+		<th style="text-align:right">接收者</th>
+		<td style="text-align:left">
+			<!-- <span class="">选择</span> -->
+			<div id="" class="">
+				<!-- 这里放选择的接收者 -->
+				<div id="note_recv_list" class="note_recv_list"> </div>
+				<span id="switch_note_recv_list_div" class="" onclick="switch_note_recv_list_div(this);">展开</span>
+				<div id="note_recv_list_div" class="" style="display:none">
+					<hr style="border:1px gray solid;" />
+					<div class="">院系或组织：</div>
+					<div id="note_recv_team_list" class="note_recv">
+						<{section name=team_index loop=$team_list}>
+							<div class="receiver-card" uid="<{$team_list[team_index].id}>" sid="<{$smarty.section.team_index.iteration}>">
+								<span class="note_recv_name" ><{$team_list[team_index].name}></span>
+								<img class="img_note_del" gid="1"   id="img_note_del_<{$team_list[team_index].id}>" sid="<{$smarty.section.team_index.iteration}>" onclick="note_recv_button(this);" src="./assets/img/zonet/recv_add.jpg" title="添加到接收者列表"/>
+							</div>
+						<{/section}>
+					</div>
+
+
+
+
+					<hr style="border:1px gray dashed;"/>
+					<input type="checkbox" value="全选" title="全选" gid="2" id="zt_elem_note_select_all_act_part" onclick="nt_func_note_select_all_act_part(this);"/>
+					<span class="">
+						活动
+						<select name="note_recv_act_select"  id="note_recv_act_select" onchange="getpeople()" >
+							<option value="-1" selected="selected">请选择</option>
+							<{section name=act_index loop=$act_list}>
+							<option value="<{$act_list[act_index].id}>" ><{$act_list[act_index].name|truncate:27:"……":true}></option>
+							<{/section}>
+						</select>
+						中的志愿者：
+					</span>
+					<div id="note_recv_vol_list" class="note_recv"> </div>
+				</div>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<th style="text-align:right">内容</th>
+		<td style="text-align:left">
+			<textarea name="" rows="5" cols="70" id="note_edit_content"></textarea>
+		</td>
+	</tr>
+</table>
+
+<input type="button" class="button" value="发送"  onclick="nt_func_note_send()"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

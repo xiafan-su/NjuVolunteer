@@ -1,10 +1,19 @@
 <head>
 </head>
 <body>
+
+
+ <table >
+				<tr>
+                <th>选择要修改的团队</th>
+					<th>填写新的密码</th>
+                    <th>确认</th>
+                    </tr>
+
 <form action="./handle/super_admin_change_team_pwd_ok.php" method="POST">
 
 
-
+<tr><td>
 	
   	<select id="team" class="teamselect" name='cteam'>
         <{foreach item=team from=$team_list}>
@@ -12,15 +21,15 @@
 		<{/foreach}>
    		</select>
 
+</td>
 
 
 
-
-</br>
-新的密码：         
+<td>        
 <input type="password" name="password">
-<br/>
- <input type="submit" value="确认修改" />
+</td>
+<td>
+ <input type="submit" value="确认修改" /></td></tr>
 </form>
-
+</table>
 </body>
