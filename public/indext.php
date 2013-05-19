@@ -21,6 +21,7 @@ else
 $tpl->assign("already_follow",0);
 $tpl->assign("team_id",$team_name['id']);
 $tpl->assign("team_name",$team_name['name']);
+$tpl->assign("team_profile",$team_name['profile']);
 $tpl->assign("leader_name",$team_name['leader']);
 $tpl->assign("leader_email",$team_name['email']);
 $tpl->assign("leader_phone",$team_name['leader_phone']);
