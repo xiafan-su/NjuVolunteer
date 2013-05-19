@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 16:30:48
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 10:22:44
          compiled from "../tpls/templates\include\rec_edit.html" */ ?>
 <?php /*%%SmartyHeaderCode:237835196678e835773-34967967%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'faf877110be62a795340f534c0c692bc647f473c' => 
     array (
       0 => '../tpls/templates\\include\\rec_edit.html',
-      1 => 1368856427,
+      1 => 1368929762,
       2 => 'file',
     ),
   ),
@@ -153,8 +153,11 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['part_doc_index']['last']    
 " title="点击查看该学生信息" ><?php echo $_smarty_tpl->tpl_vars['part_doc_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['part_doc_index']['index']]['id'];?>
 </span>
 				</td>
-				<td><?php echo $_smarty_tpl->tpl_vars['part_doc_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['part_doc_index']['index']]['name'];?>
-</td>
+				<td>
+					<a target="_blank" href="./indexv.php?user_id=<?php echo $_smarty_tpl->tpl_vars['part_doc_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['part_doc_index']['index']]['id'];?>
+" title="查看个人主页"><?php echo $_smarty_tpl->tpl_vars['part_doc_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['part_doc_index']['index']]['name'];?>
+</a>
+				</td>
 				<td><?php echo $_smarty_tpl->tpl_vars['part_doc_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['part_doc_index']['index']]['faculty'];?>
 </td>
 				<td>

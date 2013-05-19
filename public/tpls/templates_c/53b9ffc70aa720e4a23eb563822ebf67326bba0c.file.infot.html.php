@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 22:31:18
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 10:31:42
          compiled from "../tpls/templates\include\infot.html" */ ?>
 <?php /*%%SmartyHeaderCode:28996519787bd1387d7-70155005%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '53b9ffc70aa720e4a23eb563822ebf67326bba0c' => 
     array (
       0 => '../tpls/templates\\include\\infot.html',
-      1 => 1368887425,
+      1 => 1368930694,
       2 => 'file',
     ),
   ),
@@ -93,8 +93,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<table>
 				<tr>
 					<th style="text-align:right">简介</th>
-					<td style="text-align:left"><?php echo $_smarty_tpl->tpl_vars['team_profile']->value;?>
-</td>
+					<td style="text-align:left">
+						<span class="" onclick="$(this).toggle();$(this).next().toggle();$(this).next().focus();"><?php echo $_smarty_tpl->tpl_vars['team_profile']->value;?>
+</span>
+						<textarea name=""  style="display: none" rows="3" cols="70"
+						onblur="$(this).toggle();$(this).prev().toggle();"><?php echo $_smarty_tpl->tpl_vars['team_profile']->value;?>
+</textarea>
+					</td>
 				</tr>
 				<tr>
 					<th style="text-align:right">口号</th>

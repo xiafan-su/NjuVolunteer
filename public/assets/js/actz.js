@@ -844,6 +844,7 @@ function verify_extend_time_handle(){
 	$("#extend_op_ok").prop( "disabled", !ok );
 }
 
+//快捷添加服务时间的“确定按钮”
 function extend_ok_handle(){
 	var uid = $("#extend_uid").val().trim();
 	var time = $("#extend_input_time").val();
@@ -871,3 +872,4 @@ function extend_ok_handle(){
 		
 	} );
 }
+

@@ -53,7 +53,11 @@
 			<table>
 				<tr>
 					<th style="text-align:right">简介</th>
-					<td style="text-align:left"><{$team_profile}></td>
+					<td style="text-align:left">
+						<span class="" onclick="$(this).toggle();$(this).next().toggle();$(this).next().focus();"><{$team_profile}></span>
+						<textarea name=""  style="display: none" rows="3" cols="70"
+						onblur="$(this).toggle();$(this).prev().toggle();"><{$team_profile}></textarea>
+					</td>
 				</tr>
 				<tr>
 					<th style="text-align:right">口号</th>
