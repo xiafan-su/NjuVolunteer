@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 17:31:07
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 19:29:00
          compiled from "./tpls/templates\indext.html" */ ?>
 <?php /*%%SmartyHeaderCode:178535197775d8e1b81-74588997%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fcc6fe68a9e41e4d9da946fded2039d0b9e628f0' => 
     array (
       0 => './tpls/templates\\indext.html',
-      1 => 1368955769,
+      1 => 1368962920,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'team_id' => 0,
     'team_name' => 0,
+    'isfaculty' => 0,
     'already_follow' => 0,
+    'already_apply' => 0,
     'leader_name' => 0,
     'all_act_num' => 0,
     'now_act_num' => 0,
@@ -65,13 +67,32 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="photo">
             <img src="./assets/img/head_photo/boy/7.jpg"/>
         </div>
-        <div class="follow" id="followit">
+        <?php if ($_smarty_tpl->tpl_vars['isfaculty']->value==1){?>
+        <div class="follow_other" id="followit">
             <?php if ($_smarty_tpl->tpl_vars['already_follow']->value==1){?>
-                取消关注这个团队
+                取消关注
             <?php }else{ ?>
-                关注这个团队
+                关注
             <?php }?>
         </div>
+        <div class="apply" id="applyit">
+            <?php if ($_smarty_tpl->tpl_vars['already_apply']->value==1){?>
+                申请加入
+            <?php }elseif($_smarty_tpl->tpl_vars['already_apply']->value==0){?>
+                退出
+            <?php }else{ ?>
+            	
+            <?php }?>
+        </div>
+        <?php }else{ ?>
+        	 <div class="follow" id="followit">
+            <?php if ($_smarty_tpl->tpl_vars['already_follow']->value==1){?>
+                取消关注
+            <?php }else{ ?>
+                关注
+            <?php }?>
+        </div>
+        <?php }?>
     </div>
     <div class="center">
         <div class="per-info">

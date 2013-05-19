@@ -13,6 +13,36 @@
 	border-radius:20px;
 	box-shadow:10px 10px 10px #777;
 }
+.follow_other{
+	float:left;
+	width:95px;
+	margin:30px 0 30px 0;
+	text-align:center;
+	padding-top:10px;
+	background:rgb(188,188,188);
+	height:28px;
+	border-radius:10px;
+}
+.follow_other:hover{
+	cursor:pointer;
+	background:rgb(245,245,245);
+	box-shadow:0 0 20px #666;
+}
+.apply{
+	float:left;
+	width:95px;
+	margin:30px 0px 30px 10px;
+	text-align:center;
+	padding-top:10px;
+	background:rgb(188,188,188);
+	height:28px;
+	border-radius:10px;
+}
+.apply:hover{
+	cursor:pointer;
+	background:rgb(245,245,245);
+	box-shadow:0 0 20px #666;
+}
 .follow{
 	float:left;
 	width:200px;
@@ -23,7 +53,7 @@
 	height:28px;
 	border-radius:10px;
 }
-.follow:hover{
+.follow_other:hover{
 	cursor:pointer;
 	background:rgb(245,245,245);
 	box-shadow:0 0 20px #666;

@@ -26,13 +26,32 @@
         <div class="photo">
             <img src="./assets/img/head_photo/boy/7.jpg"/>
         </div>
-        <div class="follow" id="followit">
+        <{if $isfaculty==1 }>
+        <div class="follow_other" id="followit">
             <{if $already_follow==1}>
-                取消关注这个团队
+                取消关注
             <{else}>
-                关注这个团队
+                关注
             <{/if}>
         </div>
+        <div class="apply" id="applyit">
+            <{if $already_apply==1}>
+                申请加入
+            <{elseif $already_apply==0}>
+                退出
+            <{else}>
+            	
+            <{/if}>
+        </div>
+        <{else}>
+        	 <div class="follow" id="followit">
+            <{if $already_follow==1}>
+                取消关注
+            <{else}>
+                关注
+            <{/if}>
+        </div>
+        <{/if}>
     </div>
     <div class="center">
         <div class="per-info">

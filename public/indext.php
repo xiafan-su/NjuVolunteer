@@ -11,7 +11,7 @@ $id=$_GET['team_id'];
 
 
 $team=new Team();
-$team_name=$team->fetch_team_name($id);
+$team_info=$team->fetch_team_name($id);
 $u=new User();
 if ($u->follow_state($id))
 {
@@ -19,13 +19,23 @@ if ($u->follow_state($id))
 }
 else
 $tpl->assign("already_follow",0);
-$tpl->assign("team_id",$team_name['id']);
-$tpl->assign("team_name",$team_name['name']);
-$tpl->assign("team_profile",$team_name['profile']);
-$tpl->assign("leader_name",$team_name['leader']);
-$tpl->assign("leader_email",$team_name['email']);
-$tpl->assign("leader_phone",$team_name['leader_phone']);
-$tpl->assign("slogan",$team_name['slogan']);
+
+if ($u->apply_state($id))
+	$tpl->assign("already_apply",0);
+else $tpl->assign("already_apply",1);
+
+if ($team_info['layer']==1)//院系组织不可申请加入
+	$tpl->assign("isfaculty",1);
+else
+	$tpl->assign("isfaculty",0);
+	
+$tpl->assign("team_id",$team_info['id']);
+$tpl->assign("team_name",$team_info['name']);
+$tpl->assign("team_profile",$team_info['profile']);
+$tpl->assign("leader_name",$team_info['leader']);
+$tpl->assign("leader_email",$team_info['email']);
+$tpl->assign("leader_phone",$team_info['leader_phone']);
+$tpl->assign("slogan",$team_info['slogan']);
 $act_num_all=$team->fetch_all_doc_num($id);
 $act_doc_now=$team->fetch_now_doc_num($id);
 /*$strtime = "2008-03-16 11:11:11";
