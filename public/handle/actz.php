@@ -50,8 +50,9 @@ if( $_POST['type'] == "actApply" ){
 	$record_list = array();
 	$part_list = explode($token, $_POST['setStr']);
 
-	echo "count=".count($part_list);
+	//echo "count=".count($part_list);
 	for ($i = 0; $i < floor(count($part_list)/6); $i++ ){
+		if( ! is_numeric(  $part_list[$i*6+1] ) )  { echo "学号为".$part_list[$i*6+0]."的服务时长格式错误！";exit; } 
 		$record_list[] = array(
 			"user_id"=> $part_list[$i*6+0],
 			"base_time"=> $part_list[$i*6+1],

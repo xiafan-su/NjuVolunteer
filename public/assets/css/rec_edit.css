@@ -3,14 +3,14 @@
 .left-bar{
 	float:left;
 	margin-top:15px;
-	height:10px;
+	height:6px;
 	width:270px;
 	background:-webkit-gradient(linear, right top, left top, from(rgba(104,104,104,1)), to(rgba(225,225,225,0.2)));
 }
 .right-bar{
 	float:left;
 	margin-top:15px;
-	height:10px;
+	height:6px;
 	width:270px;
 	background:-webkit-gradient(linear, left top, right top, from(rgba(104,104,104,1)), to(rgba(225,225,225,0.2)));
 }

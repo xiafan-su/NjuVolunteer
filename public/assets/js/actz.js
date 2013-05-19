@@ -656,7 +656,7 @@ function change_doc_honnor_leader_handle(elem, type){//type ==1 表示“带队�
 }
 
 
-//“确定”按钮
+//活动档案“确定”按钮
 function doc_edit_submit_handle(elem){
 	//alert( "ter" );
 	var submit_button = $("#doc_op_modify");
@@ -690,17 +690,22 @@ function doc_edit_submit_handle(elem){
 		data:{setStr:str, type:"setpart", documentId: docid },
 		success:function(html){
 			document.getElementById('loading-bar').style.display='none';
-			var modify_button = $("#doc_op_modify");
-			modify_button.attr( "disabled", true );
-			modify_button.attr( "title", "之前的修改已保存，您还没有新的修改" );
-			$("#doc_op_submit").attr( "disabled", false );
-			$("#doc_op_submit").attr( "title", "提交您所做的修改，提交后志愿时间将会公示一周，并且除非有异议不得再修改！" );
-			alert( "修改成功！" );
+			if( html == 0 ){
+				var modify_button = $("#doc_op_modify");
+				modify_button.attr( "disabled", true );
+				modify_button.attr( "title", "之前的修改已保存，您还没有新的修改" );
+				$("#doc_op_submit").attr( "disabled", false );
+				$("#doc_op_submit").attr( "title", "提交您所做的修改，提交后志愿时间将会公示一周，并且除非有异议不得再修改！" );
+				alert( "修改成功！" );
+			} else {
+				alert( html );
+				submit_button.attr( "title", "请修改不正确的地方！" );
+			}
 		}
 	});
 }
 
-//“提交”按钮
+//活动档案“提交”按钮
 function submit_doc(elem){
 	$("#doc_op_submit").attr( "disabled", true );
 	$("#doc_op_submit").attr( "title", "正在向服务器提交您的请求……" );
@@ -873,3 +878,37 @@ function extend_ok_handle(){
 	} );
 }
 
+
+
+//团队资料---介绍
+/*
+function change_to_edit_infot_profile(elem){
+	//elem = $(elem).find();
+	var ta = $(elem).next().find(":first-child");//ta=textarea
+	ta.val( $(elem).text() );
+	$(elem).toggle();
+	$(elem).next().toggle();
+	ta.focus();
+}
+function change_to_update_infot_profile(elem){
+	var new_profile = $(elem).val().trim();
+
+	$.ajax({
+		type:"POST",
+		url:"./handle/info.php",
+		data:{type:"chtProfile", profile:new_profile},
+		success:function(html){
+			var elem2 = $(elem).parent();
+			elem2.toggle();
+			elem2.prev().toggle();
+			if( html == 0 ){
+				$(elem).prev().find(":first-child").html( new_profile );
+			} else {
+				alert( html );
+			}
+		}
+	});
+
+	
+	
+}//*/
