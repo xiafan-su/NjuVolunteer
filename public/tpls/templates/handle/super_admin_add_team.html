@@ -7,14 +7,14 @@
 					<th>填写值</th>
                     </tr>
                
-
+<script src="./assets/js/md5.js"></script>
 <form action="../public/handle/super_admin_add_team_ok.php" method="POST">
 <tr><td style="text-align:left">团队账号名</td>
 <td><input type="text" name="teamid"></td></tr>
 <tr><td style="text-align:left">团队名称</td>
 <td><input type="text" name="teamname"></td></tr>
 <tr><td style="text-align:left">团队密码</td>
-<td><input type="password" name="password"></td></tr>
+<td><input type="password" name="password" id="password"></td></tr>
 <tr><td style="text-align:left">团队联系邮箱</td>
 <td><input type="text" name="teamemail"></td></tr>
 <tr><td style="text-align:left">团队负责人姓名</td>
@@ -29,7 +29,7 @@
 <td><input type="text" name="teamunit"></td></tr>
 
 
- <tr><td style="text-align:left">请确认</td><td><input type="submit" value="确认创建" /></td>
+ <tr><td style="text-align:left">请确认</td><td><input type="submit" value="确认创建" onclick="$('#password').val(hex_md5($('#password').val()));"/></td>
 </form>
 
 </table>
