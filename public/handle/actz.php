@@ -100,8 +100,19 @@ if( $_POST['type'] == "actApply" ){
 	if( !isset( $_POST['slogan'] ) || !isset($_POST['profile']) ){ echo "参数错误！"; exit; }
 	if( mb_strlen( $_POST['slogan'] ) == 0 || mb_strlen( $_POST['slogan'] ) > 20 ) { echo "口号长度错误！"; exit; }
 	if( mb_strlen( $_POST['profile'] ) == 0 || mb_strlen( $_POST['profile'] ) > 5000 ) { echo "简介长度错误！"; exit; }
+	
+	$team_id = $_SESSION[User::USER][User::FACULTY_ID];
+	if( strlen($_POST['oldpsd']) == 0 ) {//不修改
+	
+	} else {
+		if( strlen($_POST['oldpsd']) < 6 || strlen($_POST['oldpsd']) > 16  ) { echo "密码长度错误！"; exit; }
+		if( strlen($_POST['newpsd']) < 6 || strlen($_POST['newpsd']) > 16  ) { echo "密码长度错误！"; exit; }
+
+	}
+
+	//echo  "###".md5($_POST['oldpsd']);exit;
 	$team = new Team();
-	if( $team->modify_team_profile(  $_POST['profile'], $_POST['slogan'], $_SESSION[User::USER][User::FACULTY_ID] ) ){
+	if( $team->modify_team_profile(  $_POST['profile'], $_POST['slogan'], $team_id ) ){
 		echo "0";
 	} else {
 		echo "修改失败！";
