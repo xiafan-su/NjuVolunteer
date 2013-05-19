@@ -193,6 +193,50 @@ class User extends DB_Connect {
 		}
 		return 0;//失败
 	}
+	public function apply_team($team_id)
+	{
+		if (!isset($_SESSION[USER::USER][USER::ID]))
+			return -1;//请先登陆
+		else $user_id=$_SESSION[USER::USER][USER::ID];
+		if (isset($_SESSION[USER::USER][USER::PERM_ID]) and ($_SESSION[USER::USER][USER::PERM_ID]!=1))
+			return -2;//没有权限
+		$sql="SELECT t.id FROM apply_team a,team t WHERE a.user_id='".$user_id."' and a.team_id=t.id and t.layer='1' and a.state<>'2'";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		$num=mysql_num_rows($select);
+		$result=mysql_fetch_assoc($select);
+		if ($num==0)
+		{
+			$sql="INSERT INTO apply_team(user_id,team_id,state,time)
+			VALUES('".$user_id."','".$team_id."','0','".date("Y-m-d H:i:s",time())."')
+			 ";
+			 $select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+			 return 1;//申请成功，等待团队管理员审核
+		}else
+		{
+			if ($team_id==$result['id'])
+			{
+				$sql="DELETE FROM apply_team WHERE user_id='".$user_id."' and team_id='".$team_id."'";
+				if(mysql_query($sql, $this->root_conn))
+					return 2;//退出成功
+				else
+				{
+					die('ERROR:'.mysql_error());
+					return 0;
+				}
+			}else return -3;//您申请的非院系团队正在审核，在此期间不能加入其它团队
+		}
+	}
+
+	public function apply_state($team_id)
+	{
+		if (!isset($_SESSION[USER::USER][USER::ID]))
+			return false;
+		$sql="SELECT * FROM apply_team WHERE user_id='".$_SESSION[USER::USER][USER::ID]."' and team_id='".$team_id."'";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		$results=mysql_num_rows($select);
+		if ($results==0) return false;
+		return true;
+	}
 }
 
 ?>
