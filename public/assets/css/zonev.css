@@ -164,20 +164,7 @@ table td{
 	margin-left:20px;
 	margin-right:20px;	
 }
-.left-bar{
-	float:left;
-	margin-top:17px;
-	height:6px;
-	width:260px;
-	background:-webkit-gradient(linear, right top, left top, from(rgba(104,104,104,1)), to(rgba(225,225,225,0.2)));
-}
-.right-bar{
-	float:left;
-	margin-top:17px;
-	height:6px;
-	width:260px;
-	background:-webkit-gradient(linear, left top, right top, from(rgba(104,104,104,1)), to(rgba(225,225,225,0.2)));
-}
+
 .loading{
 	width:100%;
 	left:50%;

@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 00:49:09
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 03:28:49
          compiled from "./tpls/templates\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:129905199028596f0b2-31164099%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:25196519909e8df4417-38959439%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1368891428,
+      1 => 1368991722,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '129905199028596f0b2-31164099',
+  'nocache_hash' => '25196519909e8df4417-38959439',
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519902859d1fb',
+  'unifunc' => 'content_519909e9161d8',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519902859d1fb')) {function content_519902859d1fb($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_519909e9161d8')) {function content_519909e9161d8($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -43,38 +43,38 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</div>
 		<div class="act-img">
         	<div class="act-detail" id="act-detail1">
-            	<span class="act-detail-title">爱心家园</span>
-            	<span class="act-detail-content">时光流逝，只有他们永远保持着童心与随之的天真</span></div>
+            	<span class="act-detail-title">多一份关爱</span>
+            	<span class="act-detail-content">将第一颗爱心献予高淳，为特殊青少年茁壮成长增添养分，相信有"长江基金"的关注、关爱和关怀，高淳特殊青少年成长之花一定会结出丰硕的爱心之果。</span></div>
             <div class="act-detail" id="act-detail2">
-            	<span class="act-detail-title">青春在路上</span>
-                <span class="act-detail-content">望我们和孩子们都一样行动在青春的道路上，希望我们能够给孩子们带来一个梦想</span></div>
+            	<span class="act-detail-title">感恩点滴</span>
+                <span class="act-detail-content">感恩，是中华民族的优良传统，"乌鸦反哺"的性灵原态，让我们感悟到作为人的重要表证，漂泊在生活的经纬里，总有千丝万缕的情感把我们支撑，感恩需要从点滴做起</span></div>
             <div class="act-detail" id="act-detail3">
-            	<span class="act-detail-title">收线的风筝</span>
-            	<span class="act-detail-content">风筝的线会断，你我之间爱的线不会断</span></div>
+            	<span class="act-detail-title">青春同行</span>
+            	<span class="act-detail-content">"南大•栖霞青春同行"项目由南京大学团委和栖霞团区委共同发起，依托院系与社区结对的形式，以志愿服务和社会实践调研为载体，对接校地资源。</span></div>
             <div class="act-detail" id="act-detail4">
-            	<span class="act-detail-title">我们在行动</span>
-            	<span class="act-detail-content">为了提供公平的教育机会，我们将会一刻不停的奉献我们的青春</span></div>
+            	<span class="act-detail-title">新街口新公益</span>
+            	<span class="act-detail-content">"青春闪亮新街口志愿服务站"坐落于新街口正洪街广场，是由白下区政府斥资打造的一项便民服务，志愿者在此免费为市民游客提供指路、导购、免费租借雨伞、免费提供饮用水等服务。</span></div>
             <div class="act-detail" id="act-detail5">
-            	<span class="act-detail-title">城市边缘的梦想</span>
-            	<span class="act-detail-content">同一片天空下，我们希望他们享有同样的教育</span></div>
-       		<div class="act-img-t" id="act-img1"><img src="./assets/img/index/education1.png" /></div>
-            <div class="act-img-t" id="act-img2"><img src="./assets/img/index/education2.png" /></div>
-            <div class="act-img-t" id="act-img3"><img src="./assets/img/index/education3.png" /></div>
-            <div class="act-img-t" id="act-img4"><img src="./assets/img/index/education4.png" /></div>
-            <div class="act-img-t" id="act-img5"><img src="./assets/img/index/education5.jpg" /></div>
+            	<span class="act-detail-title">阳光在路上</span>
+            	<span class="act-detail-content">2003年，由Becky老师和青协的共同努力下，在高淳特殊教育学校举办了第一次阳光活动。该活动一直延续至今，旨在资助高淳的同学，给他们带去快乐与温暖。</span></div>
+       		<div class="act-img-t" id="act-img1"><img src="./assets/img/index/多一份关爱.jpg" /></div>
+            <div class="act-img-t" id="act-img2"><img src="./assets/img/index/感恩点滴.jpg" /></div>
+            <div class="act-img-t" id="act-img3"><img src="./assets/img/index/青春同行.jpg" /></div>
+            <div class="act-img-t" id="act-img4"><img src="./assets/img/index/新街口新公益.jpg" /></div>
+            <div class="act-img-t" id="act-img5"><img src="./assets/img/index/阳光在路上.jpg" /></div>
 		</div>
         
 		<div class="act-title">
         	<div class="act-title-t" id="act-title1" onclick="changeact(1)"><div class="badpoint"><div class="circle"></div></div>
-            	爱心家园</div>
+            	多一份关爱</div>
             <div class="act-title-t" id="act-title2" onclick="changeact(2)"><div class="badpoint"><div class="circle"></div></div>
-            	青春在路上</div>
+            	感恩点滴</div>
             <div class="act-title-t" id="act-title3" onclick="changeact(3)"><div class="badpoint"><div class="circle"></div></div>
-            	收线的风筝</div>
+            	青春同行</div>
             <div class="act-title-t" id="act-title4" onclick="changeact(4)"><div class="badpoint"><div class="circle"></div></div>
-            	我们在行动</div>
+            	新街口新公益</div>
             <div class="act-title-t" id="act-title5" onclick="changeact(5)" style="margin-bottom:0px"><div class="badpoint"><div class="circle"></div></div>
-            	城市边缘的梦想</div>
+            	阳光在路上</div>
 
 		</div>
     </div>

@@ -158,18 +158,19 @@
                         <input name="faculty_select" type="radio" value="true" onclick="show_faculty()"  <{if $facultylimit==1}>checked<{/if}>/><label>是</label>
                         <lable>(只允许打钩的院系志愿者参加)</label>
                     </td>
-                    <td></td>
+                    <td>&nbsp;</td>
                 </tr>
-                <tr id="faculty_choose" <{if $facultylimit==1}> style="display:block" <{/if}> >
-                    <th></th>
+                <tr id="faculty_choose" <{if $facultylimit == 1}> style="display:table-row" <{/if}> >
+                    <th>&nbsp;</th>
                     <td>
                         <{foreach item=faculty from=$faculty_list}>
-                            <input type="checkbox" value="<{$faculty.name}>" name="faculty_choose" <{$faculty.limit}> >
+                            <input type="checkbox" value="<{$faculty.name}>" name="faculty_choose" <{$faculty.limit}> />
                             <label><{$faculty.name}></label>
-                        <{/foreach}>
+                        <{/foreach}>&nbsp;
                     </td>
-                    <td width="220"></td>
+                    <td width="220px">&nbsp;</td>
                 </tr>
+
                 <tr>
 				<th>审核类型</th>
 					<td>
@@ -188,7 +189,7 @@
 					</td>
                     <td></td>
                 </tr>
-                <tr id="en_choose" <{if $facultylimit==1}>style="display:block"<{/if}>>
+                <tr id="en_choose" <{if $facultylimit==1}>style="display:table-row"<{/if}>>
                 <th></th>
                 <td>
                     	CET-4大于<input id="cet4" type="text" value="<{$cet4}>"/><br />
