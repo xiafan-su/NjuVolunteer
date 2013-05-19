@@ -166,6 +166,8 @@ class User extends DB_Connect {
 	}
 	public function follow_state($team_id)//关注一个团队的状态
 	{
+		if (!isset($_SESSION[USER::USER][USER::ID]))
+			return false;
 		$sql="SELECT * FROM follow WHERE user_id='".$_SESSION[USER::USER][USER::ID]."' and team_id='".$team_id."'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		$num_of_results=mysql_num_rows($select);
@@ -174,7 +176,10 @@ class User extends DB_Connect {
 	}
 	public function follow($team_id)//关注一个团队
 	{
-
+		if (!isset($_SESSION[USER::USER][USER::ID]))
+			return -1;//请先登陆
+		if (isset($_SESSION[USER::USER][USER::PERM_ID]) and ($_SESSION[USER::USER][USER::PERM_ID]!=1))
+			return -2;//没有权限
 		if (!($this->follow_state($team_id)))
 		{
 			$sql="INSERT INTO follow(user_id,team_id,time)VALUES('".$_SESSION[USER::USER][USER::ID]."','".$team_id."','".date('Y-m-d H:i:s',time())."')";

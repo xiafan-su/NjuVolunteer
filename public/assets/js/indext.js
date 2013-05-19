@@ -27,11 +27,20 @@ $(document).ready(function(){
 			success:function(html){
 				document.getElementById('loading-bar').style.display='none';
 				//alert(html);
+				if(html == -1)
+				{
+					alert("请先登陆");
+				}else if (html == -2)
+				{
+					alert("志愿者才能关注团队");
+				}
 				if(html == 2){
-					$('#followit').html("关注这个团队");	
+					alert("取消关注成功");
+					$('#followit').html("关注");	
 				}
 				else if(html == 1){
-					$('#followit').html("取消关注这个团队");
+					alert("关注成功");
+					$('#followit').html("取消关注");
 				}
 				else if(html == 0){
 					alert("貌似有什么出错了，联系超管吧>_<");	
