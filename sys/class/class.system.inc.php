@@ -137,7 +137,7 @@ class System extends DB_Connect {
 	}
 	public function send_note($recv_id_list,$title,$content,$sender_id='system')//
 	{
-		$recv_id_list=htmlspecialchars($recv_id_list);
+		//$recv_id_list=htmlspecialchars($recv_id_list);
 		$title=htmlspecialchars($title);
 		$content=htmlspecialchars($content);
 		$sender_id=htmlspecialchars($sender_id);

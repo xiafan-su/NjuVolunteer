@@ -95,4 +95,25 @@ function hideit(){
 		setTimeout("temp=0",600);
 	}
 }
+function loginR(){
+	var id = $("#login_id").val();
+	var psd = $("#login_password").val();
+	alert( id+","+psd );
+	$.ajax( {
+		type:"POST",
+		url:"./handle/login.php",
+		data:{ user:id, password:psd },
+		success:function(html){
+			if( html == 1 ){
+				window.open( "./zonev.php" );
+			} else if ( html == 2 ) {
+				window.open( "./zonet.php", "团队空间",  "toolbar=yes,menubar=yes");
+			} else if ( html == 3 ) {
+				window.open( "./super_admin.php" );
+			} else {
+				alert( html );
+			}
+		}
+	} );
+}
 </script>
