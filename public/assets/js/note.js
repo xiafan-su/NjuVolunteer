@@ -5,6 +5,9 @@ var const_recv_title_remove = "从接收者列表移除";
 
 
 nt_func_note_read = function(){
+	var noteid = $(this).attr( "noteid" );
+	//alert( noteid );
+	var elem = $( "#note_head_img_"+noteid );
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
@@ -13,6 +16,11 @@ nt_func_note_read = function(){
 		success:function(html){
 			document.getElementById('loading-bar').style.display='none';
 			//alert(html);
+			if( elem.attr( "src") == "./assets/img/zonet/note_unread.png" ){
+				$("#notes_number").text( $("#notes_number").text() - 1 );//头像附近的通知数量减1
+			}
+			//设置当前阅读的信箱为已读
+			elem.attr( "src", "./assets/img/zonet/note_read.png" );
 			switch_main_content( "->" );
 			$( zt_elem_main_content2 ).html(html);
 		}

@@ -10,14 +10,15 @@
 <table>
 	<{section name=note_index loop=$note_list}>
 		<tr class="note_table_row" noteid="<{$note_list[note_index].id}>" id="note_table_row_<{$note_list[note_index].id}>" title="点击查看详细内容">
-			<td>
+			<td><img id="note_head_img_<{$note_list[note_index].id}>"
 				<{if $note_list[note_index].type == 0}><{*0表示未读，1表示已读，2表示发送*}>
-					<img src="./assets/img/zonet/note_unread.png" width="24" height="24" border="0" alt="">
+					src="./assets/img/zonet/note_unread.png" 
 				<{elseif $note_list[note_index].type == 1}>
-					<img src="./assets/img/zonet/note_read.png" width="24" height="24" border="0" alt="">
+					src="./assets/img/zonet/note_read.png"
 				<{elseif $note_list[note_index].type == 2}>
-					<img src="./assets/img/zonet/note_send.png" width="24" height="24" border="0" alt="">
+					src="./assets/img/zonet/note_send.png"
 				<{/if}>
+				width="24" height="24" border="0" alt="">
 			</td>
 			<td style="font-weight:600;color:#606"><{$note_list[note_index].title|truncate:20:"……":true}></td>
 			<td style="text-align:left"><{$note_list[note_index].content|truncate:20:"……":true}></td>

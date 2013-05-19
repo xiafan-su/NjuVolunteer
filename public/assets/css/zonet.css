@@ -8,6 +8,18 @@ padding: 10px;
 -webkit-border-radius: 20px;
 }
 
+
+#logo img {
+	width: 80px;
+	height: 80px;
+	border-radius: 5px;
+}
+.notification_item{
+	cursor: pointer;
+}
+
+
+
 #down{
 	margin: 10px;
 }

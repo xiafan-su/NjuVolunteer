@@ -19,7 +19,9 @@ setStr:设置列表
 type:"del"删除指定的活动
 activityId:要删除的活动id
 
-
+type:"modifyInfo"修改资料
+slogan:
+profile:
 
 */
 //echo "0";
@@ -94,6 +96,16 @@ if( $_POST['type'] == "actApply" ){
 	exit;
 	//echo "您要删除的请求已经收到（actid=".$actid."），我们会尽快处理！";
 	//echo "0";
+} else if( $_POST['type'] == "modifyInfo" ){
+	if( !isset( $_POST['slogan'] ) || !isset($_POST['profile']) ){ echo "参数错误！"; exit; }
+	if( mb_strlen( $_POST['slogan'] ) == 0 || mb_strlen( $_POST['slogan'] ) > 20 ) { echo "口号长度错误！"; exit; }
+	if( mb_strlen( $_POST['profile'] ) == 0 || mb_strlen( $_POST['profile'] ) > 5000 ) { echo "简介长度错误！"; exit; }
+	$team = new Team();
+	if( $team->modify_team_profile(  $_POST['profile'], $_POST['slogan'], $_SESSION[User::USER][User::FACULTY_ID] ) ){
+		echo "0";
+	} else {
+		echo "修改失败！";
+	}
 }
 
 ?>

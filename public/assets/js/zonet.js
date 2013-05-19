@@ -60,6 +60,8 @@ var nt_func_note_read = function(){};
 var nt_func_note_sent = function(){};//发送的通知
 //var nt_func_note_send = function(){};//发通知
 var nt_func_note_recv_act_select = function(){};
+//团队资料
+
 
 
 //转换主副页面
@@ -74,7 +76,7 @@ function switch_main_content( direction ){
 		$(zt_elem_main_content2).fadeOut( 200 );
 		$(zt_elem_main_content).fadeIn( 500 );
 	} else if( direction == "->" ) {
-/*		$( zt_elem_main_content2 ).html( "正在载入……" );
+	/*	$( zt_elem_main_content2 ).html( "正在载入……" );
 		$( zt_elem_main_content ).animate({width:0}, switch_style );
 		$( zt_elem_main_content ).hide(switch_time);
 		$( zt_elem_main_content2 ).animate({width:683}, switch_style );
@@ -159,4 +161,6 @@ register_click_event( $( zt_elem_note_recv ), "收到的通知", zt_url_note, {t
 register_click_event( $( zt_elem_note_sent ), "发送的通知", zt_url_note, {type:"sent"}, zt_func_note_sent );
 register_click_event( $( zt_elem_mem ), "成员", zt_url_mem, null, zt_func_mem );
 register_click_event( $( zt_elem_infot ), "资料", zt_url_infot );
+
+
 

@@ -22,8 +22,10 @@ if( $_POST['type'] == "add" ){
 		 && isset($_POST['volTime']) && isset($_POST['start_date'])  ) {
 		if( mb_strlen($_POST['leader']) == 0 || mb_strlen($_POST['leader']) > 20 ) { echo "负责人格式错误！";exit; }//检验负责人
 		if( ! preg_match("/^[0-9]{8,11}$/", $_POST['tel'] )){ echo "联系方式格式错误！"; exit; }//检验联系方式
-		if( ! is_numeric( $_POST['volTime']) ){ echo "服务时长格式错误！";exit; };
+		if( ! is_numeric( $_POST['volTime']) ){ echo "活动时长格式错误！";exit; };
 		if( ! preg_match("/^[0-9]{4}(\-|\/)[0-9]{1,2}(\\1)[0-9]{1,2}(|\s+[0-9]{1,2}(|:[0-9]{1,2}(|:[0-9]{1,2})))$/", $_POST['start_date'] )){ echo "开始时间格式错误！"; exit; }
+		if( mb_strlen($_POST['profile']) > 1000){ echo "简介长度错误！"; exit; }
+		if( mb_strlen($_POST['summary']) > 500){ echo "总结长度错误！"; exit; }
 
 		$team = new Team();
 		if( $_POST['documentId'] == -1 ){

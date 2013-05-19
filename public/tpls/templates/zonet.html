@@ -23,12 +23,12 @@
 
 	<div id="up" class="">
 		<div id="logo" class="">
-			<img src="./assets/img/head_photo/boy/3.jpg" width="80px" height="80px" border="0" alt="<{$user_name}>">
+			<img src="<{$team_logo}>"  title="<{$user_name}>">
 		</div>
 		<div id="team_info" class="">
 			<p><{$user_name}></p>
 			<div id="notification_bar" class="">
-				<span id="notes" class="notification_item">通知(<span id="notes_number" class=""><{$notes_number}></span>)</span>
+				<span id="notes"  title="点击查看未读通知" onclick="$('#util_note_recv').trigger('click');" class="notification_item">通知(<span id="notes_number"><{$notes_number}></span>)</span>
 			</div>
 		</div>
 	</div>

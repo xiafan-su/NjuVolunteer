@@ -1,3 +1,28 @@
-<div id="" class="">
-	团队空间右边的团队信息编辑div
+
+
+
+<div id="" class="" style="margin: 0 20px 10px">
+	
+
+	<table>
+	<tr><th style="text-align:right">Logo</th>
+		<td style="text-align:left">
+			<div id="" class="">
+				<img src="<{$team_logo}>" width="" style="border-radius:25px;" height="" border="0" title="暂不支持头像的修改">
+			</div>
+		</td>
+	</tr>
+	<tr><th style="text-align:right">口号</th>
+		<td style="text-align:left"><input type="text" value="<{$team_signature}>" id="team_info_edit_slogan"/></td>
+	</tr>
+	<tr>
+		<th style="text-align:right">简介</th>
+		<td style="text-align:left">
+			<div id="" class="">
+				<textarea name="" rows="10" cols="70" id="team_info_edit_profile"><{$team_profile}></textarea>
+			</div>
+		</td>
+	</tr>
+	</table>
+	<input type="button" class="button"  onclick="team_info_edit_ok();" value="确定" />
 </div>

@@ -587,6 +587,14 @@ class Team extends DB_Connect {
 		}
 		return true;		
 	}
+	public function fetch_my_new_notes_count($team_id)
+	{
+		$sql="SELECT count(*) AS count FROM note WHERE recv_id='".$team_id."' and state='unread' ";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result['count'];
+	}
 }
 ?>
+
 

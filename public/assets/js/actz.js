@@ -106,8 +106,8 @@ zt_func_doc_fold = function( ){
 }
 
 zt_func_doc_del = function(){
+	if( ! confirm( "此操作不可逆，您确定要删除该活动吗？" ) ) return;
 	var actid = $(this).attr("actid");
-
 	$.ajax({
 		type:"POST",
 		url:"./handle/actz.php",
@@ -172,6 +172,7 @@ az_func_doc_submit_doc = function(){
 }
 //点击活动档案的“删除”按钮的处理函数
 az_func_doc_delete_doc = function(){
+	if( ! confirm( "此操作不可逆，您确定要删除该档案吗？" ) ) return;
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
@@ -707,6 +708,8 @@ function doc_edit_submit_handle(elem){
 
 //活动档案“提交”按钮
 function submit_doc(elem){
+	if( ! confirm( "此操作不可逆，您确定要提交该档案吗？" ) ) return;
+
 	$("#doc_op_submit").attr( "disabled", true );
 	$("#doc_op_submit").attr( "title", "正在向服务器提交您的请求……" );
 	document.getElementById('loading-bar').style.display='block';
@@ -878,37 +881,33 @@ function extend_ok_handle(){
 	} );
 }
 
-
-
-//团队资料---介绍
-/*
-function change_to_edit_infot_profile(elem){
-	//elem = $(elem).find();
-	var ta = $(elem).next().find(":first-child");//ta=textarea
-	ta.val( $(elem).text() );
-	$(elem).toggle();
-	$(elem).next().toggle();
-	ta.focus();
+function team_info_modify_handle( elem ){
+	$( zt_elem_main_title ).text( "修改资料" );
+	//switch_main_content( "<-" );
+	document.getElementById('loading-bar').style.display='block';
+	$.ajax({type:"POST", 
+		url: "./include/infot_edit.php", 
+		success: function(html){
+			document.getElementById('loading-bar').style.display='none';
+			$( zt_elem_main_content ).html(html);
+		}
+	});
 }
-function change_to_update_infot_profile(elem){
-	var new_profile = $(elem).val().trim();
 
+function team_info_edit_ok (){
+	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
-		type:"POST",
-		url:"./handle/info.php",
-		data:{type:"chtProfile", profile:new_profile},
-		success:function(html){
-			var elem2 = $(elem).parent();
-			elem2.toggle();
-			elem2.prev().toggle();
+		type:"POST", 
+		url: "./handle/actz.php", 
+		data:{ type:"modifyInfo", slogan:$("#team_info_edit_slogan").val(), profile:$("#team_info_edit_profile").val() },
+		success: function(html){
+			document.getElementById('loading-bar').style.display='none';
 			if( html == 0 ){
-				$(elem).prev().find(":first-child").html( new_profile );
+				alert( "修改成功！" );
+				$("#util_infot").trigger( "click" );
 			} else {
-				alert( html );
+				alert( html ) ;
 			}
 		}
 	});
-
-	
-	
-}//*/
+}

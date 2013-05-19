@@ -42,7 +42,9 @@
 								<span class="note_recv_name" ><{$recv_list[recv_index].name}></span>
 							</div>
 					<{sectionelse}>
+					<{if $read_only}>
 					可能发给了所有人，因为在数据库里什么也没有找到！
+					<{/if}>
 					<{/section}>
 				</div>
 				<{if !$read_only}>

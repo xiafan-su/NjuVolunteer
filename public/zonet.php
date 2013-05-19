@@ -3,8 +3,21 @@
 include_once '../sys/core/init.inc.php';
 include './include/header.php';
 
+
+$team_id = $_SESSION[User::USER][User::FACULTY_ID];
+$team = new Team();
+$team_info = $team->fetch_team_profile( $team_id  );
+$team_logo = $team_info['logo'];
+$team_profile = $team_info['profile'];
+$team_signature = $team_info['slogan'];
+
+$tpl->assign( "team_logo", $team_logo );
 $tpl->assign( "user_name", $_SESSION[User::USER][User::NAME] );
-$tpl->assign( "notes_number", 3 );
+
+
+$tpl->assign( "notes_number", $team->fetch_my_new_notes_count( $team_id ) );
+
+
 
 $tpl->display('zonet.html');
 ?>
