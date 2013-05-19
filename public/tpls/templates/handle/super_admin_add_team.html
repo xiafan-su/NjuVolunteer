@@ -1,17 +1,36 @@
 <head>
 </head>
 <body>
-<form action="../../../../handle/super_admin_add_team_ok.php" method="POST">
-新团队的账户：
-<input type="text" name="teamid">
-<br />
-新团队的名称：
-<input type="text" name="teamname">
-<br />
-新团队的密码：
-<input type="password" name="password">
-<br/>
- <input type="submit" value="确认创建" />
+ <table >
+				<tr>
+                <th style="width:150px" >填写栏目</th>
+					<th>填写值</th>
+                    </tr>
+               
+
+<form action="../public/handle/super_admin_add_team_ok.php" method="POST">
+<tr><td style="text-align:left">团队账号名</td>
+<td><input type="text" name="teamid"></td></tr>
+<tr><td style="text-align:left">团队名称</td>
+<td><input type="text" name="teamname"></td></tr>
+<tr><td style="text-align:left">团队密码</td>
+<td><input type="password" name="password"></td></tr>
+<tr><td style="text-align:left">团队联系邮箱</td>
+<td><input type="text" name="teamemail"></td></tr>
+<tr><td style="text-align:left">团队负责人姓名</td>
+<td><input type="text" name="teamres"></td></tr>
+<tr><td style="text-align:left">团队负责人联系方式</td>
+<td><input type="text" name="teamres_tel"></td></tr>
+<tr><td style="text-align:left">团队指导老师姓名</td>
+<td><input type="text" name="teamtea"></td></tr>
+<tr><td style="text-align:left">团队指导老师联系方式</td>
+<td><input type="text" name="teamtea_tel"></td></tr>
+<tr><td style="text-align:left">团队挂靠单位</td>
+<td><input type="text" name="teamunit"></td></tr>
+
+
+ <tr><td style="text-align:left">请确认</td><td><input type="submit" value="确认创建" /></td>
 </form>
 
+</table>
 </body>

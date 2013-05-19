@@ -12,19 +12,35 @@ $b=new Admin();
 $sb1=$b->get_team_name();
 $all_listinfo=NULL;
 
-$sb2=$b->get_team_people();
+//$sb2=$b->get_team_people();
 
 
-$sb3=$b->get_team_act();
+//$sb3=$b->get_team_act();
+
+//name_info['id'] is a team'is id
 
 while($name_info = mysql_fetch_assoc($sb1)){
 		
+	//$people_info=	mysql_fetch_assoc($sb2);
+	//$actt_info=mysql_fetch_assoc($sb3);
+	//$pn=$people_info['people'];
+	//if ($pn==null) $pn=0;
+	//$an=$actt_info['act'];
+	//if ($an==null) $an=0;
+	
+	$sb2=$b->get_team_people($name_info['id']);
 	$people_info=	mysql_fetch_assoc($sb2);
-	$actt_info=mysql_fetch_assoc($sb3);
 	$pn=$people_info['people'];
 	if ($pn==null) $pn=0;
+	
+	$sb3=$b->get_team_act($name_info['id']);
+	$actt_info=	mysql_fetch_assoc($sb3);
 	$an=$actt_info['act'];
 	if ($an==null) $an=0;
+	//echo $an;
+	//echo "<br/>";
+	
+	
 	
 	$sb4=$b->get_act_people($name_info['id']);
 	$ap_info = mysql_fetch_assoc($sb4);

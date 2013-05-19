@@ -9,8 +9,7 @@ $aid=$_POST['act_id'];
 $tid=$_POST['team_id'];
 $aname=$_POST['aname'];
 
-
-if ($a->audit_pass($aid,$tid,$aname)) echo 1;
+if ($a->audit_refused($aid,$tid,$aname)) echo 1;
 	else echo 0;
 
 
