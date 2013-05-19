@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 22:20:03
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 02:06:37
          compiled from "./tpls/templates\zonet.html" */ ?>
 <?php /*%%SmartyHeaderCode:18551978e13641cd4-65989917%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ae501245acb6019fd59ecfaf5dc2aa117dc89e3a' => 
     array (
       0 => './tpls/templates\\zonet.html',
-      1 => 1368711272,
+      1 => 1368878859,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51978e136c778',
   'variables' => 
   array (
     'user_name' => 0,
     'notes_number' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51978e136c778',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51978e136c778')) {function content_51978e136c778($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -77,6 +77,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</div>
 						<div id="util_finished_activity" class="menu_item_span">
 							完成的活动
+						</div>
+						<div id="util_extend_time" class="menu_item_span">
+							快捷操作
 						</div>
 					</div>
 					<div id="" class="menu_item">

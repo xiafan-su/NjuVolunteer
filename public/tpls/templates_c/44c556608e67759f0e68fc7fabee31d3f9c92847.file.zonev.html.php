@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 23:24:11
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 02:03:34
          compiled from "./tpls/templates\zonev.html" */ ?>
 <?php /*%%SmartyHeaderCode:3044951979d1b131591-23608122%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '44c556608e67759f0e68fc7fabee31d3f9c92847' => 
     array (
       0 => './tpls/templates\\zonev.html',
-      1 => 1368708159,
+      1 => 1368899620,
       2 => 'file',
     ),
   ),
@@ -15,16 +15,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51979d1b20ea1',
   'variables' => 
   array (
     'user_name' => 0,
     'volunteer_time' => 0,
     'base_time' => 0,
     'honor_time' => 0,
+    'signature' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51979d1b20ea1',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51979d1b20ea1')) {function content_51979d1b20ea1($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -54,9 +55,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</div>
 		<div id="person_info" class="person-info" style="float:left">
 			<div id="user_name" ><?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
-</div>
+&nbsp;&nbsp;&nbsp;</div>
             <div id="user_level">
             	<img src="./assets/img/star.png" />
+                <img src="./assets/img/star.png" />
+                <img src="./assets/img/star.png" />
                 <img src="./assets/img/star.png" />
                 <img src="./assets/img/star.png" />
             </div>
@@ -66,8 +69,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 小时</div>
             <div id="honor-time">荣誉时间：<?php echo $_smarty_tpl->tpl_vars['honor_time']->value;?>
 小时</div>
-            <div id="signature">签名：
-            	<input type="text" class="signature" id="sign" value="我了个草/(ㄒoㄒ)/~~" onblur="change_sign()"/>
+            <div id="signature">
+            	<span>签名：</span>
+            	<span  class="signature" onclick="$(this).toggle();$(this).next().toggle();$(this).next().focus();"><?php echo $_smarty_tpl->tpl_vars['signature']->value;?>
+</span>
+            	<input style="display:none" type="text" class="signature" id="sign" value="<?php echo $_smarty_tpl->tpl_vars['signature']->value;?>
+" onblur="change_sign(); $(this).toggle(); $(this).prev().text($(this).val()); $(this).prev().toggle();"/>
+              
             </div>
 		</div>
 	</div>

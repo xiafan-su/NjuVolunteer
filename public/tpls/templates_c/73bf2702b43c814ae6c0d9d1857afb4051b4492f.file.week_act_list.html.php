@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-18 19:13:59
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-19 01:57:05
          compiled from "../tpls/templates\handle\week_act_list.html" */ ?>
 <?php /*%%SmartyHeaderCode:2654551976277f3d304-58872179%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '73bf2702b43c814ae6c0d9d1857afb4051b4492f' => 
     array (
       0 => '../tpls/templates\\handle\\week_act_list.html',
-      1 => 1368858222,
+      1 => 1368899620,
       2 => 'file',
     ),
   ),
@@ -15,18 +15,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5197627818dc7',
   'variables' => 
   array (
     'retlist' => 0,
     'weekact' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5197627818dc7',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5197627818dc7')) {function content_5197627818dc7($_smarty_tpl) {?><div class="title">
    <div class="hotact-left"></div>
-    <h3 style="float:left;font-size:24px;padding-top:10px;">本周活动</h3>
+    <h3 style="float:left;font-size:24px;padding-top:10px;color:rgb(102,51,102)">本周活动</h3>
     <div class="hotact-right"></div>
 </div>
 <div style="padding-top:3px;padding-bottom:3px;background-color:#333"></div>
