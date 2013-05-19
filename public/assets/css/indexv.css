@@ -36,6 +36,12 @@
 	border-color:#666;
 	padding:1px;
 }
+.per-info table th{
+	width: 120px;
+}
+.per-info table td{
+	color:#000;
+}
 #table_for_team{
 	float:left;
 	margin-top:30px;
