@@ -9,11 +9,11 @@ var imgflag=0; //图片切换失效标识
 var flag=0;
 var left=0;
 var hot=[
-'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/1.jpg\" /></li>',
+'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/5.jpg\" /></li>',
 '<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/2.jpg\" /></li>',
 '<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/3.jpg\" /></li>',
 '<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/4.jpg\" /></li>',
-'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/5.jpg\" /></li>'];
+'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/1.jpg\" /></li>'];
 
 $(document).ready(function(){
 	document.getElementById("switch").style.left="-800px";

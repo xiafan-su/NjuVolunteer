@@ -174,7 +174,7 @@ h2{
 .act-detail-title{
 	position:relative;
 	float:right;
-	padding-top:250px;
+	padding-top:200px;
 	padding-right:50px;
 	font-size:20px;
 	font-weight:bolder;
@@ -195,10 +195,11 @@ h2{
 }
 .act-detail-content{
 	position:absolute;
-	padding-top:280px;
+	padding-top:230px;
 	padding-right:50px;
 	font-weight:bolder;
 	color:#FFF;
+	text-align:right;
 	text-shadow:10px 10px 10px #444;
 }
 .act-title{
