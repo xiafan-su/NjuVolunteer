@@ -881,25 +881,40 @@ function extend_ok_handle(){
 	} );
 }
 
+//团队资料“修改”按钮
 function team_info_modify_handle( elem ){
 	$( zt_elem_main_title ).text( "修改资料" );
-	//switch_main_content( "<-" );
+	switch_main_content( "->" );
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({type:"POST", 
 		url: "./include/infot_edit.php", 
 		success: function(html){
 			document.getElementById('loading-bar').style.display='none';
-			$( zt_elem_main_content ).html(html);
+			$( zt_elem_main_content2 ).html(html);
+
 		}
 	});
 }
 
+//资料修改“修改”按钮
 function team_info_edit_ok (){
+	var slogan = $("#team_info_edit_slogan").val();
+	var profile = $("#team_info_edit_profile").val();
+	var old_psd = $("#team_info_edit_password_old").val();
+	var new_psd = $("#team_info_edit_password").val();
+	var new_psd2 = $("#team_info_edit_password2").val();
+	if( old_psd.length >  0 ) {
+		if( new_psd != new_psd2 ){ alert( "两次密码输入不一致！" ); return; }
+		if( old_psd.length < 6 || old_psd.length > 16 ) { alert( "密码必须长度在6-16之间！"); return; }
+		if( new_psd.length < 6 || new_psd.length > 16 ) { alert( "密码必须长度在6-16之间！"); return; }
+		old_psd = hex_md5( old_psd );
+		new_psd = hex_md5( new_psd );
+	}
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST", 
 		url: "./handle/actz.php", 
-		data:{ type:"modifyInfo", slogan:$("#team_info_edit_slogan").val(), profile:$("#team_info_edit_profile").val() },
+		data:{ type:"modifyInfo", slogan: slogan, profile:profile, oldpsd:old_psd, newpsd: new_psd },
 		success: function(html){
 			document.getElementById('loading-bar').style.display='none';
 			if( html == 0 ){
@@ -910,4 +925,9 @@ function team_info_edit_ok (){
 			}
 		}
 	});
+}
+
+
+function go_back_home(){
+	switch_main_content( "<-" );
 }
