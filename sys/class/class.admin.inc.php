@@ -12,7 +12,9 @@ class Admin extends DB_Connect {
 	
 	public function audit_pass($act_id,$team_id,$act_name)//修改这个活动档案
 	{
-		
+		$act_id=htmlspecialchars($act_id);
+		$team_id=htmlspecialchars($team_id);
+		$act_name=htmlspecialchars($act_name);
 		$query="UPDATE activity_info SET state = 'audited' where id='".$act_id."'";
 		if (!mysql_query($query,$this->root_conn))
 		{
@@ -32,7 +34,9 @@ class Admin extends DB_Connect {
 	}
 		public function audit_refused($act_id,$team_id,$act_name)//修改这个活动档案
 	{
-		
+		$act_id=htmlspecialchars($act_id);
+		$team_id=htmlspecialchars($team_id);
+		$act_name=htmlspecialchars($act_name);
 		$query="UPDATE activity_info SET state = 'editing' where id='".$act_id."'";
 		if (!mysql_query($query,$this->root_conn))
 		{
@@ -51,6 +55,15 @@ class Admin extends DB_Connect {
 	}
 	public function add_team($tid,$tname,$pwd,$temail,$tres,$tres_tel,$tea,$tea_tel,$tu)
 	{
+		$tid=htmlspecialchars($tid);
+		$tname=htmlspecialchars($tname);
+		$pwd=htmlspecialchars($pwd);
+		$temail=htmlspecialchars($temail);
+		$tres=htmlspecialchars($tres);
+		$tres_tel=htmlspecialchars($tres_tel);
+		$tea=htmlspecialchars($tea);
+		$tea_tel=htmlspecialchars($tea_tel);
+		$tu=htmlspecialchars($tu);
 		$insert_login="insert into login(id,password,permission)  values ('".$tid."', '".$pwd."',2);";
 		if (!mysql_query($insert_login,$this->root_conn))
 		{
@@ -72,6 +85,8 @@ class Admin extends DB_Connect {
 		return true;
 	}
 	public function change_pwd($tid,$pwd){
+		$tid=htmlspecialchars($tid);
+		$pwd=htmlspecialchars($pwd);
 		$change_pwd="update login set password='".$pwd."'  where id='".$tid."';";
 		//echo $pwd;
 		if (empty($pwd)) return false;
@@ -93,6 +108,12 @@ class Admin extends DB_Connect {
 		
 	}
 	public function add_vol_time($sid,$did,$bt,$ht,$re,$lv){
+		$sid=htmlspecialchars($sid);
+		$did=htmlspecialchars($did);
+		$bt=htmlspecialchars($bt);
+		$ht=htmlspecialchars($ht);
+		$re=htmlspecialchars($re);
+		$lv=htmlspecialchars($lv);
 		$insert_time="insert into act_record(doc_id,user_id,base_time,honor_time,comment,performance_level)  values ('".$did."', '".$sid."', '".$bt."', '".$ht."','".$re."',  '".$lv."'  );";
 			if (!mysql_query($insert_time,$this->root_conn))
 			{
@@ -113,12 +134,14 @@ class Admin extends DB_Connect {
 		return $select;
 	}
 	public function get_team_people($tid){
+		$tid=htmlspecialchars($tid);
 			$query="select count(*) as people from apply_team where state='1' and   team_id='".$tid."';";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}	
 	
 	public function get_team_act($tid){
+		$tid=htmlspecialchars($tid);
 			$query="select count(*) as act from activity_info where (state='audited' or state='end') and publisher='".$tid."';";
 			//echo $query;
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
@@ -126,6 +149,7 @@ class Admin extends DB_Connect {
 	}	
 	
 	public function get_act_people($act_id){
+		$act_id=htmlspecialchars($act_id);
 		$query="select count(*) as ap from act_record where doc_id in(select id from act_doc where act_id in(
 select id from activity_info where publisher='".$act_id."'));";
 	
@@ -134,6 +158,7 @@ select id from activity_info where publisher='".$act_id."'));";
 
 	}
 	public function get_act_base_time($act_id){
+		$act_id=htmlspecialchars($act_id);
 		$query="select sum(base_time) as tp from act_record where doc_id in(select id from act_doc where act_id in(
 select id from activity_info where publisher='".$act_id."'));";
 	
@@ -142,6 +167,7 @@ select id from activity_info where publisher='".$act_id."'));";
 
 	}	
 	public function get_act_honor_time($act_id){
+		$act_id=htmlspecialchars($act_id);
 		$query="select sum(honor_time) as tp from act_record where doc_id in(select id from act_doc where act_id in(
 select id from activity_info where publisher='".$act_id."'));";
 	
