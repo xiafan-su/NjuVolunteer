@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 03:09:47
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 04:52:19
          compiled from "./tpls/templates\include\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:53519909e91d32f5-07335621%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1368990299,
+      1 => 1368996714,
       2 => 'file',
     ),
   ),
@@ -93,6 +93,7 @@ function showit(){
 			//$('#login_button').text('返回');
 			flag=1;
 			setTimeout("temp=0",600);
+			$("#login_id").focus();
 		}
 	}/*else
 	{
