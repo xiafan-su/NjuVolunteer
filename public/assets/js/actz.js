@@ -880,6 +880,7 @@ function extend_ok_handle(){
 		
 	} );
 }
+
 var editor;
 //团队资料“修改”按钮
 function team_info_modify_handle( elem ){
@@ -892,20 +893,20 @@ function team_info_modify_handle( elem ){
 		success: function(html){
 			document.getElementById('loading-bar').style.display='none';
 			$( zt_elem_main_content2 ).html(html);
-			KindEditor.ready(function(K) {
-				alert("asdasd");
-				editor = K.create('textarea[name="content"]', {
-					resizeType : 1,
-					allowPreviewEmoticons : true,
-					allowImageUpload : true,
-					allowFileManager : true,
-					items : [
-						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
-						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-						'insertunorderedlist', '|', 'emoticons', 'image', 'link','unlink','baidumap','fullscreen']
-				});
+
+			$.getScript('./plugin/kindeditor-4.1.5/kindeditor-min.js').done(function() {
+					KindEditor.basePath = './plugin/kindeditor-4.1.5/';
+					editor = KindEditor.create('textarea[name="content"]', {
+							resizeType : 1,
+							allowPreviewEmoticons : true,
+							allowImageUpload : true,
+							allowFileManager : true,
+							items : [
+								'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+								'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+								'insertunorderedlist', '|', 'emoticons', 'image', 'link','unlink','baidumap','fullscreen']
+					});
 			});
-			//alert("2222");
 		}
 	});
 }
@@ -913,10 +914,11 @@ function team_info_modify_handle( elem ){
 //资料修改“修改”按钮
 function team_info_edit_ok (){
 	var slogan = $("#team_info_edit_slogan").val();
-	var profile = $("#team_info_edit_profile").val();
+	var profile = editor.html();//$("#team_info_edit_profile").val();
 	var old_psd = $("#team_info_edit_password_old").val();
 	var new_psd = $("#team_info_edit_password").val();
 	var new_psd2 = $("#team_info_edit_password2").val();
+	//alert( profile );
 	if( old_psd.length >  0 ) {
 		if( new_psd != new_psd2 ){ alert( "两次密码输入不一致！" ); return; }
 		if( old_psd.length < 6 || old_psd.length > 16 ) { alert( "密码必须长度在6-16之间！"); return; }
