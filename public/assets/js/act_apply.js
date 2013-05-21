@@ -204,10 +204,11 @@ $(document).ready(function(){
 	$("#responser").blur(function()
 	{
 		var name = $('#responser').val();
-		var pattern = new RegExp(/^[\u4e00-\u9fa5]{2,5}$/);
+		var pattern = new RegExp(/^[\x{4e00}-\x{9fa5}]+$/);
 		if(!pattern.test(name))
 		{
 			responser_flag=0;
+			alert("test");
 			$('#responser_error').html('姓名格式错误');
 		}
 		else
