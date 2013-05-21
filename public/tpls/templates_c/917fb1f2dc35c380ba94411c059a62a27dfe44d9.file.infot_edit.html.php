@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-21 23:14:58
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 05:45:52
          compiled from "../tpls/templates\include\infot_edit.html" */ ?>
-<?php /*%%SmartyHeaderCode:615519b7ab5f3d517-25315981%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:22553519948107f1bd2-77942483%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '917fb1f2dc35c380ba94411c059a62a27dfe44d9' => 
     array (
       0 => '../tpls/templates\\include\\infot_edit.html',
-      1 => 1369149196,
+      1 => 1368990991,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '615519b7ab5f3d517-25315981',
+  'nocache_hash' => '22553519948107f1bd2-77942483',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519b7ab60458c',
   'variables' => 
   array (
     'team_logo' => 0,
@@ -24,8 +22,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'team_profile' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519948108b632',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519b7ab60458c')) {function content_519b7ab60458c($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_519948108b632')) {function content_519948108b632($_smarty_tpl) {?>
 
 
 <div id="" class="" style="margin: 0 20px 10px">
@@ -35,7 +35,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<tr><th style="text-align:right">Logo</th>
 		<td style="text-align:left">
 			<div id="" class="">
-				<img src="./assets/img/team/<?php echo $_smarty_tpl->tpl_vars['team_logo']->value;?>
+				<img src="<?php echo $_smarty_tpl->tpl_vars['team_logo']->value;?>
 " width="" style="border-radius:25px;" height="" border="0" title="暂不支持头像的修改">
 			</div>
 		</td>
@@ -44,7 +44,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<th style="text-align:right">口号</th>
 		<td style="text-align:left">
 			<input type="text" value="<?php echo $_smarty_tpl->tpl_vars['team_signature']->value;?>
-" id="team_info_edit_slogan" />
+" id="team_info_edit_slogan"/>
 		</td>
 	</tr>
 	<tr>
@@ -72,8 +72,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<tr>
 		<th style="text-align:right">简介</th>
 		<td style="text-align:left">
-			<div id="" class="input_area">
-				<textarea name="content" style="width:590px;height:200px;visibility:hidden;"><?php echo $_smarty_tpl->tpl_vars['team_profile']->value;?>
+			<div id="" class="">
+				<textarea name="" rows="10" cols="70" id="team_info_edit_profile"><?php echo $_smarty_tpl->tpl_vars['team_profile']->value;?>
 </textarea>
 			</div>
 		</td>

@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-21 23:14:45
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 05:42:56
          compiled from "./tpls/templates\zonet.html" */ ?>
-<?php /*%%SmartyHeaderCode:5505519b7ab2408673-00285713%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2340751994760ccf569-07729629%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ae501245acb6019fd59ecfaf5dc2aa117dc89e3a' => 
     array (
       0 => './tpls/templates\\zonet.html',
-      1 => 1369149137,
+      1 => 1368990991,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '5505519b7ab2408673-00285713',
+  'nocache_hash' => '2340751994760ccf569-07729629',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519b7ab245e6e',
   'variables' => 
   array (
     'team_logo' => 0,
@@ -24,13 +22,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'notes_number' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51994760e0779',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519b7ab245e6e')) {function content_519b7ab245e6e($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_51994760e0779')) {function content_51994760e0779($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="SHORTCUT ICON" href="./assets/img/header/logo.png">
+
 <link href="./assets/css/main.css" rel="stylesheet" />
 <link href="./assets/css/tipswindown.css" rel="stylesheet" />
 <link href="./assets/css/zonet.css" rel="stylesheet" />
@@ -39,7 +39,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <link href="./assets/css/rec_edit.css" rel="stylesheet" />
 <link href="./assets/css/mem.css" rel="stylesheet" />
 <link href="./assets/css/note.css" rel="stylesheet" />
-
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
 <title>团队空间</title>
 </head>
@@ -48,12 +47,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 
 
-
 <div class="main">
 
 	<div id="up" class="">
 		<div id="logo" class="">
-			<img src="./assets/img/team/<?php echo $_smarty_tpl->tpl_vars['team_logo']->value;?>
+			<img src="<?php echo $_smarty_tpl->tpl_vars['team_logo']->value;?>
 "  title="<?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
 ">
 		</div>
@@ -124,6 +122,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	</div>
 </div>
 
+
+
 <?php echo $_smarty_tpl->getSubTemplate ("include/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 </body>
@@ -133,7 +133,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <script src="./assets/js/zonet.js"></script>
 <script src="./assets/js/actz.js"></script>
 <script src="./assets/js/note.js"></script>
-<script charset="utf-8" src="./plugin/kindeditor-4.1.5/kindeditor-min.js"></script>
-<script charset="utf-8" src="./plugin/kindeditor-4.1.5/lang/zh_CN.js"></script>
-
+<!--
+<script language="javascript">
+$.ajax({
+	type:"POST",
+	url:"./include/rec_dtl.php",
+	data:{documentId:232},
+	success:function(html){
+		tipsWindown("档案信息","text:"+html,"900","427","true","","true","");
+	}
+});
+</script>  -->
 </html><?php }} ?>
