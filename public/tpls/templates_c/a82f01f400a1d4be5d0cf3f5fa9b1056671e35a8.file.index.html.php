@@ -1,4 +1,25 @@
-
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-21 23:07:41
+         compiled from "./tpls/templates\index.html" */ ?>
+<?php /*%%SmartyHeaderCode:32585519b77934c7637-06928767%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
+    array (
+      0 => './tpls/templates\\index.html',
+      1 => 1369148859,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '32585519b77934c7637-06928767',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519b7793511a9',
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_519b7793511a9')) {function content_519b7793511a9($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,7 +33,8 @@
 <title>南京大学青年志愿者</title>
 </head>
 <body>
-<{include file="include/header.html"}>
+<?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 
 <div class="main">
     <div class="act-show">
@@ -148,6 +170,7 @@
 
 
 
-<{include file="include/footer.html"}>
+<?php echo $_smarty_tpl->getSubTemplate ("include/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 </body>
-</html>
+</html><?php }} ?>

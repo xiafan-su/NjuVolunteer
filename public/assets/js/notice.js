@@ -38,7 +38,7 @@ $(document).ready(function(){
 		$('#type-title').text("在线咨询");	
 	}
 	else if(type_t == 3){
-		$('#type-title').text("心理历程");	
+		$('#type-title').text("心路历程");	
 	}
 });
 function show(){
