@@ -8,10 +8,8 @@ include './include/header.php';
 $team=new Team();
 
 $department_info=$team->fetch_department_info();
-
-
 $other_info=$team->fetch_other_info();
-
+//echo '$department_info.length='.count($department_info);
 $tpl->assign("department_info",$department_info);
 $tpl->assign("other_team_info",$other_info);
 

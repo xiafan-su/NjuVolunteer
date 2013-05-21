@@ -43,6 +43,7 @@ class Team extends DB_Connect {
 			while ($row=mysql_fetch_assoc($num))
 				$count++;
 			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan'],"id"=>$result['id']);
+			//echo $result['name']."<br />".count($team_info)."<br />";
 		}
 		return $team_info;
 	}
@@ -637,12 +638,13 @@ class Team extends DB_Connect {
 		$sql="SELECT * FROM team WHERE id='".$id."'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$result=mysql_fetch_assoc($select);
+		$result['profile'] = htmlspecialchars_decode( $result['profile'], ENT_QUOTES );
 		return $result;
 	}
 	
 	public function modify_team_profile($profile,$slogan,$id)//修改编号为id的tema的简介和口号
 	{
-		$profile=htmlspecialchars($profile);
+		$profile=htmlspecialchars($profile, ENT_QUOTES);
 		$slogan=htmlspecialchars($slogan);
 		$id=htmlspecialchars($id);
 		$sql="UPDATE team SET profile='".$profile."',slogan='".$slogan."' WHERE id='".$id."'";

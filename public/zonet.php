@@ -20,4 +20,5 @@ $tpl->assign( "notes_number", $team->fetch_my_new_notes_count( $team_id ) );
 
 
 $tpl->display('zonet.html');
+
 ?>

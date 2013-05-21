@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 
 if( !isset($_BASE_PATH) ) $_BASE_PATH = "../";
