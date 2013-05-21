@@ -880,18 +880,32 @@ function extend_ok_handle(){
 		
 	} );
 }
-
+var editor;
 //团队资料“修改”按钮
 function team_info_modify_handle( elem ){
 	$( zt_elem_main_title ).text( "修改资料" );
 	switch_main_content( "->" );
+
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({type:"POST", 
 		url: "./include/infot_edit.php", 
 		success: function(html){
 			document.getElementById('loading-bar').style.display='none';
 			$( zt_elem_main_content2 ).html(html);
-
+			KindEditor.ready(function(K) {
+				alert("asdasd");
+				editor = K.create('textarea[name="content"]', {
+					resizeType : 1,
+					allowPreviewEmoticons : true,
+					allowImageUpload : true,
+					allowFileManager : true,
+					items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link','unlink','baidumap','fullscreen']
+				});
+			});
+			//alert("2222");
 		}
 	});
 }

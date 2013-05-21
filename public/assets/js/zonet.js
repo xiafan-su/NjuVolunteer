@@ -63,7 +63,6 @@ var nt_func_note_recv_act_select = function(){};
 //团队资料
 
 
-
 //转换主副页面
 function switch_main_content( direction ){
 	var switch_style = "slow";

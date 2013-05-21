@@ -31,7 +31,7 @@ else
 	
 $tpl->assign("team_id",$team_info['id']);
 $tpl->assign("team_name",$team_info['name']);
-$tpl->assign("team_profile",$team_info['profile']);
+$tpl->assign("team_profile",htmlspecialchars_decode($team_info['profile'],ENT_QUOTES));
 $tpl->assign("leader_name",$team_info['leader']);
 $tpl->assign("leader_email",$team_info['email']);
 $tpl->assign("leader_phone",$team_info['leader_phone']);
