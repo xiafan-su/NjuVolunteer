@@ -6,6 +6,7 @@ $a=new Act();
 $act_id=$a->create_new_act();
 $t=new Team();
 $select=$t->fetch_all_faculty();
+$faculty_list=NULL;
 while ($result=mysql_fetch_assoc($select))
 {
 	$faculty_list[]=array('name'=>$result['name']);

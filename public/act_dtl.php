@@ -40,7 +40,7 @@ $tpl->assign("act_state",$state);
 $tpl->assign( "act_same", $same_act);
 $tpl->assign( "id", $activity_id);
 $tpl->assign( "act_place", $item['place'] );
-$tpl->assign( "act_profile", $item['profile'] );
+$tpl->assign( "act_profile", htmlspecialchars_decode($item['profile'],ENT_QUOTES) );
 $tpl->assign( "act_title", $item['name'] );
 $tpl->assign( "act_begin_time", $begin[0] );
 $tpl->assign( "act_end_time", $end[0]);

@@ -1,4 +1,31 @@
-
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 05:25:12
+         compiled from "./tpls/templates\zonet.html" */ ?>
+<?php /*%%SmartyHeaderCode:1002151994338de6619-58293556%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'ae501245acb6019fd59ecfaf5dc2aa117dc89e3a' => 
+    array (
+      0 => './tpls/templates\\zonet.html',
+      1 => 1368993109,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '1002151994338de6619-58293556',
+  'function' => 
+  array (
+  ),
+  'variables' => 
+  array (
+    'team_logo' => 0,
+    'user_name' => 0,
+    'notes_number' => 0,
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51994338e6999',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_51994338e6999')) {function content_51994338e6999($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,25 +39,28 @@
 <link href="./assets/css/rec_edit.css" rel="stylesheet" />
 <link href="./assets/css/mem.css" rel="stylesheet" />
 <link href="./assets/css/note.css" rel="stylesheet" />
-<script charset="utf-8" src="./plugin/kindeditor-4.1.5/kindeditor-min.js"></script>
-<script charset="utf-8" src="./plugin/kindeditor-4.1.5/lang/zh_CN.js"></script>
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
 <title>团队空间</title>
 </head>
 <body>
-<{include file="include/header.html"}>
+<?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 
 
 <div class="main">
 
 	<div id="up" class="">
 		<div id="logo" class="">
-			<img src="<{$team_logo}>"  title="<{$user_name}>">
+			<img src="<?php echo $_smarty_tpl->tpl_vars['team_logo']->value;?>
+"  title="<?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
+">
 		</div>
 		<div id="team_info" class="">
-			<p><{$user_name}></p>
+			<p><?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
+</p>
 			<div id="notification_bar" class="">
-				<span id="notes"  title="点击查看未读通知" onclick="$('#util_note_recv').trigger('click');" class="notification_item">通知(<span id="notes_number"><{$notes_number}></span>)</span>
+				<span id="notes"  title="点击查看未读通知" onclick="$('#util_note_recv').trigger('click');" class="notification_item">通知(<span id="notes_number"><?php echo $_smarty_tpl->tpl_vars['notes_number']->value;?>
+</span>)</span>
 			</div>
 		</div>
 	</div>
@@ -94,7 +124,8 @@
 
 
 
-<{include file="include/footer.html"}>
+<?php echo $_smarty_tpl->getSubTemplate ("include/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 </body>
 <script src="./assets/js/md5.js"></script>
 <script src="./assets/js/tipswindown.js"></script>
@@ -113,4 +144,4 @@ $.ajax({
 	}
 });
 </script>  -->
-</html>
+</html><?php }} ?>

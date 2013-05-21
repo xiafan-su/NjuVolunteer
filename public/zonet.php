@@ -8,7 +8,7 @@ $team_id = $_SESSION[User::USER][User::FACULTY_ID];
 $team = new Team();
 $team_info = $team->fetch_team_profile( $team_id  );
 $team_logo = $team_info['logo'];
-$team_profile = $team_info['profile'];
+$team_profile = htmlspecialchars_decode($team_info['profile'],ENT_QUOTES);
 $team_signature = $team_info['slogan'];
 
 $tpl->assign( "team_logo", $team_logo );

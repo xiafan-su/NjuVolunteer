@@ -21,7 +21,7 @@ KindEditor.ready(function(K) {
 		items : [
 			'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
 			'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-			'insertunorderedlist', '|', 'emoticons', 'image', 'link','unlink','baidumap','fullscreen']
+			'insertunorderedlist', '|', 'wordpaste','emoticons', 'image', 'link','unlink','baidumap','fullscreen']
 	});
 });
 var cur_state,preview_flag=0;
