@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 05:24:01
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 05:40:54
          compiled from "./tpls/templates\act_apply.html" */ ?>
-<?php /*%%SmartyHeaderCode:12552519942f16bbd19-73270034%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:12988519946e698d964-36007881%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1368953170,
+      1 => 1368999590,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '12552519942f16bbd19-73270034',
+  'nocache_hash' => '12988519946e698d964-36007881',
   'function' => 
   array (
   ),
@@ -23,9 +23,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519942f17589c',
+  'unifunc' => 'content_519946e6a4920',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519942f17589c')) {function content_519942f17589c($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_519946e6a4920')) {function content_519946e6a4920($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -55,8 +55,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <body>
 <?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
+
 <div class="main">
-		<div class="span_left">	
+		<div class="span_left">
 				<div class="breadcrumb">
                 	<div class="bar-left"></div>
                     <div class="bar-title">活动资料</div>
@@ -305,8 +306,6 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
 				</div>
 		</div>
 
-		<div class="span_right" id="span_right">
-		</div>
  
 </div>
 <?php echo $_smarty_tpl->getSubTemplate ("include/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
