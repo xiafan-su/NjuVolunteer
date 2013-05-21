@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 04:27:36
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-21 20:37:59
          compiled from "./tpls/templates\include\login.html" */ ?>
 <?php /*%%SmartyHeaderCode:27850519909e9308169-25411509%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bade9366763f2c3ef3f5c78c15ec9639ccea326d' => 
     array (
       0 => './tpls/templates\\include\\login.html',
-      1 => 1368995248,
+      1 => 1368997276,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_519909e936dbd')) {function content_519909e936dbd($_smarty_tpl) {?>
-
+<script src="./assets/js/md5.js"></script>
 <div id="loginModal" class="loginModal" >
 	<div align="center" class="modal-header">
 		<h1><font color="#888888">登录</font></h1>
@@ -34,7 +34,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<td>
 							<div class="input-prepend">
 								<span class="add-on"><i class="icon-envelope"></i></span>
-								<input name="user" class="email" type="text" placeholder="学号" />
+								<input name="user" class="email" type="text" placeholder="学号" id="login_id"/>
 							</div>
 							<span class="emailerror"></span>
 						</td>
@@ -43,14 +43,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<td>
 							<div class="input-prepend">
 								<span class="add-on"><i class="icon-lock"></i></span>
-								<input name="password" class="password" type="password" placeholder="密码" />
+								<input name="password" class="password" id="login_password" type="password" placeholder="密码" />
 							</div>
 							<span class="passworderror"></span>
 						</td>
 					</tr>
 					<tr>
-						<td style="width:100%; text-align:center">
-							<input name="submit" class="btn btn-warning span2" type="submit" value="登录" style="background:rgba(102,51,102,0.7)"/>
+						<td>
+							<input name="submit" class="btn btn-warning span2" type="submit" value="登录" style="background:rgba(102,51,102,0.7)" onclick="$('#login_password').val(hex_md5($('#login_password').val()))"/>
 						</td>
 					</tr>
 				</tbody>
