@@ -41,7 +41,7 @@ else
 	$tpl->assign("other_language",$act_info['other_language']);
 	$tpl->assign("responser",$act_info['responser']);
 	$tpl->assign("responser_tel",$act_info['responser_tel']);
-	$tpl->assign("profile",$act_info['profile']);
+	$tpl->assign("profile",htmlspecialchars_decode($act_info['profile'],ENT_QUOTES));
 	$i=1;$temp=1;
 	for ($i=1;$i<=7;$i++)
 	{

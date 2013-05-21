@@ -183,7 +183,7 @@ class Act extends DB_Connect {
 		$responser=htmlspecialchars($responser);
 		$responser_tel=htmlspecialchars($responser_tel);
 		$last_time=htmlspecialchars($last_time);
-		$activity_profile=htmlspecialchars($activity_profile);
+		$activity_profile=htmlspecialchars($activity_profile,ENT_QUOTES);
 		$state=htmlspecialchars($state);
 		$publisher=htmlspecialchars($publisher);
 		$weekday_time=htmlspecialchars($weekday_time);
