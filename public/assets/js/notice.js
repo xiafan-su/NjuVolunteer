@@ -1,6 +1,10 @@
 // JavaScript Document
 $(document).ready(function(){
-	
+	var notice_id=parseInt($('#notice-id').text());
+	if(notice_id>=0){
+		//alert(notice_id);
+		detail_show(notice_id);	
+	}
 	
 	$('#first-page').click(function(){
 		var type=parseInt($('#type').text());
