@@ -8,6 +8,11 @@ $notice=new System();
 $type=$_GET['type'];
 $page=$_GET['page'];
 
+if(isset($_GET['id'])){
+	$id=$_GET['id'];
+	$tpl->assign("id",$id);
+}
+
 if($type == 1){
 $notice_info=$notice->fetch_notice($page);
 $notice_num=$notice->fetch_notice_num();

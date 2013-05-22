@@ -1,23 +1,26 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-21 22:08:00
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-22 08:43:37
          compiled from "./tpls/templates\notice.html" */ ?>
-<?php /*%%SmartyHeaderCode:10917519b7fc0309195-86361301%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:13644519c1295c38499-24794656%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '557724488c0d1472f55b9b370819058ffefc6297' => 
     array (
       0 => './tpls/templates\\notice.html',
-      1 => 1369145194,
+      1 => 1369183412,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '10917519b7fc0309195-86361301',
+  'nocache_hash' => '13644519c1295c38499-24794656',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519c1295cf503',
   'variables' => 
   array (
     'type' => 0,
+    'id' => 0,
     'detail' => 0,
     'item' => 0,
     'page_now' => 0,
@@ -25,10 +28,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'num_all' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519b7fc039b2d',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519b7fc039b2d')) {function content_519b7fc039b2d($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if ($_valid && !is_callable('content_519c1295cf503')) {function content_519c1295cf503($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -45,6 +46,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 <div id="type" style="display:none"><?php echo $_smarty_tpl->tpl_vars['type']->value;?>
+</div>
+<div id="notice-id" style="display:none"><?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 </div>
 <div class="main">
     <div class="left">

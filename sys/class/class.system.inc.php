@@ -55,9 +55,9 @@ class System extends DB_Connect {
 	public function fetch_notice($page)//取得某一页的通知
 	{
 		$page=htmlspecialchars($page);
-		$end=$page*11;
-		$begin=$end-10;
-		$query="select * from assignment where id >='".$begin."' and id <='".$end."'";
+		$end=intval($page*11);
+		$begin=intval($end-11);
+		$query="select * from assignment order by time DESC LIMIT ".$begin." , ".$end." ";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$notice_info=NULL;
 		while($row=mysql_fetch_assoc($select))
@@ -103,9 +103,9 @@ class System extends DB_Connect {
 	public function fetch_online_question($page)//取得某一页在线咨询详细情况
 	{
 		$page=htmlspecialchars($page);
-		$end=$page*11;
-		$begin=$end-10;
-		$query="select * from online_question where id >='".$begin."' and id <='".$end."'";
+		$end=intval($page*11);
+		$begin=intval($end-11);
+		$query="select * from online_question order by time DESC LIMIT ".$begin." , ".$end." ";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$question_info=NULL;
 		while($row=mysql_fetch_assoc($select))
@@ -124,9 +124,9 @@ class System extends DB_Connect {
 	public function fetch_vol_journal($page)//取得某一页的心路历程
 	{
 		$page=htmlspecialchars($page);
-		$end=$page*11;
-		$begin=$end-10;
-		$query="select * from vol_journal where id >='".$begin."' and id <='".$end."'";
+		$end=intval($page*11);
+		$begin=intval($end-11);
+		$query="select * from vol_journal order by time DESC LIMIT ".$begin." , ".$end." ";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$journal_info=NULL;
 		while($row=mysql_fetch_assoc($select))

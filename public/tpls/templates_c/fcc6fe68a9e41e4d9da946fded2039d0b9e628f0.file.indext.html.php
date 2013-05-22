@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 05:51:07
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-22 09:18:26
          compiled from "./tpls/templates\indext.html" */ ?>
-<?php /*%%SmartyHeaderCode:24835199494bd2e721-21865234%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:26483519c1ce22406a2-16339491%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'fcc6fe68a9e41e4d9da946fded2039d0b9e628f0' => 
     array (
       0 => './tpls/templates\\indext.html',
-      1 => 1368983442,
+      1 => 1369181561,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '24835199494bd2e721-21865234',
+  'nocache_hash' => '26483519c1ce22406a2-16339491',
   'function' => 
   array (
   ),
@@ -19,6 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'team_id' => 0,
     'team_name' => 0,
+    'team_logo' => 0,
     'isfaculty' => 0,
     'already_follow' => 0,
     'already_apply' => 0,
@@ -34,12 +35,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5199494be4341',
+  'unifunc' => 'content_519c1ce235064',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5199494be4341')) {function content_5199494be4341($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if ($_valid && !is_callable('content_519c1ce235064')) {function content_519c1ce235064($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="SHORTCUT ICON" href="./assets/img/header/logo.png">
 <link href="./assets/css/main.css" rel="stylesheet" />
 <link href="./assets/css/login.css" rel="stylesheet" />
 <link href="./assets/css/indext.css" rel="stylesheet" />
@@ -65,7 +67,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <hr />
     <div class="left">
         <div class="photo">
-            <img src="./assets/img/head_photo/boy/7.jpg"/>
+            <img src="./assets/img/team/<?php echo $_smarty_tpl->tpl_vars['team_logo']->value;?>
+" width="200px" height="200px"/>
         </div>
         <?php if ($_smarty_tpl->tpl_vars['isfaculty']->value==1){?>
         <div class="follow_other" id="followit">
