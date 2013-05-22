@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-21 21:45:40
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-22 09:24:22
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:3432519b7a8426d4a4-01506744%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1368954064,
+      1 => 1369185789,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519b7a84364c9',
   'variables' => 
   array (
     'id' => 0,
+    'picture' => 0,
     'act_title' => 0,
     'act_state' => 0,
     'act_begin_time' => 0,
@@ -37,14 +40,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'act' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519b7a84364c9',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_519b7a84364c9')) {function content_519b7a84364c9($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="SHORTCUT ICON" href="./assets/img/header/logo.png">
 <link href="./assets/css/main.css" rel="stylesheet" />
 <link href="./assets/css/login.css" rel="stylesheet" />
 <link href="./assets/css/act_dtl.css" rel="stylesheet" />
@@ -71,7 +73,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div class="main">
 	<div id="left">
         <div id="act_image">
-   			 <img src="./assets/img/activity_center/0.jpg" height="244" width="214" />
+   			 <img src="../Upload/picture/<?php echo $_smarty_tpl->tpl_vars['picture']->value;?>
+" height="244"  />
              <span id="upload_pic" name="upload_pic">上传图片</span>
 		</div>
     </div>

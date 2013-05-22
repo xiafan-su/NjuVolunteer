@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 05:29:09
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-22 09:15:12
          compiled from "../tpls/templates\handle\act_handle.html" */ ?>
 <?php /*%%SmartyHeaderCode:19029519944256df5c6-38375342%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '98ac2491da6aa96dd5b95ddfd79f9643e04a48d2' => 
     array (
       0 => '../tpls/templates\\handle\\act_handle.html',
-      1 => 1368841820,
+      1 => 1369185307,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519944259dac6',
   'variables' => 
   array (
     'act_list' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'have_more' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519944259dac6',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_519944259dac6')) {function content_519944259dac6($_smarty_tpl) {?><?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['act_list']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -32,8 +32,8 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
 ?>
 <div class="summary">
     <div class="act_img">
-        <img src="./assets/img/activity_center/<?php echo $_smarty_tpl->tpl_vars['act']->value['img'];?>
-.jpg" href="www.baidu.com"/>
+        <img src="../Upload/picture/<?php echo $_smarty_tpl->tpl_vars['act']->value['img'];?>
+" width="174" />
     </div>
     <div class="words">
         <div>

@@ -7,7 +7,13 @@ $activity_id = $_GET['act_id'];
 $act = new Act();
 $item = $act->fetch_one($activity_id);
 $tpl->assign( "id", $activity_id);
-
+$re=$act->fetch_photo($activity_id);
+$photo=mysql_fetch_assoc($re);
+if ($photo['pic_name']!=NULL)
+	$picture=$photo['pic_name'];
+else
+	$picture="default.jpg";
+$tpl->assign("picture",$picture);
 /*switch($item['state']){
 	case "audited" :$tpl->assign( "act_state", "已审核" );break;
 	case "auditing" :$tpl->assign( "act_state", "未审核" );break;

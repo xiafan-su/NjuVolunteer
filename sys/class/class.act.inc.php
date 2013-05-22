@@ -405,7 +405,12 @@ class Act extends DB_Connect {
 		}
 		else return true;
 	}
-	
+	public function fetch_photo($act_id)
+	{
+		$sql="SELECT * FROM photos WHERE act_id='".$act_id."' LIMIT 0,1";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;
+	}
 	public function modify( $id/* 其他参数未设置 */ ){
 		
 	}

@@ -6,7 +6,7 @@ include("../plugin/jquery-fileuploader-php-master/classes/easy_upload/upload_cla
 	
 $upload = new file_upload();
 
-$upload->upload_dir = 'upload_pic/';
+$upload->upload_dir = '../../Upload/picture/';
 $upload->extensions = array('.png', '.jpg','.jpeg','.gif'); // specify the allowed extensions here
 $upload->rename_file = true;
 $act_id=$_POST['act_id'];
