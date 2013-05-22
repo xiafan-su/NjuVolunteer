@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+<link rel="SHORTCUT ICON" href="./assets/img/header/logo.png">
 <link href="./assets/css/main.css" rel="stylesheet" />
 <link href="./assets/css/tipswindown.css" rel="stylesheet" />
 <link href="./assets/css/zonet.css" rel="stylesheet" />
@@ -12,6 +12,7 @@
 <link href="./assets/css/rec_edit.css" rel="stylesheet" />
 <link href="./assets/css/mem.css" rel="stylesheet" />
 <link href="./assets/css/note.css" rel="stylesheet" />
+
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
 <title>团队空间</title>
 </head>
@@ -19,11 +20,12 @@
 <{include file="include/header.html"}>
 
 
+
 <div class="main">
 
 	<div id="up" class="">
 		<div id="logo" class="">
-			<img src="<{$team_logo}>"  title="<{$user_name}>">
+			<img src="./assets/img/team/<{$team_logo}>"  title="<{$user_name}>">
 		</div>
 		<div id="team_info" class="">
 			<p><{$user_name}></p>
@@ -90,8 +92,6 @@
 	</div>
 </div>
 
-
-
 <{include file="include/footer.html"}>
 </body>
 <script src="./assets/js/md5.js"></script>
@@ -100,15 +100,7 @@
 <script src="./assets/js/zonet.js"></script>
 <script src="./assets/js/actz.js"></script>
 <script src="./assets/js/note.js"></script>
-<!--
-<script language="javascript">
-$.ajax({
-	type:"POST",
-	url:"./include/rec_dtl.php",
-	data:{documentId:232},
-	success:function(html){
-		tipsWindown("档案信息","text:"+html,"900","427","true","","true","");
-	}
-});
-</script>  -->
+<script charset="utf-8" src="./plugin/kindeditor-4.1.5/kindeditor-min.js"></script>
+<script charset="utf-8" src="./plugin/kindeditor-4.1.5/lang/zh_CN.js"></script>
+
 </html>

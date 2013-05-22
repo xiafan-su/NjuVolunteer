@@ -18,7 +18,7 @@ $select=$a->fetch_weekact($year,$month,$date);
 
 while($result=mysql_fetch_assoc($select)){
 	
-	$week_act_list[]=array('id'=>$result['id'],'name'=>$result['name'],'time_type'=>$result['time_type'],'weekday'=>$result['weekday_time'],'deadline'=>$result['deadline'],'begin_time'=>$result['begin_time'],'end_time'=>$result['end_time'],'profile'=>$result['profile'],'detail_time'=>$result['detail_time'],'used'=>false);
+	$week_act_list[]=array('id'=>$result['id'],'name'=>$result['name'],'time_type'=>$result['time_type'],'weekday'=>$result['weekday_time'],'deadline'=>$result['deadline'],'begin_time'=>$result['begin_time'],'end_time'=>$result['end_time'],'profile'=>htmlspecialchars_decode($result['profile'],ENT_QUOTES),'detail_time'=>$result['detail_time'],'used'=>false);
 }
 
 $str="$year"."-"."$month"."-"."$date";

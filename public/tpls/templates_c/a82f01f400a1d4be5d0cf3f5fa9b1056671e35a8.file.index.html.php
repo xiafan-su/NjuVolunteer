@@ -1,35 +1,36 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 05:24:41
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-21 23:07:41
          compiled from "./tpls/templates\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:3024651994319595988-24314680%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:32585519b77934c7637-06928767%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1368991722,
+      1 => 1369148859,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3024651994319595988-24314680',
+  'nocache_hash' => '32585519b77934c7637-06928767',
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519943195e837',
+  'unifunc' => 'content_519b7793511a9',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519943195e837')) {function content_519943195e837($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_519b7793511a9')) {function content_519b7793511a9($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="SHORTCUT ICON" href="./assets/img/header/logo.png">
 <link href="./assets/css/main.css" rel="stylesheet" />
 <link href="./assets/css/login.css" rel="stylesheet" />
 <link href="./assets/css/index.css" rel="stylesheet" />
 <script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="./assets/js/index.js"></script>
-<title>首页</title>
+<title>南京大学青年志愿者</title>
 </head>
 <body>
 <?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
@@ -57,11 +58,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div class="act-detail" id="act-detail5">
             	<span class="act-detail-title">阳光在路上</span>
             	<span class="act-detail-content">2003年，由Becky老师和青协的共同努力下，在高淳特殊教育学校举办了第一次阳光活动。该活动一直延续至今，旨在资助高淳的同学，给他们带去快乐与温暖。</span></div>
-       		<div class="act-img-t" id="act-img1"><img src="./assets/img/index/多一份关爱.jpg" /></div>
-            <div class="act-img-t" id="act-img2"><img src="./assets/img/index/感恩点滴.jpg" /></div>
-            <div class="act-img-t" id="act-img3"><img src="./assets/img/index/青春同行.jpg" /></div>
-            <div class="act-img-t" id="act-img4"><img src="./assets/img/index/新街口新公益.jpg" /></div>
-            <div class="act-img-t" id="act-img5"><img src="./assets/img/index/阳光在路上.jpg" /></div>
+       		<div class="act-img-t" id="act-img1"><img src="./assets/img/index/5.jpg" /></div>
+            <div class="act-img-t" id="act-img2"><img src="./assets/img/index/4.jpg" /></div>
+            <div class="act-img-t" id="act-img3"><img src="./assets/img/index/3.jpg" /></div>
+            <div class="act-img-t" id="act-img4"><img src="./assets/img/index/2.jpg" /></div>
+            <div class="act-img-t" id="act-img5"><img src="./assets/img/index/1.jpg" /></div>
 		</div>
         
 		<div class="act-title">
@@ -91,7 +92,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
         <div class="box-element">
         	<div class="title-bar"></div>
-            <div class="title-content"><a href="notice.php?type=3&page=1">心路历程</a></div>
+            <div class="title-content"><a href="./notice.php?type=3&amp;page=1">心路历程</a></div>
         </div>
         <div class="box-element">
         	<div class="title-bar"></div>
@@ -148,13 +149,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <div class="others">
     	<div class="others-element">
             <div class="others-content">
-            	<h3><a href="notice.php?type=1&page=1">公告通知</a></h3><hr />"我的南大梦"征文启事 <hr />"美丽南大"摄影大赛征稿启事<hr />南京大学2012年校园开放日公告
+            	<h3><a href="./notice.php?type=1&amp;page=1">公告通知</a></h3><hr />"我的南大梦"征文启事 <hr />"美丽南大"摄影大赛征稿启事<hr />南京大学2012年校园开放日公告
             </div>
         </div>
         <div class="others-h-bar"></div>
     	<div class="others-element">
             <div class="others-content">
-            	<h3><a href="notice.php?type=2&page=1">留言咨询</a></h4><hr />请问希望之星的志愿者招募满了吗？<hr />请问在哪可以办理志愿服务的证明？<hr />这学期还有仙林中学的活动吗？
+            	<h3><a href="./notice.php?type=2&amp;page=1">留言咨询</a></h4><hr />请问希望之星的志愿者招募满了吗？<hr />请问在哪可以办理志愿服务的证明？<hr />这学期还有仙林中学的活动吗？
             </div>
         </div>
         <div class="others-h-bar"></div>

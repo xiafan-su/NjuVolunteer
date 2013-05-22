@@ -33,31 +33,29 @@ class Team extends DB_Connect {
 	{
 		$query="select * from team where layer = '0'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$team_info=NULL;
 		while ($result=mysql_fetch_assoc($select))
 		{
-			$query_num="select * from apply_team where team_id='".$result['id']."' and state= '1'";
+			$query_num="select count(*) AS num from apply_team where team_id='".$result['id']."' and state= '1'";
 			$num=mysql_query($query_num,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-			$count=0;
-			$team_info=NULL;
-			while ($row=mysql_fetch_assoc($num))
-				$count++;
-			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan'],"id"=>$result['id']);
+			if($result['logo']==NULL) $result['logo']="NJU_default.png";
+			$team_info[]=array("name"=>$result['name'],"count"=>$num['num'],"slogan"=>$result['slogan'],"id"=>$result['id'],"logo"=>$result['logo']);
+			//echo $result['name']."<br />".count($team_info)."<br />";
 		}
 		return $team_info;
 	}
 	
 	public function fetch_other_info()
 	{
-		$query="select * from team where layer != '0'  and id<>'admin' and id<>'system'";
+		$query="select * from team where layer = '1'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$team_info=NULL;
 		while ($result=mysql_fetch_assoc($select))
 		{
-			$query_num="select * from apply_team where team_id='".$result['id']."' and state=1";
+			$query_num="select count(*) AS num from apply_team where team_id='".$result['id']."' and state=1";
 			$num=mysql_query($query_num,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-			$count=0;
-			while ($row=mysql_fetch_assoc($num))
-				$count++;
-			$team_info[]=array("name"=>$result['name'],"count"=>$count,"slogan"=>$result['slogan'],"id"=>$result['id']);
+			if($result['logo']==NULL) $result['logo']="NJU_default.png";
+			$team_info[]=array("name"=>$result['name'],"count"=>$num['num'],"slogan"=>$result['slogan'],"id"=>$result['id'],"logo"=>$result['logo']);
 		}
 		return $team_info;
 	}
@@ -635,12 +633,13 @@ class Team extends DB_Connect {
 		$sql="SELECT * FROM team WHERE id='".$id."'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$result=mysql_fetch_assoc($select);
+		$result['profile'] = htmlspecialchars_decode( $result['profile'], ENT_QUOTES );
 		return $result;
 	}
 	
-	public function modify_team_profile($profile,$slogan,$id)//修改编号为id的tema的简介和口号
+	public function modify_team_profile($id,$profile,$slogan)//修改编号为id的tema的简介和口号
 	{
-		$profile=htmlspecialchars($profile);
+		$profile=htmlspecialchars($profile, ENT_QUOTES);
 		$slogan=htmlspecialchars($slogan);
 		$id=htmlspecialchars($id);
 		$sql="UPDATE team SET profile='".$profile."',slogan='".$slogan."' WHERE id='".$id."'";
@@ -658,6 +657,20 @@ class Team extends DB_Connect {
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$result=mysql_fetch_assoc($select);
 		return $result['count'];
+	}
+	public function modify_password($team_id,$oldpsd,$newpsd)
+	{
+		$sql="SELECT id FROM login WHERE id='".$team_id."' and password='".$oldpsd."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_num_rows($select);
+		if ($result==0) return false;
+		$sql="UPDATE login SET password='".$newpsd."' WHERE id='".$team_id."'";
+		if(!mysql_query($sql,$this->root_conn))
+		{
+			die('ERROR:'.mysql_error());
+			return false;
+		}else
+		return true;
 	}
 }
 ?>

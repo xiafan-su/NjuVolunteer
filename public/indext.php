@@ -31,11 +31,15 @@ else
 	
 $tpl->assign("team_id",$team_info['id']);
 $tpl->assign("team_name",$team_info['name']);
-$tpl->assign("team_profile",$team_info['profile']);
+$tpl->assign("team_profile",htmlspecialchars_decode($team_info['profile'],ENT_QUOTES));
 $tpl->assign("leader_name",$team_info['leader']);
 $tpl->assign("leader_email",$team_info['email']);
 $tpl->assign("leader_phone",$team_info['leader_phone']);
 $tpl->assign("slogan",$team_info['slogan']);
+if ($team_info['logo']!=NULL)
+	$tpl->assign("team_logo",$team_info['logo']);
+else
+	$tpl->assign("team_logo","NJU_default.png");
 $act_num_all=$team->fetch_all_doc_num($id);
 $act_doc_now=$team->fetch_now_doc_num($id);
 /*$strtime = "2008-03-16 11:11:11";

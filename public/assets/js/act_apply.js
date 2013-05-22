@@ -21,7 +21,7 @@ KindEditor.ready(function(K) {
 		items : [
 			'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
 			'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-			'insertunorderedlist', '|', 'emoticons', 'image', 'link','unlink','baidumap','fullscreen']
+			'insertunorderedlist', '|', 'wordpaste','emoticons', 'image', 'link','unlink','baidumap','fullscreen']
 	});
 });
 var cur_state,preview_flag=0;
@@ -57,15 +57,17 @@ $(document).ready(function(){
 	$("#activity_name").blur(function(){
 		if($("#activity_name").val().replace(/\s/g,"")==""){
 			$("#activity_name_error").html("活动名称不能为空");
-			//document.getElementById("activity_name_error").style.color="red";
+			document.getElementById("activity_name_error").style.color="red";
 			name_flag=0;
 		}
 		else{
 			if($("#activity_name").val().length>20){
+				document.getElementById("activity_name_error").style.color="red";
 				$("#activity_name_error").html("活动名称20字以内");
 				name_flag=0;
 			}
 			else{
+				document.getElementById("activity_name_error").style.color="black";
 				$("#activity_name_error").html("");
 				name_flag=1;
 			}
@@ -73,16 +75,19 @@ $(document).ready(function(){
 	})
 	$("#activity_place").blur(function(){
 		if($("#activity_place").val().replace(/\s/g,"")==""){
+			document.getElementById("activity_place_error").style.color="red";
 			$("#activity_place_error").html("活动地点不能为空");
 			//document.getElementById("activity_name_error").style.color="red";
 			place_flag=0;
 		}
 		else{
 			if($("#activity_place").val().length>50){
+				document.getElementById("activity_place_error").style.color="red";
 				$("#activity_place_error").html("活动地点50字以内");
 				place_flag=0;
 			}
 			else{
+				document.getElementById("activity_place_error").style.color="black";
 				$("#activity_place_error").html("");
 				place_flag=1;
 			}
@@ -99,15 +104,18 @@ $(document).ready(function(){
 			if(!pattern.test(time))
 			{
 				$('#begin_time_tip').html('时间格式错误：YYYY-MM-DD');
+				document.getElementById("begin_time_tip").style.color="red";
 				begin_time_flag=0;
 			}
 			else
 			{
 				$('#begin_time_tip').html('');
+				document.getElementById("begin_time_tip").style.color="black";
 				begin_time_flag=1;
 			}
 		}
 		else{
+				document.getElementById("begin_time_tip").style.color="red";
 				$('#begin_time_tip').html('开始时间不能为空');
 				begin_time_flag=0;
 		}
@@ -121,6 +129,7 @@ $(document).ready(function(){
 			if(!pattern.test(time))
 			{
 				end_time_flag=0;
+				document.getElementById("end_time_tip").style.color="red";
 				$('#end_time_error').html('时间格式错误：YYYY-MM-DD');
 			}
 			else
@@ -134,16 +143,19 @@ $(document).ready(function(){
  					var endtimesTemp = endtimes[0] + "/" + endtimes[1] + "/" + endtimes[2];
 					if(Date.parse(new   Date(starttimeTemp))>Date.parse(new   Date(endtimesTemp))){
 						$('#end_time_tip').html('开始时间不能在结束时间之后');
+						document.getElementById("end_time_tip").style.color="red";
 						end_time_flag=0;
 						}
 					else{
 						//alert("world");
 						end_time_flag=1;
+						document.getElementById("end_time_tip").style.color="black";
 						$('#end_time_tip').html('');
 					}
 				}
 				else{
 					end_time_flag=0;
+					document.getElementById("end_time_tip").style.color="red";
 					$('#end_time_tip').html('什么时候结束呢');
 				}
 				
@@ -151,6 +163,7 @@ $(document).ready(function(){
 		}
 		else{
 				end_time_flag=0;
+				document.getElementById("end_time_tip").style.color="red";
 				$('#end_time_tip').html('结束时间不能为空');
 		}
 	})
@@ -158,16 +171,19 @@ $(document).ready(function(){
 	$("#last_time").blur(function(){
 		if($("#last_time").val().replace(/\s/g,"")==""){
 			last_time_flag=0;
+			document.getElementById("last_time_tip").style.color="red";
 			$('#last_time_tip').html('持续时间不能为空');
 		}
 		else{
 			var reg = new RegExp("^[0-9]*$");
 			if(!reg.test($("#last_time").val())){
 				$('#last_time_tip').html('请输入数字');
+				document.getElementById("last_time_tip").style.color="red";
 				last_time_flag=0;
 			}
 			else{
 				last_time_flag=1;
+				document.getElementById("last_time_tip").style.color="black";
 				$('#last_time_tip').html('');
 			}
 		}
@@ -176,11 +192,13 @@ $(document).ready(function(){
 	$("#detail_time").blur(function()
 	{
 		if($("#detail_time").val().replace(/\s/g,"")==""){
+			document.getElementById("detail_time_error").style.color="red";
 			$('#detail_time_error').html('详细时间不能为空');
 			detail_time_flag=0;
 		}
 		else{
 			detail_time_flag=1;
+			document.getElementById("detail_time_error").style.color="black";
 			$('#detail_time_error').html('');
 		}
 	})
@@ -188,11 +206,13 @@ $(document).ready(function(){
 	$("#total_num").blur(function()
 	{
 		if($("#total_num").val().replace(/\s/g,"")==""){
+			document.getElementById("total_num_error").style.color="red";
 			$('#total_num_error').html('招募人数不能为空');
 			total_num_flag=0;
 		}
 		else{
 			total_num_flag=1;
+			document.getElementById("total_num_error").style.color="red";
 			$('#total_num_error').html('');
 		}
 	})
@@ -203,16 +223,26 @@ $(document).ready(function(){
 	})
 	$("#responser").blur(function()
 	{
-		var name = $('#responser').val();
-		var pattern = new RegExp(/^[\u4e00-\u9fa5]{2,5}$/);
-		if(!pattern.test(name))
+		//var name = $('#responser').val();
+		//var pattern = new RegExp(/^[\x{4e00}-\x{9fa5}]+$/);
+		if($('#responser').val().length>20)
 		{
 			responser_flag=0;
-			$('#responser_error').html('姓名格式错误');
+			//alert("test");
+			document.getElementById("responser_error").style.color="red";
+			$('#responser_error').html('长度过长');
+		}
+		else if($('#responser').val().replace(/\s/g,"")=="")
+		{
+			responser_flag=0;
+			//alert("test");
+			document.getElementById("responser_error").style.color="red";
+			$('#responser_error').html('不能为空');
 		}
 		else
 		{
 			responser_flag=1;
+			document.getElementById("responser_error").style.color="balck";
 			$('#responser_error').html('');
 	
 	
@@ -224,11 +254,13 @@ $(document).ready(function(){
 		if(!pattern.test(phone))
 		{
 			responser_tel_flag=0;
+			document.getElementById("responser_tel_error").style.color="red";
 			$('#responser_tel_error').html('请输入正确的手机号码');
 		}
 		else
 		{
 			responser_tel_flag=1;
+			document.getElementById("responser_tel_error").style.color="balck";
 			$('#responser_tel_error').html('');
 		}
 		

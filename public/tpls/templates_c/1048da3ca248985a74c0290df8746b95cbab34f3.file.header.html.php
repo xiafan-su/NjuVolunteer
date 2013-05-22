@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-20 05:24:41
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-21 21:59:41
          compiled from "./tpls/templates\include\header.html" */ ?>
-<?php /*%%SmartyHeaderCode:471151994319610208-29233005%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:15606519b7dcd3de595-65069363%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1368998615,
+      1 => 1369144567,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '471151994319610208-29233005',
+  'nocache_hash' => '15606519b7dcd3de595-65069363',
   'function' => 
   array (
   ),
@@ -22,9 +22,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51994319678b5',
+  'unifunc' => 'content_519b7dcd55e31',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51994319678b5')) {function content_51994319678b5($_smarty_tpl) {?><div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
+<?php if ($_valid && !is_callable('content_519b7dcd55e31')) {function content_519b7dcd55e31($_smarty_tpl) {?><div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
 <div class="header-border-down"></div>
 <div class="header">
 	<div class="header_content">
@@ -41,7 +41,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<li><a href="./zonet.php">团队空间</a></li>
 						<?php }?>
 					<?php }?>
-				<li><a href="./news.php">新闻广场</a></li>
+				<!--<li><a href="./news.php">新闻广场</a></li>-->
 				<li><a href="./team.php">团队组织</a></li>
 			</ul>
 		</div>

@@ -50,26 +50,28 @@
 				<div class="main-content-subtitle">个性资料</div>
 				<div class="right-bar"></div>
 			</div>
-			<table>
-				<tr>
-					<th style="text-align:right">Logo</th>
-					<td style="text-align:left">
-						<div id="" class="">
-							<img src="<{$team_logo}>" width="" style="border-radius:25px;" height="" border="0" alt="">
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<th style="text-align:right">口号</th>
-					<td style="text-align:left"><{$team_signature}></td>
-				</tr>
-				<tr>
-					<th style="text-align:right">简介</th>
-					<td style="text-align:left" >
-						<span class=""  id="infot_profile" ><{$team_profile}></span>
-					</td>
-				</tr>
-			</table>
+			<div id="" class="" style="width:629px; overflow:auto;">
+				<table>
+					<tr>
+						<th style="text-align:right">Logo</th>
+						<td style="text-align:left">
+							<div id="" class="">
+								<img src="./assets/img/team/<{$team_logo}>" width="" style="border-radius:25px;" height="" border="0" alt="">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th style="text-align:right">口号</th>
+						<td style="text-align:left"><{$team_signature}></td>
+					</tr>
+					<tr>
+						<th style="text-align:right">简介</th>
+						<td style="text-align:left" >
+							<div class=""  style="" id="infot_profile" ><{$team_profile}></div>
+						</td>
+					</tr>
+				</table>
+			</div>
 	</div>
 	
 	<input type="button" class="button" id="team_info_modify" onclick="team_info_modify_handle(this);" value="修改"  title="修改个性资料" />

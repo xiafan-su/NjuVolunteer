@@ -8,7 +8,7 @@
                     </tr>
                
 <script src="./assets/js/md5.js"></script>
-<form action="../public/handle/super_admin_add_team_ok.php" method="POST">
+<form action="./handle/super_admin_add_team_ok.php" method="POST">
 <tr><td style="text-align:left">团队账号名</td>
 <td><input type="text" name="teamid"></td></tr>
 <tr><td style="text-align:left">团队名称</td>
@@ -29,7 +29,7 @@
 <td><input type="text" name="teamunit"></td></tr>
 
 
- <tr><td style="text-align:left">请确认</td><td><input type="submit" value="确认创建" onclick="$('#password').val(hex_md5($('#password').val()));"/></td>
+ <tr><td style="text-align:left">请确认</td><td><input type="submit" value="确认创建" onClick="$('#password').val(hex_md5($('#password').val()));"/></td>
 </form>
 
 </table>

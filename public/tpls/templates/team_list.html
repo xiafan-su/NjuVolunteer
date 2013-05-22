@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="SHORTCUT ICON" href="./assets/img/header/logo.png">
 <link href="./assets/css/main.css" rel="stylesheet" />
 <link href="./assets/css/login.css" rel="stylesheet" />
 <link href="./assets/css/team_list.css" rel="stylesheet" />
@@ -48,11 +49,11 @@ button{
          <{foreach name=data item=item from=$department_info}>
          <li class="explore-item">
             <div class="pic">
-                <img src="./assets/img/team_list/<{$item.logo}>" class="t-portrait" id="pic1"/>
+               <a href="./indext.php?team_id=<{$item.id}>" target="_blank"> <img src="./assets/img/team/<{$item.logo}>" class="t-portrait" id="pic1"/></a>
             </div>
             <div class="content">
                 <div class="title">
-                	<span onclick="window.location.href='indext.php?team_id=<{$item.id}>'"><{$item.name}>
+                	<span onclick="window.open('indext.php?team_id=<{$item.id}>', '_blank');"><{$item.name}>
                     </span>
                 </div>
                 <div class="favs">
@@ -73,12 +74,13 @@ button{
      <{foreach name=data item=item from=$other_team_info}>
      <li class="explore-item">
    		<div class="pic">
-        	<img src="./assets/img/team_list/<{$item.logo}>" class="t-portrait" id="pic1"/>
+        	 <a href="./indext.php?team_id=<{$item.id}>" target="_blank"> <img src="./assets/img/team/<{$item.logo}>" class="t-portrait" id="pic1"/></a>
        	</div>
    		<div class="content" >
-        	<div class="title" onclick="window.location.href='indext.php?team_id=<{$item.id}>'">
-            		<{$item.name}>
-        	</div>
+                <div class="title">
+                	<span onclick="window.open('indext.php?team_id=<{$item.id}>', '_blank');"><{$item.name}>
+                    </span>
+                </div>
         	<div class="favs">
             	
             </div>

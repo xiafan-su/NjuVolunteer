@@ -20,6 +20,7 @@ if( $perm == 2 ){
 	header("Location: ../super_admin.php");
 }else
 {
+	$_SESSION['login'] = "true";
 	header( "Location: ../index.php?login=error" );
 	//echo '<script>alert('.'"用户名/密码错误"'.');</script>';
 }
