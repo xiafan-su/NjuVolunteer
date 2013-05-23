@@ -161,3 +161,24 @@ register_click_event( $( zt_elem_note_sent ), "发送的通知", zt_url_note, {t
 register_click_event( $( zt_elem_mem ), "成员", zt_url_mem, null, zt_func_mem );
 register_click_event( $( zt_elem_infot ), "资料", zt_url_infot );
 
+
+
+
+//获取url参数
+function GetRequest() {
+   var url = location.search; //获取url中"?"符后的字串
+   var theRequest = new Object();
+   if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      strs = str.split("&");
+      for(var i = 0; i < strs.length; i ++) {
+         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+      }
+   }
+   return theRequest;
+}
+
+var para = GetRequest();
+if( para['type'] == null || para['type'] == 'start' ){
+	$("#util_start_activity").trigger( "click" );
+}

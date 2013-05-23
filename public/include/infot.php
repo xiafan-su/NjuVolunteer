@@ -33,6 +33,11 @@ $team_logo = $team_info['logo'];
 $team_profile = $team_info['profile'];
 $team_signature = $team_info['slogan'];
 
+
+if( $team_logo == NULL ){
+	$team_logo = "NJU_default.png";
+}
+
 $tpl->assign( "team_id", $team_id );
 $tpl->assign( "team_name", $team_name );
 $tpl->assign( "team_email", $team_email );
