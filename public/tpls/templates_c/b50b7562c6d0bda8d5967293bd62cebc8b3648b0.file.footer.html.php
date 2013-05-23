@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-21 21:59:41
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-22 08:34:15
          compiled from "./tpls/templates\include\footer.html" */ ?>
-<?php /*%%SmartyHeaderCode:4964519b7dcd658301-19164888%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:29055519c12871c01d2-10056864%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b50b7562c6d0bda8d5967293bd62cebc8b3648b0' => 
     array (
       0 => './tpls/templates\\include\\footer.html',
-      1 => 1368769060,
+      1 => 1368706884,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '4964519b7dcd658301-19164888',
+  'nocache_hash' => '29055519c12871c01d2-10056864',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519b7dcd669c3',
+  'unifunc' => 'content_519c12871c4f4',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519b7dcd669c3')) {function content_519b7dcd669c3($_smarty_tpl) {?><div class="footer">
+<?php if ($_valid && !is_callable('content_519c12871c4f4')) {function content_519c12871c4f4($_smarty_tpl) {?><div class="footer">
 	<div class="copyright">
     Copyright©2013 VAHStudio,All Rights Reserved </br>
      使用过程中有任何问题请联系我们，邮箱:VAHStudio@126.com

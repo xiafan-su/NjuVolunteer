@@ -197,17 +197,23 @@ $(function(){
 	$('#submit_comment').click(function() {
 		content = editor.html();
 		//alert(editor.html());
-		document.getElementById('loading-bar').style.display='block';
-		$.ajax({
-			type:"POST",
-			url:"./handle/comment_apply.php",
-			data:{content:editor.html(),res_id:response_id,act_id:$('#act_id').attr("value")},
-			success:function(html){
-				document.getElementById('loading-bar').style.display='none';
-				window.location.reload();
-				alert(html);
-			}
-		});
+		var strs=new Array();
+		strs=content.split(":");
+		if (strs[1]!="")
+		{
+			document.getElementById('loading-bar').style.display='block';
+			$.ajax({
+				type:"POST",
+				url:"./handle/comment_apply.php",
+				data:{content:editor.html(),res_id:response_id,act_id:$('#act_id').attr("value")},
+				success:function(html){
+					document.getElementById('loading-bar').style.display='none';
+					window.location.reload();
+					//alert(html);
+				}
+			});
+		}
+		else alert("评论内容不能为空");
 		
 	});
 	

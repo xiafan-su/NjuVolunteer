@@ -1,25 +1,31 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-21 23:07:41
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-22 15:50:54
          compiled from "./tpls/templates\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:32585519b77934c7637-06928767%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:18208519c1286ef1110-15126680%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1369148859,
+      1 => 1369209003,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '32585519b77934c7637-06928767',
+  'nocache_hash' => '18208519c1286ef1110-15126680',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519b7793511a9',
+  'unifunc' => 'content_519c128705ed2',
+  'variables' => 
+  array (
+    'notice_detail' => 0,
+    'd' => 0,
+    'question_detail' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_519b7793511a9')) {function content_519b7793511a9($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_519c128705ed2')) {function content_519c128705ed2($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -149,19 +155,56 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <div class="others">
     	<div class="others-element">
             <div class="others-content">
-            	<h3><a href="./notice.php?type=1&amp;page=1">公告通知</a></h3><hr />"我的南大梦"征文启事 <hr />"美丽南大"摄影大赛征稿启事<hr />南京大学2012年校园开放日公告
+            	<h3><a href="./notice.php?type=1&amp;page=1">公告通知</a></h3>
+                <div class="a-detail">
+                <?php  $_smarty_tpl->tpl_vars['d'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['d']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['notice_detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['foo']['index']=-1;
+foreach ($_from as $_smarty_tpl->tpl_vars['d']->key => $_smarty_tpl->tpl_vars['d']->value){
+$_smarty_tpl->tpl_vars['d']->_loop = true;
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['foo']['index']++;
+?>
+                	<?php if ($_smarty_tpl->getVariable('smarty')->value['foreach']['foo']['index']<3){?>
+                    	<hr />
+                    	<a href="notice.php?type=1&page=1&id=<?php echo $_smarty_tpl->tpl_vars['d']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['d']->value['title'];?>
+</a>
+                    <?php }?>
+                <?php } ?>
+                </div>
             </div>
         </div>
         <div class="others-h-bar"></div>
     	<div class="others-element">
             <div class="others-content">
-            	<h3><a href="./notice.php?type=2&amp;page=1">留言咨询</a></h4><hr />请问希望之星的志愿者招募满了吗？<hr />请问在哪可以办理志愿服务的证明？<hr />这学期还有仙林中学的活动吗？
+            	<h3><a href="./notice.php?type=2&amp;page=1">留言咨询</a></h3>
+                <div class="a-detail">
+                <?php  $_smarty_tpl->tpl_vars['d'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['d']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['question_detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['foo']['index']=-1;
+foreach ($_from as $_smarty_tpl->tpl_vars['d']->key => $_smarty_tpl->tpl_vars['d']->value){
+$_smarty_tpl->tpl_vars['d']->_loop = true;
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['foo']['index']++;
+?>
+                	<?php if ($_smarty_tpl->getVariable('smarty')->value['foreach']['foo']['index']<3){?>
+                    	<hr />
+                    	<a href="notice.php?type=1&page=1&id=<?php echo $_smarty_tpl->tpl_vars['d']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['d']->value['title'];?>
+</a>
+                    <?php }?>
+                <?php } ?>
+                </div>
             </div>
         </div>
         <div class="others-h-bar"></div>
         <div class="others-element">
             <div class="others-content">
-            	<h3>优秀组织</h4><hr />南京大学青年志愿者协会<hr />计算机系青协<hr />文学院青协
+            	<h3>优秀组织</h3>
+                <div class="a-detail">
+                <hr /><a href="indext.php?team_id=NJU002">商学院</a>
+                <hr /><a href="indext.php?team_id=NJU003">政府管理学院</a>
+                <hr /><a href="indext.php?team_id=NJU004">生命科学学院</a>
+                </div>
             </div>
         </div>
     </div>

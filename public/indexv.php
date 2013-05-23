@@ -6,7 +6,7 @@ include_once '../sys/core/init.inc.php';
 include './include/header.php';
 
 //
-$id=$_GET['user_id'];
+$id=htmlspecialchars($_GET['user_id'],ENT_QUOTES);
 //
 
 $activity=NULL;

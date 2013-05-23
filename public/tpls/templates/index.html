@@ -127,19 +127,40 @@
     <div class="others">
     	<div class="others-element">
             <div class="others-content">
-            	<h3><a href="./notice.php?type=1&amp;page=1">公告通知</a></h3><hr />"我的南大梦"征文启事 <hr />"美丽南大"摄影大赛征稿启事<hr />南京大学2012年校园开放日公告
+            	<h3><a href="./notice.php?type=1&amp;page=1">公告通知</a></h3>
+                <div class="a-detail">
+                <{foreach from=$notice_detail item=d name=foo}>
+                	<{if $smarty.foreach.foo.index<3}>
+                    	<hr />
+                    	<a href="notice.php?type=1&page=1&id=<{$d.id}>"><{$d.title}></a>
+                    <{/if}>
+                <{/foreach}>
+                </div>
             </div>
         </div>
         <div class="others-h-bar"></div>
     	<div class="others-element">
             <div class="others-content">
-            	<h3><a href="./notice.php?type=2&amp;page=1">留言咨询</a></h4><hr />请问希望之星的志愿者招募满了吗？<hr />请问在哪可以办理志愿服务的证明？<hr />这学期还有仙林中学的活动吗？
+            	<h3><a href="./notice.php?type=2&amp;page=1">留言咨询</a></h3>
+                <div class="a-detail">
+                <{foreach from=$question_detail item=d name=foo}>
+                	<{if $smarty.foreach.foo.index<3}>
+                    	<hr />
+                    	<a href="notice.php?type=1&page=1&id=<{$d.id}>"><{$d.title}></a>
+                    <{/if}>
+                <{/foreach}>
+                </div>
             </div>
         </div>
         <div class="others-h-bar"></div>
         <div class="others-element">
             <div class="others-content">
-            	<h3>优秀组织</h4><hr />南京大学青年志愿者协会<hr />计算机系青协<hr />文学院青协
+            	<h3>优秀组织</h3>
+                <div class="a-detail">
+                <hr /><a href="indext.php?team_id=NJU002">商学院</a>
+                <hr /><a href="indext.php?team_id=NJU003">政府管理学院</a>
+                <hr /><a href="indext.php?team_id=NJU004">生命科学学院</a>
+                </div>
             </div>
         </div>
     </div>

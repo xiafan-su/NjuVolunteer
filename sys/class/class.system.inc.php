@@ -4,9 +4,9 @@ class System extends DB_Connect {
 	public function __construct(){
 		parent::__construct();
 	}
-	public function system_note($team_name)
+	public function system_note($team_name)//每次修改资料，看下当前志愿者是否已经加入过院系，修改相应审核状态
 	{
-		$team_name=htmlspecialchars($team_name);
+		$team_name=htmlspecialchars($team_name,ENT_QUOTES);
 		//查找是否已经申请过一个院系
 		$sql="SELECT id FROM team where name='".$team_name."'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
@@ -54,10 +54,10 @@ class System extends DB_Connect {
 	}
 	public function fetch_notice($page)//取得某一页的通知
 	{
-		$page=htmlspecialchars($page);
-		$end=$page*11;
-		$begin=$end-10;
-		$query="select * from assignment where id >='".$begin."' and id <='".$end."'";
+		$page=htmlspecialchars($page,ENT_QUOTES);
+		$end=intval($page*11);
+		$begin=intval($end-11);
+		$query="select * from assignment order by time DESC LIMIT ".$begin." , ".$end." ";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$notice_info=NULL;
 		while($row=mysql_fetch_assoc($select))
@@ -68,8 +68,8 @@ class System extends DB_Connect {
 	}
 	public function fetch_content($type,$id)//取出具体信息
 	{
-		$type=htmlspecialchars($type);
-		$id=htmlspecialchars($id);
+		$type=htmlspecialchars($type,ENT_QUOTES);
+		$id=htmlspecialchars($id,ENT_QUOTES);
 		if ($type==1){
 			$sql="UPDATE assignment SET counts=counts+1 WHERE id='".$id."'";
 			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
@@ -102,10 +102,10 @@ class System extends DB_Connect {
 	}
 	public function fetch_online_question($page)//取得某一页在线咨询详细情况
 	{
-		$page=htmlspecialchars($page);
-		$end=$page*11;
-		$begin=$end-10;
-		$query="select * from online_question where id >='".$begin."' and id <='".$end."'";
+		$page=htmlspecialchars($page,ENT_QUOTES);
+		$end=intval($page*11);
+		$begin=intval($end-11);
+		$query="select * from online_question order by time DESC LIMIT ".$begin." , ".$end." ";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$question_info=NULL;
 		while($row=mysql_fetch_assoc($select))
@@ -123,10 +123,10 @@ class System extends DB_Connect {
 	}
 	public function fetch_vol_journal($page)//取得某一页的心路历程
 	{
-		$page=htmlspecialchars($page);
-		$end=$page*11;
-		$begin=$end-10;
-		$query="select * from vol_journal where id >='".$begin."' and id <='".$end."'";
+		$page=htmlspecialchars($page,ENT_QUOTES);
+		$end=intval($page*11);
+		$begin=intval($end-11);
+		$query="select * from vol_journal order by time DESC LIMIT ".$begin." , ".$end." ";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$journal_info=NULL;
 		while($row=mysql_fetch_assoc($select))

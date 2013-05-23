@@ -29,7 +29,9 @@
 	<div id="left">
         <div id="act_image">
    			 <img src="../Upload/picture/<{$picture}>" height="244"  />
+             <{if $perm_of_upload==1}>
              <span id="upload_pic" name="upload_pic">上传图片</span>
+             <{/if}>
 		</div>
     </div>
 	<div id="right">
@@ -48,10 +50,11 @@
                     <div class="div_content_value"><{$act_time_type}></div></li>
                     <li><div class="div_content_attr">类型</div>
                     <div class="div_content_value"><{$act_attr_type}></div></li>
-                    <li><div class="div_content_attr">报名截止日期</div>
-                    <div class="div_content_value"><{$deadline}></div></li>
                     <li><div class="div_content_attr">地点</div>
                     <div class="div_content_value"><{$act_place}></div></li>
+                    <li><div class="div_content_attr">报名截止日期</div>
+                    <div class="div_content_value"><{$deadline}></div></li>
+
 
                 </ul>
             </div>
@@ -74,7 +77,19 @@
 				<{$act_profile}>
 			</div>
         </div>
-        
+        <div id="act_contact" class="act-detail">
+            <div class="div_title2" style="width:400px"><div>联系方式</div></div>
+            <div class="div_content">
+            	<div>
+                <ul>
+                    <li><div class="div_content_attr">负责人</div>
+                    <div class="div_content_value"><{$responser}></div></li>
+                    <li><div class="div_content_attr">联系电话</div>
+                    <div class="div_content_value"><{$responser_tel}></div></li>
+                </ul>
+            	</div>
+			</div>
+        </div>
         <div class="act-comment">
             <!--<div id="drop_cover" style="width:400px;height:5px;background:#999;float:left;display:"none";">-->
             <div class="cover-m" id="cover-m"></div>
@@ -92,7 +107,13 @@
           	<{foreach name=comment_data item=act_comment from=$comment_detail}>
             <div class="comment-panel">
             	<div class="comment-title">
-                	<div class="comment-name"><a href="indexv.php?user_id=<{$act_comment.id}>"><{$act_comment.name}>(<{$act_comment.id}>)</a></div>
+                	<div class="comment-name">
+                    <{if $act_comment.id!="id"}>
+                    <a href="indexv.php?user_id=<{$act_comment.id}>"><{$act_comment.name}>(<{$act_comment.id}>)</a>
+                    <{else}>
+                    <{$act_comment.name}>(<{$act_comment.id}>)
+                    <{/if}>
+                    </div>
                     <div class="comment-time">[<{$act_comment.time}>]</div>
                 </div>
                 <div class="comment-content">
