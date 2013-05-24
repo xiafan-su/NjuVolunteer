@@ -1,6 +1,7 @@
 <?php
 //Code By Safe3 
 //Add HTTP_REFERER by D.
+//*
 $referer=empty($_SERVER['HTTP_REFERER']) ? array() : array($_SERVER['HTTP_REFERER']);
 function customError($errno, $errstr, $errfile, $errline)
 { 
@@ -63,4 +64,5 @@ function arr_foreach($arr) {
 	}
 	return implode($str);
 }
+//*/
 ?>

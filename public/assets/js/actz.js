@@ -657,7 +657,7 @@ function change_doc_honnor_leader_handle(elem, type){//type ==1 表示“带队�
 }
 //把参与表连成字符串
 function get_part_table_string(){
-var all_head_checkbox = $(".doc_checkbox_head");
+	var all_head_checkbox = $(".doc_checkbox_head");
 	var token = "&n&b&";
 	var str = "";
 	for( var i = 0; i < all_head_checkbox.length; i ++ ){
@@ -674,7 +674,7 @@ var all_head_checkbox = $(".doc_checkbox_head");
 		//alert( elem_c.val() );
 		str += uid+token+elem_t.val() + token + elem_p.find(":selected").text() + token + (elem_l.prop("checked")?1:0) + token + (elem_e.prop("checked")?1:0) +token+ elem_c.val() + token;
 	}
-	return token;
+	return str;
 }
 
 //活动档案“确定”按钮
@@ -684,7 +684,7 @@ function doc_edit_submit_handle(elem){
 	submit_button.attr( "disabled", true );
 	submit_button.attr( "title", "正在提交到服务器上……" );
 
-	var token = get_part_table_string();
+	var str = get_part_table_string();
 
 	var docid = $(elem).attr("docid");
 	document.getElementById('loading-bar').style.display='block';
