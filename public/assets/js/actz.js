@@ -571,7 +571,7 @@ function change_doc_time_handle(elem, no){
 }
 function change_doc_level_handle(elem, no){//评价-一般良好优秀
 	//alert( $(elem).attr("id") );
-	const time = 100;
+	var time = 100;
 	if( no == 1 ){
 		$(elem).toggle( time );
 		$(elem).next().toggle( time );
@@ -605,7 +605,7 @@ function change_doc_level_handle(elem, no){//评价-一般良好优秀
 	}
 }
 function change_doc_comment_handle(elem, no){
-	const time = 100;
+	var time = 100;
 	if( no == 1 ){
 		$(elem).toggle( time );
 		$(elem).next().toggle( time );
