@@ -136,7 +136,7 @@
         </div>
         <div class="other-act">
             <div class="div_title2" ><div>参加过这项活动的人还参加了</div>
-            <{foreach name=data item=act from=$act_same}>
+            <{foreach name=data item=act from=$same_act}>
 			<div style="margin:20px 0 20px 0"><a href="act_dtl.php?act_id=<{$act.id}>" target="_blank"><{$act.name}></a></div>
             <{/foreach}>
         	</div>

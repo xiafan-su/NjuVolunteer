@@ -16,6 +16,7 @@ $tpl->assign("gender",$info['gender']);
 $tpl->assign("email",$info['email']);
 $tpl->assign("phone",$info['phone']);
 $tpl->assign("faculty",$info['faculty']);
+$tpl->assign("grade",$info['grade']);
 $tpl->assign("department",$info['department']);
 $tpl->assign("birthday",$info['birthday']);
 $tpl->assign("politics_status",$info['politics_status']);

@@ -233,6 +233,50 @@ class System extends DB_Connect {
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
+	public function print_provement($user_id,$team_id,$begin_date,$end_date)//打印志愿者证明，图片，加水印
+	{
+		$begindate = explode("-", $begin_date);
+		$enddate = explode("-", $end_date);
+		
+		$sql="SELECT name,faculty,grade FROM user_info WHERE id='".$user_id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$user_info=mysql_fetch_assoc($select);
+		
+		$sql="SELECT name FROM team WHERE id='".$team_id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$team_info=mysql_fetch_assoc($select);
+		
+		$sql="SELECT sum(base_time) AS basetime,sum(honor_time) AS honortime FROM act_record WHERE user_id='".$user_id."' and date>='".$begin_date."' and date<='".$end_date."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$vol_info=mysql_fetch_assoc($select);
+		
+		$provment['name']=$user_info['name'];//姓名
+		$provment['faculty']=$user_info['faculty'];//所在院系
+		$provment['grade']=$user_info['grade'];//年级
+		$provment['begin_year']=$begindate[0];//开始年份
+		$provment['begin_month']=$begindate[1];//开始月份
+		$provment['end_year']=$enddate[0];//结束年份
+		$provment['end_month']=$enddate[1];//结束月份
+		$provment['time']=$vol_info['basetime']+$vol_info['honortime'];//服务时间
+		$provment['team_name']=$team_info['name'];//发证单位
+		$provment['prove_date_year']=date("Y",time());
+		$provment['prove_date_month']=date("m",time());
+		return $provment;
+		
+	}
+	public function send_email($sendto,$subject,$message)//发送邮件
+	{
+		$sendto		=	$sendto;
+		$sendfrom	=	"demonsu1992@126.com";
+		$mailpass	=	"920328";
+		$mailserver	=	"smtp.126.com";
+		$subject	=	"test";
+		$message	=	"测试"."<br>信息来自系统管理员"."<br><br>如果您有什么问题，请联系 <strong>245681117@qq.com</strong>";
+		$sm 		= 	new Smail( $sendfrom, $mailpass, $mailserver);
+		$send 		= 	$sm->send( $sendto, $sendfrom, $subject, $message );
+		if( $send ) return  false;
+		else return true;
+	}
 }
 
 

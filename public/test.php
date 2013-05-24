@@ -112,9 +112,20 @@ while ($result=mysql_fetch_assoc($select))
 {
 	echo $result['name'].'<br />';	
 }*/
-$t=new Team();
-echo $t->fetch_my_new_notes_count('NJU002');
+//$t=new Team();
+//echo $t->fetch_my_new_notes_count('NJU002');
 
+//$s=new System();
+//$pro=$s->print_provement("101220129","NJU002","2012-5-10","2013-6-10");
+//echo $pro['name']."<br />".$pro['faculty']."<br />".$pro['grade']."<br />".$pro['begin_year']."<br />".$pro['begin_month']."<br />".$pro['end_year']."<br />".$pro['end_month']."<br />".$pro['time']."<br />".$pro['team_name']."<br />".$pro['prove_date_year']."<br />".$pro['prove_date_month']."<br />";
+$sendto		=	"245681117@qq.com";
+$sendfrom	=	"demonsu1992@126.com";
+$mailpass	=	"920328";
+$mailserver	=	"smtp.126.com";
+$subject	=	"test";
+$message	=	"测试"."<br>信息来自系统管理员"."<br><br>如果您有什么问题，请联系 <strong>245681117@qq.com</strong>";
+$sm 		= 	new Smail( $sendfrom, $mailpass, $mailserver);
+$send 		= 	$sm->send( $sendto, $sendfrom, $subject, $message );
 //if(!$t->insert_act_record(101220119,6,3,'优秀',1,0,'这孩子不错'))echo "wrong";
 //$t->register_voltime(6);
 //if($t->delete_my_activity(121)) echo "可以删除";

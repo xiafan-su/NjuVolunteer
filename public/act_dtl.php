@@ -73,7 +73,7 @@ $end=explode(" ",$item['end_time']);
 $deadline=explode(" ",$item['deadline']);
 $same_act =$act->find_same($activity_id);
 $tpl->assign("act_state",$state);
-$tpl->assign( "act_same", $same_act);
+$tpl->assign( "same_act", $same_act);
 $tpl->assign( "id", $activity_id);
 $tpl->assign( "act_place", $item['place'] );
 $tpl->assign( "act_profile", htmlspecialchars_decode($item['profile'],ENT_QUOTES) );

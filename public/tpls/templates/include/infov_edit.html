@@ -62,6 +62,17 @@ table td{
     <td></td>
   </tr>
   <tr>
+    <th scope="row">年级</th>
+    <td>
+    	<select id="grade" class="myselect">
+        <{foreach item=grade from=$grade_list}>
+		<option value="<{$grade.year}>"<{if $grade.year==$mygrade}>selected="selected"<{/if}>><{$grade.year}></option>
+		<{/foreach}>
+   		</select>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <th scope="row">出生日期</th>
     <td><input type="text" id="birthday" onClick="return showCalendar('birthday', 'y-mm-dd');" value="<{$birthday}>" onblur="test_birthday()"/></td>
     <td id="birthday_tip">yyyy-mm-dd，中间用'-'分开（例：1992-04-30）</td>

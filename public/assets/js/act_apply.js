@@ -342,9 +342,9 @@ function submit_click()
 				}else
 				{
 					//alert('http://localhost/njuvolunteer/public/act_dtl.php?act_id='+act_id);
-					window.open('http://localhost/njuvolunteer/public/act_dtl.php?act_id='+act_id);
+					window.open('../act_dtl.php?act_id='+act_id);
 				}
-			} else {
+			} else  {
 				alert("申请失败"+html);
 			}
 		}	

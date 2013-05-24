@@ -14,6 +14,12 @@ $nations=$t->fetch_all_nation();
 while($nation = mysql_fetch_assoc($nations)){
 		$nation_list[] = array('name' => $nation['nation']);
 }
+$year=intval(date("Y",time()))-7;
+for ($i=0;$i<10;$i++)
+{
+	$grade_list[]=array('year'=>$year);
+	$year++;
+}
 $tpl->assign("nation_list",$nation_list);
 $tpl->assign("faculty_list",$faculty_list);
 $tpl->assign("name",$info['name']);
@@ -23,7 +29,8 @@ $tpl->assign("gender",$info['gender']);
 $tpl->assign("email",$info['email']);
 $tpl->assign("phone",$info['phone']);
 $tpl->assign("my_faculty",$info['faculty']);
-//$tpl->assign("department",$info['department']);
+$tpl->assign("mygrade",$info['grade']);
+$tpl->assign("grade_list",$grade_list);
 $tpl->assign("birthday",$info['birthday']);
 $tpl->assign("politics_status",$info['politics_status']);
 $tpl->assign("my_nation",$info['nation']);
