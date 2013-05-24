@@ -11,7 +11,9 @@ if (isset( $_SESSION[User::USER][User::FACULTY_ID]))
 	$team_logo = $team_info['logo'];
 	$team_profile = htmlspecialchars_decode($team_info['profile'],ENT_QUOTES);
 	$team_signature = $team_info['slogan'];
-	
+	if( $team_logo == NULL ){
+		 $team_logo = "NJU_default.png";
+	}
 	$tpl->assign( "team_logo", $team_logo );
 	$tpl->assign( "user_name", $_SESSION[User::USER][User::NAME] );
 	
