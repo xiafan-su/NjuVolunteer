@@ -1,18 +1,22 @@
 #up{
+position:relative;
 background-color: rgb(245,245,245);
 border:1px rgb(200,200,200) solid;
 height: 100px;
 margin: 10px;
 margin-right:20px;
 padding: 10px; 
--webkit-border-radius: 20px;
+border-radius: 20px;
+behavior:url(./assets/css/pie.htc);
 }
 
 
 #logo img {
+	position:relative;
 	width: 80px;
 	height: 80px;
 	border-radius: 5px;
+	behavior:url(./assets/css/pie.htc);
 }
 .notification_item{
 	cursor: pointer;
@@ -24,12 +28,14 @@ padding: 10px;
 	margin: 10px;
 }
 #down_left{
+	position:relative;
 	margin: 0px;
 	background-color: rgb(245,245,245);
 	float: left;
 	border:1px rgb(200,200,200) solid;
 	width: 25%;
-	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	behavior:url(./assets/css/pie.htc);
 }
 
 
@@ -66,9 +72,11 @@ font-size: 15px;
 	padding-left: 10px;
 }
 .menu_item_span:hover{
+	position:relative;
 	background-color: rgb(200,200,200); /*#F00 #FF0000 red */
-	-webkit-border-radius:10px;
+	border-radius:10px;
 	cursor:pointer;
+	behavior:url(./assets/css/pie.htc);
 }
 .menu_item_span{
 	padding-left: 30px;  /* mk:marks */
@@ -81,23 +89,29 @@ font-size: 15px;
 	margin-left: 25%;
 }
 #main_title{
+	position:relative;
 	background-color: rgb(245,245,245); /*#F00 #FF0000 red */
 	padding: 10px;  /* mk:marks */
 	font-size: 16px;
 	border:1px rgb(200,200,200) solid;
 	margin: 10px; 
-	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	behavior:url(./assets/css/pie.htc);
 }
 #main_content{
+	position:relative;
 	margin: 10px;  /* mk:marks */
 	border:1px rgb(200,200,200) solid;
-	-webkit-border-radius:10px;
+	border-radius:10px;
+	behavior:url(./assets/css/pie.htc);
 }
 #main_content2{
+	position:relative;
 	margin: 10px;  /* mk:marks */
 	display: none;
 	border:1px rgb(200,200,200) solid;
-	-webkit-border-radius:10px;
+	border-radius:10px;
+	behavior:url(./assets/css/pie.htc);
 }
 a{
 	text-decoration:none;
@@ -124,11 +138,13 @@ a:hover{
 
 
 table{
+	position:relative;
 	display: table;
 	border: 1px gray solid;
 	border-spacing: 2px;
 	border-collapse:separate;
-	-webkit-border-radius:5px;
+	border-radius:5px;
+	behavior:url(./assets/css/pie.htc);
 }
 table th{
 	color:rgb(102,51,102);

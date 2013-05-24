@@ -11,10 +11,12 @@
 <title>团队组织</title>
 <style>
 button{
+	position:relative;
 	width:140px;
 	height:40px;
 	border:ridge;
-	-webkit-border-radius:15px;
+	border-radius:15px;
+	behavior:url(./assets/css/pie.htc);
 }
 </style>
 
@@ -49,7 +51,7 @@ button{
          <{foreach name=data item=item from=$department_info}>
          <li class="explore-item">
             <div class="pic">
-               <a href="./indext.php?team_id=<{$item.id}>" target="_blank"> <img src="./assets/img/team/<{$item.logo}>" class="t-portrait" id="pic1"/></a>
+               <span onclick="window.open('./indext.php?team_id=<{$item.id}>','_blank')"> <img src="./assets/img/team/<{$item.logo}>" class="t-portrait" id="pic1"/></span>
             </div>
             <div class="content">
                 <div class="title">
@@ -74,7 +76,7 @@ button{
      <{foreach name=data item=item from=$other_team_info}>
      <li class="explore-item">
    		<div class="pic">
-        	 <a href="./indext.php?team_id=<{$item.id}>" target="_blank"> <img src="./assets/img/team/<{$item.logo}>" class="t-portrait" id="pic1"/></a>
+        	 <span onclick="window.open('./indext.php?team_id=<{$item.id}>','_blank')"> <img src="./assets/img/team/<{$item.logo}>" class="t-portrait" id="pic1"/></spn>
        	</div>
    		<div class="content" >
                 <div class="title">
