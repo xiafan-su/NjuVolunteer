@@ -6,6 +6,7 @@ margin: 10px;
 margin-right:20px;
 padding: 10px; 
 border-radius:20px;
+behavior:url(./assets/css/pie.htc);
 }
 
 #down{
@@ -18,6 +19,7 @@ border-radius:20px;
 	width: 25%;  /* wi:windows */
 	border-radius:10px;
 	background:rgb(245,245,245);
+	behavior:url(./assets/css/pie.htc);
 }
 #team_info p{
 	font-size: 18px;
@@ -63,6 +65,7 @@ border-radius:20px;
 	width:400px;
 	border-radius:4px;
 	background:rgb(245,245,245);
+	behavior:url(./assets/css/pie.htc);
 }
 #notes{
 	margin-left:20px;
@@ -85,6 +88,7 @@ border-radius:20px;
 	background-color: rgb(200,200,200); /*#F00 #FF0000 red */
 	border-radius:10px;
 	cursor:pointer;
+	behavior:url(./assets/css/pie.htc);
 }
 .menu_item_span{
 	padding-left: 30px;  /* mk:marks */
@@ -103,11 +107,13 @@ border-radius:20px;
 	border:1px rgb(200,200,200) solid;
 	margin: 10px; 
 	border-radius:10px;
+	behavior:url(./assets/css/pie.htc);
 }
 #main_content{
 	margin: 10px;  /* mk:marks */
 	border:1px rgb(200,200,200) solid;
 	border-radius:10px;
+	behavior:url(./assets/css/pie.htc);
 }
 #main_content2{
 	margin: 10px;  /* mk:marks */
@@ -142,11 +148,16 @@ a:hover{
 	text-align:center;
 	float:left;
 	font-size:18px;
-	border-radius:10px;	
+	border-radius:10px;
+	behavior:url(./assets/css/pie.htc);
 }
 table{
+	display: table;
+	border: 1px gray solid;
+	border-spacing: 2px;
 	border-collapse:separate;
 	border-radius:5px;
+	behavior:url(./assets/css/pie.htc);
 }
 table th{
 	color:rgb(102,51,102);
@@ -179,10 +190,11 @@ table td{
 	height:300px;
 	opacity:0;
 	z-index:195;
-	background:rgba(250,250,250,1);
+	background:rgb(250,250,250);
 	display:none;
 	border:2px solid rgb(225,225,225);
 	border-radius:20px;
+	behavior:url(./assets/css/pie.htc);
 }
 textarea{
 	resize:none;

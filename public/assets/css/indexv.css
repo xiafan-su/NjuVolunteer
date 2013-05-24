@@ -12,6 +12,7 @@
 	background:#FFF;
 	border-radius:20px;
 	box-shadow:10px 10px 10px #777;
+	behavior:url(./assets/css/pie.htc);
 }
 .center{
 	float:left;
@@ -22,6 +23,7 @@
 	background:#FFF;
 	border-radius:20px;
 	box-shadow:10px 10px 10px #777;
+	behavior:url(./assets/css/pie.htc);
 }
 .per-info table th,.per-info table td{
 	background:rgb(225,225,225);
@@ -31,10 +33,14 @@
 }
 .per-info table{
 	margin-top:0px;
-	border-radius:5px;
 	border-collapse:separate;
 	border-color:#666;
-	padding:1px;
+	display: table;
+	border: 1px gray solid;
+	border-spacing: 2px;
+	border-collapse:separate;
+	border-radius:5px;
+	behavior:url(./assets/css/pie.htc);
 }
 .per-info table th{
 	width: 120px;
@@ -52,13 +58,17 @@
 	background:#FFF;
 	border-radius:20px;
 	box-shadow:10px 10px 10px #777;
+	behavior:url(./assets/css/pie.htc);
 }
 #table_for_team table{
 	margin:0;
 	border-radius:5px;
 	border-collapse:separate;
 	border-color:#666;
-	padding:1px;
+	border: 1px gray solid;
+	border-spacing: 2px;
+	border-radius:5px;
+	behavior:url(./assets/css/pie.htc);
 }
 #table_for_team table th,#table_for_team table td{
 	color:#000;
@@ -74,13 +84,17 @@
 	background:#FFF;
 	border-radius:20px;
 	box-shadow:10px 10px 10px #777;
+	behavior:url(./assets/css/pie.htc);
 }
 #table_for_activity table{
-	border-radius:5px;
-	border-collapse:separate;
 	border-color:#666;
-	padding:1px;
 	margin-top:0px;
+	display: table;
+	border: 1px gray solid;
+	border-spacing: 2px;
+	border-collapse:separate;
+	border-radius:5px;
+	behavior:url(./assets/css/pie.htc);
 }
 #table_for_activity table th,#table_for_activity table td{
 	color:#000;

@@ -25,19 +25,21 @@
 	z-index:200; 
 	top:165px;
 	left:10px;
+	behavior:url(./assets/css/pie.htc);
 }
 .pageup{
 	float:left;
 	height:300px;
 	width:80px;
-	border-radius: 20px 0 0 20px;
+	border-radius: 20px 0px 0px 20px;
 	background:rgb(225,225,225);
 	box-shadow: 0px 0px 10px #666;
-	filter:alpha(opacity=0 finishopacity=100 style=1 startx=0,starty=0,finishx=80,finishy=0)progid:DXImageTransform.Microsoft.gradient(startcolorstr='#E1E1E1',endcolorstr='#E1E1E1',gradientType=1);
+	filter:alpha(opacity=100 finishopacity=100 style=1 startx=0,starty=0,finishx=80,finishy=0)progid:DXImageTransform.Microsoft.gradient(startcolorstr='#E1E1E1',endcolorstr='#E1E1E1',gradientType=1);
 	background:-ms-linear-gradient(left,rgba(225,225,225,0) 0%,rgba(225,225,225,1) 100%);
 	background:-moz-linear-gradient(left,rgba(225,225,225,0) 0%,rgba(225,225,225,1) 100%);
 	background:-o-linear-gradient(left,rgba(225,225,225,0) 0%,rgba(225,225,225,1) 100%);
 	background:-webkit-gradient(linear,right top, left top, from(rgba(225,225,225,1)), to(rgba(225,225,225,0)));
+	behavior:url(./assets/css/pie.htc);
 }
 .pageup:hover, .pagedown:hover{
 	/*background-color:#909;*/
@@ -47,14 +49,15 @@
 	float:right;
 	height:300px;
 	width:80px;
-	border-radius: 0 20px 20px 0;
+	border-radius: 0px 20px 20px 0px;
 	/*background:rgb(102,51,102);*/
 	box-shadow:0px 0px 10px #666;
-	filter:alpha(opacity=100 finishopacity=0 style=1 startx=0,starty=0,finishx=80,finishy=0)progid:DXImageTransform.Microsoft.gradient(startcolorstr='#E1E1E1',endcolorstr='#E1E1E1',gradientType=1);
+	filter:alpha(opacity=100 finishopacity=100 style=1 startx=0,starty=0,finishx=80,finishy=0)progid:DXImageTransform.Microsoft.gradient(startcolorstr='#E1E1E1',endcolorstr='#E1E1E1',gradientType=1);
 	background:-ms-linear-gradient(right,rgba(225,225,225,0) 0%,rgba(225,225,225,1) 100%);
 	background:-moz-linear-gradient(right,rgba(225,225,225,0) 0%,rgba(225,225,225,1) 100%);
 	background:-o-linear-gradient(right,rgba(225,225,225,0) 0%,rgba(225,225,225,1) 100%);
 	background:-webkit-gradient(linear,left top, right top, from(rgba(225,225,225,1)), to(rgba(225,225,225,0)));
+	behavior:url(./assets/css/pie.htc);
 }
 .switch{
 	position:relative;
@@ -73,6 +76,7 @@
 	width:800px;
 	height:300px;
 	box-shadow:0px 0px 10px #666;
+	behavior:url(./assets/css/pie.htc);
 }
 li.tn-img-t{
 	float:left;
@@ -89,6 +93,7 @@ li.tn-img-t{
 	width:960px;
 	height:350px;
 	box-shadow:10px 10px 10px #666;
+	behavior:url(./assets/css/pie.htc);
 }
 .assortment{
 	width:960px;
@@ -112,43 +117,29 @@ li.tn-img-t{
 	/*width:400px;*/
 	width:220px;
 	height:250px;
-	background:rgb(0,0,0,0);
+	background:rgb(245,245,245);
 	border-radius:20px;
 	box-shadow:10px 10px 40px #666;
+	behavior:url(./assets/css/pie.htc);
 }
 .pic{
 	width:220px;
 	height:150px;
 	text-align:center;
+	cursor:pointer;
 }
 .pic img{
-	border-radius:20px;	
+	border-radius:20px;
+	background:#FFF;
 	box-shadow:0px 0px 10px #666;
+	behavior:url(./assets/css/pie.htc);
 }
+
 .t-portrait{
 	width:150px;
 	height:150px;
 }
 
-.float_state{
-	float:right;
-	margin:-150px 50px 0px 0px;
-	width:140px;
-	height:140px;
-	display:none;
-	text-align:center;
-	border-width:5px;
-	border-style:ridge;
-	-moz-border-radius: 15px;
-	border-radius:15px;
-	border-color:#C4F4FB;
-	filter:alpha(opacity=80);
-	-moz-opacity:0.8;
-	-khtml-opacity:0.8;
-	opacity:0.8;
-	background:#FFF;
-	vertical-align:middle;
-}
 .content{
 	height:80px;
 	float:left;
@@ -240,36 +231,4 @@ li.tn-img-t{
 	background:-moz-linear-gradient(left,rgba(104,104,104,1) 0%,rgba(225,225,225,0.2) 100%);
 	background:-o-linear-gradient(left,rgba(104,104,104,1) 0%,rgba(225,225,225,0.2) 100%);
 	background:-webkit-gradient(linear, right top, left top, from(rgba(225,225,225,0.2)), to(rgba(104,104,104,1)));
-}
-.title-bar{
-	margin-top:5px;
-	float:left;
-	width:60px;
-	height:6px;
-	margin-left:20px;
-	background-color:rgba(102,51,102,1);
-	-webkit-border-radius:4px;
-}
-.title-content{
-	margin-top:5px;
-	margin-left:1px;
-	font-size:16px;
-	float:left;
-	width:100px;
-	text-align:center;
-	cursor:pointer;
-}
-#dot2,#dot3,#dot4,#dot5{
-	float:left;
-	height:14px;
-	width:14px;
-	margin-right:8px;
-	background:rgb(102,51,102);
-}
-#dot1{
-	float:left;
-	height:14px;
-	width:14px;
-	margin-right:8px;
-	background:#FFF;
 }

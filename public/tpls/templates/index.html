@@ -12,6 +12,12 @@
 <title>南京大学青年志愿者</title>
 </head>
 <body>
+<!--[if lte IE 8]>
+<div class="browser-change">
+	<span>想要获得最佳浏览效果请使用Chrome、FireFox、Safari或IE9以上的浏览器浏览本网站！谢谢合作！</span>
+	<img src="./assets/img/index/x.png" height="12" class="browser-img" onclick="exit_browser()" />
+</div>
+<![endif]-->
 <{include file="include/header.html"}>
 
 <div class="main">
@@ -21,6 +27,7 @@
 			<div class="map-img" id="map-img"><img src="./assets/img/index/map.png" /></div>
 		</div>
 		<div class="act-img">
+        	<div class="act-detail" id="act-detail"></div>
         	<div class="act-detail" id="act-detail1">
             	<span class="act-detail-title">多一份关爱</span>
             	<span class="act-detail-content">将第一颗爱心献予高淳，为特殊青少年茁壮成长增添养分，相信有"长江基金"的关注、关爱和关怀，高淳特殊青少年成长之花一定会结出丰硕的爱心之果。</span></div>
@@ -102,8 +109,7 @@
         <div class="show-item" id="iitem7"></div>
         <div class="show-item" id="iitem8"></div>
         <div class="show-item" id="iitem9"></div>
-        <div class="show-cover"><img src="./assets/img/index/11.jpg" width="960px" style=""/></div>
-        <div class="pic-cover"></div>
+        <div class="show-cover"><img src="./assets/img/index/11.jpg" width="960px" class="show-cover"/></div>
     </div>
     <div class="share">
     	<div class="share-bar-left"></div>

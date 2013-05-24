@@ -3,11 +3,56 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="SHORTCUT ICON" href="./assets/img/header/logo.png">
-    <title>志愿证明服务</title>
+<{if ! $print}>
+<link type="text/css" rel="stylesheet" href="./plugin/calendar/calendar.css" >
+<script type="text/javascript" src="./plugin/calendar/calendar.js" ></script>  
+<script type="text/javascript" src="./plugin/calendar/calendar-zh.js" ></script>
+<script type="text/javascript" src="./plugin/calendar/calendar-setup.js"></script>
+<link href="./assets/css/index.css" rel="stylesheet" />
+<link href="./assets/css/login.css" rel="stylesheet" />
+<link href="./assets/css/main.css" rel="stylesheet" />
+<link href="./assets/css/zonet.css" rel="stylesheet" />
+<script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
+<script language="javascript">
+function to_print(){
+	var user_id = $("#user_id").text();
+	var begin = $("#input_begin_time").val();
+	var end = $("#input_end_time").val();
+	//alert( user_id+","+begin+","+end );
+	window.open( "./print_vol_time.php?user_id="+user_id+"&begin_time="+begin+"&end_time="+end, "_blank" );
+}
+</script>
+<{/if}>
+<title>志愿服务证明</title>
 </head>
 
 <body>
-	<table align="center" width="840px">
+<{if ! $print}>
+<{include file="include/header.html"}>
+
+<div class="main">
+	<table>
+	<tr>
+		<th style="text-align:right">学号</th>
+		<td style="text-align:left" id="user_id"><{$user_id}></td></tr>
+	<tr>
+		<th style="text-align:right">开始时间</th>
+		<td style="text-align:left">
+			<input type="text" id="input_begin_time" onclick="return showCalendar('input_begin_time', 'y-mm-dd');" />
+		</td>
+	</tr>
+	<tr>
+		<th style="text-align:right">结束时间</th>
+		<td style="text-align:left">
+			<input type="text" id="input_end_time" onclick="return showCalendar('input_end_time', 'y-mm-dd');" />
+		</td>
+	</tr>
+	</table>
+	<input type="button" class="button" onclick="to_print()" value="打印预览" />
+	<p>打印模板：</p>
+<{/if}>
+<!--startprint-->
+	<table align="center" width="840px" >
     	<tr height="30px">
         	<td width="10%"></td>
         	<td align="center" width="80%" style="font-family:黑体; font-size:24px;"><b>志愿者服务证明</b></td>
@@ -15,24 +60,32 @@
         </tr>
         <tr height="200px">
         	<td></td>
-        	<td  style="line-height:30px;font-family:宋体">&nbsp;&nbsp;&nbsp;&nbsp;<b><u><{$name}></u> 同学系南京大学 <u><{$faculty}></u><u><{$grade}></u> 级学生，在 <u><{$start_year}></u> 年 <u><{$start_month}></u> 月至 <u><{$end_year}></u> 年 <u><{$end_month}></u> 月参与志愿活动，累计服务 <u><{$vol_time}></u> 小时。</b></td>
+        	<td  style="line-height:30px;font-family:宋体;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;<b><u><{$name}></u> 同学系南京大学 <u><{$faculty}></u><u><{$grade}></u> 级学生，在 <u><{$start_year}></u> 年 <u><{$start_month}></u> 月至 <u><{$end_year}></u> 年 <u><{$end_month}></u> 月参与志愿活动，累计服务 <u><{$vol_time}></u> 小时。</b></td>
             <td></td>
         </tr>
         <tr height="30px">
         	<td></td>
-        	<td align="right" style="font-family:宋体"><b><{$faculty}><b>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        	<td style="font-family:宋体;text-align:right"><b><{$team_name}><b>&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td></td>
         </tr>
         <tr height="30px">
         	<td></td>
-        	<td align="right" style="font-family:宋体"><b>（校团委盖章）</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        	<td style="font-family:宋体;text-align:right"><b>（校团委盖章）</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td></td>
         </tr>
         <tr height="30px">
         	<td></td>
-        	<td align="right" style="font-family:宋体"><b>年&nbsp;&nbsp;&nbsp;&nbsp;月</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        	<td  style="font-family:宋体;text-align:right"><b><{$prove_date_year}>&nbsp;年&nbsp;<{$prove_date_month}>&nbsp;月</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td></td>
         </tr>
     </table>
+<!--endprint-->
+<{if ! $print}>
+</div>
+
+
+<{include file="include/footer.html"}>
+
+<{/if}>
 </body>
 </html>
