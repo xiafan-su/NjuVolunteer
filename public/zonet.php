@@ -24,6 +24,6 @@ if (isset( $_SESSION[User::USER][User::FACULTY_ID]))
 	
 	$tpl->display('zonet.html');
 }else
-echo '<script>alert("'.'您的登陆信息已过期，请重新登陆'.'");</script>';
+echo '<script>alert("'.'您的登录信息已过期，请重新登录'.'");</script>';
 
 ?>

@@ -53,7 +53,7 @@ $(document).ready(function(){
 				{
 					$('#take_part_in').prop("disabled",true);
 					$('#take_part_in').prop("value","报名活动");
-					$('#take_part_in').prop("title","请先登陆");                                          
+					$('#take_part_in').prop("title","请先登录");                                          
 				}
 				
 			}
@@ -209,6 +209,7 @@ $(function(){
 				success:function(html){
 					document.getElementById('loading-bar').style.display='none';
 					window.location.reload();
+
 					//alert(html);
 				}
 			});

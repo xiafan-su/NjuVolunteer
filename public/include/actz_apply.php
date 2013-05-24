@@ -6,6 +6,10 @@ $_SMARTY_ROOT = "../tpls";
 
 include_once '../../sys/core/init.inc.php';
 
+if( !isset( $_SESSION[User::USER][User::FACULTY_ID] ) ){
+	echo "<p>登录信息已失效，请重新登录！</p>";
+	exit;
+}
 $apply_list = array();
 $apply_state_tip_list = array( 0=>"未审核", 1=>"通过", 2=>"退" );
 

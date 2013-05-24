@@ -4,6 +4,10 @@ $_BASE_PATH = "../../";
 $_SMARTY_ROOT = "../tpls";
 include_once '../../sys/core/init.inc.php';
 
+if( !isset( $_SESSION[User::USER][User::FACULTY_ID] ) ){
+	echo "<p>登录信息已失效，请重新登录！</p>";
+	exit;
+}
 $team = new Team();
 $doc_info = $team->fetch_act_doc_byid( $_POST['documentId'] );
 if( $doc_row = mysql_fetch_array($doc_info) ){

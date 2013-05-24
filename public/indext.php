@@ -4,7 +4,7 @@
 include_once '../sys/core/init.inc.php';
 
 include './include/header.php';
-
+if( !isset( $_GET['team_id'] ) ){ echo "<p>参数错误！</p>"; exit; }
 //
 $id=$_GET['team_id'];
 //

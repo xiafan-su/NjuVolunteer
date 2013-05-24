@@ -3,8 +3,12 @@
 
 $_BASE_PATH = "../../";
 $_SMARTY_ROOT = "../tpls";
-
 include_once '../../sys/core/init.inc.php';
+
+if( !isset( $_SESSION[User::USER][User::FACULTY_ID] ) ){
+	echo "<p>登录信息已失效，请重新登录！</p>";
+	exit;
+}
 
 //18 ---信息管理学院
 $act_state_transfer = array( "audited"=>"审核通过，正在运转中", "auditing"=>"等待管理员审核", "editing"=>"编辑中", "end"=>"已结束" );

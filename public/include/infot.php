@@ -3,6 +3,11 @@
 $_BASE_PATH = "../../";
 $_SMARTY_ROOT = "../tpls";
 include_once '../../sys/core/init.inc.php';
+
+if( !isset( $_SESSION[User::USER][User::FACULTY_ID] ) ){
+	echo "<p>登录信息已失效，请重新登录！</p>";
+	exit;
+}
 /*
 1.	备案资料：由超级管理员录入，团队自己不可修改，包括：
 a)	团队名称

@@ -3,6 +3,10 @@ $_BASE_PATH = "../../";
 
 include_once '../../sys/core/init.inc.php';
 
+if( !isset( $_POST['user'] ) || !isset( $_POST['password'] ) ){
+	echo "<script>window.history.go(-1);alert('用户名/密码错误');</script>";
+	exit;
+}
 
 $id = htmlspecialchars($_POST['user'],ENT_QUOTES);
 $psd =htmlspecialchars($_POST['password'],ENT_QUOTES);
@@ -11,19 +15,38 @@ $user = new User();
 
 $perm = $user->login($id, $psd);
 
+//获取上一页面URL
+$last_url = $_SERVER['HTTP_REFERER'];
+$last_pos = strrpos( $last_url, "/" ) + 1;
+$last_php = substr( $last_url, $last_pos, strlen($last_url) - $last_pos );
+//echo $last_php;exit;
+
 if( $perm == 2 ){
-	//echo "what ";
-	header( "Location: ../zonet.php" );
+	if( $last_php == "index.php" ) {
+		header( "Location: ../zonet.php" );
+	} else {
+		echo "<script>window.history.go(-1);</script>";
+	}
+	exit;
 } else if( $perm == 1 ){
-	header( "Location: ../zonev.php" );
+	if( $last_php == "index.php" ) {
+		header( "Location: ../zonev.php" );
+	} else {
+		echo "<script>window.history.go(-1);</script>";
+	}
+	exit;
 } else if ($perm == 3 ) {
-	header("Location: ../super_admin.php");
-}else
-{
-	$_SESSION['login'] = "true";
-	header( "Location: ../index.php?login=error" );
-	//echo '<script>alert('.'"用户名/密码错误"'.');</script>';
+	if( $last_php == "index.php" ) {
+		header( "Location: ../super_admin.php" );
+	} else {
+		echo "<script>window.history.go(-1);</script>";
+	}
+	exit;
 }
-return;
+
+$_SESSION['login'] = "true";
+//header( "Location: ../index.php?login=error" );
+echo "<script>window.history.go(-1);alert('用户名/密码错误');</script>";
+
 
 ?>

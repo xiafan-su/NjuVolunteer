@@ -132,7 +132,7 @@
                 <{foreach from=$notice_detail item=d name=foo}>
                 	<{if $smarty.foreach.foo.index<3}>
                     	<hr />
-                    	<a href="notice.php?type=1&page=1&id=<{$d.id}>"><{$d.title}></a>
+                    	<a href="notice.php?type=1&page=1&id=<{$d.id}>" ><{$d.title}></a>
                     <{/if}>
                 <{/foreach}>
                 </div>
