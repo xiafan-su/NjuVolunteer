@@ -17,7 +17,10 @@ nt_func_note_read = function(){
 			document.getElementById('loading-bar').style.display='none';
 			//alert(html);
 			if( elem.attr( "src") == "./assets/img/zonet/note_unread.png" ){
-				$("#notes_number").text( $("#notes_number").text() - 1 );//头像附近的通知数量减1
+				var num = $("#notes_number").text();
+				if( num > 0 ) {
+					$("#notes_number").text( num - 1 );//头像附近的通知数量减1
+				}
 			}
 			//设置当前阅读的信箱为已读
 			elem.attr( "src", "./assets/img/zonet/note_read.png" );

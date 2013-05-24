@@ -5,8 +5,9 @@ include_once '../sys/core/init.inc.php';
 
 include './include/header.php';
 
+if( !isset( $_GET['user_id'] ) ){ echo "<p>²ÎÊý´íÎó£¡</p>"; exit; }
 //
-$id=$_GET['user_id'];
+$id=htmlspecialchars($_GET['user_id'],ENT_QUOTES);
 //
 
 $activity=NULL;

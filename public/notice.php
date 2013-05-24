@@ -5,8 +5,13 @@ include './include/header.php';
 
 $notice=new System();
 
-$type=$_GET['type'];
-$page=$_GET['page'];
+$type=intval($_GET['type']);
+$page=intval($_GET['page']);
+
+if(isset($_GET['id'])){
+	$id=$_GET['id'];
+	$tpl->assign("id",$id);
+}
 
 if($type == 1){
 $notice_info=$notice->fetch_notice($page);

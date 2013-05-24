@@ -63,7 +63,6 @@ var nt_func_note_recv_act_select = function(){};
 //团队资料
 
 
-
 //转换主副页面
 function switch_main_content( direction ){
 	var switch_style = "slow";
@@ -155,9 +154,7 @@ zt_func_note_send = function(html){
 //注册点击事件
 register_click_event( $( zt_elem_start_act ), "发起的活动", zt_url_act, {type:"start"}, zt_func_start_act );
 register_click_event( $( zt_elem_finished_act ), "完成的活动", zt_url_act, {type:"finished"}, zt_func_finished_act );
-
 register_click_event( $( zt_elem_extend_time ), "快速添加服务时间", zt_url_extend_time );
-
 register_click_event( $( zt_elem_note_edit ), "发通知", zt_url_note_edit, null, zt_func_note_send);
 register_click_event( $( zt_elem_note_recv ), "收到的通知", zt_url_note, {type:"recv"}, zt_func_note_recv );
 register_click_event( $( zt_elem_note_sent ), "发送的通知", zt_url_note, {type:"sent"}, zt_func_note_sent );
@@ -166,3 +163,22 @@ register_click_event( $( zt_elem_infot ), "资料", zt_url_infot );
 
 
 
+
+//获取url参数
+function GetRequest() {
+   var url = location.search; //获取url中"?"符后的字串
+   var theRequest = new Object();
+   if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      strs = str.split("&");
+      for(var i = 0; i < strs.length; i ++) {
+         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+      }
+   }
+   return theRequest;
+}
+
+var para = GetRequest();
+if( para['type'] == null || para['type'] == 'start' ){
+	$("#util_start_activity").trigger( "click" );
+}

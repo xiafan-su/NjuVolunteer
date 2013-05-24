@@ -1,6 +1,10 @@
 // JavaScript Document
 $(document).ready(function(){
-	
+	var notice_id=parseInt($('#notice-id').text());
+	if(notice_id>=0){
+		//alert(notice_id);
+		detail_show(notice_id);	
+	}
 	
 	$('#first-page').click(function(){
 		var type=parseInt($('#type').text());
@@ -38,7 +42,7 @@ $(document).ready(function(){
 		$('#type-title').text("在线咨询");	
 	}
 	else if(type_t == 3){
-		$('#type-title').text("心理历程");	
+		$('#type-title').text("心路历程");	
 	}
 });
 function show(){

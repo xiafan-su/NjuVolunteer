@@ -223,7 +223,8 @@ h2{
 	padding-left:45px;
 	font-weight:bolder;
 	color:rgb(104,104,104);
-	box-shadow: #666 10px 10px 20px;
+	box-shadow:10px 10px 20px #666666;
+	behavior:url(ie-css3.htc);
 }
 .act-title-t:hover{
 	width:189px;
@@ -300,6 +301,9 @@ h2{
 	float:left;
 	width:65px;
 }
+.share-element a {
+	color:black;
+}
 .share-to{
 	width:260px;
 	float:left;
@@ -361,4 +365,7 @@ h2{
 }
 .digital{
 	color:rgb(102,51,102);	
+}
+.a-detail a{
+	color:#000;	
 }

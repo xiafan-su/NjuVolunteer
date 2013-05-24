@@ -5,6 +5,10 @@ $_SMARTY_ROOT = "../tpls";
 
 include_once '../../sys/core/init.inc.php';
 
+if( !isset( $_SESSION[User::USER][User::FACULTY_ID] ) ){
+	echo "<p>登录信息已失效，请重新登录！</p>";
+	exit;
+}
 //echo  "activityId=".$_POST['activityId'];
 $is_finished = true;
 $tpl->assign( "update_time", date("Y-m-d H:i:s") );

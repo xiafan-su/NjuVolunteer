@@ -258,10 +258,6 @@ function searchit(){
 	document.getElementById("hotact").style.display="none";
 	document.getElementById("result").style.display="block";
 	keyword = $('#keyword').val();
-	timetype = 0; 
-	attributiontype = 0;
-	timelimit = 0;
-	actstate = 0;
 	selectedtt(timetype);
 	selectedat(attributiontype);
 	selectedtl(timelimit);

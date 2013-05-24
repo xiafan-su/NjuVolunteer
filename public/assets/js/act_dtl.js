@@ -53,7 +53,7 @@ $(document).ready(function(){
 				{
 					$('#take_part_in').prop("disabled",true);
 					$('#take_part_in').prop("value","报名活动");
-					$('#take_part_in').prop("title","请先登陆");                                          
+					$('#take_part_in').prop("title","请先登录");                                          
 				}
 				
 			}
@@ -197,17 +197,24 @@ $(function(){
 	$('#submit_comment').click(function() {
 		content = editor.html();
 		//alert(editor.html());
-		document.getElementById('loading-bar').style.display='block';
-		$.ajax({
-			type:"POST",
-			url:"./handle/comment_apply.php",
-			data:{content:editor.html(),res_id:response_id,act_id:$('#act_id').attr("value")},
-			success:function(html){
-				document.getElementById('loading-bar').style.display='none';
-				window.location.reload();
-				alert(html);
-			}
-		});
+		var strs=new Array();
+		strs=content.split(":");
+		if (strs[1]!="")
+		{
+			document.getElementById('loading-bar').style.display='block';
+			$.ajax({
+				type:"POST",
+				url:"./handle/comment_apply.php",
+				data:{content:editor.html(),res_id:response_id,act_id:$('#act_id').attr("value")},
+				success:function(html){
+					document.getElementById('loading-bar').style.display='none';
+					window.location.reload();
+
+					//alert(html);
+				}
+			});
+		}
+		else alert("评论内容不能为空");
 		
 	});
 	

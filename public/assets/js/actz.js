@@ -547,7 +547,7 @@ function set_submit_enable(  ){
 
 //以下几个函数处理，参与表的修改
 function change_doc_time_handle(elem, no){
-	const time = 100;
+	var time = 100;
 	if( no == 1 ){
 		$(elem).toggle( time );
 		$(elem).next().toggle( time );
@@ -655,17 +655,9 @@ function change_doc_honnor_leader_handle(elem, type){//type ==1 表示“带队�
 	}
 	set_submit_enable();//确定按钮有效
 }
-
-
-//活动档案“确定”按钮
-function doc_edit_submit_handle(elem){
-	//alert( "ter" );
-	var submit_button = $("#doc_op_modify");
-	submit_button.attr( "disabled", true );
-	submit_button.attr( "title", "正在提交到服务器上……" );
-
-	var all_head_checkbox = $(".doc_checkbox_head");
-
+//把参与表连成字符串
+function get_part_table_string(){
+var all_head_checkbox = $(".doc_checkbox_head");
 	var token = "&n&b&";
 	var str = "";
 	for( var i = 0; i < all_head_checkbox.length; i ++ ){
@@ -682,6 +674,17 @@ function doc_edit_submit_handle(elem){
 		//alert( elem_c.val() );
 		str += uid+token+elem_t.val() + token + elem_p.find(":selected").text() + token + (elem_l.prop("checked")?1:0) + token + (elem_e.prop("checked")?1:0) +token+ elem_c.val() + token;
 	}
+	return token;
+}
+
+//活动档案“确定”按钮
+function doc_edit_submit_handle(elem){
+	//alert( "ter" );
+	var submit_button = $("#doc_op_modify");
+	submit_button.attr( "disabled", true );
+	submit_button.attr( "title", "正在提交到服务器上……" );
+
+	var token = get_part_table_string();
 
 	var docid = $(elem).attr("docid");
 	document.getElementById('loading-bar').style.display='block';
@@ -881,10 +884,12 @@ function extend_ok_handle(){
 	} );
 }
 
+var editor;
 //团队资料“修改”按钮
 function team_info_modify_handle( elem ){
 	$( zt_elem_main_title ).text( "修改资料" );
 	switch_main_content( "->" );
+
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({type:"POST", 
 		url: "./include/infot_edit.php", 
@@ -892,6 +897,19 @@ function team_info_modify_handle( elem ){
 			document.getElementById('loading-bar').style.display='none';
 			$( zt_elem_main_content2 ).html(html);
 
+			$.getScript('./plugin/kindeditor-4.1.5/kindeditor-min.js').done(function() {
+					KindEditor.basePath = './plugin/kindeditor-4.1.5/';
+					editor = KindEditor.create('textarea[name="content"]', {
+							resizeType : 1,
+							allowPreviewEmoticons : true,
+							allowImageUpload : true,
+							allowFileManager : true,
+							items : [
+								'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+								'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+								'insertunorderedlist', '|', 'emoticons', 'image', 'link','unlink','baidumap','fullscreen']
+					});
+			});
 		}
 	});
 }
@@ -899,10 +917,11 @@ function team_info_modify_handle( elem ){
 //资料修改“修改”按钮
 function team_info_edit_ok (){
 	var slogan = $("#team_info_edit_slogan").val();
-	var profile = $("#team_info_edit_profile").val();
+	var profile = editor.html();//$("#team_info_edit_profile").val();
 	var old_psd = $("#team_info_edit_password_old").val();
 	var new_psd = $("#team_info_edit_password").val();
 	var new_psd2 = $("#team_info_edit_password2").val();
+	//alert( profile );
 	if( old_psd.length >  0 ) {
 		if( new_psd != new_psd2 ){ alert( "两次密码输入不一致！" ); return; }
 		if( old_psd.length < 6 || old_psd.length > 16 ) { alert( "密码必须长度在6-16之间！"); return; }

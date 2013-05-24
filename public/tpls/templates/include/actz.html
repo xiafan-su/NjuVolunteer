@@ -5,10 +5,16 @@
 
 	<table id="show_activity_table" class="act_people_table">
 		<tr>
-		<th>活动名称</th>
+		<th>
+			活动名称
+			<div style="display:hidden;height:0px;width:350px" ></div>
+			</th>
 		<th>负责人</th>
 		<th>状态</th>
-		<th colspan="3">操作</th>
+		<th colspan="3" >
+			操作
+			<div style="display:hidden;height:0px;width:120px" ></div>
+		</th>
 		</tr>
 		<{section name=act_index loop=$act_list}>
 			<{if $smarty.section.act_index.iteration%2 == 0}><tr class="even"><{else}><tr class="odd"><{/if}>
@@ -50,7 +56,7 @@
 													<{else}>
 													<span actid="<{$act_list[act_index].act_id}>" class="util_doc_add_disabled">
 														<img src="./assets/img/zonet/form_yellow_add.png" width="18" height="18" 
-														border="0" title="编辑中或已完成的活动不能添加档案">
+														border="0" title="审核未通过或已完成的活动不能添加档案">
 													</span>
 													<{/if}>
 											</td>

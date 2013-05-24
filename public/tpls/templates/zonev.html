@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="SHORTCUT ICON" href="./assets/img/header/logo.png">
 <link href="./assets/css/main.css" rel="stylesheet" />
 <link href="./assets/css/zonev.css" rel="stylesheet" />
 <link type="text/css" rel="stylesheet" href="./plugin/calendar/calendar.css" >
@@ -26,11 +27,9 @@
 		<div id="person_info" class="person-info" style="float:left">
 			<div id="user_name" ><{$user_name}>&nbsp;&nbsp;&nbsp;</div>
             <div id="user_level">
-            	<img src="./assets/img/star.png" />
-                <img src="./assets/img/star.png" />
-                <img src="./assets/img/star.png" />
-                <img src="./assets/img/star.png" />
-                <img src="./assets/img/star.png" />
+            <{section name=loop loop=$user_rate}>
+			<img src="./assets/img/star.png" /> 
+			<{/section}>
             </div>
 			<div id="server-time">服务总时间：<{$volunteer_time}>小时</div>
             <div id="base-time">基础时间：<{$base_time}>小时</div>

@@ -1,6 +1,7 @@
 <?php
 
 if( !isset($_BASE_PATH) ) $_BASE_PATH = "../";
+require_once( $_BASE_PATH.'sys/config/safe_guard.php');
 include $_BASE_PATH.'sys/config/smarty_init.inc.php';
 include $_BASE_PATH.'sys/config/db-cred.inc.php';
 
@@ -9,7 +10,7 @@ foreach( $Const as $name => $val ){
 }
 
 function __autoload($class_name){
-	$filename = $_SERVER['DOCUMENT_ROOT']."/njuvolunteer/sys/class/class.".$class_name.".inc.php";
+	$filename = $_SERVER['DOCUMENT_ROOT']."/NjuVolunteer/sys/class/class.".$class_name.".inc.php";
 	if( file_exists($filename) ){
 		include_once( $filename );
 	}
