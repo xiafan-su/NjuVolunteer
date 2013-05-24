@@ -3,6 +3,11 @@
 $_BASE_PATH = "../../";
 $_SMARTY_ROOT = "../tpls";
 include_once '../../sys/core/init.inc.php';
+
+if( !isset( $_SESSION[User::USER][User::FACULTY_ID] ) ){
+	echo "<p>登录信息已失效，请重新登录！</p>";
+	exit;
+}
 /*
 1.	备案资料：由超级管理员录入，团队自己不可修改，包括：
 a)	团队名称
@@ -32,6 +37,11 @@ $team_attched = $team_info['attached_institutions'];
 $team_logo = $team_info['logo'];
 $team_profile = $team_info['profile'];
 $team_signature = $team_info['slogan'];
+
+
+if( $team_logo == NULL ){
+	$team_logo = "NJU_default.png";
+}
 
 $tpl->assign( "team_id", $team_id );
 $tpl->assign( "team_name", $team_name );

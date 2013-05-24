@@ -141,7 +141,7 @@
   padding: 2px 2px 0px 2px;
  /* border: 1px solid;*/
   border-color: #000 #fff #fff #000;
-  background: #008000;
+  background: rgb(102,51,102);/*#008000;*/
   color:#fff;
 }
 

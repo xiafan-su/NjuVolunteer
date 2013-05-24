@@ -300,6 +300,9 @@ h2{
 	float:left;
 	width:65px;
 }
+.share-element a {
+	color:black;
+}
 .share-to{
 	width:260px;
 	float:left;

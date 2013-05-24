@@ -209,6 +209,7 @@ $(function(){
 				success:function(html){
 					document.getElementById('loading-bar').style.display='none';
 					window.location.reload();
+
 					//alert(html);
 				}
 			});
