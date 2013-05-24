@@ -1,4 +1,31 @@
-
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-24 21:22:08
+         compiled from "./tpls/templates\index.html" */ ?>
+<?php /*%%SmartyHeaderCode:13589519f35f35496a2-87332798%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
+    array (
+      0 => './tpls/templates\\index.html',
+      1 => 1369401697,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '13589519f35f35496a2-87332798',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519f35f3619dd',
+  'variables' => 
+  array (
+    'notice_detail' => 0,
+    'd' => 0,
+    'question_detail' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_519f35f3619dd')) {function content_519f35f3619dd($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -18,7 +45,8 @@
 	<img src="./assets/img/index/x.png" height="12" class="browser-img" onclick="exit_browser()" />
 </div>
 <![endif]-->
-<{include file="include/header.html"}>
+<?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 
 <div class="main">
     <div class="act-show">
@@ -135,12 +163,20 @@
             <div class="others-content">
             	<h3><a href="./notice.php?type=1&amp;page=1">公告通知</a></h3>
                 <div class="a-detail">
-                <{foreach from=$notice_detail item=d name=foo}>
-                	<{if $smarty.foreach.foo.index<3}>
+                <?php  $_smarty_tpl->tpl_vars['d'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['d']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['notice_detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['foo']['index']=-1;
+foreach ($_from as $_smarty_tpl->tpl_vars['d']->key => $_smarty_tpl->tpl_vars['d']->value){
+$_smarty_tpl->tpl_vars['d']->_loop = true;
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['foo']['index']++;
+?>
+                	<?php if ($_smarty_tpl->getVariable('smarty')->value['foreach']['foo']['index']<3){?>
                     	<hr />
-                    	<a href="notice.php?type=1&page=1&id=<{$d.id}>" ><{$d.title}></a>
-                    <{/if}>
-                <{/foreach}>
+                    	<a href="notice.php?type=1&page=1&id=<?php echo $_smarty_tpl->tpl_vars['d']->value['id'];?>
+" ><?php echo $_smarty_tpl->tpl_vars['d']->value['title'];?>
+</a>
+                    <?php }?>
+                <?php } ?>
                 </div>
             </div>
         </div>
@@ -149,12 +185,20 @@
             <div class="others-content">
             	<h3><a href="./notice.php?type=2&amp;page=1">留言咨询</a></h3>
                 <div class="a-detail">
-                <{foreach from=$question_detail item=d name=foo}>
-                	<{if $smarty.foreach.foo.index<3}>
+                <?php  $_smarty_tpl->tpl_vars['d'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['d']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['question_detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['foo']['index']=-1;
+foreach ($_from as $_smarty_tpl->tpl_vars['d']->key => $_smarty_tpl->tpl_vars['d']->value){
+$_smarty_tpl->tpl_vars['d']->_loop = true;
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['foo']['index']++;
+?>
+                	<?php if ($_smarty_tpl->getVariable('smarty')->value['foreach']['foo']['index']<3){?>
                     	<hr />
-                    	<a href="notice.php?type=1&page=1&id=<{$d.id}>"><{$d.title}></a>
-                    <{/if}>
-                <{/foreach}>
+                    	<a href="notice.php?type=1&page=1&id=<?php echo $_smarty_tpl->tpl_vars['d']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['d']->value['title'];?>
+</a>
+                    <?php }?>
+                <?php } ?>
                 </div>
             </div>
         </div>
@@ -175,6 +219,7 @@
 
 
 
-<{include file="include/footer.html"}>
+<?php echo $_smarty_tpl->getSubTemplate ("include/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 </body>
-</html>
+</html><?php }} ?>

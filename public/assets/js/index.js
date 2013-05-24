@@ -29,10 +29,11 @@ var autoindex = 1;
 var shownum=0;
 var shownum2=0;
 $(document).ready(function(){
-	for(i=2;i<6;i++){
+	for(i=1;i<6;i++){
 		$('#act-img'+i).hide();
 		$('#act-detail'+i).hide();
 	}
+	$('#act-img1').show();
 	$('#map-img').animate({marginTop:topp[0],marginLeft:left[0]});
 	var int1 = self.setInterval("nextpic()",5000);
 	showpeople();
@@ -60,9 +61,8 @@ function changeact(temp){
 	if(flag==0 && act!=temp){
 		flag=1;
 		$('#act-img'+act).slideUp(800);
-		$('#act-detail'+act).hide(800);
+		$('#act-detail').html($('#act-detail'+temp).html());
 		$('#act-img'+temp).show(800);
-		$('#act-detail'+temp).show(800);
 		$('#map-img').animate({marginTop:topp[temp-1],marginLeft:left[temp-1]},800);
 		act=temp;
 		setTimeout("flag=0",800);
@@ -127,4 +127,7 @@ function hiddenit(){
 		$('#volclaim').html('');
 		claimindex=0;
 	}
+}
+function exit_browser(){
+	$('.browser-change').hide();
 }
