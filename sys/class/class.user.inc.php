@@ -189,7 +189,7 @@ class User extends DB_Connect {
 	{
 		$team_id=htmlspecialchars($team_id);
 		if (!isset($_SESSION[USER::USER][USER::ID]))
-			return -1;//请先登陆
+			return -1;//请先登录
 		if (isset($_SESSION[USER::USER][USER::PERM_ID]) and ($_SESSION[USER::USER][USER::PERM_ID]!=1))
 			return -2;//没有权限
 		if (!($this->follow_state($team_id)))
@@ -209,7 +209,7 @@ class User extends DB_Connect {
 	{
 		$team_id=htmlspecialchars($team_id);
 		if (!isset($_SESSION[USER::USER][USER::ID]))
-			return -1;//请先登陆
+			return -1;//请先登录
 		else $user_id=$_SESSION[USER::USER][USER::ID];
 		if (isset($_SESSION[USER::USER][USER::PERM_ID]) and ($_SESSION[USER::USER][USER::PERM_ID]!=1))
 			return -2;//没有权限
@@ -250,6 +250,14 @@ class User extends DB_Connect {
 		$results=mysql_num_rows($select);
 		if ($results==0) return false;
 		return true;
+	}
+	public function a_member_of($act_id)
+	{
+		$sql="SELECT * FROM act_record r,act_doc d WHERE r.doc_id=d.id and d.act_id='".$act_id."' and r.final='true'";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_num_rows($select);
+		if ($result==0) return false;
+		else return true;
 	}
 }
 

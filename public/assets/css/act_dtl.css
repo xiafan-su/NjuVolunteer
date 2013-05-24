@@ -95,6 +95,7 @@ width:630px;
 	width:100px;
 	height:20px;
 	padding-top:5px;
+	font-weight:bold;
 }
 .div_content_value{
 	float:left;
@@ -102,7 +103,7 @@ width:630px;
 	height:20px;
 	padding-top:5px;
 }
-#act_detail,.act-comment,.other-act,.apply-state{
+#act_detail,.act-comment,.other-act,.apply-state,#act_contact{
 	width:840px;
 	margin-top:20px;
 	padding:10px 30px 10px 30px;

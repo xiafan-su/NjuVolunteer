@@ -37,12 +37,12 @@ class Act extends DB_Connect {
 	}
 	public function fetch_all($keywords,$timetype,$attributiontype,$timelimit,$actstate,$num)
 	{
-		$keywords=htmlspecialchars($keywords);
-		$timetype=htmlspecialchars($timetype);
-		$attributiontype=htmlspecialchars($attributiontype);
-		$timelimit=htmlspecialchars($timelimit);
-		$actstate=htmlspecialchars($actstate);
-		$num=htmlspecialchars($num);
+		$keywords=htmlspecialchars($keywords,ENT_QUOTES);
+		$timetype=htmlspecialchars($timetype,ENT_QUOTES);
+		$attributiontype=htmlspecialchars($attributiontype,ENT_QUOTES);
+		$timelimit=htmlspecialchars($timelimit,ENT_QUOTES);
+		$actstate=htmlspecialchars($actstate,ENT_QUOTES);
+		$num=htmlspecialchars($num,ENT_QUOTES);
 		$time_type = array("longtime","temp");
 		$attribution_type=array("helpold","supporteducation","helpdisabled","campus","competition","other");
 		
@@ -73,11 +73,11 @@ class Act extends DB_Connect {
 		return $select;
 	}
 	public function new_comment($user_id,$act_id,$resp_id,$comment,$time){
-		$user_id=htmlspecialchars($user_id);
-		$act_id=htmlspecialchars($act_id);
-		$resp_id=htmlspecialchars($resp_id);
-		$comment=htmlspecialchars($comment);
-		$time=htmlspecialchars($time);
+		$user_id=htmlspecialchars($user_id,ENT_QUOTES);
+		$act_id=htmlspecialchars($act_id,ENT_QUOTES);
+		$resp_id=htmlspecialchars($resp_id,ENT_QUOTES);
+		$comment=htmlspecialchars($comment,ENT_QUOTES);
+		$time=htmlspecialchars($time,ENT_QUOTES);
 		$insert = "
 		insert into act_comment
 		(
@@ -95,7 +95,7 @@ class Act extends DB_Connect {
 		return 1;
 	}
 	public function find_same($activity_id){
-		$activity_id=htmlspecialchars($activity_id);
+		$activity_id=htmlspecialchars($activity_id,ENT_QUOTES);
 		$act_info=NULL;
 		$i=0;
 		$select = mysql_query("select * from apply_act where act_id = '".$activity_id."' and state='1'")or trigger_error(mysql_error(),E_USER_ERROR);
@@ -115,20 +115,20 @@ class Act extends DB_Connect {
 	}
 
 	public function get_comment($activity_id){
-		$activity_id=htmlspecialchars($activity_id);
+		$activity_id=htmlspecialchars($activity_id,ENT_QUOTES);
 		$comment_info=NULL;
 		$comment = mysql_query("select * from act_comment where act_id = '".$activity_id."'")or trigger_error(mysql_error(),E_USER_ERROR);
 		while ($comment_row = mysql_fetch_array($comment)){
 			$comment_name = mysql_query("select * from user_info where id = '".$comment_row['user_id']."'")or trigger_error(mysql_error(),E_USER_ERROR);
 			$comment_name1 = mysql_fetch_array($comment_name);
-			$comment_info[] = array('id' => $comment_row['user_id'],'name' =>$comment_name1['name'],'time' => $comment_row['time'],'content'=>$comment_row['comment']);
+			$comment_info[] = array('id' => $comment_row['user_id'],'name' =>$comment_name1['name'],'time' => $comment_row['time'],'content'=> htmlspecialchars_decode($comment_row['comment'],ENT_QUOTES));
 		}
 		return $comment_info;
 	}
 	public function attachment($act_id,$filename)//活动申请时候，上传附件
 	{
-		$act_id=htmlspecialchars($act_id);
-		$filename=htmlspecialchars($filename);
+		$act_id=htmlspecialchars($act_id,ENT_QUOTES);
+		$filename=htmlspecialchars($filename,ENT_QUOTES);
 		$query="UPDATE activity_info SET plan_url='".$filename."' WHERE id='".$act_id."'";
 		if(!mysql_query($query,$this->root_conn))
 		{
@@ -141,8 +141,8 @@ class Act extends DB_Connect {
 	}
 	public function upload_pic($act_id,$filename)//活动详细页面，上传照片
 	{
-		$act_id=htmlspecialchars($act_id);
-		$filename=htmlspecialchars($filename);
+		$act_id=htmlspecialchars($act_id,ENT_QUOTES);
+		$filename=htmlspecialchars($filename,ENT_QUOTES);
 		$query="INSERT INTO photos(act_id,pic_name,time) VALUES('".$act_id."','".$filename."','".date('Y-m-d H:i:s',time())."')";
 		if(!mysql_query($query,$this->root_conn))
 		{
@@ -169,33 +169,33 @@ class Act extends DB_Connect {
 		return $result['id'];
 	}
 	public function update_act($id, $name,$place,$time_type,$attribution_type,$begin_time,$end_time,$deadline,$detail_time,$total_num,$need_audit,$responser,$responser_tel,$last_time,$activity_profile,$state,$publisher,$weekday_time,$other_language,$faculty_limit,$cet4,$cet6){
-		$id=htmlspecialchars($id);
-		$name=htmlspecialchars($name);
-		$place=htmlspecialchars($place);
-		$time_type=htmlspecialchars($time_type);
-		$attribution_type=htmlspecialchars($attribution_type);
-		$begin_time=htmlspecialchars($begin_time);
-		$end_time=htmlspecialchars($end_time);
-		$deadline=htmlspecialchars($deadline);
-		$detail_time=htmlspecialchars($detail_time);
-		$total_num=htmlspecialchars($total_num);
-		$need_audit=htmlspecialchars($need_audit);
-		$responser=htmlspecialchars($responser);
-		$responser_tel=htmlspecialchars($responser_tel);
-		$last_time=htmlspecialchars($last_time);
+		$id=htmlspecialchars($id,ENT_QUOTES);
+		$name=htmlspecialchars($name,ENT_QUOTES);
+		$place=htmlspecialchars($place,ENT_QUOTES);
+		$time_type=htmlspecialchars($time_type,ENT_QUOTES);
+		$attribution_type=htmlspecialchars($attribution_type,ENT_QUOTES);
+		$begin_time=htmlspecialchars($begin_time,ENT_QUOTES);
+		$end_time=htmlspecialchars($end_time,ENT_QUOTES);
+		$deadline=htmlspecialchars($deadline,ENT_QUOTES);
+		$detail_time=htmlspecialchars($detail_time,ENT_QUOTES);
+		$total_num=htmlspecialchars($total_num,ENT_QUOTES);
+		$need_audit=htmlspecialchars($need_audit,ENT_QUOTES);
+		$responser=htmlspecialchars($responser,ENT_QUOTES);
+		$responser_tel=htmlspecialchars($responser_tel,ENT_QUOTES);
+		$last_time=htmlspecialchars($last_time,ENT_QUOTES);
 		$activity_profile=htmlspecialchars($activity_profile,ENT_QUOTES);
-		$state=htmlspecialchars($state);
-		$publisher=htmlspecialchars($publisher);
-		$weekday_time=htmlspecialchars($weekday_time);
-		$other_language=htmlspecialchars($other_language);
-		$faculty_limit=htmlspecialchars($faculty_limit);
-		$cet4=htmlspecialchars($cet4);
-		$cet6=htmlspecialchars($cet6);
+		$state=htmlspecialchars($state,ENT_QUOTES);
+		$publisher=htmlspecialchars($publisher,ENT_QUOTES);
+		$weekday_time=htmlspecialchars($weekday_time,ENT_QUOTES);
+		$other_language=htmlspecialchars($other_language,ENT_QUOTES);
+		$faculty_limit=htmlspecialchars($faculty_limit,ENT_QUOTES);
+		$cet4=htmlspecialchars($cet4,ENT_QUOTES);
+		$cet6=htmlspecialchars($cet6,ENT_QUOTES);
 		$accepted_num		=0;
 		$offer_num			=0;
 		$begin_time=$begin_time." 00:00:0";
 		$end_time=$end_time." 00:00:0";
-		$deadline=$deadline." 00:00:0";
+		$deadline=$deadline." 23:59:59";
 		if ($total_num==NULL)
 			$total_num=0;
 		if ($responser_tel==NULL)
@@ -252,14 +252,14 @@ class Act extends DB_Connect {
 	}
 
 	public function fetch_one( $id ){
-		$id=htmlspecialchars($id);
+		$id=htmlspecialchars($id,ENT_QUOTES);
 		$query="select * from activity_info where id='".$id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$result=mysql_fetch_assoc($select);
 		return $result;
 	}
 	public function participate($activity_id){
-		$activity_id=htmlspecialchars($activity_id);
+		$activity_id=htmlspecialchars($activity_id,ENT_QUOTES);
 		$user_id=$_SESSION[USER::USER][USER::ID];
 		$sql="SELECT * FROM apply_team WHERE user_id='".$user_id."'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
@@ -320,7 +320,7 @@ class Act extends DB_Connect {
 		return -(int)($act_info['offer_num']);//报名成功后返回人数负值
 	}
 	public function quit($activity_id){
-		$activity_id=htmlspecialchars($activity_id);
+		$activity_id=htmlspecialchars($activity_id,ENT_QUOTES);
 		$user_id=$_SESSION[USER::USER][USER::ID];
 		$query="DELETE FROM apply_act WHERE user_id='".$user_id."' and act_id='".$activity_id."'";
 		if (!mysql_query($query,$this->root_conn))
@@ -336,7 +336,7 @@ class Act extends DB_Connect {
 		return $result['offer_num'];//退出成功后，刷新报名人数
 	}
 	public function participate_state($activity_id){
-		$activity_id=htmlspecialchars($activity_id);
+		$activity_id=htmlspecialchars($activity_id,ENT_QUOTES);
 		$t=$this->judge_participate_button_state($activity_id);
 		if ($t!=1) return $t;
 		$user_id=$_SESSION[USER::USER][USER::ID];
@@ -350,7 +350,7 @@ class Act extends DB_Connect {
 	}
 	public function judge_participate_button_state($activity_id)//判断是否过了deadline，是否用户为个人
 	{
-		$activity_id=htmlspecialchars($activity_id);
+		$activity_id=htmlspecialchars($activity_id,ENT_QUOTES);
 		$sql="SELECT deadline FROM activity_info WHERE id='".$activity_id."'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$act_info=mysql_fetch_assoc($select);
@@ -382,9 +382,9 @@ class Act extends DB_Connect {
 	}
 	
 	public function fetch_weekact($year,$month,$date){
-		$year=htmlspecialchars($year);
-		$month=htmlspecialchars($month);
-		$date=htmlspecialchars($date);
+		$year=htmlspecialchars($year,ENT_QUOTES);
+		$month=htmlspecialchars($month,ENT_QUOTES);
+		$date=htmlspecialchars($date,ENT_QUOTES);
 		$str="$year"."-"."$month"."-"."$date";
 		$date1=$date+6;
 		$str1="$year"."-"."$month"."-"."$date1";
@@ -395,7 +395,7 @@ class Act extends DB_Connect {
 	}
 	
 	public function concern_team($team_id){
-		$team_id=htmlspecialchars($team_id);
+		$team_id=htmlspecialchars($team_id,ENT_QUOTES);
 		$user_id=$_SESSION[USER::USER][USER::ID];
 		$query="INSERT INTO follow(userid,teamid) VALUES('".$user_id."','".$team_id."')";
 		if (!mysql_query($query,$this->root_conn))
@@ -405,7 +405,12 @@ class Act extends DB_Connect {
 		}
 		else return true;
 	}
-	
+	public function fetch_photo($act_id)
+	{
+		$sql="SELECT * FROM photos WHERE act_id='".$act_id."' LIMIT 0,1";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		return $select;
+	}
 	public function modify( $id/* 其他参数未设置 */ ){
 		
 	}

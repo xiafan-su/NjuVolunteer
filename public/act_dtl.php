@@ -3,11 +3,47 @@
 include_once '../sys/core/init.inc.php';
 include './include/header.php';
 include './include/act_left.php';
-$activity_id = $_GET['act_id'];
+
+
+$activity_id = intval($_GET['act_id']);
 $act = new Act();
 $item = $act->fetch_one($activity_id);
 $tpl->assign( "id", $activity_id);
+$re=$act->fetch_photo($activity_id);
+$photo=mysql_fetch_assoc($re);
+if ($photo['pic_name']!=NULL)
+	$picture=$photo['pic_name'];
+else
+	$picture="default.jpg";
+$tpl->assign("picture",$picture);//取出封面图片
 
+if (isset($_SESSION[USER::USER][USER::PERM_ID]))
+{
+	if ($_SESSION[USER::USER][USER::PERM_ID]==3)//超管要上传，你有意见？
+		$perm_of_upload=1;
+	else 
+	{
+		if ($_SESSION[USER::USER][USER::PERM_ID]==2)
+		{
+			if ($item['publisher']==$_SESSION[USER::USER][USER::ID])//判断本活动是否为本院系举办，如果是的话，则可以上传图片
+				$perm_of_upload=1;
+			else $perm_of_upload=0;
+		}else 
+			if ($_SESSION[USER::USER][USER::PERM_ID]==1)//判断本活动您是否参加过，参加过的可以上传照片
+			{
+				$u=new User();
+				if ($u->a_member_of($activity_id))//一堆判断之后，终于参加过活动的个人可以上传图片了
+					$perm_of_upload=1;
+				else 
+					$perm_of_upload=0;
+			}
+	}
+}else
+{
+	$perm_of_upload=0;
+}
+
+$tpl->assign("perm_of_upload",$perm_of_upload);
 /*switch($item['state']){
 	case "audited" :$tpl->assign( "act_state", "已审核" );break;
 	case "auditing" :$tpl->assign( "act_state", "未审核" );break;
@@ -49,7 +85,8 @@ $tpl->assign( "signupnum", $item['offer_num'] );
 $tpl->assign( "total_num", $item['total_num'] );
 $tpl->assign( "deadline", $deadline[0] );
 $tpl->assign( "act_id", $activity_id);
-
+$tpl->assign( "responser", $item['responser']);
+$tpl->assign( "responser_tel", $item['responser_tel']);
 $comment_info=$act->get_comment($activity_id);
 
 $tpl->assign( "comment_detail",$comment_info);

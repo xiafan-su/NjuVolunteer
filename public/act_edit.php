@@ -3,16 +3,21 @@
 include_once '../sys/core/init.inc.php';
 include './include/header.php';
 //$act_id=$_POST['act_id'];
-$act_id=$_GET['activityId'];
+if (isset($_GET['activityId']))
+	$act_id=$_GET['activityId'];
+else $act_id=0;
 $a=new Act();
 $act_info=$a->fetch_one($act_id);
 if (!isset($_SESSION[USER::USER][USER::FACULTY_ID]))
 	echo '<script>alert("'."您没有权限".'");</script>';
 else
-if ($act_info['publisher']!=$_SESSION[USER::USER][USER::FACULTY_ID])
-	echo '<script>alert("'."此行为已记录".'");</script>';
+if ($_SESSION[USER::USER][USER::PERM_ID]==2 && $act_info['publisher']!=$_SESSION[USER::USER][USER::FACULTY_ID])
+{
+	echo '<script>alert("'."您不是该活动的发起者，没有权限修改".'");</script>';
+}
 else
 {
+
 	$t=new Team();
 	$select=$t->fetch_all_faculty();
 	$faculty_limit="呵呵".$act_info['faculty_limit'];

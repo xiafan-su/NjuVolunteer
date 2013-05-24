@@ -4,8 +4,8 @@ $_BASE_PATH = "../../";
 include_once '../../sys/core/init.inc.php';
 
 
-$id = $_POST['user'];
-$psd = $_POST['password'];
+$id = htmlspecialchars($_POST['user'],ENT_QUOTES);
+$psd =htmlspecialchars($_POST['password'],ENT_QUOTES);
 
 $user = new User();
 

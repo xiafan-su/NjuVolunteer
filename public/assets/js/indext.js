@@ -31,7 +31,7 @@ $(document).ready(function(){
 				//alert(html);
 				if(html == -1)
 				{
-					alert("请先登陆");
+					alert("请先登录");
 				}else if (html == -2)
 				{
 					alert("志愿者才能加入团队");
@@ -66,7 +66,7 @@ $(document).ready(function(){
 				//alert(html);
 				if(html == -1)
 				{
-					alert("请先登陆");
+					alert("请先登录");
 				}else if (html == -2)
 				{
 					alert("志愿者才能关注团队");

@@ -5,8 +5,8 @@ include './include/header.php';
 
 $notice=new System();
 
-$type=$_GET['type'];
-$page=$_GET['page'];
+$type=intval($_GET['type']);
+$page=intval($_GET['page']);
 
 if(isset($_GET['id'])){
 	$id=$_GET['id'];

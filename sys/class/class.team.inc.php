@@ -21,15 +21,15 @@ class Team extends DB_Connect {
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;		
 	}
-	public function fetch_team_name($id)
+	public function fetch_team_name($id)//获取院系的详细信息
 	{
-		$id=htmlspecialchars($id);
+		$id=htmlspecialchars($id,ENT_QUOTES);
 		$query="select * from team where id='".$id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$result=mysql_fetch_array($select);
 		return $result;
 	}
-	public function fetch_department_info()
+	public function fetch_department_info()//取出所有的院系团队
 	{
 		$query="select * from team where layer = '0'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
@@ -45,7 +45,7 @@ class Team extends DB_Connect {
 		return $team_info;
 	}
 	
-	public function fetch_other_info()
+	public function fetch_other_info()//取出所有的其他团队
 	{
 		$query="select * from team where layer = '1'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
@@ -59,25 +59,25 @@ class Team extends DB_Connect {
 		}
 		return $team_info;
 	}
-	public function fetch_leader($id)
+	public function fetch_leader($id)//获取团队的leader信息
 	{
-		$id=htmlspecialchars($id);
+		$id=htmlspecialchars($id,ENT_QUOTES);
 		$query="select u.* from team t,user_info u where t.id='".$id."' and leader=u.id";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$result=mysql_fetch_assoc($select);
 		return $result;
 	}
-	public function fetch_all_doc_num($id)
+	public function fetch_all_doc_num($id)//取出某个活动的全部活动档案
 	{
-		$id=htmlspecialchars($id);
+		$id=htmlspecialchars($id,ENT_QUOTES);
 		$query="select ai.* from act_doc ad,activity_info ai where ad.act_id=ai.id and ai.publisher='".$id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$row=mysql_num_rows($select);
 		return $row;
 	}
-	public function fetch_now_doc_num($id)
+	public function fetch_now_doc_num($id)//取出我本学期的活动档案次数，即举办活动的次数
 	{
-		$id=htmlspecialchars($id);
+		$id=htmlspecialchars($id,ENT_QUOTES);
 		$current_month=date("m");
 		$current_year=date("Y");
 		$query="select ai.* from act_doc ad,activity_info ai where ad.act_id=ai.id and ai.publisher='".$id."'";
@@ -136,8 +136,8 @@ class Team extends DB_Connect {
 	}
 	public function fetch_act_all($faculty_id,$state)//发起/完成的活动,state为1表示发起,0表示完成,2表示审核通过的活动
 	{
-		$faculty_id=htmlspecialchars($faculty_id);
-		$state=htmlspecialchars($state);
+		$faculty_id=htmlspecialchars($faculty_id,ENT_QUOTES);
+		$state=htmlspecialchars($state,ENT_QUOTES);
 		if ($state==0)
 		{
 			$query="select * from activity_info where publisher = '".$faculty_id."' and name<>'NULL' and state='end'";
@@ -159,8 +159,8 @@ class Team extends DB_Connect {
 	}
 	public function change_act_state($act_id,$state)//state即为数据库中的值，audited,auditing,editing,end
 	{
-		$act_id=htmlspecialchars($act_id);
-		$state=htmlspecialchars($state);
+		$act_id=htmlspecialchars($act_id,ENT_QUOTES);
+		$state=htmlspecialchars($state,ENT_QUOTES);
 		$query="UPDATE activity_info SET state='".$state."' WHERE id = '".$act_id."'";
 		if(!mysql_query($query,$this->root_conn))
 		{
@@ -171,27 +171,27 @@ class Team extends DB_Connect {
 	}
 	public function fetch_act_doc_all($act_id)//该活动的所有活动档案
 	{
-		$act_id=htmlspecialchars($act_id);
+		$act_id=htmlspecialchars($act_id,ENT_QUOTES);
 		$query="select * from act_doc where act_id = '".$act_id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
 	public function fetch_act_doc_byid($doc_id)//某个具体活动档案的详细信息
 	{
-		$doc_id=htmlspecialchars($doc_id);
+		$doc_id=htmlspecialchars($doc_id,ENT_QUOTES);
 		$query="select * from act_doc where id = '".$doc_id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
 	public function modify_doc($doc_id,$leader,$profile,$summary,$tel,$vol_time,$date)//修改这个活动档案
 	{
-		$doc_id=htmlspecialchars($doc_id);
-		$leader=htmlspecialchars($leader);
-		$profile=htmlspecialchars($profile);
-		$summary=htmlspecialchars($summary);
-		$tel=htmlspecialchars($tel);
-		$vol_time=htmlspecialchars($vol_time);
-		$date=htmlspecialchars($date);
+		$doc_id=htmlspecialchars($doc_id,ENT_QUOTES);
+		$leader=htmlspecialchars($leader,ENT_QUOTES);
+		$profile=htmlspecialchars($profile,ENT_QUOTES);
+		$summary=htmlspecialchars($summary,ENT_QUOTES);
+		$tel=htmlspecialchars($tel,ENT_QUOTES);
+		$vol_time=htmlspecialchars($vol_time,ENT_QUOTES);
+		$date=htmlspecialchars($date,ENT_QUOTES);
 		$query="UPDATE act_doc SET leader = '".$leader."',profile='".$profile."',summary='".$summary."',tel='".$tel."',vol_time='".$vol_time."',date='".$date."' where id='".$doc_id."'";
 		//$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		if (!mysql_query($query,$this->root_conn))
@@ -205,13 +205,13 @@ class Team extends DB_Connect {
 	}
 	public function add_doc($act_id,$leader,$profile,$summary,$tel,$vol_time,$date)//增加一个活动档案
 	{
-		$act_id=htmlspecialchars($act_id);
-		$leader=htmlspecialchars($leader);
-		$profile=htmlspecialchars($profile);
-		$summary=htmlspecialchars($summary);
-		$tel=htmlspecialchars($tel);
+		$act_id=htmlspecialchars($act_id,ENT_QUOTES);
+		$leader=htmlspecialchars($leader,ENT_QUOTES);
+		$profile=htmlspecialchars($profile,ENT_QUOTES);
+		$summary=htmlspecialchars($summary,ENT_QUOTES);
+		$tel=htmlspecialchars($tel,ENT_QUOTES);
 		$vol_time=htmlspecialchars($vol_time);
-		$date=htmlspecialchars($date);
+		$date=htmlspecialchars($date,ENT_QUOTES);
 		$systemtime=date('Y-m-d H:i:s',time());
 		$query = "INSERT INTO act_doc(act_id,leader,profile,summary,tel,vol_time,date,system_time)VALUES('".$act_id."','".$leader."','".$profile."','".$summary."','".$tel."','".$vol_time."','".$date."','".$systemtime."')";
 		if(!mysql_query($query,$this->root_conn)) 
@@ -229,7 +229,7 @@ class Team extends DB_Connect {
 	}
 	public function delete_doc($doc_id)//删除一个活动档案
 	{
-		$doc_id=htmlspecialchars($doc_id);
+		$doc_id=htmlspecialchars($doc_id,ENT_QUOTES);
 		$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and final='true'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$num_of_results=mysql_num_rows($select);
@@ -253,9 +253,8 @@ class Team extends DB_Connect {
 	}
 	public function audit_vol($vol_list,$state,$reason)//审核报名该组织的志愿者
 	{
-		$vol_list=htmlspecialchars($vol_list);
-		$state=htmlspecialchars($state);
-		$reason=htmlspecialchars($reason);
+		$state=htmlspecialchars($state,ENT_QUOTES);
+		$reason=htmlspecialchars($reason,ENT_QUOTES);
 		$vol = explode(" ", $vol_list);
 		$s=new System();
 		if ($state==1)//审核通过
@@ -264,6 +263,7 @@ class Team extends DB_Connect {
 			{
 				if ($value!=NULL)
 				{
+					$value=htmlspecialchars($value,ENT_QUOTES);
 					$sql="UPDATE apply_team SET state='1',time='".date('Y-m-d H:i:s',time())."' where user_id='".$value."' and team_id='".$_SESSION[User::USER][User::FACULTY_ID]."'";
 					if (!mysql_query($sql,$this->root_conn))
 					{
@@ -281,6 +281,7 @@ class Team extends DB_Connect {
 			{
 				if ($value!=NULL)
 				{
+					$value=htmlspecialchars($value,ENT_QUOTES);
 					$sql_update="UPDATE apply_team SET state='2',time='".date('Y-m-d H:i:s',time())."' where user_id='".$value."' and team_id='".$_SESSION[User::USER][User::FACULTY_ID]."'";
 					if (!mysql_query($sql_update,$this->root_conn))
 					{
@@ -296,10 +297,9 @@ class Team extends DB_Connect {
 	}
 	public function audit_act_vol($act_id,$vol_list,$state,$reason)//审核报名活动的志愿者
 	{
-		$act_id=htmlspecialchars($act_id);
-		$vol_list=htmlspecialchars($vol_list);
-		$state=htmlspecialchars($state);
-		$reason=htmlspecialchars($reason);			
+		$act_id=htmlspecialchars($act_id,ENT_QUOTES);
+		$state=htmlspecialchars($state,ENT_QUOTES);
+		$reason=htmlspecialchars($reason,ENT_QUOTES);			
 		$vol = explode(" ", $vol_list);
 		$s=new System();
 		$sql="SELECT name FROM activity_info where id='".$act_id."'";
@@ -311,6 +311,7 @@ class Team extends DB_Connect {
 			{
 				if ($value!=NULL)
 				{
+					$value=htmlspecialchars($value,ENT_QUOTES);
 					$sql="UPDATE apply_act SET state='1',time='".date('Y-m-d H:i:s',time())."' where user_id='".$value."' and act_id='".$act_id."'";
 					if (!mysql_query($sql,$this->root_conn))
 					{
@@ -329,6 +330,7 @@ class Team extends DB_Connect {
 			{
 				if ($value!=NULL)
 				{
+					$value=htmlspecialchars($value,ENT_QUOTES);
 					$sql_update="UPDATE apply_act SET state='2',time='".date('Y-m-d H:i:s',time())."' where user_id='".$value."' and act_id='".$act_id."'";
 					if (!mysql_query($sql_update,$this->root_conn))
 					{
@@ -344,13 +346,13 @@ class Team extends DB_Connect {
 	}
 	public function import_vol_to_doc($doc_id,$vol_list)//导入人员进档案表，即添加活动记录表
 	{
-		$doc_id=htmlspecialchars($doc_id);
-		$vol_list=htmlspecialchars($vol_list);
+		$doc_id=htmlspecialchars($doc_id,ENT_QUOTES);
 		$vol = explode(" ", $vol_list);
 		foreach ($vol as $value)
 		{
 			if ($value!=NULL)
 			{
+				$value=htmlspecialchars($value,ENT_QUOTES);
 				$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and user_id='".$value."'";
 				$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 				$num_of_results=mysql_num_rows($select);
@@ -376,6 +378,7 @@ class Team extends DB_Connect {
 		{
 			if ($value!=NULL)
 			{
+				$value=htmlspecialchars($value,ENT_QUOTES);
 				$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and user_id='".$value."'";
 				$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 				$num_of_results=mysql_num_rows($select);
@@ -398,6 +401,7 @@ class Team extends DB_Connect {
 		//$record_list=htmlspecialchars($record_list);
 		foreach ($record_list as $record)
 		{
+			$record['user_id']=htmlspecialchars($record['user_id'],ENT_QUOTES);
 			$sql="SELECT * FROM act_record WHERE doc_id='".$doc_id."' and user_id='".$record['user_id']."'";
 			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			$num_of_results=mysql_num_rows($select);
