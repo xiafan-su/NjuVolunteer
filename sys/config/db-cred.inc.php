@@ -6,8 +6,8 @@ $Const['DB_HOST'] = 'localhost';
 
 $Const['DB_USER'] = 'root';
 
-$Const['DB_PASS'] = 'candy';
+$Const['DB_PASS'] = '525916';
 
-$Const['DB_NAME'] = 'nju_volunteer_final';
+$Const['DB_NAME'] = 'nju_volunteer';
 
 ?>
