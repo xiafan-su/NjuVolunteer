@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-24 23:37:50
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 15:34:00
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:9875519f46372fba08-14846035%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1369409822,
+      1 => 1369466905,
       2 => 'file',
     ),
   ),
@@ -183,7 +183,7 @@ $_smarty_tpl->tpl_vars['d']->_loop = true;
         <div class="others-h-bar"></div>
     	<div class="others-element">
             <div class="others-content">
-            	<h3><a href="./notice.php?type=2&amp;page=1">留言咨询</a></h3>
+            	<h3><a href="./notice.php?type=2&amp;page=1">在线咨询</a></h3>
                 <div class="a-detail">
                 <?php  $_smarty_tpl->tpl_vars['d'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['d']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['question_detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
