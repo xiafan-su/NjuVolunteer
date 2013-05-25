@@ -1,17 +1,20 @@
 ﻿<?php
+
 $_BASE_PATH = "../../";
 $_SMARTY_ROOT="../tpls";
 include_once '../../sys/core/init.inc.php';
+
 
 $a=new Admin();
 
 $aid=$_POST['act_id'];
 $tid=$_POST['team_id'];
 $aname=$_POST['aname'];
-
-
-if ($a->audit_pass($aid,$tid,$aname)) echo 1;
-	else echo 0;
+$result="";
+if ($a->audit_end($aid,$tid,$aname)==true) $result=1;
+	else $result=0;
+	
+	echo $result;
 
 
 

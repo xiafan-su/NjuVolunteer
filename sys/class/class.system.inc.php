@@ -135,6 +135,15 @@ class System extends DB_Connect {
 		}
 		return $journal_info;
 	}
+	public function check_same_note($recv_id,$title,$content)
+	{
+		$sql="SELECT * FROM note WHERE recv_id='".$recv_id."' and title='".$title."' and content='".$content."' and state='unread'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_num_rows($select);
+		if ($result==0)
+			return false;
+		else return true;
+	}
 	public function send_note($recv_id_list,$title,$content,$sender_id='system')//
 	{
 		//$recv_id_list=htmlspecialchars($recv_id_list);
@@ -233,7 +242,7 @@ class System extends DB_Connect {
 	}
 	public function fetch_pub_list()
 	{
-		$sql="SELECT u.id as UID,i.id AS ACTID,u.name AS UNAME,u.faculty,i.name AS ACTNAME,r.base_time,r.honor_time,r.comment  FROM user_info u,act_record r,activity_info i,act_doc d WHERE u.id=r.user_id and r.doc_id=d.id and d.act_id=i.id ";
+		$sql="SELECT u.id as UID,i.id AS ACTID,u.name AS UNAME,u.faculty,i.name AS ACTNAME,r.base_time,r.honor_time,r.comment,r.sus,r.date  FROM user_info u,act_record r,activity_info i,act_doc d WHERE r.final='true' and u.id=r.user_id and r.doc_id=d.id and d.act_id=i.id ";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
@@ -275,11 +284,15 @@ class System extends DB_Connect {
 		$mailpass	=	"woaiqingxie@2010";
 		$mailserver	=	"smtp.126.com";
 		$subject	=	$subject;
-		$message	=	$message;
+		$message	=	$message."<br />-------------<br />南京大学青年志愿者系统自动邮件,请勿直接回复<br />任何问题可以发邮件到此邮箱,欢迎提出您的宝贵意见和建议";
 		$sm 		= 	new Smail( $sendfrom, $mailpass, $mailserver);
 		$send 		= 	$sm->send( $sendto, $sendfrom, $subject, $message );
 		if( $send ) return  false;
 		else return true;
+	}
+	public function record_attack()
+	{
+		
 	}
 }
 

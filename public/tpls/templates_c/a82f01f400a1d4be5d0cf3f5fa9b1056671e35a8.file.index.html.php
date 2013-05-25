@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 15:34:00
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 20:37:09
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:9875519f46372fba08-14846035%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1369466905,
+      1 => 1369485426,
       2 => 'file',
     ),
   ),
@@ -118,7 +118,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     </div>
     <div class="volclaim" id="volclaim" onclick="hiddenit()">
     </div>
-    <div class="people-show"  onclick="window.location.href='gongshi.php'" >	
+    <div class="people-show"  onclick="window.location.href='publicity.php'" >	
         <div class="show-item" id="item1"></div>
         <div class="show-item" id="item2"></div>
         <div class="show-item" id="item3"></div>

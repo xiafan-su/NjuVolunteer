@@ -15,7 +15,7 @@ class User extends DB_Connect {
 	}
 	public function change_sign($sign)
 	{
-		$sign=htmlspecialchars($sign,ENT_QUOTES);
+		$sign=$sign;
 		if (mb_strlen($sign)>80)
 			return "签名字数不超过80个字";
 		$sql="UPDATE user_info SET signature='".htmlspecialchars($sign)."' WHERE id='".$_SESSION[USER::USER][USER::ID]."'";
@@ -64,6 +64,14 @@ class User extends DB_Connect {
 	
 	public function change_person_info($id,$name,$idcard_num,$gender,$email,$phone,$faculty,$grade,$birthday,$politics_status,$nation,$cloth_size,$dormitory,$cet4,$cet6,$language,$language_level,$drive,$medical,$other_skills)//修改个人资料
 	{
+		$t=rand(1,200);
+		if ($gender=="男")
+		{
+			$photo="boy/".$t.".jpg";
+		}else
+		{
+			$photo="girl/".($t%2).".jpg";
+		}
 		$sql="UPDATE user_info SET 
 		
 		name='".htmlspecialchars($name,ENT_QUOTES)."',						gender='".htmlspecialchars($gender,ENT_QUOTES)."',					idcard_num='".htmlspecialchars($idcard_num,ENT_QUOTES)."',
@@ -72,8 +80,8 @@ class User extends DB_Connect {
 		politics_status='".htmlspecialchars($politics_status,ENT_QUOTES)."',	nation='".htmlspecialchars($nation,ENT_QUOTES)."',					cloth_size='".htmlspecialchars($cloth_size,ENT_QUOTES)."',
 		dormitory='".htmlspecialchars($dormitory,ENT_QUOTES)."',				cet4='".htmlspecialchars($cet4,ENT_QUOTES)."',						cet6='".htmlspecialchars($cet6,ENT_QUOTES)."',
 		language='".htmlspecialchars($language,ENT_QUOTES)."',				language_level='".htmlspecialchars($language_level,ENT_QUOTES)."',	drive='".htmlspecialchars($drive,ENT_QUOTES)."',
-		medical='".htmlspecialchars($medical,ENT_QUOTES)."',					other_skills='".htmlspecialchars($other_skills,ENT_QUOTES)."'
-		
+		medical='".htmlspecialchars($medical,ENT_QUOTES)."',					other_skills='".htmlspecialchars($other_skills,ENT_QUOTES)."',
+		photo='".$photo."'
 	    WHERE id='".htmlspecialchars($id)."'";
 		if (!mysql_query($sql, $this->root_conn) )
 		{

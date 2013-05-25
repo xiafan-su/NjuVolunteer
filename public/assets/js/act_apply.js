@@ -11,6 +11,16 @@ function show_faculty(){
 function hide_faculty(){
 	$('#faculty_choose').hide();	
 }
+function htmlEncode(str) {  
+	 var s = "";  
+	 if (str.length == 0) return "";  
+	 s = str.replace(/&/g, "&amp;");  
+	 s = s.replace(/</g, "&lt;");  
+	 s = s.replace(/>/g, "&gt;");    
+	 s = s.replace(/'/g, "&apos;");  
+	 s = s.replace(/"/g, "&quot;");  
+	 return s;  
+};
 var editor;
 KindEditor.ready(function(K) {
 	editor = K.create('textarea[name="content"]', {
@@ -326,7 +336,7 @@ function submit_click()
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
-		data:{id:act_id,activity_name:$('#activity_name').val(),activity_place:$("#activity_place").val(),time_type:$('#time_type').val(),attribution_type:$('#attribution_type').val(),begin_time:$('#begin_time').val(),end_time:$('#end_time').val(),deadline:$('#deadline').val(),detail_time:$('#detail_time').val(),total_num:$('#total_num').val(),need_audit:$('#need_audit').val(),responser:$('#responser').val(),responser_tel:$('#responser_tel').val(),last_time:$('#last_time').val(),activity_profile:profile,state:cur_state,weekday_time:Weekday_time,other_language:$("#other_language").val(),faculty_limit:faculty_limit,cet4:$('#cet4').val(),cet6:$('#cet6').val()},
+		data:{id:act_id,activity_name:$('#activity_name').val(),activity_place:$("#activity_place").val(),time_type:$('#time_type').val(),attribution_type:$('#attribution_type').val(),begin_time:$('#begin_time').val(),end_time:$('#end_time').val(),deadline:$('#deadline').val(),detail_time:htmlEncode($('#detail_time').val()),total_num:$('#total_num').val(),need_audit:$('#need_audit').val(),responser:$('#responser').val(),responser_tel:$('#responser_tel').val(),last_time:$('#last_time').val(),activity_profile:htmlEncode(profile),state:cur_state,weekday_time:Weekday_time,other_language:$("#other_language").val(),faculty_limit:faculty_limit,cet4:$('#cet4').val(),cet6:$('#cet6').val()},
 		url:"./handle/act_apply.php",
 		success:function(html){
 		document.getElementById('loading-bar').style.display='none';
@@ -342,7 +352,7 @@ function submit_click()
 				}else
 				{
 					//alert('http://localhost/njuvolunteer/public/act_dtl.php?act_id='+act_id);
-					window.open('../act_dtl.php?act_id='+act_id);
+					window.open('../public/act_dtl.php?act_id='+act_id);
 				}
 			} else  {
 				alert("申请失败"+html);

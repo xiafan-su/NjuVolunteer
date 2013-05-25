@@ -9,7 +9,16 @@ KindEditor.ready(function(K) {
         	'emoticons']
 		});
 });
-
+    function htmlEncode(str) {  
+         var s = "";  
+         if (str.length == 0) return "";  
+         s = str.replace(/&/g, "&amp;");  
+         s = s.replace(/</g, "&lt;");  
+         s = s.replace(/>/g, "&gt;");    
+         s = s.replace(/'/g, "&apos;");  
+         s = s.replace(/"/g, "&quot;");  
+         return s;  
+    }  ;
 $(document).ready(function(){
 //document.getElementById("drop_cover").style.display="none";
 //$('#drop_cover').animate({opacity:'0'},10);
@@ -223,9 +232,9 @@ $(function(){
 			$.ajax({
 				type:"POST",
 				url:"./handle/comment_apply.php",
-				data:{content:editor.html(),res_id:response_id,act_id:$('#act_id').attr("value")},
+				data:{content:htmlEncode(editor.html()),res_id:response_id,act_id:$('#act_id').attr("value")},
 				success:function(html){
-					
+					//alert(html);
 					//window.location.reload();
 				}
 			});
@@ -238,8 +247,9 @@ $(function(){
 				data:{act_id:$('#act_id').val()},
 				success:function(html)
 				{
-					document.getElementById('loading-bar').style.display='none';
+					
 					$("#comment_list").html(html);
+					document.getElementById('loading-bar').style.display='none';
 					$('.reply').click(function(){
 						editor.html("回复 " + $(this).prev().text() + ":");
 						response_id =  $(this).prev().prev().text();

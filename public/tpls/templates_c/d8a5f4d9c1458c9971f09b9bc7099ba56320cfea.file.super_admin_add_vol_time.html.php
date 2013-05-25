@@ -1,4 +1,30 @@
-<!--
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 16:27:37
+         compiled from "../tpls/templates\handle\super_admin_add_vol_time.html" */ ?>
+<?php /*%%SmartyHeaderCode:298151a075f9087395-42721477%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'd8a5f4d9c1458c9971f09b9bc7099ba56320cfea' => 
+    array (
+      0 => '../tpls/templates\\handle\\super_admin_add_vol_time.html',
+      1 => 1369465115,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '298151a075f9087395-42721477',
+  'function' => 
+  array (
+  ),
+  'variables' => 
+  array (
+    'act_all' => 0,
+    'act' => 0,
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51a075f90d5c6',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_51a075f90d5c6')) {function content_51a075f90d5c6($_smarty_tpl) {?><!--
 
 <head>
 </head>
@@ -62,9 +88,15 @@
 <td> 	
 <select id="act_name" class="actselect" name='actname'  onChange="get_doc()">
 <option></option>
- <{foreach item=act from=$act_all}>
-		<option value="<{$act.id}>"> <{$act.name}></option>
-		<{/foreach}>
+ <?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['act_all']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['act']->key => $_smarty_tpl->tpl_vars['act']->value){
+$_smarty_tpl->tpl_vars['act']->_loop = true;
+?>
+		<option value="<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
+"> <?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
+</option>
+		<?php } ?>
         </select>
         </td>
 <td><font color="green">请注意正确选择</font></td></tr>
@@ -139,3 +171,4 @@
 
 
 </body>
+<?php }} ?>

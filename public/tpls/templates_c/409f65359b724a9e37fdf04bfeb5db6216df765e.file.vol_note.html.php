@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-24 20:17:05
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 16:58:39
          compiled from "../tpls/templates\include\vol_note.html" */ ?>
 <?php /*%%SmartyHeaderCode:27975519f5a418faf20-24876108%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '409f65359b724a9e37fdf04bfeb5db6216df765e' => 
     array (
       0 => '../tpls/templates\\include\\vol_note.html',
-      1 => 1368856711,
+      1 => 1369466905,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519f5a4195f53',
   'variables' => 
   array (
     'note_list' => 0,
     'note' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519f5a4195f53',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_519f5a4195f53')) {function content_519f5a4195f53($_smarty_tpl) {?><div style="margin-left:20px;margin-right:20px;">
 <table width="200" border="1">
@@ -37,7 +37,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['note']->key => $_smarty_tpl->tpl_vars
 $_smarty_tpl->tpl_vars['note']->_loop = true;
 ?>
       <tr>
-        <td id="title" style="cursor:pointer" onclick="show_note(<?php echo $_smarty_tpl->tpl_vars['note']->value['note_id'];?>
+        <td id="title" style="cursor:pointer;text-align:left" onclick="show_note(<?php echo $_smarty_tpl->tpl_vars['note']->value['note_id'];?>
 )"><?php echo $_smarty_tpl->tpl_vars['note']->value['title'];?>
 </td>
         <td id="time"><?php echo $_smarty_tpl->tpl_vars['note']->value['time'];?>

@@ -8,6 +8,8 @@ $results=$u->fetch_act_record($_SESSION[User::USER][User::ID]);
 
 while($act_record = mysql_fetch_assoc($results))
 {
+	$date=explode(" ",$act_record['date']);
+	$act_record['date']=$date[0];
 	$act_listinfo[] = array('date' => $act_record['date'],'name' => $act_record['name'],'base_time' => $act_record['base_time'],'honor_time' => $act_record['honor_time'],'performance_level' => $act_record['performance_level'],'comment' => $act_record['comment'],'id' =>$act_record['id']);
 };
 if (isset($act_listinfo))

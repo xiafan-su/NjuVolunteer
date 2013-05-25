@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-22 15:55:47
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 16:18:57
          compiled from "../tpls/templates\include\note_edit.html" */ ?>
 <?php /*%%SmartyHeaderCode:2162519c7a033e8415-67391775%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '951d89b8cce9357fa487d7d6b7094e91bd6d252f' => 
     array (
       0 => '../tpls/templates\\include\\note_edit.html',
-      1 => 1368974521,
+      1 => 1369466905,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519c7a0351a6b',
   'variables' => 
   array (
     'read_only' => 0,
@@ -29,8 +31,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'content' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519c7a0351a6b',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_519c7a0351a6b')) {function content_519c7a0351a6b($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'D:\\apache\\htdocs\\NjuVolunteer\\Smarty\\libs\\plugins\\modifier.truncate.php';
 ?>
@@ -244,14 +244,16 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['act_index']['last']       = 
 
 	<tr>
 		<th style="text-align:right">内容</th>
-		<td style="text-align:left">
-			<?php if (!$_smarty_tpl->tpl_vars['read_only']->value){?>
-				<textarea name="" rows="10" cols="70" onblur="check_note_send_btn();"  title="通知字数不能超过1000" id="note_edit_content"><?php echo $_smarty_tpl->tpl_vars['content']->value;?>
+		<td style="text-align:left;">
+			<div id="" class="" style="margin: 15px 5px 10px;">
+				<?php if (!$_smarty_tpl->tpl_vars['read_only']->value){?>
+					<textarea name="" rows="10" cols="70" onblur="check_note_send_btn();"  title="通知字数不能超过1000" id="note_edit_content"><?php echo $_smarty_tpl->tpl_vars['content']->value;?>
 </textarea>
-			<?php }else{ ?>
-				<?php echo $_smarty_tpl->tpl_vars['content']->value;?>
+				<?php }else{ ?>
+					<?php echo $_smarty_tpl->tpl_vars['content']->value;?>
 
-			<?php }?>
+				<?php }?>
+			</div>
 		</td>
 	</tr>
 </table>

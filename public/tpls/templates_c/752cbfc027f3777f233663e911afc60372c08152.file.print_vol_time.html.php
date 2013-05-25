@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-24 23:38:03
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 21:18:36
          compiled from "./tpls/templates\print_vol_time.html" */ ?>
 <?php /*%%SmartyHeaderCode:24036519f572d3ee611-22680809%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '752cbfc027f3777f233663e911afc60372c08152' => 
     array (
       0 => './tpls/templates\\print_vol_time.html',
-      1 => 1369409822,
+      1 => 1369487914,
       2 => 'file',
     ),
   ),
@@ -92,14 +92,25 @@ function to_print(){
 <?php }?>
 <!--startprint-->
 	<table align="center" width="840px" >
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
     	<tr height="30px">
         	<td width="10%"></td>
         	<td align="center" width="80%" style="font-family:黑体; font-size:24px;"><b>志愿者服务证明</b></td>
             <td></td>
         </tr>
+
+
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+
         <tr height="200px">
         	<td></td>
-        	<td  style="line-height:30px;font-family:宋体;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;<b><u><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+        	<td  style="line-height:60px;font-family:宋体;text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;<b><u><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
 </u> 同学系南京大学 <u><?php echo $_smarty_tpl->tpl_vars['faculty']->value;?>
 </u><u><?php echo $_smarty_tpl->tpl_vars['grade']->value;?>
 </u> 级学生，在 <u><?php echo $_smarty_tpl->tpl_vars['start_year']->value;?>
@@ -110,6 +121,33 @@ function to_print(){
 </u> 小时。</b></td>
             <td></td>
         </tr>
+
+
+
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><th></th><td>&nbsp;</td><td>&nbsp;</td></tr>
+
         <tr height="30px">
         	<td></td>
         	<td style="font-family:宋体;text-align:right"><b><?php echo $_smarty_tpl->tpl_vars['team_name']->value;?>
@@ -118,7 +156,7 @@ function to_print(){
         </tr>
         <tr height="30px">
         	<td></td>
-        	<td style="font-family:宋体;text-align:right"><b>（校团委盖章）</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        	<td style="font-family:宋体;text-align:right"><b>&nbsp;&nbsp;&nbsp;&nbsp;（校团委盖章）</b>&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td></td>
         </tr>
         <tr height="30px">

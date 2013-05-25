@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT']."/classes/upload/upload_class.php"); //classes is the map where the class file is stored (one above the root)
+include($_SERVER['DOCUMENT_ROOT']."/njuvolunteer/public/plugin/jquery-fileuploader-php-master/classes/easy_upload/upload_class.php"); //classes is the map where the class file is stored (one above the root)
 $folder = $_SERVER['DOCUMENT_ROOT']."/files/";
 error_reporting(E_ALL);
 function select_files($dir) {

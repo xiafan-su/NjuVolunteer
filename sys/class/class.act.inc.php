@@ -76,7 +76,7 @@ class Act extends DB_Connect {
 		$user_id=htmlspecialchars($user_id,ENT_QUOTES);
 		$act_id=htmlspecialchars($act_id,ENT_QUOTES);
 		$resp_id=htmlspecialchars($resp_id,ENT_QUOTES);
-		$comment=htmlspecialchars($comment,ENT_QUOTES);
+		//$comment=htmlspecialchars($comment,ENT_QUOTES);
 		$time=htmlspecialchars($time,ENT_QUOTES);
 		
 		$insert = "
@@ -157,11 +157,22 @@ class Act extends DB_Connect {
 			return true;
 		}
 	}
+	public function fetch_act_pic($act_id)
+	{
+		$sql="SELECT * FROM photos WHERE act_id='".$act_id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$photo_list;
+		while ($result=mysql_fetch_assoc($select))
+		{
+			$photo_list[]=array('src'=>'../Upload/picture/'.$result['pic_name'],'full_src'=>'../Upload/picture/'.$result['pic_name'],'uploader_id'=>$result['uploader_id'],'uploader_name'=>$result['uploader_name'],'upload_time'=>$result['time']);
+		}
+		return $photo_list;
+	}
 	public function upload_pic($act_id,$filename)//活动详细页面，上传照片
 	{
 		$act_id=htmlspecialchars($act_id,ENT_QUOTES);
 		$filename=htmlspecialchars($filename,ENT_QUOTES);
-		$query="INSERT INTO photos(act_id,pic_name,time) VALUES('".$act_id."','".$filename."','".date('Y-m-d H:i:s',time())."')";
+		$query="INSERT INTO photos(act_id,pic_name,time,uploader_id,uploader_name) VALUES('".$act_id."','".$filename."','".date('Y-m-d H:i:s',time())."','".$_SESSION[USER::USER][USER::ID]."','".$_SESSION[USER::USER][USER::NAME]."')";
 		if(!mysql_query($query,$this->root_conn))
 		{
 			die('Error: ' . mysql_error());
@@ -195,12 +206,14 @@ class Act extends DB_Connect {
 		$begin_time=htmlspecialchars($begin_time,ENT_QUOTES);
 		$end_time=htmlspecialchars($end_time,ENT_QUOTES);
 		$deadline=htmlspecialchars($deadline,ENT_QUOTES);
+		$detail_time=htmlspecialchars_decode($detail_time,ENT_QUOTES);
 		$detail_time=htmlspecialchars($detail_time,ENT_QUOTES);
 		$total_num=htmlspecialchars($total_num,ENT_QUOTES);
 		$need_audit=htmlspecialchars($need_audit,ENT_QUOTES);
 		$responser=htmlspecialchars($responser,ENT_QUOTES);
 		$responser_tel=htmlspecialchars($responser_tel,ENT_QUOTES);
 		$last_time=htmlspecialchars($last_time,ENT_QUOTES);
+		$activity_profile=htmlspecialchars_decode($activity_profile,ENT_QUOTES);
 		$activity_profile=htmlspecialchars($activity_profile,ENT_QUOTES);
 		$state=htmlspecialchars($state,ENT_QUOTES);
 		$publisher=htmlspecialchars($publisher,ENT_QUOTES);

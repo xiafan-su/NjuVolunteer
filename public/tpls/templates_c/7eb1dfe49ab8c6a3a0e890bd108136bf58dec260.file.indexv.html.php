@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 00:05:08
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 21:16:44
          compiled from "./tpls/templates\indexv.html" */ ?>
 <?php /*%%SmartyHeaderCode:31056519f8fb4ad69c8-33592758%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7eb1dfe49ab8c6a3a0e890bd108136bf58dec260' => 
     array (
       0 => './tpls/templates\\indexv.html',
-      1 => 1369145194,
+      1 => 1369487342,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519f8fb4c63de',
   'variables' => 
   array (
     'name' => 0,
+    'head_photo' => 0,
     'teamlist' => 0,
     'team' => 0,
     'faculty' => 0,
@@ -32,8 +35,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'follow' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519f8fb4c63de',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_519f8fb4c63de')) {function content_519f8fb4c63de($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -63,7 +64,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <hr />
     <div class="left">
         <div class="photo">
-            <img src="./assets/img/head_photo/boy/5.jpg"/>
+            <img src="./assets/img/head_photo/<?php echo $_smarty_tpl->tpl_vars['head_photo']->value;?>
+"/>
         </div>
         <div class="orgnization">
             <h3>当前所属团队：</h3>
