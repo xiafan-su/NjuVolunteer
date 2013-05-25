@@ -161,12 +161,37 @@ class Act extends DB_Connect {
 	{
 		$sql="SELECT * FROM photos WHERE act_id='".$act_id."'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-		$photo_list;
+		$photo_list = NULL;
 		while ($result=mysql_fetch_assoc($select))
 		{
-			$photo_list[]=array('src'=>'../Upload/picture/'.$result['pic_name'],'full_src'=>'../Upload/picture/'.$result['pic_name'],'uploader_id'=>$result['uploader_id'],'uploader_name'=>$result['uploader_name'],'upload_time'=>$result['time']);
+			$photo_list[]=array('id'=>$result['id'],'src'=>'../Upload/picture/'.$result['pic_name'],'full_src'=>'../Upload/picture/'.$result['pic_name'],'uploader_id'=>$result['uploader_id'],'uploader_name'=>$result['uploader_name'],'upload_time'=>$result['time']);
 		}
 		return $photo_list;
+	}
+	public function delete_photo($id)
+	{
+		$sql="SELECT pic_name FROM photos WHERE id='".$id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		$myfile = "../Upload/picture/".$result['pic_name'];
+		if (file_exists($myfile)) {
+			$result=unlink ($myfile);
+			if ($result==1) return true;
+		}
+		$sql="DELETE FROM photos WHERE id='".$id."'";
+		if (!mysql_query($sql,$this->root_conn))
+			return false;
+		else return true;
+	}
+	public function set_cover($id)
+	{
+		$sql="SELECT * FROM photos WHERE id='".$id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		$sql="UPDATE activity_info SET cover_pic='".$result['pic_name']."' WHERE id='".$result['act_id']."'";
+		if(mysql_query($sql,$this->root_conn))
+			return true;
+		else return false;
 	}
 	public function upload_pic($act_id,$filename)//活动详细页面，上传照片
 	{
