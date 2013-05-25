@@ -75,7 +75,7 @@
 	overflow:hidden;
 	width:800px;
 	height:300px;
-	box-shadow:0px 0px 10px #666;
+	box-shadow:0px 0px 10px #666;/*与活动中心一致，去掉阴影*/
 	behavior:url(./assets/css/pie.htc);
 }
 li.tn-img-t{

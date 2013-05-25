@@ -9,6 +9,9 @@ img{
 	float:left;
 	padding: 1px;
 }
+.switchlist img{
+	padding: 0px;
+}
 .img-bar{
 	float:left;
 	padding:5px;

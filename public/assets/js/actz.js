@@ -257,43 +257,43 @@ az_funcz_doc_import_ok = function(){
 				$("#doc_edit_part_table_tr_tip").remove();//移除“还没有人参加这个活动哦”提示
 
 				var tr = '<tr uid="{id}" id="part_people_table_tr_{id}">'+
-				'<td><input type="checkbox" class="doc_checkbox_head" id="doc_checkbox_head_{id}" noid="{id}" onclick="change_rec_edit_head_checkbox();"/></td>'+
-				'<td>'+
-					'<span noid="{id}" title="点击查看该学生信息" >{id}</span>'+
-				'</td>'+
-				'<td>{name}</td>'+
-				'<td>{faculty}</td>'+
-				'<td>'+
-					'<span class="doc_time" title="点击修改"  onclick = "change_doc_time_handle(this, 1)"    id="doc_time_{id}" >{time}</span>'+
-					'<span class="" style="display: none; white-space:nowrap;" id="doc_time_set_{id}">'+
-							'<input type="text" value="{time}" uid="{id}" onblur="change_doc_time_handle(this, 2)" />'+
-					'</span> '+
-				'</td>'+
-				'<td>'+
-					'<span class="doc_level" id="doc_level_{id}" title="点击修改"   onclick="change_doc_level_handle(this, 1);"  >{level}</span>'+
-					'<span class="" style="display: none; white-space:nowrap;" id="doc_level_set_{id}">'+
-						'<select name="doc_level_select" id="doc_level_select_{id}" onblur="change_doc_level_handle(this, 2)">'+
-							'<option name="一般" value="一般">一般</option>'+
-							'<option  name="良好" value="良好">良好</option>'+
-							'<option name="优秀"  value="优秀">优秀</option>'+
-						'</select>'+
-					'</span>'+
-				'</td>'+
-				'<td>'+
-					'<input   type="checkbox"   onclick="change_doc_honnor_leader_handle(this, 1);"  id="doc_checkbox_leader_{id}"  title="荣获带队奖的志愿者将获得额外的志愿时间" />'+
-				'</td>'+
-				'<td>'+
-					'<input  type="checkbox" onclick="change_doc_honnor_leader_handle(this, 2);"    id="doc_checkbox_excellent_{id}"  title="荣获优秀奖的志愿者将获得额外的志愿时间" />'+
-				'</td>'+
-				'<td>'+
-					'<span id="doc_comment_{id}"    title="点击修改" onclick="change_doc_comment_handle(this, 1)"   > '+
-						'无'+
-					'</span>'+
-					'<span class=""  style="display: none;">'+
-						'<textarea id="doc_comment_set_{id}>" name="" rows="3" cols="10"  onblur="change_doc_comment_handle(this, 2)">{comment}</textarea>'+
-					'</span>'+
-				'</td>'+
-			'</tr>';
+					'<td><input type="checkbox" class="doc_checkbox_head" id="doc_checkbox_head_{id}" noid="{id}" onclick="change_rec_edit_head_checkbox();"/></td>'+
+					'<td>'+
+						'<span class="clickable" onclick="popup_volunteer_info({id});" noid="{id}" title="点击查看该学生信息" >{id}</span>'+
+					'</td>'+
+					'<td><span class="clickable" onclick="window.open(\'./indexv.php?user_id={id}\', \'_blank\');" title="查看个人主页">{name}</span></td>'+
+					'<td>{faculty}</td>'+
+					'<td>'+
+						'<span class="doc_time" title="点击修改"  onclick = "change_doc_time_handle(this, 1)"    id="doc_time_{id}" >{time}</span>'+
+						'<span class="" style="display: none; white-space:nowrap;" id="doc_time_set_{id}">'+
+								'<input type="text" value="{time}" uid="{id}" onblur="change_doc_time_handle(this, 2)" />'+
+						'</span> '+
+					'</td>'+
+					'<td>'+
+						'<span class="doc_level" id="doc_level_{id}" title="点击修改"   onclick="change_doc_level_handle(this, 1);"  >{level}</span>'+
+						'<span class="" style="display: none; white-space:nowrap;" id="doc_level_set_{id}">'+
+							'<select name="doc_level_select" id="doc_level_select_{id}" onblur="change_doc_level_handle(this, 2)">'+
+								'<option name="一般" value="一般">一般</option>'+
+								'<option  name="良好" value="良好">良好</option>'+
+								'<option name="优秀"  value="优秀">优秀</option>'+
+							'</select>'+
+						'</span>'+
+					'</td>'+
+					'<td>'+
+						'<input   type="checkbox"   onclick="change_doc_honnor_leader_handle(this, 1);"  id="doc_checkbox_leader_{id}"  title="荣获带队奖的志愿者将获得额外的志愿时间" />'+
+					'</td>'+
+					'<td>'+
+						'<input  type="checkbox" onclick="change_doc_honnor_leader_handle(this, 2);"    id="doc_checkbox_excellent_{id}"  title="荣获优秀奖的志愿者将获得额外的志愿时间" />'+
+					'</td>'+
+					'<td>'+
+						'<span id="doc_comment_{id}"    title="点击修改" onclick="change_doc_comment_handle(this, 1)"   > '+
+							'无'+
+						'</span>'+
+						'<span class=""  style="display: none;">'+
+							'<textarea id="doc_comment_set_{id}>" name="" rows="3" cols="10"  onblur="change_doc_comment_handle(this, 2)">{comment}</textarea>'+
+						'</span>'+
+					'</td>'+
+				'</tr>';
 				/*var tr = '<tr id="part_people_table_tr_{id}">'+
 					'<td><input type="checkbox" title="" id="doc_checkbox_head_{id}" noid="{id}" onclick="change_rec_edit_head_checkbox();" /></td>'+
 					'<td>{id}(来自JS)</td>'+
@@ -537,12 +537,17 @@ az_funz_doc_select_all = function(){
 
 //设置参与表的“确定”按钮有效
 function set_submit_enable(  ){
+	//“保存”
+	$("#submit_act_doc").attr( "disabled", true );
+	$("#submit_act_doc").attr( "title", "您必须点击“确定”按钮保存参与表后才能保存！" );
+	//“提交”
 	$("#doc_op_submit").attr( "disabled", true );
 	$("#doc_op_submit").attr( "title", "您必须点击“确定”按钮保存参与表后才能提交！" );
 
 	var submit_button = $("#doc_op_modify");
 	submit_button.attr( "disabled", false );
 	submit_button.attr( "title", "修改后点击此按钮生效" );
+	
 }
 
 //以下几个函数处理，参与表的修改
@@ -698,12 +703,15 @@ function doc_edit_submit_handle(elem){
 				var modify_button = $("#doc_op_modify");
 				modify_button.attr( "disabled", true );
 				modify_button.attr( "title", "之前的修改已保存，您还没有新的修改" );
+				//“保存”
+				$("#submit_act_doc").attr( "disabled", false );
+				$("#submit_act_doc").attr( "title", "保存该活动档案" );
 				$("#doc_op_submit").attr( "disabled", false );
-				$("#doc_op_submit").attr( "title", "提交您所做的修改，提交后志愿时间将会公示一周，并且除非有异议不得再修改！" );
+				$("#doc_op_submit").attr( "title", "提交该活动档案，提交后志愿时间将会公示一周，并且除非有异议不得再修改" );
 				alert( "修改成功！" );
 			} else {
 				alert( html );
-				submit_button.attr( "title", "请修改不正确的地方！" );
+				submit_button.attr( "title", "请修改不正确的地方" );
 			}
 		}
 	});

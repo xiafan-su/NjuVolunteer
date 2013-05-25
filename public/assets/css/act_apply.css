@@ -1,7 +1,7 @@
 .span_left{
 float: left;
 width: 620px;
-margin:10px 120px 0 120px;  /* mk:marks */
+margin:10px 170px 0 170px;  /* mk:marks */
 font-size: 14px;
 line-height: 22px;
 }
@@ -111,7 +111,7 @@ border-radius:5px;
 .bar-left{
 	float:left;
 	margin-top:7px;
-	height:8px;
+	height:6px;
 	width:230px;
 	filter:alpha(opacity=20 finishopacity=100 style=1 startx=0,starty=0,finishx=230,finishy=0)progid:DXImageTransform.Microsoft.gradient(startcolorstr='#E1E1E1',endcolorstr='#686868',gradientType=1);
 	background:-ms-linear-gradient(right,rgba(104,104,104,1) 0%,rgba(225,225,225,0.2) 100%);
@@ -122,7 +122,7 @@ border-radius:5px;
 .bar-right{
 	float:left;
 	margin-top:7px;
-	height:8px;
+	height:6px;
 	width:230px;
 	filter:alpha(opacity=100 finishopacity=20 style=1 startx=0,starty=0,finishx=230,finishy=0)progid:DXImageTransform.Microsoft.gradient(startcolorstr='#686868',endcolorstr='#E1E1E1',gradientType=1);
 	background:-ms-linear-gradient(left,rgba(104,104,104,1) 0%,rgba(225,225,225,0.2) 100%);

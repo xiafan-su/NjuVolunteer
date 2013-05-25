@@ -5,6 +5,12 @@ include_once '../sys/core/init.inc.php';
 
 include './include/header.php';
 
+if( !isset( $_SESSION[User::USER][User::FACULTY_ID] ) ){
+	echo "<p>登录信息已失效，请重新登录！</p>";
+	exit;
+}
+
+
 $print = false;
 
 $user_id = "b100000000";
