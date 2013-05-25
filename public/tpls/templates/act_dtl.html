@@ -7,7 +7,10 @@
 <link href="./assets/css/main.css" rel="stylesheet" />
 <link href="./assets/css/login.css" rel="stylesheet" />
 <link href="./assets/css/act_dtl.css" rel="stylesheet" />
+<link href="./assets/css/act_photo.css" rel="stylesheet" />
 <link href="./assets/css/dropzone.css" rel="stylesheet" />
+<link href="./assets/css/tipswindown.css" rel="stylesheet" />
+<script src="./assets/js/tipswindown.js"></script>
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/kindeditor-min.js"></script>
 <script charset="utf-8" src="./plugin/kindeditor-4.1.5/lang/zh_CN.js"></script>
 <link href="./plugin/jquery-fileuploader-php-master/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
@@ -27,8 +30,8 @@
 
 <div class="main">
 	<div id="left">
-        <div id="act_image">
-   			 <img src="../Upload/picture/<{$picture}>" height="244"  />
+        <div id="act_image" style="cursor:pointer;">
+   			 <img id="scan_act_photo" src="../Upload/picture/<{$picture}>" height="244"  />
              <{if $perm_of_upload==1}>
              <span id="upload_pic" name="upload_pic">上传图片</span>
              <{/if}>

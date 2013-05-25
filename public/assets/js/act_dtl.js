@@ -251,7 +251,21 @@ $(function(){
 			});
 		}
 	});
-	
+
+	$("#scan_act_photo").click( function(){
+		var id =$("#act_id").val();
+		document.getElementById('loading-bar').style.display='block';
+		$.ajax({
+			type:"GET",
+			url:"./include/act_photo.php",
+			data:{activityId: id },
+			success:function(html){
+				document.getElementById('loading-bar').style.display='none';
+				tipsWindown("活动照片浏览","text:"+html,"900","527","true","","true","");
+				$("#act_photo_item_1").trigger("click");
+			}
+		});
+	});
 
 });
 
