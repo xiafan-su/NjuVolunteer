@@ -82,7 +82,7 @@
             <div class="div_content">
             	<div>
                 <ul>
-                    <li><div class="div_content_attr">负责人</div>
+                    <li><div class="div_content_attr">负责同学</div>
                     <div class="div_content_value"><{$responser}></div></li>
                     <li><div class="div_content_attr">联系电话</div>
                     <div class="div_content_value"><{$responser_tel}></div></li>
@@ -103,34 +103,17 @@
 			</div>
 
             <ul class="div_title2"><li>活动评论详情</li></ul>
-          
-          	<{foreach name=comment_data item=act_comment from=$comment_detail}>
-            <div class="comment-panel">
-            	<div class="comment-title">
-                	<div class="comment-name">
-                    <{if $act_comment.id!="id"}>
-                    <a href="indexv.php?user_id=<{$act_comment.id}>"><{$act_comment.name}>(<{$act_comment.id}>)</a>
-                    <{else}>
-                    <{$act_comment.name}>
-                    <{/if}>
-                    </div>
-                    <div class="comment-time">[<{$act_comment.time}>]</div>
-                </div>
-                <div class="comment-content">
-                	<span><{$act_comment.content}></span>
-                    <span class="name-used" style="display:none"><{$act_comment.id}></span>
-                    <span class="name-used" style="display:none"><{$act_comment.name}>(<{$act_comment.id}>)</span>
-                    <span class="reply"><a href="#comment-w">回复</a></span>
-                </div>
-            </div>
-            <{/foreach}>
             
+          	<div id="comment_list">
+
+                
+            </div>
             <div style="width:100%;height:10px;float:left"></div>
      		<div id="comment_area">
             	<a name="comment-w"></a>
-				<textarea id="comment_input" name="com_content" style="width:340px;height:110px;visibility:hidden;" ></textarea>
+				<textarea id="comment_input" name="com_content" style="width:440px;height:110px;visibility:hidden;" ></textarea>
 			</div>
-            <div class="comment_submit" style="width:340px;">
+            <div class="comment_submit" style="width:440px;">
 				<input name="com_submit" class="button" id="submit_comment" type="submit" value="评论"/>
 			</div>
         </div>

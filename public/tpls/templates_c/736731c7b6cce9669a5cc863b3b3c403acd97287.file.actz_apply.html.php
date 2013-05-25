@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-24 18:59:33
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-24 23:44:14
          compiled from "../tpls/templates\include\actz_apply.html" */ ?>
 <?php /*%%SmartyHeaderCode:19804519f4815e6c263-95104977%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '736731c7b6cce9669a5cc863b3b3c403acd97287' => 
     array (
       0 => '../tpls/templates\\include\\actz_apply.html',
-      1 => 1368932172,
+      1 => 1369409822,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519f4816068b7',
   'variables' => 
   array (
     'update_time' => 0,
@@ -25,8 +27,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'docid' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519f4816068b7',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_519f4816068b7')) {function content_519f4816068b7($_smarty_tpl) {?>
 <div id="" class="" style="margin: 0 20px">
@@ -97,7 +97,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['vol_index']['last']       = 
 					<td><a class="apply_id_col" onclick="popup_volunteer_info(<?php echo $_smarty_tpl->tpl_vars['apply_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['vol_index']['index']]['id'];?>
 );" title="点击查看该学生的信息"><?php echo $_smarty_tpl->tpl_vars['apply_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['vol_index']['index']]['id'];?>
 </a></td>
-					<td><a  target="_blank" href="./indexv.php?id=<?php echo $_smarty_tpl->tpl_vars['apply_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['vol_index']['index']]['id'];?>
+					<td><a  target="_blank" href="./indexv.php?user_id=<?php echo $_smarty_tpl->tpl_vars['apply_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['vol_index']['index']]['id'];?>
 " title="查看个人主页"><?php echo $_smarty_tpl->tpl_vars['apply_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['vol_index']['index']]['name'];?>
 </a></td>
 					<td style="white-space:nowrap; overflow: hidden;"><?php echo $_smarty_tpl->tpl_vars['apply_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['vol_index']['index']]['faculty'];?>

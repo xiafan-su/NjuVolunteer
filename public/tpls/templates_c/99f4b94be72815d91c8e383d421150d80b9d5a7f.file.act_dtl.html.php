@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-24 19:34:58
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 14:31:52
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:14096519c7925075fb8-29843811%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1369394944,
+      1 => 1369463505,
       2 => 'file',
     ),
   ),
@@ -37,8 +37,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'responser' => 0,
     'responser_tel' => 0,
     'act_id' => 0,
-    'comment_detail' => 0,
-    'act_comment' => 0,
     'same_act' => 0,
     'act' => 0,
   ),
@@ -143,7 +141,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div class="div_content">
             	<div>
                 <ul>
-                    <li><div class="div_content_attr">负责人</div>
+                    <li><div class="div_content_attr">负责同学</div>
                     <div class="div_content_value"><?php echo $_smarty_tpl->tpl_vars['responser']->value;?>
 </div></li>
                     <li><div class="div_content_attr">联系电话</div>
@@ -167,47 +165,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			</div>
 
             <ul class="div_title2"><li>活动评论详情</li></ul>
-          
-          	<?php  $_smarty_tpl->tpl_vars['act_comment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act_comment']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['comment_detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['act_comment']->key => $_smarty_tpl->tpl_vars['act_comment']->value){
-$_smarty_tpl->tpl_vars['act_comment']->_loop = true;
-?>
-            <div class="comment-panel">
-            	<div class="comment-title">
-                	<div class="comment-name">
-                    <?php if ($_smarty_tpl->tpl_vars['act_comment']->value['id']!="id"){?>
-                    <a href="indexv.php?user_id=<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['name'];?>
-(<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
-)</a>
-                    <?php }else{ ?>
-                    <?php echo $_smarty_tpl->tpl_vars['act_comment']->value['name'];?>
-
-                    <?php }?>
-                    </div>
-                    <div class="comment-time">[<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['time'];?>
-]</div>
-                </div>
-                <div class="comment-content">
-                	<span><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['content'];?>
-</span>
-                    <span class="name-used" style="display:none"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
-</span>
-                    <span class="name-used" style="display:none"><?php echo $_smarty_tpl->tpl_vars['act_comment']->value['name'];?>
-(<?php echo $_smarty_tpl->tpl_vars['act_comment']->value['id'];?>
-)</span>
-                    <span class="reply"><a href="#comment-w">回复</a></span>
-                </div>
-            </div>
-            <?php } ?>
             
+          	<div id="comment_list">
+
+                
+            </div>
             <div style="width:100%;height:10px;float:left"></div>
      		<div id="comment_area">
             	<a name="comment-w"></a>
-				<textarea id="comment_input" name="com_content" style="width:340px;height:110px;visibility:hidden;" ></textarea>
+				<textarea id="comment_input" name="com_content" style="width:440px;height:110px;visibility:hidden;" ></textarea>
 			</div>
-            <div class="comment_submit" style="width:340px;">
+            <div class="comment_submit" style="width:440px;">
 				<input name="com_submit" class="button" id="submit_comment" type="submit" value="评论"/>
 			</div>
         </div>

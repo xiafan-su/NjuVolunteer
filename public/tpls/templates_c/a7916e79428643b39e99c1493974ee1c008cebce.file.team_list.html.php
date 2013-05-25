@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-22 15:51:11
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-24 23:48:20
          compiled from "./tpls/templates\team_list.html" */ ?>
 <?php /*%%SmartyHeaderCode:8573519c78ef7f92b5-95193873%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a7916e79428643b39e99c1493974ee1c008cebce' => 
     array (
       0 => './tpls/templates\\team_list.html',
-      1 => 1369149525,
+      1 => 1369409822,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519c78ef89abf',
   'variables' => 
   array (
     'department_info' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'other_team_info' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519c78ef89abf',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_519c78ef89abf')) {function content_519c78ef89abf($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -38,10 +38,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <title>团队组织</title>
 <style>
 button{
+	position:relative;
 	width:140px;
 	height:40px;
 	border:ridge;
-	-webkit-border-radius:15px;
+	border-radius:15px;
+	behavior:url(./assets/css/pie.htc);
 }
 </style>
 
@@ -81,9 +83,9 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 ?>
          <li class="explore-item">
             <div class="pic">
-               <a href="./indext.php?team_id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
-" target="_blank"> <img src="./assets/img/team/<?php echo $_smarty_tpl->tpl_vars['item']->value['logo'];?>
-" class="t-portrait" id="pic1"/></a>
+               <span onclick="window.open('./indext.php?team_id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+','_blank')"> <img src="./assets/img/team/<?php echo $_smarty_tpl->tpl_vars['item']->value['logo'];?>
+" class="t-portrait" id="pic1"/></span>
             </div>
             <div class="content">
                 <div class="title">
@@ -114,9 +116,9 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
 ?>
      <li class="explore-item">
    		<div class="pic">
-        	 <a href="./indext.php?team_id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
-" target="_blank"> <img src="./assets/img/team/<?php echo $_smarty_tpl->tpl_vars['item']->value['logo'];?>
-" class="t-portrait" id="pic1"/></a>
+        	 <span onclick="window.open('./indext.php?team_id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+','_blank')"> <img src="./assets/img/team/<?php echo $_smarty_tpl->tpl_vars['item']->value['logo'];?>
+" class="t-portrait" id="pic1"/></spn>
        	</div>
    		<div class="content" >
                 <div class="title">

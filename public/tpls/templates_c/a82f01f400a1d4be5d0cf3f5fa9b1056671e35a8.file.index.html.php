@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-24 18:51:35
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-24 23:37:50
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:9875519f46372fba08-14846035%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1369392668,
+      1 => 1369409822,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_519f46373f898',
   'variables' => 
   array (
     'notice_detail' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'question_detail' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_519f46373f898',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_519f46373f898')) {function content_519f46373f898($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -39,6 +39,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <title>南京大学青年志愿者</title>
 </head>
 <body>
+<!--[if lte IE 8]>
+<div class="browser-change">
+	<span>想要获得最佳浏览效果请使用Chrome、FireFox、Safari或IE9以上的浏览器浏览本网站！谢谢合作！</span>
+	<img src="./assets/img/index/x.png" height="12" class="browser-img" onclick="exit_browser()" />
+</div>
+<![endif]-->
 <?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 
@@ -49,6 +55,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<div class="map-img" id="map-img"><img src="./assets/img/index/map.png" /></div>
 		</div>
 		<div class="act-img">
+        	<div class="act-detail" id="act-detail"></div>
         	<div class="act-detail" id="act-detail1">
             	<span class="act-detail-title">多一份关爱</span>
             	<span class="act-detail-content">将第一颗爱心献予高淳，为特殊青少年茁壮成长增添养分，相信有"长江基金"的关注、关爱和关怀，高淳特殊青少年成长之花一定会结出丰硕的爱心之果。</span></div>
@@ -130,8 +137,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="show-item" id="iitem7"></div>
         <div class="show-item" id="iitem8"></div>
         <div class="show-item" id="iitem9"></div>
-        <div class="show-cover"><img src="./assets/img/index/11.jpg" width="960px" style=""/></div>
-        <div class="pic-cover"></div>
+        <div class="show-cover"><img src="./assets/img/index/11.jpg" width="960px" class="show-cover"/></div>
     </div>
     <div class="share">
     	<div class="share-bar-left"></div>

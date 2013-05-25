@@ -87,9 +87,7 @@ $tpl->assign( "deadline", $deadline[0] );
 $tpl->assign( "act_id", $activity_id);
 $tpl->assign( "responser", $item['responser']);
 $tpl->assign( "responser_tel", $item['responser_tel']);
-$comment_info=$act->get_comment($activity_id);
 
-$tpl->assign( "comment_detail",$comment_info);
 
 $tpl->display('act_dtl.html');
 ?>

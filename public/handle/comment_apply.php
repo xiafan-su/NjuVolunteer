@@ -20,14 +20,12 @@ $act=new Act();
 if ($content != ""){
 	//if ($_POST['res_id'] != $user_id){
 	$result = $act->new_comment($user_id,$act_id,$resp_id,$content,$time);
-		
 	//	if ($result == 1)
 	//		echo "评论成功";
 	//	else
-			echo "评论失败";
+	//		echo "评论失败";
 //
 }
-
 else
 	echo "评论内容不能为空";
 //$comment_info=$act->get_comment($act_id);
