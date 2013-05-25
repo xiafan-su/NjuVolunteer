@@ -85,7 +85,7 @@ width:630px;
 	font-weight:bolder;
 }
 .div_content{
-	margin:20px 15px 0 15px;
+	margin:10px;
 	width:600px;
 	float:left;	
 	font-size:14px;
@@ -130,6 +130,7 @@ width:630px;
 #act_introduction{
 	float:left;	
 	width:840px;
+	margin: 10px 0;
 }
 .drop-cover{
 	z-index:190;

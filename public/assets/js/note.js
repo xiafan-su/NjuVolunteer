@@ -249,6 +249,7 @@ function nt_func_note_send(){
 	}
 	var topic = $("input#note_edit_topic").val().trim();
 	var content = $("textarea#note_edit_content").val().trim();
+	//content = content.replace( /\n/g, "<br />" );
 	//alert( topic+", "+id_list+", "+content);
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({

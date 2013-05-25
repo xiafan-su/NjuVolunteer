@@ -98,12 +98,14 @@
 
 	<tr>
 		<th style="text-align:right">内容</th>
-		<td style="text-align:left">
-			<{if !$read_only}>
-				<textarea name="" rows="10" cols="70" onblur="check_note_send_btn();"  title="通知字数不能超过1000" id="note_edit_content"><{$content}></textarea>
-			<{else}>
-				<{$content}>
-			<{/if}>
+		<td style="text-align:left;">
+			<div id="" class="" style="margin: 15px 5px 10px;">
+				<{if !$read_only}>
+					<textarea name="" rows="10" cols="70" onblur="check_note_send_btn();"  title="通知字数不能超过1000" id="note_edit_content"><{$content}></textarea>
+				<{else}>
+					<{$content}>
+				<{/if}>
+			</div>
 		</td>
 	</tr>
 </table>

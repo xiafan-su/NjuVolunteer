@@ -77,6 +77,11 @@ if( isset( $_POST['noteId'] ) ){
 		);
 	}
 }
+
+if( strlen($content) > 0){
+	$content = str_replace( "\n", "<br/>", $content );
+	$content = str_replace( " ", "&nbsp;", $content );
+}
 $tpl->assign( "topic", $topic );
 $tpl->assign( "content", $content );
 $tpl->assign( "recv_list", $recv_list );
