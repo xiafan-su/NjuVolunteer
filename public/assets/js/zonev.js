@@ -220,6 +220,7 @@ function handlechange(){
 	var f = document.getElementById("faculty"); 
 	var n = document.getElementById("nation");
 	var c = document.getElementById("cloth_size");
+	var g = document.getElementById("grade");
 	//alert(t.options[t.selectedIndex].value);
 	//alert(myGender);
 	//var t = document.getElementById("faculty"); 
@@ -251,6 +252,7 @@ function handlechange(){
 				email:$("#email").val(),
 				phone:$("#phone").val(),
 				faculty:f.options[f.selectedIndex].value,
+				grade:g.options[g.selectedIndex].value,
 				birthday:$("#birthday").val(),
 				politics_status:myPolitic,
 				nation:n.options[n.selectedIndex].value,

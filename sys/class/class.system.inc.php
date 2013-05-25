@@ -138,9 +138,9 @@ class System extends DB_Connect {
 	public function send_note($recv_id_list,$title,$content,$sender_id='system')//
 	{
 		//$recv_id_list=htmlspecialchars($recv_id_list);
-		$title=htmlspecialchars($title);
-		$content=htmlspecialchars($content);
-		$sender_id=htmlspecialchars($sender_id);
+		$title=htmlspecialchars($title,ENT_QUOTES);
+		$content=htmlspecialchars($content,ENT_QUOTES);
+		$sender_id=htmlspecialchars($sender_id,ENT_QUOTES);
 		$recv_id = explode(" ", $recv_id_list);
 		$sql="INSERT INTO note_send(sender_id,send_type,recv_id_list,title,content,date)
 		VALUES('".$sender_id."','0','".$recv_id_list."','".$title."','".$content."','".date('Y-m-d H:i:s',time())."')
@@ -165,6 +165,10 @@ class System extends DB_Connect {
 			}
 		}
 		return true;
+	}
+	public function comment_note($user_id,$act_id,$resp_id,$content,$time)
+	{
+		
 	}
 	public function new_visitor()
 	{
@@ -263,6 +267,19 @@ class System extends DB_Connect {
 		$provment['prove_date_month']=date("m",time());
 		return $provment;
 		
+	}
+	public function send_email($sendto,$subject,$message)//发送邮件
+	{
+		$sendto		=	$sendto;
+		$sendfrom	=	"NJU_Volunteer@126.com";
+		$mailpass	=	"woaiqingxie@2010";
+		$mailserver	=	"smtp.126.com";
+		$subject	=	$subject;
+		$message	=	$message;
+		$sm 		= 	new Smail( $sendfrom, $mailpass, $mailserver);
+		$send 		= 	$sm->send( $sendto, $sendfrom, $subject, $message );
+		if( $send ) return  false;
+		else return true;
 	}
 }
 

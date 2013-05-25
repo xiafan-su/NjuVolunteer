@@ -78,6 +78,7 @@ class Act extends DB_Connect {
 		$resp_id=htmlspecialchars($resp_id,ENT_QUOTES);
 		$comment=htmlspecialchars($comment,ENT_QUOTES);
 		$time=htmlspecialchars($time,ENT_QUOTES);
+		
 		$insert = "
 		insert into act_comment
 		(
@@ -98,7 +99,7 @@ class Act extends DB_Connect {
 		$activity_id=htmlspecialchars($activity_id,ENT_QUOTES);
 		$act_info=NULL;
 		$i=0;
-		$select = mysql_query("select * from apply_act where act_id = '".$activity_id."' and state='1'")or trigger_error(mysql_error(),E_USER_ERROR);
+		/*$select = mysql_query("select * from apply_act where act_id = '".$activity_id."' and state='1'")or trigger_error(mysql_error(),E_USER_ERROR);
 		while ($row = mysql_fetch_array($select)){
 			$result = mysql_query("select * from apply_act where user_id = '".$row['user_id']."' and act_id != '".$activity_id."'")or trigger_error(mysql_error(),E_USER_ERROR);
 			while ($roow = mysql_fetch_array($result)){
@@ -110,6 +111,14 @@ class Act extends DB_Connect {
 					$i++;
 				}
 			}
+		}*/
+		$sql="SELECT DISTINCT ai.id,ai.name FROM apply_act aa,activity_info ai WHERE aa.act_id=ai.id and aa.user_id IN (SELECT user_id FROM apply_act WHERE act_id='".$activity_id."')";
+		$info = mysql_query($sql)or trigger_error(mysql_error(),E_USER_ERROR);
+		while ($detail = mysql_fetch_array($info)){
+			if ($i<3)
+				$act_info[] = array('name' => $detail['name'],'id' => $detail['id']);                             
+			else  break;
+			$i++;
 		}
 		return $act_info;
 	}
@@ -119,9 +128,18 @@ class Act extends DB_Connect {
 		$comment_info=NULL;
 		$comment = mysql_query("select * from act_comment where act_id = '".$activity_id."'")or trigger_error(mysql_error(),E_USER_ERROR);
 		while ($comment_row = mysql_fetch_array($comment)){
-			$comment_name = mysql_query("select * from user_info where id = '".$comment_row['user_id']."'")or trigger_error(mysql_error(),E_USER_ERROR);
-			$comment_name1 = mysql_fetch_array($comment_name);
-			$comment_info[] = array('id' => $comment_row['user_id'],'name' =>$comment_name1['name'],'time' => $comment_row['time'],'content'=> htmlspecialchars_decode($comment_row['comment'],ENT_QUOTES));
+			$flag_faculty=0;
+			$sql="SELECT name FROM user_info WHERE id='".$comment_row['user_id']."'";
+			$select = mysql_query($sql)or trigger_error(mysql_error(),E_USER_ERROR);
+			$name = mysql_fetch_array($select);
+			if ($name['name']==NULL)
+			{
+				$flag_faculty=1;
+				$sql="SELECT name FROM team WHERE id='".$comment_row['user_id']."'";
+				$select = mysql_query($sql)or trigger_error(mysql_error(),E_USER_ERROR);
+				$name = mysql_fetch_array($select);
+			}
+			$comment_info[] = array('cmt_id'=>$comment_row['id'],'user_id' => $comment_row['user_id'],'name' =>$name['name'],'time' => $comment_row['time'],'flag_faculty'=>$flag_faculty,'content'=> str_replace(array('<p>','</p>'), '', htmlspecialchars_decode($comment_row['comment'],ENT_QUOTES)));
 		}
 		return $comment_info;
 	}

@@ -113,12 +113,12 @@ width:630px;
 	box-shadow:10px 10px 10px #666;
 }
 .act-comment{
-	width:340px;
+	width:440px;
 	
 }
 .other-act{
 	margin-left:30px;
-	width:410px;
+	width:310px;
 }
 .div_title2{
 	float:left;
@@ -160,15 +160,15 @@ width:630px;
 	float:right;
 }
 .comment-panel{
-	width:340px;
+	width:440px;
 	float:left;
-	background:rgb(205,205,205);
+	background:rgb(225,225,225);
 	margin:10px 0 0px 0px;
 	border-radius:8px;
 }
 .comment-title{
 	float:left;
-	width:320px;
+	width:420px;
 	margin:0 10px 0 10px;
 }
 .comment-name{
@@ -179,9 +179,9 @@ width:630px;
 }
 .comment-content{
 	float:left;
-	font-weight:bold;
-	color:rgb(102,51,102);
-	width:320px;
+	font-size:14px;
+	color:rgb(0,0,0);
+	width:420px;
 	margin:6px 10px 0 10px;
 }
 

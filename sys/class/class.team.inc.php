@@ -654,7 +654,7 @@ class Team extends DB_Connect {
 		}
 		return true;		
 	}
-	public function fetch_my_new_notes_count($team_id)
+	public function fetch_my_new_notes_count($team_id)//获取我未读通知的数量
 	{
 		$team_id=htmlspecialchars($team_id);
 		$sql="SELECT count(*) AS count FROM note WHERE recv_id='".$team_id."' and state='unread'";
@@ -662,7 +662,7 @@ class Team extends DB_Connect {
 		$result=mysql_fetch_assoc($select);
 		return $result['count'];
 	}
-	public function modify_password($team_id,$oldpsd,$newpsd)
+	public function modify_password($team_id,$oldpsd,$newpsd)//修改密码，新密码已经是md5加密
 	{
 		$sql="SELECT id FROM login WHERE id='".$team_id."' and password='".$oldpsd."'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
@@ -676,6 +676,7 @@ class Team extends DB_Connect {
 		}else
 		return true;
 	}
+
 }
 ?>
 

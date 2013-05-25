@@ -15,7 +15,7 @@ class User extends DB_Connect {
 	}
 	public function change_sign($sign)
 	{
-		$sign=htmlspecialchars($sign);
+		$sign=htmlspecialchars($sign,ENT_QUOTES);
 		if (mb_strlen($sign)>80)
 			return "签名字数不超过80个字";
 		$sql="UPDATE user_info SET signature='".htmlspecialchars($sign)."' WHERE id='".$_SESSION[USER::USER][USER::ID]."'";
@@ -62,17 +62,17 @@ class User extends DB_Connect {
 	
 	
 	
-	public function change_person_info($id,$name,$idcard_num,$gender,$email,$phone,$faculty,$birthday,$politics_status,$nation,$cloth_size,$dormitory,$cet4,$cet6,$language,$language_level,$drive,$medical,$other_skills)//修改个人资料
+	public function change_person_info($id,$name,$idcard_num,$gender,$email,$phone,$faculty,$grade,$birthday,$politics_status,$nation,$cloth_size,$dormitory,$cet4,$cet6,$language,$language_level,$drive,$medical,$other_skills)//修改个人资料
 	{
 		$sql="UPDATE user_info SET 
 		
-		name='".htmlspecialchars($name)."',						gender='".htmlspecialchars($gender)."',					idcard_num='".htmlspecialchars($idcard_num)."',
-		email='".htmlspecialchars($email)."',						faculty='".htmlspecialchars($faculty)."',
-		birthday='".htmlspecialchars($birthday)."',				phone='".htmlspecialchars($phone)."',						
-		politics_status='".htmlspecialchars($politics_status)."',	nation='".htmlspecialchars($nation)."',					cloth_size='".htmlspecialchars($cloth_size)."',
-		dormitory='".htmlspecialchars($dormitory)."',				cet4='".htmlspecialchars($cet4)."',						cet6='".htmlspecialchars($cet6)."',
-		language='".htmlspecialchars($language)."',				language_level='".htmlspecialchars($language_level)."',	drive='".htmlspecialchars($drive)."',
-		medical='".htmlspecialchars($medical)."',					other_skills='".htmlspecialchars($other_skills)."'
+		name='".htmlspecialchars($name,ENT_QUOTES)."',						gender='".htmlspecialchars($gender,ENT_QUOTES)."',					idcard_num='".htmlspecialchars($idcard_num,ENT_QUOTES)."',
+		email='".htmlspecialchars($email,ENT_QUOTES)."',						faculty='".htmlspecialchars($faculty,ENT_QUOTES)."',			grade='".htmlspecialchars($grade,ENT_QUOTES)."',
+		birthday='".htmlspecialchars($birthday,ENT_QUOTES)."',				phone='".htmlspecialchars($phone,ENT_QUOTES)."',						
+		politics_status='".htmlspecialchars($politics_status,ENT_QUOTES)."',	nation='".htmlspecialchars($nation,ENT_QUOTES)."',					cloth_size='".htmlspecialchars($cloth_size,ENT_QUOTES)."',
+		dormitory='".htmlspecialchars($dormitory,ENT_QUOTES)."',				cet4='".htmlspecialchars($cet4,ENT_QUOTES)."',						cet6='".htmlspecialchars($cet6,ENT_QUOTES)."',
+		language='".htmlspecialchars($language,ENT_QUOTES)."',				language_level='".htmlspecialchars($language_level,ENT_QUOTES)."',	drive='".htmlspecialchars($drive,ENT_QUOTES)."',
+		medical='".htmlspecialchars($medical,ENT_QUOTES)."',					other_skills='".htmlspecialchars($other_skills,ENT_QUOTES)."'
 		
 	    WHERE id='".htmlspecialchars($id)."'";
 		if (!mysql_query($sql, $this->root_conn) )
@@ -86,7 +86,7 @@ class User extends DB_Connect {
 	}
 	public function fetch_person_act($id)//获取我参与的活动
 	{
-		$id=htmlspecialchars($id);
+		$id=htmlspecialchars($id,ENT_QUOTES);
 		$sql="SELECT ai.* from apply_act ac ,activity_info ai where ac.user_id='".$id."' and ac.act_id=ai.id";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		//$results=mysql_fetch_assoc($select);
@@ -94,7 +94,7 @@ class User extends DB_Connect {
 	} 
 	public function fetch_act_record($id)//获取我的活动记录
 	{
-		$id=htmlspecialchars($id);
+		$id=htmlspecialchars($id,ENT_QUOTES);
 		$sql="SELECT ad.date,ai.name,ai.id,ar.base_time,ar.honor_time,ar.performance_level,ar.comment from act_doc ad, act_record ar ,activity_info ai where ar.user_id='".$id."' and ad.id=ar.doc_id and ai.id=ad.act_id";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		//$results=mysql_fetch_assoc($select);
@@ -102,8 +102,8 @@ class User extends DB_Connect {
 	} 
 	public function fetch_notes($id,$state)//获取我的通知
 	{
-		$id=htmlspecialchars($id);
-		$state=htmlspecialchars($state);
+		$id=htmlspecialchars($id,ENT_QUOTES);
+		$state=htmlspecialchars($state,ENT_QUOTES);
 		if ($state==0)//取出未读通知
 			$sql="SELECT * from note where recv_id='".$id."' and state='unread' and recv_type='0' order by time DESC";
 		else//取出历史所有通知
@@ -114,14 +114,14 @@ class User extends DB_Connect {
 	} 
 	public function fetch_one_note($id)//获取具体的通知
 	{
-		$id=htmlspecialchars($id);
+		$id=htmlspecialchars($id,ENT_QUOTES);
 		$sql="SELECT t.name,n.title,n.content,n.time,n.state from note n,team t where n.id='".$id."' and t.id=n.sender_id";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	} 
 	public function read_note($id)//已读通知
 	{
-		$id=htmlspecialchars($id);
+		$id=htmlspecialchars($id,ENT_QUOTES);
 		$sql="UPDATE note SET state='read' WHERE id='".$id."'";
 		if (!mysql_query($sql,$this->root_conn))
 		{
@@ -129,7 +129,7 @@ class User extends DB_Connect {
 		}
 	} 
 	public function login($id, $md5psd){
-		$id=htmlspecialchars($id);
+		$id=htmlspecialchars($id,ENT_QUOTES);
 		//$sql="SELECT u.id,u.name,u.permission,f.faculty_name,f.faculty_id FROM user_info u,faculty f WHERE u.faculty = f.faculty_name AND u.id='".$id."' AND u.password='".$md5psd."'";
 		$sql="SELECT * from login where id='".$id."' AND password='".$md5psd."'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);

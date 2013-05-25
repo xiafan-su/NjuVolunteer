@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 15:43:53
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-24 18:59:10
          compiled from "../tpls/templates\include\rec_edit.html" */ ?>
-<?php /*%%SmartyHeaderCode:259351a06bb9c742d3-10367080%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:8143519f47fe724c91-07885759%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'faf877110be62a795340f534c0c692bc647f473c' => 
     array (
       0 => '../tpls/templates\\include\\rec_edit.html',
-      1 => 1369454253,
+      1 => 1369392668,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '259351a06bb9c742d3-10367080',
+  'nocache_hash' => '8143519f47fe724c91-07885759',
   'function' => 
   array (
   ),
@@ -33,9 +33,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a06bba09152',
+  'unifunc' => 'content_519f47fea282b',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a06bba09152')) {function content_51a06bba09152($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_519f47fea282b')) {function content_519f47fea282b($_smarty_tpl) {?>
 
 
 <div id="" class="" style="margin: 0px 20px">
@@ -155,9 +155,9 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['part_doc_index']['last']    
 </span>
 				</td>
 				<td>
-					<span class="clickable" onclick="window.open('./indexv.php?user_id=<?php echo $_smarty_tpl->tpl_vars['part_doc_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['part_doc_index']['index']]['id'];?>
-', '_blank');" title="查看个人主页"><?php echo $_smarty_tpl->tpl_vars['part_doc_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['part_doc_index']['index']]['name'];?>
-</span>
+					<a target="_blank" href="./indexv.php?user_id=<?php echo $_smarty_tpl->tpl_vars['part_doc_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['part_doc_index']['index']]['id'];?>
+" title="查看个人主页"><?php echo $_smarty_tpl->tpl_vars['part_doc_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['part_doc_index']['index']]['name'];?>
+</a>
 				</td>
 				<td><?php echo $_smarty_tpl->tpl_vars['part_doc_list']->value[$_smarty_tpl->getVariable('smarty')->value['section']['part_doc_index']['index']]['faculty'];?>
 </td>
@@ -215,16 +215,16 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['part_doc_index']['last']    
 		</table>
 		
 		<?php if ($_smarty_tpl->tpl_vars['is_finished']->value){?>
-		<input type="button" class="button" disabled="true"  value="导入" title="该活动档案已提交，不能导入" id="doc_op_import" actid="<?php echo $_smarty_tpl->tpl_vars['actId']->value;?>
+		<input type="button" class="button" disabled="true"  value="导入" title="活动记录已提交，不能导入" id="doc_op_import" actid="<?php echo $_smarty_tpl->tpl_vars['actId']->value;?>
 "  docid="<?php echo $_smarty_tpl->tpl_vars['docId']->value;?>
 "  />
-		<input type="button" class="button" disabled="true" value="移除" title="该活动档案已提交，不能移除" id="doc_op_remove" docid="<?php echo $_smarty_tpl->tpl_vars['docId']->value;?>
+		<input type="button" class="button" disabled="true" value="移除" title="活动记录已提交，不能移除" id="doc_op_remove" docid="<?php echo $_smarty_tpl->tpl_vars['docId']->value;?>
 "    />
-		<input onclick="doc_edit_submit_handle(this);" type="button" class="button" value="确定" title="该活动档案已提交，不能修改" id="doc_op_modify" docid="<?php echo $_smarty_tpl->tpl_vars['docId']->value;?>
+		<input onclick="doc_edit_submit_handle(this);" type="button" class="button" value="确定" title="活动记录已提交，不能修改" id="doc_op_modify" docid="<?php echo $_smarty_tpl->tpl_vars['docId']->value;?>
 " disabled="true"   />
 		<?php }else{ ?>
 		<div id="modify_tip" class="modify_tip" >
-			<span class="" style="color:red; ">注意：1. 勾选志愿者可批量操作。2. 修改后必须点击“确定”才有效！</span>
+			<span class="" style="color:red; ">注意：1.表中的修改将对选择的志愿者做同样的操作。2.修改后必须点击“确定”才有效！</span>
 			<span class="" style="color:black; cursor:pointer" onclick="javascript:$(this).parent().toggle(200);">知道了</span>
 		</div>
 		<input type="button" class="button" value="导入"  id="doc_op_import" actid="<?php echo $_smarty_tpl->tpl_vars['actId']->value;?>
@@ -269,19 +269,19 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['part_doc_index']['last']    
 		</table>
 	</div>
 <?php if (!$_smarty_tpl->tpl_vars['is_finished']->value){?>
-	<input type="button" class="button" value="保存" title="保存该活动档案" id="submit_act_doc" />
-	<input type="button" class="button" value="删除" title="删除该活动档案" id="delete_act_doc" docid="<?php echo $_smarty_tpl->tpl_vars['docId']->value;?>
+	<input type="button" class="button" value="保存" title="保存活动记录" id="submit_act_doc" />
+	<input type="button" class="button" value="删除" title="删除该活动" id="delete_act_doc" docid="<?php echo $_smarty_tpl->tpl_vars['docId']->value;?>
 " />
-	<input type="button" class="button" value="提交" title="提交该活动档案，提交后志愿时间将会公示一周，并且除非有异议不得再修改" id="doc_op_submit" docid="<?php echo $_smarty_tpl->tpl_vars['docId']->value;?>
+	<input type="button" class="button" value="提交" title="提交您所做的修改，提交后志愿时间将会公示一周，并且除非有异议不得再修改" id="doc_op_submit" docid="<?php echo $_smarty_tpl->tpl_vars['docId']->value;?>
 " onclick="javascript: submit_doc(this);"/>
 <?php }else{ ?>
-	<input type="button" class="button" disabled="true" value="保存" title="该活动档案已经提交，已经保存" id="" />
-	<input type="button" class="button" disabled="true" value="删除"title="该活动档案已经提交，无法删除"  id="" docid="<?php echo $_smarty_tpl->tpl_vars['docId']->value;?>
+	<input type="button" class="button" disabled="true" value="保存" title="不满足条件，无法保存" id="" />
+	<input type="button" class="button" disabled="true" value="删除"title="该活动已经提交，无法删除"  id="" docid="<?php echo $_smarty_tpl->tpl_vars['docId']->value;?>
 " />
-	<input type="button" class="button" disabled="true" value="提交" title="该活动档案已经提交" id="" docid="<?php echo $_smarty_tpl->tpl_vars['docId']->value;?>
+	<input type="button" class="button" disabled="true" value="提交" title="该活动已经提交" id="" docid="<?php echo $_smarty_tpl->tpl_vars['docId']->value;?>
 " />
 <?php }?>
-	<input type="button" class="button" value="返回" title="返回活动列表" id="go_back_home" />
+	<input type="button" class="button" value="返回" id="go_back_home" />
 
 
 </div>

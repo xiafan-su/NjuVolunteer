@@ -13,14 +13,14 @@ KindEditor.ready(function(K) {
 $(document).ready(function(){
 //document.getElementById("drop_cover").style.display="none";
 //$('#drop_cover').animate({opacity:'0'},10);
-		jQuery(function($){
-			$('.fileUpload').fileUploader({
-				autoUpload: true,
-				limit: false,
-				selectFileLabel: '拖拽至此',
-				allowedExtension: 'jpg|jpeg|gif|png'
-				});
-		});
+	jQuery(function($){
+		$('.fileUpload').fileUploader({
+			autoUpload: true,
+			limit: false,
+			selectFileLabel: '拖拽至此',
+			allowedExtension: 'jpg|jpeg|gif|png'
+			});
+	});
 	document.getElementById('loading-bar').style.display='block';
 	 $.ajax({
 			type:"POST",
@@ -57,6 +57,21 @@ $(document).ready(function(){
 				}
 				
 			}
+		});
+	$.ajax({
+			type:"POST",
+			url:"./handle/get_act_comment.php",
+			data:{act_id:$('#act_id').val()},
+			success:function(html)
+			{
+				$("#comment_list").html(html);
+				$('.reply').click(function(){
+					editor.html("回复 " + $(this).prev().text() + ":");
+					response_id =  $(this).prev().prev().text();
+					//alert($(this).prev().prev().text());
+				});
+			}
+		
 		});
 	
 });
@@ -199,30 +214,45 @@ $(function(){
 		//alert(editor.html());
 		var strs=new Array();
 		strs=content.split(":");
-		if (strs[1]!="")
+		if (strs[1]=="")
+ 			alert("评论内容不能为空");
+		else
 		{
 			document.getElementById('loading-bar').style.display='block';
+			//alert(response_id);
 			$.ajax({
 				type:"POST",
 				url:"./handle/comment_apply.php",
 				data:{content:editor.html(),res_id:response_id,act_id:$('#act_id').attr("value")},
 				success:function(html){
-					document.getElementById('loading-bar').style.display='none';
-					window.location.reload();
-
-					//alert(html);
+					
+					//window.location.reload();
 				}
 			});
+	
+			editor.text("");
+			response_id=-1;
+			$.ajax({
+				type:"POST",
+				url:"./handle/get_act_comment.php",
+				data:{act_id:$('#act_id').val()},
+				success:function(html)
+				{
+					document.getElementById('loading-bar').style.display='none';
+					$("#comment_list").html(html);
+					$('.reply').click(function(){
+						editor.html("回复 " + $(this).prev().text() + ":");
+						response_id =  $(this).prev().prev().text();
+						//alert($(this).prev().prev().text());
+					});
+	
+				}
+			
+			});
 		}
-		else alert("评论内容不能为空");
-		
 	});
 	
-	$('.reply').click(function(){
-		editor.text("回复 " + $(this).prev().text() + ":");
-		response_id =  $(this).prev().prev().text();
-		//alert($(this).prev().prev().text());
-	});
+
 });
 
 
