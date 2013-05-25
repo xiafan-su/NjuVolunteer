@@ -1,4 +1,4 @@
-
+<!--
 
 <head>
 </head>
@@ -39,5 +39,103 @@
  <input type="submit" value="提交更改" /></td></tr>
 </form>
 </table>
+
+</body>
+-->
+
+<head>
+</head>
+<body>
+ <table >
+				<tr>
+                <th align="left">填写栏目</th>
+					<th align="left">填写值</th>
+                    <th>校验</th>
+                    </tr>
+ <script src="./assets/js/admin_add_vol_time.js"></script>  
+<form  method="POST" action="./handle/super_admin_add_vol_time_ok.php" onSubmit="return checkinfoover(this)">
+<tr><td style="text-align:left">学生账户名</td>
+<td><input type="text" name="userid" id="username" onBlur="checkuserid()"></td>
+<td id="ua_1"></td></tr>
+
+<tr><td style="text-align:left">活动名称</td>
+<td> 	
+<select id="act_name" class="actselect" name='actname'  onChange="get_doc()">
+<option></option>
+ <{foreach item=act from=$act_all}>
+		<option value="<{$act.id}>"> <{$act.name}></option>
+		<{/foreach}>
+        </select>
+        </td>
+<td><font color="green">请注意正确选择</font></td></tr>
+
+<tr><td style="text-align:left">档案选择</td>
+<td> 	
+	<div id="ready_to_change">
+<select id="doc_id" class="docselect" name="docname"  onchange="setdoc()">
+
+		<option > </option>
+		
+        </select>
+        </div>
+        </td>
+   <td><font color="green">请注意正确选择</font></td></tr>     
+       
+        
+  <tr><td style="text-align:left">评价</td>
+<td><input type="text" name="reasoneva"></td>
+<td><font color="green">请注意正确填写,可以为空</font></td></tr>
+      
+
+<tr><td style="text-align:left">带队奖</td>
+<td><select name="teamleader">
+<option value="0">否</option>
+<option value="1">是</option>
+</select>
+</td>
+<td><font color="green">请注意正确选择</font></td></tr>
+
+<tr><td style="text-align:left">优秀奖</td>
+<td><select name="goodmember">
+<option value="0">否</option>
+<option value="1">是</option>
+</select>
+</td>
+<td><font color="green">请注意正确选择</font></td></tr>
+
+
+<tr><td style="text-align:left">表现等级</td>
+<td>
+<select name="level" >
+<option value="优秀">优秀</option>
+<option value="良好">良好</option>
+<option value="一般">一般</option>
+</select>
+</td>
+<td><font color="green">请注意正确选择</font></td></tr>
+
+
+<tr><td style="text-align:left">增加基础时间(小时)</td>
+<td><input type="text" id="check_t" name="basictime" onBlur="check_base_time()"></td>
+<td id="bt_2"></td></tr>
+ 
+
+
+
+
+
+
+
+<tr><td style="text-align:left">请确认</td>
+<td>
+ <input type="submit" value="提交更改" /></td>
+ <td><font color="green">请注意正确选择</font></td></tr>
+ 
+ <input id="fordoc" name="docvalue" type="hidden"></input>
+ 
+</form>
+</table>
+
+
 
 </body>

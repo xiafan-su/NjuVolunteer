@@ -25,10 +25,15 @@ include_once '../../sys/core/init.inc.php';
 	$publisher=$_SESSION[User::USER][User::ID];
 	$act=new Act();
 	$result=$act->update_act($_POST['id'],$_POST['activity_name'],$_POST['activity_place'],$_POST['time_type'],$_POST['attribution_type'],$_POST['begin_time'],$_POST['end_time'],$_POST['deadline'],$_POST['detail_time'],$_POST['total_num'],$_POST['need_audit'],$_POST['responser'],$_POST['responser_tel'],$_POST['last_time'],$_POST['activity_profile'],$_POST['state'],$publisher,$_POST['weekday_time'],$_POST['other_language'],$_POST['faculty_limit'],$_POST['cet4'],$_POST['cet6']);
+	
 	if($_POST['state']=='auditing')
 	{
 		$s=new System();
-		$s->send_email("245681117@qq.com","你好","这是一个测试");
+		$t=new Team();
+		$team_info=$t->fetch_team_name($publisher);
+		$title=$team_info['name']."向您申请了一个活动，请您尽快审核";
+		$content="";
+		$s->send_email("NJU_Volunteer@126.com",$title,"http://volunteer.nju.edu.cn");
 	}
 	if ($result==1) echo "1";
 		else echo"0";

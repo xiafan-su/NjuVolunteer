@@ -1,0 +1,60 @@
+ <table>
+				<tr>
+				
+					<th>活动名称</th>
+                    <th>活动主办方</th>
+					<th>活动地点</th>
+					<th>活动开始时间</th>
+					<th>活动结束时间</th>
+                    <th>活动联系人姓名</th>
+                    <th>活动联系人号码</th>
+                    <th>活动链接</th>
+				</tr>
+
+<{foreach item=act from=$act_list}>
+<div class="act_info" id="activity_<{$act.id}>">
+    <div class="act-name" id="act_name" onclick="showmore(<{$act.id}>)"></div>
+
+    
+    
+   
+    
+   				
+					<tr class="even">
+
+						<td><{$act.name}></td>
+                        <td><{$act.tname}></td>
+						<td><{$act.place}></td>
+						<td><{$act.begin_time}></td>
+						<td><{$act.end_time}></td>
+                        <td><{$act.responser}></td>
+						<td><{$act.responser_tel}></td>
+                        <td><a href="./act_dtl.php?act_id=<{$act.id}>">点此进入</td>
+             
+					</tr>
+        
+    	</div>
+				<{/foreach}>
+                </table>
+    
+    
+    <!--
+        <div class="act-hiden" id="act_<{$act.id}>">
+   		<div class="hiden-msg">活动名称：<{$act.name}></div>
+        <div class="hiden-msg">活动地点：<{$act.place}></div>
+        <div class="hiden-msg">活动类型：<{$act.time_type}></div>
+        <div class="hiden-msg">活动属性：<{$act.attribution_type}></div>  
+    	<div class="hiden-msg">活动开始时间：<{$act.begin_time}></div>
+        <div class="hiden-msg">活动结束时间：<{$act.end_time}></div>
+        <div class="hiden-msg">活动持续时间：<{$act.last_time}>小时</div>
+      	<div class="hiden-msg">活动详细时间：<{$act.detail_time}></div>
+        <div class="hiden-msg">招募人数：<{$act.total_num}></div>
+        <div class="hiden-msg">参加活动是否需要审核：<{$act.need_audit}></div>    
+       	<div class="hiden-msg">联系人姓名：<{$act.responser}></div>
+        <div class="hiden-msg">联系人电话：<{$act.responser_tel}></div>        
+        <div class="hiden-profile">活动简介：<{$act.profile}></div> 
+        
+     </div>
+    
+    -->
+    

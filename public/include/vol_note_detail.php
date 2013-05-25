@@ -13,7 +13,7 @@ if (isset($note))
 	
 	$tpl->assign('sender',$note['name']);
 	$tpl->assign('title',$note['title']);
-	$tpl->assign('content',$note['content']);
+	$tpl->assign('content',htmlspecialchars_decode($note['content'],ENT_QUOTES));
 	$tpl->assign('time',$note['time']);
 	$tpl->assign('id',$id);
 	$tpl->assign('state',$note['state']);

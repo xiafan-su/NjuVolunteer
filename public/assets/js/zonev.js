@@ -1,5 +1,9 @@
 
 var nowloading="<div class=\"loading\"><img src=\"./assets/img/loading/loading.gif\"/></div>";
+$(document).ready(function(){
+$("#my_activity").click();
+
+});
 
 var flag_name=0;
 var flag_idcard=0;
@@ -9,11 +13,21 @@ var flag_phone=0;
 var flag_cet4=0;
 var flag_cet6=0;
 var flag_other_skills=0;
+function htmlEncode(str) {  
+	 var s = "";  
+	 if (str.length == 0) return "";  
+	 s = str.replace(/&/g, "&amp;");  
+	 s = s.replace(/</g, "&lt;");  
+	 s = s.replace(/>/g, "&gt;");    
+	 s = s.replace(/'/g, "&apos;");  
+	 s = s.replace(/"/g, "&quot;");  
+	 return s;  
+};
 function change_sign(){
 		$.ajax({
 		type:"POST",
 		data:{
-			signature:$("#sign").val()
+			signature:htmlEncode($("#sign").val())
 			},
 		url:"./handle/change_sign.php",
 		success:function(html){

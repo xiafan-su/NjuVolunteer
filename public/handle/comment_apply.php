@@ -20,6 +20,18 @@ $act=new Act();
 if ($content != ""){
 	//if ($_POST['res_id'] != $user_id){
 	$result = $act->new_comment($user_id,$act_id,$resp_id,$content,$time);
+	$act_info=$act->fetch_one($act_id);
+	if($user_id!=$act_info['publisher'])
+	{
+		$s=new System();
+		$title="有人评论了您的活动";
+		$content=$act_info['name']."有了新的评论，快去查看吧";
+		if (!$s->check_same_note($act_info['publisher'],$title,$content))
+		{
+
+			$s->send_note($act_info['publisher'],$title,$content);
+		}
+	}
 	//	if ($result == 1)
 	//		echo "评论成功";
 	//	else

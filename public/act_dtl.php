@@ -9,13 +9,8 @@ $activity_id = intval($_GET['act_id']);
 $act = new Act();
 $item = $act->fetch_one($activity_id);
 $tpl->assign( "id", $activity_id);
-$re=$act->fetch_photo($activity_id);
-$photo=mysql_fetch_assoc($re);
-if ($photo['pic_name']!=NULL)
-	$picture=$photo['pic_name'];
-else
-	$picture="default.jpg";
-$tpl->assign("picture",$picture);//取出封面图片
+
+$tpl->assign("picture",$item['cover_pic']);//取出封面图片
 
 if (isset($_SESSION[USER::USER][USER::PERM_ID]))
 {

@@ -6,6 +6,7 @@ include_once '../../sys/core/init.inc.php';
 $tid=$_POST['cteam'];
 //$tid=$_POST['teamid'];
 $pwd=$_POST['password'];
+$pwd=md5($pwd);
 
  $a=new Admin();
 	$result=$a->change_pwd($tid,$pwd);
