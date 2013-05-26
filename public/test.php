@@ -129,10 +129,7 @@ $send 		= 	$sm->send( $sendto, $sendfrom, $subject, $message );*/
 //$s=new System();
 //if($s->send_email("245681117@qq.com","测试",'<div style="font-size:40">heh</div>')) echo "success";
 $a=new Act();
-$photo_list=$a->fetch_act_pic(200);
-foreach($photo_list as $value)
-	echo $value['upload_time']."<br />".$value['uploader_id']."<br />".$value['uploader_name']."<br />".$value['src']."<br />";
-$a->set_cover(31);
+$a->delete_photo(54);
 //if(!$t->insert_act_record(101220119,6,3,'优秀',1,0,'这孩子不错'))echo "wrong";
 //$t->register_voltime(6);
 //if($t->delete_my_activity(121)) echo "可以删除";

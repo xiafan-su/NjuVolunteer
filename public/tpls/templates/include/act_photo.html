@@ -1,5 +1,29 @@
 
-
+<style>
+.loading-bar2{
+	width:inherit;
+	height:inherit;
+}
+.loading-cover2{
+	position:relative;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:rgba(255,255,255,0.5);
+	z-index:192;
+}
+.loading-pic2{
+	position:fixed;
+	top:50%;
+	left:50%;
+	margin-left:-15px;
+	margin-top:-15px;
+	width:31px;
+	height:31px;
+	z-index:193;
+}
+</style>
 
 <div>
 	
@@ -73,7 +97,10 @@
 			</span>
 	</div>
 
-
+    <div id="loading-bar2">
+        <div class="loading-cover2"></div>
+        <div class="loading-pic2"><img src="./assets/img/loading/loading.gif"/></div>
+    </div>
 </div>
 
 <script language="javascript">
@@ -104,18 +131,19 @@ function addImg(isrc) {
 		$(Img).css("margin-left",  ( WIDTH - w )/2 );
 		$(Img).css("margin-top",  ( HEIGHT -h )/2 );
 		$("#act_photo_full_img_span").html( Img );
-		document.getElementById('loading-bar').style.display='none';
+		document.getElementById('loading-bar2').style.display='none';
 	}
 	Img.src = isrc;//顺序不能换！！！
 }
 
 function change_full_picture(elem, full_src){
 	//alert( "tesr!"+full_id+","+full_src );
-	document.getElementById('loading-bar').style.display='block';
+	document.getElementById('loading-bar2').style.display='block';
 	$("#act_photo_full_img_span").attr( "pic_id", $(elem).attr("pic_id") );
 	$("#act_photo_full_img_info_uploader").attr( "user_id", $(elem).attr("uploader_id") );
 	$("#act_photo_full_img_info_uploader").text( $(elem).attr("uploader_name") );
 	$("#act_photo_full_img_info_time").text( $(elem).attr("uploader_time") );
+	//setTimeout('addImg( "'+full_src+'" )', 2000);//for testing
 	addImg( full_src );
 }
 //var thumbnail_move_index = 0;

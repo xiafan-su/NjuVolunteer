@@ -170,18 +170,36 @@ class Act extends DB_Connect {
 	}
 	public function delete_photo($id)
 	{
-		$sql="SELECT pic_name FROM photos WHERE id='".$id."'";
+		$sql="SELECT pic_name,act_id FROM photos WHERE id='".$id."'";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$result=mysql_fetch_assoc($select);
 		$myfile = "../Upload/picture/".$result['pic_name'];
+		//echo $myfile;
+		//chmod($myfile,0755);
 		if (file_exists($myfile)) {
-			$result=unlink ($myfile);
-			if ($result==1) return true;
+			$d=unlink ($myfile);
+			//echo $d;
 		}
 		$sql="DELETE FROM photos WHERE id='".$id."'";
-		if (!mysql_query($sql,$this->root_conn))
-			return false;
-		else return true;
+		mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$sql="SELECT * FROM activity_info WHERE cover_pic='".$result['pic_name']."' ";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$exist=mysql_num_rows($select);
+		if ($exist>0)
+		{
+			$sql="SELECT * FROM photos WHERE act_id='".$result['act_id']."' ";
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			if (mysql_num_rows($select)>0)
+			{
+				$change=mysql_fetch_assoc($select);
+				$sql="UPDATE activity_info SET cover_pic='".$change['pic_name']."' WHERE id='".$result['act_id']."'";
+			}else
+			$sql="UPDATE activity_info SET cover_pic='default.jpg' WHERE id='".$result['act_id']."'";
+			if(mysql_query($sql,$this->root_conn))
+				return true;
+			else return false;
+		}
+
 	}
 	public function set_cover($id)
 	{
@@ -202,6 +220,14 @@ class Act extends DB_Connect {
 		{
 			die('Error: ' . mysql_error());
 			return false; 
+		}
+		$sql="SELECT cover_pic FROM activity_info WHERE id='".$act_id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		if ($result['cover_pic']==NULL)
+		{
+			$sql="UPDATE activity_info SET cover_pic='".$filename."' WHERE id='".$act_id."'";
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		}
 		$query="INSERT INTO 3d_data(time,url) VALUES('".date('Y-m-d H:i:s',time())."','".$filename."')";
 		if(!mysql_query($query,$this->root_conn))
@@ -421,21 +447,6 @@ class Act extends DB_Connect {
 		return 1;	
 	}
 
-	public function upload_picture(){
-		if ((($_FILES["file"]["type"] == "image/jpeg")|| ($_FILES["file"]["type"] == "image/jpg")|| ($_FILES["file"]["type"] == "image/png"))){
-			if (file_exists("d:picture/" . $_FILES["file"]["name"])){
-			  return $_FILES["file"]["name"] . " already exists. ";
-			}
-			else{
-			  move_uploaded_file($_FILES["file"]["tmp_name"],
-			  "d:/picture/" . $_FILES["file"]["name"]);
-			  return "Stored in: " . "d:/picture/" . $_FILES["file"]["name"];
-			}
-		}
-		else{
-		  return "Invalid file";
-		}
-	}
 	
 	public function fetch_weekact($year,$month,$date){
 		$year=htmlspecialchars($year,ENT_QUOTES);

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 20:48:58
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-26 00:20:46
          compiled from "./tpls/templates\publicity.html" */ ?>
 <?php /*%%SmartyHeaderCode:1140051a0b0fa6914f6-15398242%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b265a370e06f0f8f0e1ef940d46cce35e7ccaf6c' => 
     array (
       0 => './tpls/templates\\publicity.html',
-      1 => 1369486033,
+      1 => 1369498842,
       2 => 'file',
     ),
   ),
@@ -38,7 +38,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 <div class="main">
-	
+	<div class="main_search">
+    	<a href="publicity.php">
+        	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:rgb(102,51,102);">光荣记录</div>
+        </a>
+
+	 </div>
+     <hr />
 	<table width="200" border="1">
       <tr>
         <th scope="col">姓名</th>
@@ -54,22 +60,22 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 foreach ($_from as $_smarty_tpl->tpl_vars['publicity']->key => $_smarty_tpl->tpl_vars['publicity']->value){
 $_smarty_tpl->tpl_vars['publicity']->_loop = true;
 ?>
-        <tr <?php if ($_smarty_tpl->tpl_vars['publicity']->value['sus']==1){?>style="background-color:rgb(100,100,100)"<?php }?> >
-		<td><a href="indexv.php?user_id=<?php echo $_smarty_tpl->tpl_vars['publicity']->value['uid'];?>
+        <tr>
+		<td <?php if ($_smarty_tpl->tpl_vars['publicity']->value['sus']==1){?>style="background-color:rgb(184, 148, 211)"<?php }?> ><a href="indexv.php?user_id=<?php echo $_smarty_tpl->tpl_vars['publicity']->value['uid'];?>
 " target="_blank"><?php echo $_smarty_tpl->tpl_vars['publicity']->value['name'];?>
 </a></td>
-        <td><?php echo $_smarty_tpl->tpl_vars['publicity']->value['faculty'];?>
+        <td <?php if ($_smarty_tpl->tpl_vars['publicity']->value['sus']==1){?>style="background-color:rgb(184, 148, 211)"<?php }?> ><?php echo $_smarty_tpl->tpl_vars['publicity']->value['faculty'];?>
 </td>
-        <td><a href="act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['publicity']->value['actid'];?>
+        <td <?php if ($_smarty_tpl->tpl_vars['publicity']->value['sus']==1){?>style="background-color:rgb(184, 148, 211)"<?php }?> ><a href="act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['publicity']->value['actid'];?>
 " target="_blank"><?php echo $_smarty_tpl->tpl_vars['publicity']->value['act_name'];?>
 </a></td>
-        <td><?php echo $_smarty_tpl->tpl_vars['publicity']->value['time'];?>
+        <td <?php if ($_smarty_tpl->tpl_vars['publicity']->value['sus']==1){?>style="background-color:rgb(184, 148, 211)"<?php }?> ><?php echo $_smarty_tpl->tpl_vars['publicity']->value['time'];?>
 </td>
-        <td><?php echo $_smarty_tpl->tpl_vars['publicity']->value['basetime'];?>
+        <td <?php if ($_smarty_tpl->tpl_vars['publicity']->value['sus']==1){?>style="background-color:rgb(184, 148, 211)"<?php }?> ><?php echo $_smarty_tpl->tpl_vars['publicity']->value['basetime'];?>
 </td>
-        <td><?php echo $_smarty_tpl->tpl_vars['publicity']->value['honortime'];?>
+        <td <?php if ($_smarty_tpl->tpl_vars['publicity']->value['sus']==1){?>style="background-color:rgb(184, 148, 211)"<?php }?> ><?php echo $_smarty_tpl->tpl_vars['publicity']->value['honortime'];?>
 </td>
-        <td><?php echo $_smarty_tpl->tpl_vars['publicity']->value['comment'];?>
+        <td <?php if ($_smarty_tpl->tpl_vars['publicity']->value['sus']==1){?>style="background-color:rgb(184, 148, 211)"<?php }?> ><?php echo $_smarty_tpl->tpl_vars['publicity']->value['comment'];?>
 </td>
         </tr>
 	  <?php } ?>
