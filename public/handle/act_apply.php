@@ -33,7 +33,7 @@ include_once '../../sys/core/init.inc.php';
 		$team_info=$t->fetch_team_name($publisher);
 		$title=$team_info['name']."向您申请了一个活动，请您尽快审核";
 		$content="";
-		$s->send_email("NJU_Volunteer@126.com",$title,"http://volunteer.nju.edu.cn");
+		$s->send_email("NJU_Volunteer@126.com",$title,'');
 	}
 	if ($result==1) echo "1";
 		else echo"0";

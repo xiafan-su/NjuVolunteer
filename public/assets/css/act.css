@@ -195,6 +195,7 @@ img{
 	padding:10px;
 	height:328px;
 	border:1px solid #DDD;
+	cursor:pointer;
 }
 .weekact{
 	float:left;
