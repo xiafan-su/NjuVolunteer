@@ -1,4 +1,48 @@
-
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-27 21:46:45
+         compiled from "./tpls/templates\act_dtl.html" */ ?>
+<?php /*%%SmartyHeaderCode:2971451a35ef6ca4f19-54595589%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
+    array (
+      0 => './tpls/templates\\act_dtl.html',
+      1 => 1369662402,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '2971451a35ef6ca4f19-54595589',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51a35ef6d5772',
+  'variables' => 
+  array (
+    'id' => 0,
+    'picture' => 0,
+    'perm_of_upload' => 0,
+    'act_title' => 0,
+    'act_state' => 0,
+    'act_begin_time' => 0,
+    'act_end_time' => 0,
+    'last_time' => 0,
+    'act_time_type' => 0,
+    'act_attr_type' => 0,
+    'act_place' => 0,
+    'deadline' => 0,
+    'signupnum' => 0,
+    'total_num' => 0,
+    'act_profile' => 0,
+    'responser' => 0,
+    'responser_tel' => 0,
+    'act_id' => 0,
+    'same_act' => 0,
+    'act' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_51a35ef6d5772')) {function content_51a35ef6d5772($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -24,39 +68,51 @@
 <title>活动详细页面</title>
 </head>
 <body>
-<{include file="include/header.html"}>
-<input type="button" id="act_id" value="<{$id}>" style="display:none" />
+<?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
+<input type="button" id="act_id" value="<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+" style="display:none" />
 
 
 <div class="main">
 	<div id="left">
         <div id="act_image" style="cursor:pointer;">
-   			 <img id="scan_act_photo" src="<{$picture}>" height="244"  />
-             <{if $perm_of_upload==1}>
+   			 <img id="scan_act_photo" src="<?php echo $_smarty_tpl->tpl_vars['picture']->value;?>
+" height="244"  />
+             <?php if ($_smarty_tpl->tpl_vars['perm_of_upload']->value==1){?>
              <span id="upload_pic" name="upload_pic">上传图片</span>
-             <{/if}>
+             <?php }?>
 		</div>
     </div>
 	<div id="right">
         <div id="act_simple">
             <div class="div_title">
-                <div id="act_title"><{$act_title}></div>
-                <div id="act_state"><{$act_state}></div>
+                <div id="act_title"><?php echo $_smarty_tpl->tpl_vars['act_title']->value;?>
+</div>
+                <div id="act_state"><?php echo $_smarty_tpl->tpl_vars['act_state']->value;?>
+</div>
             </div>
             <div class="div_content">
                 <ul>
                     <li><div class="div_content_attr">时间</div>
-                    <div class="div_content_value"><{$act_begin_time}> -- <{$act_end_time}></div></li>
+                    <div class="div_content_value"><?php echo $_smarty_tpl->tpl_vars['act_begin_time']->value;?>
+ -- <?php echo $_smarty_tpl->tpl_vars['act_end_time']->value;?>
+</div></li>
                     <li><div class="div_content_attr">持续</div>
-                    <div class="div_content_value"><{$last_time}>小时</div></li>
+                    <div class="div_content_value"><?php echo $_smarty_tpl->tpl_vars['last_time']->value;?>
+小时</div></li>
                     <li><div class="div_content_attr">性质</div>
-                    <div class="div_content_value"><{$act_time_type}></div></li>
+                    <div class="div_content_value"><?php echo $_smarty_tpl->tpl_vars['act_time_type']->value;?>
+</div></li>
                     <li><div class="div_content_attr">类型</div>
-                    <div class="div_content_value"><{$act_attr_type}></div></li>
+                    <div class="div_content_value"><?php echo $_smarty_tpl->tpl_vars['act_attr_type']->value;?>
+</div></li>
                     <li><div class="div_content_attr">地点</div>
-                    <div class="div_content_value"><{$act_place}></div></li>
+                    <div class="div_content_value"><?php echo $_smarty_tpl->tpl_vars['act_place']->value;?>
+</div></li>
                     <li><div class="div_content_attr">报名截止日期</div>
-                    <div class="div_content_value"><{$deadline}></div></li>
+                    <div class="div_content_value"><?php echo $_smarty_tpl->tpl_vars['deadline']->value;?>
+</div></li>
 
 
                 </ul>
@@ -67,7 +123,9 @@
     <div class="bottom">
     	<div class="apply-state">
         	<div style="width:100%;float:left">
-                <div class="div_title2" style="margin-top:12px">已报名的人数：<span id="sign_up_num"><{$signupnum}></span>/<{$total_num}></div>
+                <div class="div_title2" style="margin-top:12px">已报名的人数：<span id="sign_up_num"><?php echo $_smarty_tpl->tpl_vars['signupnum']->value;?>
+</span>/<?php echo $_smarty_tpl->tpl_vars['total_num']->value;?>
+</div>
                 <div id="option">
                 	<input type="button" id="take_part_in" name="take_part_in" class="button" style="margin-top:7px">
                     
@@ -77,7 +135,8 @@
         <div id="act_detail" class="act-detail">
             <div class="div_title2"><div>活动介绍</div></div>
             <div id="act_introduction">
-				<{$act_profile}>
+				<?php echo $_smarty_tpl->tpl_vars['act_profile']->value;?>
+
 			</div>
         </div>
         <div id="act_contact" class="act-detail">
@@ -86,9 +145,11 @@
             	<div>
                 <ul>
                     <li><div class="div_content_attr">负责同学</div>
-                    <div class="div_content_value"><{$responser}></div></li>
+                    <div class="div_content_value"><?php echo $_smarty_tpl->tpl_vars['responser']->value;?>
+</div></li>
                     <li><div class="div_content_attr">联系电话</div>
-                    <div class="div_content_value"><{$responser_tel}></div></li>
+                    <div class="div_content_value"><?php echo $_smarty_tpl->tpl_vars['responser_tel']->value;?>
+</div></li>
                 </ul>
             	</div>
 			</div>
@@ -101,7 +162,8 @@
 
                 <input type="file" name="userfile"  class="fileUpload" multiple>
 
-                 <input type="hidden" name="act_id" value="<{$act_id}>">
+                 <input type="hidden" name="act_id" value="<?php echo $_smarty_tpl->tpl_vars['act_id']->value;?>
+">
           		</form>
 			</div>
 
@@ -122,9 +184,15 @@
         </div>
         <div class="other-act">
             <div class="div_title2" ><div>参加过这项活动的人还参加了</div>
-            <{foreach name=data item=act from=$same_act}>
-			<div style="margin:20px 0 20px 0"><a href="act_dtl.php?act_id=<{$act.id}>" target="_blank"><{$act.name}></a></div>
-            <{/foreach}>
+            <?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['same_act']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['act']->key => $_smarty_tpl->tpl_vars['act']->value){
+$_smarty_tpl->tpl_vars['act']->_loop = true;
+?>
+			<div style="margin:20px 0 20px 0"><a href="act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
+" target="_blank"><?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
+</a></div>
+            <?php } ?>
         	</div>
             <div id="act_same"  class="div_content"></div>
         </div>
@@ -134,8 +202,9 @@
     </div><!-- 结束right div -->
 </div>
 
-<{include file="include/footer.html"}>
+<?php echo $_smarty_tpl->getSubTemplate ("include/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 
 </body>
 <script type="text/javascript" src="./assets/js/act_dtl.js"></script>
-</html>
+</html><?php }} ?>

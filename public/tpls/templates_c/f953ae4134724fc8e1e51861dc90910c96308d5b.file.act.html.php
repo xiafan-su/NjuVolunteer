@@ -1,4 +1,25 @@
-
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-27 22:16:52
+         compiled from "./tpls/templates\act.html" */ ?>
+<?php /*%%SmartyHeaderCode:1547251a33244d138a5-60282702%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
+    array (
+      0 => './tpls/templates\\act.html',
+      1 => 1369664210,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '1547251a33244d138a5-60282702',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51a33244dc0c1',
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_51a33244dc0c1')) {function content_51a33244dc0c1($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -13,7 +34,8 @@
 <title>活动中心</title>
 </head>
 <body>
-<{include file="include/header.html"}>
+<?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 <div class="main">
 	<div class="main_search">
     	<a href="act.php">
@@ -175,6 +197,7 @@
         </div>
 	</div>
 </div>
-<{include file="include/footer.html"}>
+<?php echo $_smarty_tpl->getSubTemplate ("include/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 </body>
-</html>
+</html><?php }} ?>
