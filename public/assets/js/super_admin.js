@@ -140,16 +140,12 @@ $("#send_notice").click(function(){
 
 $("#received_notice").click(function(){
 	$("#main_title").text("收到的通知，待续");
-	$.ajax({
-	type:"POST",
-	//url:"./include/note_edit_admin.php",
-	data:{},
-	success:function(html){
-		$("#main_content").html(html);
-	}	
-});
-});
 
+});
+$("#received_notice").click(function(){
+	$("#main_title").text("sql语句");
+
+});
 
 
 
