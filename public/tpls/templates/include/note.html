@@ -7,22 +7,27 @@
 
 
 
-<table>
+<table id="note_table">
 	<{section name=note_index loop=$note_list}>
-		<tr class="note_table_row" noteid="<{$note_list[note_index].id}>" id="note_table_row_<{$note_list[note_index].id}>" title="点击查看详细内容">
+		<tr>
 			<td><img id="note_head_img_<{$note_list[note_index].id}>"
 				<{if $note_list[note_index].type == 0}><{*0表示未读，1表示已读，2表示发送*}>
-					src="./assets/img/zonet/note_unread.png" 
+					src="./assets/img/zonet/note_unread.png" title="未读通知"
 				<{elseif $note_list[note_index].type == 1}>
-					src="./assets/img/zonet/note_read.png"
+					src="./assets/img/zonet/note_read.png" title="已读通知"
 				<{elseif $note_list[note_index].type == 2}>
-					src="./assets/img/zonet/note_send.png"
+					src="./assets/img/zonet/note_send.png" title="发送通知"
 				<{/if}>
 				width="24" height="24" border="0" alt="">
 			</td>
-			<td style="font-weight:600;color:#606"><{$note_list[note_index].title|truncate:20:"……":true}></td>
+			<td class="note_table_row" style="font-weight:600;color:#606" noteid="<{$note_list[note_index].id}>" id="note_table_row_<{$note_list[note_index].id}>" title="点击查看详细内容"><{$note_list[note_index].title|truncate:20:"……":true}></td>
 			<td style="text-align:left"><{$note_list[note_index].content|truncate:20:"……":true}></td>
 			<td><{$note_list[note_index].time}></td>
+			<{if $note_list[note_index].type != 2}>
+			<td><span
+				onclick="nt_func_note_delete(this)"  title="删除此通知" class="clickable note_list_delete" 
+				id="del_op_<{$note_list[note_index].id}>" note_id="<{$note_list[note_index].id}>">删除</span></td>
+			<{/if}>
 		</tr>
 	<{sectionelse}>
 		<tr><td colspan="4" style="text-align:left">这里什么也没有！</td></tr>

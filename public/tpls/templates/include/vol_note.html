@@ -3,12 +3,17 @@
   <tr>
     <th scope="row">通知标题</th>
     <th scope="row">时间</th>
+	<th scope="row">操作</th>
   </tr>
   <{if isset($note_list)}>
     <{foreach item=note from=$note_list}>
       <tr>
         <td id="title" style="cursor:pointer;text-align:left" onclick="show_note(<{$note.note_id}>)"><{$note.title}></td>
         <td id="time"><{$note.time}></td>
+		<td><span
+				onclick="delete_note(<{$note.note_id}>)"  title="删除此通知" 
+				id="del_op_<{$note.note_id}>" style="cursor:pointer">删除</span>
+		</td>
       </tr>
     <{/foreach}>
    <{/if}>
