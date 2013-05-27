@@ -1,4 +1,9 @@
 /* CSS Document */
+
+.main_search{
+	width:960px;
+	height:100px;
+}
 table{
 	background:rgb(245,245,245);
 	border-radius:5px;
@@ -14,4 +19,27 @@ table th{
 }
 table td{
 	color:#000;	
+}
+
+/**/
+table{
+	position:relative;
+	display: table;
+	border: 1px gray solid;
+	border-spacing: 2px;
+	border-collapse:separate;
+	border-radius:5px;
+	behavior:url(./assets/css/pie.htc);
+}
+table th{
+	color:rgb(102,51,102);
+	border:0px;
+	background:rgb(245,245,245);
+	width:100px;
+	height:30px;
+}
+table td{
+	height:30px;
+	background:rgb(245,245,245);
+	border:0px;
 }

@@ -113,12 +113,12 @@ width:630px;
 	box-shadow:10px 10px 10px #666;
 }
 .act-comment{
-	width:440px;
+	width:460px;
 	
 }
 .other-act{
 	margin-left:30px;
-	width:310px;
+	width:290px;
 }
 .div_title2{
 	float:left;
@@ -160,7 +160,7 @@ width:630px;
 	float:right;
 }
 .comment-panel{
-	width:440px;
+	width:460px;
 	float:left;
 	background:rgb(225,225,225);
 	margin:10px 0 0px 0px;
@@ -168,7 +168,7 @@ width:630px;
 }
 .comment-title{
 	float:left;
-	width:420px;
+	width:440px;
 	margin:0 10px 0 10px;
 }
 .comment-name{
@@ -181,7 +181,7 @@ width:630px;
 	float:left;
 	font-size:14px;
 	color:rgb(0,0,0);
-	width:420px;
+	width:440px;
 	margin:6px 10px 0 10px;
 }
 
