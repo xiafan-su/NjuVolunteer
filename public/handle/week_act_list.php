@@ -8,11 +8,11 @@ $year=$_POST["year"];
 $month=$_POST["month"];		
 $date=$_POST["date"];
 $day=$_POST["day"];
-
-/*$year=2013;
+/*
+$year=2013;
 $month=5;		
 $date=3;
-$day=5;*/
+$day=27;*/
 $a=new Act();
 $select=$a->fetch_weekact($year,$month,$date);
 
@@ -23,17 +23,16 @@ while($result=mysql_fetch_assoc($select)){
 
 $str="$year"."-"."$month"."-"."$date";
 $ret_act_list=NULL;
-
+//echo $week_act_list[1]['id'];
 /*foreach($week_act_list as $weeklist){
 	echo $weeklist['id']."  ".$weeklist['name']."</br>";
-}
-echo "test".($weeklist['weekday']&pow(2,$day-1));
-echo pow(2,$day-1);*/
+}*/
+//echo "test".($weeklist['weekday']&pow(2,$day-1));
+//echo pow(2,$day-1);
 
 /*for($i=0;$i<7;$i++){
 	$ret_act_list[$i]=array('id'=>NULL,'name'=>NULL,'time_type'=>NULL,'weekday'=>NULL,'deadline'=>NULL,'profile'=>NULL,'detail_time'=>NULL,'defined'=>false);
 }*/
-
 for($j=0;$j<7;$j++){
 	/*$j=intval($i/2);
 	$count=0;*/
@@ -43,8 +42,9 @@ for($j=0;$j<7;$j++){
 		$week_day=$j+$day;
 	if((isset($week_act_list))){
 		
+		
 		foreach($week_act_list as $weeklist){
-			//$count++;
+			
 			if((!empty($weeklist['weekday']))){
 				
 				if((date("Y-m-d",strtotime($weeklist['begin_time']))<date("Y-m-d",strtotime("$str+$j day")))&&(date("Y-m-d",strtotime($weeklist['end_time']))>date("Y-m-d",strtotime("$str+ $j day")))&&(($weeklist['weekday']&pow(2,$week_day-1))==pow(2,$week_day-1))){
@@ -52,6 +52,7 @@ for($j=0;$j<7;$j++){
 					//$ret_act_list[$i]=array('id'=>$weeklist['id'],'name'=>$weeklist['name'],'time_type'=>$weeklist['time_type'],'weekday'=>$weeklist['weekday'],'deadline'=>$weeklist['deadline'],'defined'=>true);
 					//$ret_act_list[$i]['defined']=true;
 					$ret_act_list[$j][]=array('id'=>$weeklist['id'],'name'=>$weeklist['name'],'time_type'=>$weeklist['time_type'],'weekday'=>$weeklist['weekday'],'deadline'=>$weeklist['deadline'],'profile'=>$weeklist['profile'],'detail_time'=>$weeklist['detail_time']);
+					
 					/*$ret_act_list[$i]['id']=$weeklist['id'];
 					$ret_act_list[$i]['name']=$weeklist['name'];
 					$ret_act_list[$i]['time_type']=$weeklist['time_type'];
@@ -84,6 +85,12 @@ for($i=0;$i<7;$i++){
 	$retlist[$i]=array('id1'=>$ret_act_list[$j]['id'],'name1'=>$ret_act_list[$j]['name'],'time_type1'=>$ret_act_list[$j]['time_type'],'weekday1'=>$ret_act_list[$j]['weekday'],'deadline1'=>$ret_act_list[$j]['deadline'],'profile1'=>$ret_act_list[$j]['profile'],'detail_time1'=>$ret_act_list[$j]['detail_time'],'defined1'=>$ret_act_list[$j]['defined'],'id2'=>$ret_act_list[$j+1]['id'],'name2'=>$ret_act_list[$j+1]['name'],'time_type2'=>$ret_act_list[$j+1]['time_type'],'weekday2'=>$ret_act_list[$j+1]['weekday'],'deadline2'=>$ret_act_list[$j+1]['deadline'],'profile2'=>$ret_act_list[$j+1]['profile'],'detail_time2'=>$ret_act_list[$j+1]['detail_time'],'defined2'=>$ret_act_list[$j+1]['defined']);
 	//echo $i."--".$retlist[$i]['id1']."--".$retlist[$i]['name1']."</br>";
 }*/
+
+/*$str1=mktime(0,0,0,$month,$day,$year);
+
+$str=date("Y-m-d",$str1);
+$str2=date("Y-m-d",strtotime("$str   +6   day"));
+echo "test".$str2."test";*/
 //echo $ret_act_list[1][0]['name'];
 $tpl->assign("retlist",$ret_act_list);
 $tpl->display("handle/week_act_list.html");
