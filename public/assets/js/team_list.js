@@ -23,11 +23,11 @@ $(document).ready(function(){
 			flag=1;
 			left += 1;
 			if(left<3)
-				$("#switch").animate({left:'-=800px'});
+				$("#switch").animate({left:'+=800px'});
 			else{
 				left = 0;
 				document.getElementById("switch").style.left="0px";
-				$("#switch").animate({left:'-=800px'});
+				$("#switch").animate({left:'+=800px'});
 			}
 			setTimeout("flag=0",500);
 		}
@@ -36,13 +36,13 @@ $(document).ready(function(){
 		if(flag==0){
 			flag=1;
 			if(left>0){
-				$("#switch").animate({left:'+=800px'});
+				$("#switch").animate({left:'-=800px'});
 				left -= 1;
 			}
 			else{
 				left = 2;
 				document.getElementById("switch").style.left="-3200px";
-				$("#switch").animate({left:'+=800px'});
+				$("#switch").animate({left:'-=800px'});
 			}
 			setTimeout("flag=0",500);
 		}

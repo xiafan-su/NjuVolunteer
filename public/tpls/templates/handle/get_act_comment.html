@@ -1,0 +1,29 @@
+            
+<{foreach name=comment_data item=act_comment from=$comment_detail}>
+<div class="comment-panel">
+    <div class="comment-title">
+        <div class="comment-name">
+        <{if $act_comment.user_id!="id"}>
+            <{if $act_comment.flag_faculty==0}>
+                <a href="indexv.php?user_id=<{$act_comment.user_id}>"><{$act_comment.name}>(<{$act_comment.user_id}>)</a>
+            <{else}>
+                <a href="indext.php?team_id=<{$act_comment.user_id}>"><{$act_comment.name}>(<{$act_comment.user_id}>)</a>
+            <{/if}>
+        <{else}>
+            <{$act_comment.name}>
+        <{/if}>
+        </div>
+        <div class="comment-time">[<{$act_comment.time}>]</div>
+    </div>
+    <div class="comment-content">
+        <div style="width:410px;word-break:break-all"><{$act_comment.content}></div>
+        <span class="name-used" style="display:none"><{$act_comment.user_id}></span>
+        <{if $act_comment.user_id!="id"}>
+        <span class="name-used" style="display:none"><{$act_comment.name}>(<{$act_comment.user_id}>)</span>
+        <{else}>
+        <span class="name-used" style="display:none"><{$act_comment.name}></span>
+        <{/if}>
+        <span class="reply"><a href="#comment-w">回复</a></span>
+    </div>
+</div>
+<{/foreach}>

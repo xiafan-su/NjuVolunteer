@@ -1,0 +1,46 @@
+
+
+#act_photo_full {
+	margin: 0px;
+	border: 1px solid silver;
+ 	background-color: gray;
+	width: 98%;
+	height: 85%;
+}
+#act_photo_full table {
+	margin: 0px;
+}
+#act_photo_full table td {
+	text-align: left;
+	vertical-align: top;
+	padding: 0;
+}
+
+#act_photo_full_img_info {
+
+}
+
+.act_photo_full_img_info_item{
+	font-size: 16px;
+	line-height: 30px;
+	border-left: 3px solid silver;
+	padding: 0px 10px;  /* mk:marks */
+	margin: 15px 0px;
+}
+#act_photo_full_img_span{
+	width: 782px;
+}
+
+.act_photo_item {
+	margin: 7px 0px 3px;  /* mk:marks */
+	display:inline-block;
+	cursor: pointer;
+}
+.act_photo_item img {
+	width: 90px;
+	height: 65px;
+}
+
+.act_photo_full_img_op_item{
+	margin: 20px;
+}

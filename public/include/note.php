@@ -18,7 +18,7 @@ if( $_POST['type'] == "recv" ) {
 				"id" => $note_row['id'],
 				"type"=>0, //0未读1已读
 				"title"=>$note_row['title'], 
-				"content"=>$note_row['content'], 
+				"content"=>($note_row['content']), 
 				"time"=>$note_row['time'] 
 		);
 	}
@@ -28,7 +28,7 @@ if( $_POST['type'] == "recv" ) {
 				"id" => $note_row['id'],
 				"type"=>1, //0未读1已读
 				"title"=>$note_row['title'], 
-				"content"=>$note_row['content'], 
+				"content"=>($note_row['content']), 
 				"time"=>$note_row['time'] 
 		);
 	}
@@ -41,7 +41,7 @@ if( $_POST['type'] == "recv" ) {
 				"id" => $note_row['id'],
 				"type"=>2, //发送
 				"title"=>$note_row['title'], 
-				"content"=>$note_row['content'], 
+				"content"=>($note_row['content']), 
 				"time"=>$note_row['date'] 
 		);
 	}

@@ -34,7 +34,7 @@
 	border-radius: 20px 0px 0px 20px;
 	background:rgb(225,225,225);
 	box-shadow: 0px 0px 10px #666;
-	filter:alpha(opacity=100 finishopacity=100 style=1 startx=0,starty=0,finishx=80,finishy=0)progid:DXImageTransform.Microsoft.gradient(startcolorstr='#E1E1E1',endcolorstr='#E1E1E1',gradientType=1);
+	/*filter:alpha(opacity=100 finishopacity=100 style=1 startx=0,starty=0,finishx=80,finishy=0)progid:DXImageTransform.Microsoft.gradient(startcolorstr='#E1E1E1',endcolorstr='#E1E1E1',gradientType=1);*/
 	background:-ms-linear-gradient(left,rgba(225,225,225,0) 0%,rgba(225,225,225,1) 100%);
 	background:-moz-linear-gradient(left,rgba(225,225,225,0) 0%,rgba(225,225,225,1) 100%);
 	background:-o-linear-gradient(left,rgba(225,225,225,0) 0%,rgba(225,225,225,1) 100%);
@@ -52,7 +52,7 @@
 	border-radius: 0px 20px 20px 0px;
 	/*background:rgb(102,51,102);*/
 	box-shadow:0px 0px 10px #666;
-	filter:alpha(opacity=100 finishopacity=100 style=1 startx=0,starty=0,finishx=80,finishy=0)progid:DXImageTransform.Microsoft.gradient(startcolorstr='#E1E1E1',endcolorstr='#E1E1E1',gradientType=1);
+	/*filter:alpha(opacity=100 finishopacity=100 style=1 startx=0,starty=0,finishx=80,finishy=0)progid:DXImageTransform.Microsoft.gradient(startcolorstr='#E1E1E1',endcolorstr='#E1E1E1',gradientType=1);*/
 	background:-ms-linear-gradient(right,rgba(225,225,225,0) 0%,rgba(225,225,225,1) 100%);
 	background:-moz-linear-gradient(right,rgba(225,225,225,0) 0%,rgba(225,225,225,1) 100%);
 	background:-o-linear-gradient(right,rgba(225,225,225,0) 0%,rgba(225,225,225,1) 100%);
@@ -75,7 +75,7 @@
 	overflow:hidden;
 	width:800px;
 	height:300px;
-	box-shadow:0px 0px 10px #666;
+	box-shadow:0px 0px 10px #666;/*������һ�£�ȥ����Ӱ*/
 	behavior:url(./assets/css/pie.htc);
 }
 li.tn-img-t{

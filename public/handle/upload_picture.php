@@ -3,7 +3,7 @@ $_BASE_PATH = "../../";
 
 include_once '../../sys/core/init.inc.php';
 include("../plugin/jquery-fileuploader-php-master/classes/easy_upload/upload_class.php"); //classes is the map where the class file is stored
-	
+$max_size = 1024*8000;
 $upload = new file_upload();
 
 $upload->upload_dir = '../../Upload/picture/';

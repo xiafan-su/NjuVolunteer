@@ -13,6 +13,10 @@ activityId:活动id
 topic:主题
 content:内容
 idList:id列表
+
+type:delete删除通知
+note_id:通知id 
+
 */
 
 define( "MAX_NOTE_LEN", 1000 );//最大通知长度
@@ -50,6 +54,13 @@ if( $_POST['type'] == "getmem" ){
 		}
 	}
 	echo "发送失败！";
+} else if( $_POST['type'] == "delete" ){
+	if( !isset( $_POST['note_id'] ) ){echo "参数错误！";exit; }
+	$s=new System();
+	if ($s->delete_note($_POST['note_id']))
+	echo "0";//删除成功！
+	else echo "删除失败！";
+
 }
 
 

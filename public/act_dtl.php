@@ -9,13 +9,10 @@ $activity_id = intval($_GET['act_id']);
 $act = new Act();
 $item = $act->fetch_one($activity_id);
 $tpl->assign( "id", $activity_id);
-$re=$act->fetch_photo($activity_id);
-$photo=mysql_fetch_assoc($re);
-if ($photo['pic_name']!=NULL)
-	$picture=$photo['pic_name'];
+if ($item['cover_pic']!=NULL)
+	$tpl->assign("picture",$_PIC_PATH.$item['cover_pic']);//取出封面图片
 else
-	$picture="default.jpg";
-$tpl->assign("picture",$picture);//取出封面图片
+	$tpl->assign("picture",$_PIC_PATH."default.jpg");//取出封面图片
 
 if (isset($_SESSION[USER::USER][USER::PERM_ID]))
 {
@@ -73,7 +70,7 @@ $end=explode(" ",$item['end_time']);
 $deadline=explode(" ",$item['deadline']);
 $same_act =$act->find_same($activity_id);
 $tpl->assign("act_state",$state);
-$tpl->assign( "act_same", $same_act);
+$tpl->assign( "same_act", $same_act);
 $tpl->assign( "id", $activity_id);
 $tpl->assign( "act_place", $item['place'] );
 $tpl->assign( "act_profile", htmlspecialchars_decode($item['profile'],ENT_QUOTES) );
@@ -87,9 +84,7 @@ $tpl->assign( "deadline", $deadline[0] );
 $tpl->assign( "act_id", $activity_id);
 $tpl->assign( "responser", $item['responser']);
 $tpl->assign( "responser_tel", $item['responser_tel']);
-$comment_info=$act->get_comment($activity_id);
 
-$tpl->assign( "comment_detail",$comment_info);
 
 $tpl->display('act_dtl.html');
 ?>

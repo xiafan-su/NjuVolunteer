@@ -22,13 +22,13 @@
 
 	<div id="up" class="">
 		<div id="logo" class="" style="float:left">
-			<img src="./assets/img/head_photo/boy/178.jpg" width="80px" height="80px" border="0" alt="">
+			<img src="./assets/img/head_photo/<{$head_photo}>" width="80px" height="80px" border="0" alt="">
 		</div>
 		<div id="person_info" class="person-info" style="float:left">
 			<div id="user_name" ><{$user_name}>&nbsp;&nbsp;&nbsp;</div>
             <div id="user_level">
             <{section name=loop loop=$user_rate}>
-			<img src="./assets/img/star.png" /> 
+			<img src="./assets/img/star.png" title="我的志愿服务星级" /> 
 			<{/section}>
             </div>
 			<div id="server-time">服务总时间：<{$volunteer_time}>小时</div>

@@ -50,8 +50,8 @@ while ($row=mysql_fetch_assoc($myfollow))
 	
 	
 	
-
-
+$tpl->assign("gender" ,$student['gender']);
+$tpl->assign("head_photo" ,$student['photo']);
 $tpl->assign("name" ,$student['name']);
 $tpl->assign("email",$student['email']);
 $tpl->assign("phone_number",$student['phone']);

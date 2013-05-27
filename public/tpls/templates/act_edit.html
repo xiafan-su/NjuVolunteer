@@ -24,7 +24,7 @@
 <script src="./plugin/jquery-fileuploader-php-master/js/jquery-ui-1.8.14.custom.min.js" type="text/javascript"></script>
 <script src="./plugin/jquery-fileuploader-php-master/js/jquery.fileUploader.js" type="text/javascript"></script>
 
-<title>活动申请</title>
+<title>活动编辑</title>
 </head>
 <body>
 <{include file="include/header.html"}>
@@ -119,7 +119,7 @@
                 </tr>
                 <tr>
                 <th>具体时间</th>
-					<td>
+					<td colspan="2" style="text-align:left">
                     	<input name="weekday" type="checkbox" value="1"  <{if $weekday1  ==1  }>checked<{/if}> /><label>周一</label>
                         <input name="weekday" type="checkbox" value="2"  <{if $weekday2  ==1  }>checked<{/if}> /><label>周二</label>
                         <input name="weekday" type="checkbox" value="4"  <{if $weekday3  ==1  }>checked<{/if}> /><label>周三</label>
@@ -128,7 +128,6 @@
                         <input name="weekday" type="checkbox" value="32" <{if $weekday6  ==1  }>checked<{/if}> /> <label>周六</label>
                         <input name="weekday" type="checkbox" value="64" <{if $weekday7  ==1  }>checked<{/if}> /><label>周日</label>
 					</td>
-                    <td></td>
                 </tr>
                 <tr>
 				<th>详细时间</th>
@@ -154,19 +153,18 @@
                 </tr>
                 <tr>
                 	<th>院系要求</th>
-					<td>
-                    	<input name="faculty_select" type="radio" value="false" onclick="hide_faculty()" <{if $facultylimit==0}>checked<{/if}> /><label>否</label>
+					<td style="text-align:left">
                         <input name="faculty_select" type="radio" value="true" onclick="show_faculty()"  <{if $facultylimit==1}>checked<{/if}>/><label>是</label>
-                        <lable>(只允许打钩的院系志愿者参加)</label>
+                    	<input name="faculty_select" type="radio" value="false" onclick="hide_faculty()" <{if $facultylimit==0}>checked<{/if}> /><label>否</label>
                     </td>
-                    <td>&nbsp;</td>
+                    <td style="white-space:nowrap; "><label>(是否只允许指定的院系志愿者参加)</label></td>
                 </tr>
                 <tr id="faculty_choose" <{if $facultylimit == 1}> style="display:table-row" <{/if}> >
                     <th>&nbsp;</th>
-                    <td>
+                    <td style="text-align:left">
                         <{foreach item=faculty from=$faculty_list}>
                             <input type="checkbox" value="<{$faculty.name}>" name="faculty_choose" <{$faculty.limit}> />
-                            <label><{$faculty.name}></label>
+                            <label><{$faculty.name}></label><br />
                         <{/foreach}>&nbsp;
                     </td>
                     <td width="220px">&nbsp;</td>
@@ -184,9 +182,9 @@
                 </tr>
                 <tr>
                 <th>英语要求</th>
-					<td>
-                    	<input name="en_select" type="radio" value="false" onclick="hide_en()" <{if $englishlimit==0}>checked<{/if}>/><label>否</label>
+					<td style="text-align:left">
                         <input name="en_select" type="radio" value="true" onclick="show_en()"  <{if $englishlimit==1}>checked<{/if}>/><label>是</label>
+                    	<input name="en_select" type="radio" value="false" onclick="hide_en()" <{if $englishlimit==0}>checked<{/if}>/><label>否</label>
 					</td>
                     <td></td>
                 </tr>
@@ -208,7 +206,7 @@
                 </table>
                 <div class="breadcrumb">
                 	<div class="bar-left"></div>
-                    <div class="bar-title">负责人</div>
+                    <div class="bar-title">负责同学</div>
                     <div class="bar-right"></div>
                 </div>
                 <table border="1">
@@ -234,31 +232,49 @@
                 </table>
                 <div class="breadcrumb">
                 	<div class="bar-left"></div>
-                    <div class="bar-title">上传策划</div>
+                    <div class="bar-title">策划上传</div>
                     <div class="bar-right"></div>
                 </div> 
-                <div class="upload_panel" style="margin-left:180px">
-                 	<span id="plan_upload">上传文件格式为rar和zip</span>
-                    <form action="./handle/upload_zip.php" method="post" enctype="multipart/form-data">
-                    <input type="file" name="userfile" class="fileUpload" multiple>
-                    <input type="hidden" name="act_id" value="<{$act_id}>">
-                    <button id="px-submit" type="submit">上传</button>
-                    <button id="px-clear" type="reset">清除</button>
-                    </form>
-    			</div>
+
+
+					<table border="1">
+						<tr>
+							<th>上传要求</th>
+							<td style="text-align:left" colspan="2"><span id="plan_upload">上传文件格式为rar和zip</span></td>
+						</tr>
+						<tr><th>选择文件</th>
+							<td style="text-align:left" colspan="2">
+								<form action="./handle/upload_zip.php" method="post" enctype="multipart/form-data">
+									<input type="file" name="userfile" class="fileUpload" multiple>
+									<input type="hidden" name="act_id" value="<{$act_id}>">
+									<button id="px-submit" type="submit" style="display:none">上传</button>
+									<button id="px-clear" type="reset" style="display:none">清除</button>
+								</form>
+							</td>
+						</tr>
+						<tr>
+							<th>上传操作</th>
+							<td style="text-align:left" colspan="2">
+								<input type="button" class="button"  value="上传"  onclick="$('#px-submit').trigger('click');" />
+								<input type="button" class="button"   value="清除"  onclick="$('#px-clear').trigger('click');" />
+							</td>
+						</tr>
+					</table>
+
 				<div class="breadcrumb">
                 	<div class="bar-left"></div>
                     <div class="bar-title">活动简介</div>
                     <div class="bar-right"></div>
                 </div>
-                <div  id="phone" >
-					<div class="controls" >
-						<div class="input_area" >
-							<textarea id="activity_profile" name="content" style="width:590px;height:200px;visibility:hidden;" ><{$profile}></textarea>
-						</div>
-						<span class="help-inline phoneerror"></span>
-					</div>
-				</div>    
+
+
+				<table border="1">
+					 <tr>
+						<td style="padding: 0">
+							<textarea id="activity_profile" name="content" style="width:610px;height:200px;visibility:hidden;" placeholder="1500字以内" ><{$profile}></textarea>
+						</td>
+					</tr>
+				 </table>
 
   
 				<div class="control-group">

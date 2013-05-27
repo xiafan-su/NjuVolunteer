@@ -42,7 +42,7 @@ if( isset( $_POST['noteId'] ) ){
 		$note_info = $user->fetch_one_note( $_POST['noteId'] );
 		if( $note_row = mysql_fetch_array($note_info) ){
 			$topic = $note_row['title'];
-			$content = $note_row['content'];
+			$content = ($note_row['content']);
 			$time = $note_row['time'];
 			$sender = $note_row['name'];
 		}
@@ -76,6 +76,11 @@ if( isset( $_POST['noteId'] ) ){
 			"name" => 	$mem_row['name'],
 		);
 	}
+}
+
+if( strlen($content) > 0){
+	$content = str_replace( "\n", "<br/>", $content );
+	$content = str_replace( " ", "&nbsp;", $content );
 }
 $tpl->assign( "topic", $topic );
 $tpl->assign( "content", $content );

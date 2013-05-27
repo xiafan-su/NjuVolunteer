@@ -76,8 +76,9 @@ class Act extends DB_Connect {
 		$user_id=htmlspecialchars($user_id,ENT_QUOTES);
 		$act_id=htmlspecialchars($act_id,ENT_QUOTES);
 		$resp_id=htmlspecialchars($resp_id,ENT_QUOTES);
-		$comment=htmlspecialchars($comment,ENT_QUOTES);
+		//$comment=htmlspecialchars($comment,ENT_QUOTES);
 		$time=htmlspecialchars($time,ENT_QUOTES);
+		
 		$insert = "
 		insert into act_comment
 		(
@@ -98,7 +99,7 @@ class Act extends DB_Connect {
 		$activity_id=htmlspecialchars($activity_id,ENT_QUOTES);
 		$act_info=NULL;
 		$i=0;
-		$select = mysql_query("select * from apply_act where act_id = '".$activity_id."' and state='1'")or trigger_error(mysql_error(),E_USER_ERROR);
+		/*$select = mysql_query("select * from apply_act where act_id = '".$activity_id."' and state='1'")or trigger_error(mysql_error(),E_USER_ERROR);
 		while ($row = mysql_fetch_array($select)){
 			$result = mysql_query("select * from apply_act where user_id = '".$row['user_id']."' and act_id != '".$activity_id."'")or trigger_error(mysql_error(),E_USER_ERROR);
 			while ($roow = mysql_fetch_array($result)){
@@ -110,6 +111,14 @@ class Act extends DB_Connect {
 					$i++;
 				}
 			}
+		}*/
+		$sql="SELECT DISTINCT ai.id,ai.name FROM apply_act aa,activity_info ai WHERE aa.act_id=ai.id and aa.user_id IN (SELECT user_id FROM apply_act WHERE act_id='".$activity_id."')";
+		$info = mysql_query($sql)or trigger_error(mysql_error(),E_USER_ERROR);
+		while ($detail = mysql_fetch_array($info)){
+			if ($i<3)
+				$act_info[] = array('name' => $detail['name'],'id' => $detail['id']);                             
+			else  break;
+			$i++;
 		}
 		return $act_info;
 	}
@@ -119,9 +128,18 @@ class Act extends DB_Connect {
 		$comment_info=NULL;
 		$comment = mysql_query("select * from act_comment where act_id = '".$activity_id."'")or trigger_error(mysql_error(),E_USER_ERROR);
 		while ($comment_row = mysql_fetch_array($comment)){
-			$comment_name = mysql_query("select * from user_info where id = '".$comment_row['user_id']."'")or trigger_error(mysql_error(),E_USER_ERROR);
-			$comment_name1 = mysql_fetch_array($comment_name);
-			$comment_info[] = array('id' => $comment_row['user_id'],'name' =>$comment_name1['name'],'time' => $comment_row['time'],'content'=> htmlspecialchars_decode($comment_row['comment'],ENT_QUOTES));
+			$flag_faculty=0;
+			$sql="SELECT name FROM user_info WHERE id='".$comment_row['user_id']."'";
+			$select = mysql_query($sql)or trigger_error(mysql_error(),E_USER_ERROR);
+			$name = mysql_fetch_array($select);
+			if ($name['name']==NULL)
+			{
+				$flag_faculty=1;
+				$sql="SELECT name FROM team WHERE id='".$comment_row['user_id']."'";
+				$select = mysql_query($sql)or trigger_error(mysql_error(),E_USER_ERROR);
+				$name = mysql_fetch_array($select);
+			}
+			$comment_info[] = array('cmt_id'=>$comment_row['id'],'user_id' => $comment_row['user_id'],'name' =>$name['name'],'time' => $comment_row['time'],'flag_faculty'=>$flag_faculty,'content'=> str_replace(array('<p>','</p>'), '', htmlspecialchars_decode($comment_row['comment'],ENT_QUOTES)));
 		}
 		return $comment_info;
 	}
@@ -139,15 +157,77 @@ class Act extends DB_Connect {
 			return true;
 		}
 	}
+	public function fetch_act_pic($act_id)
+	{
+		$sql="SELECT * FROM photos WHERE act_id='".$act_id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$photo_list = NULL;
+		while ($result=mysql_fetch_assoc($select))
+		{
+			$photo_list[]=array('id'=>$result['id'],'src'=>'../Upload/picture/'.$result['pic_name'],'full_src'=>'../Upload/picture/'.$result['pic_name'],'uploader_id'=>$result['uploader_id'],'uploader_name'=>$result['uploader_name'],'upload_time'=>$result['time']);
+		}
+		return $photo_list;
+	}
+	public function delete_photo($id)
+	{
+		$sql="SELECT pic_name,act_id FROM photos WHERE id='".$id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		$myfile = "../Upload/picture/".$result['pic_name'];
+		//echo $myfile;
+		//chmod($myfile,0755);
+		if (file_exists($myfile)) {
+			$d=unlink ($myfile);
+			//echo $d;
+		}
+		$sql="DELETE FROM photos WHERE id='".$id."'";
+		mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$sql="SELECT * FROM activity_info WHERE cover_pic='".$result['pic_name']."' ";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$exist=mysql_num_rows($select);
+		if ($exist>0)
+		{
+			$sql="SELECT * FROM photos WHERE act_id='".$result['act_id']."' ";
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			if (mysql_num_rows($select)>0)
+			{
+				$change=mysql_fetch_assoc($select);
+				$sql="UPDATE activity_info SET cover_pic='".$change['pic_name']."' WHERE id='".$result['act_id']."'";
+			}else
+			$sql="UPDATE activity_info SET cover_pic='default.jpg' WHERE id='".$result['act_id']."'";
+			if(mysql_query($sql,$this->root_conn))
+				return true;
+			else return false;
+		}
+
+	}
+	public function set_cover($id)
+	{
+		$sql="SELECT * FROM photos WHERE id='".$id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		$sql="UPDATE activity_info SET cover_pic='".$result['pic_name']."' WHERE id='".$result['act_id']."'";
+		if(mysql_query($sql,$this->root_conn))
+			return true;
+		else return false;
+	}
 	public function upload_pic($act_id,$filename)//活动详细页面，上传照片
 	{
 		$act_id=htmlspecialchars($act_id,ENT_QUOTES);
 		$filename=htmlspecialchars($filename,ENT_QUOTES);
-		$query="INSERT INTO photos(act_id,pic_name,time) VALUES('".$act_id."','".$filename."','".date('Y-m-d H:i:s',time())."')";
+		$query="INSERT INTO photos(act_id,pic_name,time,uploader_id,uploader_name) VALUES('".$act_id."','".$filename."','".date('Y-m-d H:i:s',time())."','".$_SESSION[USER::USER][USER::ID]."','".$_SESSION[USER::USER][USER::NAME]."')";
 		if(!mysql_query($query,$this->root_conn))
 		{
 			die('Error: ' . mysql_error());
 			return false; 
+		}
+		$sql="SELECT cover_pic FROM activity_info WHERE id='".$act_id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		if ($result['cover_pic']==NULL)
+		{
+			$sql="UPDATE activity_info SET cover_pic='".$filename."' WHERE id='".$act_id."'";
+			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		}
 		$query="INSERT INTO 3d_data(time,url) VALUES('".date('Y-m-d H:i:s',time())."','".$filename."')";
 		if(!mysql_query($query,$this->root_conn))
@@ -177,12 +257,14 @@ class Act extends DB_Connect {
 		$begin_time=htmlspecialchars($begin_time,ENT_QUOTES);
 		$end_time=htmlspecialchars($end_time,ENT_QUOTES);
 		$deadline=htmlspecialchars($deadline,ENT_QUOTES);
+		$detail_time=htmlspecialchars_decode($detail_time,ENT_QUOTES);
 		$detail_time=htmlspecialchars($detail_time,ENT_QUOTES);
 		$total_num=htmlspecialchars($total_num,ENT_QUOTES);
 		$need_audit=htmlspecialchars($need_audit,ENT_QUOTES);
 		$responser=htmlspecialchars($responser,ENT_QUOTES);
 		$responser_tel=htmlspecialchars($responser_tel,ENT_QUOTES);
 		$last_time=htmlspecialchars($last_time,ENT_QUOTES);
+		$activity_profile=htmlspecialchars_decode($activity_profile,ENT_QUOTES);
 		$activity_profile=htmlspecialchars($activity_profile,ENT_QUOTES);
 		$state=htmlspecialchars($state,ENT_QUOTES);
 		$publisher=htmlspecialchars($publisher,ENT_QUOTES);
@@ -365,21 +447,6 @@ class Act extends DB_Connect {
 		return 1;	
 	}
 
-	public function upload_picture(){
-		if ((($_FILES["file"]["type"] == "image/jpeg")|| ($_FILES["file"]["type"] == "image/jpg")|| ($_FILES["file"]["type"] == "image/png"))){
-			if (file_exists("d:picture/" . $_FILES["file"]["name"])){
-			  return $_FILES["file"]["name"] . " already exists. ";
-			}
-			else{
-			  move_uploaded_file($_FILES["file"]["tmp_name"],
-			  "d:/picture/" . $_FILES["file"]["name"]);
-			  return "Stored in: " . "d:/picture/" . $_FILES["file"]["name"];
-			}
-		}
-		else{
-		  return "Invalid file";
-		}
-	}
 	
 	public function fetch_weekact($year,$month,$date){
 		$year=htmlspecialchars($year,ENT_QUOTES);

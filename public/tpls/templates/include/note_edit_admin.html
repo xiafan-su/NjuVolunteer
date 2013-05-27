@@ -18,7 +18,7 @@
 			<div id="" class="">
 				<!-- 这里放选择的接收者 -->
 				<div id="note_recv_list" class="note_recv_list"> </div>
-				<span id="switch_note_recv_list_div" class="" onclick="switch_note_recv_list_div(this);">展开</span>
+				<span id="switch_note_recv_list_div" class="" style="cursor:pointer" onclick="switch_note_recv_list_div(this);">展开</span>
 				<div id="note_recv_list_div" class="" style="display:none">
 					<hr style="border:1px gray solid;" />
 					<div class="">院系或组织：</div>
@@ -26,7 +26,7 @@
 						<{section name=team_index loop=$team_list}>
 							<div class="receiver-card" uid="<{$team_list[team_index].id}>" sid="<{$smarty.section.team_index.iteration}>">
 								<span class="note_recv_name" ><{$team_list[team_index].name}></span>
-								<img class="img_note_del" gid="1"   id="img_note_del_<{$team_list[team_index].id}>" sid="<{$smarty.section.team_index.iteration}>" onclick="note_recv_button(this);" src="../../../../assets/img/zonet/recv_add.jpg" title="添加到接收者列表"/>
+								<img class="img_note_del" gid="1"   id="img_note_del_<{$team_list[team_index].id}>" sid="<{$smarty.section.team_index.iteration}>" onclick="note_recv_button(this);" style="cursor:pointer" src="./assets/img/zonet/recv_add.jpg" title="添加到接收者列表"/>
 							</div>
 						<{/section}>
 					</div>

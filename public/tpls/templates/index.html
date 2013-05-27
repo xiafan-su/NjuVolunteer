@@ -90,7 +90,8 @@
     </div>
     <div class="volclaim" id="volclaim" onclick="hiddenit()">
     </div>
-    <div class="people-show"  onclick="window.location.href='gongshi.php'" >	
+
+    <div class="people-show"  onclick="window.location.href='publicity.php'" >	
         <div class="show-item" id="item1"></div>
         <div class="show-item" id="item2"></div>
         <div class="show-item" id="item3"></div>
@@ -147,7 +148,7 @@
         <div class="others-h-bar"></div>
     	<div class="others-element">
             <div class="others-content">
-            	<h3><a href="./notice.php?type=2&amp;page=1">留言咨询</a></h3>
+            	<h3><a href="./notice.php?type=2&amp;page=1">在线咨询</a></h3>
                 <div class="a-detail">
                 <{foreach from=$question_detail item=d name=foo}>
                 	<{if $smarty.foreach.foo.index<3}>
@@ -173,7 +174,18 @@
 </div>
 
 
-
+<div style="display:none">
+    <{foreach item=record from=$record_list_left}>
+    <div id="record_left<{$record.id}>">
+        <h2 style="color:#FFF"><{$record.content}></h2>
+    </div>
+    <{/foreach}>
+    <{foreach item=record from=$record_list_right}>
+    <div id="record_right<{$record.id}>">
+        <h2 style="color:#FFF"><{$record.content}></h2>
+    </div>
+    <{/foreach}>
+</div>
 
 <{include file="include/footer.html"}>
 </body>

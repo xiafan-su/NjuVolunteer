@@ -199,3 +199,37 @@ table td{
 textarea{
 	resize:none;
 }
+
+
+
+
+/* 个人资料 */
+.left-bar{
+	float:left;
+	margin-top:15px;
+	height:6px;
+	width:270px;
+	filter:alpha(opacity=20 finishopacity=100 style=1 startx=0,starty=0,finishx=270,finishy=0)progid:DXImageTransform.Microsoft.gradient(startcolorstr='#E1E1E1',endcolorstr='#686868',gradientType=1);
+	background:-ms-linear-gradient(right,rgba(104,104,104,1) 0%,rgba(225,225,225,0.2) 100%);
+	background:-moz-linear-gradient(right,rgba(104,104,104,1) 0%,rgba(225,225,225,0.2) 100%);
+	background:-o-linear-gradient(right,rgba(104,104,104,1) 0%,rgba(225,225,225,0.2) 100%);
+	background:-webkit-gradient(linear, right top, left top, from(rgba(104,104,104,1)), to(rgba(225,225,225,0.2)));
+}
+.right-bar{
+	float:left;
+	margin-top:15px;
+	height:6px;
+	width:270px;
+	filter:alpha(opacity=20 finishopacity=100 style=1 startx=0,starty=0,finishx=270,finishy=0)progid:DXImageTransform.Microsoft.gradient(startcolorstr='#686868',endcolorstr='#E1E1E1',gradientType=1);
+	background:-ms-linear-gradient(left,rgba(104,104,104,1) 0%,rgba(225,225,225,0.2) 100%);
+	background:-moz-linear-gradient(left,rgba(104,104,104,1) 0%,rgba(225,225,225,0.2) 100%);
+	background:-o-linear-gradient(left,rgba(104,104,104,1) 0%,rgba(225,225,225,0.2) 100%);
+	background:-webkit-gradient(linear, left top, right top, from(rgba(104,104,104,1)), to(rgba(225,225,225,0.2)));
+}
+.main-content-subtitle {
+	padding:10px;
+	text-align:center;
+	float:left;
+	font-size:18px;
+	-webkit-border-radius:10px;	
+}

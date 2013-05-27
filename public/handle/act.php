@@ -23,15 +23,15 @@ if ($num_of_results==$actnum)
 else 
 	$have_more=0;
 while($act_info = mysql_fetch_assoc($select)){
-		$ran=$a->fetch_photo($act_info['id']);
-		$photo=mysql_fetch_assoc($ran);
-		if($photo['pic_name']==NULL)
-			$photo['pic_name']='default.jpg';
+
+		if($act_info['cover_pic']==NULL)
+			$act_info['cover_pic']=$_PIC_PATH.'default.jpg';
+		else $act_info['cover_pic']=$_PIC_PATH.$act_info['cover_pic'];
 		$now=date("Y-m-d H:i:s",time());
 		if ($now<$act_info['deadline']) $state='正在招募';
 		else if($now>$act_info['begin_time'] && $now<$act_info['end_time']) $state="进行中";
 		else if ($now>$act_info['end_time']) $state="已结束";
-		$act_listinfo[] = array('img' => $photo['pic_name'] ,'id' => $act_info['id'],'name' => $act_info['name'],'state' => $state,'profile' => htmlspecialchars_decode($act_info['profile'],ENT_QUOTES),'time' => $act_info['begin_time'],'place' => $act_info['place'],'offer_num' => $act_info['offer_num']);
+		$act_listinfo[] = array('img' => $act_info['cover_pic'] ,'id' => $act_info['id'],'name' => $act_info['name'],'state' => $state,'profile' => htmlspecialchars_decode($act_info['profile'],ENT_QUOTES),'time' => $act_info['begin_time'],'place' => $act_info['place'],'offer_num' => $act_info['offer_num']);
 	}
 if (isset($act_listinfo))
 {

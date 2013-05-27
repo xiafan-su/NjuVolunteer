@@ -3,6 +3,7 @@ var act=1;
 var flag=0;
 var topp=['-952px','-796px','-1088px','-887px'];
 var left=['-1200px','-1140px','-1134px','-963px'];
+/*
 var showp=['<h2 style="color:#FFF">恭喜夏凡同学参加仙林中学支教获得2小时志愿时间</h2>',
 			'<h2 style="color:#FFF">恭喜魏子华同学参加宁工小学支教获得3小时志愿时间并获得0.5小时荣誉时间</h2>',
 			'<h2 style="color:#FFF">恭喜王逸群同学加城市义工岗获得2小时志愿时间</h2>',
@@ -21,6 +22,9 @@ var showp2=['<h2 style="color:#FFF">恭喜夏凡同学参加临终关怀活动�
 			'<h2 style="color:#FFF">恭喜段文娜同学参加校庆志愿者活动获得2小时志愿时间</h2>',
 			'<h2 style="color:#FFF">恭喜王瑶菁同学参加博爱安养庇护活动获得3小时志愿时间</h2>',
 			'<h2 style="color:#FFF">恭喜王鑫同学参加尧化门小学支教获得4小时志愿时间</h2>'];
+			*/
+var showp=new Array();
+var showp2=new Array();
 var claimstr = "志愿宣言：-我愿意成为一名光荣的志愿者-我承诺-尽己所能-不计报酬-帮助他人-服务社会-践行志愿精神-传播先进文化-为建设团结互助-平等友爱-共同前进的美好社会贡献力量";
 var claimindex = 0;
 var next=1;
@@ -29,11 +33,20 @@ var autoindex = 1;
 var shownum=0;
 var shownum2=0;
 $(document).ready(function(){
+	for (i=0;i<9;i++)
+	{
+		showp[i]=$('#record_left'+i).html();
+	}
+	for (i=0;i<9;i++)
+	{
+		showp2[i]=$('#record_right'+i).html();
+	}
 	for(i=1;i<6;i++){
 		$('#act-img'+i).hide();
 		$('#act-detail'+i).hide();
 	}
 	$('#act-img1').show();
+	$('#act-detail').html($('#act-detail1').html());
 	$('#map-img').animate({marginTop:topp[0],marginLeft:left[0]});
 	var int1 = self.setInterval("nextpic()",5000);
 	showpeople();

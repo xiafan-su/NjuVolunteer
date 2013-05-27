@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="SHORTCUT ICON" href="./assets/img/header/logo.png">
+<title>公示公告</title>
+<link href="./assets/css/main.css" rel="stylesheet" />
+<link href="./assets/css/login.css" rel="stylesheet" />
+<link href="./assets/css/gongshi.css" rel="stylesheet" />
+<script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
+</head>
+<{include file="include/header.html"}>
+<div class="main">
+	<div class="main_search">
+    	<a href="publicity.php">
+        	<div style="float:left;margin-left:110px;margin-top:25px;font-weight:bold;font-size:50px;color:rgb(102,51,102);">光荣记录</div>
+        </a>
+
+	 </div>
+     <hr />
+	 <div id="" class="" style="width:0px;height:260px;display:hidden;float:left"></div>
+	<table width="200" border="1">
+      <tr>
+        <th scope="col">姓名</th>
+        <th scope="col">院系</th>
+        <th scope="col">活动名称</th>
+        <th scope="col">记录日期</th>
+        <th scope="col">基础时间</th>
+        <th scope="col">荣誉时间</th>
+        <th scope="col">备注</th>
+      </tr>
+      <{foreach item=publicity from=$publicity_list}>
+        <tr>
+		<td <{if $publicity.sus==1}>style="background-color:rgb(184, 148, 211)"<{/if}> ><a href="indexv.php?user_id=<{$publicity.uid}>" target="_blank"><{$publicity.name}></a></td>
+        <td <{if $publicity.sus==1}>style="background-color:rgb(184, 148, 211)"<{/if}> ><{$publicity.faculty}></td>
+        <td <{if $publicity.sus==1}>style="background-color:rgb(184, 148, 211)"<{/if}> ><a href="act_dtl.php?act_id=<{$publicity.actid}>" target="_blank"><{$publicity.act_name}></a></td>
+        <td <{if $publicity.sus==1}>style="background-color:rgb(184, 148, 211)"<{/if}> ><{$publicity.time}></td>
+        <td <{if $publicity.sus==1}>style="background-color:rgb(184, 148, 211)"<{/if}> ><{$publicity.basetime}></td>
+        <td <{if $publicity.sus==1}>style="background-color:rgb(184, 148, 211)"<{/if}> ><{$publicity.honortime}></td>
+        <td <{if $publicity.sus==1}>style="background-color:rgb(184, 148, 211)"<{/if}> ><{$publicity.comment}></td>
+        </tr>
+	  <{/foreach}>
+    </table>
+</div>
+<{include file="include/footer.html"}>
+<body>
+</body>
+</html>

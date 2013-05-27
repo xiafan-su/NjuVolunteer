@@ -57,7 +57,7 @@ class System extends DB_Connect {
 		$page=htmlspecialchars($page,ENT_QUOTES);
 		$end=intval($page*11);
 		$begin=intval($end-11);
-		$query="select * from assignment order by time DESC LIMIT ".$begin." , ".$end." ";
+		$query="select * from assignment order by time DESC LIMIT ".$begin." , 11 ";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$notice_info=NULL;
 		while($row=mysql_fetch_assoc($select))
@@ -105,7 +105,7 @@ class System extends DB_Connect {
 		$page=htmlspecialchars($page,ENT_QUOTES);
 		$end=intval($page*11);
 		$begin=intval($end-11);
-		$query="select * from online_question order by time DESC LIMIT ".$begin." , ".$end." ";
+		$query="select * from online_question order by time DESC LIMIT ".$begin." , 11 ";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$question_info=NULL;
 		while($row=mysql_fetch_assoc($select))
@@ -126,7 +126,7 @@ class System extends DB_Connect {
 		$page=htmlspecialchars($page,ENT_QUOTES);
 		$end=intval($page*11);
 		$begin=intval($end-11);
-		$query="select * from vol_journal order by time DESC LIMIT ".$begin." , ".$end." ";
+		$query="select * from vol_journal order by time DESC LIMIT ".$begin." , 11 ";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$journal_info=NULL;
 		while($row=mysql_fetch_assoc($select))
@@ -135,12 +135,21 @@ class System extends DB_Connect {
 		}
 		return $journal_info;
 	}
+	public function check_same_note($recv_id,$title,$content)
+	{
+		$sql="SELECT * FROM note WHERE recv_id='".$recv_id."' and title='".$title."' and content='".$content."' and state='unread'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_num_rows($select);
+		if ($result==0)
+			return false;
+		else return true;
+	}
 	public function send_note($recv_id_list,$title,$content,$sender_id='system')//
 	{
 		//$recv_id_list=htmlspecialchars($recv_id_list);
-		$title=htmlspecialchars($title);
-		$content=htmlspecialchars($content);
-		$sender_id=htmlspecialchars($sender_id);
+		$title=htmlspecialchars($title,ENT_QUOTES);
+		$content=htmlspecialchars($content,ENT_QUOTES);
+		$sender_id=htmlspecialchars($sender_id,ENT_QUOTES);
 		$recv_id = explode(" ", $recv_id_list);
 		$sql="INSERT INTO note_send(sender_id,send_type,recv_id_list,title,content,date)
 		VALUES('".$sender_id."','0','".$recv_id_list."','".$title."','".$content."','".date('Y-m-d H:i:s',time())."')
@@ -165,6 +174,10 @@ class System extends DB_Connect {
 			}
 		}
 		return true;
+	}
+	public function comment_note($user_id,$act_id,$resp_id,$content,$time)
+	{
+		
 	}
 	public function new_visitor()
 	{
@@ -227,9 +240,9 @@ class System extends DB_Connect {
 			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		}
 	}
-	public function fetch_pub_list()
+	public function fetch_pub_list($num=100)
 	{
-		$sql="SELECT u.id as UID,i.id AS ACTID,u.name AS UNAME,u.faculty,i.name AS ACTNAME,r.base_time,r.honor_time,r.comment  FROM user_info u,act_record r,activity_info i,act_doc d WHERE u.id=r.user_id and r.doc_id=d.id and d.act_id=i.id ";
+		$sql="SELECT u.id as UID,i.id AS ACTID,u.name AS UNAME,u.faculty,i.name AS ACTNAME,r.base_time,r.honor_time,r.comment,r.sus,r.date  FROM user_info u,act_record r,activity_info i,act_doc d WHERE r.final='true' and u.id=r.user_id and r.doc_id=d.id and d.act_id=i.id LIMIT 0,".$num."";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
@@ -263,6 +276,29 @@ class System extends DB_Connect {
 		$provment['prove_date_month']=date("m",time());
 		return $provment;
 		
+	}
+	public function send_email($sendto,$subject,$message)//发送邮件
+	{
+		$sendto		=	$sendto;
+		$sendfrom	=	"NJU_Volunteer@126.com";
+		$mailpass	=	"woaiqingxie@2010";
+		$mailserver	=	"smtp.126.com";
+		$subject	=	$subject;
+		$message	=	$message."<br />-------------<br />南京大学青年志愿者系统自动邮件,请勿直接回复<br />任何问题可以发邮件到此邮箱,欢迎提出您的宝贵意见和建议";
+		$sm 		= 	new Smail( $sendfrom, $mailpass, $mailserver);
+		$send 		= 	$sm->send( $sendto, $sendfrom, $subject, $message );
+		if( $send ) return  false;
+		else return true;
+	}
+	public function delete_note($id,$state=0)//0表示删除收到的通知，1表示删除发送的通知
+	{
+		if($state==0)
+			$sql="DELETE FROM note WHERE id='".$id."'";
+		else
+			$sql="DELETE FROM note_send WHERE id='".$id."' ";
+		if (mysql_query($sql,$this->root_conn))
+			return true;
+		else return false;
 	}
 }
 
