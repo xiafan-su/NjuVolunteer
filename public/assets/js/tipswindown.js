@@ -24,7 +24,7 @@ function tipsWindown(title,content,width,height,drag,time,showbg,cssName) {
 	var height = height>= 527?this.height=527:this.height=height;  //设置最大窗口高度
 	if(showWindown == true) {
 		var simpleWindown_html = new String;
-			simpleWindown_html = "<div id=\"windownbg\" style=\"height:"+$(document).height()+"px;;filter:alpha(opacity=0);opacity:0;z-index: 90\"><iframe style=\"width:100%;height:100%;border:none;filter:alpha(opacity=0);opacity:0;\"></iframe></div>";
+			simpleWindown_html = "<div id=\"windownbg\" style=\"height:"+$(document).height()+"px;;filter:alpha(opacity=0);opacity:0;z-index: 150\"><iframe style=\"width:100%;height:100%;border:none;filter:alpha(opacity=0);opacity:0;\"></iframe></div>";
 			simpleWindown_html += "<div id=\"windown-box\">";
 			simpleWindown_html += "<div id=\"windown-title\"><h2></h2><span id=\"windown-close\">关闭</span></div>";
 			simpleWindown_html += "<div id=\"windown-content-border\"><div id=\"windown-content\"></div></div>"; 
@@ -111,9 +111,9 @@ function tipsWindown(title,content,width,height,drag,time,showbg,cssName) {
 	}
 	var isIE6=false;
 	if (isIE6) {
-		$("#windown-box").css({left:"50%",top:(parseInt((ch)/2)+est)+"px",marginTop: -((parseInt(height)+53)/2)+"px",marginLeft:-((parseInt(width)+32)/2)+"px",zIndex: "99"});
+		$("#windown-box").css({left:"50%",top:(parseInt((ch)/2)+est)+"px",marginTop: -((parseInt(height)+53)/2)+"px",marginLeft:-((parseInt(width)+32)/2)+"px",zIndex: "159"});
 	}else {
-		$("#windown-box").css({left:"50%",top:"50%",marginTop:-((parseInt(height)+53)/2)+"px",marginLeft:-((parseInt(width)+32)/2)+"px",zIndex: "99"});
+		$("#windown-box").css({left:"50%",top:"50%",marginTop:-((parseInt(height)+53)/2)+"px",marginLeft:-((parseInt(width)+32)/2)+"px",zIndex: "159"});
 	};
 	var Drag_ID = document.getElementById("windown-box"),DragHead = document.getElementById("windown-title");
 		
