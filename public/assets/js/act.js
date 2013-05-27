@@ -86,12 +86,7 @@ function slideright(){
 }
 function returntoday(){
 	mydate = new Date();
-	//$("#day1").html(getday(mydate.getDay())).show();
 	
-	//alert(mydate.setFullYear(mydate.getDate(),mydate.getMonth(),mydate.getDate()));
-	//alert(mydate.getDay());
-	//mydate.setDate(mydate.getDate()-6);
-	//alert(mydate.getDay());
 	transdate=new Date();
 	//alert(transdate.getYear());
 	document.getElementById('loading-bar').style.display='block';
@@ -106,6 +101,7 @@ function returntoday(){
 			day:transdate.getDay(),
 		},
 		success:function(html){
+			//alert("hi");
 			document.getElementById('loading-bar').style.display='none';
 			//alert(html);
 			//alert("hello");

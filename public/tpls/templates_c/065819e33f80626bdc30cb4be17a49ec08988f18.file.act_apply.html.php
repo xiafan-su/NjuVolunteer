@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-27 22:45:08
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 19:45:53
          compiled from "./tpls/templates\act_apply.html" */ ?>
-<?php /*%%SmartyHeaderCode:2718451a3270bc10e14-42157820%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:526751a0620ed46497-38511903%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1369660533,
+      1 => 1369482351,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2718451a3270bc10e14-42157820',
+  'nocache_hash' => '526751a0620ed46497-38511903',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a3270bcb536',
+  'unifunc' => 'content_51a0620eee5ba',
   'variables' => 
   array (
     'faculty_list' => 0,
@@ -25,7 +25,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a3270bcb536')) {function content_51a3270bcb536($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_51a0620eee5ba')) {function content_51a0620eee5ba($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -68,7 +68,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <tr>
 					<th>活动名称</th>
 					<td>
-						<input id="activity_name" name="activity_name" class="user" type="text" placeholder="活动名称，20字以内"/> 
+						<input id="activity_name" name="activity_name" class="user" type="text" placeholder="活动名称，45字以内" onblur="test_act_name()"/> 
                     </td>
                     <td>   
 						<span id="activity_name_error"></span>
@@ -77,7 +77,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
            		<tr>
 					<th>活动地点</th>
                     <td>
-						<input id="activity_place" name="activity_place" class="user" type="text" placeholder="50字以内" />
+						<input id="activity_place" name="activity_place" class="user" type="text" placeholder="50字以内" onblur="test_act_place()"/>
                     </td>    
 					<td><span id="activity_place_error"></span></td>
                 </tr>
@@ -115,7 +115,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <tr>
 					<th>开始日期</th>
 					<td>
-						<input name="begin_time" class="user" type="text" id="begin_time" onClick="return showCalendar('begin_time', 'y-mm-dd');" /> 
+						<input name="begin_time" class="user" type="text" id="begin_time" onClick="return showCalendar('begin_time', 'y-mm-dd');" onblur="test_begin_time()"/> 
 					</td>
                          <td><span id="begin_time_tip" class="begin_time-tip"> </span>
 						<span id="begin_time_error"></span></td>
@@ -123,15 +123,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <tr>
                 <th>结束日期</th>
 					<td>
-						<input name="end_time" class="user" type="text" id="end_time" onClick="return showCalendar('end_time', 'y-mm-dd');"/>
+						<input name="end_time" class="user" type="text" id="end_time" onClick="return showCalendar('end_time', 'y-mm-dd');" onblur="test_end_time()"/>
                     </td>
                         <td><span id="end_time_tip" class="end_time_tip"></span>
 						<span id="end_time_error"></span></td>
                 </tr>
                 <tr>
-                <th>报名截止</th>
+                <th>报名截止日期</th>
 					<td>
-							<input name="deadline" class="user" type="text" id="deadline" onClick="return showCalendar('deadline', 'y-mm-dd');"/>
+							<input name="deadline" class="user" type="text" id="deadline" onClick="return showCalendar('deadline', 'y-mm-dd');" onblur="test_deadline()"/>
                            
 						</td>
                         <td><span id="deadline_tip" class="end_time_tip"></span>
@@ -140,14 +140,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <tr>
                 <th>持续时间</th>
 					<td>
-							<input name="last_time" id="last_time" class="user" type="text" placeholder="一个数字，单位是小时，例如2"  />
+							<input name="last_time" id="last_time" class="user" type="text" placeholder="一个数字，单位是小时，例如2" onblur="test_last_time()"  />
                     </td>
                         <td><span id="last_time_tip" class="last_time_tip"> </span>
 						<span id="last_time_error"></span></td>
                 </tr>
                 <tr>
                 <th>具体时间</th>
-					<td style="text-align:left" colspan="2">
+					<td>
                     	<input name="weekday" type="checkbox" value="1"  /><label>周一</label>
                         <input name="weekday" type="checkbox" value="2"  /><label>周二</label>
                         <input name="weekday" type="checkbox" value="4"  /><label>周三</label>
@@ -156,11 +156,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <input name="weekday" type="checkbox" value="32"  /><label>周六</label>
                         <input name="weekday" type="checkbox" value="64"  /><label>周日</label>
 					</td>
+                    <td></td>
                 </tr>
                 <tr>
 				<th>详细时间</th>
 					<td>
-							<input name="detail_time" id="detail_time" class="user" type="text" placeholder="详细描述，例如：每周五下午"/>
+							<input name="detail_time" id="detail_time" class="user" type="text" placeholder="详细描述，例如：每周五下午" onblur="test_detail_time()"/>
 						</td>
 						<td><span id="detail_time_error"></span></td>
                 </tr>
@@ -174,21 +175,22 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <tr>
                 <th>招募人数</th>
 					<td>
-							<input name="total_num" id="total_num" class="user" type="text" placeholder="人数，例如：20" />
+							<input name="total_num" id="total_num" class="user" type="text" placeholder="人数，例如：20" onblur="test_total_num()"/>
 						</td>
 						<td><span id="total_num_error"></span></td>
                 </tr>
                 <tr>
                 <th>院系要求</th>
-					<td style="text-align:left">
-                        <input name="faculty_select" type="radio" value="true" onclick="show_faculty()" /><label>是</label>
+					<td>
                     	<input name="faculty_select" type="radio" value="false" onclick="hide_faculty()" checked /><label>否</label>
+                        <input name="faculty_select" type="radio" value="true" onclick="show_faculty()" /><label>是</label>
+                        <label>(只允许打钩的院系志愿者参加)</label>
                     </td>
-                    <td style="white-space:nowrap; "><label>是否只允许指定的院系志愿者参加</label></td>
+                    <td></td>
                 </tr>
                 <tr  id="faculty_choose">
                 <th></th>
-                <td style="text-align:left">
+                <td>
                     <?php  $_smarty_tpl->tpl_vars['faculty'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['faculty']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['faculty_list']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['faculty']->key => $_smarty_tpl->tpl_vars['faculty']->value){
@@ -214,9 +216,9 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
                 </tr>
                 <tr>
                 <th>英语要求</th>
-					<td style="text-align:left">
-                        <input name="en_select" type="radio" value="true" onclick="show_en()"/><label>是</label>
+					<td>
                     	<input name="en_select" type="radio" value="false" onclick="hide_en()" checked /><label>否</label>
+                        <input name="en_select" type="radio" value="true" onclick="show_en()"/><label>是</label>
 					</td>
                     <td></td>
                 </tr>
@@ -231,21 +233,21 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
                 <tr>
                 <th>其他语言要求</th>
 					<td>
-							<input name="other_language" id="other_language" class="user" type="text" placeholder="德语 法语 默认为无要求"/>
+							<input name="other_language" id="other_language" class="user" type="text" placeholder="德语 法语 默认为无要求" onblur="test_other_lang()"/>
 						</td>
 					<td></td>
                 </tr>
                 </table>
                 <div class="breadcrumb">
                 	<div class="bar-left"></div>
-                    <div class="bar-title">负责同学</div>
+                    <div class="bar-title">负责人</div>
                     <div class="bar-right"></div>
                 </div>
                 <table border="1">
                 <tr>
 				<th>姓名</th>
 					<td>
-							<input name="responser" id="responser" class="user" type="text" />
+							<input name="responser" id="responser" class="user" type="text" onblur="test_responser()"/>
                            
 						</td>
                         <td><span id="responser_tip" class="responser_tip" ></span>
@@ -254,7 +256,7 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
                 <tr>
                 <th>电话</th>
 					<td>
-							<input name="responser_tel" id="responser_tel" class="phone" type="text" />   	
+							<input name="responser_tel" id="responser_tel" class="phone" type="text" onblur="responser_tel()" />   	
 						</td>
                         <td><span id="tel_tip" class="tel_tip"></span>
 						<span id="responser_tel_error"></span></td>
@@ -264,60 +266,42 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
                 </table>
                 <div class="breadcrumb">
                 	<div class="bar-left"></div>
-                    <div class="bar-title">策划上传</div>
+                    <div class="bar-title">上传策划</div>
                     <div class="bar-right"></div>
                 </div> 
-
-					<table border="1">
-						<tr>
-							<th>上传要求</th>
-							<td style="text-align:left" colspan="2"><span id="plan_upload">上传文件格式为rar和zip</span></td>
-						</tr>
-						<tr><th>选择文件</th>
-							<td style="text-align:left" colspan="2">
-								<form action="./handle/upload_zip.php" method="post" enctype="multipart/form-data">
-									<input type="file" name="userfile" class="fileUpload" multiple>
-									<input type="hidden" name="act_id" value="<?php echo $_smarty_tpl->tpl_vars['act_id']->value;?>
+                <div class="upload_panel" style="margin-left:180px">
+                 	<span id="plan_upload">上传文件格式为rar和zip</span>
+                    <form action="./handle/upload_zip.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="userfile" class="fileUpload" multiple>
+                    <input type="hidden" name="act_id" value="<?php echo $_smarty_tpl->tpl_vars['act_id']->value;?>
 ">
-									<button id="px-submit" type="submit" style="display:none">上传</button>
-									<button id="px-clear" type="reset" style="display:none">清除</button>
-								</form>
-							</td>
-						</tr>
-						<tr>
-							<th>上传操作</th>
-							<td style="text-align:left" colspan="2">
-								<input type="button" class="button"  value="上传"  onclick="$('#px-submit').trigger('click');" />
-								<input type="button" class="button"   value="清除"  onclick="$('#px-clear').trigger('click');" />
-							</td>
-						</tr>
-					</table>
-
-
+                    <button id="px-submit" type="submit">上传</button>
+                    <button id="px-clear" type="reset">清除</button>
+                    </form>
+    			</div>
 				<div class="breadcrumb">
                 	<div class="bar-left"></div>
                     <div class="bar-title">活动简介</div>
                     <div class="bar-right"></div>
                 </div>
-
-						 <table border="1">
-							 <tr>
-								<td style="padding: 0">
-									<textarea id="activity_profile" name="content" style="width:610px;height:200px;visibility:hidden;" placeholder="1500字以内" ></textarea>
-								</td>
-							</tr>
-						 </table>
-
+                <div  id="phone" >
+					<div class="controls" >
+						<div class="input_area" >
+							<textarea id="activity_profile" name="content" style="width:590px;height:200px;visibility:hidden;" placeholder="1500字以内" ></textarea>
+						</div>
+						<span class="help-inline phoneerror"></span>
+					</div>
+				</div>    
 
   
 				<div class="control-group">
 					<div class="controls">
                         <div class="button-ctrl">
-                        	<label id="act_id"style="display:none;"><?php echo $_smarty_tpl->tpl_vars['act_id']->value;?>
-</label>
-                            <input name="submit" type="button" id="submit"  value="提交" />
-                            <input name="preview" type="button" id="preview"  value="预览" />
-                            <input name="save" type="button" id="save"  value="保存" />
+                        	<lable id="act_id"style="display:none;"><?php echo $_smarty_tpl->tpl_vars['act_id']->value;?>
+</lable>
+                            <input name="submit" type="button" id="submit"  value="提交" onclick="test_submit()" />
+                            <input name="preview" type="button" id="preview"  value="预览" onclick="test_preview()" />
+                            <input name="save" type="button" id="save"  value="保存" onclick="test_save()"/>
                         </div>	
                     </div>
 				</div>

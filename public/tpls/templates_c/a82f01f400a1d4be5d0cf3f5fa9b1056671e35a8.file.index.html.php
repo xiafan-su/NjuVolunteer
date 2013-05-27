@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-27 17:27:41
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 14:29:20
          compiled from "./tpls/templates\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:1957151a3270d385125-40539002%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1755351a05a401b40a4-63919749%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1369645583,
+      1 => 1369463197,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1957151a3270d385125-40539002',
+  'nocache_hash' => '1755351a05a401b40a4-63919749',
   'function' => 
   array (
   ),
@@ -20,15 +20,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'notice_detail' => 0,
     'd' => 0,
     'question_detail' => 0,
-    'record_list_left' => 0,
-    'record' => 0,
-    'record_list_right' => 0,
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a3270d49a63',
+  'unifunc' => 'content_51a05a408e84c',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a3270d49a63')) {function content_51a3270d49a63($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_51a05a408e84c')) {function content_51a05a408e84c($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -121,8 +118,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     </div>
     <div class="volclaim" id="volclaim" onclick="hiddenit()">
     </div>
-
-    <div class="people-show"  onclick="window.location.href='publicity.php'" >	
+    <div class="people-show"  onclick="window.location.href='gongshi.php'" >	
         <div class="show-item" id="item1"></div>
         <div class="show-item" id="item2"></div>
         <div class="show-item" id="item3"></div>
@@ -187,7 +183,7 @@ $_smarty_tpl->tpl_vars['d']->_loop = true;
         <div class="others-h-bar"></div>
     	<div class="others-element">
             <div class="others-content">
-            	<h3><a href="./notice.php?type=2&amp;page=1">在线咨询</a></h3>
+            	<h3><a href="./notice.php?type=2&amp;page=1">留言咨询</a></h3>
                 <div class="a-detail">
                 <?php  $_smarty_tpl->tpl_vars['d'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['d']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['question_detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -221,30 +217,7 @@ $_smarty_tpl->tpl_vars['d']->_loop = true;
 </div>
 
 
-<div style="display:none">
-    <?php  $_smarty_tpl->tpl_vars['record'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['record']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['record_list_left']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['record']->key => $_smarty_tpl->tpl_vars['record']->value){
-$_smarty_tpl->tpl_vars['record']->_loop = true;
-?>
-    <div id="record_left<?php echo $_smarty_tpl->tpl_vars['record']->value['id'];?>
-">
-        <h2 style="color:#FFF"><?php echo $_smarty_tpl->tpl_vars['record']->value['content'];?>
-</h2>
-    </div>
-    <?php } ?>
-    <?php  $_smarty_tpl->tpl_vars['record'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['record']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['record_list_right']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['record']->key => $_smarty_tpl->tpl_vars['record']->value){
-$_smarty_tpl->tpl_vars['record']->_loop = true;
-?>
-    <div id="record_right<?php echo $_smarty_tpl->tpl_vars['record']->value['id'];?>
-">
-        <h2 style="color:#FFF"><?php echo $_smarty_tpl->tpl_vars['record']->value['content'];?>
-</h2>
-    </div>
-    <?php } ?>
-</div>
+
 
 <?php echo $_smarty_tpl->getSubTemplate ("include/footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
