@@ -16,30 +16,22 @@
 <{foreach item=weekact from=$retlist}>
 
 <div class="weeka">
-    <div class="act-content">
-    
-        <a href="act_dtl.php? act_id=<{$weekact.id1}>"><{$weekact.name1}></a>
-        </br>
-        <{if isset($weekact.detail_time1)}>
-        <span>时间:<{$weekact.detail_time1}></span>
-        <{/if}>
-        </br>
-        <{if isset($weekact.deadline1)}>
-        <span>报名截止:<{$weekact.deadline1}></span>
-        <{/if}>
-    </div>
+	<{foreach item=week_day_act from=$weekact}>
     <div style="width:120px;height:2px;background:#666;float:left"></div>
     <div class="act-content">
-        <a href="act_dtl.php? act_id=<{$weekact.id2}>"><{$weekact.name2}></a>
+    	
+        <a href="act_dtl.php? act_id=<{$week_day_act.id}>"><{$week_day_act.name}></a>
         </br>
-        <{if isset($weekact.detail_time2)}>
-        <span>时间:<{$weekact.detail_time2}></span>
+        <{if isset($week_day_act.detail_time)}>
+        <span>时间:<{$week_day_act.detail_time}></span>
         <{/if}>
         </br>
-        <{if isset($weekact.deadline2)}>
-        <span>报名截止:<{$weekact.deadline2}></span>
+        <{if isset($week_day_act.deadline)}>
+        <span>报名截止:<{$week_day_act.deadline}></span>
         <{/if}>
     </div>
+    
+   	<{/foreach}>
 </div>
 <{/foreach}>
 

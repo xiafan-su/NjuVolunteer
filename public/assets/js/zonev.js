@@ -9,6 +9,16 @@ var flag_phone=0;
 var flag_cet4=0;
 var flag_cet6=0;
 var flag_other_skills=0;
+
+var origin_name;
+var origin_idcard;
+var origin_birthday;
+var origin_email;
+var origin_phone;
+var origin_cet4;
+var origin_cet6;
+var origin_other_skills;
+
 function change_sign(){
 		$.ajax({
 		type:"POST",
@@ -51,16 +61,22 @@ function test_name(){
 }
 
 function test_idcard(){
-	
+	var reg= /^(\d{14}|\d{17})(\d|[xX])$/;
 	if($("#idcard_num").val().replace(/\s/g,"")==""){
 		//alert("hello");
 		$("#id_number").text("*不能为空");
 		document.getElementById("id_number").style.color="red";
 		flag_idcard++;
 	}
+	else if(!reg.test($("#idcard_num").val())){
+		$("#id_number").text("*格式不对,14位或18位身份证");
+		document.getElementById("id_number").style.color="red";
+		flag_idcard++;
+	}
 	else{
 		flag_idcard=0;
 		$("#id_number").text("");
+		document.getElementById("id_number").style.color="black";
 	}
 }
 
@@ -128,7 +144,7 @@ function test_phone(){
 	if(!pattern.test(phone))
 	{
 		flag_phone++;
-		$("#phone_tip").text('请输入正确的手机号码');
+		$("#phone_tip").text('*请输入正确的手机号码');
 		document.getElementById("phone_tip").style.color="red";
 		
 	}
@@ -140,12 +156,12 @@ function test_phone(){
 }
 
 function test_email(){
-	var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+	var reg =/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 	var email_addr=$("#email").val();
 	
 	if($("#email").val().replace(/\s/g,"")!="")
 		if(!reg.test(email_addr)){
-			$("#email_tip").text("邮箱格式错误");
+			$("#email_tip").text("*邮箱格式错误");
 			document.getElementById("email_tip").style.color="red";
 			flag_email++;
 		}
@@ -155,14 +171,14 @@ function test_email(){
 		}
 	else{
 		flag_email++;
-		$("#email_tip").text("邮箱不能为空");
+		$("#email_tip").text("*邮箱不能为空");
 		document.getElementById("email_tip").style.color="red";
 	}
 }
 
 function test_other_skills(){
 	if($("#other_skills").val().length>100){
-		$("#other_skills_tip").text("超过100字");
+		$("#other_skills_tip").text("*超过100字");
 		document.getElementById("other_skills_tip").style.color="red";
 		flag_other_skills++;
 	}
@@ -173,6 +189,18 @@ function test_other_skills(){
 	}
 }
 
+var origin_myGender;
+var origin_myPolitic;
+var origin_myLanguageLevel;
+var origin_myMedical;
+var origin_myDrive;
+var origin_other_lang;
+var origin_dormitory;
+var origin_nation;
+var origin_cloth_size;
+var origin_dept;
+
+
 function handlechange(){
 
 	var Gender=document.getElementsByName("gender_select");
@@ -180,12 +208,13 @@ function handlechange(){
 	var LanguageLevel=document.getElementsByName("level_select");
 	var Drive=document.getElementsByName("drive_select");
 	var Medical=document.getElementsByName("medical_select");
-	var myGender,myPolitic,myLanguageLevel,myMedical,myDrive;
+	//var Dept=document.getElementsByName("");
+	var myGender,myPolitic,myLanguageLevel,myMedical,myDrive,myNation,myClothSize,myDept;
 	
    	for(var i=0;i<Gender.length;i++)
   	{
     	 if(Gender.item(i).checked){
-        	 myGender=Gender.item(i).getAttribute("value");  
+        	 myGender=Gender.item(i).getAttribute("value");
   	 		 break;
 		 }
  	}
@@ -217,6 +246,8 @@ function handlechange(){
   	 		 break;
 		 }
  	}
+	
+	//alert(origin_myMedical);
 	var f = document.getElementById("faculty"); 
 	var n = document.getElementById("nation");
 	var c = document.getElementById("cloth_size");
@@ -235,52 +266,59 @@ function handlechange(){
 	test_cet4();
 	test_cet6();
 	test_other_skills();
-	var flag=flag_name+flag_idcard+flag_birthday+flag_email+flag_phone+flag_cet4+flag_cet6+flag_other_skills;
-	if(flag!=0){
-		alert("填写的格式有误，请看提示");
+	//alert(origin_cloth_size);
+	if((origin_name==$("#name").val())&&(origin_idcard==$("#idcard_num").val())&&(origin_email==$("#email").val())&&(origin_birthday==$("#birthday").val())&&(origin_phone==$("#phone").val())&&(origin_other_skills==$("#other_skills").val())&&(origin_cet4==$("#cet4").val())&&(origin_cet6==$("#cet6").val())&&(origin_myGender==myGender)&&(origin_myPolitic==myPolitic)&&(origin_myLanguageLevel==myLanguageLevel)&&(origin_myMedical==myMedical)&&(origin_myDrive==myDrive)&&(origin_dormitory==$("#dormitory").val())&&(origin_other_lang==$("#other_language").val())&&(origin_nation==n.options[n.selectedIndex].value)&&(origin_dept==f.options[f.selectedIndex].value)&&(origin_cloth_size==c.options[c.selectedIndex].value)){
+		alert("修改成功,没有提交后台数据库");
+		$("#vol_profile").click();
 	}
 	else{
-		$("#operation").html(nowloading);
-		document.getElementById('loading-bar').style.display='block';
-		$.ajax({
-			type:"POST",
-			data:{
-				name:$("#name").val(),
-				idcard_num:$("#idcard_num").val(),
-				gender:myGender,
-				email:$("#email").val(),
-				phone:$("#phone").val(),
-				faculty:f.options[f.selectedIndex].value,
-				birthday:$("#birthday").val(),
-				politics_status:myPolitic,
-				nation:n.options[n.selectedIndex].value,
-				cloth_size:c.options[c.selectedIndex].value,
-				dormitory:$("#dormitory").val(),
-				cet4:$("#cet4").val(),
-				cet6:$("#cet6").val(),
-				language:$("#other_language").val(),
-				language_level:myLanguageLevel,
-				drive:myDrive,
-				medical:myMedical,
-				other_skills:$("#other_skills").val()
-				},
-			url:"./handle/change_vol_info.php",
-			success:function(html){
-				document.getElementById('loading-bar').style.display='none';
-				//alert(html);
-				if (html==1)
-				{
-					alert("修改成功");
-					$("#vol_profile").click();
+		var flag=flag_name+flag_idcard+flag_birthday+flag_email+flag_phone+flag_cet4+flag_cet6+flag_other_skills;
+		if(flag!=0){
+			alert("填写的格式有误，请看提示");
+		}
+		else{
+			$("#operation").html(nowloading);
+			document.getElementById('loading-bar').style.display='block';
+			$.ajax({
+				type:"POST",
+				data:{
+					name:$("#name").val(),
+					idcard_num:$("#idcard_num").val(),
+					gender:myGender,
+					email:$("#email").val(),
+					phone:$("#phone").val(),
+					faculty:f.options[f.selectedIndex].value,
+					birthday:$("#birthday").val(),
+					politics_status:myPolitic,
+					nation:n.options[n.selectedIndex].value,
+					cloth_size:c.options[c.selectedIndex].value,
+					dormitory:$("#dormitory").val(),
+					cet4:$("#cet4").val(),
+					cet6:$("#cet6").val(),
+					language:$("#other_language").val(),
+					language_level:myLanguageLevel,
+					drive:myDrive,
+					medical:myMedical,
+					other_skills:$("#other_skills").val()
+					},
+				url:"./handle/change_vol_info.php",
+				success:function(html){
+					document.getElementById('loading-bar').style.display='none';
+					//alert(html);
+					if (html==1)
+					{
+						alert("修改成功");
+						$("#vol_profile").click();
+					}
+					else 
+					{	
+						alert(html);
+						//$("#main_content").html(main_content);
+					}
+					
 				}
-				else 
-				{	
-					alert(html);
-					//$("#main_content").html(main_content);
-				}
-				
-			}
-		});
+			});
+		}
 	}
 }
 
@@ -401,6 +439,7 @@ $("#vol_profile").click(function(){
 });
 
 $("#change_profile").click(function(){
+	//alert("change profile");
 	$("#main_title").text("修改资料");
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
@@ -410,6 +449,69 @@ $("#change_profile").click(function(){
 			//alert(html);
 			document.getElementById('loading-bar').style.display='none';
 			$("#main_content").html(html);
+			origin_name=$("#name").val();
+			origin_idcard=$("#idcard_num").val();
+			origin_birthday=$("#birthday").val();
+			origin_email=$("#email").val();
+			origin_phone=$("#phone").val();
+			origin_cet4=$("#cet4").val();
+			origin_cet6=$("#cet6").val();
+			//alert($("#birthday").val()+origin_birthday);
+			//alert(origin_name+origin_idcard+origin_birthday+origin_email+origin_phone+origin_cet4+origin_cet6);
+			origin_other_skills=$("#other_skills").val();
+			origin_other_lang=$("#other_language").val();
+			origin_dormitory=$("#dormitory").val();
+			var Gender=document.getElementsByName("gender_select");
+			var Politic=document.getElementsByName("politics_select");
+			var LanguageLevel=document.getElementsByName("level_select");
+			var Drive=document.getElementsByName("drive_select");
+			var Medical=document.getElementsByName("medical_select");
+			var myGender,myPolitic,myLanguageLevel,myMedical,myDrive;
+			for(var i=0;i<Gender.length;i++)
+			{
+				 if(Gender.item(i).checked){
+					 origin_myGender=Gender.item(i).getAttribute("value");
+					 break;
+				 }
+			}
+			//alert(origin_myGender);
+			for(var i=0;i<Politic.length;i++)
+			{
+				 if(Politic.item(i).checked){
+					 origin_myPolitic=Politic.item(i).getAttribute("value");  
+					 break;
+				 }
+			}
+			for(var i=0;i<LanguageLevel.length;i++)
+			{
+				 if(LanguageLevel.item(i).checked){
+					 origin_myLanguageLevel=LanguageLevel.item(i).getAttribute("value");  
+					 break;
+				 }
+			}
+			for(var i=0;i<Drive.length;i++)
+			{
+				 if(Drive.item(i).checked){
+					 origin_myDrive=Drive.item(i).getAttribute("value");  
+					 break;
+				 }
+			}
+			for(var i=0;i<Medical.length;i++)
+			{
+				 if(Medical.item(i).checked){
+					 origin_myMedical=Medical.item(i).getAttribute("value");  
+					 break;
+				 }
+			}
+			var f = document.getElementById("faculty"); 
+			var n = document.getElementById("nation");
+			var c = document.getElementById("cloth_size");
+			origin_nation=n.options[n.selectedIndex].value;
+			origin_dept=f.options[f.selectedIndex].value;
+			//alert(c.options[c.selectedIndex].value);
+			origin_cloth_size=c.options[c.selectedIndex].value;
+			
+			//alert(origin_cloth_size);
 		}
 	});
 });
