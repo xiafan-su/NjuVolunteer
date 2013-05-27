@@ -10,9 +10,9 @@ $act = new Act();
 $item = $act->fetch_one($activity_id);
 $tpl->assign( "id", $activity_id);
 if ($item['cover_pic']!=NULL)
-	$tpl->assign("picture",$item['cover_pic']);//取出封面图片
+	$tpl->assign("picture",$_PIC_PATH.$item['cover_pic']);//取出封面图片
 else
-	$tpl->assign("picture","default.jpg");//取出封面图片
+	$tpl->assign("picture",$_PIC_PATH."default.jpg");//取出封面图片
 
 if (isset($_SESSION[USER::USER][USER::PERM_ID]))
 {

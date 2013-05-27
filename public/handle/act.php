@@ -25,7 +25,8 @@ else
 while($act_info = mysql_fetch_assoc($select)){
 
 		if($act_info['cover_pic']==NULL)
-			$act_info['cover_pic']='default.jpg';
+			$act_info['cover_pic']=$_PIC_PATH.'default.jpg';
+		else $act_info['cover_pic']=$_PIC_PATH.$act_info['cover_pic'];
 		$now=date("Y-m-d H:i:s",time());
 		if ($now<$act_info['deadline']) $state='正在招募';
 		else if($now>$act_info['begin_time'] && $now<$act_info['end_time']) $state="进行中";

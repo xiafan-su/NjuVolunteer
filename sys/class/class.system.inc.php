@@ -57,7 +57,7 @@ class System extends DB_Connect {
 		$page=htmlspecialchars($page,ENT_QUOTES);
 		$end=intval($page*11);
 		$begin=intval($end-11);
-		$query="select * from assignment order by time DESC LIMIT ".$begin." , ".$end." ";
+		$query="select * from assignment order by time DESC LIMIT ".$begin." , 11 ";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$notice_info=NULL;
 		while($row=mysql_fetch_assoc($select))
@@ -105,7 +105,7 @@ class System extends DB_Connect {
 		$page=htmlspecialchars($page,ENT_QUOTES);
 		$end=intval($page*11);
 		$begin=intval($end-11);
-		$query="select * from online_question order by time DESC LIMIT ".$begin." , ".$end." ";
+		$query="select * from online_question order by time DESC LIMIT ".$begin." , 11 ";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$question_info=NULL;
 		while($row=mysql_fetch_assoc($select))
@@ -126,7 +126,7 @@ class System extends DB_Connect {
 		$page=htmlspecialchars($page,ENT_QUOTES);
 		$end=intval($page*11);
 		$begin=intval($end-11);
-		$query="select * from vol_journal order by time DESC LIMIT ".$begin." , ".$end." ";
+		$query="select * from vol_journal order by time DESC LIMIT ".$begin." , 11 ";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$journal_info=NULL;
 		while($row=mysql_fetch_assoc($select))
@@ -240,9 +240,9 @@ class System extends DB_Connect {
 			$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		}
 	}
-	public function fetch_pub_list()
+	public function fetch_pub_list($num=100)
 	{
-		$sql="SELECT u.id as UID,i.id AS ACTID,u.name AS UNAME,u.faculty,i.name AS ACTNAME,r.base_time,r.honor_time,r.comment,r.sus,r.date  FROM user_info u,act_record r,activity_info i,act_doc d WHERE r.final='true' and u.id=r.user_id and r.doc_id=d.id and d.act_id=i.id ";
+		$sql="SELECT u.id as UID,i.id AS ACTID,u.name AS UNAME,u.faculty,i.name AS ACTNAME,r.base_time,r.honor_time,r.comment,r.sus,r.date  FROM user_info u,act_record r,activity_info i,act_doc d WHERE r.final='true' and u.id=r.user_id and r.doc_id=d.id and d.act_id=i.id LIMIT 0,".$num."";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
@@ -290,9 +290,15 @@ class System extends DB_Connect {
 		if( $send ) return  false;
 		else return true;
 	}
-	public function record_attack()
+	public function delete_note($id,$state=0)//0表示删除收到的通知，1表示删除发送的通知
 	{
-		
+		if($state==0)
+			$sql="DELETE FROM note WHERE id='".$id."'";
+		else
+			$sql="DELETE FROM note_send WHERE id='".$id."' ";
+		if (mysql_query($sql,$this->root_conn))
+			return true;
+		else return false;
 	}
 }
 

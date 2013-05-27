@@ -1,7 +1,7 @@
 <{foreach item=act from=$act_list}>
 <div class="summary">
     <div class="act_img">
-        <a href="act_dtl.php?act_id=<{$act.id}>" target="_blank"><img src="../Upload/picture/<{$act.img}>" width="174" /></a>
+        <img onclick="window.open('act_dtl.php?act_id=<{$act.id}>','_blank')" src="<{$act.img}>" width="172" />
     </div>
     <div class="words">
         <div>

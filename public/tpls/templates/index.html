@@ -90,6 +90,7 @@
     </div>
     <div class="volclaim" id="volclaim" onclick="hiddenit()">
     </div>
+
     <div class="people-show"  onclick="window.location.href='publicity.php'" >	
         <div class="show-item" id="item1"></div>
         <div class="show-item" id="item2"></div>
@@ -173,7 +174,18 @@
 </div>
 
 
-
+<div style="display:none">
+    <{foreach item=record from=$record_list_left}>
+    <div id="record_left<{$record.id}>">
+        <h2 style="color:#FFF"><{$record.content}></h2>
+    </div>
+    <{/foreach}>
+    <{foreach item=record from=$record_list_right}>
+    <div id="record_right<{$record.id}>">
+        <h2 style="color:#FFF"><{$record.content}></h2>
+    </div>
+    <{/foreach}>
+</div>
 
 <{include file="include/footer.html"}>
 </body>
