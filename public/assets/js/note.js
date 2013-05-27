@@ -3,11 +3,33 @@
 var const_recv_title_add = "添加到接收者列表";
 var const_recv_title_remove = "从接收者列表移除";
 
+function nt_func_note_delete( elem ){
+	var note_id = $(elem).attr("note_id");
+	var title = $(elem).parent().prev().prev().prev().text();
+	if( ! confirm("您确定要删除标题为“"+title+"”的通知吗？") ) return;
+	$.ajax({
+		type:"POST",
+		url:"./handle/note.php",
+		data:{type:"delete", note_id:note_id},
+		success:function(html){
+			if( html == 0 ) {
+				$("#del_op_"+note_id).parent().parent().remove();
+				var t = $("#note_table > tbody");
+				if( t.children().length == 0 ){
+					t.html( '<tr><td colspan="4" style="text-align:left">这里什么也没有！</td></tr>' );
+				}
+			} else {
+				alert( html );
+			}
+		}
+	});
+}
 
 nt_func_note_read = function(){
 	var noteid = $(this).attr( "noteid" );
 	//alert( noteid );
 	var elem = $( "#note_head_img_"+noteid );
+	switch_main_content( "->" );
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
@@ -24,8 +46,8 @@ nt_func_note_read = function(){
 			}
 			//设置当前阅读的信箱为已读
 			elem.attr( "src", "./assets/img/zonet/note_read.png" );
-			switch_main_content( "->" );
 			$( zt_elem_main_content2 ).html(html);
+			//$(".note_list_delete").click( nt_func_note_delete );
 		}
 	});
 }

@@ -319,7 +319,24 @@ function show_note(id){
 			$('#note_detail').animate({opacity:'1'},500);
 			
 		}
-});
+	});
+}
+function delete_note(id){
+	if( ! confirm("您确定要删除该通知吗？") ) return;
+	document.getElementById('loading-bar').style.display='block';
+	$.ajax({
+		type:"POST",
+		data:{note_id:id, type:"delete"},
+		url:"./handle/note.php",
+		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
+			if( html == 0 ){
+				$("#del_op_"+id).parent().parent().remove();
+			} else {
+				alert( html );
+			}
+		}
+	});
 }
 function readit(id,state){
 	//alert(id);
