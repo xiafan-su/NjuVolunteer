@@ -11,9 +11,15 @@ $item = $act->fetch_one($activity_id);
 $tpl->assign( "id", $activity_id);
 
 if ($item['cover_pic']!=NULL)
+{
 	$tpl->assign("picture",$_PIC_PATH.$item['cover_pic']);//取出封面图片
+	$tpl->assign("picture_name",$item['cover_pic']);
+}
 else
+{
 	$tpl->assign("picture",$_PIC_PATH."default.jpg");//取出封面图片
+	$tpl->assign("picture_name","default.jpg");
+}
 
 if (isset($_SESSION[USER::USER][USER::PERM_ID]))
 {

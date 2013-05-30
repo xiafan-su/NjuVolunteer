@@ -25,9 +25,9 @@
 </head>
 <body>
 <{include file="include/header.html"}>
-<input type="button" id="act_id" value="<{$id}>" style="display:none" />
-
-
+<input type="hidden" id="act_id" value="<{$id}>"  />
+<input type="hidden" id="act_title" value="<{$act_title}>"/>
+<input type="hidden" id="act_pic" value="<{$picture_name}>"/>
 <div class="main">
 	<div id="left">
         <div id="act_image" style="cursor:pointer;">
@@ -68,10 +68,20 @@
     	<div class="apply-state">
         	<div style="width:100%;float:left">
                 <div class="div_title2" style="margin-top:12px">已报名的人数：<span id="sign_up_num"><{$signupnum}></span>/<{$total_num}></div>
-                <div id="option">
+
+                <div id="option" style="float:right">
                 	<input type="button" id="take_part_in" name="take_part_in" class="button" style="margin-top:7px">
                     
-                </div>	
+                </div>
+                <div class="jiathis_style" style=" margin-top:10px;float:right; margin-right:10px">
+                    <a class="jiathis_button_tsina"></a>
+                    <a class="jiathis_button_renren"></a>
+                    <a class="jiathis_button_qzone"></a>
+                   
+                    <a class="jiathis_button_tqq"></a>
+                 
+                    <a class="jiathis_counter_style"></a>
+            	</div>	
             </div>
         </div>
         <div id="act_detail" class="act-detail">
@@ -129,26 +139,20 @@
             <div id="act_same"  class="div_content"></div>
         </div>
 
-        <!-- JiaThis Button BEGIN -->
-	<!--div class="jiathis_style">
-    <a class="jiathis_button_tsina"></a>
-    <a class="jiathis_button_renren"></a>
-	<a class="jiathis_button_qzone"></a>
-	
-	<a class="jiathis_button_tqq"></a>
-	<a class="jiathis_button_weixin"></a>
-	<!--a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-    
-    <script "text/javascript"> 
-		var jiathis_config = { 
-			url: "http://localhost/NjuVolunteer/public/act_dtl.php?act_id=<{$act_id}>",
-			title: '<{$act_title}>',
-			pic: "http://localhost/NjuVolunteer/Upload/picture/"+'<{$picture}>'
-		} 
-	</script--> 
-	<!--script src="./assets/js/jiathis_r.js"></script>
-	<script type="text/javascript" src="./assets/js/jia.js" charset="utf-8"></script-->
+   
+       <!-- JiaThis Button BEGIN -->
+
+
+        <!-- JiaThis Button END -->
+        
+		<script>
+			var jiathis_config = { 
+				url: "http://localhost/NjuVolunteer/public/act_dtl.php?act_id="+$('#act_id').val(), 
+				title: "南京大学青年志愿者:"+$('#act_title').val(), 
+				summary:"",
+				pic:"http://localhost/NjuVolunteer/Upload/picture/"+$('#act_pic').val()
+			}  
+        </script>
 
         
     </div><!-- 结束right div -->

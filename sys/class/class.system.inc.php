@@ -8,7 +8,7 @@ class System extends DB_Connect {
 	{
 		$team_name=htmlspecialchars($team_name,ENT_QUOTES);
 		//查找是否已经申请过一个院系
-		$sql="SELECT id FROM team where name='".$team_name."'";
+		$sql="SELECT id FROM team where attached_institutions='".$team_name."' and layer='0'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		$team = mysql_fetch_assoc($select);
 		$team_id=$team['id'];
