@@ -62,28 +62,41 @@ $(document).ready(function(){
 				//plan_url=$("#uploadedfile").val();
 				//alert(plan_url);
 			}
-			});
+		});
 	});
-	$("#activity_name").blur(function(){
-		if($("#activity_name").val().replace(/\s/g,"")==""){
-			$("#activity_name_error").html("活动名称不能为空");
+
+var rand1 = Math.ceil(Math.random()*100)%33;
+var rand2 = 0;
+var rand3 = 0;
+while( (rand2 = Math.ceil(Math.random()*100)%33) == rand1 );
+while( (rand3 = Math.ceil(Math.random()*100)%33) == rand1 || rand3  == rand2 );
+
+$('#span_right').html("<img class=\"reg_nju_scene\" src=\"./assets/img/nju_scene/scene"+rand1+".jpg\" /><img class=\"reg_nju_scene\" src=\"./assets/img/nju_scene/scene"+rand2+".jpg\" /><img class=\"reg_nju_scene\" src=\"./assets/img/nju_scene/scene"+rand3+".jpg\" />");
+});
+
+function test_act_name(){
+		//alert("hello");
+	if($("#activity_name").val().replace(/\s/g,"")==""){
+		$("#activity_name_error").html("*活动名称不能为空");
+		document.getElementById("activity_name_error").style.color="red";
+		name_flag=0;
+	}
+	
+	else{
+		if($("#activity_name").val().length>45){
 			document.getElementById("activity_name_error").style.color="red";
+			$("#activity_name_error").html("活动名称45字以内");
 			name_flag=0;
 		}
 		else{
-			if($("#activity_name").val().length>20){
-				document.getElementById("activity_name_error").style.color="red";
-				$("#activity_name_error").html("活动名称20字以内");
-				name_flag=0;
-			}
-			else{
-				document.getElementById("activity_name_error").style.color="black";
-				$("#activity_name_error").html("");
-				name_flag=1;
-			}
+			document.getElementById("activity_name_error").style.color="black";
+			$("#activity_name_error").html("");
+			name_flag=1;
 		}
-	})
-	$("#activity_place").blur(function(){
+	}
+}
+
+function test_act_place(){
 		if($("#activity_place").val().replace(/\s/g,"")==""){
 			document.getElementById("activity_place_error").style.color="red";
 			$("#activity_place_error").html("活动地点不能为空");
@@ -102,11 +115,9 @@ $(document).ready(function(){
 				place_flag=1;
 			}
 		}
-	})
-	
-	
-	$("#begin_time").blur(function()
-	{
+}
+
+function test_begin_time(){
 		var time = $('#begin_time').val();
 		
 		var pattern = new RegExp(/^(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))-02-29) $/);
@@ -129,9 +140,10 @@ $(document).ready(function(){
 				$('#begin_time_tip').html('开始时间不能为空');
 				begin_time_flag=0;
 		}
-	})
+	
+}
 
-	$("#end_time").blur(function(){
+function test_end_time(){
 		var time = $('#end_time').val();
 		
 		var pattern = new RegExp(/^(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))-02-29) $/);
@@ -176,9 +188,13 @@ $(document).ready(function(){
 				document.getElementById("end_time_tip").style.color="red";
 				$('#end_time_tip').html('结束时间不能为空');
 		}
-	})
+}
 
-	$("#last_time").blur(function(){
+function test_deadline(){
+	
+}
+
+function test_last_time(){
 		if($("#last_time").val().replace(/\s/g,"")==""){
 			last_time_flag=0;
 			document.getElementById("last_time_tip").style.color="red";
@@ -197,24 +213,23 @@ $(document).ready(function(){
 				$('#last_time_tip').html('');
 			}
 		}
-	})
+	
+}
 
-	$("#detail_time").blur(function()
-	{
-		if($("#detail_time").val().replace(/\s/g,"")==""){
-			document.getElementById("detail_time_error").style.color="red";
-			$('#detail_time_error').html('详细时间不能为空');
-			detail_time_flag=0;
-		}
-		else{
-			detail_time_flag=1;
-			document.getElementById("detail_time_error").style.color="black";
-			$('#detail_time_error').html('');
-		}
-	})
+function test_detail_time(){
+	if($("#detail_time").val().replace(/\s/g,"")==""){
+		document.getElementById("detail_time_error").style.color="red";
+		$('#detail_time_error').html('详细时间不能为空');
+		detail_time_flag=0;
+	}
+	else{
+		detail_time_flag=1;
+		document.getElementById("detail_time_error").style.color="black";
+		$('#detail_time_error').html('');
+	}
+}
 
-	$("#total_num").blur(function()
-	{
+function test_total_num(){
 		if($("#total_num").val().replace(/\s/g,"")==""){
 			document.getElementById("total_num_error").style.color="red";
 			$('#total_num_error').html('招募人数不能为空');
@@ -225,40 +240,36 @@ $(document).ready(function(){
 			document.getElementById("total_num_error").style.color="red";
 			$('#total_num_error').html('');
 		}
-	})
+}
+function test_other_lang(){
+	
+}
+function test_responser(){
+	if($('#responser').val().length>20)
+	{
+		responser_flag=0;
+		//alert("test");
+		document.getElementById("responser_error").style.color="red";
+		$('#responser_error').html('长度过长');
+	}
+	else if($('#responser').val().replace(/\s/g,"")=="")
+	{
+		responser_flag=0;
+		//alert("test");
+		document.getElementById("responser_error").style.color="red";
+		$('#responser_error').html('不能为空');
+	}
+	else
+	{
+		responser_flag=1;
+		document.getElementById("responser_error").style.color="balck";
+		$('#responser_error').html('');
 
-	$("#other_language").blur(function()
-	{
-		
-	})
-	$("#responser").blur(function()
-	{
-		//var name = $('#responser').val();
-		//var pattern = new RegExp(/^[\x{4e00}-\x{9fa5}]+$/);
-		if($('#responser').val().length>20)
-		{
-			responser_flag=0;
-			//alert("test");
-			document.getElementById("responser_error").style.color="red";
-			$('#responser_error').html('长度过长');
-		}
-		else if($('#responser').val().replace(/\s/g,"")=="")
-		{
-			responser_flag=0;
-			//alert("test");
-			document.getElementById("responser_error").style.color="red";
-			$('#responser_error').html('不能为空');
-		}
-		else
-		{
-			responser_flag=1;
-			document.getElementById("responser_error").style.color="balck";
-			$('#responser_error').html('');
-	
-	
-		}
-	})
-	$("#responser_tel").blur(function(){
+
+	}
+}
+
+function test_responser_tel(){
 		var phone = $('#responser_tel').val();
 		var pattern =  new RegExp(/^(1(([35][0-9])|(47)|[8][01236789]))\d{8}$/);
 		if(!pattern.test(phone))
@@ -273,40 +284,65 @@ $(document).ready(function(){
 			document.getElementById("responser_tel_error").style.color="balck";
 			$('#responser_tel_error').html('');
 		}
-		
-	})
-	
-	$("#submit").click(function(){
-			//alert("submit");
-			preview_flag=0;
-			cur_state="auditing";
-			if ( name_flag==1 && place_flag==1 && begin_time_flag==1 && end_time_flag==1 && last_time_flag==1 && detail_time_flag==1 && total_num_flag==1 && responser_flag==1 && responser_tel_flag==1)
-			submit_click();
-			else alert("填写信息中有错误或有信息为空");
-		});
-	$("#preview").click(function(){
-			preview_flag=1;
-			cur_state="editing";
-			if ( name_flag==1 && place_flag==1 && begin_time_flag==1 && end_time_flag==1 && last_time_flag==1 && detail_time_flag==1 && total_num_flag==1 && responser_flag==1 && responser_tel_flag==1)
-			submit_click();
-			else alert("填写信息中有错误或有信息为空");	
-		});
-	$("#save").click(function(){
-			preview_flag=0;
-			cur_state="editing";
-			if ( name_flag==1 )
-				submit_click();
-			else alert("最少需要填写活动名称才能保存");
-		});
+}
 
-var rand1 = Math.ceil(Math.random()*100)%33;
-var rand2 = 0;
-var rand3 = 0;
-while( (rand2 = Math.ceil(Math.random()*100)%33) == rand1 );
-while( (rand3 = Math.ceil(Math.random()*100)%33) == rand1 || rand3  == rand2 );
+function test_submit(){
+	test_act_name();
+	test_act_place();
+	test_begin_time();
+	test_end_time();
+	test_last_time();
+	test_detail_time();
+	test_total_num();
+	test_responser();
+	test_responser_tel();
+	test_deadline();
+	test_other_lang();
+	preview_flag=0;
+	cur_state="auditing";
+	if ( name_flag==1 && place_flag==1 && begin_time_flag==1 && end_time_flag==1 && last_time_flag==1 && detail_time_flag==1 && total_num_flag==1 && responser_flag==1 && responser_tel_flag==1)
+	submit_click();
+	else alert("填写信息中有错误或有信息为空");
+}
 
-$('#span_right').html("<img class=\"reg_nju_scene\" src=\"./assets/img/nju_scene/scene"+rand1+".jpg\" /><img class=\"reg_nju_scene\" src=\"./assets/img/nju_scene/scene"+rand2+".jpg\" /><img class=\"reg_nju_scene\" src=\"./assets/img/nju_scene/scene"+rand3+".jpg\" />");
-});
+function test_save(){
+	test_act_name();
+	test_act_place();
+	test_begin_time();
+	test_end_time();
+	test_last_time();
+	test_detail_time();
+	test_total_num();
+	test_responser();
+	test_responser_tel();
+	test_deadline();
+	test_other_lang();
+	preview_flag=0;
+	cur_state="editing";
+	if ( name_flag==1 )
+		submit_click();
+	else alert("最少需要填写活动名称才能保存");
+}
+
+function test_preview(){
+	test_act_name();
+	test_act_place();
+	test_begin_time();
+	test_end_time();
+	test_last_time();
+	test_detail_time();
+	test_total_num();
+	test_responser();
+	test_responser_tel();
+	test_deadline();
+	test_other_lang();
+	preview_flag=1;
+	cur_state="editing";
+	if ( name_flag==1 && place_flag==1 && begin_time_flag==1 && end_time_flag==1 && last_time_flag==1 && detail_time_flag==1 && total_num_flag==1 && responser_flag==1 && responser_tel_flag==1)
+	submit_click();
+	else alert("填写信息中有错误或有信息为空");	
+}
+
 
 function submit_click()
 {
@@ -345,14 +381,14 @@ function submit_click()
 				if (preview_flag==0)
 				{
 					if (cur_state=='auditing')
-						alert("申请成功,请等待管理员审核");
+						alert("提交成功,请等待管理员审核");
 					else if (cur_state=='editing')
 						alert("保存成功");
 					window.close();
 				}else
 				{
 					//alert('http://localhost/njuvolunteer/public/act_dtl.php?act_id='+act_id);
-					window.open('../public/act_dtl.php?act_id='+act_id);
+					window.open('../public/act_dtl.php?act_id='+act_id,'_blank');
 				}
 			} else  {
 				alert("申请失败"+html);

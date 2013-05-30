@@ -11,7 +11,7 @@ class Team extends DB_Connect {
 	}
 	public function fetch_all_faculty()//获取所有院系
 	{
-		$query="select id,name from team where layer = '0' ";
+		$query="select id,attached_institutions as name from team where layer = '0' ";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;		
 	}

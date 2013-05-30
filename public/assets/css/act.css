@@ -11,6 +11,7 @@ img{
 }
 .switchlist img{
 	padding: 0px;
+	cursor:pointer;
 }
 .img-bar{
 	float:left;
@@ -195,11 +196,11 @@ img{
 	padding:10px;
 	height:328px;
 	border:1px solid #DDD;
+	cursor:pointer;
 }
 .weekact{
 	float:left;
 	width:100%;
-	height:450px;
 	margin-top:10px;
 	margin-bottom:20px;
 }
@@ -207,12 +208,13 @@ img{
 	position:relative;
 	float:left;
 	width:120px;
-	height:352px;
+	height:auto;
 	margin:0 8px 0 8px;
 	background:rgb(225,225,225);
 	border-radius:0px 0px 20px 20px;
 	box-shadow:10px 10px 10px #777;
 	behavior:url(./assets/css/pie.htc);
+	word-break:break-all;
 }
 .weeka:hover{
 	background:#FFF;

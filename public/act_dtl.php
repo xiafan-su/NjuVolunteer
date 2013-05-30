@@ -9,10 +9,17 @@ $activity_id = intval($_GET['act_id']);
 $act = new Act();
 $item = $act->fetch_one($activity_id);
 $tpl->assign( "id", $activity_id);
+
 if ($item['cover_pic']!=NULL)
+{
 	$tpl->assign("picture",$_PIC_PATH.$item['cover_pic']);//取出封面图片
+	$tpl->assign("picture_name",$item['cover_pic']);
+}
 else
+{
 	$tpl->assign("picture",$_PIC_PATH."default.jpg");//取出封面图片
+	$tpl->assign("picture_name","default.jpg");
+}
 
 if (isset($_SESSION[USER::USER][USER::PERM_ID]))
 {
@@ -47,7 +54,10 @@ $tpl->assign("perm_of_upload",$perm_of_upload);
 	default : $tpl->assign( "act_state","未知类型" );
 }//*/
 $now=date("Y-m-d H:i:s",time());
-if ($now<$item['deadline']) $state='正在招募';
+if ($item['state']=='auditing') $state='审核中';
+else if ($item['state']=='editing') $state='编辑中';
+else if ($item['state']=='end') $state='已结束';
+else if ($now<$item['deadline']) $state='正在招募';
 else if($now>$item['begin_time'] && $now<$item['end_time']) $state="进行中";
 else if ($now>$item['end_time']) $state="已结束";
 
