@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-27 23:16:34
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 21:34:38
          compiled from "../tpls/templates\include\actz.html" */ ?>
 <?php /*%%SmartyHeaderCode:2172651a378d28ab633-53344637%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '24f5947343209a91bb72f2be1d995a7847928238' => 
     array (
       0 => '../tpls/templates\\include\\actz.html',
-      1 => 1369392668,
+      1 => 1369463197,
       2 => 'file',
     ),
   ),
@@ -15,16 +15,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51a378d2a4ff2',
   'variables' => 
   array (
     'current_time' => 0,
     'act_list' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a378d2a4ff2',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a378d2a4ff2')) {function content_51a378d2a4ff2($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'D:\\apache\\htdocs\\NjuVolunteer\\Smarty\\libs\\plugins\\modifier.truncate.php';
+<?php if ($_valid && !is_callable('content_51a378d2a4ff2')) {function content_51a378d2a4ff2($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'D:\\PHPWeb\\NjuVolunteer\\Smarty\\libs\\plugins\\modifier.truncate.php';
 ?>
 <div id="" class="" style="margin: 0 20px">
 	

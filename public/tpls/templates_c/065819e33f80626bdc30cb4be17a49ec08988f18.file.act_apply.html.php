@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 15:35:44
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 21:36:17
          compiled from "./tpls/templates\act_apply.html" */ ?>
 <?php /*%%SmartyHeaderCode:3074651a701506fb0d1-09643398%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '065819e33f80626bdc30cb4be17a49ec08988f18' => 
     array (
       0 => './tpls/templates\\act_apply.html',
-      1 => 1369666732,
+      1 => 1369920972,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51a7015077ada',
   'variables' => 
   array (
     'faculty_list' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'act_id' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a7015077ada',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51a7015077ada')) {function content_51a7015077ada($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -256,7 +256,7 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
                 <tr>
                 <th>电话</th>
 					<td>
-							<input name="responser_tel" id="responser_tel" class="phone" type="text" onblur="responser_tel()" />   	
+							<input name="responser_tel" id="responser_tel" class="phone" type="text" onblur="test_responser_tel()" />   	
 						</td>
                         <td><span id="tel_tip" class="tel_tip"></span>
 						<span id="responser_tel_error"></span></td>
