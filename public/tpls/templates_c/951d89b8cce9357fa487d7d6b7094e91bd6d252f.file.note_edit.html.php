@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-27 20:19:01
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 20:12:54
          compiled from "../tpls/templates\include\note_edit.html" */ ?>
-<?php /*%%SmartyHeaderCode:2296351a34f357b30e4-41292716%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:723451a74246f25ee5-12269206%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '951d89b8cce9357fa487d7d6b7094e91bd6d252f' => 
     array (
       0 => '../tpls/templates\\include\\note_edit.html',
-      1 => 1368980531,
+      1 => 1369466905,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2296351a34f357b30e4-41292716',
+  'nocache_hash' => '723451a74246f25ee5-12269206',
   'function' => 
   array (
   ),
@@ -30,9 +30,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a34f35e4666',
+  'unifunc' => 'content_51a7424715ae5',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a34f35e4666')) {function content_51a34f35e4666($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'D:\\PHPWeb\\NjuVolunteer\\Smarty\\libs\\plugins\\modifier.truncate.php';
+<?php if ($_valid && !is_callable('content_51a7424715ae5')) {function content_51a7424715ae5($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'D:\\apache\\htdocs\\NjuVolunteer\\Smarty\\libs\\plugins\\modifier.truncate.php';
 ?>
 
 <div id="" class="" style="margin:0 20px 20px;">
@@ -244,14 +244,16 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['act_index']['last']       = 
 
 	<tr>
 		<th style="text-align:right">内容</th>
-		<td style="text-align:left">
-			<?php if (!$_smarty_tpl->tpl_vars['read_only']->value){?>
-				<textarea name="" rows="10" cols="70" onblur="check_note_send_btn();"  title="通知字数不能超过1000" id="note_edit_content"><?php echo $_smarty_tpl->tpl_vars['content']->value;?>
+		<td style="text-align:left;">
+			<div id="" class="" style="margin: 15px 5px 10px;">
+				<?php if (!$_smarty_tpl->tpl_vars['read_only']->value){?>
+					<textarea name="" rows="10" cols="70" onblur="check_note_send_btn();"  title="通知字数不能超过1000" id="note_edit_content"><?php echo $_smarty_tpl->tpl_vars['content']->value;?>
 </textarea>
-			<?php }else{ ?>
-				<?php echo $_smarty_tpl->tpl_vars['content']->value;?>
+				<?php }else{ ?>
+					<?php echo $_smarty_tpl->tpl_vars['content']->value;?>
 
-			<?php }?>
+				<?php }?>
+			</div>
 		</td>
 	</tr>
 </table>

@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 18:44:54
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 19:27:19
          compiled from "./tpls/templates\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:1755351a05a401b40a4-63919749%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1736051a379d0bb7073-24054822%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1369665439,
+      1 => 1369899937,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1755351a05a401b40a4-63919749',
+  'nocache_hash' => '1736051a379d0bb7073-24054822',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a05a408e84c',
+  'unifunc' => 'content_51a379d0c708e',
   'variables' => 
   array (
     'notice_detail' => 0,
@@ -28,7 +28,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a05a408e84c')) {function content_51a05a408e84c($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_51a379d0c708e')) {function content_51a379d0c708e($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -62,7 +62,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         	<div class="act-detail" id="act-detail1">
             	<span class="act-detail-title">多一份关爱</span>
             	<span class="act-detail-content">将第一颗爱心献予高淳，为特殊青少年茁壮成长增添养分，相信有"长江基金"的关注、关爱和关怀，高淳特殊青少年成长之花一定会结出丰硕的爱心之果。</span></div>
-            <div class="act-detail" id="act-detail2">
+            <div class="act-detail" id="act-detail2" onclick="window.open('act_dtl.php?act_id=227','_blank')">
             	<span class="act-detail-title">感恩点滴</span>
                 <span class="act-detail-content">感恩，是中华民族的优良传统，"乌鸦反哺"的性灵原态，让我们感悟到作为人的重要表证，漂泊在生活的经纬里，总有千丝万缕的情感把我们支撑，感恩需要从点滴做起</span></div>
             <div class="act-detail" id="act-detail3">
@@ -75,7 +75,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             	<span class="act-detail-title">阳光在路上</span>
             	<span class="act-detail-content">2003年，由Becky老师和青协的共同努力下，在高淳特殊教育学校举办了第一次阳光活动。该活动一直延续至今，旨在资助高淳的同学，给他们带去快乐与温暖。</span></div>
        		<div class="act-img-t" id="act-img1"><img src="./assets/img/index/5.jpg" /></div>
-            <div class="act-img-t" id="act-img2"><img src="./assets/img/index/4.jpg" /></div>
+            <div class="act-img-t" id="act-img2"><img src="./assets/img/index/4.jpg" onclick="window.open('act_dtl.php?act_id=227','_blank')"/></div>
             <div class="act-img-t" id="act-img3"><img src="./assets/img/index/3.jpg" /></div>
             <div class="act-img-t" id="act-img4"><img src="./assets/img/index/2.jpg" /></div>
             <div class="act-img-t" id="act-img5"><img src="./assets/img/index/1.jpg" /></div>

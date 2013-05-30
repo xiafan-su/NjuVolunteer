@@ -1,8 +1,8 @@
 var nowloading="<div class=\"loading\"><img src=\"./assets/img/loading/loading.gif\"/></div>";
 var act=1;
 var flag=0;
-var topp=['-952px','-796px','-1088px','-887px'];
-var left=['-1200px','-1140px','-1134px','-963px'];
+var topp=['-1250px','-800px','-808px','-887px','-1250px'];
+var left=['-1000px','-1050px','-999px','-890px','-1020px'];
 /*
 var showp=['<h2 style="color:#FFF">恭喜夏凡同学参加仙林中学支教获得2小时志愿时间</h2>',
 			'<h2 style="color:#FFF">恭喜魏子华同学参加宁工小学支教获得3小时志愿时间并获得0.5小时荣誉时间</h2>',

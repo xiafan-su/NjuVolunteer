@@ -563,8 +563,7 @@ function submit_click()
 					window.close();
 				}else
 				{
-					//alert('http://localhost/njuvolunteer/public/act_dtl.php?act_id='+act_id);
-					window.open('http://localhost/njuvolunteer/public/act_dtl.php?act_id='+act_id,'_blank');
+					window.open('act_dtl.php?act_id='+act_id,'_blank');
 				}
 			} else {
 				alert("申请失败"+html);

@@ -463,7 +463,6 @@ class Act extends DB_Connect {
 		$select=mysql_query($query, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
-	
 	public function concern_team($team_id){
 		$team_id=htmlspecialchars($team_id,ENT_QUOTES);
 		$user_id=$_SESSION[USER::USER][USER::ID];

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 21:14:22
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 20:05:15
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:2472751a060a6797445-44039829%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1369911565,
+      1 => 1369915472,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'id' => 0,
+    'act_title' => 0,
+    'picture_name' => 0,
     'picture' => 0,
     'perm_of_upload' => 0,
-    'act_title' => 0,
     'act_state' => 0,
     'act_begin_time' => 0,
     'act_end_time' => 0,
@@ -70,10 +71,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <body>
 <?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
-<input type="button" id="act_id" value="<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
-" style="display:none" />
-
-
+<input type="hidden" id="act_id" value="<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+"  />
+<input type="hidden" id="act_title" value="<?php echo $_smarty_tpl->tpl_vars['act_title']->value;?>
+"/>
+<input type="hidden" id="act_pic" value="<?php echo $_smarty_tpl->tpl_vars['picture_name']->value;?>
+"/>
 <div class="main">
 	<div id="left">
         <div id="act_image" style="cursor:pointer;">
@@ -126,10 +129,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <div class="div_title2" style="margin-top:12px">已报名的人数：<span id="sign_up_num"><?php echo $_smarty_tpl->tpl_vars['signupnum']->value;?>
 </span>/<?php echo $_smarty_tpl->tpl_vars['total_num']->value;?>
 </div>
-                <div id="option">
+
+                <div id="option" style="float:right">
                 	<input type="button" id="take_part_in" name="take_part_in" class="button" style="margin-top:7px">
                     
-                </div>	
+                </div>
+                <div class="jiathis_style" style=" margin-top:10px;float:right; margin-right:10px">
+                    <a class="jiathis_button_tsina"></a>
+                    <a class="jiathis_button_renren"></a>
+                    <a class="jiathis_button_qzone"></a>
+                   
+                    <a class="jiathis_button_tqq"></a>
+                 
+                    <a class="jiathis_counter_style"></a>
+            	</div>	
             </div>
         </div>
         <div id="act_detail" class="act-detail">
@@ -197,32 +210,20 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
             <div id="act_same"  class="div_content"></div>
         </div>
 
-	<!-- JiaThis Button BEGIN -->
-	分享至:<div class="jiathis_style">
-    	<a class="jiathis_button_tsina"></a>
-        <a class="jiathis_button_renren"></a>
-        <a class="jiathis_button_qzone"></a>
-       
-        <a class="jiathis_button_tqq"></a>
-        <a class="jiathis_button_weixin"></a>
+   
+       <!-- JiaThis Button BEGIN -->
+
+
+        <!-- JiaThis Button END -->
         
-        <a class="jiathis_button_xiaoyou"></a>
-        <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-        <a class="jiathis_counter_style"></a>
-	</div>
-	<script "text/javascript"> 
-		var jiathis_config = { 
-			url: "http://localhost/NjuVolunteer/public/act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
-", 
-			title: "南京大学青协活动:<?php echo $_smarty_tpl->tpl_vars['act_title']->value;?>
-", 
-			summary:""
-			//pic:"http://localhost/NjuVolunteer/Upload/<?php echo $_smarty_tpl->tpl_vars['picture']->value;?>
-"
-		} 
-	</script> 
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1362584051455914" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
+		<script>
+			var jiathis_config = { 
+				url: "http://localhost/NjuVolunteer/public/act_dtl.php?act_id="+$('#act_id').val(), 
+				title: "南京大学青年志愿者:"+$('#act_title').val(), 
+				summary:"",
+				pic:"http://localhost/NjuVolunteer/Upload/picture/"+$('#act_pic').val()
+			}  
+        </script>
 
         
     </div><!-- 结束right div -->

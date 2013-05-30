@@ -381,7 +381,7 @@ function submit_click()
 				if (preview_flag==0)
 				{
 					if (cur_state=='auditing')
-						alert("申请成功,请等待管理员审核");
+						alert("提交成功,请等待管理员审核");
 					else if (cur_state=='editing')
 						alert("保存成功");
 					window.close();

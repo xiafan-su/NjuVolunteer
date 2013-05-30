@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 23:53:37
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 20:25:03
          compiled from "../tpls/templates\include\infov.html" */ ?>
-<?php /*%%SmartyHeaderCode:525351a0de818b4755-90069464%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:110651a7451f6cf193-96040172%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '5d4e8fdadac667c8dbd8810f1b75cc235d01ef23' => 
     array (
       0 => '../tpls/templates\\include\\infov.html',
-      1 => 1368609454,
+      1 => 1369397728,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '525351a0de818b4755-90069464',
+  'nocache_hash' => '110651a7451f6cf193-96040172',
   'function' => 
   array (
   ),
@@ -24,6 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'email' => 0,
     'phone' => 0,
     'faculty' => 0,
+    'grade' => 0,
     'birthday' => 0,
     'politics_status' => 0,
     'nation' => 0,
@@ -39,9 +40,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a0de81abd3b',
+  'unifunc' => 'content_51a7451f7a248',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a0de81abd3b')) {function content_51a0de81abd3b($_smarty_tpl) {?><style>
+<?php if ($_valid && !is_callable('content_51a7451f7a248')) {function content_51a7451f7a248($_smarty_tpl) {?><style>
 table td{
 	text-align:left;
 }
@@ -88,6 +89,11 @@ table td{
   <tr>
     <th scope="row">所在院</th>
     <td><?php echo $_smarty_tpl->tpl_vars['faculty']->value;?>
+</td>
+  </tr>
+  <tr>
+    <th scope="row">年级</th>
+    <td><?php echo $_smarty_tpl->tpl_vars['grade']->value;?>
 </td>
   </tr>
   <tr>

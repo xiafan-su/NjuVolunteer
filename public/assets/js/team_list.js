@@ -9,40 +9,42 @@ var imgflag=0; //图片切换失效标识
 var flag=0;
 var left=0;
 var hot=[
-'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/5.jpg\" /></li>',
-'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/2.jpg\" /></li>',
-'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/3.jpg\" /></li>',
-'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/4.jpg\" /></li>',
-'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/1.jpg\" /></li>'];
+'<li class=\"switchlist\" onclick=\"window.open(\'http://www.nanjing2013.org/\',\'_blank\')\"><img src=\"./assets/img/activity_center/hot/5.jpg\" /></li>',
+'<li class=\"switchlist\" onclick=\"window.open(\'http://society.people.com.cn/GB/8217/241699/243905/index.html\',\'_blank\')\"><img src=\"./assets/img/activity_center/hot/2.jpg\" /></li>',
+'<li class=\"switchlist\" onclick=\"window.open(\'http://www.mianfeiwucan.org/home/\',\'_blank\')\"><img src=\"./assets/img/activity_center/hot/3.jpg\" /></li>',
+'<li class=\"switchlist\" ><img src=\"./assets/img/activity_center/hot/4.jpg\" /></li>',
+'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/1.jpg\" /></li>',
+'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/6.jpg\" /></li>',
+'<li class=\"switchlist\"><img src=\"./assets/img/activity_center/hot/7.jpg\" /></li>'];
 
 $(document).ready(function(){
 	document.getElementById("switch").style.left="-800px";
 	$("#switch").html(hot[2]+hot[0]+hot[1]+hot[2]+hot[0]).show();
-	$("#slideleft").click(function(){
+	$("#slideright").click(function(){
 		if(flag==0){
 			flag=1;
 			left += 1;
 			if(left<3)
-				$("#switch").animate({left:'+=800px'});
+				$("#switch").animate({left:'-=800px'});
 			else{
 				left = 0;
 				document.getElementById("switch").style.left="0px";
-				$("#switch").animate({left:'+=800px'});
+				$("#switch").animate({left:'-=800px'});
 			}
 			setTimeout("flag=0",500);
 		}
 	});
-	$("#slideright").click(function(){
+	$("#slideleft").click(function(){
 		if(flag==0){
 			flag=1;
 			if(left>0){
-				$("#switch").animate({left:'-=800px'});
+				$("#switch").animate({left:'+=800px'});
 				left -= 1;
 			}
 			else{
 				left = 2;
 				document.getElementById("switch").style.left="-3200px";
-				$("#switch").animate({left:'-=800px'});
+				$("#switch").animate({left:'+=800px'});
 			}
 			setTimeout("flag=0",500);
 		}

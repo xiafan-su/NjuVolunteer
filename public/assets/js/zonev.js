@@ -199,7 +199,7 @@ var origin_dormitory;
 var origin_nation;
 var origin_cloth_size;
 var origin_dept;
-
+var origin_grade;
 
 function handlechange(){
 
@@ -251,6 +251,7 @@ function handlechange(){
 	var f = document.getElementById("faculty"); 
 	var n = document.getElementById("nation");
 	var c = document.getElementById("cloth_size");
+	var g = document.getElementById("grade");
 	//alert(t.options[t.selectedIndex].value);
 	//alert(myGender);
 	//var t = document.getElementById("faculty"); 
@@ -267,7 +268,7 @@ function handlechange(){
 	test_cet6();
 	test_other_skills();
 	//alert(origin_cloth_size);
-	if((origin_name==$("#name").val())&&(origin_idcard==$("#idcard_num").val())&&(origin_email==$("#email").val())&&(origin_birthday==$("#birthday").val())&&(origin_phone==$("#phone").val())&&(origin_other_skills==$("#other_skills").val())&&(origin_cet4==$("#cet4").val())&&(origin_cet6==$("#cet6").val())&&(origin_myGender==myGender)&&(origin_myPolitic==myPolitic)&&(origin_myLanguageLevel==myLanguageLevel)&&(origin_myMedical==myMedical)&&(origin_myDrive==myDrive)&&(origin_dormitory==$("#dormitory").val())&&(origin_other_lang==$("#other_language").val())&&(origin_nation==n.options[n.selectedIndex].value)&&(origin_dept==f.options[f.selectedIndex].value)&&(origin_cloth_size==c.options[c.selectedIndex].value)){
+	if((origin_name==$("#name").val())&&(origin_idcard==$("#idcard_num").val())&&(origin_email==$("#email").val())&&(origin_birthday==$("#birthday").val())&&(origin_phone==$("#phone").val())&&(origin_other_skills==$("#other_skills").val())&&(origin_cet4==$("#cet4").val())&&(origin_cet6==$("#cet6").val())&&(origin_myGender==myGender)&&(origin_myPolitic==myPolitic)&&(origin_myLanguageLevel==myLanguageLevel)&&(origin_myMedical==myMedical)&&(origin_myDrive==myDrive)&&(origin_dormitory==$("#dormitory").val())&&(origin_other_lang==$("#other_language").val())&&(origin_nation==n.options[n.selectedIndex].value)&&(origin_dept==f.options[f.selectedIndex].value)&&(origin_cloth_size==c.options[c.selectedIndex].value)&&(origin_grade==g.options[g.selectedIndex].value)){
 		alert("修改成功,没有提交后台数据库");
 		$("#vol_profile").click();
 	}
@@ -287,6 +288,7 @@ function handlechange(){
 					gender:myGender,
 					email:$("#email").val(),
 					phone:$("#phone").val(),
+					grade:$("#grade").val(),
 					faculty:f.options[f.selectedIndex].value,
 					birthday:$("#birthday").val(),
 					politics_status:myPolitic,
@@ -506,10 +508,14 @@ $("#change_profile").click(function(){
 			var f = document.getElementById("faculty"); 
 			var n = document.getElementById("nation");
 			var c = document.getElementById("cloth_size");
+			var g = document.getElementById("grade");
 			origin_nation=n.options[n.selectedIndex].value;
+
 			origin_dept=f.options[f.selectedIndex].value;
 			//alert(c.options[c.selectedIndex].value);
 			origin_cloth_size=c.options[c.selectedIndex].value;
+			
+			origin_grade=g.options[g.selectedIndex].value;
 			
 			//alert(origin_cloth_size);
 		}

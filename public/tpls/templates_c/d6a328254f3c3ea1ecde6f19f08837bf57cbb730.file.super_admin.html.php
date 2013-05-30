@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 15:09:05
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-28 20:38:48
          compiled from "./tpls/templates\super_admin.html" */ ?>
-<?php /*%%SmartyHeaderCode:101451a06391429375-19496604%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1861851a4a558f0e598-76166780%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'd6a328254f3c3ea1ecde6f19f08837bf57cbb730' => 
     array (
       0 => './tpls/templates\\super_admin.html',
-      1 => 1369144567,
+      1 => 1369647509,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '101451a06391429375-19496604',
+  'nocache_hash' => '1861851a4a558f0e598-76166780',
   'function' => 
   array (
   ),
@@ -21,14 +21,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a0639150c64',
+  'unifunc' => 'content_51a4a55902316',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a0639150c64')) {function content_51a0639150c64($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_51a4a55902316')) {function content_51a4a55902316($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="SHORTCUT ICON" href="./assets/img/header/logo.png">
 <link href="./assets/css/main.css" rel="stylesheet" />
 <link href="./assets/css/tipswindown.css" rel="stylesheet" />
 <link href="./assets/css/zonea.css" rel="stylesheet" />
@@ -64,12 +63,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<div id="" class="menu_item_title">
 							管理活动
 						</div>
+                         <div id="ingoing_act" class="menu_item_span">
+							进行中的活动
+						</div>
                         <div id="examine_act" class="menu_item_span">
-							审核活动
+							待审核的活动
 						</div>
-						<div id="view_act_info" class="menu_item_span">
-							查看活动统计
-						</div>
+                         <div id="finished_act" class="menu_item_span">
+							完成的活动
+						</div>                       
+
 					</div>
 					<div id="" class="menu_item">
 						<div id="" class="menu_item_title">
@@ -80,6 +83,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</div>
 						<div id="change_team_info" class="menu_item_span">
 							修改团队密码
+						</div>
+                        <div id="view_act_info" class="menu_item_span">
+							查看团队统计
 						</div>
 					</div>
 					<div id="" class="menu_item">
@@ -103,6 +109,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</div>
 						<div id="sent_notice" class="menu_item_span">
 							发送的通知
+						</div>
+                        <div id="mysql_keng" class="menu_item_span">
+							sql语句
 						</div>
 					</div>
                     

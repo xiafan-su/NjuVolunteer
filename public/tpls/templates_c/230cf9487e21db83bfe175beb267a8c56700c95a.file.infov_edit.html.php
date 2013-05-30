@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 14:33:36
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 01:27:53
          compiled from "../tpls/templates\include\infov_edit.html" */ ?>
-<?php /*%%SmartyHeaderCode:2759351a05b40c53764-48071017%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2605251a63a99a0aa91-92472831%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '230cf9487e21db83bfe175beb267a8c56700c95a' => 
     array (
       0 => '../tpls/templates\\include\\infov_edit.html',
-      1 => 1368844644,
+      1 => 1369398713,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2759351a05b40c53764-48071017',
+  'nocache_hash' => '2605251a63a99a0aa91-92472831',
   'function' => 
   array (
   ),
@@ -26,6 +26,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'faculty_list' => 0,
     'faculty' => 0,
     'my_faculty' => 0,
+    'grade_list' => 0,
+    'grade' => 0,
+    'mygrade' => 0,
     'birthday' => 0,
     'politics_status' => 0,
     'nation_list' => 0,
@@ -43,9 +46,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a05b41105f3',
+  'unifunc' => 'content_51a63a99b5ee4',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a05b41105f3')) {function content_51a05b41105f3($_smarty_tpl) {?><style>
+<?php if ($_valid && !is_callable('content_51a63a99b5ee4')) {function content_51a63a99b5ee4($_smarty_tpl) {?><style>
 table td{
 	text-align:left;
 }
@@ -113,6 +116,23 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
 ?>
 		<option value="<?php echo $_smarty_tpl->tpl_vars['faculty']->value['name'];?>
 "<?php if ($_smarty_tpl->tpl_vars['faculty']->value['name']==$_smarty_tpl->tpl_vars['my_faculty']->value){?>selected="selected"<?php }?>><?php echo $_smarty_tpl->tpl_vars['faculty']->value['name'];?>
+</option>
+		<?php } ?>
+   		</select>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <th scope="row">年级</th>
+    <td>
+    	<select id="grade" class="myselect">
+        <?php  $_smarty_tpl->tpl_vars['grade'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['grade']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['grade_list']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['grade']->key => $_smarty_tpl->tpl_vars['grade']->value){
+$_smarty_tpl->tpl_vars['grade']->_loop = true;
+?>
+		<option value="<?php echo $_smarty_tpl->tpl_vars['grade']->value['year'];?>
+"<?php if ($_smarty_tpl->tpl_vars['grade']->value['year']==$_smarty_tpl->tpl_vars['mygrade']->value){?>selected="selected"<?php }?>><?php echo $_smarty_tpl->tpl_vars['grade']->value['year'];?>
 </option>
 		<?php } ?>
    		</select>
