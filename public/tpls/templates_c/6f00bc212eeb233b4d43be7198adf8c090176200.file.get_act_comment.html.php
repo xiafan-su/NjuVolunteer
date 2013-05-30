@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-27 21:26:15
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 18:45:38
          compiled from "../tpls/templates\handle\get_act_comment.html" */ ?>
 <?php /*%%SmartyHeaderCode:611551a35ef7049c44-54647206%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6f00bc212eeb233b4d43be7198adf8c090176200' => 
     array (
       0 => '../tpls/templates\\handle\\get_act_comment.html',
-      1 => 1369465292,
+      1 => 1369665438,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51a35ef712613',
   'variables' => 
   array (
     'comment_detail' => 0,
     'act_comment' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a35ef712613',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51a35ef712613')) {function content_51a35ef712613($_smarty_tpl) {?>            
 <?php  $_smarty_tpl->tpl_vars['act_comment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act_comment']->_loop = false;

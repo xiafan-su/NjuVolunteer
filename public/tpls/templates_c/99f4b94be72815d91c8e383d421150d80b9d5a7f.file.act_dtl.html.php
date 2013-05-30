@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-27 22:55:17
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 21:14:22
          compiled from "./tpls/templates\act_dtl.html" */ ?>
 <?php /*%%SmartyHeaderCode:2472751a060a6797445-44039829%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99f4b94be72815d91c8e383d421150d80b9d5a7f' => 
     array (
       0 => './tpls/templates\\act_dtl.html',
-      1 => 1369665439,
+      1 => 1369911565,
       2 => 'file',
     ),
   ),
@@ -127,7 +127,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </span>/<?php echo $_smarty_tpl->tpl_vars['total_num']->value;?>
 </div>
                 <div id="option">
-                	<input type="button" id="take_part_in" name="take_part_in" class="button">
+                	<input type="button" id="take_part_in" name="take_part_in" class="button" style="margin-top:7px">
                     
                 </div>	
             </div>
@@ -197,29 +197,32 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
             <div id="act_same"  class="div_content"></div>
         </div>
 
-        <!-- JiaThis Button BEGIN -->
-	<!--div class="jiathis_style">
-    <a class="jiathis_button_tsina"></a>
-    <a class="jiathis_button_renren"></a>
-	<a class="jiathis_button_qzone"></a>
-	
-	<a class="jiathis_button_tqq"></a>
-	<a class="jiathis_button_weixin"></a>
-	<!--a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<!-- JiaThis Button BEGIN -->
+	分享至:<div class="jiathis_style">
+    	<a class="jiathis_button_tsina"></a>
+        <a class="jiathis_button_renren"></a>
+        <a class="jiathis_button_qzone"></a>
+       
+        <a class="jiathis_button_tqq"></a>
+        <a class="jiathis_button_weixin"></a>
+        
+        <a class="jiathis_button_xiaoyou"></a>
+        <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+        <a class="jiathis_counter_style"></a>
 	</div>
-    
-    <script "text/javascript"> 
+	<script "text/javascript"> 
 		var jiathis_config = { 
-			url: "http://localhost/NjuVolunteer/public/act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act_id']->value;?>
-",
-			title: '<?php echo $_smarty_tpl->tpl_vars['act_title']->value;?>
-',
-			pic: "http://localhost/NjuVolunteer/Upload/picture/"+'<?php echo $_smarty_tpl->tpl_vars['picture']->value;?>
-'
+			url: "http://localhost/NjuVolunteer/public/act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+", 
+			title: "南京大学青协活动:<?php echo $_smarty_tpl->tpl_vars['act_title']->value;?>
+", 
+			summary:""
+			//pic:"http://localhost/NjuVolunteer/Upload/<?php echo $_smarty_tpl->tpl_vars['picture']->value;?>
+"
 		} 
-	</script--> 
-	<!--script src="./assets/js/jiathis_r.js"></script>
-	<script type="text/javascript" src="./assets/js/jia.js" charset="utf-8"></script-->
+	</script> 
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1362584051455914" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
 
         
     </div><!-- 结束right div -->
