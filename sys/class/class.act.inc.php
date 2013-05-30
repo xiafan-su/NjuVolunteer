@@ -452,15 +452,17 @@ class Act extends DB_Connect {
 		$year=htmlspecialchars($year,ENT_QUOTES);
 		$month=htmlspecialchars($month,ENT_QUOTES);
 		$date=htmlspecialchars($date,ENT_QUOTES);
-		$str="$year"."-"."$month"."-"."$date";
-		$date1=$date+6;
-		$str1="$year"."-"."$month"."-"."$date1";
+		$str=mktime(0,0,0,$month,$date,$year);
+		$str=date("Y-m-d",$str);
+		$str1=date("Y-m-d",strtotime("$str   +6   day"));
+		//$date1=$date+6;
+		//$str1="$year"."-"."$month"."-"."$date1";
+		
 		$query="select * from activity_info where datediff(end_time,'".$str."')>0 and datediff(begin_time,'".$str1."')<0";
 		//$query="select makedate('".$year."',)";
 		$select=mysql_query($query, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
-	
 	public function concern_team($team_id){
 		$team_id=htmlspecialchars($team_id,ENT_QUOTES);
 		$user_id=$_SESSION[USER::USER][USER::ID];

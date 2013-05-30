@@ -1,22 +1,23 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 14:33:32
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 01:27:51
          compiled from "./tpls/templates\zonev.html" */ ?>
-<?php /*%%SmartyHeaderCode:46451a05b3c9caa74-05052641%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1535351a63a9715ea55-34532075%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '44c556608e67759f0e68fc7fabee31d3f9c92847' => 
     array (
       0 => './tpls/templates\\zonev.html',
-      1 => 1369463197,
+      1 => 1369487702,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '46451a05b3c9caa74-05052641',
+  'nocache_hash' => '1535351a63a9715ea55-34532075',
   'function' => 
   array (
   ),
   'variables' => 
   array (
+    'head_photo' => 0,
     'user_name' => 0,
     'user_rate' => 0,
     'volunteer_time' => 0,
@@ -27,9 +28,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a05b3cc2363',
+  'unifunc' => 'content_51a63a9722f85',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a05b3cc2363')) {function content_51a05b3cc2363($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_51a63a9722f85')) {function content_51a63a9722f85($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -54,7 +55,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 	<div id="up" class="">
 		<div id="logo" class="" style="float:left">
-			<img src="./assets/img/head_photo/boy/178.jpg" width="80px" height="80px" border="0" alt="">
+			<img src="./assets/img/head_photo/<?php echo $_smarty_tpl->tpl_vars['head_photo']->value;?>
+" width="80px" height="80px" border="0" alt="">
 		</div>
 		<div id="person_info" class="person-info" style="float:left">
 			<div id="user_name" ><?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
@@ -84,7 +86,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['loop']['index_next'] = $_sma
 $_smarty_tpl->tpl_vars['smarty']->value['section']['loop']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['loop']['iteration'] == 1);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['loop']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['loop']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['loop']['total']);
 ?>
-			<img src="./assets/img/star.png" /> 
+			<img src="./assets/img/star.png" title="我的志愿服务星级" /> 
 			<?php endfor; endif; ?>
             </div>
 			<div id="server-time">服务总时间：<?php echo $_smarty_tpl->tpl_vars['volunteer_time']->value;?>

@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 14:56:31
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-27 23:17:27
          compiled from "./tpls/templates\act.html" */ ?>
-<?php /*%%SmartyHeaderCode:634951a0609faf34b8-30504912%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:3039951a37907a918a3-51016588%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f953ae4134724fc8e1e51861dc90910c96308d5b' => 
     array (
       0 => './tpls/templates\\act.html',
-      1 => 1369144567,
+      1 => 1369664210,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '634951a0609faf34b8-30504912',
+  'nocache_hash' => '3039951a37907a918a3-51016588',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a0609fc4e70',
+  'unifunc' => 'content_51a37907adb0e',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a0609fc4e70')) {function content_51a0609fc4e70($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_51a37907adb0e')) {function content_51a37907adb0e($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -114,38 +114,38 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <div class="hot-cover2"></div>
                 <ul class="hotlist" id="hotlist">
                 <div id="hotlist1">
-                    <li class="hot">
-                    	<img src="./assets/img/activity_center/1.jpg" width=170px/>
-                        <div class="img-bar">仙林中学支教<br />时间：每周日<br />所属团队：南大青协</div></li>
-                    <li class="hot">
-                    	<img src="./assets/img/activity_center/2.jpg" width=170px/>
-                        <div class="img-bar">宁工小学家教<br />时间：每周六<br />所属团队：计算机系青协</div></li>
-                    <li class="hot">
-                    	<img src="./assets/img/activity_center/3.jpg" width=170px/>
-                        <div class="img-bar">爱德基金会活水行<br />时间：3月15日<br />所属团队：南大青协</div></li>
-                    <li class="hot">
-                    	<img src="./assets/img/activity_center/4.jpg" width=170px/>
-                        <div class="img-bar">博爱智障儿童陪护<br />时间：4月12日<br />所属团队：南大青协</div></li>
-                    <li class="hot">
-                    	<img src="./assets/img/activity_center/5.jpg" width=170px/>
-                        <div class="img-bar">云锦博物馆义务讲解员<br />时间：每周三、周五<br />所属团队：计算机系青协</div></li>
+                    <li class="hot" onclick="window.open('./act_dtl.php?act_id=215','_blank')">
+                    	<img  src="../Upload/picture/51a3512e219a9.jpg" width=170px/>
+                        <div  class="img-bar">“光盘行动”进校园<br />时间：周四中午十点到十二点四十五<br />所属团队：南大青协</div></li>
+                    <li class="hot" onclick="window.open('./act_dtl.php?act_id=216','_blank')">
+                    	<img  src="../Upload/picture/51a3514d8e809.jpg" width=170px/>
+                        <div  class="img-bar">南京大学自强社爱心包裹活动<br />时间：每周六、周日<br />所属团队：南大青协</div></li>
+                    <li class="hot" onclick="window.open('./act_dtl.php?act_id=217','_blank')">
+                    	<img  src="../Upload/picture/51a35192b254e.jpg" width=170px/>
+                        <div  class="img-bar">农村孤儿助养项目<br />时间：周末<br />所属团队：南大青协</div></li>
+                    <li class="hot"onclick="window.open('./act_dtl.php?act_id=218','_blank')">
+                    	<img  src="../Upload/picture/51a351ae89361.jpg" width=170px/>
+                        <div  class="img-bar">平安阿福2013年度台历义卖活动<br />时间：12月24日平安夜和12月25日圣诞夜<br />所属团队：南大青协</div></li>
+                    <li class="hot" onclick="window.open('./act_dtl.php?act_id=219','_blank')">
+                    	<img  src="../Upload/picture/51a351d8a54b4.jpg" width=170px/>
+                        <div  class="img-bar">朝天宫民族小学七彩课堂主题班会<br />时间：每三下午2点<br />所属团队：南大青协</div></li>
                 </div>
                 <div id="hotlist2">
-                    <li class="hot">
-                    	<img src="./assets/img/activity_center/6.jpg" width=170px/>
-                        <div class="img-bar">城市义工岗<br />时间：任意时间<br />所属团队：南大青协</div></li>
-                    <li class="hot">
-                    	<img src="./assets/img/activity_center/7.jpg" width=170px/>
-                        <div class="img-bar">佛缘会<br />时间：5月1日<br />所属团队：南大青协</div></li>
-                    <li class="hot">
-                    	<img src="./assets/img/activity_center/8.jpg" width=170px/>
-                        <div class="img-bar">明心幼儿园<br />时间：周六、周日<br />所属团队：计算机系青协</div></li>
-                    <li class="hot">
-                    	<img src="./assets/img/activity_center/9.jpg" width=170px/>
-                        <div class="img-bar">雨花台区学雷锋志愿活动<br />时间：3月15日<br />所属团队：文学院青协</div></li>
-                    <li class="hot">
-                    	<img src="./assets/img/activity_center/0.jpg" width=170px/>
-                        <div class="img-bar">关爱农民工志愿服务<br />时间：6月12日<br />所属团队：计算机系青协</div></li>
+                    <li class="hot" onclick="window.open('./act_dtl.php?act_id=220','_blank')">
+                    	<img  src="../Upload/picture/51a351fa65bcc.jpg" width=170px/>
+                        <div  class="img-bar">锁金村临终关怀活动<br />时间：周一至周五任意时段<br />所属团队：南大青协</div></li>
+                    <li class="hot" onclick="window.open('./act_dtl.php?act_id=221','_blank')">
+                    	<img  src="../Upload/picture/51a35216c4a76.jpg" width=170px/>
+                        <div  class="img-bar">校区信使 鼓楼——仙林物品传递专线<br />时间：每周一至周四<br />所属团队：南大青协</div></li>
+                    <li class="hot" onclick="window.open('./act_dtl.php?act_id=222','_blank')">
+                    	<img  src="../Upload/picture/51a3524815e2b.jpg" width=170px/>
+                        <div  class="img-bar">玄武区红山街道残疾人帮扶中心志愿<br />时间：周五下午1点到4点<br />所属团队：南大青协</div></li>
+                    <li class="hot" onclick="window.open('./act_dtl.php?act_id=223','_blank')">
+                    	<img  src="../Upload/picture/51a350b2e595c.jpg" width=170px/>
+                        <div  class="img-bar">走进社区•云南路社区爱心家教<br />时间：每周末下午2:00—4:00<br />所属团队：南大青协</div></li>
+                    <li class="hot" onclick="window.open('./act_dtl.php?act_id=224','_blank')">
+                    	<img  src="../Upload/picture/51a352752096f.jpg" width=170px/>
+                        <div  class="img-bar">走近宁声<br />时间：每周四2：30 – 4：30<br />所属团队：南大青协</div></li>
                 </div>
                 </ul>
             </div>

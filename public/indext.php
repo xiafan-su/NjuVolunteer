@@ -55,7 +55,7 @@ $act_result=$team->fetch_act_all($id,2);
 while ($row=mysql_fetch_assoc($act_result))
 {
 	$begin_time=$row['begin_time'];
-	$end_time=$row['begin_time'];
+	$end_time=$row['end_time'];
 	$begin_time=explode(" ",$begin_time);
 	$end_time=explode(" ",$end_time);
 	$act_info[] = array('id'=>$row['id'],'name'=>$row['name'],'begin_time'=>$begin_time[0],'end_time'=>$end_time[0]);

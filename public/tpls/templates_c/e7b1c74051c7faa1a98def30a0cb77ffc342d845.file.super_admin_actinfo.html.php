@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-27 17:32:58
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 15:12:35
          compiled from "../tpls/templates\handle\super_admin_actinfo.html" */ ?>
-<?php /*%%SmartyHeaderCode:897751a3284ac6bfd0-73929720%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:804251a6fbe339faa5-19672468%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '897751a3284ac6bfd0-73929720',
+  'nocache_hash' => '804251a6fbe339faa5-19672468',
   'function' => 
   array (
   ),
@@ -23,9 +23,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a3284acee1a',
+  'unifunc' => 'content_51a6fbe342b1b',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a3284acee1a')) {function content_51a3284acee1a($_smarty_tpl) {?>目前所有的活动个数是：<?php echo $_smarty_tpl->tpl_vars['num']->value;?>
+<?php if ($_valid && !is_callable('content_51a6fbe342b1b')) {function content_51a6fbe342b1b($_smarty_tpl) {?>目前所有的活动个数是：<?php echo $_smarty_tpl->tpl_vars['num']->value;?>
 
 
 

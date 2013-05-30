@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 19:11:07
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-27 23:17:27
          compiled from "../tpls/templates\handle\week_act_list.html" */ ?>
-<?php /*%%SmartyHeaderCode:2151a060a04a9d02-40527043%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2906851a37907c71399-99849162%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '73bf2702b43c814ae6c0d9d1857afb4051b4492f' => 
     array (
       0 => '../tpls/templates\\handle\\week_act_list.html',
-      1 => 1369480264,
+      1 => 1369666732,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2151a060a04a9d02-40527043',
+  'nocache_hash' => '2906851a37907c71399-99849162',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a060a06e908',
   'variables' => 
   array (
     'retlist' => 0,
@@ -24,8 +22,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'week_day_act' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51a37907d37e7',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a060a06e908')) {function content_51a060a06e908($_smarty_tpl) {?><div class="title">
+<?php if ($_valid && !is_callable('content_51a37907d37e7')) {function content_51a37907d37e7($_smarty_tpl) {?><div class="title">
    <div class="hotact-left"></div>
     <h3 style="float:left;font-size:24px;padding-top:10px;color:rgb(102,51,102)">本周活动</h3>
     <div class="hotact-right"></div>

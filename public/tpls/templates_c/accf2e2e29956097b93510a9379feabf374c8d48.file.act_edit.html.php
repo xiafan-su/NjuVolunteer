@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-27 17:32:28
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-27 23:16:58
          compiled from "./tpls/templates\act_edit.html" */ ?>
-<?php /*%%SmartyHeaderCode:797851a061fe7cbd42-10848732%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:181451a378ea54f6a5-02634700%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'accf2e2e29956097b93510a9379feabf374c8d48' => 
     array (
       0 => './tpls/templates\\act_edit.html',
-      1 => 1369647146,
+      1 => 1369660533,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '797851a061fe7cbd42-10848732',
+  'nocache_hash' => '181451a378ea54f6a5-02634700',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a061fec596a',
   'variables' => 
   array (
     'act_name' => 0,
@@ -49,8 +47,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'profile' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51a378ea68e6b',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a061fec596a')) {function content_51a061fec596a($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_51a378ea68e6b')) {function content_51a378ea68e6b($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -76,7 +76,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <script src="./plugin/jquery-fileuploader-php-master/js/jquery-ui-1.8.14.custom.min.js" type="text/javascript"></script>
 <script src="./plugin/jquery-fileuploader-php-master/js/jquery.fileUploader.js" type="text/javascript"></script>
 
-<title>活动申请</title>
+<title>活动编辑</title>
 </head>
 <body>
 <?php echo $_smarty_tpl->getSubTemplate ("include/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
@@ -178,7 +178,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </tr>
                 <tr>
                 <th>具体时间</th>
-					<td>
+					<td colspan="2" style="text-align:left">
                     	<input name="weekday" type="checkbox" value="1"  <?php if ($_smarty_tpl->tpl_vars['weekday1']->value==1){?>checked<?php }?> /><label>周一</label>
                         <input name="weekday" type="checkbox" value="2"  <?php if ($_smarty_tpl->tpl_vars['weekday2']->value==1){?>checked<?php }?> /><label>周二</label>
                         <input name="weekday" type="checkbox" value="4"  <?php if ($_smarty_tpl->tpl_vars['weekday3']->value==1){?>checked<?php }?> /><label>周三</label>
@@ -187,7 +187,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <input name="weekday" type="checkbox" value="32" <?php if ($_smarty_tpl->tpl_vars['weekday6']->value==1){?>checked<?php }?> /> <label>周六</label>
                         <input name="weekday" type="checkbox" value="64" <?php if ($_smarty_tpl->tpl_vars['weekday7']->value==1){?>checked<?php }?> /><label>周日</label>
 					</td>
-                    <td></td>
                 </tr>
                 <tr>
 				<th>详细时间</th>
@@ -215,16 +214,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </tr>
                 <tr>
                 	<th>院系要求</th>
-					<td>
-                    	<input name="faculty_select" type="radio" value="false" onclick="hide_faculty()" <?php if ($_smarty_tpl->tpl_vars['facultylimit']->value==0){?>checked<?php }?> /><label>否</label>
+					<td style="text-align:left">
                         <input name="faculty_select" type="radio" value="true" onclick="show_faculty()"  <?php if ($_smarty_tpl->tpl_vars['facultylimit']->value==1){?>checked<?php }?>/><label>是</label>
-                        <lable>(只允许打钩的院系志愿者参加)</label>
+                    	<input name="faculty_select" type="radio" value="false" onclick="hide_faculty()" <?php if ($_smarty_tpl->tpl_vars['facultylimit']->value==0){?>checked<?php }?> /><label>否</label>
                     </td>
-                    <td>&nbsp;</td>
+                    <td style="white-space:nowrap; "><label>(是否只允许指定的院系志愿者参加)</label></td>
                 </tr>
                 <tr id="faculty_choose" <?php if ($_smarty_tpl->tpl_vars['facultylimit']->value==1){?> style="display:table-row" <?php }?> >
                     <th>&nbsp;</th>
-                    <td>
+                    <td style="text-align:left">
                         <?php  $_smarty_tpl->tpl_vars['faculty'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['faculty']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['faculty_list']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['faculty']->key => $_smarty_tpl->tpl_vars['faculty']->value){
@@ -234,7 +232,7 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
 " name="faculty_choose" <?php echo $_smarty_tpl->tpl_vars['faculty']->value['limit'];?>
  />
                             <label><?php echo $_smarty_tpl->tpl_vars['faculty']->value['name'];?>
-</label>
+</label><br />
                         <?php } ?>&nbsp;
                     </td>
                     <td width="220px">&nbsp;</td>
@@ -252,9 +250,9 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
                 </tr>
                 <tr>
                 <th>英语要求</th>
-					<td>
-                    	<input name="en_select" type="radio" value="false" onclick="hide_en()" <?php if ($_smarty_tpl->tpl_vars['englishlimit']->value==0){?>checked<?php }?>/><label>否</label>
+					<td style="text-align:left">
                         <input name="en_select" type="radio" value="true" onclick="show_en()"  <?php if ($_smarty_tpl->tpl_vars['englishlimit']->value==1){?>checked<?php }?>/><label>是</label>
+                    	<input name="en_select" type="radio" value="false" onclick="hide_en()" <?php if ($_smarty_tpl->tpl_vars['englishlimit']->value==0){?>checked<?php }?>/><label>否</label>
 					</td>
                     <td></td>
                 </tr>
@@ -279,7 +277,7 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
                 </table>
                 <div class="breadcrumb">
                 	<div class="bar-left"></div>
-                    <div class="bar-title">负责人</div>
+                    <div class="bar-title">负责同学</div>
                     <div class="bar-right"></div>
                 </div>
                 <table border="1">
@@ -307,33 +305,51 @@ $_smarty_tpl->tpl_vars['faculty']->_loop = true;
                 </table>
                 <div class="breadcrumb">
                 	<div class="bar-left"></div>
-                    <div class="bar-title">上传策划</div>
+                    <div class="bar-title">策划上传</div>
                     <div class="bar-right"></div>
                 </div> 
-                <div class="upload_panel" style="margin-left:180px">
-                 	<span id="plan_upload">上传文件格式为rar和zip</span>
-                    <form action="./handle/upload_zip.php" method="post" enctype="multipart/form-data">
-                    <input type="file" name="userfile" class="fileUpload" multiple>
-                    <input type="hidden" name="act_id" value="<?php echo $_smarty_tpl->tpl_vars['act_id']->value;?>
+
+
+					<table border="1">
+						<tr>
+							<th>上传要求</th>
+							<td style="text-align:left" colspan="2"><span id="plan_upload">上传文件格式为rar和zip</span></td>
+						</tr>
+						<tr><th>选择文件</th>
+							<td style="text-align:left" colspan="2">
+								<form action="./handle/upload_zip.php" method="post" enctype="multipart/form-data">
+									<input type="file" name="userfile" class="fileUpload" multiple>
+									<input type="hidden" name="act_id" value="<?php echo $_smarty_tpl->tpl_vars['act_id']->value;?>
 ">
-                    <button id="px-submit" type="submit">上传</button>
-                    <button id="px-clear" type="reset">清除</button>
-                    </form>
-    			</div>
+									<button id="px-submit" type="submit" style="display:none">上传</button>
+									<button id="px-clear" type="reset" style="display:none">清除</button>
+								</form>
+							</td>
+						</tr>
+						<tr>
+							<th>上传操作</th>
+							<td style="text-align:left" colspan="2">
+								<input type="button" class="button"  value="上传"  onclick="$('#px-submit').trigger('click');" />
+								<input type="button" class="button"   value="清除"  onclick="$('#px-clear').trigger('click');" />
+							</td>
+						</tr>
+					</table>
+
 				<div class="breadcrumb">
                 	<div class="bar-left"></div>
                     <div class="bar-title">活动简介</div>
                     <div class="bar-right"></div>
                 </div>
-                <div  id="phone" >
-					<div class="controls" >
-						<div class="input_area" >
-							<textarea id="activity_profile" name="content" style="width:590px;height:200px;visibility:hidden;" ><?php echo $_smarty_tpl->tpl_vars['profile']->value;?>
+
+
+				<table border="1">
+					 <tr>
+						<td style="padding: 0">
+							<textarea id="activity_profile" name="content" style="width:610px;height:200px;visibility:hidden;" placeholder="1500字以内" ><?php echo $_smarty_tpl->tpl_vars['profile']->value;?>
 </textarea>
-						</div>
-						<span class="help-inline phoneerror"></span>
-					</div>
-				</div>    
+						</td>
+					</tr>
+				 </table>
 
   
 				<div class="control-group">

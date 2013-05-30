@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-25 14:29:20
+<?php /* Smarty version Smarty-3.1.7, created on 2013-05-27 23:16:34
          compiled from "./tpls/templates\include\login.html" */ ?>
-<?php /*%%SmartyHeaderCode:2866351a05a40b8e8b5-59498335%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:3208551a378d26e5892-86311083%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'bade9366763f2c3ef3f5c78c15ec9639ccea326d' => 
     array (
       0 => './tpls/templates\\include\\login.html',
-      1 => 1368996983,
+      1 => 1369633999,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2866351a05a40b8e8b5-59498335',
+  'nocache_hash' => '3208551a378d26e5892-86311083',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a05a40bb7c1',
+  'unifunc' => 'content_51a378d26e971',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a05a40bb7c1')) {function content_51a05a40bb7c1($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_51a378d26e971')) {function content_51a378d26e971($_smarty_tpl) {?>
 <script src="./assets/js/md5.js"></script>
 <div id="loginModal" class="loginModal" >
 	<div align="center" class="modal-header">
@@ -50,7 +50,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					</tr>
 					<tr>
 						<td>
-							<input name="submit" class="btn btn-warning span2" type="submit" value="登录" style="background:rgba(102,51,102,0.7)" onclick="$('#login_password').val(hex_md5($('#login_password').val()))"/>
+							<input name="submit" class="btn" type="submit" value="登录" style="width:130px;color:#FFF;background:rgb(142,71,142)" onclick="$('#login_password').val(hex_md5($('#login_password').val()))"/>
 						</td>
 					</tr>
 				</tbody>
