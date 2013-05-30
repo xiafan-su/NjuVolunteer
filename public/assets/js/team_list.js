@@ -52,7 +52,7 @@ $(document).ready(function(){
 		$('#t-img'+k).hide();
 	}*/
 	//document.getElementById('group2').style.display='none';
-	setTimeout('slide()',5000);	
+	//setTimeout('slide()',5000);	
 	
 });
 function slideleft(){
