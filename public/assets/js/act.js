@@ -51,6 +51,7 @@ $(document).ready(function(){
 		}
 	});
 	setTimeout('slide()',5000);	
+	//alert("ready");
 	returntoday();
 	$('#hotlist').animate({left:'-960px'},25000,'linear');
 	setTimeout("slidehott()",25000);
@@ -89,6 +90,7 @@ function returntoday(){
 	
 	transdate=new Date();
 	//alert(transdate.getYear());
+	//alert(transdate.getDate());
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
