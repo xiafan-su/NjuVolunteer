@@ -1,3 +1,4 @@
+<!-- 该文件编码为ANSI，如果另存为UTF-8需要在HTML头部添加chartset -->
 <?php
 $_BASE_PATH = "../../";
 
