@@ -323,10 +323,14 @@ function handlechange(){
 		}
 	}
 }
-
 function init(){
-	$("#change_profile").click();
+	$("#my_activity").click();
 	}
+$(document).ready(function(){
+	init();
+	
+	})
+
 function show_note(id){
 	//alert(id);
 	document.getElementById('loading-bar').style.display='block';
