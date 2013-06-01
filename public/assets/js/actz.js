@@ -21,6 +21,7 @@ var az_funz_apply_select_all = function(){};
 var az_elem_apply_audit_ok = "#btn_audit_ok";
 var az_elem_apply_audit_fail = "#btn_audit_fail";
 var za_elem_apply_select_all = "#check_all_act_people";
+var az_elem_apply_export_csv = "#btn_export_csv";
 //活动记录：提交、删除、全选、移除参与者
 var az_func_doc_submit_doc = function(){};
 var az_func_doc_delete_doc = function(){};
@@ -87,6 +88,7 @@ zt_func_doc_apply = function(){
 			$( az_elem_apply_audit_ok ).bind( "click",  az_funz_apply_audit_ok );//"审核通过"
 			$( az_elem_apply_audit_fail ).bind( "click", az_funz_apply_audit_fail );//"审核失败"
 			$( za_elem_apply_select_all ).bind( "change",  az_funz_apply_select_all );//"选择全部"
+			$( az_elem_apply_export_csv ).bind( "click", zt_func_export_csv );
 		/*	$(".apply_id_col").bind("click", function(){//查看个人信息----弹框
 				var id = $(this).text();
 				popup_volunteer_info(id);
@@ -121,6 +123,20 @@ zt_func_doc_del = function(){
 			}
 		}
 	});
+}
+
+zt_func_export_csv = function(){
+	//alert($(this).attr("actid"));
+	window.open( "./handle/actz.php?type=exportcsv&activityId="+$(this).attr("actid") , "_blank" );
+	/*$.ajax({
+		type:"POST",
+		url:"./handle/actz.php",
+		data:{type:"exportcsv", activityId: $(this).attr("actid") },
+		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
+			alert( html );
+		}
+	});//*/
 }
 
 //加载完“记录编辑”(包括添加)之后要做的事
