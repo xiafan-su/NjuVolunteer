@@ -52,7 +52,7 @@
 	<{if $show_op_button}>
 		<div id="" class=""> 请填写退回原因： </div>
 		<div id="" class="" style="border-color:red">
-			<textarea onchange="textarea_back_reason_on_change(this, false);" id="textarea_back_reason" name="" rows="5" cols="90"></textarea>
+			<textarea onchange="textarea_back_reason_on_change(this, false);" id="textarea_back_reason" name="" rows="5" cols="50" ></textarea>
 		</div>
 		<input type="button" class="button" id="btn_audit_ok" actid="<{$actid}>" disabled="true"  value="通过" title="请先勾选审核通过的志愿者"/>
 		<input type="button" class="button" id="btn_audit_fail" actid="<{$actid}>"  disabled="true" value="退回" title="请先勾选要退回志愿者并填写退回理由"/>
