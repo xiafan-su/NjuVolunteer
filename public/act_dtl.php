@@ -21,19 +21,19 @@ else
 	$tpl->assign("picture_name","default.jpg");
 }
 
-if (isset($_SESSION[USER::USER][USER::PERM_ID]))
+if (isset($_SESSION[User::USER][User::PERM_ID]))
 {
-	if ($_SESSION[USER::USER][USER::PERM_ID]==3)//超管要上传，你有意见？
+	if ($_SESSION[User::USER][User::PERM_ID]==3)//超管要上传，你有意见？
 		$perm_of_upload=1;
 	else 
 	{
-		if ($_SESSION[USER::USER][USER::PERM_ID]==2)
+		if ($_SESSION[User::USER][User::PERM_ID]==2)
 		{
-			if ($item['publisher']==$_SESSION[USER::USER][USER::ID])//判断本活动是否为本院系举办，如果是的话，则可以上传图片
+			if ($item['publisher']==$_SESSION[User::USER][User::ID])//判断本活动是否为本院系举办，如果是的话，则可以上传图片
 				$perm_of_upload=1;
 			else $perm_of_upload=0;
 		}else 
-			if ($_SESSION[USER::USER][USER::PERM_ID]==1)//判断本活动您是否参加过，参加过的可以上传照片
+			if ($_SESSION[User::USER][User::PERM_ID]==1)//判断本活动您是否参加过，参加过的可以上传照片
 			{
 				$u=new User();
 				if ($u->a_member_of($activity_id))//一堆判断之后，终于参加过活动的个人可以上传图片了

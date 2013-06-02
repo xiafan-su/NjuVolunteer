@@ -18,7 +18,7 @@ class User extends DB_Connect {
 		$sign=$sign;
 		if (mb_strlen($sign)>80)
 			return "签名字数不超过80个字";
-		$sql="UPDATE user_info SET signature='".htmlspecialchars($sign)."' WHERE id='".$_SESSION[USER::USER][USER::ID]."'";
+		$sql="UPDATE user_info SET signature='".htmlspecialchars($sign)."' WHERE id='".$_SESSION[User::USER][User::ID]."'";
 		if (!mysql_query($sql,$this->root_conn))
 		{
 			die('ERROR:'.mysql_error());
@@ -185,9 +185,9 @@ class User extends DB_Connect {
 	public function follow_state($team_id)//关注一个团队的状态
 	{
 		$team_id=htmlspecialchars($team_id);
-		if (!isset($_SESSION[USER::USER][USER::ID]))
+		if (!isset($_SESSION[User::USER][User::ID]))
 			return false;
-		$sql="SELECT * FROM follow WHERE user_id='".$_SESSION[USER::USER][USER::ID]."' and team_id='".$team_id."'";
+		$sql="SELECT * FROM follow WHERE user_id='".$_SESSION[User::USER][User::ID]."' and team_id='".$team_id."'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		$num_of_results=mysql_num_rows($select);
 		if ($num_of_results==0) return false;
@@ -196,18 +196,18 @@ class User extends DB_Connect {
 	public function follow($team_id)//关注一个团队
 	{
 		$team_id=htmlspecialchars($team_id);
-		if (!isset($_SESSION[USER::USER][USER::ID]))
+		if (!isset($_SESSION[User::USER][User::ID]))
 			return -1;//请先登录
-		if (isset($_SESSION[USER::USER][USER::PERM_ID]) and ($_SESSION[USER::USER][USER::PERM_ID]!=1))
+		if (isset($_SESSION[User::USER][User::PERM_ID]) and ($_SESSION[User::USER][User::PERM_ID]!=1))
 			return -2;//没有权限
 		if (!($this->follow_state($team_id)))
 		{
-			$sql="INSERT INTO follow(user_id,team_id,time)VALUES('".$_SESSION[USER::USER][USER::ID]."','".$team_id."','".date('Y-m-d H:i:s',time())."')";
+			$sql="INSERT INTO follow(user_id,team_id,time)VALUES('".$_SESSION[User::USER][User::ID]."','".$team_id."','".date('Y-m-d H:i:s',time())."')";
 			$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 			return 1;//关注成功
 		}else
 		{
-			$sql="DELETE FROM follow WHERE user_id='".$_SESSION[USER::USER][USER::ID]."' and team_id='".$team_id."'";
+			$sql="DELETE FROM follow WHERE user_id='".$_SESSION[User::USER][User::ID]."' and team_id='".$team_id."'";
 			$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 			return 2;//取消关注成功
 		}
@@ -216,10 +216,10 @@ class User extends DB_Connect {
 	public function apply_team($team_id)
 	{
 		$team_id=htmlspecialchars($team_id);
-		if (!isset($_SESSION[USER::USER][USER::ID]))
+		if (!isset($_SESSION[User::USER][User::ID]))
 			return -1;//请先登录
-		else $user_id=$_SESSION[USER::USER][USER::ID];
-		if (isset($_SESSION[USER::USER][USER::PERM_ID]) and ($_SESSION[USER::USER][USER::PERM_ID]!=1))
+		else $user_id=$_SESSION[User::USER][User::ID];
+		if (isset($_SESSION[User::USER][User::PERM_ID]) and ($_SESSION[User::USER][User::PERM_ID]!=1))
 			return -2;//没有权限
 		$sql="SELECT t.id FROM apply_team a,team t WHERE a.user_id='".$user_id."' and a.team_id=t.id and t.layer='1' and a.state<>'2'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
@@ -251,9 +251,9 @@ class User extends DB_Connect {
 	public function apply_state($team_id)
 	{
 		$team_id=htmlspecialchars($team_id);
-		if (!isset($_SESSION[USER::USER][USER::ID]))
+		if (!isset($_SESSION[User::USER][User::ID]))
 			return false;
-		$sql="SELECT * FROM apply_team WHERE user_id='".$_SESSION[USER::USER][USER::ID]."' and team_id='".$team_id."'";
+		$sql="SELECT * FROM apply_team WHERE user_id='".$_SESSION[User::USER][User::ID]."' and team_id='".$team_id."'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		$results=mysql_num_rows($select);
 		if ($results==0) return false;

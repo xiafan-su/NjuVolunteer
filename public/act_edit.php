@@ -8,10 +8,10 @@ if (isset($_GET['activityId']))
 else $act_id=0;
 $a=new Act();
 $act_info=$a->fetch_one($act_id);
-if (!isset($_SESSION[USER::USER][USER::FACULTY_ID]))
+if (!isset($_SESSION[User::USER][User::FACULTY_ID]))
 	echo '<script>alert("'."您没有权限".'");</script>';
 else
-if ($_SESSION[USER::USER][USER::PERM_ID]==2 && $act_info['publisher']!=$_SESSION[USER::USER][USER::FACULTY_ID])
+if ($_SESSION[User::USER][User::PERM_ID]==2 && $act_info['publisher']!=$_SESSION[User::USER][User::FACULTY_ID])
 {
 	echo '<script>alert("'."您不是该活动的发起者，没有权限修改".'");</script>';
 }
