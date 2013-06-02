@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 20:25:03
+<?php /* Smarty version Smarty-3.1.7, created on 2013-06-02 16:47:15
          compiled from "../tpls/templates\include\infov.html" */ ?>
 <?php /*%%SmartyHeaderCode:110651a7451f6cf193-96040172%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5d4e8fdadac667c8dbd8810f1b75cc235d01ef23' => 
     array (
       0 => '../tpls/templates\\include\\infov.html',
-      1 => 1369397728,
+      1 => 1369665438,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51a7451f7a248',
   'variables' => 
   array (
     'name' => 0,
@@ -39,8 +41,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'other_skills' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a7451f7a248',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51a7451f7a248')) {function content_51a7451f7a248($_smarty_tpl) {?><style>
 table td{
