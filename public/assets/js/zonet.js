@@ -50,6 +50,7 @@ var zt_func_doc_add = function(){};
 var zt_func_doc_apply = function(){};
 var zt_func_doc_fold = function(elem){};
 var zt_func_doc_del = function(){};
+var zt_func_export_csv = function(){};
 
 //点击“收到的通知”/“发送的通知”的回调函数
 var zt_func_note_recv = function(){};

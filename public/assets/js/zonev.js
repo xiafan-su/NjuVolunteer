@@ -323,10 +323,14 @@ function handlechange(){
 		}
 	}
 }
-
 function init(){
-	$("#change_profile").click();
+	$("#my_activity").click();
 	}
+$(document).ready(function(){
+	init();
+	
+	})
+
 function show_note(id){
 	//alert(id);
 	document.getElementById('loading-bar').style.display='block';
@@ -550,3 +554,18 @@ $("#my_focused_team").click(function(){
 
 
 
+function delete_note(note_id){
+	if( ! confirm("您确定要删除该通知吗？") ) return;
+	$.ajax({
+		type:"POST",
+		url:"./handle/note.php",
+		data:{type:"delete", note_id:note_id},
+		success:function(html){
+			if( html == 0 ) {
+				$("#del_op_"+note_id).parent().parent().remove();
+			} else {
+				alert( html );
+			}
+		}
+	});
+}

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-30 15:41:47
-         compiled from "../tpls/templates\handle\super_admin_actlist.html" */ ?>
-<?php /*%%SmartyHeaderCode:432051a702bb75f674-32681541%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.7, created on 2013-06-02 16:43:48
+         compiled from "../tpls/templates\handle\super_admin_actlist_going.html" */ ?>
+<?php /*%%SmartyHeaderCode:1484751ab05c4940536-79615586%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'c61b8aa861bec3a0d37d11fe76279c8a427604bb' => 
+    '54c0da45b9a2ded0a3fc82e4e77c94572d99005c' => 
     array (
-      0 => '../tpls/templates\\handle\\super_admin_actlist.html',
-      1 => 1369387258,
+      0 => '../tpls/templates\\handle\\super_admin_actlist_going.html',
+      1 => 1369665438,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '432051a702bb75f674-32681541',
+  'nocache_hash' => '1484751ab05c4940536-79615586',
   'function' => 
   array (
   ),
@@ -22,9 +22,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a702bb82929',
+  'unifunc' => 'content_51ab05c4baf4d',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a702bb82929')) {function content_51a702bb82929($_smarty_tpl) {?> <table>
+<?php if ($_valid && !is_callable('content_51ab05c4baf4d')) {function content_51ab05c4baf4d($_smarty_tpl) {?> <table>
 				<tr>
 				
 					<th>活动名称</th>
@@ -32,9 +32,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<th>招募人数</th>
 					<th>联系人姓名</th>
 					<th>联系人电话</th>
-                    <th>活动链接</th>
-                    <th>策划地址</th>
-                    <th>审核</th>
+                    <th>活动简介</th>
+                    <th>操作</th>
 				</tr>
 
 <?php  $_smarty_tpl->tpl_vars['act'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['act']->_loop = false;
@@ -64,15 +63,12 @@ $_smarty_tpl->tpl_vars['act']->_loop = true;
 </td>
 						<td><?php echo $_smarty_tpl->tpl_vars['act']->value['responser_tel'];?>
 </td>
-                        <td><a href="./act_dtl.php?act_id=<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
-">点此进入</td>
-                       	<td>这里是策划地址</td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['act']->value['profile'];?>
+</td>
                         <td>         <div class="act-state" id="act_state">
-        <input type="button" value="通过" onclick="audited('<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
-','<?php echo $_smarty_tpl->tpl_vars['act']->value['publisher'];?>
-','<?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
+        <input type="button" value="编辑该活动" onclick="editing('<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
 ')"/>
-        <input type="button" value="拒绝" onclick="refused('<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
+        <input type="button" value="结束该活动" onclick="ending('<?php echo $_smarty_tpl->tpl_vars['act']->value['id'];?>
 ','<?php echo $_smarty_tpl->tpl_vars['act']->value['publisher'];?>
 ','<?php echo $_smarty_tpl->tpl_vars['act']->value['name'];?>
 ')"/>

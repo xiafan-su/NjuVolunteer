@@ -52,12 +52,13 @@
 	<{if $show_op_button}>
 		<div id="" class=""> 请填写退回原因： </div>
 		<div id="" class="" style="border-color:red">
-			<textarea onchange="textarea_back_reason_on_change(this, false);" id="textarea_back_reason" name="" rows="5" cols="90"></textarea>
+			<textarea onchange="textarea_back_reason_on_change(this, false);" id="textarea_back_reason" name="" rows="5" cols="50" ></textarea>
 		</div>
 		<input type="button" class="button" id="btn_audit_ok" actid="<{$actid}>" disabled="true"  value="通过" title="请先勾选审核通过的志愿者"/>
 		<input type="button" class="button" id="btn_audit_fail" actid="<{$actid}>"  disabled="true" value="退回" title="请先勾选要退回志愿者并填写退回理由"/>
-		<input type="button" class="button" id="go_back_home" value="返回" />
+		<input type="button" class="button" id="btn_export_csv" value="导出" actid="<{$actid}>"  title="导出所有审核通过的志愿者到csv"  />
 	<{else}>
+		<input type="button" class="button" id="go_back_home" value="返回" />
 		<input type="button" class="button" id="btn_import_ok" docid="<{$docid}>"  value="确定" title="将选择的报名人员导入参与表"/>
 	<{/if}>
 

@@ -42,7 +42,7 @@ $tpl->assign("page_all",$journal_page);
 $tpl->display('notice.html');
 }
 else if($type == 4){
-	$tpl->display('notice.html');	
+	$tpl->display('notice3.html');	
 }
 
 
