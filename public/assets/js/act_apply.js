@@ -355,7 +355,7 @@ function test_submit(){
 	test_other_lang();
 	preview_flag=0;
 	cur_state="auditing";
-	if ( name_flag==1 && place_flag==1 && begin_time_flag==1 && end_time_flag==1 && last_time_flag==1 && detail_time_flag==1 && total_num_flag==1 && responser_flag==1 && responser_tel_flag==1&&deadline==1)
+	if ( name_flag==1 && place_flag==1 && begin_time_flag==1 && end_time_flag==1 && last_time_flag==1 && detail_time_flag==1 && total_num_flag==1 && responser_flag==1 && responser_tel_flag==1&&deadline_flag==1)
 	submit_click();
 	else alert("填写信息中有错误或有信息为空");
 }

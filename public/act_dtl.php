@@ -8,8 +8,8 @@ include './include/act_left.php';
 $activity_id = intval($_GET['act_id']);
 $act = new Act();
 $item = $act->fetch_one($activity_id);
-$tpl->assign( "id", $activity_id);
 
+$tpl->assign( "id", $activity_id);
 if ($item['cover_pic']!=NULL)
 {
 	$tpl->assign("picture",$_PIC_PATH.$item['cover_pic']);//取出封面图片
@@ -95,6 +95,8 @@ $tpl->assign( "act_id", $activity_id);
 $tpl->assign( "responser", $item['responser']);
 $tpl->assign( "responser_tel", $item['responser_tel']);
 
-
-$tpl->display('act_dtl.html');
+if ($item==NULL)
+	echo '<script>alert("您找的活动不存在");</script>';
+else
+	$tpl->display('act_dtl.html');
 ?>

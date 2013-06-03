@@ -23,9 +23,21 @@ type:"modifyInfo"修改资料
 slogan:
 profile:
 
+type:"exportcsv"导出报名表
+activityId:活动id
+
 */
 //echo "0";
 //exit;
+
+if( isset( $_GET['type'] ) && $_GET['type'] == "exportcsv" ){
+	if( !isset( $_GET['activityId'] ) ){  echo "参数错误！"; exit; }
+	$actid = $_GET['activityId'];
+	$system = new System();
+	$system->export_csv( $actid, 0 );//据说传入0就行了
+	exit;
+}
+
 if( ! isset( $_POST['type'] ) ) {
 	echo "error";
 	exit;
@@ -121,7 +133,7 @@ if( $_POST['type'] == "actApply" ){
 	}
 
 	//echo  "###".md5($_POST['oldpsd']);exit;
-	
-}
+} 
+
 
 ?>
