@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-05-27 23:37:19
+<?php /* Smarty version Smarty-3.1.7, created on 2013-06-03 18:58:41
          compiled from "./tpls/templates\notice.html" */ ?>
 <?php /*%%SmartyHeaderCode:1498051a37dafed72b5-52767023%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '557724488c0d1472f55b9b370819058ffefc6297' => 
     array (
       0 => './tpls/templates\\notice.html',
-      1 => 1369209003,
+      1 => 1370257102,
       2 => 'file',
     ),
   ),
@@ -15,19 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51a37db002187',
   'variables' => 
   array (
     'type' => 0,
     'id' => 0,
-    'detail' => 0,
-    'item' => 0,
-    'page_now' => 0,
-    'page_all' => 0,
-    'num_all' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a37db002187',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51a37db002187')) {function content_51a37db002187($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -59,6 +54,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="online">
         	在线咨询
         </div></a>
+        <a href="notice.php?type=4&page=1">
+        <div class="online">
+        	在线提问
+        </div></a>
         <a href="notice.php?type=3&page=1">
         <div class="online">
         	心路历程
@@ -67,46 +66,26 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     
     <div class="right" id="right">
         <div class="title-bar" id="title_bar">
-    <div class="left-bar"></div>
-    <span id="type-title">公告通知</span>
-    <div class="right-bar"></div>
+   			<div class="left-bar"></div>
+    		<span id="type-title">在线提问</span>
+    		<div class="right-bar"></div>
         </div>
-        <div class="content">
-            <div class="notice-list">
-                <ul class="detail">
-                	<?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['item']->key => $_smarty_tpl->tpl_vars['item']->value){
-$_smarty_tpl->tpl_vars['item']->_loop = true;
-?>
-                    <li>
-                        <div class="title-d" onclick="detail_show(<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
-)"><?php echo $_smarty_tpl->tpl_vars['item']->value['title'];?>
-</div>
-                        <div id="notice-id" style="display:none"><?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
-</div>
-                        <div class="time-d"><?php echo $_smarty_tpl->tpl_vars['item']->value['time'];?>
-</div>
-                    </li>
-                    <?php } ?>
-                    
-                </ul>
+        <div class="content"  style="height:200px;">
+			<div class="content-intput">
+            	<table width="200" border="0">
+                  <tr>
+                    <td>E-mail：</td>
+                    <td><input id="email_address" type="text" class="content-input-text" /></td>
+                  </tr>
+                  <tr>
+                    <td>问题：</td>
+                    <td><input id="question_content" type="text" class="content-input-text" /></td>
+                  </tr>
+                </table>
             </div>
-            <div class="bottom-s">
-                <div style="float:left">
-                	第<span id="page-now"><?php echo $_smarty_tpl->tpl_vars['page_now']->value;?>
-</span>页
-                    /总<span id="page-all"><?php echo $_smarty_tpl->tpl_vars['page_all']->value;?>
-</span>页，
-                    共<?php echo $_smarty_tpl->tpl_vars['num_all']->value;?>
-条</div>
-                <div style="float:right">
-                    <input id="first-page" type="button" value="首页"/>
-                    <input id="prev-page" type="button" value="上一页"/>
-                    <input id="next-page" type="button" value="下一页"/>
-                    <input id="last-page" type="button" value="末页"/>
-                </div>
-            </div>
+            <div style="width:640px; text-align:center">
+            	<input id="put_up_question" type="button" value="提交问题" />
+        	</div>
         </div>
     </div>
 </div>

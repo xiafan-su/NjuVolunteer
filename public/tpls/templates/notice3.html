@@ -25,6 +25,10 @@
         <div class="online">
         	在线咨询
         </div></a>
+        <a href="notice.php?type=4&page=1">
+        <div class="online">
+        	在线提问
+        </div></a>
         <a href="notice.php?type=3&page=1">
         <div class="online">
         	心路历程
@@ -33,35 +37,26 @@
     
     <div class="right" id="right">
         <div class="title-bar" id="title_bar">
-    <div class="left-bar"></div>
-    <span id="type-title">公告通知</span>
-    <div class="right-bar"></div>
+   			<div class="left-bar"></div>
+    		<span id="type-title">在线提问</span>
+    		<div class="right-bar"></div>
         </div>
-        <div class="content">
-            <div class="notice-list">
-                <ul class="detail">
-                	<{foreach name=data item=item from=$detail}>
-                    <li>
-                        <div class="title-d" onclick="detail_show(<{$item.id}>)"><{$item.title}></div>
-                        <div id="notice-id" style="display:none"><{$item.id}></div>
-                        <div class="time-d"><{$item.time}></div>
-                    </li>
-                    <{/foreach}>
-                    
-                </ul>
+        <div class="content"  style="height:200px;">
+			<div class="content-intput">
+            	<table width="200" border="0">
+                  <tr>
+                    <td>E-mail：</td>
+                    <td><input id="email_address" type="text" class="content-input-text" /></td>
+                  </tr>
+                  <tr>
+                    <td>问题：</td>
+                    <td><input id="question_content" type="text" class="content-input-text" /></td>
+                  </tr>
+                </table>
             </div>
-            <div class="bottom-s">
-                <div style="float:left">
-                	第<span id="page-now"><{$page_now}></span>页
-                    /总<span id="page-all"><{$page_all}></span>页，
-                    共<{$num_all}>条</div>
-                <div style="float:right">
-                    <input id="first-page" type="button" value="首页"/>
-                    <input id="prev-page" type="button" value="上一页"/>
-                    <input id="next-page" type="button" value="下一页"/>
-                    <input id="last-page" type="button" value="末页"/>
-                </div>
-            </div>
+            <div style="width:640px; text-align:center">
+            	<input id="put_up_question" type="button" value="提交问题" />
+        	</div>
         </div>
     </div>
 </div>
