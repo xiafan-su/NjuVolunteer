@@ -34,6 +34,21 @@ $(document).ready(function(){
 		var page=parseInt($('#page-all').text());
 		window.location.href="notice.php?type="+type+"&page="+page;
 	});
+	
+	$('#put_up_question').click(function(){
+		var email_address=document.getElementById('email_address').value;
+		var question_content = document.getElementById('question_content').value;
+		$.ajax({
+			type:'POST',
+			url:"handle/put_up_question.php",
+			data:{email_info:email_address,question_info:question_content},
+			success:function(html){
+				alert(html);
+			}
+			
+		});
+	});
+	
 	var type_t = $('#type').text();
 	if(type_t == 1){
 		$('#type-title').text("公告通知");	

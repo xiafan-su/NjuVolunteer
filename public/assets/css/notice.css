@@ -173,3 +173,18 @@ input[type='button']{
 	width:600;
 	padding:20px 18px 0 18px;
 }
+.content-intput table{
+	width:574px;
+	border-collapse:separate;
+	border:1px solid #666;	
+	background:rgb(245,245,245);
+	border-radius:5px;
+	padding:2px;
+	margin:30px; 20px 0 20px;
+}
+.content-intput table td{
+	background:rgb(245,245,245);	
+}
+.content-input-text{
+	width:450px;	
+}
