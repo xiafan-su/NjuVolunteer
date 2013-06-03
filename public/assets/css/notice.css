@@ -188,3 +188,8 @@ input[type='button']{
 .content-input-text{
 	width:450px;	
 }
+.content-input-textarea{
+	width:450px;
+	height:160px;
+	resize:none;
+}
