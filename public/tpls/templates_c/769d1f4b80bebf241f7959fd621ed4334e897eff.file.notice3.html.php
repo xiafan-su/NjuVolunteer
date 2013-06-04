@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-06-03 22:18:06
+<?php /* Smarty version Smarty-3.1.7, created on 2013-06-03 23:49:28
          compiled from "./tpls/templates\notice3.html" */ ?>
 <?php /*%%SmartyHeaderCode:3137251ac85f41ef827-77038338%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '769d1f4b80bebf241f7959fd621ed4334e897eff' => 
     array (
       0 => './tpls/templates\\notice3.html',
-      1 => 1370269081,
+      1 => 1370269654,
       2 => 'file',
     ),
   ),
@@ -70,7 +70,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     		<span id="type-title">在线提问</span>
     		<div class="right-bar"></div>
         </div>
-        <div class="content"  style="height:200px;">
+        <div class="content">
 			<div class="content-intput">
             	<table width="200" border="0">
                   <tr>
@@ -78,8 +78,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <td><input id="email_address" type="text" class="content-input-text" /></td>
                   </tr>
                   <tr>
-                    <td>问题：</td>
+                    <td>标题：</td>
                     <td><input id="question_content" type="text" class="content-input-text" /></td>
+                  </tr>
+                  <tr>
+                    <td>内容：</td>
+                    <td><textarea id="question_content" type="text" class="content-input-textarea"></textarea></td>
                   </tr>
                 </table>
             </div>

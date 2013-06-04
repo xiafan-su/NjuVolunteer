@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-06-03 22:15:47
+<?php /* Smarty version Smarty-3.1.7, created on 2013-06-03 20:02:09
          compiled from "./tpls/templates\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:3075651a9857705a218-21416904%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1704251ac85c150ed20-95685285%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1370268940,
+      1 => 1369923294,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3075651a9857705a218-21416904',
+  'nocache_hash' => '1704251ac85c150ed20-95685285',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a9857715969',
   'variables' => 
   array (
     'notice_detail' => 0,
@@ -27,8 +25,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'record_list_right' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51ac85c1649df',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51a9857715969')) {function content_51a9857715969($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_51ac85c1649df')) {function content_51ac85c1649df($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -187,7 +187,7 @@ $_smarty_tpl->tpl_vars['d']->_loop = true;
         <div class="others-h-bar"></div>
     	<div class="others-element">
             <div class="others-content">
-            	<h3><a href="./notice.php?type=4&amp;page=1">在线咨询</a></h3>
+            	<h3><a href="./notice.php?type=2&amp;page=1">在线咨询</a></h3>
                 <div class="a-detail">
                 <?php  $_smarty_tpl->tpl_vars['d'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['d']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['question_detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
