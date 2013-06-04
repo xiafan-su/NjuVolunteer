@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-06-03 23:49:28
+<?php /* Smarty version Smarty-3.1.7, created on 2013-06-04 11:21:30
          compiled from "./tpls/templates\notice3.html" */ ?>
 <?php /*%%SmartyHeaderCode:3137251ac85f41ef827-77038338%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '769d1f4b80bebf241f7959fd621ed4334e897eff' => 
     array (
       0 => './tpls/templates\\notice3.html',
-      1 => 1370269654,
+      1 => 1370315381,
       2 => 'file',
     ),
   ),
@@ -79,7 +79,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                   </tr>
                   <tr>
                     <td>标题：</td>
-                    <td><input id="question_content" type="text" class="content-input-text" /></td>
+                    <td><input id="question_title" type="text" class="content-input-text" /></td>
                   </tr>
                   <tr>
                     <td>内容：</td>

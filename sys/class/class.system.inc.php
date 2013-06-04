@@ -226,18 +226,19 @@ class System extends DB_Connect {
 		$result=mysql_fetch_assoc($select);
 		return $result['base_hours']+$result['honor_hours'];
 	}
-	public function add_question($email,$question)//添加在线咨询
+	public function add_question($email,$question_title,$question_content)//添加在线咨询
 	{
-		$sql="select count(*) as count from online_question";
-		$num=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-		$result=mysql_fetch_assoc($num);
-		$id=$result['count']+1;
+		//$sql="select count(*) as count from online_question";
+		//$num=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		//$result=mysql_fetch_assoc($num);
+		//$id=$result['count']+1;
 		$time=date('Y-m-d H:i:s',time());
-		$add="INSERT INTO online_question(content,time,id,email)
-		VALUES('".$question."','".$time."','".$id."','".$email."')";
+		$add="INSERT INTO online_question(content,title,time,email)
+		VALUES('".$question_content."','".$question_title."','".$time."','".$email."')";
 		
-		$select=mysql_query($add,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-		return 1;
+		if(mysql_query($add,$this->root_conn))
+			return 1;
+		else return 0;
 	}
 	public function add_assignment()
 	{

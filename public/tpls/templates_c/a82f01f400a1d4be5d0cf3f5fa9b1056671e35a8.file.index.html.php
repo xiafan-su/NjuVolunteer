@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-06-03 20:02:09
+<?php /* Smarty version Smarty-3.1.7, created on 2013-06-04 11:29:05
          compiled from "./tpls/templates\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:1704251ac85c150ed20-95685285%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a82f01f400a1d4be5d0cf3f5fa9b1056671e35a8' => 
     array (
       0 => './tpls/templates\\index.html',
-      1 => 1369923294,
+      1 => 1370316531,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51ac85c1649df',
   'variables' => 
   array (
     'notice_detail' => 0,
@@ -25,8 +27,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'record_list_right' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51ac85c1649df',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51ac85c1649df')) {function content_51ac85c1649df($_smarty_tpl) {?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -187,7 +187,7 @@ $_smarty_tpl->tpl_vars['d']->_loop = true;
         <div class="others-h-bar"></div>
     	<div class="others-element">
             <div class="others-content">
-            	<h3><a href="./notice.php?type=2&amp;page=1">在线咨询</a></h3>
+            	<h3><a href="./notice.php?type=4&amp;page=1">在线咨询</a></h3>
                 <div class="a-detail">
                 <?php  $_smarty_tpl->tpl_vars['d'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['d']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['question_detail']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -198,7 +198,7 @@ $_smarty_tpl->tpl_vars['d']->_loop = true;
 ?>
                 	<?php if ($_smarty_tpl->getVariable('smarty')->value['foreach']['foo']['index']<3){?>
                     	<hr />
-                    	<a href="notice.php?type=1&page=1&id=<?php echo $_smarty_tpl->tpl_vars['d']->value['id'];?>
+                    	<a href="notice.php?type=2&page=1&id=<?php echo $_smarty_tpl->tpl_vars['d']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['d']->value['title'];?>
 </a>
                     <?php }?>

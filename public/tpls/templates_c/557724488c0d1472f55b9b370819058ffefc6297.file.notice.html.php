@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-06-03 20:02:57
+<?php /* Smarty version Smarty-3.1.7, created on 2013-06-04 11:05:59
          compiled from "./tpls/templates\notice.html" */ ?>
 <?php /*%%SmartyHeaderCode:3017451ac85c5742eb0-79280110%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '557724488c0d1472f55b9b370819058ffefc6297' => 
     array (
       0 => './tpls/templates\\notice.html',
-      1 => 1370260975,
+      1 => 1370269043,
       2 => 'file',
     ),
   ),
@@ -57,7 +57,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div></a>
         <a href="notice.php?type=2&page=1">
         <div class="online">
-        	在线咨询
+        	常见问题
         </div></a>
         <a href="notice.php?type=4&page=1">
         <div class="online">
