@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-06-01 13:28:03
+<?php /* Smarty version Smarty-3.1.7, created on 2013-06-03 22:18:07
          compiled from "./tpls/templates\notice.html" */ ?>
 <?php /*%%SmartyHeaderCode:3171951a98663525911-07038271%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '557724488c0d1472f55b9b370819058ffefc6297' => 
     array (
       0 => './tpls/templates\\notice.html',
-      1 => 1369209003,
+      1 => 1370269043,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51a986635c833',
   'variables' => 
   array (
     'type' => 0,
@@ -26,8 +28,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'num_all' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51a986635c833',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51a986635c833')) {function content_51a986635c833($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -57,7 +57,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div></a>
         <a href="notice.php?type=2&page=1">
         <div class="online">
-        	在线咨询
+        	常见问题
+        </div></a>
+        <a href="notice.php?type=4&page=1">
+        <div class="online">
+        	在线提问
         </div></a>
         <a href="notice.php?type=3&page=1">
         <div class="online">
