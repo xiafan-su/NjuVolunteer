@@ -340,6 +340,13 @@ class Act extends DB_Connect {
 		$result=mysql_fetch_assoc($select);
 		return $result;
 	}
+	public function fetch_team_name($act_id)
+	{
+		$query="select t.name from team t,activity_info a where t.id=a.publisher and a.id='".$act_id."'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result['name'];
+	}
 	public function participate($activity_id){
 		$activity_id=htmlspecialchars($activity_id,ENT_QUOTES);
 		$user_id=$_SESSION[User::USER][User::ID];

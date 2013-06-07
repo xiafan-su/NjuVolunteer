@@ -94,7 +94,7 @@ $tpl->assign( "deadline", $deadline[0] );
 $tpl->assign( "act_id", $activity_id);
 $tpl->assign( "responser", $item['responser']);
 $tpl->assign( "responser_tel", $item['responser_tel']);
-
+$tpl->assign( "team_name", $act->fetch_team_name($activity_id));
 if ($item==NULL)
 	echo '<script>alert("您找的活动不存在");</script>';
 else
