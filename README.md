@@ -2,5 +2,4 @@ NjuVolunteer
 ============
 
 Online volunteer manage system of Nanjing University
-Author:Demonsu
-Author:Aresxiao
+Auther: Software Engineering Project Team 1
