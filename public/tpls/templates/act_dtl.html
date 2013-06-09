@@ -101,6 +101,8 @@
                     <div class="div_content_value"><{$responser}></div></li>
                     <li><div class="div_content_attr">联系电话</div>
                     <div class="div_content_value"><{$responser_tel}></div></li>
+                    <li><div class="div_content_attr">发起组织</div>
+                    <div class="div_content_value"><{$team_name}></div></li>
                 </ul>
             	</div>
 			</div>
@@ -149,10 +151,10 @@
         
 		<script>
 			var jiathis_config = { 
-				url: "http://localhost/NjuVolunteer/public/act_dtl.php?act_id="+$('#act_id').val(), 
+				url: "http://volunteer.nju.edu.cn/act_dtl.php?act_id="+$('#act_id').val(), 
 				title: "南京大学青年志愿者:"+$('#act_title').val(), 
 				summary:"",
-				pic:"http://localhost/NjuVolunteer/Upload/picture/"+$('#act_pic').val()
+				pic:"http://volunteer.nju.edu.cn/Upload/picture/"+$('#act_pic').val()
 			}  
         </script>
 

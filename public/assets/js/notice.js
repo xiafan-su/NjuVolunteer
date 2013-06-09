@@ -38,10 +38,11 @@ $(document).ready(function(){
 	$('#put_up_question').click(function(){
 		var email_address=document.getElementById('email_address').value;
 		var question_content = document.getElementById('question_content').value;
+		var question_title = document.getElementById('question_title').value;
 		$.ajax({
 			type:'POST',
 			url:"handle/put_up_question.php",
-			data:{email_info:email_address,question_info:question_content},
+			data:{email_info:email_address,question_title:question_title,question_content:question_content},
 			success:function(html){
 				alert(html);
 			}

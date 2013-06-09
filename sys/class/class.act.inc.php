@@ -215,7 +215,7 @@ class Act extends DB_Connect {
 	{
 		$act_id=htmlspecialchars($act_id,ENT_QUOTES);
 		$filename=htmlspecialchars($filename,ENT_QUOTES);
-		$query="INSERT INTO photos(act_id,pic_name,time,uploader_id,uploader_name) VALUES('".$act_id."','".$filename."','".date('Y-m-d H:i:s',time())."','".$_SESSION[USER::USER][USER::ID]."','".$_SESSION[USER::USER][USER::NAME]."')";
+		$query="INSERT INTO photos(act_id,pic_name,time,uploader_id,uploader_name) VALUES('".$act_id."','".$filename."','".date('Y-m-d H:i:s',time())."','".$_SESSION[User::USER][User::ID]."','".$_SESSION[User::USER][User::NAME]."')";
 		if(!mysql_query($query,$this->root_conn))
 		{
 			die('Error: ' . mysql_error());
@@ -340,9 +340,16 @@ class Act extends DB_Connect {
 		$result=mysql_fetch_assoc($select);
 		return $result;
 	}
+	public function fetch_team_name($act_id)
+	{
+		$query="select t.name from team t,activity_info a where t.id=a.publisher and a.id='".$act_id."'";
+		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$result=mysql_fetch_assoc($select);
+		return $result['name'];
+	}
 	public function participate($activity_id){
 		$activity_id=htmlspecialchars($activity_id,ENT_QUOTES);
-		$user_id=$_SESSION[USER::USER][USER::ID];
+		$user_id=$_SESSION[User::USER][User::ID];
 		$sql="SELECT * FROM apply_team WHERE user_id='".$user_id."'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		if (mysql_num_rows($select)==0)
@@ -403,7 +410,7 @@ class Act extends DB_Connect {
 	}
 	public function quit($activity_id){
 		$activity_id=htmlspecialchars($activity_id,ENT_QUOTES);
-		$user_id=$_SESSION[USER::USER][USER::ID];
+		$user_id=$_SESSION[User::USER][User::ID];
 		$query="DELETE FROM apply_act WHERE user_id='".$user_id."' and act_id='".$activity_id."'";
 		if (!mysql_query($query,$this->root_conn))
 		{
@@ -421,7 +428,7 @@ class Act extends DB_Connect {
 		$activity_id=htmlspecialchars($activity_id,ENT_QUOTES);
 		$t=$this->judge_participate_button_state($activity_id);
 		if ($t!=1) return $t;
-		$user_id=$_SESSION[USER::USER][USER::ID];
+		$user_id=$_SESSION[User::USER][User::ID];
 		$query="select * from apply_act where user_id='".$user_id."' and act_id='".$activity_id."'";
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		if (mysql_num_rows($select)==1) return 1;//已经参加了活动
@@ -439,8 +446,8 @@ class Act extends DB_Connect {
 		//echo $act_info['deadline'].'</br>';
 		if ($act_info['deadline']<(date('Y-m-d H:i:s',time())))
 			return -1;
-		if (isset($_SESSION[USER::USER][USER::PERM_ID]))
-		{	if($_SESSION[USER::USER][USER::PERM_ID]!=1)
+		if (isset($_SESSION[User::USER][User::PERM_ID]))
+		{	if($_SESSION[User::USER][User::PERM_ID]!=1)
 				return -2;
 		}
 		else return -3;
@@ -458,14 +465,14 @@ class Act extends DB_Connect {
 		//$date1=$date+6;
 		//$str1="$year"."-"."$month"."-"."$date1";
 		
-		$query="select * from activity_info where datediff(end_time,'".$str."')>0 and datediff(begin_time,'".$str1."')<0";
+		$query="select * from activity_info where datediff(end_time,'".$str."')>0 and datediff(begin_time,'".$str1."')<0 and state='audited'";
 		//$query="select makedate('".$year."',)";
 		$select=mysql_query($query, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}
 	public function concern_team($team_id){
 		$team_id=htmlspecialchars($team_id,ENT_QUOTES);
-		$user_id=$_SESSION[USER::USER][USER::ID];
+		$user_id=$_SESSION[User::USER][User::ID];
 		$query="INSERT INTO follow(userid,teamid) VALUES('".$user_id."','".$team_id."')";
 		if (!mysql_query($query,$this->root_conn))
 		{ 

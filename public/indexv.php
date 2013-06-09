@@ -43,7 +43,7 @@ while ($row4=mysql_fetch_assoc($myact)){
 
 
 /*	
-$myact=$user->fetch_my_act($_SESSION[USER::USER][USER::ID]);	
+$myact=$user->fetch_my_act($_SESSION[User::USER][User::ID]);	
 while ($row=mysql_fetch_assoc($myfollow))
 	$myactlist[]=array('teamid'=>$row['TID'],'name'=>$row['TNAME']);*/	
 	

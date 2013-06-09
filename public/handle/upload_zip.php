@@ -6,7 +6,7 @@ include("../plugin/jquery-fileuploader-php-master/classes/easy_upload/upload_cla
 	
 $upload = new file_upload();
 $t=new Team();
-$upload->upload_dir = '../../Upload/plan/';
+$upload->upload_dir = '../Upload/plan/';
 $upload->extensions = array('.zip', '.rar'); // specify the allowed extensions here
 $upload->rename_file = true;
 if(!empty($_FILES)) {

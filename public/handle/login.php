@@ -1,4 +1,3 @@
-<!-- 该文件编码为ANSI，如果另存为UTF-8需要在HTML头部添加chartset -->
 <?php
 $_BASE_PATH = "../../";
 
@@ -15,7 +14,7 @@ $psd =htmlspecialchars($_POST['password'],ENT_QUOTES);
 $user = new User();
 
 $perm = $user->login($id, $psd);
-
+//echo "<script>window.history.go(-1);alert($perm);</script>";
 //获取上一页面URL
 $last_url = $_SERVER['HTTP_REFERER'];
 $last_pos = strrpos( $last_url, "/" ) + 1;

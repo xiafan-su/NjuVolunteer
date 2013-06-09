@@ -2,7 +2,7 @@
 
 include_once '../sys/core/init.inc.php';
 include './include/header.php';
-if (isset($_SESSION[USER::USER][USER::FACULTY_ID]))
+if (isset($_SESSION[User::USER][User::FACULTY_ID]))
 {
 	$a=new Act();
 	$act_id=$a->create_new_act();
