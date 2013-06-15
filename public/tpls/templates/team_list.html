@@ -51,15 +51,14 @@ button{
          <{foreach name=data item=item from=$department_info}>
          <li class="explore-item">
             <div class="pic">
-               <span onclick="window.open('./indext.php?team_id=<{$item.id}>','_blank')"> <img src="./assets/img/team/<{$item.logo}>" class="t-portrait" id="pic1"/></span>
+               <span onclick="window.open('./indext.php?team_id=<{$item.id}>','_blank')"> <img src="./assets/img/team/<{$item.logo}>" class="t-portrait" id="pic1" title="<{$item.name}>"></span>
             </div>
             <div class="content">
                 <div class="title">
-                	<span onclick="window.open('indext.php?team_id=<{$item.id}>', '_blank');"><{$item.name}>
+                	<span onclick="window.open('indext.php?team_id=<{$item.id}>', '_blank');" title="<{$item.name}>"><{$item.attached_institutions}>
                     </span>
                 </div>
                 <div class="favs">
-                    
                 </div>
             </div>
          </li>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-06-09 23:17:27
+<?php /* Smarty version Smarty-3.1.7, created on 2013-06-13 12:42:20
          compiled from "./tpls/templates\team_list.html" */ ?>
 <?php /*%%SmartyHeaderCode:1046551b49ac9a15b79-11408221%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a7916e79428643b39e99c1493974ee1c008cebce' => 
     array (
       0 => './tpls/templates\\team_list.html',
-      1 => 1369409822,
+      1 => 1371098538,
       2 => 'file',
     ),
   ),
@@ -85,17 +85,18 @@ $_smarty_tpl->tpl_vars['item']->_loop = true;
             <div class="pic">
                <span onclick="window.open('./indext.php?team_id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
 ','_blank')"> <img src="./assets/img/team/<?php echo $_smarty_tpl->tpl_vars['item']->value['logo'];?>
-" class="t-portrait" id="pic1"/></span>
+" class="t-portrait" id="pic1" title="<?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
+"></span>
             </div>
             <div class="content">
                 <div class="title">
                 	<span onclick="window.open('indext.php?team_id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
-', '_blank');"><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
+', '_blank');" title="<?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
+"><?php echo $_smarty_tpl->tpl_vars['item']->value['attached_institutions'];?>
 
                     </span>
                 </div>
                 <div class="favs">
-                    
                 </div>
             </div>
          </li>

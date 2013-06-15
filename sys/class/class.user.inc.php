@@ -267,6 +267,24 @@ class User extends DB_Connect {
 		if ($result==0) return false;
 		else return true;
 	}
+	public function change_psd($old_psd,$new_psd)
+	{
+		if (!isset($_SESSION[User::USER][User::ID]))
+			return -1;//登陆信息失效
+		$user_id=$_SESSION[User::USER][User::ID];
+		$sql="SELECT * FROM login WHERE id='".$user_id."' and password='".$old_psd."'";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		$results=mysql_num_rows($select);
+		if ($results==0) return 0;//原密码错误
+		else
+		{
+			$sql="UPDATE login SET password='".$new_psd."' WHERE id='".$user_id."'";
+			if (mysql_query($sql, $this->root_conn))
+				return 1;//修改成功
+			else
+				die('Error: ' . mysql_error());
+		}
+	}
 }
 
 ?>

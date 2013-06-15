@@ -525,6 +525,20 @@ $("#change_profile").click(function(){
 		}
 	});
 });
+$("#change_psd").click(function(){
+	$("#main_title").text("修改密码");
+	document.getElementById('loading-bar').style.display='block';
+	$.ajax({
+		type:"POST",
+		url:"./handle/change_vol_psd.php",
+		data:{type:"show"},
+		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
+			//alert(html);
+			$("#main_content").html(html);
+		}	
+	});
+});
 $("#my_team").click(function(){
 	$("#main_title").text("我的团队");
 	document.getElementById('loading-bar').style.display='block';
@@ -552,7 +566,37 @@ $("#my_focused_team").click(function(){
 	});
 });
 
-
+function vol_change_psd(){
+	var old_psd=$("#old_psd").val();
+	var new_psd=$("#new_psd").val();
+	if( old_psd.length==0 ){alert("密码不能为空");return;}
+	if( old_psd.length < 6 || old_psd.length > 16 ) { alert( "密码必须长度在6-16之间！"); return; }
+	if( new_psd.length < 6 || new_psd.length > 16 ) { alert( "密码必须长度在6-16之间！"); return; }
+	if (new_psd!=$("#confirm_psd").val()){alert("两次密码输入不一致");return;}
+	old_psd = hex_md5( old_psd );
+	new_psd = hex_md5( new_psd );
+	document.getElementById('loading-bar').style.display='block';
+	$.ajax({
+		type:"POST",
+		url:"./handle/change_vol_psd.php",
+		data:{type:"change", old_psd:old_psd,new_psd:new_psd},
+		success:function(html){
+			document.getElementById('loading-bar').style.display='none';
+			if( html == 0 ) {
+				alert("原密码错误");
+			} else 
+			if (html== 1)
+			{	
+				alert("修改成功");
+				$("#vol_profile").click();
+			}	
+			else 
+			if (html==-1)
+				alert("登陆信息过期，请重新登陆");
+			else alert(html);
+		}
+	});
+}
 
 function delete_note(note_id){
 	if( ! confirm("您确定要删除该通知吗？") ) return;

@@ -39,7 +39,7 @@ class Team extends DB_Connect {
 			$query_num="select count(*) AS num from apply_team where team_id='".$result['id']."' and state= '1'";
 			$num=mysql_query($query_num,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			if($result['logo']==NULL) $result['logo']="NJU_default.png";
-			$team_info[]=array("name"=>$result['name'],"count"=>$num['num'],"slogan"=>$result['slogan'],"id"=>$result['id'],"logo"=>$result['logo']);
+			$team_info[]=array("name"=>$result['name'],"count"=>$num['num'],"slogan"=>$result['slogan'],"id"=>$result['id'],"logo"=>$result['logo'],"attached_institutions"=>$result['attached_institutions']);
 			//echo $result['name']."<br />".count($team_info)."<br />";
 		}
 		return $team_info;

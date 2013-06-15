@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2013-06-07 20:16:53
+<?php /* Smarty version Smarty-3.1.7, created on 2013-06-13 12:36:55
          compiled from "./tpls/templates\include\header.html" */ ?>
 <?php /*%%SmartyHeaderCode:2020851b1cf3515f814-71731510%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1048da3ca248985a74c0290df8746b95cbab34f3' => 
     array (
       0 => './tpls/templates\\include\\header.html',
-      1 => 1369501554,
+      1 => 1371098209,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_51b1cf351b12b',
   'variables' => 
   array (
     'user_permission' => 0,
     'user_name' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_51b1cf351b12b',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51b1cf351b12b')) {function content_51b1cf351b12b($_smarty_tpl) {?><div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
 <div class="header-border-down"></div>
@@ -42,7 +42,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<?php }?>
 					<?php }?>
 				<!--<li><a href="./news.php">新闻广场</a></li>-->
-				<li><a href="./team.php">团队组织</a></li>
+				<li><a href="./team_list.php">团队组织</a></li>
 			</ul>
 		</div>
 		<div  class="welcome_bar">
