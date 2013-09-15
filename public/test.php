@@ -130,8 +130,9 @@ $send 		= 	$sm->send( $sendto, $sendfrom, $subject, $message );*/
 //if($s->send_email("245681117@qq.com","测试",'<div style="font-size:40">heh</div>')) echo "success";
 //$a=new Act();
 //$a->delete_photo(54);
-$s=new System();
-$s->export_csv(218);
+//$s=new System();
+//$s->export_csv(218);
+echo date("Y-m-d H-i-s",'1365948831');
 //if(!$t->insert_act_record(101220119,6,3,'优秀',1,0,'这孩子不错'))echo "wrong";
 //$t->register_voltime(6);
 //if($t->delete_my_activity(121)) echo "可以删除";

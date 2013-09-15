@@ -6,7 +6,7 @@ $Const['DB_HOST'] = 'localhost';
 
 $Const['DB_USER'] = 'root';
 
-$Const['DB_PASS'] = '920328';
+$Const['DB_PASS'] = 'q1w2e3r4';
 
 $Const['DB_NAME'] = 'nju_volunteer';
 
