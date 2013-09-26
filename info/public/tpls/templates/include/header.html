@@ -1,0 +1,136 @@
+<div class="logo"><img src="./assets/img/header/logo.png" width="160px"/></div>
+<div class="header-border-down"></div>
+<div class="header">
+	<div class="header_content">
+		<div style="width:176px;height:50px;float:left;background-color:rgb(225,225,225)"></div>
+		<div  class="main_menu">
+			<ul>
+				<li><a href="./index.php">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>
+				<li><a href="./act.php">活动中心</a></li>
+					<{* 
+						1表示未经过审核的志愿者，
+						2表示审核通过志愿者，
+						3表示志愿团队，
+					*}>
+					<{if isset($user_permission) }>
+						<{if $user_permission == 1}>
+							<li><a href="./zonev.php">个人空间</a></li>
+						<{elseif $user_permission == 2}>
+							<li><a href="./zonet.php">团队空间</a></li>
+						<{/if}>
+					<{/if}>
+				<!--<li><a href="./news.php">新闻广场</a></li>-->
+				<li><a href="./team_list.php">团队组织</a></li>
+			</ul>
+		</div>
+		<div  class="welcome_bar">
+			<{if isset( $user_permission ) && $user_permission > 0 && isset($user_name)}>
+				您好，
+				<{if $user_permission < 2}>
+					<a href="./zonev.php">
+				<{elseif $user_permission == 2}>
+					<a href="./zonet.php">
+				<{elseif $user_permission == 3}>
+					<a href="./super_admin.php">
+				<{/if}>
+				<{$user_name}></a>！
+				&nbsp;&nbsp;
+				<{if $user_permission < 2}>
+					<a href="./handle/logout.php"  id="logout_button">退出</a>
+					<script language="javascript">
+					<!--
+					document.getElementById("logout_button").href = "../../login/logout.php?link="+ window.location.href;
+					//-->
+					</script>
+				<{else}>
+					<a href="./handle/logout.php" >退出</a>
+				<{/if}>
+			<{else}>
+				<!--<a onclick="showit()" id="login_button">登录</a>-->
+				<a href="../../login/login.php" id="login_button">个人登录</a>&nbsp;&nbsp;
+				<a onclick="showit()" style="cursor: pointer" >团队登录</a>
+				<script language="javascript">
+				<!--
+				document.getElementById("login_button").href = "../../login/login.php?link="+ window.location.href;
+				//-->
+				</script>
+			<{/if}>
+		</div>
+	</div>
+</div>
+<div class="changelanguage">
+<div style="float:right"><a href="#" style="color:black">中文</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" style="color:black">English</a></div>
+</div>
+ <{include file="include/login.html"}> 
+<div class="backdrop" id="backdrop" onclick="hideit()">
+</div>
+<div id="loading-bar">
+	<div class="loading-cover"></div>
+	<div class="loading-pic"><img src="./assets/img/loading/loading.gif"/></div>
+</div>
+<script type="text/javascript">
+var flag=0;
+var temp=0;
+$(document).ready(function(){
+	$("#loginModal").hide();	
+});
+function showit(){
+	if (flag==0)
+	{
+		if(temp==0){
+			temp=1;
+			$("#loginModal").show();
+			document.getElementById('backdrop').style.display="block";
+			$("#backdrop").animate({opacity:'0.8'},'fast');
+			setTimeout("$('#loginModal').animate({top:'130px'})",100);
+			//$('#login_button').text('返回');
+			flag=1;
+			setTimeout("temp=0",600);
+			$("#login_id").focus();
+		}
+	}/*else
+	{
+		if(temp==0){
+			temp=1;
+			$('#loginModal').animate({top:'-500px'});
+			setTimeout("$('#backdrop').animate({opacity:'0'})",300);
+			setTimeout("document.getElementById('backdrop').style.display='none'",500);
+			$('#login_button').text('登录');
+			flag=0;
+			setTimeout("temp=0",600);
+		}
+	}*/
+}
+function hideit(){
+	if(temp==0){
+		temp=1;
+		$('#loginModal').animate({top:'-500px'});
+		setTimeout("$('#backdrop').animate({opacity:'0'})",300);
+		setTimeout("document.getElementById('backdrop').style.display='none'",500);
+		//$('#login_button').text('登录');
+		flag=0;
+		setTimeout("temp=0",600);
+	}
+}
+function loginR(){
+	var id = $("#login_id").val();
+	var psd = $("#login_password").val();
+	alert( id+","+psd );
+	$.ajax( {
+		type:"POST",
+		url:"./handle/login.php",
+		data:{ user:id, password:psd },
+		success:function(html){
+			if( html == 1 ){
+				window.open( "./zonev.php" );
+			} else if ( html == 2 ) {
+				window.open( "./zonet.php", "团队空间",  "toolbar=yes,menubar=yes");
+			} else if ( html == 3 ) {
+				window.open( "./super_admin.php" );
+			} else {
+				alert( html );
+			}
+		}
+	} );
+}
+</script>
