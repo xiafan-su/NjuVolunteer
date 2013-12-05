@@ -1,4 +1,4 @@
-
+﻿
 //  zt_elem_main_content = "#main_content";
 //  zt_elem_main_content2 = "#main_content2";
 
@@ -30,7 +30,16 @@ var az_funcz_doc_import_part = function(){};
 var az_funcz_doc_import_ok = function(){};//导入对话框中的“确定”按钮的处理函数
 var az_funcz_doc_remove_part = function(){};
 
-
+function htmlEncode(str) {  
+	 var s = "";  
+	 if (str.length == 0) return "";  
+	 s = str.replace(/&/g, "&amp;");  
+	 s = s.replace(/</g, "&lt;");  
+	 s = s.replace(/>/g, "&gt;");    
+	 s = s.replace(/'/g, "&apos;");  
+	 s = s.replace(/"/g, "&quot;");  
+	 return s;  
+};
 function popup_volunteer_info(id){
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
@@ -780,7 +789,8 @@ function mem_state_handle(elem){
 		data:{type:"modifyState", uid: uid, state: newval, reason: "暂时没有"},
 		success:function(html){
 			document.getElementById('loading-bar').style.display='none';
-			if( html == 0 ){
+			alert(html);
+			if( html.indexOf('0') != -1 ){
 				$(elem).parent().prev().text( newtext );				
 				$(elem).parent().toggle();
 				$(elem).parent().prev().toggle();
@@ -931,7 +941,7 @@ function team_info_modify_handle( elem ){
 							items : [
 								'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
 								'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-								'insertunorderedlist', '|', 'emoticons', 'image', 'link','unlink','baidumap','fullscreen']
+								'insertunorderedlist', '|','wordpaste', 'emoticons', 'image', 'link','unlink','baidumap','fullscreen']
 					});
 			});
 		}
@@ -957,7 +967,7 @@ function team_info_edit_ok (){
 	$.ajax({
 		type:"POST", 
 		url: "./handle/actz.php", 
-		data:{ type:"modifyInfo", slogan: slogan, profile:profile, oldpsd:old_psd, newpsd: new_psd },
+		data:{ type:"modifyInfo", slogan: slogan, profile:htmlEncode(profile), oldpsd:old_psd, newpsd: new_psd },
 		success: function(html){
 			document.getElementById('loading-bar').style.display='none';
 			if( html == 0 ){

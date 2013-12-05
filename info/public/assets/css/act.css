@@ -321,3 +321,31 @@ a:hover{
 	text-align:center;
 	height:33px;
 }
+#act-tag{
+	position:absolute;
+	margin-top:275px;
+	margin-left:680px;
+	width:200px;
+	height:25px;
+	background:-ms-linear-gradient(right,rgba(225,225,225,1) 0%,rgba(255,255,255,0) 100%);
+	background:-moz-linear-gradient(right,rgba(225,225,225,1) 0%,rgba(255,255,255,0) 100%);
+	background:-o-linear-gradient(right,rgba(225,225,225,1) 0%,rgba(255,255,255,0) 100%);
+	background:-webkit-gradient(linear,left top, right top, from(rgba(255,255,255,0)), to(rgba(225,225,225,1)));
+	behavior:url(./assets/css/pie.htc);
+	z-index:10;
+	
+}
+.tagact{
+	position:relative;
+	float:right;
+	width:15px;
+	height:15px;
+	margin-top:5px;
+	margin-right:8px;
+	border-radius:8px;
+	background:#FFFFFF;
+	behavior:url(./assets/css/pie.htc);
+}
+.tagact:hover{
+	cursor:pointer;
+}

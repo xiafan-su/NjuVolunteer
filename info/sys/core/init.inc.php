@@ -11,7 +11,7 @@ foreach( $Const as $name => $val ){
 }
 
 function __autoload($class_name){
-	$filename = "/var/www/html/NjuVolunteer/info/sys/class/class.".$class_name.".inc.php";
+	$filename = "D:/apache/htdocs/NjuVolunteer/info/sys/class/class.".$class_name.".inc.php";
 	if( file_exists($filename) ){
 		include_once( $filename );
 	}

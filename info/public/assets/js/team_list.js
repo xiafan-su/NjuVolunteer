@@ -20,6 +20,7 @@ var hot=[
 $(document).ready(function(){
 	document.getElementById("switch").style.left="-800px";
 	$("#switch").html(hot[2]+hot[0]+hot[1]+hot[2]+hot[0]).show();
+	document.getElementById("act-tag1").style.background="rgb(102,51,102)";
 	$("#slideright").click(function(){
 		if(flag==0){
 			flag=1;
@@ -31,6 +32,7 @@ $(document).ready(function(){
 				document.getElementById("switch").style.left="0px";
 				$("#switch").animate({left:'-=800px'});
 			}
+			pointtag()
 			setTimeout("flag=0",500);
 		}
 	});
@@ -46,6 +48,7 @@ $(document).ready(function(){
 				document.getElementById("switch").style.left="-3200px";
 				$("#switch").animate({left:'+=800px'});
 			}
+			pointtag()
 			setTimeout("flag=0",500);
 		}
 	});
@@ -68,6 +71,7 @@ function slideleft(){
 			document.getElementById("switch").style.left="0px";
 			$("#switch").animate({left:'-=800px'});
 		}
+		pointtag()
 		setTimeout("flag=0",500);
 	}
 }
@@ -83,8 +87,25 @@ function slideright(){
 			document.getElementById("switch").style.left="-3200px";
 			$("#switch").animate({left:'+=800px'});
 		}
+		pointtag()
 		setTimeout("flag=0",500);
 	}	
+}
+function pointtag(){
+	document.getElementById("act-tag1").style.background="#FFFFFF";
+	document.getElementById("act-tag2").style.background="#FFFFFF";
+	document.getElementById("act-tag3").style.background="#FFFFFF";
+	var tag = left+1;
+	document.getElementById("act-tag"+tag).style.background="rgb(102,51,102)";
+}
+function showtag(index){
+	if(flag == 0 && index-1 != left){
+		flag = 1;
+		$("#switch").animate({left:'-'+(800*index)+'px'});
+		left = index - 1;
+		pointtag();
+		setTimeout("flag=0",500);
+	}
 }
 function slide(){
 	slideleft();

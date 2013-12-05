@@ -431,8 +431,8 @@ function submit_click()
 		url:"./handle/act_apply.php",
 		success:function(html){
 		document.getElementById('loading-bar').style.display='none';
-		//alert(html);
-			if(html == 1) {
+		//alert(html[4]);
+			if(html.indexOf('1') != -1) {
 				if (preview_flag==0)
 				{
 					if (cur_state=='auditing')

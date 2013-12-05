@@ -3,6 +3,7 @@ var act=1;
 var flag=0;
 var topp=['-1250px','-800px','-808px','-887px','-1250px'];
 var left=['-1000px','-1050px','-999px','-890px','-1020px'];
+var flag1 = 1;
 /*
 var showp=['<h2 style="color:#FFF">恭喜夏凡同学参加仙林中学支教获得2小时志愿时间</h2>',
 			'<h2 style="color:#FFF">恭喜魏子华同学参加宁工小学支教获得3小时志愿时间并获得0.5小时荣誉时间</h2>',
@@ -52,8 +53,8 @@ $(document).ready(function(){
 	showpeople();
 	setTimeout("showpeople2()",1500);
 	$('#statistics').click(function(){
-		$('#data-statistics').show();
-		$('#data-statistics').animate({opacity:'1'});
+		$('#data-statistics').show().animate({opacity:'1'},500);
+		$('#backdrop3').show().animate({opacity:'0.7'},500);
 		document.getElementById('loading-bar').style.display='block';
 		$.ajax({
 		type:"POST",
@@ -65,9 +66,11 @@ $(document).ready(function(){
 		}
 	});
 	});
-	$('#data-statistics').click(function(){
+	$('#backdrop3').click(function(){
 		$('#data-statistics').animate({opacity:'0'},500);
+		$('#backdrop3').animate({opacity:'0'},500);
 		setTimeout("$('#data-statistics').hide()",500);
+		setTimeout("$('#backdrop3').hide()",500);
 	});
 });
 function changeact(temp){
@@ -120,7 +123,8 @@ function nextpic(){
 }
 function showclaim(){
 	if(claimindex==0){
-		$('#volclaim').animate({height:'430px',top:'100px',marginLeft:'-200px',width:'400px',opacity:'0.8'},1000);
+		$('#volclaim').animate({height:'430px',top:'100px',marginLeft:'-200px',width:'400px',opacity:'0.8'},1000);	
+		$('#backdrop2').show().animate({opacity:'0.7'},1000);
 		setTimeout("claima()",1000);
 	}
 }
@@ -131,15 +135,28 @@ function claima(){
 		else
 			$('#volclaim').append(claimstr[claimindex]);
 		claimindex++;
-		setTimeout("claima()",100);
+		
+		if(flag1 == 0){
+			$('#volclaim').html('');
+			claimindex = 0;
+		}
+		else
+			claima();
 	}
 }
 function hiddenit(){
-	if(claimindex>=86){
+	if(claimindex>=86 || flag1 == 0){
 		$('#volclaim').animate({height:'0px',top:'220px',marginLeft:'0px',width:'0px',opacity:'0'},1000)	
 		$('#volclaim').html('');
+		$('#backdrop2').animate({opacity:'0'},1000)
+		setTimeout("$('#backdrop2').hide()",1000);
 		claimindex=0;
+		flag1 = 1;
 	}
+}
+function hiddenit1(){
+	flag1 = 0;
+	hiddenit();
 }
 function exit_browser(){
 	$('.browser-change').hide();

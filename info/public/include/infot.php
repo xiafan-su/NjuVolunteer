@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 $_BASE_PATH = "../../";
 $_SMARTY_ROOT = "../tpls";
@@ -54,7 +54,7 @@ $tpl->assign( "team_attched", $team_attched );
 
 
 $tpl->assign( "team_logo", $team_logo );
-$tpl->assign( "team_profile", $team_profile );
+$tpl->assign( "team_profile", htmlspecialchars_decode($team_profile,ENT_QUOTES) );
 $tpl->assign( "team_signature", $team_signature );
 
 

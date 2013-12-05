@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 //活动类，可执行的操作包括：创建一个新活动，根据id查询一个活动
 //根据(一个/一组)关键词查询一系列活动……
@@ -140,19 +140,19 @@ class Team extends DB_Connect {
 		$state=htmlspecialchars($state,ENT_QUOTES);
 		if ($state==0)
 		{
-			$query="select * from activity_info where publisher = '".$faculty_id."' and name<>'NULL' and state='end'";
+			$query="select * from activity_info where publisher = '".$faculty_id."' and name<>'NULL' and state='end' ORDER BY id DESC";
 			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			return $select;
 		}else
 		if ($state==1)
 		{
-			$query="select * from activity_info where publisher = '".$faculty_id."' and name<>'NULL' and state<>'end'";
+			$query="select * from activity_info where publisher = '".$faculty_id."' and name<>'NULL' and state<>'end' ORDER BY id DESC";
 			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			return $select;			
 		}else
 		if ($state==2)
 		{
-			$query="select * from activity_info where publisher = '".$faculty_id."' and name<>'NULL' and state='audited'";
+			$query="select * from activity_info where publisher = '".$faculty_id."' and name<>'NULL' and state='audited' ORDER BY id DESC";
 			$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 			return $select;				
 		}
@@ -282,12 +282,15 @@ class Team extends DB_Connect {
 				if ($value!=NULL)
 				{
 					$value=htmlspecialchars($value,ENT_QUOTES);
-					$sql_update="UPDATE apply_team SET state='2',time='".date('Y-m-d H:i:s',time())."' where user_id='".$value."' and team_id='".$_SESSION[User::USER][User::FACULTY_ID]."'";
-					if (!mysql_query($sql_update,$this->root_conn))
+					//$sql_update="UPDATE apply_team SET state='2',time='".date('Y-m-d H:i:s',time())."' where user_id='".$value."' and team_id='".$_SESSION[User::USER][User::FACULTY_ID]."'";
+					$sql_delete="DELETE FROM apply_team WHERE user_id='".$value."' and team_id='".$_SESSION[User::USER][User::FACULTY_ID]."'";
+					
+					if (!mysql_query($sql_delete,$this->root_conn))
 					{
 						die('Error: ' . mysql_error());
 						return false;
 					}
+					//die($sql_delete);
 					$title="您的资料未通过".$_SESSION[User::USER][User::FACULTY]."的审核";
 					if (!$s->send_note($value,$title,$reason)) return false;//发送审核未过的理由
 				}
@@ -638,7 +641,7 @@ class Team extends DB_Connect {
 	
 	public function modify_team_profile($id,$profile,$slogan)//修改编号为id的tema的简介和口号
 	{
-		$profile=htmlspecialchars($profile, ENT_QUOTES);
+		//$profile=htmlspecialchars($profile, ENT_QUOTES);
 		$slogan=htmlspecialchars($slogan,ENT_QUOTES);
 		$id=htmlspecialchars($id);
 		$sql="UPDATE team SET profile='".$profile."',slogan='".$slogan."' WHERE id='".$id."'";

@@ -461,7 +461,7 @@ $(document).ready(function(){
 			
 			if((origin_name==$("#activity_name").val())&&(origin_place==$("#activity_place").val())&&(origin_begin_time==$("#begin_time").val())&&(origin_end_time==$("#end_time").val())&&(origin_last_time==$("#last_time").val())&&(origin_detail_time==$("#detail_time").val())&&(origin_total_num==$("#total_num").val())&&(origin_other_lang==$("#other_language").val())&&(origin_responser==$("#responser").val())&&(origin_responser_tel==$("#responser_tel").val())&&(origin_editor==editor.html())&&(origin_time_type==t.options[t.selectedIndex].value)&&(origin_attr==a.options[a.selectedIndex].value)&&(origin_need_audit==n.options[n.selectedIndex].value)&&(origin_cet4==$("#cet4").val())&&(origin_cet6==$("#cet6").val())&&(origin_weekday==Weekday_time)&&(origin_dept_req==faculty_limit)){
 				
-				window.open('http://localhost/njuvolunteer/public/act_dtl.php?act_id='+act_id,"newwindow");
+				window.open('./act_dtl.php?act_id='+act_id,"newwindow");
 			}
 			else{
 				alert(deadline_flag);
@@ -552,8 +552,8 @@ function submit_click()
 		url:"./handle/act_apply.php",
 		success:function(html){
 			document.getElementById('loading-bar').style.display='none';
-		//alert(html);
-			if(html == 1) {
+		//alert(html[4]);
+			if(html.indexOf('1') != -1) {
 				if (preview_flag==0)
 				{
 					if (cur_state=='auditing')

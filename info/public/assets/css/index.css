@@ -376,14 +376,14 @@ h2{
 	width:0px;
 	font-size:20px;
 	display:block;
-	background-color:rgb(102,51,102);
+	background-color:rgb(255,255,255);
 	z-index:200;
 	border-radius:20px;
 	text-align:center;
 	margin-top:10px;
 	line-height:35px;
-	color:#FFF;
-	text-shadow:0 5px 5px #FFF;
+	color:rgb(102,51,102);
+	text-shadow:0 5px 5px rgb(102,51,102);
 }
 .volclaim2{
 	padding-top:10px;
@@ -402,4 +402,28 @@ h2{
 }
 .a-detail a{
 	color:#000;	
+}
+#backdrop2{
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	background:rgb(102,51,102);
+	opacity:0;
+	z-index:199;
+	display:none;
+	border-radius:10px;
+}
+#backdrop3{
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	background:rgb(102,51,102);
+	opacity:0;
+	z-index:160;
+	display:none;
+	border-radius:10px;
 }

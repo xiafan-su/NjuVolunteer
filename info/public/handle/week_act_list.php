@@ -1,4 +1,4 @@
-<?php						//说明，返回值是一个二维数组，数组中下标0,1对应当前页面第一个，2,3对应第二个。比如当前页面第一个是周五，则0,1是周五的活动，2,3
+﻿<?php						//说明，返回值是一个二维数组，数组中下标0,1对应当前页面第一个，2,3对应第二个。比如当前页面第一个是周五，则0,1是周五的活动，2,3
 							//	是周六的活动，4,5是周日的活动，不一定下标元素都有值，用的时候要判断isset();
 $_BASE_PATH = "../../";
 $_SMARTY_ROOT="../tpls";
@@ -51,6 +51,8 @@ for($j=0;$j<7;$j++){
 					//echo "helllo i=0";
 					//$ret_act_list[$i]=array('id'=>$weeklist['id'],'name'=>$weeklist['name'],'time_type'=>$weeklist['time_type'],'weekday'=>$weeklist['weekday'],'deadline'=>$weeklist['deadline'],'defined'=>true);
 					//$ret_act_list[$i]['defined']=true;
+					$temp=explode(" ",$weeklist['deadline']);
+					$weeklist['deadline']=$temp[0];
 					$ret_act_list[$j][]=array('id'=>$weeklist['id'],'name'=>$weeklist['name'],'time_type'=>$weeklist['time_type'],'weekday'=>$weeklist['weekday'],'deadline'=>$weeklist['deadline'],'profile'=>$weeklist['profile'],'detail_time'=>$weeklist['detail_time']);
 					
 					/*$ret_act_list[$i]['id']=$weeklist['id'];

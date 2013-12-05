@@ -111,8 +111,8 @@ if( $_POST['type'] == "actApply" ){
 } else if( $_POST['type'] == "modifyInfo" ){
 	
 	if( !isset( $_POST['slogan'] ) || !isset($_POST['profile']) ){ echo "参数错误！"; exit; }
-	if( mb_strlen( $_POST['slogan'] ) == 0 || mb_strlen( $_POST['slogan'] ) > 20 ) { echo "口号长度错误！"; exit; }
-	if( mb_strlen( $_POST['profile'] ) == 0 || mb_strlen( $_POST['profile'] ) > 100000 ) { echo "简介长度错误！"; exit; }
+	if( mb_strlen( $_POST['slogan'] ) == 0 || mb_strlen( $_POST['slogan'] ) > 40 ) { echo "口号长度大于40！"; exit; }
+	if( mb_strlen( $_POST['profile'] ) == 0 || mb_strlen( $_POST['profile'] ) > 100000 ) { echo "简介长度大于100000！"; exit; }
 	$team = new Team();
 	$team_id = $_SESSION[User::USER][User::FACULTY_ID];
 	if( strlen($_POST['oldpsd']) == 0 ) {//不修改

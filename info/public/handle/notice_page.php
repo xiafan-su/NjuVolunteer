@@ -9,7 +9,6 @@ $type = $_POST['type'];
 $id = $_POST['id'];
 
 $content = $s->fetch_content($type,$id);
-
 $tpl->assign("content",$content);
 $tpl->assign("type",$type);
 $tpl->display("handle/notice_page.html");

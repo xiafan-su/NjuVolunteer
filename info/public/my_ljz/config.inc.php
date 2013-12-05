@@ -36,7 +36,7 @@
  *
  * @global string $cfg['PmaAbsoluteUri']
  */
-$cfg['PmaAbsoluteUri'] = 'http://volunteer.nju.edu.cn/my_ljz/';
+$cfg['PmaAbsoluteUri'] = 'http://volunteer.nju.edu.cn/info/public/my_ljz/';
 
 /**
  * Disable the default warning that is displayed on the DB Details Structure page if

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class System extends DB_Connect {
 	public function __construct(){
@@ -82,13 +82,13 @@ class System extends DB_Connect {
 			
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$row=mysql_fetch_assoc($select);
-		
+
 		if ($type==1)
-			$content=array("title"=>$row['title'],"time"=>$row['time'],"content"=>$row['content'],"counts"=>$row['counts']);
+			$content=array("title"=>$row['title'],"time"=>$row['time'],"content"=>htmlspecialchars_decode($row['content'],ENT_QUOTES),"counts"=>$row['counts']);
 		if ($type==2)
-			$content=array("title"=>$row['title'],"content"=>$row['content'],"time"=>$row['time'],"answer"=>$row['answer'],"email"=>$row['email']);
+			$content=array("title"=>$row['title'],"content"=>htmlspecialchars_decode($row['content'],ENT_QUOTES),"time"=>$row['time'],"answer"=>$row['answer'],"email"=>$row['email']);
 		if ($type==3)
-			$content=array("title"=>$row['title'],"content"=>$row['content'],"writer"=>$row['writer'],"time"=>$row['time']);
+			$content=array("title"=>$row['title'],"content"=>htmlspecialchars_decode($row['content'],ENT_QUOTES),"writer"=>$row['writer'],"time"=>$row['time']);
 		
 		return $content;
 			

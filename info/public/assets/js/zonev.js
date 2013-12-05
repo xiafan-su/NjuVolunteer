@@ -63,7 +63,8 @@ function test_name(){
 }
 
 function test_idcard(){
-	var reg= /^(\d{14}|\d{17})(\d|[xX])$/;
+	var reg=/^((\d{14}|\d{17})(\d|[xX]))|([a-zA-Z]\d{9})$/;
+	//var reg= /^(\d{14}|\d{17})(\d|[xX])$/;
 	if($("#idcard_num").val().replace(/\s/g,"")==""){
 		//alert("hello");
 		$("#id_number").text("*不能为空");
@@ -308,8 +309,8 @@ function handlechange(){
 				url:"./handle/change_vol_info.php",
 				success:function(html){
 					document.getElementById('loading-bar').style.display='none';
-					//alert(html);
-					if (html==1)
+					//alert(html.indexOf('1'));
+					if (html.indexOf('1')!=-1)
 					{
 						alert("修改成功");
 						$("#vol_profile").click();

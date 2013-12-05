@@ -22,12 +22,17 @@ class User extends DB_Connect {
 			$_SESSION[User::USER][User::PERM_ID] = 1;//1表示已审核
 			$_SESSION[User::USER][User::NAME] = $common_name;
 			$_SESSION[User::USER][User::ID] = $userid;
-		}
+		}else return;
 		$sql="SELECT count(*) AS count, faculty from user_info where id='".$userid."' LIMIT 0,1";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		$results=mysql_fetch_assoc($select);
+		$last_login_date=date("Y-m-d H:i:s",time());
 		if( $results['count'] > 0 ){
 			$_SESSION[self::USER][self::FACULTY]=$results['faculty'];
+			$sql="UPDATE user_info SET last_login='".$last_login_date."' ,login_num=login_num+1 WHERE id='".$userid."'";
+			if (  !mysql_query( $sql, $this->root_conn ) ) {
+				die( 'ERROR1:'.mysql_error() );
+			}
 		} else {
 			$sql = "SELECT count(*) AS count FROM login WHERE id='".$userid."' ";//查询是否已经存在
 			$count=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
@@ -38,7 +43,7 @@ class User extends DB_Connect {
 				}
 			}
 			//向user_info插入一条记录
-			$sql = "INSERT INTO user_info(id, name) VALUES ('".$userid."', '".$common_name."')";
+			$sql = "INSERT INTO user_info(id, name,last_login) VALUES ('".$userid."', '".$common_name."','".$last_login_date."')";
 			if ( ! mysql_query( $sql, $this->root_conn ) ) {
 				die( 'ERROR2:'.mysql_error() );
 			}

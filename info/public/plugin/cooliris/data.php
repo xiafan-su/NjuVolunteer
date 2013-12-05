@@ -16,8 +16,8 @@ $data = $wall->get_photo();
 		<?php foreach( $data as $rec ) { ?>
 		<item>
 				<title><?php  echo $rec['info'] ?></title>
-				<media:thumbnail url="<?php  echo "../../../Upload/picture/".$rec['url'] ?>" />
-				<media:content url="<?php  echo "../../../Upload/picture/".$rec['url'] ?>" type="" />
+				<media:thumbnail url="<?php  echo "../../Upload/picture/".$rec['url'] ?>" />
+				<media:content url="<?php  echo "../../Upload/picture/".$rec['url'] ?>" type="" />
 		</item>
 		<?php } ?>
 	</channel>

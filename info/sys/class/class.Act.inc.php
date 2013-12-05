@@ -67,7 +67,7 @@ class Act extends DB_Connect {
 		{
 			$query = sprintf("%s and (begin_time<='".date("Y-m-d H:i:s",time())."' and end_time>='".date("Y-m-d H:i:s",time())."')", $query);
 		}
-		$query = sprintf("%s LIMIT 0, %d", $query, $num);
+		$query = sprintf("%s ORDER BY id DESC LIMIT 0, %d", $query, $num);
 		
 		$select=mysql_query($query,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
@@ -164,7 +164,7 @@ class Act extends DB_Connect {
 		$photo_list = NULL;
 		while ($result=mysql_fetch_assoc($select))
 		{
-			$photo_list[]=array('id'=>$result['id'],'src'=>'../Upload/picture/'.$result['pic_name'],'full_src'=>'../Upload/picture/'.$result['pic_name'],'uploader_id'=>$result['uploader_id'],'uploader_name'=>$result['uploader_name'],'upload_time'=>$result['time']);
+			$photo_list[]=array('id'=>$result['id'],'src'=>'./Upload/picture/'.$result['pic_name'],'full_src'=>'./Upload/picture/'.$result['pic_name'],'uploader_id'=>$result['uploader_id'],'uploader_name'=>$result['uploader_name'],'upload_time'=>$result['time']);
 		}
 		return $photo_list;
 	}
