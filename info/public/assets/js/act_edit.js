@@ -417,12 +417,14 @@ $(document).ready(function(){
 			var a=document.getElementById("attribution_type");
 			var n=document.getElementById("need_audit");
 			
-			if((origin_name==$("#activity_name").val())&&(origin_place==$("#activity_place").val())&&(origin_begin_time==$("#begin_time").val())&&(origin_end_time==$("#end_time").val())&&(origin_last_time==$("#last_time").val())&&(origin_detail_time==$("#detail_time").val())&&(origin_total_num==$("#total_num").val())&&(origin_other_lang==$("#other_language").val())&&(origin_responser==$("#responser").val())&&(origin_responser_tel==$("#responser_tel").val())&&(origin_editor==editor.html())&&(origin_time_type==t.options[t.selectedIndex].value)&&(origin_attr==a.options[a.selectedIndex].value)&&(origin_need_audit==n.options[n.selectedIndex].value)&&(origin_cet4==$("#cet4").val())&&(origin_cet6==$("#cet6").val())&&(origin_weekday==Weekday_time)&&(origin_dept_req==faculty_limit)){
+			/*if((origin_name==$("#activity_name").val())&&(origin_place==$("#activity_place").val())&&(origin_begin_time==$("#begin_time").val())&&(origin_end_time==$("#end_time").val())&&(origin_last_time==$("#last_time").val())&&(origin_detail_time==$("#detail_time").val())&&(origin_total_num==$("#total_num").val())&&(origin_other_lang==$("#other_language").val())&&(origin_responser==$("#responser").val())&&(origin_responser_tel==$("#responser_tel").val())&&(origin_editor==editor.html())&&(origin_time_type==t.options[t.selectedIndex].value)&&(origin_attr==a.options[a.selectedIndex].value)&&(origin_need_audit==n.options[n.selectedIndex].value)&&(origin_cet4==$("#cet4").val())&&(origin_cet6==$("#cet6").val())&&(origin_weekday==Weekday_time)&&(origin_dept_req==faculty_limit)){
 				alert("修改成功，已提交");
 				window.close();
 				
 			}
-			else{
+			else*/
+			//点击提交的话，无条件提交
+			{
 				//alert(deadline_flag);
 				if ( name_flag==1 && place_flag==1 && begin_time_flag==1 && end_time_flag==1 && deadline_flag==1&& last_time_flag==1 && detail_time_flag==1 && total_num_flag==1 && responser_flag==1 && responser_tel_flag==1)
 				submit_click();

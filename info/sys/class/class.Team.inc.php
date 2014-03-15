@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 //活动类，可执行的操作包括：创建一个新活动，根据id查询一个活动
 //根据(一个/一组)关键词查询一系列活动……
@@ -284,13 +284,11 @@ class Team extends DB_Connect {
 					$value=htmlspecialchars($value,ENT_QUOTES);
 					//$sql_update="UPDATE apply_team SET state='2',time='".date('Y-m-d H:i:s',time())."' where user_id='".$value."' and team_id='".$_SESSION[User::USER][User::FACULTY_ID]."'";
 					$sql_delete="DELETE FROM apply_team WHERE user_id='".$value."' and team_id='".$_SESSION[User::USER][User::FACULTY_ID]."'";
-					
 					if (!mysql_query($sql_delete,$this->root_conn))
 					{
 						die('Error: ' . mysql_error());
 						return false;
 					}
-					//die($sql_delete);
 					$title="您的资料未通过".$_SESSION[User::USER][User::FACULTY]."的审核";
 					if (!$s->send_note($value,$title,$reason)) return false;//发送审核未过的理由
 				}

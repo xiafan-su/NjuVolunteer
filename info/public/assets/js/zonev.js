@@ -63,8 +63,11 @@ function test_name(){
 }
 
 function test_idcard(){
-	var reg=/^((\d{14}|\d{17})(\d|[xX]))|([a-zA-Z]\d{9})$/;
+	//var reg=/^((\d{14}|\d{17})(\d|[xX]))|([a-zA-Z]\d{9})$/;
 	//var reg= /^(\d{14}|\d{17})(\d|[xX])$/;
+	//var reg=/^((\d{14}|\d{17})(\d|[xX]))|([a-zA-Z](\d{9}|\d{7}))$/;
+	//var reg=/^((\d{14}|\d{17})(\d|[xX]))|([a-zA-Z](\d{9}|\d{7}))|(\d{10}\([a-zA-Z]\))$/;
+	reg=/^[\w()]{1,20}$/;
 	if($("#idcard_num").val().replace(/\s/g,"")==""){
 		//alert("hello");
 		$("#id_number").text("*不能为空");
@@ -72,7 +75,7 @@ function test_idcard(){
 		flag_idcard++;
 	}
 	else if(!reg.test($("#idcard_num").val())){
-		$("#id_number").text("*格式不对,14位或18位身份证");
+		$("#id_number").text("*已经没有格式要求了，这你都能填错！");
 		document.getElementById("id_number").style.color="red";
 		flag_idcard++;
 	}
@@ -84,7 +87,8 @@ function test_idcard(){
 }
 
 function test_birthday(){
-	var reg=/^(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))-02-29) $/;
+	//var reg=/^(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))-02-29) $/;
+	var reg=/^(19|20)\d\d-(0[1-9]|1[012])-(0[1-9]|[12]\d|3[01])$/;
 	if(!reg.test($("#birthday").val())){
 		$("#birthday_tip").text("格式是yyyy-mm-dd");
 		document.getElementById("birthday_tip").style.color="red";
@@ -143,7 +147,8 @@ function test_cet6(){
 function test_phone(){
 
 	var phone = $("#phone").val();
-	var pattern =  new RegExp(/^(1(([35][0-9])|(47)|[8][01236789]))\d{8}$/);
+	//var pattern =  new RegExp(/^(1(([35][0-9])|(47)|[8][01236789]))\d{8}$/);
+	var pattern =  new RegExp(/^(1(\d{10}))$/);
 	if(!pattern.test(phone))
 	{
 		flag_phone++;
@@ -347,6 +352,8 @@ function show_note(id){
 			document.getElementById('loading-bar').style.display='none';
 			$("#note_detail").html(html);
 			$("#note_detail").show();
+			$("#c-cover").show();
+			$("#c-cover").animate({opacity:'1'},500);
 			$('#note_detail').animate({opacity:'1'},500);
 
 		}
@@ -368,15 +375,19 @@ function readit(id,state){
 				document.getElementById('loading-bar').style.display='none';
 				//alert(html);
 				//$("#note_detail").html(html);
-				$('#note_detail').animate({opacity:'0'},1);
-				$("#note_detail").hide();
-				$("#new_notice").click();
+				$('#note_detail').animate({opacity:'0'},500);
+				$("#c-cover").animate({opacity:'0'},500);
+				setTimeout('$("#note_detail").hide()',500);
+				setTimeout('$("#c-cover").hide()',500);
+				setTimeout('$("#new_notice").click()',500);
 			}
 		});
 	}else
 	{
-		$('#note_detail').animate({opacity:'0'},1);
-		$("#note_detail").hide();
+		$('#note_detail').animate({opacity:'0'},500);
+		$("#c-cover").animate({opacity:'0'},500);
+		setTimeout('$("#note_detail").hide()',500);
+		setTimeout('$("#c-cover").hide()',500);
 		//$("#notice_record").click();
 	}
 }

@@ -94,9 +94,9 @@ function test_act_name(){
 	}
 	
 	else{
-		if($("#activity_name").val().length>45){
+		if($("#activity_name").val().length>20){
 			document.getElementById("activity_name_error").style.color="red";
-			$("#activity_name_error").html("*活动名称45字以内");
+			$("#activity_name_error").html("*活动名称20字以内");
 			name_flag=0;
 		}
 		else{

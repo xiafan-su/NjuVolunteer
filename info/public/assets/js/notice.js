@@ -36,6 +36,7 @@ $(document).ready(function(){
 	});
 	
 	$('#put_up_question').click(function(){
+		document.getElementById('loading-bar').style.display='block';
 		var email_address=document.getElementById('email_address').value;
 		var question_content = document.getElementById('question_content').value;
 		var question_title = document.getElementById('question_title').value;
@@ -44,6 +45,7 @@ $(document).ready(function(){
 			url:"handle/put_up_question.php",
 			data:{email_info:email_address,question_title:question_title,question_content:question_content},
 			success:function(html){
+				document.getElementById('loading-bar').style.display='none';
 				alert(html);
 			}
 			

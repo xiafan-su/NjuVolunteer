@@ -789,7 +789,6 @@ function mem_state_handle(elem){
 		data:{type:"modifyState", uid: uid, state: newval, reason: "暂时没有"},
 		success:function(html){
 			document.getElementById('loading-bar').style.display='none';
-			alert(html);
 			if( html.indexOf('0') != -1 ){
 				$(elem).parent().prev().text( newtext );				
 				$(elem).parent().toggle();

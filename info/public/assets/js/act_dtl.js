@@ -37,28 +37,28 @@ $(document).ready(function(){
 			data:{act_id:$('#act_id').val()},
 			success:function(html){
 				document.getElementById('loading-bar').style.display='none';
-				alert(html);
+				//alert(html);
 				//alert("success");
-				if (html =='-1')
+				if (html.indexOf("-1") >=0)
 				{
 					$('#take_part_in').prop("disabled",true);
 					$('#take_part_in').prop("value","报名截止");
 				}else
-				if (html =='-2')
+				if (html.indexOf("-2") >=0)
 				{
 					$('#take_part_in').prop("disabled",true);
 					$('#take_part_in').prop("value","等待报名");					
 				}else
-				if (html == '1')
+				if (html.indexOf("1") >=0)
 				{
 					$('#take_part_in').prop("value","退出活动");
 				}
-				else if (html =='0')
+				else if (html.indexOf("0") >=0)
 				{
 					$('#take_part_in').prop("value","报名活动");
 					                                          
 				}
-				else if (html =='-3')
+				else if (html.indexOf("-3") >=0)
 				{
 					$('#take_part_in').prop("disabled",true);
 					$('#take_part_in').prop("value","报名活动");
@@ -158,7 +158,11 @@ $(function(){
 			data:{act_id:$('#act_id').val()},
 			success:function(html){
 				document.getElementById('loading-bar').style.display='none';
-				alert(html);
+				//var a=html.charCodeAt(0);
+				//alert(a);
+				//a=html.charCodeAt(1);
+				//alert(a);
+				//alert(html);
 				//alert("success");
 				if (html >= 100000)
 				{
