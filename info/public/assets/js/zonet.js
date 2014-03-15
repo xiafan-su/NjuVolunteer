@@ -68,7 +68,7 @@ var nt_func_note_recv_act_select = function(){};
 function switch_main_content( direction ){
 	var switch_style = "slow";
 	var switch_time = 1000;
-	if( direction == "<-" ){	
+	if( direction == "<-" ){
 	/*	$(zt_elem_main_content2).animate({width:0}, switch_style );
 		$(zt_elem_main_content2).hide(switch_time);
 		$(zt_elem_main_content).animate({width:683}, switch_style );
@@ -100,9 +100,9 @@ var register_click_event = function ( elem, new_title, handle_url, url_param, ha
 		$( zt_elem_main_title ).text( new_title );
 		switch_main_content( "<-" );
 		document.getElementById('loading-bar').style.display='block';
-		$.ajax({type:"POST", 
-			url: handle_url, 
-			data: url_param, 
+		$.ajax({type:"POST",
+			url: handle_url,
+			data: url_param,
 			success: function(html){
 				document.getElementById('loading-bar').style.display='none';
 				if( handle_func == null ){
@@ -133,9 +133,10 @@ zt_func_finished_act = function(html){
 	$( zt_elem_doc_apply ).bind("click", zt_func_doc_apply );
 	$( zt_elem_doc_del ).bind("click", zt_func_doc_del );
 }
-
+//点击“成员”的处理方法
 zt_func_mem = function(html){
 	$(zt_elem_main_content).html(html);
+	//绑定【学生信息显示】到【学号点击事件】
 	bindStudentInfo();//此函数在mem.js中定义
 }
 

@@ -3,6 +3,7 @@
 include_once '../sys/core/init.inc.php';
 include './include/header.php';
 
+
 if (isset( $_SESSION[User::USER][User::FACULTY_ID]))
 {
 	$team_id = $_SESSION[User::USER][User::FACULTY_ID];
@@ -17,13 +18,13 @@ if (isset( $_SESSION[User::USER][User::FACULTY_ID]))
 	$tpl->assign( "team_logo", $team_logo );
 	$tpl->assign( "user_name", $_SESSION[User::USER][User::NAME] );
 	
-	
 	$tpl->assign( "notes_number", $team->fetch_my_new_notes_count( $team_id ) );
 	
+
 	
 	
 	$tpl->display('zonet.html');
 }else
-echo '<script>alert("'.'您的登录信息已过期，请重新登录'.'");</script>';
+echo '<script>alert("您的登录信息已过期，请重新登录！");</script>';
 
 ?>
