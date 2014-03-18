@@ -16,6 +16,7 @@ var zt_elem_mem = "#util_mem";
 var zt_elem_infot = "#util_infot";
 var zt_elem_infot_edit = "#util_infot_edit";
 var zt_elem_extend_time = "#util_extend_time";
+var zt_elem_chxpsd = "#util_chxpsd";
 //对应URL
 var zt_url_apply_act = "./act_apply.php";
 var zt_url_act = "./include/actz.php";//发起的、完成的活动使用相同php
@@ -24,6 +25,7 @@ var zt_url_extend_time = "./include/act_time.php";
 var zt_url_note_edit = "./include/note_edit.php";
 var zt_url_note_dtl = "./include/note_dtl.php";
 var zt_url_mem = "./include/mem.php";
+var zt_url_chxpsd = "./include/infot_chxpsd.php";//change password
 var zt_url_infot = "./include/infot.php";
 var zt_url_infot_edit = "./include/infot_edit.php";
 
@@ -162,6 +164,7 @@ register_click_event( $( zt_elem_note_recv ), "收到的通知", zt_url_note, {t
 register_click_event( $( zt_elem_note_sent ), "发送的通知", zt_url_note, {type:"sent"}, zt_func_note_sent );
 register_click_event( $( zt_elem_mem ), "成员", zt_url_mem, null, zt_func_mem );
 register_click_event( $( zt_elem_infot ), "资料", zt_url_infot );
+register_click_event( $( zt_elem_chxpsd ), "修改密码", zt_url_chxpsd );
 
 
 

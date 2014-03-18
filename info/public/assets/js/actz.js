@@ -30,15 +30,15 @@ var az_funcz_doc_import_part = function(){};
 var az_funcz_doc_import_ok = function(){};//导入对话框中的“确定”按钮的处理函数
 var az_funcz_doc_remove_part = function(){};
 
-function htmlEncode(str) {  
-	 var s = "";  
-	 if (str.length == 0) return "";  
-	 s = str.replace(/&/g, "&amp;");  
-	 s = s.replace(/</g, "&lt;");  
-	 s = s.replace(/>/g, "&gt;");    
-	 s = s.replace(/'/g, "&apos;");  
-	 s = s.replace(/"/g, "&quot;");  
-	 return s;  
+function htmlEncode(str) {
+	 var s = "";
+	 if (str.length == 0) return "";
+	 s = str.replace(/&/g, "&amp;");
+	 s = s.replace(/</g, "&lt;");
+	 s = s.replace(/>/g, "&gt;");
+	 s = s.replace(/'/g, "&apos;");
+	 s = s.replace(/"/g, "&quot;");
+	 return s;
 };
 function popup_volunteer_info(id){
 	document.getElementById('loading-bar').style.display='block';
@@ -64,7 +64,7 @@ zt_func_doc_index = function(){
 		type:"POST",
 		url:"./include/rec_edit.php",
 		data:{activityId: current_activity_id, documentId: current_document_id },
-		success:function(html){ 
+		success:function(html){
 			document.getElementById('loading-bar').style.display='none';
 			az_func_loaded_doc_edit(html); }
 	});
@@ -78,7 +78,7 @@ zt_func_doc_add = function(){
 		type:"POST",
 		url:"./include/rec_edit.php",
 		data:{activityId: current_activity_id, documentId: current_document_id },
-		success:function(html){ 
+		success:function(html){
 			document.getElementById('loading-bar').style.display='none';
 			az_func_loaded_doc_edit(html); }
 	});
@@ -173,12 +173,12 @@ az_func_doc_submit_doc = function(){
 		type:"POST",
 		url:"./handle/rec.php",
 		data:{
-			type:"add", 
-			activityId: current_activity_id, 
+			type:"add",
+			activityId: current_activity_id,
 			documentId: current_document_id,
-			leader: doc_edit_leader, 
-			profile: doc_edit_profile, 
-			summary: doc_edit_summary, 
+			leader: doc_edit_leader,
+			profile: doc_edit_profile,
+			summary: doc_edit_summary,
 			tel: doc_edit_tel,
 			volTime: doc_edit_time,
 			start_date: doc_edit_date_start
@@ -247,7 +247,7 @@ az_funcz_doc_remove_part = function(){
 				var all_checkbox = $( "[type='checkbox']" );
 				for( var i = 0;  i < all_checkbox.length; i ++ ){
 					if( $(all_checkbox[i]).prop("disabled") ){} else {
-						if( $(all_checkbox[i]).attr("id").search("doc_checkbox_head_") > -1 
+						if( $(all_checkbox[i]).attr("id").search("doc_checkbox_head_") > -1
 								&&  $(all_checkbox[i]).prop("checked") ) {
 							$(all_checkbox[i]).prop("disabled", true);
 							$(all_checkbox[i]).prop("checked", false);
@@ -278,7 +278,7 @@ az_funcz_doc_import_ok = function(){
 		data:{ type:"import", idList: az_func_getIdList(  "act_people_table_checkbox_" ), documentId: $(this).attr( "docid" ) },
 		success:function(html){//0-成功，其他-失败
 		document.getElementById('loading-bar').style.display='none';
-			if( html == 0 ){	
+			if( html == 0 ){
 				$("#doc_edit_part_table_tr_tip").remove();//移除“还没有人参加这个活动哦”提示
 
 				var tr = '<tr uid="{id}" id="part_people_table_tr_{id}">'+
@@ -333,12 +333,12 @@ az_funcz_doc_import_ok = function(){
 				var all_checkbox = $( "[type='checkbox']" );
 				for( var i = 0;  i < all_checkbox.length; i ++ ){
 					if( $(all_checkbox[i]).prop("disabled") ){} else {
-						if( $(all_checkbox[i]).attr("id").search("act_people_table_checkbox_") > -1 
+						if( $(all_checkbox[i]).attr("id").search("act_people_table_checkbox_") > -1
 								&&  $(all_checkbox[i]).prop("checked") ) {
 							var uid = $(all_checkbox[i]).attr("noid" );
 							var uname = $(all_checkbox[i]).attr("un" );
 							var ufaculty = $(all_checkbox[i]).attr("uf" );
-							$("#doc_edit_part_table").append( 
+							$("#doc_edit_part_table").append(
 								tr.replace( /{id}/g, uid ).replace( /{name}/g, uname ).replace( /{faculty}/g, ufaculty ).replace( /{time}/g, "0.000" ).replace( /{level}/g, "一般" ).replace( /{comment}/g, "" )
 							);
 						}
@@ -386,7 +386,7 @@ var az_func_getIdList = function( preffix, match ){
 			}
 		} else {
 			if( $(all_checkbox[i]).prop("disabled") ){} else {
-				if( $(all_checkbox[i]).attr("id").search( preffix ) > -1 
+				if( $(all_checkbox[i]).attr("id").search( preffix ) > -1
 					&&  $(all_checkbox[i]).prop("checked") ) {
 					apply_vol_string += $(all_checkbox[i]).attr("noid" ) +" ";
 				}
@@ -412,7 +412,7 @@ az_funz_apply_audit_ok = function(){
 				var all_checkbox = $( "[type='checkbox']" );
 				for( var i = 0;  i < all_checkbox.length; i ++ ){
 					if( $(all_checkbox[i]).prop("disabled") ){} else {
-						if( $(all_checkbox[i]).attr("id").search("act_people_table_checkbox_") > -1 
+						if( $(all_checkbox[i]).attr("id").search("act_people_table_checkbox_") > -1
 								&&  $(all_checkbox[i]).prop("checked") ) {
 							$(all_checkbox[i]).prop("disabled", true);
 							$(all_checkbox[i]).prop("checked", false);
@@ -435,7 +435,7 @@ az_funz_apply_audit_fail= function(){
 	$.ajax({
 		type: "POST",
 		url: "./handle/actz.php",
-		data:{ type:"actApply", idList: az_func_getIdList( "act_people_table_checkbox_" ), 
+		data:{ type:"actApply", idList: az_func_getIdList( "act_people_table_checkbox_" ),
 			target:0, reason: reason, activityId: $(this).attr( "actid" ) },
 		success:function(html){//0-成功，其他-失败
 			document.getElementById('loading-bar').style.display='none';
@@ -444,7 +444,7 @@ az_funz_apply_audit_fail= function(){
 				var all_checkbox = $( "[type='checkbox']" );
 				for( var i = 0;  i < all_checkbox.length; i ++ ){
 					if( $(all_checkbox[i]).prop("disabled") ){} else {
-						if( $(all_checkbox[i]).attr("id").search("act_people_table_checkbox_") > -1 
+						if( $(all_checkbox[i]).attr("id").search("act_people_table_checkbox_") > -1
 								&&  $(all_checkbox[i]).prop("checked") ) {
 							$(all_checkbox[i]).prop("disabled", true);
 							$(all_checkbox[i]).prop("checked", false);
@@ -508,7 +508,7 @@ az_funz_apply_select_all = function( check ){//是否检查了文本域
 	//alert( all_checkbox.length );//*
 	for( var i = 0;  i < all_checkbox.length; i ++ ){
 		if( $(all_checkbox[i]).attr("id") == "check_all_act_people" ) continue;
-		
+
 		if( $(all_checkbox[i]).prop("disabled") ) { } else {//如果不是“不可选的”
 			$(all_checkbox[i]).prop("checked", checked);
 		}
@@ -548,7 +548,7 @@ az_funz_doc_select_all = function(){
 		if( $(all_checkbox[i]).attr("id") == "check_all_part_people" ) continue;
 
 		if( $(all_checkbox[i]).attr("id").search( "doc_checkbox_head_" ) == -1 ) continue;
-		
+
 		if( $(all_checkbox[i]).prop("disabled") ) { } else {//如果不是“不可选的”
 			$(all_checkbox[i]).prop("checked", checked);
 		}
@@ -572,7 +572,7 @@ function set_submit_enable(  ){
 	var submit_button = $("#doc_op_modify");
 	submit_button.attr( "disabled", false );
 	submit_button.attr( "title", "修改后点击此按钮生效" );
-	
+
 }
 
 //以下几个函数处理，参与表的修改
@@ -595,7 +595,7 @@ function change_doc_time_handle(elem, no){
 			span.text( val );
 			span.next().find(":first-child").val( val );
 		}
-		
+
 		set_submit_enable();//确定按钮有效
 	}
 }
@@ -618,7 +618,7 @@ function change_doc_level_handle(elem, no){//评价-一般良好优秀
 			var uid = $(all_selected_box[i]).attr( "noid" );
 			var span = $( "#doc_level_"+uid );
 			span.text( newval );
-			//$("#select_id  ").attr("selected", true); 
+			//$("#select_id  ").attr("selected", true);
 			/*
 			var sel = $("#doc_level_select_"+uid+" > option");
 			alert( sel.length );
@@ -630,7 +630,7 @@ function change_doc_level_handle(elem, no){//评价-一般良好优秀
 			select_level.options[newIndex].selected = true;
 		}
 		set_submit_enable();//确定按钮有效
-		
+
 
 	}
 }
@@ -643,7 +643,7 @@ function change_doc_comment_handle(elem, no){
 	} else {//no == 2
 		$(elem).parent().prev().toggle( time );
 		$(elem).parent().toggle( time );
-		
+
 		var dis_val, real_val;//显示值与真实值
 		if( $(elem).val().trim().length == 0 ) {
 			dis_val = "无";
@@ -718,7 +718,7 @@ function doc_edit_submit_handle(elem){
 
 	var docid = $(elem).attr("docid");
 	document.getElementById('loading-bar').style.display='block';
-	$.ajax({ 
+	$.ajax({
 		type:"POST",
 		url:"./handle/actz.php",
 		data:{setStr:str, type:"setpart", documentId: docid },
@@ -749,7 +749,7 @@ function submit_doc(elem){
 	$("#doc_op_submit").attr( "disabled", true );
 	$("#doc_op_submit").attr( "title", "正在向服务器提交您的请求……" );
 	document.getElementById('loading-bar').style.display='block';
-	$.ajax({ 
+	$.ajax({
 		type:"POST",
 		url:"./handle/actz.php",
 		data:{ type:"submit", documentId: $(elem).attr("docid") },
@@ -759,7 +759,7 @@ function submit_doc(elem){
 				alert( "提交成功！" );
 				$("#doc_op_submit").attr( "disabled", false );
 				$("#doc_op_submit").attr( "title", "提交您所做的修改，提交后志愿时间将会公示一周，并且除非有异议不得再修改" );
-				
+
 				$("#util_start_activity").trigger("click");//模拟点击“发起的活动”事件
 			} else {
 				alert( html );
@@ -790,7 +790,7 @@ function mem_state_handle(elem){
 		success:function(html){
 			document.getElementById('loading-bar').style.display='none';
 			if( html.indexOf('0') != -1 ){
-				$(elem).parent().prev().text( newtext );				
+				$(elem).parent().prev().text( newtext );
 				$(elem).parent().toggle();
 				$(elem).parent().prev().toggle();
 				if( newval == 1 ){//审核通过，移除按钮
@@ -806,7 +806,7 @@ function mem_state_handle(elem){
 			}
 		}
 	});
-	
+
 }
 
 //成员职务修改
@@ -827,7 +827,7 @@ function mem_position_handle(elem){
 			document.getElementById('loading-bar').style.display='none';
 			//alert( html );
 			if( html == 0 ){
-				$(elem).parent().prev().text( newtext );				
+				$(elem).parent().prev().text( newtext );
 				$(elem).parent().toggle();
 				$(elem).parent().prev().toggle();
 				//alert("修改成功！" );
@@ -867,7 +867,7 @@ function verify_extend_time_handle(){
 
 	var docselect = document.getElementById("extend_select_doc");
 	var docid = docselect.options[docselect.selectedIndex].value;
-	
+
 	if( uid.length == 0 || uid.length > 20){
 		ok = false;
 		$("#extend_op_ok").attr( "title", "学号长度错误" );
@@ -913,7 +913,7 @@ function extend_ok_handle(){
 				alert( html );
 			}
 		}
-		
+
 	} );
 }
 
@@ -924,8 +924,8 @@ function team_info_modify_handle( elem ){
 	switch_main_content( "->" );
 
 	document.getElementById('loading-bar').style.display='block';
-	$.ajax({type:"POST", 
-		url: "./include/infot_edit.php", 
+	$.ajax({type:"POST",
+		url: "./include/infot_edit.php",
 		success: function(html){
 			document.getElementById('loading-bar').style.display='none';
 			$( zt_elem_main_content2 ).html(html);
@@ -951,27 +951,50 @@ function team_info_modify_handle( elem ){
 function team_info_edit_ok (){
 	var slogan = $("#team_info_edit_slogan").val();
 	var profile = editor.html();//$("#team_info_edit_profile").val();
-	var old_psd = $("#team_info_edit_password_old").val();
-	var new_psd = $("#team_info_edit_password").val();
-	var new_psd2 = $("#team_info_edit_password2").val();
 	//alert( profile );
-	if( old_psd.length >  0 ) {
-		if( new_psd != new_psd2 ){ alert( "两次密码输入不一致！" ); return; }
-		if( old_psd.length < 6 || old_psd.length > 16 ) { alert( "密码必须长度在6-16之间！"); return; }
-		if( new_psd.length < 6 || new_psd.length > 16 ) { alert( "密码必须长度在6-16之间！"); return; }
-		old_psd = hex_md5( old_psd );
-		new_psd = hex_md5( new_psd );
-	}
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
-		type:"POST", 
-		url: "./handle/actz.php", 
-		data:{ type:"modifyInfo", slogan: slogan, profile:htmlEncode(profile), oldpsd:old_psd, newpsd: new_psd },
+		type:"POST",
+		url: "./handle/actz.php",
+		data:{ type:"modifyInfo", slogan: slogan, profile:htmlEncode(profile) },
 		success: function(html){
 			document.getElementById('loading-bar').style.display='none';
 			if( html == 0 ){
 				alert( "修改成功！" );
 				$("#util_infot").trigger( "click" );
+			} else {
+				alert( html ) ;
+			}
+		}
+	});
+}
+function team_info_chxpsd_ok() {
+	var old_psd = $("#team_info_chxpsd_old").val();
+	var new_psd = $("#team_info_chxpsd").val();
+	var new_psd2 = $("#team_info_chxpsd2").val();
+
+	if( old_psd.length >  0 ) {
+		if( old_psd.length < 6 || old_psd.length > 16 ) { alert( "旧密码长度必须在6-16之间！"); return; }
+		if( new_psd.length < 6 || new_psd.length > 16 ) { alert( "新密码长度必须在6-16之间！"); return; }
+		if( new_psd != new_psd2 ){ alert( "两次密码输入不一致！" ); return; }
+		old_psd = hex_md5( old_psd );
+		new_psd = hex_md5( new_psd );
+	} else {
+		alert("旧密码不能为空！");return;
+	}
+	document.getElementById('loading-bar').style.display='block';
+	$.ajax({
+		type:"POST",
+		url: "./handle/actz.php",
+		data:{ type:"chxpsd", oldpsd:old_psd, newpsd: new_psd },
+		success: function(html){
+			document.getElementById('loading-bar').style.display='none';
+			if( html == 0 ){
+				$("#team_info_chxpsd_old").val("");
+				$("#team_info_chxpsd").val("");
+				$("#team_info_chxpsd2").val("");
+				alert( "修改成功！" );
+				//$("#util_infot").trigger( "click" );
 			} else {
 				alert( html ) ;
 			}

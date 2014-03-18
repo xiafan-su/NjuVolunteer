@@ -45,11 +45,16 @@
 	</div>
 
 	<div id="" class="">
-			<div>
+			<div style="height:30px;overflow:hidden">
 				<div class="left-bar"></div>
 				<div class="main-content-subtitle">个性资料</div>
 				<div class="right-bar"></div>
 			</div>
+			<div id="" class="">
+				<input type="button" class="button" id="team_info_modify" onclick="team_info_modify_handle(this);" value="修改"  title="修改个性资料" />
+				<input type="button" class="button" value="我的主页"  onclick="window.open('./indext.php?team_id=<{$team_id}>', '_blank')" title="在新页面查看我的主页" />
+			</div>
+
 			<div id="" class="" style="width:629px; overflow:auto;">
 				<table>
 					<tr>
@@ -74,8 +79,5 @@
 			</div>
 	</div>
 	
-	<input type="button" class="button" id="team_info_modify" onclick="team_info_modify_handle(this);" value="修改"  title="修改个性资料" />
-	<input type="button" class="button" value="我的主页"  onclick="window.open('./indext.php?team_id=<{$team_id}>', '_blank')" title="在新页面查看我的主页" />
-
 
 </div>

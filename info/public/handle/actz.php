@@ -23,6 +23,10 @@ type:"modifyInfo"修改资料
 slogan:
 profile:
 
+type:"chxpsd"修改密码
+oldpsd:
+newpsd:
+
 type:"exportcsv"导出报名表
 activityId:活动id
 
@@ -115,24 +119,20 @@ if( $_POST['type'] == "actApply" ){
 	if( mb_strlen( $_POST['profile'] ) == 0 || mb_strlen( $_POST['profile'] ) > 100000 ) { echo "简介长度大于100000！"; exit; }
 	$team = new Team();
 	$team_id = $_SESSION[User::USER][User::FACULTY_ID];
-	if( strlen($_POST['oldpsd']) == 0 ) {//不修改
-		if($team->modify_team_profile($team_id,$_POST['profile'], $_POST['slogan']))
-			echo "0";
-		else
-			echo "修改失败！";
-	} else {
-		if( strlen($_POST['oldpsd']) !=32  ) { echo "密码长度错误！"; exit; }
-		if( strlen($_POST['newpsd']) !=32  ) { echo "密码长度错误！"; exit; }
-		if ($team->modify_password($team_id,$_POST['oldpsd'],$_POST['newpsd'])
-		 && ($team->modify_team_profile(  $team_id,$_POST['profile'], $_POST['slogan']  )))
-			echo "0";
-		else
-			echo "修改失败！";
-		
-
-	}
-
+	if($team->modify_team_profile($team_id,$_POST['profile'], $_POST['slogan']))
+		echo "0";
+	else
+		echo "修改失败！";
 	//echo  "###".md5($_POST['oldpsd']);exit;
+} else if( $_POST['type'] == "chxpsd" ){
+	$team = new Team();
+	$team_id = $_SESSION[User::USER][User::FACULTY_ID];
+	if( strlen($_POST['oldpsd']) !=32  ) { echo "密码长度错误！"; exit; }
+	if( strlen($_POST['newpsd']) !=32  ) { echo "密码长度错误！"; exit; }
+	if($team->modify_password($team_id,$_POST['oldpsd'],$_POST['newpsd']))
+		echo "0";
+	else
+		echo "修改失败！";
 } 
 
 
