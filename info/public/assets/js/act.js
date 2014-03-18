@@ -4,7 +4,7 @@ var attributiontype=0;
 var timelimit=0;
 var weekday=0;
 var actstate=0;
-var actnum=0;
+var actnum=5;
 var left=0;
 var picnum=5;
 var flag=0;
@@ -57,7 +57,11 @@ $(document).ready(function(){
 	//alert("ready");
 	returntoday();
 	$('#hotlist').animate({left:'-960px'},25000,'linear');
-	setTimeout("slidehott()",25000);	
+	setTimeout("slidehott()",25000);
+	selectedtt(timetype);
+	selectedat(attributiontype);
+	selectedtl(timelimit);
+	selectedas(actstate);	
 });
 function slideleft(){
 	if(flag==0){
