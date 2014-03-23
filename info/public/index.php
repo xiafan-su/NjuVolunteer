@@ -14,6 +14,12 @@ $s->new_visitor();
 
 $notice=new System();
 
+
+
+
+
+
+
 $notice_info=$notice->fetch_notice(1);
 for( $i = count($notice_info); $i < 3; $i++ ){
 	$notice_info[] = array( "id"=>-1, "title"=>"&nbsp;" );
@@ -48,6 +54,7 @@ for ($i=0;$i<9;$i++)
 	$record_list_right[]=array('id'=>$i,'content'=>$content);
 }
 $tpl->assign("record_list_right",$record_list_right);
+
 
 $tpl->display('index.html');
 

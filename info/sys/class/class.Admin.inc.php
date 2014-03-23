@@ -9,7 +9,32 @@ class Admin extends DB_Connect {
 	public function __construct($dbo=NULL){
 		parent::__construct($dbo);
 	}
-	
+	public function audit_user($user_id,$team_id)
+	{
+		if($_SESSION[User::USER][User::PERM_ID]!=3) return "请先登录";
+		$sql="SELECT * FROM apply_team WHERE user_id='".$user_id."' and team_id='".$team_id."'";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$num=mysql_num_rows($select);
+		if ($num==0)
+		{
+			return "信息填写错误或该同学尚未完善资料";
+		}else
+		{
+			$result=mysql_fetch_assoc($select);
+			if ($result["state"]=='1')
+			{
+				return "已经审核通过";
+			}else
+			{
+				$query="UPDATE apply_team SET state='1' WHERE user_id='".$user_id."' and team_id='".$team_id."'";
+				if(!mysql_query($query,$this->root_conn))
+					return "输入信息有误，检查空格";
+				else
+					return  "审核成功";			
+			}
+		}
+
+	}
 	public function get_all_going_act(){
 
 		$query="select * from activity_info where name is not NULL and  state='audited'";

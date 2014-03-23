@@ -1,9 +1,33 @@
 <?php
-
+//获取中文字符串的长度
+function strlen_utf8($str) 
+{  
+	$i = 0;  
+	$count = 0;  
+	$len = strlen ($str);  
+	while ($i < $len) 
+	{  
+		$chr = ord ($str[$i]);  
+		$count++;  
+		$i++;  
+		if($i >= $len) break;  
+		if($chr & 0x80) 
+		{  
+			$chr <<= 1;  
+			while ($chr & 0x80) 
+			{  
+				$i++;  
+				$chr <<= 1;  
+			}  
+		}  
+	}  
+	return $count;  
+}  
 class System extends DB_Connect {
 	public function __construct(){
 		parent::__construct();
 	}
+
 	public function system_note($team_name)//每次修改资料，看下当前志愿者是否已经加入过院系，修改相应审核状态
 	{
 		$team_name=htmlspecialchars($team_name,ENT_QUOTES);
@@ -44,6 +68,31 @@ class System extends DB_Connect {
 				return false;
 			}
 		}
+	}
+	//获取首页的最新活动详细信息
+	public function fetch_index_activity()
+	{
+		$nowdate=date("Y-m-d H:i:s",time());
+		$sql="SELECT * FROM activity_info WHERE name is not NULL AND state='audited' AND deadline>'".$nowdate."' ORDER BY apply_date_hash DESC LIMIT 0,5";
+		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+		$index_activity_info=NULL;
+		while($row=mysql_fetch_assoc($select))
+		{
+			$id=$row['id'];
+			$name=$row['name'];
+			if (strlen_utf8($name)>10)
+				$name=mb_substr($name,0,10);
+			$detail_time=$row['detail_time'];
+			if (strlen_utf8($detail_time>20))
+				$detail_time=mb_substr($detail_time,0,20);
+			$deadline=$row['deadline'];
+			$profile=htmlspecialchars_decode($row['profile'],ENT_QUOTES);
+			if (strlen_utf8($profile)>100)
+				$profile=mb_substr($profile,0,100);
+				
+			$index_activity_info[]=array("id"=>$id,"name"=>$name,"detail_time"=>$detail_time,"deadline"=>$deadline,"profile"=>$profile);
+		}	
+		return $index_activity_info;	
 	}
 	public function fetch_notice_num()//取得所有通告的个数
 	{
