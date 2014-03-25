@@ -325,7 +325,9 @@ class System extends DB_Connect {
 	}
 	public function fetch_pub_list($num=100)
 	{
-		$sql="SELECT u.id as UID,i.id AS ACTID,u.name AS UNAME,u.faculty,i.name AS ACTNAME,r.base_time,r.honor_time,r.comment,r.sus,r.date  FROM user_info u,act_record r,activity_info i,act_doc d WHERE r.final='true' and u.id=r.user_id and r.doc_id=d.id and d.act_id=i.id LIMIT 0,".$num."";
+		$now_time=date("Y-m-d H:i:s",time());
+		
+		$sql="SELECT u.id as UID,i.id AS ACTID,u.name AS UNAME,u.faculty,i.name AS ACTNAME,r.base_time,r.honor_time,r.comment,r.sus,r.date  FROM user_info u,act_record r,activity_info i,act_doc d WHERE datediff('".$now_time."',r.date)<14 AND r.final='true' and u.id=r.user_id and r.doc_id=d.id and d.act_id=i.id LIMIT 0,".$num."";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		return $select;
 	}

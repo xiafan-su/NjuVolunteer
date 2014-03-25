@@ -107,7 +107,7 @@ class User extends DB_Connect {
 			$photo="boy/".$t.".jpg";
 		}else
 		{
-			$photo="girl/".($t%2).".jpg";
+			$photo="girl/".($t/2).".jpg";
 		}
 		$sql="UPDATE user_info SET 
 		

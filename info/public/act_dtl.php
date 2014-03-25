@@ -75,6 +75,10 @@ switch($item['attribution_type']){
 	case "campus" : $tpl->assign( "act_attr_type", "校园");break;
 	default : $tpl->assign( "act_attr_type", "其他");
 }
+if ($item["faculty_limit"]!="")
+	$faculty_limit=$item["faculty_limit"];
+else
+	$faculty_limit="无（这才和谐）";
 $begin=explode(" ",$item['begin_time']);
 $end=explode(" ",$item['end_time']);
 $deadline=explode(" ",$item['deadline']);
@@ -95,6 +99,7 @@ $tpl->assign( "act_id", $activity_id);
 $tpl->assign( "responser", $item['responser']);
 $tpl->assign( "responser_tel", $item['responser_tel']);
 $tpl->assign( "team_name", $act->fetch_team_name($activity_id));
+$tpl->assign("act_faculty_limit",$faculty_limit);
 if ($item==NULL)
 	echo '<script>alert("您找的活动不存在");</script>';
 else

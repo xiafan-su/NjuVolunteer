@@ -57,11 +57,11 @@ $(document).ready(function(){
 	//alert("ready");
 	returntoday();
 	$('#hotlist').animate({left:'-960px'},25000,'linear');
-	setTimeout("slidehott()",25000);
+	setTimeout("slidehott()",25000);	
 	selectedtt(timetype);
 	selectedat(attributiontype);
 	selectedtl(timelimit);
-	selectedas(actstate);	
+	selectedas(actstate);
 });
 function slideleft(){
 	if(flag==0){
@@ -278,6 +278,8 @@ function searchit(){
 	//	alert("请输入关键字");
 	//	return;	
 	//}
+	
+
 	document.getElementById("hotact").style.display="none";
 	document.getElementById("result").style.display="block";
 	keyword = $('#keyword').val();
@@ -358,6 +360,7 @@ function more(){
 	searchitt();	
 }
 function searchitt(){
+	document.getElementById("weekact_list").style.display="none";
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
