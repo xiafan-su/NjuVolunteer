@@ -27,45 +27,24 @@
 			<div class="map-img" id="map-img"><img src="./assets/img/index/map.png" /></div>
 		</div>
 		<div class="act-img">
-        	<div class="act-detail" id="act-detail"></div>
-        	<div class="act-detail" id="act-detail1" onclick="window.open('act_dtl.php?act_id=729','_blank')">
-            	<span class="act-detail-title">尧化门筑梦师支教</span>
-				<span class="act-detail-status"><label class="font-color-2">周三、周六、周日下午第一节课</label>&nbsp;&nbsp;&nbsp;&nbsp; 截止日期：2014.6.3</span>
-            	<span class="act-detail-content">将第一颗爱心献予高淳，为特殊青少年茁壮成长增添养分，相信有"长江基金"的关注、关爱和关怀，高淳特殊青少年成长之花一定会结出丰硕的爱心之果。</span></div>
-            <div class="act-detail" id="act-detail2" onclick="window.open('act_dtl.php?act_id=725','_blank')">
-            	<span class="act-detail-title">四点半课堂活动</span>
-				<span class="act-detail-status"><label class="font-color-2">3月1日 14:00-15:30</label>&nbsp;&nbsp;&nbsp;&nbsp; 截止日期：2014.5.3</span>
-                <span class="act-detail-content">感恩，是中华民族的优良传统，"乌鸦反哺"的性灵原态，让我们感悟到作为人的重要表证，漂泊在生活的经纬里，总有千丝万缕的情感把我们支撑，感恩需要从点滴做起</span></div>
-            <div class="act-detail" id="act-detail3" onclick="window.open('act_dtl.php?act_id=666','_blank')">
-            	<span class="act-detail-title">困境儿童关怀项目</span>
-				<span class="act-detail-status"><label class="font-color-2">周一至周五任意时间段</label>&nbsp;&nbsp;&nbsp;&nbsp; 截止日期：2014.6.3</span>
-            	<span class="act-detail-content">"南大•栖霞青春同行"项目由南京大学团委和栖霞团区委共同发起，依托院系与社区结对的形式，以志愿服务和社会实践调研为载体，对接校地资源。</span></div>
-            <div class="act-detail" id="act-detail4" onclick="window.open('act_dtl.php?act_id=652','_blank')">
-            	<span class="act-detail-title">手语公益活动</span>
-				<span class="act-detail-status"><label class="font-color-2">双周周六整天</label>&nbsp;&nbsp;&nbsp;&nbsp; 截止日期：2014.6.3</span>
-            	<span class="act-detail-content">"青春闪亮新街口志愿服务站"坐落于新街口正洪街广场，是由白下区政府斥资打造的一项便民服务，志愿者在此免费为市民游客提供指路、导购、免费租借雨伞、免费提供饮用水等服务。</span></div>
-            <div class="act-detail" id="act-detail5" onclick="window.open('act_dtl.php?act_id=646','_blank')">
-            	<span class="act-detail-title">南大学子博爱行</span>
-				<span class="act-detail-status"><label class="font-color-2">周三、周六、周日下午第一节课</label>&nbsp;&nbsp;&nbsp;&nbsp; 截止日期：2014.6.3</span>
-            	<span class="act-detail-content">2003年，由Becky老师和青协的共同努力下，在高淳特殊教育学校举办了第一次阳光活动。该活动一直延续至今，旨在资助高淳的同学，给他们带去快乐与温暖。</span></div>
-       		<div class="act-img-t" id="act-img1"><img src="./assets/img/index/5.jpg" /></div>
-            <div class="act-img-t" id="act-img2"><img src="./assets/img/index/4.jpg" onclick="window.open('act_dtl.php?act_id=227','_blank')"/></div>
-            <div class="act-img-t" id="act-img3"><img src="./assets/img/index/3.jpg" /></div>
-            <div class="act-img-t" id="act-img4"><img src="./assets/img/index/2.jpg" /></div>
-            <div class="act-img-t" id="act-img5"><img src="./assets/img/index/1.jpg" /></div>
+            <div class="act-detail" id="act-detail"></div>
+            <{foreach from=$index_activity_detail item=act }>
+        		<div class="act-detail" id="act-detail<{$act.id}>" onclick="window.open('act_dtl.php?act_id=<{$act.act_id}>','_blank')">
+                    <span class="act-detail-title"><{$act.name}></span>
+                    <span class="act-detail-status"><label class="font-color-2"><{$act.detail_time}></label>&nbsp;&nbsp;&nbsp;&nbsp; 截止日期：<{$act.deadline}></span>
+                    <span class="act-detail-content">地点：<{$act.place}> &nbsp;&nbsp;&nbsp;&nbsp;发起组织：<{$act.publisher}></span>
+                </div>
+            <{/foreach}>
+            <{foreach from=$index_activity_detail item=act }>
+            	<div title="点击查看详情" class="act-img-t" id="act-img<{$act.id}>"><img src="./assets/img/index/<{$act.id}>.jpg" onclick="window.open('act_dtl.php?act_id=<{$act.act_id}>','_blank')"/></div>
+            <{/foreach}>
 		</div>
         
 		<div class="act-title">
-        	<div class="act-title-t" id="act-title1" onmouseover="changeact(1)" onclick="window.open('act_dtl.php?act_id=729','_blank')"><div class="badpoint"><div class="circle"></div></div>
-            	尧化门筑梦师支教</div>
-            <div class="act-title-t" id="act-title2" onmouseover="changeact(2)" onclick="window.open('act_dtl.php?act_id=725','_blank')"><div class="badpoint"><div class="circle"></div></div>
-            	四点半课堂活动</div>
-            <div class="act-title-t" id="act-title3" onmouseover="changeact(3)" onclick="window.open('act_dtl.php?act_id=666','_blank')"><div class="badpoint"><div class="circle"></div></div>
-            	困境儿童关怀项目</div>
-            <div class="act-title-t" id="act-title4" onmouseover="changeact(4)" onclick="window.open('act_dtl.php?act_id=652','_blank')"><div class="badpoint"><div class="circle"></div></div>
-            	手语公益活动</div>
-			<div class="act-title-t" id="act-title2" onmouseover="changeact(5)" onclick="window.open('act_dtl.php?act_id=646','_blank')"><div class="badpoint"><div class="circle"></div></div>
-            	南大学子博爱行</div>
+            <{foreach from=$index_activity_detail item=act }>
+        		<div title="点击报名" class="act-title-t" id="act-title<{$act.id}>" onmouseover="changeact(<{$act.id}>)" onclick="window.open('act_dtl.php?act_id=<{$act.act_id}>','_blank')"><div class="badpoint"><div class="circle"></div></div>
+            	<{$act.short_name}></div>
+            <{/foreach}>
             <div class="act-title-t" id="act-title5"  style="margin-bottom:0px" onclick="window.open('act.php','_blank')"><div class="badpoint"><div class="circle"></div></div>
             	更多...</div>
 			

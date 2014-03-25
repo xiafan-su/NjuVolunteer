@@ -197,6 +197,9 @@ h2{
 .act-img-t{
 	float:left;
 }
+.act-img-t:hover{
+	cursor:pointer;
+}
 .act-detail-title{
 	position:absolute;
 	font-size:20px;
@@ -213,8 +216,8 @@ h2{
 .act-detail{
 	position:absolute;
 	width:500px;
-	margin-top:150px;
-	height:106px;
+	margin-top:147px;
+	height:90px;
 	/*
 	filter:alpha(opacity=0 finishopacity=80 style=1 startx=0,starty=0,finishx=300,finishy=0)progid:DXImageTransform.Microsoft.gradient(startcolorstr='#FFFFFF',endcolorstr='#FFFFFF',gradientType=1);
 	background:-ms-linear-gradient(left,rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 100%);
@@ -244,9 +247,11 @@ h2{
 }
 .act-detail-content{
 	position:absolute;
+	font-weight:bold;
 	margin-left:10px;
 	margin-right:20px;
 	margin-top:59px;
+	text-indent:2em;
 	text-align:left;
 	color:#FFFFFF;
 	padding:5px;

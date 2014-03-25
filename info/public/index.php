@@ -12,21 +12,20 @@ foreach (getallheaders() as $name => $value) {
 $s=new System();
 $s->new_visitor();
 
-$notice=new System();
+
+$index_activity_detail=$s->fetch_index_activity();
+$tpl->assign("index_activity_detail",$index_activity_detail);
 
 
 
 
-
-
-
-$notice_info=$notice->fetch_notice(1);
+$notice_info=$s->fetch_notice(1);
 for( $i = count($notice_info); $i < 3; $i++ ){
 	$notice_info[] = array( "id"=>-1, "title"=>"&nbsp;" );
 }
 $tpl->assign("notice_detail",$notice_info);
 
-$question_info=$notice->fetch_online_question(1);
+$question_info=$s->fetch_online_question(1);
 for( $i = count($question_info); $i < 3; $i++ ){
 	$question_info[] = array( "id"=>-1, "title"=>"&nbsp;" );
 }

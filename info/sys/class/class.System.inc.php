@@ -46,7 +46,7 @@ class System extends DB_Connect {
 				user_id,team_id,state,time
 			)VALUES
 			(
-				'".$_SESSION[User::USER][User::ID]."','".$team_id."','0','".date('Y-m-d H:i:s',time())."'
+				'".$_SESSION[User::USER][User::ID]."','".$team_id."','1','".date('Y-m-d H:i:s',time())."'
 			)";
 			if (mysql_query($sql, $this->root_conn)) 
 				return true;
@@ -58,15 +58,17 @@ class System extends DB_Connect {
 		}
 		else//已经申请过院系
 		{
+			/*
 			$result = mysql_fetch_assoc($select);
-			$sql="UPDATE apply_team SET team_id='".$team_id."',state='0',time='".date('Y-m-d H:i:s',time())."' where user_id='".$result['user_id']."' and team_id='".$result['team_id']."' ";
+			$sql="UPDATE apply_team SET team_id='".$team_id."',state='1',time='".date('Y-m-d H:i:s',time())."' where user_id='".$result['user_id']."' and team_id='".$result['team_id']."' ";
 			if (mysql_query($sql, $this->root_conn))
 				return true;
 			else 
 			{
 				die('Error: ' . mysql_error());
 				return false;
-			}
+			}*///修改资料不再需要院系审核
+			return true;
 		}
 	}
 	//获取首页的最新活动详细信息
@@ -76,21 +78,40 @@ class System extends DB_Connect {
 		$sql="SELECT * FROM activity_info WHERE name is not NULL AND state='audited' AND deadline>'".$nowdate."' ORDER BY apply_date_hash DESC LIMIT 0,5";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
 		$index_activity_info=NULL;
+		$id=1;
 		while($row=mysql_fetch_assoc($select))
 		{
-			$id=$row['id'];
+			$act_id=$row['id'];
 			$name=$row['name'];
-			if (strlen_utf8($name)>10)
-				$name=mb_substr($name,0,10);
+			if (strlen_utf8($name)>18)
+				$name=mb_substr($name,0,18)."...";
+				
+			$short_name=$row['name'];
+			if (strlen_utf8($short_name)>10)
+				$short_name=mb_substr($short_name,0,10)."...";
+				
 			$detail_time=$row['detail_time'];
-			if (strlen_utf8($detail_time>20))
-				$detail_time=mb_substr($detail_time,0,20);
-			$deadline=$row['deadline'];
+			if (strlen_utf8($detail_time)>20)
+				$detail_time=mb_substr($detail_time,0,20)."...";
+				
+			$deadline=explode(" ",$row['deadline']);
+			$deadline=$deadline[0];
+			
+			$place=$row['place'];
+			if (strlen_utf8($place)>10)
+				$place=mb_substr($place,0,10)."...";
+							
+			$sql="SELECT name FROM team WHERE id='".$row['publisher']."'";
+			$team_select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
+			$result=mysql_fetch_assoc($team_select);
+			$publisher=$result["name"];
+			
 			$profile=htmlspecialchars_decode($row['profile'],ENT_QUOTES);
 			if (strlen_utf8($profile)>100)
 				$profile=mb_substr($profile,0,100);
 				
-			$index_activity_info[]=array("id"=>$id,"name"=>$name,"detail_time"=>$detail_time,"deadline"=>$deadline,"profile"=>$profile);
+			$index_activity_info[]=array("id"=>$id,"act_id"=>$act_id, "name"=>$name, "short_name"=>$short_name, "detail_time"=>$detail_time,"deadline"=>$deadline,"profile"=>$profile, "place"=>$place, "publisher"=>$publisher);
+			$id++;
 		}	
 		return $index_activity_info;	
 	}

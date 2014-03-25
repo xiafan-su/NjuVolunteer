@@ -277,7 +277,7 @@ function handlechange(){
 	test_other_skills();
 	//alert(origin_cloth_size);
 	if((origin_name==$("#name").val())&&(origin_idcard==$("#idcard_num").val())&&(origin_email==$("#email").val())&&(origin_birthday==$("#birthday").val())&&(origin_phone==$("#phone").val())&&(origin_other_skills==$("#other_skills").val())&&(origin_cet4==$("#cet4").val())&&(origin_cet6==$("#cet6").val())&&(origin_myGender==myGender)&&(origin_myPolitic==myPolitic)&&(origin_myLanguageLevel==myLanguageLevel)&&(origin_myMedical==myMedical)&&(origin_myDrive==myDrive)&&(origin_dormitory==$("#dormitory").val())&&(origin_other_lang==$("#other_language").val())&&(origin_nation==n.options[n.selectedIndex].value)&&(origin_dept==f.options[f.selectedIndex].value)&&(origin_cloth_size==c.options[c.selectedIndex].value)&&(origin_grade==g.options[g.selectedIndex].value)){
-		alert("修改成功,没有提交后台数据库");
+		alert("修改成功");
 		$("#vol_profile").click();
 	}
 	else{
