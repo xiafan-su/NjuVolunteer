@@ -132,7 +132,7 @@ class User extends DB_Connect {
 	public function fetch_person_act($id)//获取我参与的活动
 	{
 		$id=htmlspecialchars($id,ENT_QUOTES);
-		$sql="SELECT ai.* from apply_act ac ,activity_info ai where ac.user_id='".$id."' and ac.act_id=ai.id";
+		$sql="SELECT ai.*,ac.state AS applystate from apply_act ac ,activity_info ai where ac.user_id='".$id."' and ac.act_id=ai.id";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		//$results=mysql_fetch_assoc($select);
 		return $select;

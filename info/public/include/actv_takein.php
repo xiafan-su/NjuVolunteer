@@ -8,11 +8,11 @@ $results=$u->fetch_person_act($_SESSION[User::USER][User::ID]);
 
 while($act_info = mysql_fetch_assoc($results))
 {
-	if ($act_info['state']=="audited")
+	if ($act_info['applystate']=="1")
 		$state="报名通过";
-	if ($act_info['state']=="auditing")
+	if ($act_info['applystate']=="0")
 		$state="待审核";
-	if ($act_info['state']=="auditfail")
+	if ($act_info['applystate']=="2")
 		$state="被拒";
 	$act_listinfo[] = array('id' => $act_info['id'],'name' => $act_info['name'],'detail_time' => $act_info['detail_time'],'state' => $state);
 };

@@ -1,0 +1,90 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="SHORTCUT ICON" href="./assets/img/header/logo.png">
+<link href="./assets/css/main.css" rel="stylesheet" />
+
+
+<link href="./assets/css/quick_participate.css" rel="stylesheet" />
+
+<script type="text/javascript" src="./assets/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="./assets/js/quick_participate.js"></script>
+
+<link href="./plugin/jquery-fileuploader-php-master/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
+
+<title>快捷报名入口</title>
+</head>
+<body>
+<{include file="include/header.html"}>
+
+<div class="main">
+		<div class="span_left">
+        		<div class="breadcrumb">
+                	<div class="bar-left"></div>
+                    <div class="bar-title">活动信息</div>
+                    <div class="bar-right"></div>
+                </div>
+                <table border="1">
+                <tr>
+					<th>活动名称</th>
+					<td>	
+						<a href="act_dtl.php?act_id=<{$act_id}>" target="_blank"><{$act_name}></a>
+                    </td>
+
+                </tr>
+           		<tr>
+					<th>发起组织</th>
+                    <td>
+						<a href="indext.php?team_id=<{$publisher}>" target="_blank"><{$act_publisher}></a>
+                    </td>    
+
+                </tr>
+
+                </table>
+                <div class="breadcrumb">
+                	<div class="bar-left"></div>
+                    <div class="bar-title">快捷报名</div>
+                    <div class="bar-right"></div>
+                </div>
+                <table border="1">
+                <tr>
+				<th>姓名</th>
+					<td>
+							<input name="user_name" id="user_name" class="user" type="text" value="<{$user_name}>" />
+                           
+					</td>
+                </tr>
+                <tr>
+				<th>学号</th>
+					<td>
+							<input name="user_id" id="user_id" class="user" type="text" value="<{$user_id}>" />
+                           
+					</td>
+                </tr>
+                <tr>
+                <th>电话</th>
+					<td>
+							<input name="phone" id="phone" class="phone" type="text" value="<{$phone}>"  />   	
+                    </td>
+					</div>
+				</div>
+                </tr>
+                </table>
+
+		</div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="button-ctrl">
+                    <lable id="act_id" style="display:none;"><{$act_id}></lable>
+                    <input name="submit" type="button" id="submit"  value="报名" onclick="qc_part()" />
+                    <input name="preview" type="button" id="preview"  value="查看活动详情" onclick="window.open('./act_dtl.php?act_id=<{$act_id}>')" />
+                </div>	
+            </div>
+        </div>
+ 
+</div>
+<{include file="include/footer.html"}>
+</body>
+</html>

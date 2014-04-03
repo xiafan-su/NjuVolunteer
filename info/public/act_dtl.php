@@ -3,11 +3,43 @@
 include_once '../sys/core/init.inc.php';
 include './include/header.php';
 include './include/act_left.php';
-
+function strlen_utf8($str) 
+{  
+	$i = 0;  
+	$count = 0;  
+	$len = strlen ($str);  
+	while ($i < $len) 
+	{  
+		$chr = ord ($str[$i]);  
+		$count++;  
+		$i++;  
+		if($i >= $len) break;  
+		if($chr & 0x80) 
+		{  
+			$chr <<= 1;  
+			while ($chr & 0x80) 
+			{  
+				$i++;  
+				$chr <<= 1;  
+			}  
+		}  
+	}  
+	return $count;  
+}  
 
 $activity_id = intval($_GET['act_id']);
 $act = new Act();
 $item = $act->fetch_one($activity_id);
+
+
+//生成活动快捷报名的二维码
+include('./plugin/phpqrcode/qrlib.php'); 
+$tempDir = "./QRCode/"; 
+$codeContents = 'http://volunteer.nju.edu.cn/info/public/quick_participate.php?act_id='.$activity_id; 
+QRcode::png($codeContents, $tempDir.$activity_id.'.png', QR_ECLEVEL_M, 4, 1); 
+
+
+
 
 $tpl->assign( "id", $activity_id);
 if ($item['cover_pic']!=NULL)
@@ -79,6 +111,12 @@ if ($item["faculty_limit"]!="")
 	$faculty_limit=$item["faculty_limit"];
 else
 	$faculty_limit="无（这才和谐）";
+	
+
+$detail_time=$item["detail_time"];
+if (strlen_utf8($detail_time)>22)
+$detail_time=mb_substr($detail_time,0,22)."...";
+
 $begin=explode(" ",$item['begin_time']);
 $end=explode(" ",$item['end_time']);
 $deadline=explode(" ",$item['deadline']);
@@ -100,6 +138,7 @@ $tpl->assign( "responser", $item['responser']);
 $tpl->assign( "responser_tel", $item['responser_tel']);
 $tpl->assign( "team_name", $act->fetch_team_name($activity_id));
 $tpl->assign("act_faculty_limit",$faculty_limit);
+$tpl->assign("detail_time",$detail_time);
 if ($item==NULL)
 	echo '<script>alert("您找的活动不存在");</script>';
 else

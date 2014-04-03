@@ -392,14 +392,14 @@ class System extends DB_Connect {
 		header('Cache-Control:must-revalidate,post-check=0,pre-check=0');  
 		header('Expires:0');  
 		header('Pragma:public');  
-		$sql="SELECT u.name,u.phone FROM apply_act a,user_info u WHERE a.user_id=u.id AND a.act_id='".$act_id."' AND a.state='1' ";
+		$sql="SELECT u.name,u.phone FROM apply_act a,user_info u WHERE a.user_id=u.id AND a.act_id='".$act_id."' AND a.state!='2' ";
 		$select=mysql_query($sql,$this->root_conn)or trigger_error(mysql_error(),E_USER_ERROR);
-		$name=iconv('utf-8','gb2312',"姓名");
+		$name=iconv('utf-8','gb2312//IGNORE',"姓名");
 		$phone=iconv('utf-8','gb2312',"手机");
 		echo "$name,$phone\n";
 		while ($result=mysql_fetch_assoc($select))
 		{
-			$name=iconv('utf-8','gb2312',$result['name']);
+			$name=iconv('utf-8','gb2312//IGNORE',$result['name']);
 			echo $name.",".$result['phone']."\n";	
 		}
 	}

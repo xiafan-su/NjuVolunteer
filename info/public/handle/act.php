@@ -31,7 +31,11 @@ while($act_info = mysql_fetch_assoc($select)){
 		if ($now<$act_info['deadline']) $state='正在招募';
 		else if($now>$act_info['begin_time'] && $now<$act_info['end_time']) $state="进行中";
 		else if ($now>$act_info['end_time']) $state="已结束";
-		$act_listinfo[] = array('img' => $act_info['cover_pic'] ,'id' => $act_info['id'],'name' => $act_info['name'],'state' => $state,'profile' => htmlspecialchars_decode($act_info['profile'],ENT_QUOTES),'time' => $act_info['begin_time'],'place' => $act_info['place'],'total_num' => $act_info['total_num']);
+		$temp=explode(" ",$act_info['begin_time']);
+		$act_info['begin_time']=$temp[0];
+		$temp=explode(" ",$act_info["end_time"]);
+		$act_info["end_time"]=$temp[0];
+		$act_listinfo[] = array('img' => $act_info['cover_pic'] ,'id' => $act_info['id'],'name' => $act_info['name'],'state' => $state,'profile' => htmlspecialchars_decode($act_info['profile'],ENT_QUOTES),'time' => $act_info['begin_time']." - ".$act_info["end_time"],'place' => $act_info['place'],'total_num' => $act_info['total_num']);
 	}
 if (isset($act_listinfo))
 {

@@ -379,7 +379,7 @@ class Act extends DB_Connect {
 		$flag=0;
 		if ($user_info['cet4']<$act_info['cet4'] && $user_info['cet6']<$act_info['cet6'])
 			$flag=1;//英语成绩未达标
-		if ($act_info['faculty_limit']!=NULL && strpos("hehe".$act_info['faculty_limit'],$user_info['faculty'])==FALSE)
+		if ($act_info['faculty_limit']!=NULL &&($user_info['faculty']=="" || strpos("hehe".$act_info['faculty_limit'],$user_info['faculty'])==FALSE))
 			$flag=2;//不满足院系报名条件
 		if ($flag!=0) return $flag;
 		$status=1;
@@ -402,7 +402,7 @@ class Act extends DB_Connect {
 		{ 
 			die('Error'.mysql_error());
 			return 3;
-		}	
+		}
 		$sql="SELECT offer_num FROM activity_info WHERE id='".$activity_id."'";
 		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
 		$act_info=mysql_fetch_assoc($select);//获取活动的信息	
@@ -493,6 +493,90 @@ class Act extends DB_Connect {
 
 	public function delete( $id ){
 	
+	}
+	public function quick_participate($act_id,$user_id,$user_name,$phone)
+	{
+		//-1:未知错误
+		//0:用户不存在
+		//1:报名成功
+		//2:报名成功，但仍需要填写个人信息
+		//3:该用户已经报过名了
+		//4:英语成绩没有达到活动要求
+		//5:院系限制
+		//6:活动有院系限制，但用户尚未填写院系资料
+		$act_id=htmlspecialchars($act_id,ENT_QUOTES);
+		$user_id=htmlspecialchars($user_id,ENT_QUOTES);
+		$user_name=htmlspecialchars($user_name,ENT_QUOTES);
+		$phone=htmlspecialchars($phone,ENT_QUOTES);
+		$sql="SELECT * FROM user_info WHERE id='".$user_id."' AND name='".$user_name."'";
+		$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+		$num=mysql_num_rows($select);
+		if ($num==0)
+		{
+			return 0;
+		}else
+		{
+			//获取用户信息
+			$user_info=mysql_fetch_assoc($select);
+			//获取活动信息
+			$sql="SELECT * FROM activity_info WHERE id='".$act_id."'";
+			$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+			$act_info=mysql_fetch_assoc($select);
+			
+			
+			//更新用户的电话号码信息，以手填的最新的为准
+			$sql="UPDATE user_info SET phone='".$phone."' WHERE id='".$user_id."' AND name='".$user_name."' LIMIT 1";
+			if (!mysql_query($sql,$this->root_conn))
+			{ 
+				die('Error'.mysql_error());
+				return -1;
+			}
+			//查看该用户是否已经报名过
+			$sql="SELECT * FROM apply_act WHERE user_id='".$user_id."' AND act_id='".$act_id."'";
+			$select=mysql_query($sql, $this->root_conn) or trigger_error(mysql_error(),E_USER_ERROR);
+			$num=mysql_num_rows($select);
+			if ($num>0)
+				return 3;//已经报名过
+			//判断用户是否满足活动要求
+			if ($user_info['cet4']<$act_info['cet4'] && $user_info['cet6']<$act_info['cet6'])
+				return 4;//英语成绩未达标
+			if ($act_info['faculty_limit']!=NULL && $user_info['faculty']=="")
+				return 6;//活动有院系限制，但用户还未填写个人资料
+			if ($act_info['faculty_limit']!=NULL && strpos("hehe".$act_info['faculty_limit'],$user_info['faculty'])==FALSE)
+				return 5;//不满足院系报名条件
+			
+
+			
+			$status=0;
+			if ($act_info['need_audit']=='false')
+				$status='1';
+
+			$now_date=date("Y-m-d H:i:s",time());
+			//插入报名信息
+			$sql="INSERT INTO apply_act(user_id,act_id,state,time)VALUES('".$user_id."','".$act_id."','".$status."','".$now_date."')";
+
+			if (!mysql_query($sql,$this->root_conn))
+			{ 
+				die('Error'.mysql_error());
+				return -1;//未知错误
+			}
+			//报名人数加1
+			$query="UPDATE activity_info SET offer_num=offer_num+1 WHERE id='".$act_id."'";//报名人数加1
+			if (!mysql_query($query,$this->root_conn))
+			{ 
+				die('Error'.mysql_error());
+				return -1;
+			}
+			if ($user_info["faculty"]="")
+			{
+				return 2;//报名成功，但仍需要填写个人信息
+			}else
+			{
+				return 1;//报名成功
+			}
+			
+		}
+		
 	}
 	
 }
