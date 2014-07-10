@@ -280,7 +280,7 @@ az_funcz_doc_import_ok = function(){
 		document.getElementById('loading-bar').style.display='none';
 			if( html == 0 ){
 				$("#doc_edit_part_table_tr_tip").remove();//移除“还没有人参加这个活动哦”提示
-
+				var base_time = $("input#doc_edit_time").val();
 				var tr = '<tr uid="{id}" id="part_people_table_tr_{id}">'+
 					'<td><input type="checkbox" class="doc_checkbox_head" id="doc_checkbox_head_{id}" noid="{id}" onclick="change_rec_edit_head_checkbox();"/></td>'+
 					'<td>'+
@@ -339,7 +339,7 @@ az_funcz_doc_import_ok = function(){
 							var uname = $(all_checkbox[i]).attr("un" );
 							var ufaculty = $(all_checkbox[i]).attr("uf" );
 							$("#doc_edit_part_table").append(
-								tr.replace( /{id}/g, uid ).replace( /{name}/g, uname ).replace( /{faculty}/g, ufaculty ).replace( /{time}/g, "0.000" ).replace( /{level}/g, "一般" ).replace( /{comment}/g, "" )
+								tr.replace( /{id}/g, uid ).replace( /{name}/g, uname ).replace( /{faculty}/g, ufaculty ).replace( /{time}/g, base_time ).replace( /{level}/g, "一般" ).replace( /{comment}/g, "" )
 							);
 						}
 					}
