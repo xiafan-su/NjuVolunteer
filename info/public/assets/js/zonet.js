@@ -66,6 +66,10 @@ var nt_func_note_recv_act_select = function(){};
 //团队资料
 
 
+//记录当前操作（记录所属）的活动id
+var current_activity_id = -1;
+var current_document_id = -1;
+
 //转换主副页面
 function switch_main_content( direction ){
 	var switch_style = "slow";
@@ -126,6 +130,14 @@ zt_func_start_act = function(html){
 	$( zt_elem_doc_add ).bind("click", zt_func_doc_add );
 	$( zt_elem_doc_apply ).bind("click", zt_func_doc_apply );
 	$( zt_elem_doc_del ).bind("click", zt_func_doc_del );
+	if(current_activity_id != -1){
+		var tnode = $(".util_doc_fold[actid="+current_activity_id+"]");
+		tnode.trigger("click");
+		var scroll_offset = tnode.parent().parent().parent().offset();  //得到pos这个div层的offset，包含两个值，top和left
+		$("body,html").animate({
+   			scrollTop:scroll_offset.top  //让body的scrollTop等于pos的top，就实现了滚动
+   		},0);
+	}
 }
 zt_func_finished_act = function(html){
 	$(zt_elem_main_content).html(html);
@@ -154,6 +166,7 @@ zt_func_note_send = function(html){
 	$(zt_elem_main_content).html(html);
 	$(zt_elem_note_recv_act_select).bind( "change", nt_func_note_recv_act_select );
 }
+
 
 //注册点击事件
 register_click_event( $( zt_elem_start_act ), "发起的活动", zt_url_act, {type:"start"}, zt_func_start_act );

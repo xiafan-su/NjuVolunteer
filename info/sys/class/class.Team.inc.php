@@ -370,6 +370,23 @@ class Team extends DB_Connect {
 		} 
 		return true;
 	}
+	public function delete_not_vol($doc_id,$vol_list){//将不在vol_list中的志愿者从doc中移除
+		$vol_list=htmlspecialchars($vol_list);
+		$sql_delete = "";
+		if(count($vol_list) == 0){
+			$sql_delete="DELETE FROM act_record WHERE  doc_id='".$doc_id."'";
+		} else {
+			$vol_str = implode(',', $vol_list);
+			$sql_delete="DELETE FROM act_record WHERE doc_id='".$doc_id."' AND user_id NOT IN (".$vol_str.")";
+		}
+		//echo "$sql_delete<br />";
+		if (!mysql_query($sql_delete,$this->root_conn))
+		{
+			die('Error: ' . mysql_error() . $sql_delete);
+			return false;
+		}
+		return true;
+	}
 	public function delete_vol_from_doc($doc_id,$vol_list)//将vol_list中的志愿者从doc中删除
 	{
 		$vol_list=htmlspecialchars($vol_list);
@@ -416,7 +433,7 @@ class Team extends DB_Connect {
 				$sql_update="UPDATE act_record SET base_time='".$record['base_time']."',honor_time='".$honor_time."',comment='".$record['comment']."',performance_level='".$record['performance_level']."',honor_leader='".$record['honor_leader']."',honor_excellent='".$record['honor_excellent']."' WHERE doc_id='".$doc_id."' and user_id='".$record['user_id']."'";
 				if (!mysql_query($sql_update,$this->root_conn))
 				{
-					die('Error: ' . mysql_error());
+					die('Error2: ' . mysql_error());
 					return false;
 				}
 			}

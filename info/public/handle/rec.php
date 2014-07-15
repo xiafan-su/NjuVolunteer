@@ -20,6 +20,7 @@ if( $_POST['type'] == "add" ){
 	if( isset( $_POST['activityId'] ) && isset($_POST['documentId']) && isset($_POST['leader'])
 		&& isset($_POST['profile']) && isset($_POST['summary']) && isset($_POST['tel'])
 		 && isset($_POST['volTime']) && isset($_POST['start_date'])  ) {
+		$doc_id = $_POST['documentId'];
 		if( mb_strlen($_POST['leader']) == 0 || mb_strlen($_POST['leader']) > 20 ) { echo "负责人格式错误！";exit; }//检验负责人
 		if( ! preg_match("/^[0-9]{8,11}$/", $_POST['tel'] )){ echo "联系方式格式错误！"; exit; }//检验联系方式
 		if( ! is_numeric( $_POST['volTime']) ){ echo "活动时长格式错误！";exit; };
@@ -28,17 +29,18 @@ if( $_POST['type'] == "add" ){
 		if( mb_strlen($_POST['summary']) > 500){ echo "总结长度错误！"; exit; }
 
 		$team = new Team();
-		if( $_POST['documentId'] == -1 ){
-			if($team->add_doc( $_POST['activityId'], $_POST['leader'], $_POST['profile'], $_POST['summary'], $_POST['tel'], $_POST['volTime'], $_POST['start_date'] )){
-				echo "0";//添加成功！
+		if( $doc_id == -1 ){
+			$new_doc_id = $team->add_doc( $_POST['activityId'], $_POST['leader'], $_POST['profile'], $_POST['summary'], $_POST['tel'], $_POST['volTime'], $_POST['start_date'] );
+			if($new_doc_id >= 0){
+				echo $new_doc_id;//添加成功！
 			} else {
 				echo "添加失败！";
 			}
 		} else {
-			if($team->modify_doc( $_POST['documentId'], $_POST['leader'], $_POST['profile'], $_POST['summary'], $_POST['tel'], $_POST['volTime'],$_POST['start_date'] )){
-				echo "0";
+			if($team->modify_doc( $doc_id, $_POST['leader'], $_POST['profile'], $_POST['summary'], $_POST['tel'], $_POST['volTime'],$_POST['start_date'] )){
+				echo $doc_id;
 			} else {
-				echo "修改失败！".$_POST['documentId'].", ".$_POST['leader'].", ".$_POST['profile'].", ".$_POST['summary'].", ".$_POST['tel'].", ".$_POST['volTime'];
+				echo "修改失败！".$doc_id.", ".$_POST['leader'].", ".$_POST['profile'].", ".$_POST['summary'].", ".$_POST['tel'].", ".$_POST['volTime'];
 			}
 		}
 	} else {
@@ -75,7 +77,7 @@ if( $_POST['type'] == "add" ){
 		if( $team->import_vol_to_doc( $_POST['documentId'], $_POST['idList'] ) ){
 			echo "0";
 		} else {
-			echo "移除失败！";
+			echo "导入失败！";
 		}
 	} else {
 		echo "参数错误";

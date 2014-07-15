@@ -74,7 +74,7 @@ function check_note_send_btn(){
 	var content = $("textarea#note_edit_content").val().trim();
 	var card_list_length = $("#note_recv_list").children().length;
 	var MAX_NOTE_LENGTH = 1000;
-	
+
 	if( topic.length > 0 && card_list_length > 0 && content.length  > 0 && content.length <= MAX_NOTE_LENGTH){
 	//alert( "card_list_length="+card_list_length );
 		$("#send_note_btn").prop( "disabled", false );
@@ -109,7 +109,7 @@ function update_recv_mem_act_list( uid, state ){
 			$(card_list[i]).css("border-color", "gray");
 			break;
 		}
-	} 
+	}
 	card_list = $("#note_recv_mem_list").children();
 	for(var i = 0; i < card_list.length; i ++){
 		if( $(card_list[i]).attr("uid") == uid ){
@@ -298,13 +298,23 @@ function nt_func_note_send(){
 
 function switch_note_recv_list_div(elem){
 	var div = $("#note_recv_list_div");
+	//*
 	div.slideToggle("slow");
 	if( $(elem).text() != "折叠" ){
 		$(elem).text( "折叠" );
 	}else {
 		$(elem).text( "展开" );
-	}
-	
+	}//*/
+	/*
+	tipsWindown("选择接收者",//title
+		"id:note_recv_list_div",//content
+		"900",//width
+		"427",//height
+		"true",//drag
+		"",//time,自动关闭时间，不关闭
+		"true",//是否显示遮罩层
+		"");//附加class名称
+		//*/
 }
 
 

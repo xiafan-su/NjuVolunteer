@@ -48,45 +48,45 @@
 					<{/section}>
 				</div>
 				<{if !$read_only}>
-				<span id="switch_note_recv_list_div" class="" onclick="switch_note_recv_list_div(this);">展开</span>
-				<div id="note_recv_list_div" class="" style="display:none">
-					<hr style="border:1px gray solid;" />
-					<div class="">系统管理员、院系或组织：</div>
-					<div id="note_recv_team_list" class="note_recv">
-						<{section name=team_index loop=$team_list}>
-							<div class="receiver-card" uid="<{$team_list[team_index].id}>" sid="<{$smarty.section.team_index.iteration}>">
-								<span class="note_recv_name" ><{$team_list[team_index].name}></span>
-								<img class="img_note_del" gid="1"   id="img_note_del_<{$team_list[team_index].id}>" sid="<{$smarty.section.team_index.iteration}>" onclick="note_recv_button(this);" src="./assets/img/zonet/recv_add.jpg" title="添加到接收者列表"/>
-							</div>
-						<{/section}>
-					</div>
-
-					<hr style="border:1px gray dashed;"/>
-					<input type="checkbox" value="全选" title="全选" id="zt_elem_note_select_mem" gid="3"  onclick="nt_func_note_select_all_mem(this);"/>
-					<span class="">成员：</span>
-					<div id="note_recv_mem_list" class="note_recv">
-						<{section name=mem_index loop=$mem_list}>
-							<div class="receiver-card" uid="<{$mem_list[mem_index].id}>" sid="<{$smarty.section.mem_index.iteration}>">
-								<span class="note_recv_name" ><{$mem_list[mem_index].name}></span>
-								<img class="img_note_del" gid="3"   id="img_note_del_<{$mem_list[mem_index].id}>" sid="<{$smarty.section.mem_index.iteration}>" onclick="note_recv_button(this);" src="./assets/img/zonet/recv_add.jpg" title="添加到接收者列表"/>
-							</div>
-						<{/section}>
-					</div>
-
-
-					<hr style="border:1px gray dashed;"/>
-					<input type="checkbox" value="全选" title="全选" gid="2" id="zt_elem_note_select_all_act_part" onclick="nt_func_note_select_all_act_part(this);"/>
-					<span class="">
-						活动
-						<select name="note_recv_act_select" id="note_recv_act_select">
-							<option value="-1" selected="selected">请选择</option>
-							<{section name=act_index loop=$act_list}>
-							<option value="<{$act_list[act_index].id}>" ><{$act_list[act_index].name|truncate:27:"……":true}></option>
+				<a href="javascript:void(0);"><span id="switch_note_recv_list_div" class="" onclick="switch_note_recv_list_div(this);">选择接收者</span></a>
+				<div id="note_recv_list_div" class="" style="display:none;">
+						<hr style="border:1px gray solid;" />
+						<div class="">系统管理员、院系或组织：</div>
+						<div id="note_recv_team_list" class="note_recv">
+							<{section name=team_index loop=$team_list}>
+								<div class="receiver-card" uid="<{$team_list[team_index].id}>" sid="<{$smarty.section.team_index.iteration}>">
+									<span class="note_recv_name" ><{$team_list[team_index].name}></span>
+									<img class="img_note_del" gid="1"   id="img_note_del_<{$team_list[team_index].id}>" sid="<{$smarty.section.team_index.iteration}>" onclick="note_recv_button(this);" src="./assets/img/zonet/recv_add.jpg" title="添加到接收者列表"/>
+								</div>
 							<{/section}>
-						</select>
-						中的志愿者：
-					</span>
-					<div id="note_recv_vol_list" class="note_recv"> </div>
+						</div>
+
+						<hr style="border:1px gray dashed;"/>
+						<input type="checkbox" value="全选" title="全选" id="zt_elem_note_select_mem" gid="3"  onclick="nt_func_note_select_all_mem(this);"/>
+						<span class="">成员：</span>
+						<div id="note_recv_mem_list" class="note_recv">
+							<{section name=mem_index loop=$mem_list}>
+								<div class="receiver-card" uid="<{$mem_list[mem_index].id}>" sid="<{$smarty.section.mem_index.iteration}>">
+									<span class="note_recv_name" ><{$mem_list[mem_index].name}></span>
+									<img class="img_note_del" gid="3"   id="img_note_del_<{$mem_list[mem_index].id}>" sid="<{$smarty.section.mem_index.iteration}>" onclick="note_recv_button(this);" src="./assets/img/zonet/recv_add.jpg" title="添加到接收者列表"/>
+								</div>
+							<{/section}>
+						</div>
+
+
+						<hr style="border:1px gray dashed;"/>
+						<input type="checkbox" value="全选" title="全选" gid="2" id="zt_elem_note_select_all_act_part" onclick="nt_func_note_select_all_act_part(this);"/>
+						<span class="">
+							活动
+							<select name="note_recv_act_select" id="note_recv_act_select">
+								<option value="-1" selected="selected">请选择</option>
+								<{section name=act_index loop=$act_list}>
+								<option value="<{$act_list[act_index].id}>" ><{$act_list[act_index].name|truncate:27:"……":true}></option>
+								<{/section}>
+							</select>
+							中的志愿者：
+						</span>
+						<div id="note_recv_vol_list" class="note_recv"> </div>
 				</div>
 				<{/if}>
 			</div>

@@ -67,10 +67,11 @@ if( $_POST['type'] == "actApply" ){
 	$docid = $_POST['documentId'];
 	$record_list = array();
 	$part_list = explode($token, $_POST['setStr']);
-
+	$part_id_list = array();
 	//echo "count=".count($part_list);
 	for ($i = 0; $i < floor(count($part_list)/6); $i++ ){
 		if( ! is_numeric(  $part_list[$i*6+1] ) )  { echo "学号为".$part_list[$i*6+0]."的服务时长格式错误！";exit; } 
+		$part_id_list[] = $part_list[$i*6+0];
 		$record_list[] = array(
 			"user_id"=> $part_list[$i*6+0],
 			"base_time"=> $part_list[$i*6+1],
@@ -81,6 +82,13 @@ if( $_POST['type'] == "actApply" ){
 		);
 	}
 	$team = new Team();
+	//print_r($part_id_list);
+	if(! $team->delete_not_vol($docid, $part_id_list)){
+		echo "移除不在列表中的成员失败！"; exit;
+	}
+	if( ! $team->import_vol_to_doc( $docid, implode(" ", $part_id_list) ) ){
+		echo "导入失败！";
+	}
 	if($team->edit_voltime( $docid, $record_list )){
 		echo "0";
 	} else {

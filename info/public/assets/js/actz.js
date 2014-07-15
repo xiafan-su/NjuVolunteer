@@ -7,9 +7,6 @@ var getNewPitureURL = function( source, newFileName ){
 	return source.substring( 0, source.lastIndexOf( "/" )+1 )+newFileName;
 }
 
-//记录当前操作（记录所属）的活动id
-var current_activity_id = -1;
-var current_document_id = -1;
 
 var az_func_loaded_doc_edit = function(){};
 
@@ -159,6 +156,7 @@ az_func_loaded_doc_edit = function(html){
 	$("#doc_op_remove").bind( "click", az_funcz_doc_remove_part);//"移除"按钮
 }
 
+var az_func_doc_submit_doc2 = function(){};
 //点击活动档案的“保存”按钮的处理函数
 az_func_doc_submit_doc = function(){
 	//alert( current_document_id );
@@ -168,6 +166,7 @@ az_func_doc_submit_doc = function(){
 	var doc_edit_date_start = $( "#doc_edit_date_start" ).val();
 	var doc_edit_profile = $( "#doc_edit_profile" ).val();
 	var doc_edit_summary = $( "#doc_edit_summary" ).val();
+
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
@@ -185,15 +184,29 @@ az_func_doc_submit_doc = function(){
 		},
 		success:function(html){
 			document.getElementById('loading-bar').style.display='none';
-			if( html == 0 ){
+			if( parseInt(html) >= 0 ){
 				//switch_main_content( "<-" );
-				alert( "保存成功！" );
-				$("#util_start_activity").trigger("click");
+				current_document_id = parseInt(html);
+				$("#doc_op_import").attr("docid", current_document_id);
+				$("#doc_op_remove").attr("docid", current_document_id);
+				$("#doc_op_modify").attr("docid", current_document_id);
+				$("#delete_act_doc").attr("docid", current_document_id);
+				$("#doc_op_submit").attr("docid", current_document_id);
+				az_func_doc_submit_doc2();
+				//alert( "保存成功！" );
 			} else {
 				alert( html );
 			}
 		}
 	});
+}
+az_func_doc_submit_doc2 = function(){
+	var modify_btn = $("#doc_op_modify");
+	if(modify_btn.attr("disabled") != "disabled"){//alert("准备保存参与人员信息……");
+		modify_btn.trigger("click");
+	} else {
+		$("#util_start_activity").trigger("click");//重新载入
+	}
 }
 //点击活动档案的“删除”按钮的处理函数
 az_func_doc_delete_doc = function(){
@@ -233,7 +246,7 @@ az_funcz_doc_import_part = function(){
 }
 //参与人员的“移除”
 az_funcz_doc_remove_part = function(){
-	var list = az_func_getIdList( "doc_checkbox_head_" );
+/*	var list = az_func_getIdList( "doc_checkbox_head_" );
 	//alert( list );
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
@@ -242,7 +255,7 @@ az_funcz_doc_remove_part = function(){
 		data:{type:"remove", documentId: $(this).attr("docid"), idList: list },
 		success:function(html){
 			document.getElementById('loading-bar').style.display='none';
-			if( html == 0 ){
+			if( html == 0 ){//*/
 				//alert( "移除成功！" );
 				var all_checkbox = $( "[type='checkbox']" );
 				for( var i = 0;  i < all_checkbox.length; i ++ ){
@@ -262,15 +275,16 @@ az_funcz_doc_remove_part = function(){
 					$("#doc_edit_part_table").append(  '<tr id="doc_edit_part_table_tr_tip"><td colspan="9">还没有人参加这个活动哦！</td></tr>' );
 				}
 				$("#doc_op_remove").attr( "disabled", true );
-			} else {//移除失败
+				$("#doc_op_modify").attr( "disabled", false );
+			/*} else {//移除失败
 				alert( html );
 			}
 		}
-	});
+	});//*/
 }
 //导入成功的处理函数！
 az_funcz_doc_import_ok = function(){
-	//alert( "test -ok" );
+/*	//alert( "test -ok" );
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type: "POST",
@@ -278,9 +292,9 @@ az_funcz_doc_import_ok = function(){
 		data:{ type:"import", idList: az_func_getIdList(  "act_people_table_checkbox_" ), documentId: $(this).attr( "docid" ) },
 		success:function(html){//0-成功，其他-失败
 		document.getElementById('loading-bar').style.display='none';
-			if( html == 0 ){
+			if( html == 0 ){//*/
 				$("#doc_edit_part_table_tr_tip").remove();//移除“还没有人参加这个活动哦”提示
-
+				var base_time = $("input#doc_edit_time").val();
 				var tr = '<tr uid="{id}" id="part_people_table_tr_{id}">'+
 					'<td><input type="checkbox" class="doc_checkbox_head" id="doc_checkbox_head_{id}" noid="{id}" onclick="change_rec_edit_head_checkbox();"/></td>'+
 					'<td>'+
@@ -339,17 +353,20 @@ az_funcz_doc_import_ok = function(){
 							var uname = $(all_checkbox[i]).attr("un" );
 							var ufaculty = $(all_checkbox[i]).attr("uf" );
 							$("#doc_edit_part_table").append(
-								tr.replace( /{id}/g, uid ).replace( /{name}/g, uname ).replace( /{faculty}/g, ufaculty ).replace( /{time}/g, "0.000" ).replace( /{level}/g, "一般" ).replace( /{comment}/g, "" )
+								tr.replace( /{id}/g, uid ).replace( /{name}/g, uname ).replace( /{faculty}/g, ufaculty ).replace( /{time}/g, base_time ).replace( /{level}/g, "一般" ).replace( /{comment}/g, "" )
 							);
 						}
 					}
 				}
 				$( "#windown-close" ).trigger("click");//暂时放这里
-			} else {
+				var submit_button = $("#doc_op_modify");
+				submit_button.attr( "disabled", false );
+				submit_button.attr( "title", "导入后点击此按钮生效" );
+			/*} else {
 				alert( html );
 			}
 		}
-	});
+	});//*/
 }
 
 
@@ -429,7 +446,7 @@ az_funz_apply_audit_ok = function(){
 }
 //报名表下方的“退回”按钮
 az_funz_apply_audit_fail= function(){
-	var reason = $("#textarea_back_reason").val().trim();
+	var reason = $("#textarea_back_reason").val();//.trim();
 	var actid = $(this).attr( "actid" );
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
@@ -474,7 +491,7 @@ function textarea_back_reason_on_change(elem, check){//check表示是否检查�
 			$("#btn_audit_ok").prop( "disabled", false );
 			$("#btn_audit_ok").attr( "title", "将选择的报名人员设置为审核通过" );
 
-			var t = $(elem).val().trim();
+			var t = $(elem).val();//.trim();
 			if( t.length == 0 || t.length > 100 ){//字数超过100个字
 				$("#btn_audit_fail").prop( "disabled", true );
 				$("#btn_audit_fail").attr( "title", "请先勾选要退回志愿者并填写退回理由" );
@@ -486,7 +503,7 @@ function textarea_back_reason_on_change(elem, check){//check表示是否检查�
 			}
 		}
 	} else {
-			var t = $(elem).val().trim();
+			var t = $(elem).val();//.trim();
 			if( t.length == 0 || t.length > 100 ){//字数超过100个字
 				$("#btn_audit_fail").prop( "disabled", true );
 				$("#btn_audit_fail").attr( "title", "请先勾选要退回志愿者并填写退回理由" );
@@ -563,11 +580,11 @@ az_funz_doc_select_all = function(){
 //设置参与表的“确定”按钮有效
 function set_submit_enable(  ){
 	//“保存”
-	$("#submit_act_doc").attr( "disabled", true );
-	$("#submit_act_doc").attr( "title", "您必须点击“确定”按钮保存参与表后才能保存！" );
+	//$("#submit_act_doc").attr( "disabled", true );
+	//$("#submit_act_doc").attr( "title", "您必须点击“确定”按钮保存参与表后才能保存！" );
 	//“提交”
-	$("#doc_op_submit").attr( "disabled", true );
-	$("#doc_op_submit").attr( "title", "您必须点击“确定”按钮保存参与表后才能提交！" );
+	//$("#doc_op_submit").attr( "disabled", true );
+	//$("#doc_op_submit").attr( "title", "您必须点击“确定”按钮保存参与表后才能提交！" );
 
 	var submit_button = $("#doc_op_modify");
 	submit_button.attr( "disabled", false );
@@ -645,11 +662,11 @@ function change_doc_comment_handle(elem, no){
 		$(elem).parent().toggle( time );
 
 		var dis_val, real_val;//显示值与真实值
-		if( $(elem).val().trim().length == 0 ) {
+		if( $(elem).val().length == 0 ) {
 			dis_val = "无";
 			real_val = "";
 		} else {
-			dis_val = real_val = $(elem).val().trim();
+			dis_val = real_val = $(elem).val();//.trim();
 		}
 		$(elem).parent().prev().text( dis_val );
 		$(elem).text( real_val );
@@ -717,6 +734,7 @@ function doc_edit_submit_handle(elem){
 	var str = get_part_table_string();
 
 	var docid = $(elem).attr("docid");
+
 	document.getElementById('loading-bar').style.display='block';
 	$.ajax({
 		type:"POST",
@@ -734,6 +752,7 @@ function doc_edit_submit_handle(elem){
 				$("#doc_op_submit").attr( "disabled", false );
 				$("#doc_op_submit").attr( "title", "提交该活动档案，提交后志愿时间将会公示一周，并且除非有异议不得再修改" );
 				alert( "修改成功！" );
+				$("#util_start_activity").trigger("click");//重新载入
 			} else {
 				alert( html );
 				submit_button.attr( "title", "请修改不正确的地方" );
@@ -858,9 +877,9 @@ function verify_extend_time_handle(){
 	$("#extend_op_ok").prop( "disabled", true );
 
 	var ok = true;
-	var uid = $("#extend_uid").val().trim();
+	var uid = $("#extend_uid").val();//.trim();
 	var time = $("#extend_input_time").val();
-	var comment = $("#extend_ta_comment").val().trim();
+	var comment = $("#extend_ta_comment").val();//.trim();
 	var level = $("input[name='extend_honor_level']:checked").val();
 	var leader = $("input[name='extend_honor_leader']:checked").val();
 	var excellent = $("input[name='extend_honor_excellent']:checked").val();
@@ -890,9 +909,9 @@ function verify_extend_time_handle(){
 
 //快捷添加服务时间的“确定按钮”
 function extend_ok_handle(){
-	var uid = $("#extend_uid").val().trim();
+	var uid = $("#extend_uid").val();//.trim();
 	var time = $("#extend_input_time").val();
-	var comment = $("#extend_ta_comment").val().trim();
+	var comment = $("#extend_ta_comment").val();//.trim();
 	var level = $("input[name='extend_honor_level']:checked").val();
 	var leader = $("input[name='extend_honor_leader']:checked").val();
 	var excellent = $("input[name='extend_honor_excellent']:checked").val();
