@@ -371,7 +371,10 @@ class Team extends DB_Connect {
 		return true;
 	}
 	public function delete_not_vol($doc_id,$vol_list){//将不在vol_list中的志愿者从doc中移除
-		$vol_list=htmlspecialchars($vol_list);
+		//$vol_list=htmlspecialchars($vol_list);
+		for ($i = 0; $i < count($vol_list); $i++) {
+				$vol_list[$i] = "'".$vol_list[$i]."'";
+			}
 		$sql_delete = "";
 		if(count($vol_list) == 0){
 			$sql_delete="DELETE FROM act_record WHERE  doc_id='".$doc_id."'";

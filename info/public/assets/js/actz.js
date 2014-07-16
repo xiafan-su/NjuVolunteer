@@ -751,7 +751,7 @@ function doc_edit_submit_handle(elem){
 				$("#submit_act_doc").attr( "title", "保存该活动档案" );
 				$("#doc_op_submit").attr( "disabled", false );
 				$("#doc_op_submit").attr( "title", "提交该活动档案，提交后志愿时间将会公示一周，并且除非有异议不得再修改" );
-				alert( "修改成功！" );
+				alert( "保存成功！" );
 				$("#util_start_activity").trigger("click");//重新载入
 			} else {
 				alert( html );
